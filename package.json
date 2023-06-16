@@ -4,15 +4,21 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies",
-    "storybook": "storybook dev",
+    "dev": "storybook dev",
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@linaria/atomic": "^4.2.10",
+    "@linaria/babel-preset": "^4.4.5",
+    "@linaria/core": "^4.2.10",
+    "@linaria/react": "^4.3.8",
+    "@vanilla-extract/css": "^1.11.0",
+    "@vanilla-extract/dynamic": "^2.0.3",
+    "@vanilla-extract/vite-plugin": "^3.8.2",
     "react": "^17.x || 18.x",
     "react-dom": "^17.x || 18.x"
   },
@@ -40,7 +46,8 @@
     "storybook": "future",
     "typescript": "^5.0.2",
     "vite": "^4.3.2",
-    "vite-plugin-dts": "^2.3.0"
+    "vite-plugin-dts": "^2.3.0",
+    "vite-plugin-linaria": "^1.0.0"
   },
   "peerDependencies": {
     "react": "^17.x || 18.x",
