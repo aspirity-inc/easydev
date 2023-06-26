@@ -16,4 +16,7 @@ export const content = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  gap: '9px',
+
+  minWidth: '118px', // добавила, чтобы кнопки с иконками и без выглядели одинакового размера, но мне не ок
 });
