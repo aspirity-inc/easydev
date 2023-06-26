@@ -6,7 +6,17 @@ import path from "path";
 
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      /*plugins: [
+        [
+          'babel-plugin-styled-components',
+          {
+            displayName: true,
+            fileName: false
+          }
+        ]
+      ]*/
+    }),
     dts({
       insertTypesEntry: true,
     }),
