@@ -1,4 +1,4 @@
-import {createTheme} from "@vanilla-extract/css";
+import { createTheme } from "@vanilla-extract/css";
 import {createContext, Dispatch, ReactNode, SetStateAction, useContext, useState} from "react";
 
 export const [ themeClass, vars ] = createTheme({
@@ -25,3 +25,5 @@ export const ThemeProvider = ({ children }: { children: ReactNode | string | Rea
 }
 
 export const useTheme = () => useContext(ThemeContext);
+
+

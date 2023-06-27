@@ -1,8 +1,6 @@
 import {ReactNode, CSSProperties} from 'react';
-import {assignInlineVars} from "@vanilla-extract/dynamic";
 import { Box } from "../Box";
-import {brandColor, container, themeClass} from "./Text.css.ts";
-import {noUndefined} from "../../helpers/noUndefined.ts";
+import {container} from "./Text.css.ts";
 
 export interface CustomStyles extends CSSProperties {
   "--color": string;
@@ -16,14 +14,15 @@ type TextProps = {
 
 export const Text = ({ children, tag, color, ...props } : TextProps) => {
   const styles = {
-    [brandColor]: color || "",
+    color,
   }
+ 
   return (
-    <Box className={themeClass}>
+    <Box>
       <Box
         tag={tag || "span"}
         className={container}
-        style={assignInlineVars(noUndefined(styles))}
+        style={styles}
         {...props}
       >
         {children}
