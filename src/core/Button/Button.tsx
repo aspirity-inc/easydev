@@ -1,19 +1,15 @@
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 import { Box } from '../Box';
-import {
-  container,
-  content,
-  minWidthContent,
-  sidePaddingBtn,
-} from './Button.css.ts';
-import { assignInlineVars } from '@vanilla-extract/dynamic';
-import { noUndefined } from '../../helpers/noUndefined.ts';
+import { container, reversed, sizeType } from './Button.css.ts';
+import { cx } from '@linaria/core';
 
 type IconPosition = 'left' | 'right';
-type ButtonSize = 'md' | 'lg';
+type ButtonSize = keyof typeof sizeType;
 
 type ButtonProps = {
-  children?: ReactNode | string | ReactNode[];
+  children?: ReactNode;
+  className?: string;
+  style?: CSSProperties;
   icon?: ReactNode;
   iconPosition?: IconPosition;
   size?: ButtonSize;
@@ -21,73 +17,27 @@ type ButtonProps = {
 
 export const Button = ({
   children,
+  className,
   icon,
   iconPosition,
   size,
   ...props
 }: ButtonProps) => {
-  const styles = {
-    [sidePaddingBtn]: size ? getSidePaddings(size) : '',
-    [minWidthContent]: size ? getMinWidthContent(size) : '',
-  };
-
-  const renderButtonContent = () => {
-    if (children && icon) {
-      if (iconPosition === 'left') {
-        return (
-          <>
-            {icon}
-            {children}
-          </>
-        );
-      } else {
-        return (
-          <>
-            {children}
-            {icon}
-          </>
-        );
-      }
-    } else if (children) {
-      return children;
-    } else if (icon) {
-      return icon;
-    }
-  };
-
   return (
-    <Box // box для внешней темы (светлая-темная)
-    >
-      <Box // box - кнопка
+    <Box>
+      <Box
         tag={'button'}
-        className={container}
-        style={assignInlineVars(noUndefined(styles))}
+        className={cx(
+          className,
+          container,
+          sizeType[size || 'lg'],
+          iconPosition === 'left' && reversed
+        )}
         {...props}
       >
-        <Box
-          className={content} // box для контента кнопки
-        >
-          {renderButtonContent()}
-        </Box>
+        {children}
+        {icon}
       </Box>
     </Box>
   );
-};
-
-const getSidePaddings = (size: string): string => {
-  const sidePaddings: Record<string, string> = {
-    lg: '29px',
-    md: '7px',
-  };
-
-  return sidePaddings[size];
-};
-
-const getMinWidthContent = (size: string): string => {
-  const minWidth: Record<string, string> = {
-    lg: '118px',
-    md: '106px',
-  };
-
-  return minWidth[size];
 };
