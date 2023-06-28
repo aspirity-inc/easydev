@@ -1,19 +1,18 @@
 import { Box } from '../Box';
 import styled, { css } from 'styled-components';
 
-export type IconPosition = 'left' | 'right';
 export type ButtonSize = 'sm' | 'lg';
 export type ButtonRounded = 'sm' | 'lg';
 
 type ButtonProps = {
-  iconPosition?: IconPosition;
   size?: ButtonSize;
   rounded?: ButtonRounded;
+  reversed?: boolean;
 };
 
 export const StyledButton = styled(Box)<ButtonProps>`
   display: flex;
-  flex-direction: ${({ iconPosition }) => iconPosition === 'left' && 'row-reverse'};
+  flex-direction: ${({ reversed }) => reversed && 'row-reverse'};
   align-items: center;
   justify-content: center;
   text-align: center;

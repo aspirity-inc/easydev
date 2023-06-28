@@ -35,17 +35,10 @@ export default {
     icon: {
       description: 'Иконка для кнопки',
     },
-    iconPosition: {
-      type: 'string',
-      description: 'Положение иконки',
-      control: {
-        type: 'select',
-      },
-      defaultValue: 'right',
-      options: ['right', 'left'],
-      table: {
-        defaultValue: { summary: 'right' },
-      },
+    reversed: {
+      description: 'Направление контента кнопки',
+      control: 'boolean',
+      defaultValue: false,
     },
     className: {
       description: 'Любой CSS класс для дополнительной стилизации',
@@ -64,7 +57,6 @@ export const IconRightButton = Template.bind({});
 IconRightButton.args = {
   children: 'Button',
   icon: <AddIcon />,
-  iconPosition: 'right',
 };
 
 export const IconButton = Template.bind({});

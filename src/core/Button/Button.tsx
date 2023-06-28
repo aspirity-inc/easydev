@@ -1,26 +1,19 @@
 import { CSSProperties, ReactNode } from 'react';
-import { ButtonRounded, ButtonSize, IconPosition, StyledButton } from './styles';
+import { ButtonRounded, ButtonSize, StyledButton } from './styles';
 
 type ButtonProps = {
   children?: ReactNode;
   className?: string;
   style?: CSSProperties;
   icon?: ReactNode;
-  iconPosition?: IconPosition;
+  reversed?: boolean;
   size?: ButtonSize;
   rounded?: ButtonRounded;
 };
 
-export const Button = ({ children, className, icon, iconPosition, size, rounded, ...props }: ButtonProps) => {
+export const Button = ({ children, className, icon, reversed, size, rounded, ...props }: ButtonProps) => {
   return (
-    <StyledButton
-      tag={'button'}
-      className={className}
-      iconPosition={iconPosition}
-      rounded={rounded}
-      size={size}
-      {...props}
-    >
+    <StyledButton tag={'button'} className={className} reversed={reversed} rounded={rounded} size={size} {...props}>
       {children}
       {icon}
     </StyledButton>
