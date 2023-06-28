@@ -1,5 +1,4 @@
-// TODO: не забыть подумать над провайдером тем
-import '../src/core/Theme/globalTheme.css.ts'
+import {withTheme} from './withTheme.decorator';
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -10,3 +9,6 @@ export const parameters = {
     },
   },
 }
+
+
+export const decorators = [withTheme];

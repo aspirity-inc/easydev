@@ -1,0 +1,15 @@
+/dist
+/coverage
+.next/
+.swc/
+.vscode/
+.idea/
+public/
+.prettierignore
+.gitignore
+README.md
+docs/*
+yarn.lock
+package-lock.json
+.storybook/
+node_modules/

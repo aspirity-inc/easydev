@@ -1,1 +1,1 @@
-export { Text } from "./core/Text";
+export { Text } from './core/Text';

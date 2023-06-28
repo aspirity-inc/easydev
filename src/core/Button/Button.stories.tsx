@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import { Button } from './Button.tsx';
 import 'material-symbols';
 
-const AddIcon = () => <div className='material-symbols-rounded'>add</div>;
+const AddIcon = () => <div className="material-symbols-rounded">add</div>;
 
 export default {
   title: 'core/Button',
@@ -20,20 +20,25 @@ export default {
         defaultValue: { summary: 'lg' },
       },
     },
-    icon: {
-      description: 'Иконка для кнопки',
-    },
-    iconPosition: {
+    rounded: {
       type: 'string',
-      description: 'Положение иконки',
+      description: 'Скругление углов кнопки',
       control: {
         type: 'select',
       },
-      defaultValue: 'right',
-      options: ['right', 'left'],
+      defaultValue: 'lg',
+      options: ['lg', 'sm', 'none'],
       table: {
-        defaultValue: { summary: 'right' },
+        defaultValue: { summary: 'lg' },
       },
+    },
+    icon: {
+      description: 'Иконка для кнопки',
+    },
+    reversed: {
+      description: 'Направление контента кнопки',
+      control: 'boolean',
+      defaultValue: false,
     },
     className: {
       description: 'Любой CSS класс для дополнительной стилизации',
@@ -52,7 +57,6 @@ export const IconRightButton = Template.bind({});
 IconRightButton.args = {
   children: 'Button',
   icon: <AddIcon />,
-  iconPosition: 'right',
 };
 
 export const IconButton = Template.bind({});
@@ -63,4 +67,10 @@ IconButton.args = {
 export const TextButton = Template.bind({});
 TextButton.args = {
   children: 'Button',
+};
+
+export const RoundedButton = Template.bind({});
+RoundedButton.args = {
+  children: 'Button',
+  rounded: 'lg',
 };
