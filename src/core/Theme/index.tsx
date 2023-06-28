@@ -52,18 +52,25 @@ export const lightTheme = {
       code: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
     },
     weight: {
-      thin: "100",
-      extraLight: "200",
-      light: "300",
-      regular: "400",
-      medium: "500",
-      semiBold: "600",
-      bold: "700",
-      extraBold: "800",
-      black: "900",
-      heavy: "1000",
+      100: "100",
+      200: "200",
+      300: "300",
+      400: "400",
+      500: "500",
+      600: "600",
+      700: "700",
+      800: "800",
+      900: "900",
+      1000: "1000",
     },
   },
+  breakpoints: {
+    xs: '600px',
+    sm: '900px',
+    md: '1200px',
+    lg: '1536px',
+    xl: '1920px',
+  }
 };
 
 export const darkTheme = {

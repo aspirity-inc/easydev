@@ -24,10 +24,7 @@ export default {
         type: 'select'
       },
       defaultValue: 'default',
-      options: ['success', 'warning', 'error', 'default'],
-      table: {
-        defaultValue: {summary: 'default'}
-      }
+      options: ['success', 'warning', 'error']
     },
     className: {
       description: 'Любой CSS класс для дополнительной стилизации'

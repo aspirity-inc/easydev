@@ -1,1 +1,1 @@
- 
+export {Title} from "../Title";
