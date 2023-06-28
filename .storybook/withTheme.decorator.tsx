@@ -1,5 +1,5 @@
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
-import { lightTheme, darkTheme } from "../src/core/Theme/index";
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { darkTheme, lightTheme } from '../src/core/Theme';
 
 const THEMES = {
   light: lightTheme,
@@ -19,7 +19,7 @@ export const withTheme = (Story, context) => {
   const { theme } = context.globals;
 
   return (
-    <ThemeProvider theme={THEMES[theme] || THEMES["light"]}>
+    <ThemeProvider theme={THEMES[theme] || THEMES['light']}>
       <GlobalStyles />
       <Story />
     </ThemeProvider>

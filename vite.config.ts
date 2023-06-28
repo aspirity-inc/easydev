@@ -1,28 +1,14 @@
-import { defineConfig } from 'vite'
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
 import dts from 'vite-plugin-dts';
-import path from "path";
+import path from 'path';
 
 export default defineConfig({
   plugins: [
-    react({
-      /*plugins: [
-        [
-          'babel-plugin-styled-components',
-          {
-            displayName: true,
-            fileName: false
-          }
-        ]
-      ]*/
-    }),
+    react(),
     dts({
       insertTypesEntry: true,
     }),
-    vanillaExtractPlugin({
-      emitCssInSsr: true
-    })
   ],
   build: {
     lib: {
