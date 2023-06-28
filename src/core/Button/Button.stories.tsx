@@ -20,6 +20,18 @@ export default {
         defaultValue: { summary: 'lg' },
       },
     },
+    rounded: {
+      type: 'string',
+      description: 'Скругление углов кнопки',
+      control: {
+        type: 'select',
+      },
+      defaultValue: 'lg',
+      options: ['lg', 'sm', 'none'],
+      table: {
+        defaultValue: { summary: 'lg' },
+      },
+    },
     icon: {
       description: 'Иконка для кнопки',
     },
@@ -63,4 +75,10 @@ IconButton.args = {
 export const TextButton = Template.bind({});
 TextButton.args = {
   children: 'Button',
+};
+
+export const RoundedButton = Template.bind({});
+RoundedButton.args = {
+  children: 'Button',
+  rounded: 'lg',
 };

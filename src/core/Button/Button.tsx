@@ -1,10 +1,10 @@
 import { CSSProperties, ReactNode } from 'react';
-import { Box } from '../Box';
-import { container, reversed, sizeType } from './Button.css.ts';
-import { cx } from '@linaria/core';
-
-type IconPosition = 'left' | 'right';
-type ButtonSize = keyof typeof sizeType;
+import {
+  ButtonRounded,
+  ButtonSize,
+  IconPosition,
+  StyledButton,
+} from './styles';
 
 type ButtonProps = {
   children?: ReactNode;
@@ -13,6 +13,7 @@ type ButtonProps = {
   icon?: ReactNode;
   iconPosition?: IconPosition;
   size?: ButtonSize;
+  rounded?: ButtonRounded;
 };
 
 export const Button = ({
@@ -21,23 +22,20 @@ export const Button = ({
   icon,
   iconPosition,
   size,
+  rounded,
   ...props
 }: ButtonProps) => {
   return (
-    <Box>
-      <Box
-        tag={'button'}
-        className={cx(
-          className,
-          container,
-          sizeType[size || 'lg'],
-          iconPosition === 'left' && reversed
-        )}
-        {...props}
-      >
-        {children}
-        {icon}
-      </Box>
-    </Box>
+    <StyledButton
+      tag={'button'}
+      className={className}
+      iconPosition={iconPosition}
+      rounded={rounded}
+      size={size}
+      {...props}
+    >
+      {children}
+      {icon}
+    </StyledButton>
   );
 };
