@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import { Button } from './Button.tsx';
 import 'material-symbols';
 
-const AddIcon = () => <div className='material-symbols-rounded'>add</div>;
+const AddIcon = () => <div className="material-symbols-rounded">add</div>;
 
 export default {
   title: 'core/Button',

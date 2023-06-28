@@ -13,8 +13,7 @@ type ButtonProps = {
 
 export const StyledButton = styled(Box)<ButtonProps>`
   display: flex;
-  flex-direction: ${({ iconPosition }) =>
-    iconPosition === 'left' && 'row-reverse'};
+  flex-direction: ${({ iconPosition }) => iconPosition === 'left' && 'row-reverse'};
   align-items: center;
   justify-content: center;
   text-align: center;
