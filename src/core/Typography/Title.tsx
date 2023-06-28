@@ -11,7 +11,14 @@ type TitleProps = {
 
 export const Title = ({ children, variant, className, type, ...props }: TitleProps) => {
   return (
-    <StyledTitle tag={variant || 'h1'} className={className} type={type} variant={variant} {...props}>
+    <StyledTitle
+      tag={variant || 'h1'}
+      className={className}
+      type={type}
+      variant={variant}
+      {...props}
+      style={{ color: 'red' }}
+    >
       {children}
     </StyledTitle>
   );
