@@ -14,16 +14,16 @@ const Template: StoryFn<typeof Text> = ({ children, ...args }) => {
 export const RedText = Template.bind({});
 RedText.args = {
   children: 'EasyDev is red',
-  color: "red",
+  color: 'red',
 };
 
 export const BlueText = Template.bind({});
 BlueText.args = {
   children: 'EasyDev is blue',
-  color: "#421934",
+  color: '#421934',
 };
 
 export const DefaultText = Template.bind({});
 DefaultText.args = {
-  children: 'EasyDev is default'
+  children: 'EasyDev is default',
 };

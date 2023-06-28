@@ -1,1 +1,1 @@
-export { Text } from "./Text.tsx";
+export { Text } from './Text.tsx';
