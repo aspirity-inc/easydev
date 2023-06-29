@@ -1,5 +1,4 @@
-import { Box } from '../Box';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 export type ButtonSize = 'sm' | 'lg';
 export type ButtonRounded = 'sm' | 'lg';
@@ -10,7 +9,7 @@ type ButtonProps = {
   reversed?: boolean;
 };
 
-export const StyledButton = styled(Box)<ButtonProps>`
+export const StyledButton = styled('button')<ButtonProps>`
   display: flex;
   flex-direction: ${({ reversed }) => reversed && 'row-reverse'};
   align-items: center;
@@ -61,4 +60,19 @@ export const StyledButton = styled(Box)<ButtonProps>`
         return css``;
     }
   }};
+`;
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const RotateBox = styled.div`
+  display: flex;
+  animation: ${rotate} 1s linear infinite;
 `;

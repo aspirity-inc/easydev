@@ -3,6 +3,7 @@ import { Button } from './Button.tsx';
 import 'material-symbols';
 
 const AddIcon = () => <div className="material-symbols-rounded">add</div>;
+const LoaderIcon = () => <div className="material-symbols-rounded">refresh</div>;
 
 export default {
   title: 'core/Button',
@@ -35,8 +36,16 @@ export default {
     icon: {
       description: 'Иконка для кнопки',
     },
+    loadingIcon: {
+      description: 'Иконка для кнопки в состоянии загрузки',
+    },
     reversed: {
       description: 'Направление контента кнопки',
+      control: 'boolean',
+      defaultValue: false,
+    },
+    loading: {
+      description: 'Кнопка в состоянии загрузки',
       control: 'boolean',
       defaultValue: false,
     },
@@ -73,4 +82,17 @@ export const RoundedButton = Template.bind({});
 RoundedButton.args = {
   children: 'Button',
   rounded: 'lg',
+};
+
+export const ProgressDefaultIconButton = Template.bind({});
+ProgressDefaultIconButton.args = {
+  children: 'Button',
+  loading: true,
+};
+
+export const ProgressUserIconButton = Template.bind({});
+ProgressUserIconButton.args = {
+  children: 'Button',
+  loadingIcon: <LoaderIcon />,
+  loading: true,
 };
