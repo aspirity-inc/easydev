@@ -3,7 +3,7 @@ import { cx } from '@linaria/core';
 
 type BoxProps = {
   children: ReactNode | string | ReactNode[];
-  tag?: string;
+  tag?: keyof HTMLElementTagNameMap;
   className?: string;
   style?: CSSProperties;
 };

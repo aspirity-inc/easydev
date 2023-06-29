@@ -1,12 +1,12 @@
 import { Box } from '@core/Box';
 import styled, { css } from 'styled-components';
+import { getTypeStyles, TypeProp } from '@core/Typography/styles.ts';
 
 export type TitleVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-export type TitleType = 'success' | 'warning' | 'error';
 
 type TitleProps = {
   variant?: TitleVariant;
-  type?: TitleType;
+  type?: TypeProp;
 };
 
 export const StyledTitle = styled(Box)<TitleProps>`
@@ -91,21 +91,6 @@ export const StyledTitle = styled(Box)<TitleProps>`
   }}
 
   ${({ type }) => {
-    switch (type) {
-      case 'success':
-        return css`
-          color: ${({ theme }) => theme.colors.success.main};
-        `;
-      case 'warning':
-        return css`
-          color: ${({ theme }) => theme.colors.warning.main};
-        `;
-      case 'error':
-        return css`
-          color: ${({ theme }) => theme.colors.error.main};
-        `;
-      default:
-        return css``;
-    }
-  }}
+    return getTypeStyles(type);
+  }}}
 `;
