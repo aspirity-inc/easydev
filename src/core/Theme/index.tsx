@@ -1,28 +1,44 @@
+import { lighten, darken } from 'polished';
+
+export const paletteGenerator = (color: string) => ({
+  main: color,
+  50: lighten(0.5, color),
+  100: lighten(0.4, color),
+  200: lighten(0.3, color),
+  300: lighten(0.2, color),
+  400: lighten(0.1, color),
+  500: color,
+  600: darken(0.1, color),
+  700: darken(0.2, color),
+  800: darken(0.3, color),
+  900: darken(0.4, color),
+});
+
 export const lightTheme = {
   colors: {
     primary: {
-      main: '#4CE1B6',
+      ...paletteGenerator('#4CE1B6'),
     },
     secondary: {
-      main: '#4F96E8',
+      ...paletteGenerator('#4F96E8'),
     },
     surface: {
-      main: '#A5A5A7',
+      ...paletteGenerator('#A5A5A7'),
     },
     tertiary: {
-      main: '#B693FF',
+      ...paletteGenerator('#B693FF'),
     },
     success: {
-      main: '#55B627',
+      ...paletteGenerator('#55B627'),
     },
     error: {
-      main: '#DE0000',
+      ...paletteGenerator('#DE0000'),
     },
     warning: {
-      main: '#FF9A00',
+      ...paletteGenerator('#FF9A00'),
     },
     link: {
-      main: '#007AFF',
+      ...paletteGenerator('#007AFF'),
     },
     background: '#FFFFFF',
     text: '#000000',
