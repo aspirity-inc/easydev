@@ -40,6 +40,11 @@ export default {
       control: 'boolean',
       defaultValue: false,
     },
+    loading: {
+      description: 'Кнопка в состоянии загрузки',
+      control: 'boolean',
+      defaultValue: false,
+    },
     className: {
       description: 'Любой CSS класс для дополнительной стилизации',
     },
@@ -73,4 +78,11 @@ export const RoundedButton = Template.bind({});
 RoundedButton.args = {
   children: 'Button',
   rounded: 'lg',
+};
+
+export const ProgressButton = Template.bind({});
+ProgressButton.args = {
+  rounded: 'lg',
+  icon: <AddIcon />,
+  loading: true,
 };

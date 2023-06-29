@@ -1,4 +1,4 @@
-import { Box } from '../Box';
+import { Box } from '@core/Box';
 import styled, { css } from 'styled-components';
 
 export type ButtonSize = 'sm' | 'lg';
