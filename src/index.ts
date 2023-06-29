@@ -1,1 +1,2 @@
-export { Text } from './core/Text';
+export { Title } from '@core/Typography';
+export { Subtitle } from '@core/Typography';
