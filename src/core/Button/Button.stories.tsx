@@ -3,7 +3,7 @@ import { Button } from './Button.tsx';
 import 'material-symbols';
 
 const AddIcon = () => <div className="material-symbols-rounded">add</div>;
-const LoaderIcon = () => <div className={`material-symbols-rounded`}>refresh</div>;
+const LoaderIcon = () => <div className="material-symbols-rounded">refresh</div>;
 
 export default {
   title: 'core/Button',
