@@ -13,13 +13,32 @@ interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   loading?: boolean;
 }
 
-export const Button = ({ children, className, icon, reversed, size, rounded, loading, ...props }: ButtonProps) => {
+export const Button = ({
+  children,
+  className,
+  icon,
+  reversed,
+  size,
+  rounded,
+  loading,
+  type = 'button',
+  ...props
+}: ButtonProps) => {
+  const otherProps = { type, ...props };
+
   const renderIcon = () => {
     return loading ? <Loader /> : icon;
   };
 
   return (
-    <StyledButton tag={'button'} className={className} reversed={reversed} rounded={rounded} size={size} {...props}>
+    <StyledButton
+      tag={'button'}
+      className={className}
+      reversed={reversed}
+      rounded={rounded}
+      size={size}
+      {...otherProps}
+    >
       {children}
       {icon && renderIcon()}
     </StyledButton>
