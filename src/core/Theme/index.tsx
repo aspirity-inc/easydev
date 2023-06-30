@@ -1,6 +1,6 @@
 import { lighten, darken } from 'polished';
 
-export const paletteGenerator = (color: string) => ({
+const paletteGenerator = (color: string) => ({
   main: color,
   50: lighten(0.5, color),
   100: lighten(0.4, color),
@@ -86,6 +86,9 @@ export const lightTheme = {
     md: '1200px',
     lg: '1536px',
     xl: '1920px',
+  },
+  transition: {
+    defaultDuration: '0.3s',
   },
 };
 

@@ -19,13 +19,14 @@ export const StyledButton = styled('button')<ButtonProps>`
   margin: 0;
   border: none;
   background-color: ${({ theme }) => theme.colors.primary['600']};
-  transition: background 0.3s;
+  transition: background-color ${({ theme }) => theme.transition.defaultDuration};
   color: #ffffff;
   font-size: 13px;
   line-height: 1.9;
   font-weight: ${({ theme }) => theme.typography.weight['800']};
   text-transform: uppercase;
   cursor: pointer;
+  user-select: none;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.primary['700']};
@@ -36,6 +37,7 @@ export const StyledButton = styled('button')<ButtonProps>`
   }
   &:disabled {
     background-color: ${({ theme }) => theme.colors.primary['300']};
+    cursor: disabled;
   }
 
   ${({ size }) => {
