@@ -19,7 +19,7 @@ export const StyledButton = styled('button')<ButtonProps>`
   margin: 0;
   border: none;
   background-color: ${({ theme }) => theme.colors.primary['600']};
-  transition: background-color ${({ theme }) => theme.transition.defaultDuration};
+  transition: background-color ${({ theme }) => theme.transition.default};
   color: #ffffff;
   font-size: 13px;
   line-height: 1.9;

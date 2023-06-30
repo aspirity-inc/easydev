@@ -88,7 +88,7 @@ export const lightTheme = {
     xl: '1920px',
   },
   transition: {
-    defaultDuration: '0.3s',
+    default: '0.3s',
   },
 };
 
