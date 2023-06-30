@@ -1,8 +1,7 @@
 import { css } from 'styled-components';
+import { TypographyTypeProp } from '@core/Typography/types.ts';
 
-export type TypeProp = 'success' | 'warning' | 'error';
-
-export const getTypeStyles = (type?: TypeProp) => {
+export const getTypographyTypeStyles = (type?: TypographyTypeProp) => {
   switch (type) {
     case 'success':
       return css`
@@ -17,6 +16,7 @@ export const getTypeStyles = (type?: TypeProp) => {
         color: ${({ theme }) => theme.colors.error.main};
       `;
     default:
+      // If type don't passed, then default styles.
       return css``;
   }
 };

@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
 import { Box } from '@core/Box';
-import { getTypeStyles, TypeProp } from '@core/Typography/styles.ts';
+import { getTypographyTypeStyles } from '@core/Typography/styles.ts';
+import { TypographyTypeProp } from '@core/Typography/types.ts';
 
 export type SubtitleLevelType = 1 | 2 | 3 | 4 | 5;
 type SubtitleProps = {
-  type?: TypeProp;
+  type?: TypographyTypeProp;
   level?: SubtitleLevelType;
 };
 
@@ -76,6 +77,6 @@ export const StyledSubtitle = styled(Box)<SubtitleProps>`
   }}
   
   ${({ type }) => {
-    return getTypeStyles(type);
+    return getTypographyTypeStyles(type);
   }}}
 `;

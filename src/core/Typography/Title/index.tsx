@@ -1,13 +1,8 @@
-import { CSSProperties, ReactNode } from 'react';
 import { StyledTitle, type TitleVariant } from './styles.ts';
-import { TypeProp } from '@core/Typography/styles.ts';
+import { TypographyBaseType } from '@core/Typography/types.ts';
 
-type TitleProps = {
-  children: ReactNode | string | ReactNode[];
+type TitleProps = TypographyBaseType & {
   variant?: TitleVariant;
-  className?: string;
-  style?: CSSProperties;
-  type?: TypeProp;
 };
 
 export const Title = ({ children, variant, className, type, ...props }: TitleProps) => {
