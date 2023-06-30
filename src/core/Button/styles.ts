@@ -97,24 +97,22 @@ const getButtonVariantStyle = (variant: ButtonVariant = 'primary') => {
   switch (variant) {
     case 'primary':
       return defaultState;
-    case 'secondary': {
-      const typeColor = 'surface';
+    case 'secondary':
       return css`
-        background-color: ${({ theme }) => theme.colors[typeColor]['400']};
+        background-color: ${({ theme }) => theme.colors.surface['400']};
 
         &:hover {
-          background-color: ${({ theme }) => theme.colors[typeColor]['500']};
+          background-color: ${({ theme }) => theme.colors.surface['500']};
         }
         &:focus,
         &:active {
-          background-color: ${({ theme }) => theme.colors[typeColor]['600']};
+          background-color: ${({ theme }) => theme.colors.surface['600']};
         }
         &:disabled {
-          background-color: ${({ theme }) => theme.colors[typeColor]['300']};
+          background-color: ${({ theme }) => theme.colors.surface['300']};
           cursor: disabled;
         }
       `;
-    }
     default:
       return defaultState;
   }
