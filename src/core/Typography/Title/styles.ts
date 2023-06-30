@@ -1,12 +1,13 @@
 import { Box } from '@core/Box';
 import styled, { css } from 'styled-components';
-import { getTypeStyles, TypeProp } from '@core/Typography/styles.ts';
+import { getTypographyTypeStyles } from '@core/Typography/styles.ts';
+import { TypographyTypeProp } from '@core/Typography/types.ts';
 
 export type TitleVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 type TitleProps = {
   variant?: TitleVariant;
-  type?: TypeProp;
+  type?: TypographyTypeProp;
 };
 
 export const StyledTitle = styled(Box)<TitleProps>`
@@ -91,6 +92,6 @@ export const StyledTitle = styled(Box)<TitleProps>`
   }}
 
   ${({ type }) => {
-    return getTypeStyles(type);
+    return getTypographyTypeStyles(type);
   }}}
 `;
