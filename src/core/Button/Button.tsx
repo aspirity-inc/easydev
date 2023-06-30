@@ -1,5 +1,5 @@
 import { CSSProperties, ReactNode } from 'react';
-import { ButtonRounded, ButtonSize, RotateBox, StyledButton } from './styles';
+import { ButtonRounded, ButtonSize, ButtonVariant, RotateBox, StyledButton } from './styles';
 import 'material-symbols';
 
 type ButtonProps = React.ComponentPropsWithoutRef<'button'> & {
@@ -12,6 +12,7 @@ type ButtonProps = React.ComponentPropsWithoutRef<'button'> & {
   rounded?: ButtonRounded;
   loading?: boolean;
   loadingIcon?: ReactNode;
+  variant?: ButtonVariant;
 };
 
 export const Button = ({
@@ -24,6 +25,7 @@ export const Button = ({
   loading,
   loadingIcon,
   type = 'button',
+  variant,
   ...props
 }: ButtonProps) => {
   const LoadingIcon = () => {
@@ -32,7 +34,15 @@ export const Button = ({
   };
 
   return (
-    <StyledButton className={className} reversed={reversed} rounded={rounded} size={size} type={type} {...props}>
+    <StyledButton
+      className={className}
+      reversed={reversed}
+      rounded={rounded}
+      size={size}
+      type={type}
+      variant={variant}
+      {...props}
+    >
       {children}
       {loading ? <LoadingIcon /> : icon}
     </StyledButton>

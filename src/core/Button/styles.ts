@@ -2,11 +2,13 @@ import styled, { css, keyframes } from 'styled-components';
 
 export type ButtonSize = 'sm' | 'lg';
 export type ButtonRounded = 'sm' | 'lg';
+export type ButtonVariant = 'primary' | 'secondary';
 
 type ButtonProps = {
   size?: ButtonSize;
   rounded?: ButtonRounded;
   reversed?: boolean;
+  variant?: ButtonVariant;
 };
 
 export const StyledButton = styled('button')<ButtonProps>`
@@ -18,7 +20,6 @@ export const StyledButton = styled('button')<ButtonProps>`
   gap: 9px;
   margin: 0;
   border: none;
-  background-color: ${({ theme }) => theme.colors.primary['600']};
   transition: background-color ${({ theme }) => theme.transition.default};
   color: #ffffff;
   font-size: 13px;
@@ -28,17 +29,7 @@ export const StyledButton = styled('button')<ButtonProps>`
   cursor: pointer;
   user-select: none;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.primary['700']};
-  }
-  &:focus,
-  &:active {
-    background-color: ${({ theme }) => theme.colors.primary['800']};
-  }
-  &:disabled {
-    background-color: ${({ theme }) => theme.colors.primary['300']};
-    cursor: disabled;
-  }
+  ${({ variant }) => getButtonVariantStyle(variant)}
 
   ${({ size }) => {
     switch (size) {
@@ -46,11 +37,6 @@ export const StyledButton = styled('button')<ButtonProps>`
         return css`
           padding: 16px 8px;
           min-width: 120px;
-        `;
-      case 'lg':
-        return css`
-          padding: 16px 30px;
-          min-width: 180px;
         `;
       default:
         return css`
@@ -90,3 +76,44 @@ export const RotateBox = styled.div`
   display: flex;
   animation: ${rotate} 1s linear infinite;
 `;
+
+const getButtonVariantStyle = (variant: ButtonVariant = 'primary') => {
+  const defaultState = css`
+    background-color: ${({ theme }) => theme.colors.primary['600']};
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.primary['700']};
+    }
+    &:focus,
+    &:active {
+      background-color: ${({ theme }) => theme.colors.primary['800']};
+    }
+    &:disabled {
+      background-color: ${({ theme }) => theme.colors.primary['300']};
+      cursor: disabled;
+    }
+  `;
+
+  switch (variant) {
+    case 'primary':
+      return defaultState;
+    case 'secondary':
+      return css`
+        background-color: ${({ theme }) => theme.colors.surface['400']};
+
+        &:hover {
+          background-color: ${({ theme }) => theme.colors.surface['500']};
+        }
+        &:focus,
+        &:active {
+          background-color: ${({ theme }) => theme.colors.surface['600']};
+        }
+        &:disabled {
+          background-color: ${({ theme }) => theme.colors.surface['300']};
+          cursor: disabled;
+        }
+      `;
+    default:
+      return defaultState;
+  }
+};

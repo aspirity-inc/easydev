@@ -33,6 +33,18 @@ export default {
         defaultValue: { summary: 'lg' },
       },
     },
+    variant: {
+      type: 'string',
+      description: 'Вариант кнопки',
+      control: {
+        type: 'select',
+      },
+      defaultValue: 'primary',
+      options: ['primary', 'secondary'],
+      table: {
+        defaultValue: { summary: 'primary' },
+      },
+    },
     icon: {
       description: 'Иконка для кнопки',
     },
@@ -62,10 +74,17 @@ const Template: StoryFn<typeof Button> = ({ children, ...args }) => {
   return <Button {...args}>{children}</Button>;
 };
 
-export const IconRightButton = Template.bind({});
-IconRightButton.args = {
+export const IconTextButton = Template.bind({});
+IconTextButton.args = {
   children: 'Button',
   icon: <AddIcon />,
+};
+
+export const SecondaryIconTextButton = Template.bind({});
+SecondaryIconTextButton.args = {
+  children: 'Button',
+  icon: <AddIcon />,
+  variant: 'secondary',
 };
 
 export const IconButton = Template.bind({});
