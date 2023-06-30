@@ -33,6 +33,18 @@ export default {
         defaultValue: { summary: 'lg' },
       },
     },
+    variant: {
+      type: 'string',
+      description: 'Вариант кнопки',
+      control: {
+        type: 'select',
+      },
+      defaultValue: 'primary',
+      options: ['primary', 'secondary'],
+      table: {
+        defaultValue: { summary: 'primary' },
+      },
+    },
     icon: {
       description: 'Иконка для кнопки',
     },
@@ -66,6 +78,13 @@ export const IconRightButton = Template.bind({});
 IconRightButton.args = {
   children: 'Button',
   icon: <AddIcon />,
+};
+
+export const SecondaryIconRightButton = Template.bind({});
+SecondaryIconRightButton.args = {
+  children: 'Button',
+  icon: <AddIcon />,
+  variant: 'secondary',
 };
 
 export const IconButton = Template.bind({});
