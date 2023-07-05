@@ -1,4 +1,4 @@
-import { lighten, darken } from 'polished';
+import { darken, lighten } from 'polished';
 
 const paletteGenerator = (color: string) => ({
   main: color,
@@ -25,7 +25,7 @@ export const lightTheme = {
     surface: {
       ...paletteGenerator('#A5A5A7'),
     },
-    tertiary: {
+    tretiary: {
       ...paletteGenerator('#B693FF'),
     },
     success: {
@@ -58,7 +58,8 @@ export const lightTheme = {
     },
     borderRadius: {
       default: 0,
-      small: 8,
+      small: 4,
+      medium: 8,
       large: '50%',
     },
   },
@@ -101,7 +102,7 @@ export const darkTheme = {
     negative: '#df987d',
     primary: '#d43369',
     secondary: '#1b8bd0',
-    tertiary: '#DDDDDD',
+    tretiary: '#DDDDDD',
     text: '#FFFFFF',
   },
 };
