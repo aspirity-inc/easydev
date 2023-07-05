@@ -1,5 +1,13 @@
 import { CSSProperties, useState } from 'react';
-import { IconWrapper, InputStatus, StyledInput, StyledLabel, StyledStatus, StyledWrapper } from './styles';
+import {
+  IconWrapper,
+  InputStatus,
+  StyledInput,
+  StyledLabel,
+  StyledStatus,
+  StyledInputWrapper,
+  StyledWrapper,
+} from './styles';
 import React from 'react';
 import { Text } from './../Typography/Text/index';
 import { InputStatusIcon } from './InputStatusIcon';
@@ -34,8 +42,8 @@ export const Input = ({
   };
 
   return (
-    <>
-      <StyledWrapper>
+    <StyledWrapper>
+      <StyledInputWrapper>
         <StyledInput
           type={type}
           className={className}
@@ -58,7 +66,7 @@ export const Input = ({
             <InputStatusIcon status={status} />
           </IconWrapper>
         )}
-      </StyledWrapper>
+      </StyledInputWrapper>
       {status !== 'default' && (
         <StyledStatus $status={status}>
           <Text tag="div" variant="caption">
@@ -66,6 +74,6 @@ export const Input = ({
           </Text>
         </StyledStatus>
       )}
-    </>
+    </StyledWrapper>
   );
 };

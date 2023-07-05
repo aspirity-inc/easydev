@@ -24,7 +24,7 @@ export const IconWrapper = styled('div')`
   transform: translateY(-50%);
 `;
 
-export const StyledWrapper = styled('div')`
+export const StyledInputWrapper = styled('div')`
   position: relative;
   width: 284px;
   height: 56px;
@@ -71,13 +71,8 @@ export const StyledLabel = styled('label')<LabelProps>`
   position: absolute;
   top: 8px;
   left: 16px;
-
   color: ${({ theme }) => theme.colors.surface['600']};
   user-select: none;
-
-  ${StyledInput}:disabled & {
-    color: ${({ theme }) => theme.colors.surface['500']};
-  }
 `;
 
 export const StyledStatus = styled('div')<StatusProps>`
@@ -148,6 +143,12 @@ const getDisabledState = ($filled: boolean) => {
         }
       `;
 };
+
+export const StyledWrapper = styled('div')`
+  ${StyledInput}:disabled + ${StyledLabel} {
+    color: ${({ theme }) => theme.colors.surface['500']};
+  }
+`;
 
 const getInputTransition = (transitionValue: string) => css`
   transition: background-color ${transitionValue}, border-color ${transitionValue}, box-shadow ${transitionValue};
