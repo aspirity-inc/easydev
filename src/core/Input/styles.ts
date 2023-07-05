@@ -1,12 +1,12 @@
 import { getTextBodyVariants } from '@core/Typography/Text/styles';
 import styled, { css } from 'styled-components';
 
-export type InputStatus = 'default' | 'warning' | 'error' | 'loading' | 'success';
+export type InputStatus = 'warning' | 'error' | 'loading' | 'success';
 
 type InputProps = {
   $filled: boolean;
   $showLabel: boolean;
-  $status: InputStatus;
+  $status?: InputStatus;
 };
 
 type LabelProps = {
@@ -14,7 +14,7 @@ type LabelProps = {
 };
 
 type StatusProps = {
-  $status: InputStatus;
+  $status?: InputStatus;
 };
 
 export const IconWrapper = styled('div')`
@@ -43,7 +43,7 @@ export const StyledInput = styled('input')<InputProps>`
   border: 0;
   border-radius: 8px;
   ${({ $filled }) => getBackgroundColor($filled)};
-  ${({ $filled, $status }) => getBorder($filled, $status)};
+  ${({ $filled, $status }) => getBorder($filled, $status || 'default')};
   ${({ theme }) => getInputTransition(theme.transition.default)};
 
   &::placeholder {
@@ -82,10 +82,10 @@ export const StyledStatus = styled('div')<StatusProps>`
     text-transform: uppercase;
   }
 
-  ${({ $status }) => getStatusColor($status)};
+  ${({ $status }) => $status && getStatusColor($status)};
 `;
 
-const getBorder = (filled: boolean, status: InputStatus) => {
+const getBorder = (filled: boolean, status: string) => {
   switch (status) {
     case 'warning':
       return css`

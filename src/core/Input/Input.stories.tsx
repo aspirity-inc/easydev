@@ -12,10 +12,15 @@ export default {
         type: 'select',
       },
       defaultValue: 'default',
-      options: ['default', 'warning', 'error', 'loading', 'success'],
+      options: ['-', 'warning', 'error', 'loading', 'success'],
       table: {
-        defaultValue: { summary: 'default' },
+        defaultValue: { summary: '-' },
       },
+    },
+    statusText: {
+      type: 'string',
+      control: 'text',
+      description: 'Сообщение статуса',
     },
     value: {
       type: 'string',
@@ -57,6 +62,7 @@ WarningInput.args = {
   placeholder: 'Введите свое имя',
   label: 'Имя',
   status: 'warning',
+  statusText: 'Проверьте еще раз',
 };
 
 export const LoadingInput = Template.bind({});
@@ -65,6 +71,7 @@ LoadingInput.args = {
   placeholder: 'Введите свое имя',
   label: 'Имя',
   status: 'loading',
+  statusText: 'Ожидайте',
 };
 
 export const DisabledInput = Template.bind({});

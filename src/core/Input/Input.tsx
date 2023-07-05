@@ -18,6 +18,7 @@ export type InputProps = React.ComponentPropsWithoutRef<'input'> & {
   placeholder?: string;
   label?: string;
   status?: InputStatus;
+  statusText?: string;
 };
 
 export const Input = ({
@@ -26,7 +27,8 @@ export const Input = ({
   type = 'text',
   label,
   value,
-  status = 'default',
+  status,
+  statusText,
   ...props
 }: InputProps) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -67,10 +69,10 @@ export const Input = ({
           </IconWrapper>
         )}
       </StyledInputWrapper>
-      {status !== 'default' && (
+      {statusText && (
         <StyledStatus $status={status}>
           <Text tag="div" variant="caption">
-            {status}
+            {statusText}
           </Text>
         </StyledStatus>
       )}
