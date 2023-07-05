@@ -7,7 +7,7 @@ export default {
   argTypes: {
     status: {
       type: 'string',
-      description: 'Статус кнопки',
+      description: 'Статус инпута',
       control: {
         type: 'select',
       },
