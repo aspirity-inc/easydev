@@ -17,7 +17,7 @@ const baseLineHeight = css`
   line-height: 1.2;
 `;
 
-const getBodyVariantStyles = (level?: TextBodyLevel) => {
+export const getTextBodyVariants = (level?: TextBodyLevel) => {
   const defaultLevel = css`
     font-size: 18px;
     font-weight: 140;
@@ -33,7 +33,7 @@ const getBodyVariantStyles = (level?: TextBodyLevel) => {
       return css`
         font-size: 16px;
         font-weight: 125;
-        font-variation-settings: 'wdth' 110, 'GRAD' 0, 'Slant' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514,
+        font-variation-settings: 'wdth' 110, 'GRAD' 0, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514,
           'YTUC' 712, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
         ${baseLineHeight};
       `;
@@ -41,7 +41,7 @@ const getBodyVariantStyles = (level?: TextBodyLevel) => {
       return css`
         font-size: 14px;
         font-weight: 130;
-        font-variation-settings: 'wdth' 108, 'GRAD' 0, 'Slant' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514,
+        font-variation-settings: 'wdth' 108, 'GRAD' 0, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514,
           'YTUC' 712, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
         ${baseLineHeight};
       `;
@@ -49,8 +49,8 @@ const getBodyVariantStyles = (level?: TextBodyLevel) => {
       return css`
         font-size: 12px;
         font-weight: 130;
-        font-variation-settings: 'wdth' 61, 'GRAD' 0, 'Slant' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514,
-          'YTUC' 712, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
+        font-variation-settings: 'wdth' 61, 'GRAD' 0, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514, 'YTUC' 712,
+          'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
         ${baseLineHeight};
       `;
     default:
@@ -76,7 +76,7 @@ export const StyledText = styled(Box)<StyledTextType>`
   ${({ variant, bodyLevel }) => {
     switch (variant) {
       case 'body':
-        return getBodyVariantStyles(bodyLevel);
+        return getTextBodyVariants(bodyLevel);
       case 'caption':
         return css`
           font-size: 12px;
@@ -104,7 +104,7 @@ export const StyledText = styled(Box)<StyledTextType>`
           ${baseLineHeight};
         `;
       default:
-        return getBodyVariantStyles(1);
+        return getTextBodyVariants(1);
     }
   }};
 
