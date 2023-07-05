@@ -5,6 +5,18 @@ export default {
   title: 'core/Input',
   component: Input,
   argTypes: {
+    status: {
+      type: 'string',
+      description: 'Статус кнопки',
+      control: {
+        type: 'select',
+      },
+      defaultValue: 'default',
+      options: ['default', 'warning', 'error', 'loading', 'success'],
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+    },
     value: {
       type: 'string',
       control: 'text',
@@ -37,6 +49,22 @@ export const DefaultInput = Template.bind({});
 DefaultInput.args = {
   placeholder: 'Введите свое имя',
   label: 'Имя',
+};
+
+export const WarningInput = Template.bind({});
+WarningInput.args = {
+  value: 'Иван',
+  placeholder: 'Введите свое имя',
+  label: 'Имя',
+  status: 'warning',
+};
+
+export const LoadingInput = Template.bind({});
+LoadingInput.args = {
+  value: 'Иван',
+  placeholder: 'Введите свое имя',
+  label: 'Имя',
+  status: 'loading',
 };
 
 export const DisabledInput = Template.bind({});
