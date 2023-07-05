@@ -1,9 +1,9 @@
- pre-commit:
-   parallel: true
-   commands:
-     eslint:
-       glob: "*.{js,ts,jsx,tsx}"
-       run: npm run eslint {staged_files}
-     prettier:
-       glob: "*.*"
-       run: npx prettier --check --loglevel warn {staged_files}
+pre-commit:
+  parallel: true
+  commands:
+    eslint:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: npx eslint {staged_files}
+    prettier:
+      glob: "*.*"
+      run: npx prettier --check --loglevel warn {staged_files}
