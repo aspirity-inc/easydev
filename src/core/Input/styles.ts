@@ -1,4 +1,4 @@
-import { getBodyVariantStyles } from '@core/Typography/Text/styles';
+import { getTextBodyVariants } from '@core/Typography/Text/styles';
 import styled, { css } from 'styled-components';
 
 type InputProps = {
@@ -20,18 +20,15 @@ export const StyledInput = styled('input')<InputProps>`
   height: 56px;
   padding: 8px 16px;
   padding-top: ${({ $showLabel }) => ($showLabel ? '24px' : '8px')};
-  vertical-align: bottom;
 
   color: ${({ theme }) => theme.colors.surface['900']};
-  ${() => getBodyVariantStyles(2)};
+  ${getTextBodyVariants(2)};
 
   border: 0;
   border-radius: 8px;
   ${({ $filled }) => getBackgroundColor($filled)};
   ${({ $filled }) => getBorder($filled)};
-
-  transition: background-color ${({ theme }) => theme.transition.default},
-    border ${({ theme }) => theme.transition.default}, box-shadow ${({ theme }) => theme.transition.default};
+  ${({ theme }) => getInputTransition(theme.transition.default)};
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.surface['600']};
@@ -106,3 +103,7 @@ const getDisabledState = ($filled: boolean) => {
         }
       `;
 };
+
+const getInputTransition = (transitionValue: string) => css`
+  transition: background-color ${transitionValue}, border-color ${transitionValue}, box-shadow ${transitionValue};
+`;

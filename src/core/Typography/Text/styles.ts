@@ -17,7 +17,7 @@ const baseLineHeight = css`
   line-height: 1.2;
 `;
 
-export const getBodyVariantStyles = (level?: TextBodyLevel) => {
+export const getTextBodyVariants = (level?: TextBodyLevel) => {
   const defaultLevel = css`
     font-size: 18px;
     font-weight: 140;
@@ -76,7 +76,7 @@ export const StyledText = styled(Box)<StyledTextType>`
   ${({ variant, bodyLevel }) => {
     switch (variant) {
       case 'body':
-        return getBodyVariantStyles(bodyLevel);
+        return getTextBodyVariants(bodyLevel);
       case 'caption':
         return css`
           font-size: 12px;
@@ -104,7 +104,7 @@ export const StyledText = styled(Box)<StyledTextType>`
           ${baseLineHeight};
         `;
       default:
-        return getBodyVariantStyles(1);
+        return getTextBodyVariants(1);
     }
   }};
 
