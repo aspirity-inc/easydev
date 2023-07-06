@@ -20,11 +20,11 @@ export const StyledSubtitle = styled(Box)<SubtitleProps>`
       case 1:
         return css`
           font-size: 32px;
-          font-weight: ${({ theme }) => theme.typography.weight[500]};
+          font-weight: ${({ theme }) => theme.typography.weight['500']};
 
           @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
             font-size: 24px;
-            font-weight: ${({ theme }) => theme.typography.weight[600]};
+            font-weight: ${({ theme }) => theme.typography.weight['600']};
           }
           @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
             font-size: 18px;
@@ -37,7 +37,7 @@ export const StyledSubtitle = styled(Box)<SubtitleProps>`
 
           @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
             font-size: 18px;
-            font-weight: ${({ theme }) => theme.typography.weight[600]};
+            font-weight: ${({ theme }) => theme.typography.weight['600']};
           }
           @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
             font-size: 16px;
@@ -47,7 +47,7 @@ export const StyledSubtitle = styled(Box)<SubtitleProps>`
       case 3:
         return css`
           font-size: 18px;
-          font-weight: ${({ theme }) => theme.typography.weight[600]};
+          font-weight: ${({ theme }) => theme.typography.weight['600']};
 
           @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
             font-size: 16px;
@@ -57,20 +57,20 @@ export const StyledSubtitle = styled(Box)<SubtitleProps>`
       case 4:
         return css`
           font-size: 16px;
-          font-weight: ${({ theme }) => theme.typography.weight[600]};
+          font-weight: ${({ theme }) => theme.typography.weight['600']};
 
           @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
             font-size: 14px;
-            font-weight: ${({ theme }) => theme.typography.weight[500]};
+            font-weight: ${({ theme }) => theme.typography.weight['500']};
           }
         `;
       case 5:
         return css`
           font-size: 12px;
-          font-weight: ${({ theme }) => theme.typography.weight[600]};
+          font-weight: ${({ theme }) => theme.typography.weight['600']};
 
           @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-            font-weight: ${({ theme }) => theme.typography.weight[500]};
+            font-weight: ${({ theme }) => theme.typography.weight['500']};
           }
         `;
     }
