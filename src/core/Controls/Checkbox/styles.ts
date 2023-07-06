@@ -35,7 +35,7 @@ export const CheckboxWrap = styled('span')<CheckboxProps>`
   height: 24px;
   color: ${({ theme, color }) => getCheckboxColor(theme, color) || theme.colors.tretiary['700']};
   background-color: ${({ theme }) => theme.colors.background};
-  border: 2px solid ${({ theme, color }) => getCheckboxColor(theme, color) || theme.colors.tretiary[700]};
+  border: 2px solid ${({ theme, color }) => getCheckboxColor(theme, color) || theme.colors.tretiary['700']};
   border-radius: ${({ theme }) => theme.spacing.borderRadius.small}px;
   cursor: pointer;
   z-index: 2;
@@ -51,8 +51,8 @@ export const CheckboxWrap = styled('span')<CheckboxProps>`
     css`
       cursor: default;
       pointer-events: none;
-      border-color: ${({ theme }) => theme.colors.surface[400]};
-      color: ${({ theme }) => theme.colors.surface[400]};
+      border-color: ${({ theme }) => theme.colors.surface['400']};
+      color: ${({ theme }) => theme.colors.surface['400']};
     `}
 `;
 
