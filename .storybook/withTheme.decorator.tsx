@@ -13,6 +13,10 @@ const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.text};
     font-family: "Roboto Flex", sans-serif;
   }
+
+  * {
+    box-sizing: border-box;
+  }
 `;
 
 export const withTheme = (Story, context) => {

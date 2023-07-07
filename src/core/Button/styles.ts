@@ -84,13 +84,13 @@ const getButtonVariantStyle = (variant: ButtonVariant = 'primary') => {
     &:hover {
       background-color: ${({ theme }) => theme.colors.primary['700']};
     }
-    &:focus,
+    &:focus-visible,
     &:active {
       background-color: ${({ theme }) => theme.colors.primary['800']};
     }
     &:disabled {
       background-color: ${({ theme }) => theme.colors.primary['300']};
-      cursor: disabled;
+      cursor: not-allowed;
     }
   `;
 
@@ -110,7 +110,7 @@ const getButtonVariantStyle = (variant: ButtonVariant = 'primary') => {
         }
         &:disabled {
           background-color: ${({ theme }) => theme.colors.surface['300']};
-          cursor: disabled;
+          cursor: not-allowed;
         }
       `;
     default:
