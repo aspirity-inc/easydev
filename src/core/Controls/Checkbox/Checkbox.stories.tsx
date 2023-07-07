@@ -48,3 +48,11 @@ export const ControlledCheckbox = ({ ...args }) => {
     </div>
   );
 };
+
+ControlledCheckbox.parameters = {
+  docs: {
+    source: {
+      type: 'code',
+    },
+  },
+};

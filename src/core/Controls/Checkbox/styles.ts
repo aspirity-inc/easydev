@@ -3,8 +3,10 @@ import { ControlWrap, StyledInnerBase, StyledInput } from '@core/Controls/styles
 
 export const StyledCheckbox = styled(StyledInput)``;
 
-export const StyledCheckboxInner = styled(StyledInnerBase)`
-  font-size: 22px;
-`;
+export const StyledCheckboxInner = styled(StyledInnerBase)``;
 
-export const CheckboxWrap = styled(ControlWrap)``;
+export const CheckboxWrap = styled(ControlWrap)`
+  .check-mark {
+    font-size: 22px;
+  }
+`;

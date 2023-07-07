@@ -6,7 +6,7 @@ export const Checkbox = ({ disabled, defaultChecked, color, ...props }: ControlB
   return (
     <CheckboxWrap disabled={disabled} color={color}>
       <StyledCheckbox type="checkbox" disabled={disabled} defaultChecked={defaultChecked} {...props} />
-      <StyledCheckboxInner className="material-symbols-rounded">done</StyledCheckboxInner>
+      <StyledCheckboxInner className="material-symbols-rounded check-mark">done</StyledCheckboxInner>
     </CheckboxWrap>
   );
 };
