@@ -1,11 +1,11 @@
 import { Meta, StoryFn } from '@storybook/react';
-import { Checkbox } from './index.tsx';
+import { Radio } from './index.tsx';
 import { useState } from 'react';
 import { Button } from '@core/Button';
 
 export default {
-  title: 'Core/Controls/Checkbox',
-  component: Checkbox,
+  title: 'Core/Controls/Radio',
+  component: Radio,
   argTypes: {
     disabled: {
       type: 'boolean',
@@ -23,16 +23,16 @@ export default {
       description: 'colors presets: success | warning | error',
     },
   },
-} as Meta<typeof Checkbox>;
+} as Meta<typeof Radio>;
 
-const Template: StoryFn<typeof Checkbox> = ({ ...args }) => {
-  return <Checkbox {...args} />;
+const Template: StoryFn<typeof Radio> = ({ ...args }) => {
+  return <Radio {...args} />;
 };
 
-export const DefaultCheckbox = Template.bind({});
-DefaultCheckbox.args = {};
+export const DefaultRadio = Template.bind({});
+DefaultRadio.args = {};
 
-export const ControlledCheckbox = ({ ...args }) => {
+export const ControlledRadio = ({ ...args }) => {
   const [checked, setChecked] = useState(false);
 
   const handleButtonClick = () => {
@@ -41,9 +41,9 @@ export const ControlledCheckbox = ({ ...args }) => {
 
   return (
     <div>
-      <Checkbox checked={checked} {...args} />
+      <Radio checked={checked} {...args} />
       <Button size="sm" rounded="sm" onClick={handleButtonClick}>
-        Change checkbox
+        Change Radio
       </Button>
     </div>
   );
