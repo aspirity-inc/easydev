@@ -1,5 +1,5 @@
-export { Title } from '@core/Typography';
-export { Subtitle } from '@core/Typography';
+export { Title, Subtitle, Text } from '@core/Typography';
 export { Button } from '@core/Button';
-export { Text } from '@core/Typography';
 export { Input } from '@core/Input';
+export { Radio, ControlWithLabel, Toggle, Checkbox } from '@core/Controls';
+export { Space } from '@core/Space';
