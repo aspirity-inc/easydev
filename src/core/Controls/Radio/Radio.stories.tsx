@@ -41,7 +41,7 @@ export const ControlledRadio = ({ ...args }) => {
 
   return (
     <div>
-      <Radio checked={checked} {...args} />
+      <Radio checked={checked} readOnly {...args} />
       <Button size="sm" rounded="sm" onClick={handleButtonClick}>
         Change Radio
       </Button>

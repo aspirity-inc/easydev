@@ -41,7 +41,7 @@ export const ControlledCheckbox = ({ ...args }) => {
 
   return (
     <div>
-      <Checkbox checked={checked} {...args} />
+      <Checkbox checked={checked} readOnly {...args} />
       <Button size="sm" rounded="sm" onClick={handleButtonClick}>
         Change checkbox
       </Button>
