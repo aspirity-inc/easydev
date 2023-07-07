@@ -1,11 +1,10 @@
 import { Meta, StoryFn } from '@storybook/react';
-import { Radio } from './index.tsx';
+import { Toggle } from './index.tsx';
 import { useState } from 'react';
-import { Button } from '@core/Button';
 
 export default {
-  title: 'Core/Controls/Radio',
-  component: Radio,
+  title: 'Core/Controls/Toggle',
+  component: Toggle,
   argTypes: {
     disabled: {
       type: 'boolean',
@@ -23,32 +22,26 @@ export default {
       description: 'colors presets: success | warning | error',
     },
   },
-} as Meta<typeof Radio>;
+} as Meta<typeof Toggle>;
 
-const Template: StoryFn<typeof Radio> = ({ ...args }) => {
-  return <Radio {...args} />;
+const Template: StoryFn<typeof Toggle> = ({ ...args }) => {
+  return <Toggle {...args} />;
 };
 
-export const DefaultRadio = Template.bind({});
-DefaultRadio.args = {};
+export const DefaultToggle = Template.bind({});
+DefaultToggle.args = {};
 
-export const ControlledRadio = ({ ...args }) => {
+export const ControlledToggle = ({ ...args }) => {
   const [checked, setChecked] = useState(false);
 
-  const handleButtonClick = () => {
+  const handleChange = () => {
     setChecked((prevState) => !prevState);
   };
 
-  return (
-    <div>
-      <Radio checked={checked} readOnly {...args} />
-      <Button size="sm" rounded="sm" onClick={handleButtonClick}>
-        Change Radio
-      </Button>
-    </div>
-  );
+  return <Toggle checked={checked} onChange={handleChange} {...args} />;
 };
-ControlledRadio.parameters = {
+
+ControlledToggle.parameters = {
   docs: {
     source: {
       type: 'code',
