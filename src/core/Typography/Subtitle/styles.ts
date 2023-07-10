@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
+
 import { Box } from '@core/Box';
 import { getTypographyTypeStyles } from '@core/Typography/styles.ts';
 import { TypographyTypeProp } from '@core/Typography/types.ts';

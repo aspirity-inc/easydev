@@ -1,5 +1,6 @@
-import styled from 'styled-components';
-import { InputStatus, getStatusColor } from '../styles';
+import { styled } from 'styled-components';
+
+import { getStatusColor, InputStatus } from '../styles';
 
 type StatusProps = {
   $status: InputStatus;

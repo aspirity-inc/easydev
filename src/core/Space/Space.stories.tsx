@@ -1,6 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react';
-import { Space } from './';
+
 import { ControlWithLabel, Radio } from '@core/Controls';
+
+import { Space } from '.';
 
 export default {
   title: 'Core/Space',

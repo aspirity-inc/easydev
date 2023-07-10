@@ -1,6 +1,9 @@
 import { CSSProperties, ReactNode } from 'react';
-import { ButtonRounded, ButtonSize, ButtonVariant, RotateBox, StyledButton } from './styles';
+
 import 'material-symbols';
+
+import { RotateBox, StyledButton } from './styles';
+import type { ButtonRounded, ButtonSize, ButtonVariant } from './styles.ts';
 
 type ButtonProps = React.ComponentPropsWithoutRef<'button'> & {
   children?: ReactNode;

@@ -1,6 +1,7 @@
-import { StyledToggle, StyledToggleInner, ToggleWrap } from '@core/Controls/Toggle/styles.ts';
-import { ControlBasePropsType } from '@core/Controls/types.ts';
 import { cx } from '@linaria/core';
+
+import { StyledToggle, StyledToggleInner, ToggleWrap } from '@core/Controls/Toggle/styles.ts';
+import type { ControlBasePropsType } from '@core/Controls/types.ts';
 
 export const Toggle = ({ disabled, defaultChecked, color, ...props }: ControlBasePropsType) => {
   return (

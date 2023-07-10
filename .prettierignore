@@ -14,3 +14,4 @@ package-lock.json
 .storybook/
 node_modules/
 lefthook.yml
+.eslintrc.cjs

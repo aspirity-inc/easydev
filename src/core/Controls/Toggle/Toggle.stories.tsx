@@ -1,6 +1,8 @@
-import { Meta, StoryFn } from '@storybook/react';
-import { Toggle } from './index.tsx';
 import { useState } from 'react';
+
+import { Meta, StoryFn } from '@storybook/react';
+
+import { Toggle } from '.';
 
 export default {
   title: 'Core/Controls/Toggle',

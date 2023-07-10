@@ -1,8 +1,10 @@
 import { Meta, StoryFn } from '@storybook/react';
-import { ControlWithLabel } from './index.tsx';
+
 import { Checkbox, Radio } from '@core/Controls';
 import { Toggle } from '@core/Controls/Toggle';
 import { Space } from '@core/Space';
+
+import { ControlWithLabel } from '.';
 
 export default {
   title: 'Core/Controls/ControlWithLabel',

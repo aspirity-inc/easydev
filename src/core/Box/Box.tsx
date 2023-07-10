@@ -1,4 +1,5 @@
 import { createElement, CSSProperties, ReactNode } from 'react';
+
 import { cx } from '@linaria/core';
 
 type BoxProps = {
