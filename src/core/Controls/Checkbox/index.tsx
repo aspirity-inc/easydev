@@ -1,6 +1,7 @@
-import { CheckboxWrap, StyledCheckbox, StyledCheckboxInner } from '@core/Controls/Checkbox/styles.ts';
 import 'material-symbols';
-import { ControlBasePropsType } from '@core/Controls/types.ts';
+
+import { CheckboxWrap, StyledCheckbox, StyledCheckboxInner } from '@core/Controls/Checkbox/styles.ts';
+import type { ControlBasePropsType } from '@core/Controls/types.ts';
 
 export const Checkbox = ({ disabled, defaultChecked, color, ...props }: ControlBasePropsType) => {
   return (

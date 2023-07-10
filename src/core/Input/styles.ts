@@ -1,5 +1,6 @@
+import { css, styled } from 'styled-components';
+
 import { getTextBodyVariants } from '@core/Typography/Text/styles';
-import styled, { css } from 'styled-components';
 
 export type InputStatus = 'warning' | 'error' | 'loading' | 'success';
 

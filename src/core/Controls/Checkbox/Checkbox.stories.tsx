@@ -1,7 +1,10 @@
-import { Meta, StoryFn } from '@storybook/react';
-import { Checkbox } from './index.tsx';
 import { useState } from 'react';
+
+import { Meta, StoryFn } from '@storybook/react';
+
 import { Button } from '@core/Button';
+
+import { Checkbox } from '.';
 
 export default {
   title: 'Core/Controls/Checkbox',

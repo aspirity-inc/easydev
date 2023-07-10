@@ -1,4 +1,5 @@
-import styled, { css, DefaultTheme } from 'styled-components';
+import { css, DefaultTheme, styled } from 'styled-components';
+
 import { ControlColorType } from '@core/Controls/types.ts';
 
 type ControlProps = {

@@ -1,7 +1,10 @@
-import { Meta, StoryFn } from '@storybook/react';
-import { Radio } from './index.tsx';
 import { useState } from 'react';
+
+import { Meta, StoryFn } from '@storybook/react';
+
 import { Button } from '@core/Button';
+
+import { Radio } from '.';
 
 export default {
   title: 'Core/Controls/Radio',

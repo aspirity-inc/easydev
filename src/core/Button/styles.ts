@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import { css, keyframes, styled } from 'styled-components';
 
 export type ButtonSize = 'sm' | 'lg';
 export type ButtonRounded = 'sm' | 'lg';

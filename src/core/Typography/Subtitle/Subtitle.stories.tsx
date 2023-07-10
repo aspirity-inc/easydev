@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react';
+
 import { Subtitle } from './index.tsx';
 
 export default {

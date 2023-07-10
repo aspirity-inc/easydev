@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
-import { Input } from './Input.tsx';
+
+import { Input } from '.';
 
 export default {
   title: 'core/Input',

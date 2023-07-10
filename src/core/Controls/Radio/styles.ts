@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
+
 import { ControlWrap, getControlColor, StyledInnerBase, StyledInput } from '@core/Controls/styles.ts';
 
 export const StyledRadio = styled(StyledInput)``;
