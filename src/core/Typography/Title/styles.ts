@@ -1,8 +1,9 @@
 import { css, styled } from 'styled-components';
 
 import { Box } from '@core/Box';
-import { getTypographyTypeStyles } from '@core/Typography/styles.ts';
-import { TypographyTypeProp } from '@core/Typography/types.ts';
+
+import { getTypographyTypeStyles } from '../styles.ts';
+import { TypographyTypeProp } from '../types.ts';
 
 export type TitleVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
