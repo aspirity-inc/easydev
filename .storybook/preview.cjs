@@ -1,4 +1,5 @@
 import {withTheme} from './withTheme.decorator';
+import {darkTheme, lightTheme} from '../src/core/Theme';
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -8,7 +9,26 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  backgrounds: {
+    default: 'light',
+    values: [{name: 'light', value: lightTheme.colors.background}, {name: 'dark', value: darkTheme.colors.background}]
+  },
+  docs: {
+
+  },
 }
 
-
 export const decorators = [withTheme];
+
+export const globalTypes = {
+  theme: {
+    name: 'theme',
+    description: 'Select Theme',
+    defaultValue: 'light',
+    toolbar: {
+      icon: 'mirror',
+      items: ['light', 'dark'],
+      dynamicTitle: true
+    }
+  }
+}
