@@ -20,7 +20,6 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 export const withTheme = (Story, context) => {
-  console.log(context);
   const { theme } = context.globals;
 
   return (
