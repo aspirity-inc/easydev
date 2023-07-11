@@ -27,7 +27,7 @@ export default {
     variant: {
       type: 'string',
       control: 'select',
-      options: ['body', 'caption', 'tooltip', 'button'],
+      options: ['body', 'caption', 'tooltip', 'button', 'inputLabel'],
       table: { defaultValue: { summary: 'body' } },
     },
     ellipsis: {

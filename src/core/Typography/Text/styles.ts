@@ -5,7 +5,7 @@ import { Box } from '@core/Box';
 import { getTypographyTypeStyles } from '../styles.ts';
 import { TypographyTypeProp } from '../types.ts';
 
-export type TextVariant = 'body' | 'caption' | 'tooltip' | 'button';
+export type TextVariant = 'body' | 'caption' | 'tooltip' | 'button' | 'inputLabel';
 export type TextBodyLevel = 1 | 2 | 3 | 4;
 export type EllipsisType = { rows: number };
 type StyledTextType = {
@@ -74,6 +74,7 @@ const getEllipsisStyles = (ellipsis: EllipsisType) => {
 export const StyledText = styled(Box)<StyledTextType>`
   margin: 0;
   padding: 0;
+  ${baseLineHeight};
 
   ${({ variant, bodyLevel }) => {
     switch (variant) {
@@ -85,7 +86,6 @@ export const StyledText = styled(Box)<StyledTextType>`
           font-weight: 450;
           font-variation-settings: 'wdth' 131, 'GRAD' 0, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514,
             'YTUC' 712, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
-          ${baseLineHeight};
         `;
       case 'tooltip':
         return css`
@@ -93,7 +93,6 @@ export const StyledText = styled(Box)<StyledTextType>`
           font-weight: 200;
           font-variation-settings: 'wdth' 131, 'GRAD' 0, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514,
             'YTUC' 712, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
-          ${baseLineHeight};
         `;
       case 'button':
         return css`
@@ -103,7 +102,13 @@ export const StyledText = styled(Box)<StyledTextType>`
           text-transform: uppercase;
           font-variation-settings: 'wdth' 129, 'GRAD' 150, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514,
             'YTUC' 712, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
-          ${baseLineHeight};
+        `;
+      case 'inputLabel':
+        return css`
+          font-size: 16px;
+          font-weight: 450;
+          font-variation-settings: 'wdth' 131, 'GRAD' 0, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514,
+            'YTUC' 712, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
         `;
       default:
         return getTextBodyVariants(1);
