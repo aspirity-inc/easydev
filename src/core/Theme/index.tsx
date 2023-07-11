@@ -96,13 +96,38 @@ export const lightTheme = {
 export const darkTheme = {
   ...lightTheme,
   colors: {
-    background: '#1b1c1d',
-    backgroundInverse: '#333333',
-    positive: '#9fd986',
-    negative: '#df987d',
-    primary: '#d43369',
-    secondary: '#1b8bd0',
-    tretiary: '#DDDDDD',
-    text: '#FFFFFF',
+    primary: {
+      ...paletteGenerator('#6FE7C4'),
+    },
+    secondary: {
+      ...paletteGenerator('#00C2E2'),
+    },
+    surface: {
+      ...paletteGenerator('#766D7E'),
+    },
+    tretiary: {
+      ...paletteGenerator('#AD9AF9'),
+    },
+    success: {
+      ...paletteGenerator('#8BC34A'),
+    },
+    error: {
+      ...paletteGenerator('#F44336'),
+    },
+    warning: {
+      ...paletteGenerator('#FF9800'),
+    },
+    link: {
+      ...paletteGenerator('#7ECEFF'),
+    },
+    background: '#232329',
+    text: '#EFEFEF',
+    icon: '#898290',
+  },
+  shadows: {
+    gray: 'box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.25)',
+    blue: 'box-shadow: 0 0 6px 0 rgba(76, 197, 255, 0.65)',
+    violet: '0 0 11px 0 #1F034C',
+    violet_light: '0 2px 18px 0 rgba(19, 9, 33, 0.45)',
   },
 };
