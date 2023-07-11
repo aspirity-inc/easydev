@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 
-import { Title } from './index.tsx';
+import { Title } from '.';
 
 export default {
   title: 'Typography/Title',

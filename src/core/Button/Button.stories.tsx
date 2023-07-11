@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 
 import 'material-symbols';
 
-import { Button } from './Button.tsx';
+import { Button } from '.';
 
 const AddIcon = () => <div className="material-symbols-rounded">add</div>;
 const LoaderIcon = () => <div className="material-symbols-rounded">refresh</div>;
