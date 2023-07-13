@@ -1,22 +1,9 @@
-import { css, styled } from 'styled-components';
+import { styled, css } from 'styled-components';
 
+import { Text } from '@core/Typography';
 import { getTextBodyVariants } from '@core/Typography/Text/styles';
 
-export type InputStatus = 'warning' | 'error' | 'loading' | 'success';
-
-type InputProps = {
-  $filled: boolean;
-  $showLabel: boolean;
-  $status?: InputStatus;
-};
-
-type LabelProps = {
-  $filled: boolean;
-};
-
-type StatusProps = {
-  $status?: InputStatus;
-};
+import { InputBaseStatus, InputProps, LabelProps, StatusProps } from './types';
 
 export const IconWrapper = styled('div')`
   position: absolute;
@@ -27,41 +14,40 @@ export const IconWrapper = styled('div')`
 
 export const StyledInputWrapper = styled('div')`
   position: relative;
-  width: 284px;
   height: 56px;
 `;
 
 export const StyledInput = styled('input')<InputProps>`
   box-sizing: border-box;
-  width: 100%;
   height: 100%;
-  padding: 8px 16px;
+  padding: 8px 60px 8px 16px;
   padding-top: ${({ $showLabel }) => ($showLabel ? '24px' : '8px')};
 
   color: ${({ theme }) => theme.colors.surface['900']};
   ${getTextBodyVariants(2)};
 
-  border: 0;
+  border: 1px solid transparent;
   border-radius: 8px;
   ${({ $filled }) => getBackgroundColor($filled)};
-  ${({ $filled, $status }) => getBorder($filled, $status || 'default')};
+  ${({ $filled, $status }) => ($status ? getStatusBorder($status) : getDefaultBorder($filled))};
   ${({ theme }) => getInputTransition(theme.transition.default)};
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.surface['600']};
+    transition: opacity ${({ theme }) => theme.transition.default};
+    opacity: ${({ $showLabel }) => ($showLabel ? 1 : 0)};
   }
 
   // States
   &:hover:not([disabled]) {
     background-color: ${({ theme }) => theme.colors.surface['50']};
-    border: 1px solid ${({ theme }) => theme.colors.secondary['300']};
+    border-color: ${({ theme }) => theme.colors.secondary['300']};
     ${({ theme }) => theme.shadows.blue};
   }
 
   &:focus:not([disabled]) {
     outline: 0;
     background-color: ${({ theme }) => theme.colors.surface['50']};
-    border: 1px solid ${({ theme }) => theme.colors.secondary['400']};
+    border-color: ${({ theme, $status }) => ($status ? getStatusBorder($status) : theme.colors.secondary['400'])};
     ${({ theme }) => theme.shadows.blue};
   }
 
@@ -70,14 +56,40 @@ export const StyledInput = styled('input')<InputProps>`
 
 export const StyledLabel = styled('label')<LabelProps>`
   position: absolute;
-  top: 8px;
   left: 16px;
-  color: ${({ theme }) => theme.colors.surface['600']};
+  top: 50%;
   user-select: none;
+  color: ${({ theme }) => theme.colors.surface['600']};
+  transition: transform ${({ theme }) => theme.transition.default};
+
+  ${({ $showAsLabel }) => {
+    return $showAsLabel
+      ? css`
+          transform: translateY(-18px);
+        `
+      : css`
+          transform: translateY(-50%);
+        `;
+  }};
+`;
+
+export const StyledLabelText = styled(Text)<LabelProps>`
+  display: block;
+  transform-origin: center left;
+  transition: transform ${({ theme }) => theme.transition.default};
+
+  ${({ $showAsLabel }) => {
+    return (
+      !$showAsLabel &&
+      css`
+        transform: scale(1.33, 1.33);
+      `
+    );
+  }};
 `;
 
 export const StyledStatus = styled('div')<StatusProps>`
-  margin-top: 8px;
+  color: ${({ theme }) => theme.colors.surface['600']};
 
   &::first-letter {
     text-transform: uppercase;
@@ -86,31 +98,45 @@ export const StyledStatus = styled('div')<StatusProps>`
   ${({ $status }) => $status && getStatusColor($status)};
 `;
 
-const getBorder = (filled: boolean, status: string) => {
+export const StyledMessageWrapper = styled('div')`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+`;
+
+export const StyledExtraMessage = styled('div')`
+  color: ${({ theme }) => theme.colors.surface['600']};
+`;
+
+const getStatusBorder = (status: InputBaseStatus) => {
   switch (status) {
     case 'warning':
       return css`
-        border: 1px solid ${({ theme }) => theme.colors.warning['500']};
+        border-color: ${({ theme }) => theme.colors.warning['500']};
       `;
     case 'error':
       return css`
-        border: 1px solid ${({ theme }) => theme.colors.error['500']};
+        border-color: ${({ theme }) => theme.colors.error['500']};
       `;
     case 'loading':
       return css`
-        border: 1px solid ${({ theme }) => theme.colors.secondary['500']};
+        border-color: ${({ theme }) => theme.colors.secondary['500']};
       `;
     case 'success':
       return css`
-        border: 1px solid ${({ theme }) => theme.colors.success['500']};
+        border-color: ${({ theme }) => theme.colors.success['500']};
       `;
     default:
-      return filled
-        ? css`
-            border: 1px solid ${({ theme }) => theme.colors.secondary['400']};
-          `
-        : css``;
+      return css``;
   }
+};
+
+const getDefaultBorder = (filled: boolean) => {
+  return filled
+    ? css`
+        border-color: ${({ theme }) => theme.colors.secondary['400']};
+      `
+    : css``;
 };
 
 const getBackgroundColor = ($filled: boolean) => {
@@ -129,7 +155,7 @@ const getDisabledState = ($filled: boolean) => {
         &:disabled {
           background-color: ${({ theme }) => theme.colors.surface['50']};
           color: ${({ theme }) => theme.colors.surface['500']};
-          border: 1px solid ${({ theme }) => theme.colors.surface['300']};
+          border-color: ${({ theme }) => theme.colors.surface['300']};
           cursor: default;
         }
       `
@@ -145,17 +171,34 @@ const getDisabledState = ($filled: boolean) => {
       `;
 };
 
-export const StyledWrapper = styled('div')`
-  ${StyledInput}:disabled + ${StyledLabel} {
-    color: ${({ theme }) => theme.colors.surface['500']};
-  }
+export const StyledWrapper = styled('div')<{ $disabled: boolean }>`
+  width: fit-content;
+
+  ${({ $disabled }) => {
+    return (
+      $disabled &&
+      css`
+        ${StyledLabel} {
+          color: ${({ theme }) => theme.colors.surface['500']};
+        }
+
+        ${StyledStatus} {
+          color: ${({ theme }) => theme.colors.surface['500']};
+        }
+
+        ${IconWrapper} {
+          cursor: default;
+        }
+      `
+    );
+  }}
 `;
 
 const getInputTransition = (transitionValue: string) => css`
   transition: background-color ${transitionValue}, border-color ${transitionValue}, box-shadow ${transitionValue};
 `;
 
-export const getStatusColor = (status: InputStatus) => {
+export const getStatusColor = (status: InputBaseStatus) => {
   switch (status) {
     case 'warning':
       return css`

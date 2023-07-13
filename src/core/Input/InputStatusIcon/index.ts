@@ -1,1 +1,0 @@
-export { InputStatusIcon } from './InputStatusIcon';
