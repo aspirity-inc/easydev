@@ -1,8 +1,8 @@
-import { IconWrapper } from '@core/Inputs/styles';
 import { IconsProps, InputBaseStatus } from '@core/Inputs/types';
 
 import { InputStatusIcon } from './InputStatusIcon';
 import { PasswordToggle } from './PasswordToggle';
+import { IconWrapper } from '../styles';
 
 export type InputIconProps = {
   type?: string;

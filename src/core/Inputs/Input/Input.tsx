@@ -1,19 +1,17 @@
 import React, { CSSProperties, useState } from 'react';
 
-import { Text } from '@core/Typography';
-
-import { InputIcon } from './InputIcon';
+import { InputIcon } from '@core/Inputs/Input/InputIcon';
 import {
   StyledExtraMessage,
   StyledInput,
   StyledInputWrapper,
-  StyledLabel,
-  StyledLabelText,
   StyledMessageWrapper,
   StyledStatus,
   StyledWrapper,
-} from '../styles';
-import { IconsProps } from '../types';
+} from '@core/Inputs/Input/styles';
+import { StyledLabel, StyledLabelText } from '@core/Inputs/styles';
+import { IconsProps } from '@core/Inputs/types';
+import { Text } from '@core/Typography';
 
 export type InputProps = React.ComponentPropsWithoutRef<'input'> & {
   className?: string;

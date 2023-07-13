@@ -2,12 +2,6 @@ import { ReactNode } from 'react';
 
 export type InputBaseStatus = 'warning' | 'error' | 'loading' | 'success';
 
-export type InputProps = {
-  $filled: boolean;
-  $showLabel: boolean;
-  $status?: InputBaseStatus;
-};
-
 export type LabelProps = {
   $showAsLabel: boolean;
 };
@@ -15,6 +9,13 @@ export type LabelProps = {
 export type StatusProps = {
   $status?: InputBaseStatus;
 };
+
+export type InputsBaseProps = {
+  $filled: boolean;
+  $showLabel: boolean;
+};
+
+export type InputProps = InputsBaseProps & StatusProps;
 
 export type IconsProps = {
   warningIcon?: ReactNode;
