@@ -30,7 +30,7 @@ export const getBaseInputStyles = ($showLabel: boolean, $filled: boolean) => {
       ${({ theme }) => theme.shadows.blue};
     }
 
-    &:focus:not([disabled]) {
+    &:focus-visible:not([disabled]) {
       outline: 0;
       background-color: ${({ theme }) => theme.colors.surface['50']};
       ${({ theme }) => theme.shadows.blue};

@@ -31,7 +31,7 @@ export const StyledTextarea = styled('textarea')<InputsBaseProps>`
   ${({ $filled }) => getDefaultBorder($filled)};
 
   // States
-  &:focus:not([disabled]) {
+  &:focus-visible:not([disabled]) {
     border-color: ${({ theme }) => theme.colors.secondary['400']};
   }
 `;

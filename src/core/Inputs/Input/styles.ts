@@ -27,7 +27,7 @@ export const StyledInput = styled('input')<InputProps>`
   ${({ $filled, $status }) => ($status ? getStatusBorder($status) : getDefaultBorder($filled))};
 
   // States
-  &:focus:not([disabled]) {
+  &:focus-visible:not([disabled]) {
     border-color: ${({ theme, $status }) => ($status ? getStatusBorder($status) : theme.colors.secondary['400'])};
   }
 `;
