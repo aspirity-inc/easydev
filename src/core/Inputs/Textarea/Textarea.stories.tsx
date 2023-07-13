@@ -23,10 +23,26 @@ export default {
       control: 'text',
       description: 'Подсказка',
     },
-    maxCharactersNumber: {
+    showLimit: {
+      type: 'boolean',
+      control: 'boolean',
+      table: { defaultValue: { summary: true } },
+    },
+    autoresized: {
+      type: 'boolean',
+      control: 'boolean',
+      table: { defaultValue: { summary: true } },
+    },
+    softLimit: {
+      type: 'boolean',
+      control: 'boolean',
+      table: { defaultValue: { summary: false } },
+    },
+    maxLength: {
       type: 'number',
       control: 'number',
       description: 'Максимально допустимое кол-во символов',
+      table: { defaultValue: { summary: 1000 } },
     },
     className: {
       description: 'Любой CSS класс для дополнительной стилизации',

@@ -16,15 +16,20 @@ type TextareaProps = React.ComponentPropsWithoutRef<'textarea'> & {
   id: string;
   placeholder?: string;
   label: string;
-  maxCharactersNumber?: number;
+  showLimit?: boolean;
+  autoresized?: boolean;
+  softLimit?: boolean;
 };
 
 export const Textarea = ({
   id,
   label,
   value,
-  maxCharactersNumber = 1000,
+  maxLength = 1000,
   disabled,
+  showLimit = true,
+  autoresized = true,
+  softLimit = false,
   onChange,
   onBlur,
   onFocus,
@@ -38,7 +43,7 @@ export const Textarea = ({
   const showAsLabel = Boolean(label) && (isFocused || filled);
 
   useEffect(() => {
-    if (ref.current) {
+    if (autoresized && ref.current) {
       ref.current.style.height = '0px';
       const scrollHeight = ref.current.scrollHeight;
       ref.current.style.height = scrollHeight + 'px';
@@ -57,7 +62,7 @@ export const Textarea = ({
 
   const calcCharactersNumber = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCharactersNumber(e.target.value.length);
-    e.target.value.length > maxCharactersNumber ? setIsOverflow(true) : setIsOverflow(false);
+    e.target.value.length > maxLength ? setIsOverflow(true) : setIsOverflow(false);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -80,16 +85,18 @@ export const Textarea = ({
         onBlur={handleBlur}
         onChange={handleChange}
         disabled={disabled}
+        maxLength={!softLimit ? maxLength : undefined}
         {...props}
         $filled={filled}
         $showLabel={showAsLabel}
       />
-      <StyledCounter>
-        <Text tag="p" variant="caption">
-          <StyledCharactersNumber $isOverflow={isOverflow}>{charactersNumber}</StyledCharactersNumber>/
-          {maxCharactersNumber}
-        </Text>
-      </StyledCounter>
+      {showLimit && (
+        <StyledCounter>
+          <Text tag="p" variant="caption">
+            <StyledCharactersNumber $isOverflow={isOverflow}>{charactersNumber}</StyledCharactersNumber>/{maxLength}
+          </Text>
+        </StyledCounter>
+      )}
     </StyledWrapper>
   );
 };
