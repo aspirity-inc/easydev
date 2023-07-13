@@ -22,7 +22,7 @@ export const getBaseInputStyles = ($filled: boolean) => {
       opacity: 0;
     }
 
-    &:focus::placeholder {
+    &:focus-visible::placeholder {
       transition: opacity ${({ theme }) => theme.transition.default};
       opacity: 1;
     }

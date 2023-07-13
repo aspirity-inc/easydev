@@ -11,6 +11,7 @@ export type InputsBaseProps = {
 };
 
 export type InputProps = InputsBaseProps & StatusProps;
+export type TextareaProps = InputsBaseProps & { $autoresized: boolean };
 
 export type IconsProps = {
   warningIcon?: ReactNode;

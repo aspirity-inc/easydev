@@ -33,7 +33,7 @@ export const StyledInputLabel = styled('label')`
   display: block;
   height: 56px;
 
-  &:has(${StyledInput}:focus) ${StyledLabelText} {
+  &:has(${StyledInput}:focus-visible) ${StyledLabelText} {
     transform: scale(0.8) translateY(-22px);
   }
 
