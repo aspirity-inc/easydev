@@ -1,10 +1,10 @@
 import { styled, css } from 'styled-components';
 
-import { InputBaseStatus, LabelProps } from '@core/Inputs/types';
+import { InputBaseStatus } from '@core/Inputs/types';
 import { Text } from '@core/Typography';
 import { getTextBodyVariants } from '@core/Typography/Text/styles';
 
-export const getBaseInputStyles = ($showLabel: boolean, $filled: boolean) => {
+export const getBaseInputStyles = ($filled: boolean) => {
   return css`
     box-sizing: border-box;
     height: 100%;
@@ -18,9 +18,13 @@ export const getBaseInputStyles = ($showLabel: boolean, $filled: boolean) => {
     ${getBackgroundColor($filled)};
     ${({ theme }) => getInputTransition(theme.transition.default)};
 
-    &::placeholder {
+    &:placeholder-shown::placeholder {
+      opacity: 0;
+    }
+
+    &:focus::placeholder {
       transition: opacity ${({ theme }) => theme.transition.default};
-      opacity: ${$showLabel ? 1 : 0};
+      opacity: 1;
     }
 
     // States
@@ -40,38 +44,15 @@ export const getBaseInputStyles = ($showLabel: boolean, $filled: boolean) => {
   `;
 };
 
-export const StyledLabel = styled('label')<LabelProps>`
+export const StyledLabelText = styled(Text)`
   position: absolute;
   left: 16px;
   top: 50%;
   user-select: none;
+  transform-origin: center left;
   color: ${({ theme }) => theme.colors.surface['600']};
   transition: transform ${({ theme }) => theme.transition.default};
-
-  ${({ $showAsLabel }) => {
-    return $showAsLabel
-      ? css`
-          transform: translateY(-18px);
-        `
-      : css`
-          transform: translateY(-50%);
-        `;
-  }};
-`;
-
-export const StyledLabelText = styled(Text)<LabelProps>`
-  display: block;
-  transform-origin: center left;
-  transition: transform ${({ theme }) => theme.transition.default};
-
-  ${({ $showAsLabel }) => {
-    return (
-      !$showAsLabel &&
-      css`
-        transform: scale(1.33, 1.33);
-      `
-    );
-  }};
+  transform: translateY(-50%);
 `;
 
 export const getStatusBorder = (status: InputBaseStatus) => {

@@ -26,16 +26,19 @@ export default {
     showLimit: {
       type: 'boolean',
       control: 'boolean',
+      description: 'Показать/скрыть ограничения на ввод',
       table: { defaultValue: { summary: true } },
     },
     autoresized: {
       type: 'boolean',
       control: 'boolean',
+      description: 'Включить/выключить автоматическое изменение высоты',
       table: { defaultValue: { summary: true } },
     },
     softLimit: {
       type: 'boolean',
       control: 'boolean',
+      description: 'Включить/выключить мягкое ограничение',
       table: { defaultValue: { summary: false } },
     },
     maxLength: {

@@ -1,17 +1,18 @@
 import { styled, css } from 'styled-components';
 
-import { StyledLabel, getBaseInputStyles, getDefaultBorder } from '@core/Inputs/styles';
+import { StyledLabelText, getBaseInputStyles, getDefaultBorder } from '@core/Inputs/styles';
 import { InputsBaseProps } from '@core/Inputs/types';
+import { Text } from '@core/Typography';
 
-export const StyledWrapper = styled('div')<{ $disabled: boolean }>`
-  position: relative;
+export const StyledTextareaWrapper = styled('div')<{ $disabled: boolean }>`
   width: fit-content;
 
   ${({ $disabled }) => {
     return (
       $disabled &&
       css`
-        ${StyledLabel} {
+        ${StyledLabelText},
+        ${StyledCounterText} {
           color: ${({ theme }) => theme.colors.surface['500']};
         }
       `
@@ -19,8 +20,12 @@ export const StyledWrapper = styled('div')<{ $disabled: boolean }>`
   }}
 `;
 
+export const StyledTextareaLabelText = styled(StyledLabelText)`
+  top: 30px;
+`;
+
 export const StyledTextarea = styled('textarea')<InputsBaseProps>`
-  ${({ $showLabel, $filled }) => getBaseInputStyles($showLabel, $filled)};
+  ${({ $filled }) => getBaseInputStyles($filled)};
 
   display: block;
   min-height: 100px;
@@ -36,29 +41,24 @@ export const StyledTextarea = styled('textarea')<InputsBaseProps>`
   }
 `;
 
-export const StyledTextareaLabel = styled(StyledLabel)`
-  top: 26px;
+export const StyledTextareaLabel = styled('label')`
+  position: relative;
+  display: block;
 
-  ${({ $showAsLabel }) => {
-    return $showAsLabel
-      ? css`
-          transform: translateY(-12px);
-        `
-      : css`
-          transform: translateY(0);
-        `;
-  }};
+  &:has(${StyledTextarea}:focus) ${StyledTextareaLabelText} {
+    transform: scale(0.8) translateY(-22px);
+  }
+
+  &:has(${StyledTextarea}:not(:placeholder-shown)) ${StyledTextareaLabelText} {
+    transform: scale(0.8) translateY(-22px);
+  }
 `;
 
-export const StyledCounter = styled('div')`
+export const StyledCounterText = styled(Text)`
   width: 100%;
   text-align: end;
   margin-top: 8px;
   color: ${({ theme }) => theme.colors.surface['600']};
-
-  ${StyledTextarea}:disabled & {
-    color: ${({ theme }) => theme.colors.surface['500']};
-  }
 `;
 
 export const StyledCharactersNumber = styled('span')<{ $isOverflow: boolean }>`

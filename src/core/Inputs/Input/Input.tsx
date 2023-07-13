@@ -4,20 +4,18 @@ import { InputIcon } from '@core/Inputs/Input/InputIcon';
 import {
   StyledExtraMessage,
   StyledInput,
-  StyledInputWrapper,
+  StyledInputLabel,
   StyledMessageWrapper,
   StyledStatus,
-  StyledWrapper,
+  StyledInputWrapper,
 } from '@core/Inputs/Input/styles';
-import { StyledLabel, StyledLabelText } from '@core/Inputs/styles';
+import { StyledLabelText } from '@core/Inputs/styles';
 import { IconsProps } from '@core/Inputs/types';
-import { Text } from '@core/Typography';
 
 export type InputProps = React.ComponentPropsWithoutRef<'input'> & {
   className?: string;
   style?: CSSProperties;
   label: string;
-  id: string;
   error?: string;
   warning?: string;
   message?: string;
@@ -28,7 +26,6 @@ export type InputProps = React.ComponentPropsWithoutRef<'input'> & {
 
 export const Input = ({
   type = 'text',
-  id,
   label,
   value,
   error,
@@ -37,26 +34,10 @@ export const Input = ({
   isLoading,
   icons,
   disabled,
-  onBlur,
-  onFocus,
   renderExtraMessage,
   ...props
 }: InputProps) => {
-  const [isFocused, setIsFocused] = useState(false);
   const [isHidePassword, setIsHidePassword] = useState(true);
-  const filled = Boolean(value);
-  const showAsLabel = Boolean(label) && (isFocused || filled);
-
-  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
-    setIsFocused(true);
-    if (onFocus) onFocus(event);
-  };
-
-  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    setIsFocused(false);
-    if (onBlur) onBlur(event);
-  };
-
   const onToggle = () => {
     setIsHidePassword((prev) => !prev);
   };
@@ -80,23 +61,17 @@ export const Input = ({
   };
 
   return (
-    <StyledWrapper $disabled={disabled || false}>
-      <StyledInputWrapper>
-        <StyledLabel $showAsLabel={showAsLabel} htmlFor={id}>
-          <StyledLabelText $showAsLabel={showAsLabel} variant="caption">
-            {label}
-          </StyledLabelText>
-        </StyledLabel>
+    <StyledInputWrapper $disabled={disabled || false}>
+      <StyledInputLabel>
+        <StyledLabelText tag="p" variant="inputLabel">
+          {label}
+        </StyledLabelText>
         <StyledInput
-          id={id}
           type={getInputType()}
           value={value}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
           disabled={disabled}
           {...props}
-          $filled={filled}
-          $showLabel={showAsLabel}
+          $filled={Boolean(value)}
           $status={getInputStatus()}
         />
         <InputIcon
@@ -107,16 +82,16 @@ export const Input = ({
           isHidePassword={isHidePassword}
           onToggle={onToggle}
         />
-      </StyledInputWrapper>
+      </StyledInputLabel>
 
       <StyledMessageWrapper>
-        <StyledStatus $status={getInputStatus()}>
-          <Text tag="p" variant="caption">
-            {getInputMessage()}
-          </Text>
+        <StyledStatus $status={getInputStatus()} tag="p" variant="caption">
+          {getInputMessage()}
         </StyledStatus>
-        <StyledExtraMessage>{renderExtraMessage && renderExtraMessage()}</StyledExtraMessage>
+        <StyledExtraMessage tag="p" variant="caption">
+          {renderExtraMessage && renderExtraMessage()}
+        </StyledExtraMessage>
       </StyledMessageWrapper>
-    </StyledWrapper>
+    </StyledInputWrapper>
   );
 };

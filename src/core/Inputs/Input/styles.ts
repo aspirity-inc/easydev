@@ -1,13 +1,14 @@
 import { styled, css } from 'styled-components';
 
 import {
-  StyledLabel,
+  StyledLabelText,
   getBaseInputStyles,
   getDefaultBorder,
   getStatusBorder,
   getStatusColor,
 } from '@core/Inputs/styles';
 import { InputProps, StatusProps } from '@core/Inputs/types';
+import { Text } from '@core/Typography';
 
 export const IconWrapper = styled('div')`
   position: absolute;
@@ -16,13 +17,8 @@ export const IconWrapper = styled('div')`
   transform: translateY(-50%);
 `;
 
-export const StyledInputWrapper = styled('div')`
-  position: relative;
-  height: 56px;
-`;
-
 export const StyledInput = styled('input')<InputProps>`
-  ${({ $showLabel, $filled }) => getBaseInputStyles($showLabel, $filled)};
+  ${({ $filled }) => getBaseInputStyles($filled)};
 
   ${({ $filled, $status }) => ($status ? getStatusBorder($status) : getDefaultBorder($filled))};
 
@@ -32,7 +28,21 @@ export const StyledInput = styled('input')<InputProps>`
   }
 `;
 
-export const StyledStatus = styled('div')<StatusProps>`
+export const StyledInputLabel = styled('label')`
+  position: relative;
+  display: block;
+  height: 56px;
+
+  &:has(${StyledInput}:focus) ${StyledLabelText} {
+    transform: scale(0.8) translateY(-22px);
+  }
+
+  &:has(${StyledInput}:not(:placeholder-shown)) ${StyledLabelText} {
+    transform: scale(0.8) translateY(-22px);
+  }
+`;
+
+export const StyledStatus = styled(Text)<StatusProps>`
   color: ${({ theme }) => theme.colors.surface['600']};
 
   &::first-letter {
@@ -48,21 +58,18 @@ export const StyledMessageWrapper = styled('div')`
   margin-top: 8px;
 `;
 
-export const StyledExtraMessage = styled('div')`
+export const StyledExtraMessage = styled(Text)`
   color: ${({ theme }) => theme.colors.surface['600']};
 `;
 
-export const StyledWrapper = styled('div')<{ $disabled: boolean }>`
+export const StyledInputWrapper = styled('div')<{ $disabled: boolean }>`
   width: fit-content;
 
   ${({ $disabled }) => {
     return (
       $disabled &&
       css`
-        ${StyledLabel} {
-          color: ${({ theme }) => theme.colors.surface['500']};
-        }
-
+        ${StyledLabelText},
         ${StyledStatus} {
           color: ${({ theme }) => theme.colors.surface['500']};
         }
