@@ -15,6 +15,7 @@ const paletteGenerator = (color: string) => ({
 });
 
 export const lightTheme = {
+  type: 'light',
   colors: {
     primary: {
       ...paletteGenerator('#4CE1B6'),
@@ -38,7 +39,7 @@ export const lightTheme = {
       ...paletteGenerator('#FF9A00'),
     },
     link: {
-      ...paletteGenerator('#007AFF'),
+      ...paletteGenerator('#0045E6'),
     },
     background: '#FFFFFF',
     text: '#000000',
@@ -95,6 +96,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   ...lightTheme,
+  type: 'dark',
   colors: {
     primary: {
       ...paletteGenerator('#6FE7C4'),
