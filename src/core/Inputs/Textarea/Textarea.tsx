@@ -25,7 +25,6 @@ export const Textarea = ({
   value,
   maxCharactersNumber = 1000,
   disabled,
-  rows = 1,
   onChange,
   onBlur,
   onFocus,
@@ -74,7 +73,6 @@ export const Textarea = ({
         </StyledLabelText>
       </StyledTextareaLabel>
       <StyledTextarea
-        rows={rows}
         id={id}
         ref={ref}
         value={value}

@@ -23,7 +23,7 @@ export const StyledTextarea = styled('textarea')<InputsBaseProps>`
   ${({ $showLabel, $filled }) => getBaseInputStyles($showLabel, $filled)};
 
   display: block;
-  min-height: 68px;
+  min-height: 100px;
   padding: 32px 16px 16px;
   resize: none;
   overflow-y: hidden;
