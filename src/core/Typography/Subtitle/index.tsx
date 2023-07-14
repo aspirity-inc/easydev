@@ -2,13 +2,13 @@ import { StyledSubtitle, SubtitleLevelType } from '@core/Typography/Subtitle/sty
 import { TypographyBaseType } from '@core/Typography/types.ts';
 
 type SubtitleProps = TypographyBaseType & {
-  tag: keyof Pick<HTMLElementTagNameMap, 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div'>;
+  tag?: keyof Pick<HTMLElementTagNameMap, 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'>;
   level?: SubtitleLevelType;
 };
 
-export const Subtitle = ({ children, tag, className, type, level, ...props }: SubtitleProps) => {
+export const Subtitle = ({ children, tag, ...props }: SubtitleProps) => {
   return (
-    <StyledSubtitle tag={tag} className={className} type={type} level={level || 1} {...props}>
+    <StyledSubtitle tag={tag || 'h4'} {...props}>
       {children}
     </StyledSubtitle>
   );

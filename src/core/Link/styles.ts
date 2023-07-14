@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import { getTextBodyVariants } from '@core/Typography/Text/styles.ts';
+import { getTextVariants } from '@core/Typography/Text/styles.ts';
 
 export type StyledLinkPropsType = {
   disabled?: boolean;
@@ -10,7 +10,7 @@ export type StyledLinkPropsType = {
 export const StyledLink = styled('a')<StyledLinkPropsType>`
   --hoverColor: ${({ theme }) => (theme.type === 'light' ? theme.colors.link['300'] : theme.colors.link['400'])};
   --transition: ${({ theme }) => theme.transition.default};
-  ${getTextBodyVariants(2)}
+  ${getTextVariants('body2')}
 
   ${({ defaultUnderline }) =>
     css`

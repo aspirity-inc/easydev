@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import { Text } from '.';
 
 export default {
-  title: 'Typography/Text',
+  title: 'Core/Typography/Text',
   component: Text,
   argTypes: {
     tag: {
@@ -12,35 +12,28 @@ export default {
       control: {
         type: 'select',
       },
-      options: ['p', 'span', 'div'],
+      options: ['p', 'span'],
       table: {
-        defaultValue: { summary: 'span' },
+        defaultValue: { summary: 'p' },
       },
-    },
-    bodyLevel: {
-      type: 'number',
-      description: 'Size of subheading element. Only works if variant = body',
-      control: 'select',
-      options: [1, 2, 3, 4],
-      table: { defaultValue: { summary: 1 } },
     },
     variant: {
       type: 'string',
       control: 'select',
-      options: ['body', 'caption', 'tooltip', 'button', 'inputLabel'],
-      table: { defaultValue: { summary: 'body' } },
+      options: ['body1', 'body2', 'body3', 'body4', 'caption', 'tooltip'],
+      table: { defaultValue: { summary: 'body1' } },
     },
     ellipsis: {
       type: { name: 'object', value: { raw: Object } },
       description: '{ rows: number }',
     },
-    type: {
+    color: {
       type: 'string',
-      description: 'Content type',
-      control: {
-        type: 'select',
-      },
-      options: ['success', 'warning', 'error'],
+      control: { type: 'color' },
+    },
+    bgColor: {
+      type: 'string',
+      control: { type: 'color' },
     },
     className: {},
     style: {},
@@ -59,13 +52,7 @@ DefaultText.args = {
 export const TextWithStyle = Template.bind({});
 TextWithStyle.args = {
   children: 'EasyDev the greatest',
-  style: { color: 'violet' },
-};
-
-export const WarningText = Template.bind({});
-WarningText.args = {
-  children: 'EasyDev the greatest',
-  type: 'warning',
+  style: { fontStyle: 'italic' },
 };
 
 export const EllipsisText = Template.bind({});

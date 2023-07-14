@@ -2,16 +2,12 @@ import { css, styled } from 'styled-components';
 
 import { Box } from '@core/Box';
 
-import { getTypographyTypeStyles } from '../styles.ts';
-import { TypographyTypeProp } from '../types.ts';
+import type { TypographyBaseType } from '../types.ts';
 
-export type TextVariant = 'body' | 'caption' | 'tooltip' | 'button' | 'inputLabel';
-export type TextBodyLevel = 1 | 2 | 3 | 4;
+export type TextVariant = 'body1' | 'body2' | 'body3' | 'body4' | 'caption';
 export type EllipsisType = { rows: number };
-type StyledTextType = {
+type StyledTextType = Pick<TypographyBaseType, 'color' | 'bgColor'> & {
   variant?: TextVariant;
-  type?: TypographyTypeProp;
-  bodyLevel?: TextBodyLevel;
   ellipsis?: EllipsisType;
 };
 
@@ -19,44 +15,47 @@ const baseLineHeight = css`
   line-height: 1.2;
 `;
 
-export const getTextBodyVariants = (level?: TextBodyLevel) => {
-  const defaultLevel = css`
+export const getTextVariants = (variant?: TextVariant) => {
+  const defaultVariant = css`
     font-size: 18px;
     font-weight: 140;
     font-variation-settings: 'wdth' 108, 'GRAD' 0, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514, 'YTUC' 712,
       'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
-    ${baseLineHeight};
   `;
 
-  switch (level) {
-    case 1:
-      return defaultLevel;
-    case 2:
+  switch (variant) {
+    case 'body1':
+      return defaultVariant;
+    case 'body2':
       return css`
         font-size: 16px;
         font-weight: 125;
         font-variation-settings: 'wdth' 110, 'GRAD' 0, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514,
           'YTUC' 712, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
-        ${baseLineHeight};
       `;
-    case 3:
+    case 'body3':
       return css`
         font-size: 14px;
         font-weight: 130;
         font-variation-settings: 'wdth' 108, 'GRAD' 0, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514,
           'YTUC' 712, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
-        ${baseLineHeight};
       `;
-    case 4:
+    case 'body4':
       return css`
         font-size: 12px;
         font-weight: 130;
         font-variation-settings: 'wdth' 61, 'GRAD' 0, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514, 'YTUC' 712,
           'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
-        ${baseLineHeight};
+      `;
+    case 'caption':
+      return css`
+        font-size: 12px;
+        font-weight: 450;
+        font-variation-settings: 'wdth' 131, 'GRAD' 0, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514,
+          'YTUC' 712, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
       `;
     default:
-      return defaultLevel;
+      return defaultVariant;
   }
 };
 
@@ -76,47 +75,12 @@ export const StyledText = styled(Box)<StyledTextType>`
   padding: 0;
   ${baseLineHeight};
 
-  ${({ variant, bodyLevel }) => {
-    switch (variant) {
-      case 'body':
-        return getTextBodyVariants(bodyLevel);
-      case 'caption':
-        return css`
-          font-size: 12px;
-          font-weight: 450;
-          font-variation-settings: 'wdth' 131, 'GRAD' 0, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514,
-            'YTUC' 712, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
-        `;
-      case 'tooltip':
-        return css`
-          font-size: 12px;
-          font-weight: 200;
-          font-variation-settings: 'wdth' 131, 'GRAD' 0, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514,
-            'YTUC' 712, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
-        `;
-      case 'button':
-        return css`
-          font-size: 13px;
-          letter-spacing: 0.02em;
-          font-weight: 800;
-          text-transform: uppercase;
-          font-variation-settings: 'wdth' 129, 'GRAD' 150, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514,
-            'YTUC' 712, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
-        `;
-      case 'inputLabel':
-        return css`
-          font-size: 16px;
-          font-weight: 450;
-          font-variation-settings: 'wdth' 131, 'GRAD' 0, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514,
-            'YTUC' 712, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
-        `;
-      default:
-        return getTextBodyVariants(1);
-    }
-  }};
+  ${({ variant }) => getTextVariants(variant)};
 
-  ${({ type }) => {
-    return getTypographyTypeStyles(type);
-  }};
-  ${({ ellipsis }) => ellipsis && getEllipsisStyles(ellipsis)}
+  ${({ color, bgColor }) => css`
+    color: ${color};
+    background-color: ${bgColor};
+  `};
+
+  ${({ ellipsis }) => ellipsis && getEllipsisStyles(ellipsis)};
 `;

@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import { Subtitle } from '.';
 
 export default {
-  title: 'Typography/Subtitle',
+  title: 'Core/Typography/Subtitle',
   component: Subtitle,
   argTypes: {
     tag: {
@@ -12,10 +12,8 @@ export default {
       control: {
         type: 'select',
       },
-      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span', 'div'],
-      table: {
-        defaultValue: { summary: 'div' },
-      },
+      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'],
+      table: { defaultValue: { summary: 'h4' } },
     },
     level: {
       type: 'number',
@@ -24,13 +22,13 @@ export default {
       options: [1, 2, 3, 4, 5],
       table: { defaultValue: { summary: 1 } },
     },
-    type: {
+    color: {
       type: 'string',
-      description: 'Content type',
-      control: {
-        type: 'select',
-      },
-      options: ['success', 'warning', 'error'],
+      control: { type: 'color' },
+    },
+    bgColor: {
+      type: 'string',
+      control: { type: 'color' },
     },
     className: {},
     style: {},
@@ -49,10 +47,5 @@ DefaultSubtitle.args = {
 export const SubtitleWithStyle = Template.bind({});
 SubtitleWithStyle.args = {
   children: 'EasyDev the greatest',
-  style: { color: 'violet' },
-};
-export const WarningSubtitle = Template.bind({});
-WarningSubtitle.args = {
-  children: 'EasyDev the greatest',
-  type: 'warning',
+  style: { fontStyle: 'italic' },
 };

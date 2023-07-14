@@ -13,9 +13,7 @@ export const ControlWithLabel = ({ control, label, reversed }: WithLabelProps) =
   return (
     <StyledLabel reversed={reversed}>
       {control}
-      <Text variant="body" bodyLevel={3}>
-        {label}
-      </Text>
+      <Text variant="body3">{label}</Text>
     </StyledLabel>
   );
 };
