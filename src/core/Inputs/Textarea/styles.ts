@@ -14,7 +14,7 @@ export const StyledTextareaWrapper = styled('div')<{ $disabled: boolean }>`
       css`
         ${StyledLabelText},
         ${StyledCounterText} {
-          color: ${({ theme }) => theme.colors.surface['500']};
+          color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['400'])};
         }
       `
     );
@@ -33,7 +33,7 @@ export const StyledTextarea = styled('textarea')<TextareaProps>`
 
   border: 0;
   background-color: transparent;
-  color: ${({ theme }) => theme.colors.surface['900']};
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.surface['300'])};
   ${getTextVariants('body2')};
 
   &:placeholder-shown::placeholder {
@@ -66,7 +66,8 @@ export const StyledTextareaLabel = styled('label')<InputsBaseProps>`
 
   // States
   &:has(${StyledTextarea}:focus-visible:not([disabled])) {
-    border-color: ${({ theme }) => theme.colors.secondary['400']};
+    border-color: ${({ theme }) =>
+      theme.type === 'light' ? theme.colors.secondary['400'] : theme.colors.secondary['300']};
   }
 
   &:has(${StyledTextarea}:focus-visible) ${StyledTextareaLabelText} {
@@ -78,13 +79,16 @@ export const StyledTextareaLabel = styled('label')<InputsBaseProps>`
   }
 
   &:has(${StyledTextarea}:hover:not([disabled])) {
-    background-color: ${({ theme }) => theme.colors.surface['50']};
-    border-color: ${({ theme }) => theme.colors.secondary['300']};
+    background-color: ${({ theme }) =>
+      theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
+    border-color: ${({ theme }) =>
+      theme.type === 'light' ? theme.colors.secondary['300'] : theme.colors.secondary['100']};
     ${({ theme }) => theme.shadows.blue};
   }
 
   &:has(${StyledTextarea}:focus-visible:not([disabled])) {
-    background-color: ${({ theme }) => theme.colors.surface['50']};
+    background-color: ${({ theme }) =>
+      theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
     ${({ theme }) => theme.shadows.blue};
   }
 
@@ -96,7 +100,7 @@ export const StyledCounterText = styled(Text)`
   width: 100%;
   text-align: end;
   margin-top: 8px;
-  color: ${({ theme }) => theme.colors.surface['600']};
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.surface['200'])};
 `;
 
 export const StyledCharactersNumber = styled('span')<{ $isOverflow: boolean }>`
@@ -107,13 +111,15 @@ const getDisabledStateTextareaWrapper = ($filled: boolean) => {
   return $filled
     ? css`
         &:has(${StyledTextarea}:disabled) {
-          background-color: ${({ theme }) => theme.colors.surface['50']};
-          border-color: ${({ theme }) => theme.colors.surface['300']};
+          background-color: ${({ theme }) =>
+            theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
+          border-color: ${({ theme }) =>
+            theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['400']};
         }
       `
     : css`
         &:has(${StyledTextarea}:disabled) {
-          background-color: ${({ theme }) => theme.colors.surface['200']};
+          ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['200'] : theme.colors.surface['800'])};
         }
       `;
 };
@@ -122,7 +128,7 @@ const getDisabledStateTextareaText = ($filled: boolean) => {
   return $filled
     ? css`
         &:disabled {
-          color: ${({ theme }) => theme.colors.surface['500']};
+          color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['400'])};
           cursor: default;
         }
       `
@@ -132,7 +138,7 @@ const getDisabledStateTextareaText = ($filled: boolean) => {
         }
 
         &[disabled]::placeholder {
-          color: ${({ theme }) => theme.colors.surface['500']};
+          color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['400'])};
         }
       `;
 };

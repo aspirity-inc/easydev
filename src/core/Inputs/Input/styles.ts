@@ -35,15 +35,17 @@ export const StyledInputLabel = styled('label')`
 
   &:has(${StyledInput}:focus-visible) ${StyledLabelText} {
     transform: scale(0.8) translateY(-22px);
+    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.secondary['100'])};
   }
 
   &:has(${StyledInput}:not(:placeholder-shown)) ${StyledLabelText} {
     transform: scale(0.8) translateY(-22px);
+    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.secondary['100'])};
   }
 `;
 
 export const StyledStatus = styled(Text)<StatusProps>`
-  color: ${({ theme }) => theme.colors.surface['600']};
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.surface['200'])};
 
   &::first-letter {
     text-transform: uppercase;
@@ -59,7 +61,7 @@ export const StyledMessageWrapper = styled('div')`
 `;
 
 export const StyledExtraMessage = styled(Text)`
-  color: ${({ theme }) => theme.colors.surface['600']};
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.surface['200'])};
 `;
 
 export const StyledInputWrapper = styled('div')<{ $disabled: boolean }>`
@@ -71,7 +73,7 @@ export const StyledInputWrapper = styled('div')<{ $disabled: boolean }>`
       css`
         ${StyledLabelText},
         ${StyledStatus} {
-          color: ${({ theme }) => theme.colors.surface['500']};
+          color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['400'])};
         }
 
         ${IconWrapper} {
