@@ -74,6 +74,7 @@ export const Input = ({
           $filled={Boolean(value)}
           $status={getInputStatus()}
         />
+        // TODO: remove prop "$filled" and do it on css
         <InputIcon
           type={type}
           icons={icons}
