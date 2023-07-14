@@ -34,6 +34,7 @@ export const Input = ({
   isLoading,
   icons,
   disabled,
+  placeholder = ' ',
   renderExtraMessage,
   ...props
 }: InputProps) => {
@@ -60,21 +61,20 @@ export const Input = ({
     return type;
   };
 
+  // TODO: remove prop "$filled" and do it on css
   return (
     <StyledInputWrapper $disabled={disabled || false}>
       <StyledInputLabel>
-        <StyledLabelText tag="p" variant="inputLabel">
-          {label}
-        </StyledLabelText>
+        <StyledLabelText>{label}</StyledLabelText>
         <StyledInput
           type={getInputType()}
           value={value}
           disabled={disabled}
+          placeholder={placeholder}
           {...props}
           $filled={Boolean(value)}
           $status={getInputStatus()}
         />
-        // TODO: remove prop "$filled" and do it on css
         <InputIcon
           type={type}
           icons={icons}

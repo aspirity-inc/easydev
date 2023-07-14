@@ -24,6 +24,7 @@ export const Textarea = ({
   value,
   maxLength = 1000,
   disabled,
+  placeholder = ' ',
   showLimit = true,
   autoresized = true,
   softLimit = false,
@@ -55,14 +56,13 @@ export const Textarea = ({
   return (
     <StyledTextareaWrapper $disabled={disabled || false}>
       <StyledTextareaLabel $filled={Boolean(value)}>
-        <StyledTextareaLabelText tag="p" variant="inputLabel">
-          {label}
-        </StyledTextareaLabelText>
+        <StyledTextareaLabelText>{label}</StyledTextareaLabelText>
         <StyledTextarea
           ref={ref}
           value={value}
           onChange={handleChange}
           disabled={disabled}
+          placeholder={placeholder}
           maxLength={!softLimit ? maxLength : undefined}
           {...props}
           $filled={Boolean(value)}
