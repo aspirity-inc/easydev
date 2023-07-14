@@ -6,9 +6,9 @@ type TitleProps = TypographyBaseType & {
   variant?: TitleVariant;
 };
 
-export const Title = ({ children, variant, className, type, ...props }: TitleProps) => {
+export const Title = ({ children, variant, ...props }: TitleProps) => {
   return (
-    <StyledTitle tag={variant || 'h1'} className={className} type={type} variant={variant} {...props}>
+    <StyledTitle tag={variant || 'h1'} variant={variant} {...props}>
       {children}
     </StyledTitle>
   );

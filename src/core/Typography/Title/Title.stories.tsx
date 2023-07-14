@@ -18,14 +18,13 @@ export default {
         defaultValue: { summary: 'h1' },
       },
     },
-    type: {
+    color: {
       type: 'string',
-      description: 'Тип контента',
-      control: {
-        type: 'select',
-      },
-      defaultValue: 'default',
-      options: ['success', 'warning', 'error'],
+      control: { type: 'color' },
+    },
+    bgColor: {
+      type: 'string',
+      control: { type: 'color' },
     },
     className: {
       description: 'Любой CSS класс для дополнительной стилизации',
@@ -48,10 +47,5 @@ DefaultTitle.args = {
 export const TitleWithStyle = Template.bind({});
 TitleWithStyle.args = {
   children: 'EasyDev the greatest',
-  style: { color: 'violet' },
-};
-export const WarningTitle = Template.bind({});
-WarningTitle.args = {
-  children: 'EasyDev the greatest',
-  type: 'warning',
+  style: { fontStyle: 'italic' },
 };

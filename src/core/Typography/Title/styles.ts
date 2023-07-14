@@ -1,15 +1,12 @@
 import { css, styled } from 'styled-components';
 
 import { Box } from '@core/Box';
-
-import { getTypographyTypeStyles } from '../styles.ts';
-import { TypographyTypeProp } from '../types.ts';
+import { TypographyBaseType } from '@core/Typography/types.ts';
 
 export type TitleVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-type TitleProps = {
+type TitleProps = Pick<TypographyBaseType, 'color' | 'bgColor'> & {
   variant?: TitleVariant;
-  type?: TypographyTypeProp;
 };
 
 export const StyledTitle = styled(Box)<TitleProps>`
@@ -93,7 +90,8 @@ export const StyledTitle = styled(Box)<TitleProps>`
     }
   }}
 
-  ${({ type }) => {
-    return getTypographyTypeStyles(type);
-  }}}
+  ${({ color, bgColor }) => css`
+    color: ${color};
+    background-color: ${bgColor};
+  `}}
 `;
