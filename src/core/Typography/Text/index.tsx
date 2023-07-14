@@ -7,9 +7,9 @@ type TextProps = TypographyBaseType & {
   ellipsis?: EllipsisType;
 };
 
-export const Text = ({ children, tag, ellipsis, ...props }: TextProps) => {
+export const Text = ({ children, tag, ...props }: TextProps) => {
   return (
-    <StyledText tag={tag || 'p'} ellipsis={ellipsis} {...props}>
+    <StyledText tag={tag || 'p'} {...props}>
       {children}
     </StyledText>
   );

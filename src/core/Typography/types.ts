@@ -1,10 +1,9 @@
 import { CSSProperties, ReactNode } from 'react';
 
 export type TypographyBaseType = {
-  children: ReactNode | string | ReactNode[];
+  children: ReactNode | ReactNode[] | string;
   className?: string;
   style?: CSSProperties;
-  type?: TypographyTypeProp;
+  color?: string;
+  bgColor?: string;
 };
-
-export type TypographyTypeProp = 'success' | 'warning' | 'error';

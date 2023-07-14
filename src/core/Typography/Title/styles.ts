@@ -88,10 +88,10 @@ export const StyledTitle = styled(Box)<TitleProps>`
           }
         `;
     }
-  }}
+  }};
 
   ${({ color, bgColor }) => css`
     color: ${color};
     background-color: ${bgColor};
-  `}}
+  `};
 `;

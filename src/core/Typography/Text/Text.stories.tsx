@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import { Text } from '.';
 
 export default {
-  title: 'Typography/Text',
+  title: 'Core/Typography/Text',
   component: Text,
   argTypes: {
     tag: {

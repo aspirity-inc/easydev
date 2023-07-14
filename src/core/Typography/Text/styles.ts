@@ -2,13 +2,12 @@ import { css, styled } from 'styled-components';
 
 import { Box } from '@core/Box';
 
-import { TypographyBaseType, TypographyTypeProp } from '../types.ts';
+import type { TypographyBaseType } from '../types.ts';
 
 export type TextVariant = 'body1' | 'body2' | 'body3' | 'body4' | 'caption';
 export type EllipsisType = { rows: number };
 type StyledTextType = Pick<TypographyBaseType, 'color' | 'bgColor'> & {
   variant?: TextVariant;
-  type?: TypographyTypeProp;
   ellipsis?: EllipsisType;
 };
 

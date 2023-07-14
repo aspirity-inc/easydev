@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import { Title } from '.';
 
 export default {
-  title: 'Typography/Title',
+  title: 'Core/Typography/Title',
   component: Title,
   argTypes: {
     variant: {
