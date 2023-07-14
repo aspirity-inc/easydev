@@ -21,7 +21,7 @@ export const StyledButton = styled('button')<ButtonProps>`
   margin: 0;
   border: none;
   transition: background-color ${({ theme }) => theme.transition.default};
-  color: #ffffff;
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900'])};
   font-size: 13px;
   line-height: 1.9;
   font-weight: ${({ theme }) => theme.typography.weight['800']};
@@ -89,7 +89,8 @@ const getButtonVariantStyle = (variant: ButtonVariant = 'primary') => {
       background-color: ${({ theme }) => theme.colors.primary['800']};
     }
     &:disabled {
-      background-color: ${({ theme }) => theme.colors.primary['300']};
+      background-color: ${({ theme }) =>
+        theme.type === 'light' ? theme.colors.primary['300'] : theme.colors.primary['900']};
       cursor: not-allowed;
     }
   `;
@@ -99,17 +100,20 @@ const getButtonVariantStyle = (variant: ButtonVariant = 'primary') => {
       return defaultState;
     case 'secondary':
       return css`
-        background-color: ${({ theme }) => theme.colors.surface['400']};
+        background-color: ${({ theme }) =>
+          theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['500']};
 
         &:hover {
-          background-color: ${({ theme }) => theme.colors.surface['500']};
+          background-color: ${({ theme }) =>
+            theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['400']};
         }
         &:focus-visible,
         &:active {
           background-color: ${({ theme }) => theme.colors.surface['600']};
         }
         &:disabled {
-          background-color: ${({ theme }) => theme.colors.surface['300']};
+          background-color: ${({ theme }) =>
+            theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['900']};
           cursor: not-allowed;
         }
       `;

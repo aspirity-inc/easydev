@@ -1,8 +1,8 @@
 import { styled, css } from 'styled-components';
 
 import { InputBaseStatus } from '@core/Inputs/types';
-import { Text } from '@core/Typography';
-import { getTextBodyVariants } from '@core/Typography/Text/styles';
+import { StyledInputLabelText } from '@core/Typography/styles';
+import { getTextVariants } from '@core/Typography/Text/styles';
 
 export const getBaseInputStyles = ($filled: boolean) => {
   return css`
@@ -11,7 +11,7 @@ export const getBaseInputStyles = ($filled: boolean) => {
     padding: 24px 60px 8px 16px;
 
     color: ${({ theme }) => theme.colors.surface['900']};
-    ${getTextBodyVariants(2)};
+    ${getTextVariants('body2')};
 
     border: 1px solid transparent;
     border-radius: 8px;
@@ -44,10 +44,11 @@ export const getBaseInputStyles = ($filled: boolean) => {
   `;
 };
 
-export const StyledLabelText = styled(Text)`
+export const StyledLabelText = styled(StyledInputLabelText)`
   position: absolute;
   left: 16px;
   top: 50%;
+  display: block;
   user-select: none;
   transform-origin: center left;
   color: ${({ theme }) => theme.colors.surface['600']};

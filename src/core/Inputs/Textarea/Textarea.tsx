@@ -55,9 +55,7 @@ export const Textarea = ({
   return (
     <StyledTextareaWrapper $disabled={disabled || false}>
       <StyledTextareaLabel $filled={Boolean(value)}>
-        <StyledTextareaLabelText tag="p" variant="inputLabel">
-          {label}
-        </StyledTextareaLabelText>
+        <StyledTextareaLabelText>{label}</StyledTextareaLabelText>
         <StyledTextarea
           ref={ref}
           value={value}

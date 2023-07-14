@@ -3,7 +3,7 @@ import { styled, css } from 'styled-components';
 import { StyledLabelText, getBackgroundColor, getDefaultBorder, getInputTransition } from '@core/Inputs/styles';
 import { InputsBaseProps, TextareaProps } from '@core/Inputs/types';
 import { Text } from '@core/Typography';
-import { getTextBodyVariants } from '@core/Typography/Text/styles';
+import { getTextVariants } from '@core/Typography/Text/styles';
 
 export const StyledTextareaWrapper = styled('div')<{ $disabled: boolean }>`
   width: fit-content;
@@ -34,7 +34,7 @@ export const StyledTextarea = styled('textarea')<TextareaProps>`
   border: 0;
   background-color: transparent;
   color: ${({ theme }) => theme.colors.surface['900']};
-  ${getTextBodyVariants(2)};
+  ${getTextVariants('body2')};
 
   &:placeholder-shown::placeholder {
     opacity: 0;
