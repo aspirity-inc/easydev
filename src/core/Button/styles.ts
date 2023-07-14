@@ -104,7 +104,7 @@ const getButtonVariantStyle = (variant: ButtonVariant = 'primary') => {
         &:hover {
           background-color: ${({ theme }) => theme.colors.surface['500']};
         }
-        &:focus,
+        &:focus-visible,
         &:active {
           background-color: ${({ theme }) => theme.colors.surface['600']};
         }

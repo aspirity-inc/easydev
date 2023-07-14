@@ -1,4 +1,4 @@
-import { IconWrapper } from '@core/Inputs/styles';
+import { IconWrapper } from '@core/Inputs/Input/styles';
 import { IconsProps, InputBaseStatus } from '@core/Inputs/types';
 
 import { InputStatusIcon } from './InputStatusIcon';

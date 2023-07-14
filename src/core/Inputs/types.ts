@@ -2,19 +2,16 @@ import { ReactNode } from 'react';
 
 export type InputBaseStatus = 'warning' | 'error' | 'loading' | 'success';
 
-export type InputProps = {
-  $filled: boolean;
-  $showLabel: boolean;
-  $status?: InputBaseStatus;
-};
-
-export type LabelProps = {
-  $showAsLabel: boolean;
-};
-
 export type StatusProps = {
   $status?: InputBaseStatus;
 };
+
+export type InputsBaseProps = {
+  $filled: boolean;
+};
+
+export type InputProps = InputsBaseProps & StatusProps;
+export type TextareaProps = InputsBaseProps & { $autoresized: boolean };
 
 export type IconsProps = {
   warningIcon?: ReactNode;
