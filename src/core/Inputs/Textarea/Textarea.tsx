@@ -70,7 +70,7 @@ export const Textarea = ({
         />
       </StyledTextareaLabel>
       {showLimit && (
-        <StyledCounterText tag="p" variant="caption">
+        <StyledCounterText variant="caption">
           <StyledCharactersNumber $isOverflow={isOverflow}>{charactersNumber}</StyledCharactersNumber>/{maxLength}
         </StyledCounterText>
       )}

@@ -92,6 +92,7 @@ export const StyledTextareaLabel = styled('label')<InputsBaseProps>`
 `;
 
 export const StyledCounterText = styled(Text)`
+  display: block;
   width: 100%;
   text-align: end;
   margin-top: 8px;
