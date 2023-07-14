@@ -34,6 +34,7 @@ export const Input = ({
   isLoading,
   icons,
   disabled,
+  placeholder = ' ',
   renderExtraMessage,
   ...props
 }: InputProps) => {
@@ -69,6 +70,7 @@ export const Input = ({
           type={getInputType()}
           value={value}
           disabled={disabled}
+          placeholder={placeholder}
           {...props}
           $filled={Boolean(value)}
           $status={getInputStatus()}

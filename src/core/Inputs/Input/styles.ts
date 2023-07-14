@@ -35,11 +35,17 @@ export const StyledInputLabel = styled('label')`
 
   &:has(${StyledInput}:focus-visible) ${StyledLabelText} {
     transform: scale(0.8) translateY(-22px);
-    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.secondary['100'])};
   }
 
   &:has(${StyledInput}:not(:placeholder-shown)) ${StyledLabelText} {
     transform: scale(0.8) translateY(-22px);
+  }
+
+  &:has(${StyledInput}:focus-visible:not([disabled])) ${StyledLabelText} {
+    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.secondary['100'])};
+  }
+
+  &:has(${StyledInput}:not(:placeholder-shown):not([disabled])) ${StyledLabelText} {
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.secondary['100'])};
   }
 `;

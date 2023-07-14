@@ -117,11 +117,7 @@ ErrorPasswordWithMessage.args = {
   value: 'Иван',
   label: 'Password',
   error: 'Invalid password',
-  renderExtraMessage: () => (
-    <Text tag="div" variant="caption">
-      Some extra message
-    </Text>
-  ),
+  renderExtraMessage: () => <Text variant="caption">Some extra message</Text>,
 };
 
 export const LoadingPassword = TemplatePassword.bind({});

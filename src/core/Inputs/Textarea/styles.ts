@@ -33,7 +33,7 @@ export const StyledTextarea = styled('textarea')<TextareaProps>`
 
   border: 0;
   background-color: transparent;
-  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.surface['300'])};
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
   ${getTextVariants('body2')};
 
   &:placeholder-shown::placeholder {
@@ -76,6 +76,14 @@ export const StyledTextareaLabel = styled('label')<InputsBaseProps>`
 
   &:has(${StyledTextarea}:not(:placeholder-shown)) ${StyledTextareaLabelText} {
     transform: scale(0.8) translateY(-22px);
+  }
+
+  &:has(${StyledTextarea}:focus-visible:not([disabled])) ${StyledTextareaLabelText} {
+    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.secondary['100'])};
+  }
+
+  &:has(${StyledTextarea}:not(:placeholder-shown):not([disabled])) ${StyledTextareaLabelText} {
+    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.secondary['100'])};
   }
 
   &:has(${StyledTextarea}:hover:not([disabled])) {
