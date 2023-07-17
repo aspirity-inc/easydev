@@ -39,7 +39,7 @@ export const StyledLink = styled('a')<StyledLinkPropsType>`
   ${({ disabled, theme }) =>
     disabled &&
     css`
-      color: ${theme.colors.secondary['900']};
+      color: ${theme.type === 'light' ? theme.colors.secondary['300'] : theme.colors.secondary['900']};
       cursor: default;
       pointer-events: none;
     `}
