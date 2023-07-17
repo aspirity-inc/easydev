@@ -10,7 +10,7 @@ const THEMES = {
 const GlobalStyles = createGlobalStyle`
   html, body {
     background-color: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.text : theme.colors.surface['50'])};
     font-family: "Roboto Flex", sans-serif;
   }
 
@@ -20,10 +20,11 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 export const withTheme = (Story, context) => {
-  const { theme } = context.globals;
+  const { backgrounds } = context.globals;
+  const theme = backgrounds?.value !== '#232329' ? THEMES['light'] : THEMES['dark'];
 
   return (
-    <ThemeProvider theme={THEMES[theme] || THEMES['light']}>
+    <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Story />
     </ThemeProvider>
