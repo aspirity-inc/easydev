@@ -7,7 +7,7 @@ import {
   getStatusBorder,
   getStatusColor,
 } from '@core/Inputs/styles';
-import { InputProps, StatusProps } from '@core/Inputs/types';
+import { StyledInputProps, StatusProps } from '@core/Inputs/types';
 import { Text } from '@core/Typography';
 
 export const IconWrapper = styled('div')`
@@ -17,7 +17,7 @@ export const IconWrapper = styled('div')`
   transform: translateY(-50%);
 `;
 
-export const StyledInput = styled('input')<InputProps>`
+export const StyledInput = styled('input')<StyledInputProps>`
   ${({ $filled }) => getBaseInputStyles($filled)};
 
   ${({ $filled, $status }) => ($status ? getStatusBorder($status) : getDefaultBorder($filled))};

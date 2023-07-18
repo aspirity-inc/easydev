@@ -22,6 +22,7 @@
     "polished": "^4.2.2",
     "react": "^17.x || 18.x",
     "react-dom": "^17.x || 18.x",
+    "react-input-mask": "^3.0.0-alpha.2",
     "styled-components": "^6.0.0-rc.6"
   },
   "license": "MIT",
@@ -38,6 +39,7 @@
     "@types/node": "^20.1.5",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@types/react-input-mask": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react-swc": "^3.0.0",
