@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState } from 'react';
+import { useState } from 'react';
 
 import { InputIcon } from '@core/Inputs/Input/InputIcon';
 import {
@@ -10,19 +10,7 @@ import {
   StyledInputWrapper,
 } from '@core/Inputs/Input/styles';
 import { StyledLabelText } from '@core/Inputs/styles';
-import { IconsProps } from '@core/Inputs/types';
-
-export type InputProps = React.ComponentPropsWithoutRef<'input'> & {
-  className?: string;
-  style?: CSSProperties;
-  label: string;
-  error?: string;
-  warning?: string;
-  message?: string;
-  isLoading?: boolean;
-  icons?: IconsProps;
-  renderExtraMessage?: () => React.ReactNode;
-};
+import { InputProps } from '@core/Inputs/types';
 
 export const Input = ({
   type = 'text',
