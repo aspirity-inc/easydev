@@ -4,7 +4,7 @@ import { Meta, StoryFn } from '@storybook/react';
 
 import { Textarea } from '.';
 
-export default {
+const metaTextarea: Meta<typeof Textarea> = {
   title: 'core/Inputs/Textarea',
   component: Textarea,
   argTypes: {
@@ -54,7 +54,8 @@ export default {
       description: 'Любые дополнительные стили',
     },
   },
-} as Meta<typeof Textarea>;
+};
+export default metaTextarea;
 
 const Template: StoryFn<typeof Textarea> = ({ ...args }) => {
   const [value, setValue] = useState('');
@@ -65,10 +66,10 @@ const Template: StoryFn<typeof Textarea> = ({ ...args }) => {
   return <Textarea value={value} onChange={onChange} {...args} />;
 };
 
-export const DefaultTextarea = Template.bind({});
+export const DefaultTextarea: StoryFn<typeof Textarea> = Template.bind({});
 DefaultTextarea.args = { placeholder: 'Оставьте комментарий', label: 'Комментарий' };
 
-export const DisabledTextarea = Template.bind({});
+export const DisabledTextarea: StoryFn<typeof Textarea> = Template.bind({});
 DisabledTextarea.args = {
   value: 'Иван',
   placeholder: 'Введите свое имя',
@@ -76,7 +77,7 @@ DisabledTextarea.args = {
   disabled: true,
 };
 
-export const DisabledEmptyTextarea = Template.bind({});
+export const DisabledEmptyTextarea: StoryFn<typeof Textarea> = Template.bind({});
 DisabledEmptyTextarea.args = {
   placeholder: 'Введите свое имя',
   label: 'Имя',

@@ -4,7 +4,7 @@ import { Meta, StoryFn } from '@storybook/react';
 
 import { Toggle } from '.';
 
-export default {
+const metaToggle: Meta<typeof Toggle> = {
   title: 'Core/Controls/Toggle',
   component: Toggle,
   argTypes: {
@@ -24,16 +24,17 @@ export default {
       description: 'colors presets: success | warning | error',
     },
   },
-} as Meta<typeof Toggle>;
+};
+export default metaToggle;
 
 const Template: StoryFn<typeof Toggle> = ({ ...args }) => {
   return <Toggle {...args} />;
 };
 
-export const DefaultToggle = Template.bind({});
+export const DefaultToggle: StoryFn<typeof Toggle> = Template.bind({});
 DefaultToggle.args = {};
 
-export const ControlledToggle = ({ ...args }) => {
+export const ControlledToggle: StoryFn<typeof Toggle> = ({ ...args }) => {
   const [checked, setChecked] = useState(false);
 
   const handleChange = () => {

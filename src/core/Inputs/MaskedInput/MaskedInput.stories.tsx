@@ -4,7 +4,7 @@ import { Meta, StoryFn } from '@storybook/react';
 
 import { MaskedInput } from '.';
 
-export default {
+const metaMaskedInput: Meta<typeof MaskedInput> = {
   title: 'core/Inputs/MaskedInput',
   component: MaskedInput,
   argTypes: {
@@ -27,7 +27,8 @@ export default {
       description: 'Всегда показывать маску',
     },
   },
-} as Meta<typeof MaskedInput>;
+};
+export default metaMaskedInput;
 
 const TemplateMaskedInput: StoryFn<typeof MaskedInput> = ({ ...args }) => {
   const [value, setValue] = useState('');
@@ -38,20 +39,20 @@ const TemplateMaskedInput: StoryFn<typeof MaskedInput> = ({ ...args }) => {
   return <MaskedInput value={value} onChange={onChange} {...args} />;
 };
 
-export const MaskedDefaultInput = TemplateMaskedInput.bind({});
+export const MaskedDefaultInput: StoryFn<typeof MaskedInput> = TemplateMaskedInput.bind({});
 MaskedDefaultInput.args = {
   mask: '+7 (999) 999-99-99',
   label: 'Phone number',
 };
 
-export const MaskedDefaultInputRegExp = TemplateMaskedInput.bind({});
+export const MaskedDefaultInputRegExp: StoryFn<typeof MaskedInput> = TemplateMaskedInput.bind({});
 MaskedDefaultInputRegExp.args = {
   mask: [/[A-Z]/, /[0-9]/, /[A-Z]/, ' ', /[0-9]/, /[A-Z]/, /[0-9]/],
   label: 'Postal code mask',
   message: 'Example: A4E 2P9',
 };
 
-export const ErrorInput = TemplateMaskedInput.bind({});
+export const ErrorInput: StoryFn<typeof MaskedInput> = TemplateMaskedInput.bind({});
 ErrorInput.args = {
   value: '0123456789',
   mask: '+7 (999) 999-99-99',

@@ -6,7 +6,7 @@ import { Button } from '@core/Button';
 
 import { Radio } from '.';
 
-export default {
+const metaRadio: Meta<typeof Radio> = {
   title: 'Core/Controls/Radio',
   component: Radio,
   argTypes: {
@@ -26,16 +26,17 @@ export default {
       description: 'colors presets: success | warning | error',
     },
   },
-} as Meta<typeof Radio>;
+};
+export default metaRadio;
 
 const Template: StoryFn<typeof Radio> = ({ ...args }) => {
   return <Radio {...args} />;
 };
 
-export const DefaultRadio = Template.bind({});
+export const DefaultRadio: StoryFn<typeof Radio> = Template.bind({});
 DefaultRadio.args = {};
 
-export const ControlledRadio = ({ ...args }) => {
+export const ControlledRadio: StoryFn<typeof Radio> = ({ ...args }) => {
   const [checked, setChecked] = useState(false);
 
   const handleButtonClick = () => {

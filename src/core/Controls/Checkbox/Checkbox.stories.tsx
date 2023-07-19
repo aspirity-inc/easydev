@@ -6,7 +6,7 @@ import { Button } from '@core/Button';
 
 import { Checkbox } from '.';
 
-export default {
+const metaCheckbox: Meta<typeof Checkbox> = {
   title: 'Core/Controls/Checkbox',
   component: Checkbox,
   argTypes: {
@@ -26,16 +26,17 @@ export default {
       description: 'colors presets: success | warning | error',
     },
   },
-} as Meta<typeof Checkbox>;
+};
+export default metaCheckbox;
 
 const Template: StoryFn<typeof Checkbox> = ({ ...args }) => {
   return <Checkbox {...args} />;
 };
 
-export const DefaultCheckbox = Template.bind({});
+export const DefaultCheckbox: StoryFn<typeof Checkbox> = Template.bind({});
 DefaultCheckbox.args = {};
 
-export const ControlledCheckbox = ({ ...args }) => {
+export const ControlledCheckbox: StoryFn<typeof Checkbox> = ({ ...args }) => {
   const [checked, setChecked] = useState(false);
 
   const handleButtonClick = () => {
