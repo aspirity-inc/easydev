@@ -34,9 +34,9 @@ export const ControlWrap = styled('span')<ControlProps>`
   position: relative;
   width: 24px;
   height: 24px;
-  color: ${({ theme, color }) => getControlColor(theme, color) || theme.colors.tretiary['700']};
-  background-color: ${({ theme }) => theme.colors.background};
-  border: 2px solid ${({ theme, color }) => getControlColor(theme, color) || theme.colors.tretiary['700']};
+  color: ${({ theme, color }) => getControlColor(theme, color)};
+  background-color: ${({ theme }) => (theme.type === 'light' ? theme.colors.background : theme.colors.surface['800'])};
+  border: 2px solid ${({ theme, color }) => getControlColor(theme, color)};
   border-radius: ${({ theme }) => theme.spacing.borderRadius.small}px;
   cursor: pointer;
   z-index: 2;
@@ -58,6 +58,8 @@ export const ControlWrap = styled('span')<ControlProps>`
 `;
 
 export const getControlColor = (theme: DefaultTheme, color?: ControlColorType) => {
+  if (!color) return theme.type === 'light' ? theme.colors.tretiary['700'] : theme.colors.tretiary['400'];
+
   switch (color) {
     case 'success':
       return theme.colors.success.main;
