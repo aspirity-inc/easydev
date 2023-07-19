@@ -21,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
 
 export const withTheme = (Story, context) => {
   const { backgrounds } = context.globals;
-  const theme = backgrounds?.value !== '#232329' ? THEMES['light'] : THEMES['dark'];
+  const theme = backgrounds?.value !== darkTheme.colors.background ? THEMES['light'] : THEMES['dark'];
 
   return (
     <ThemeProvider theme={theme}>
