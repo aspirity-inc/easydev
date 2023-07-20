@@ -9,7 +9,7 @@ export type ProgressBarType = {
 };
 
 export type ProgressBarWrapType = {
-  label?: boolean;
+  $label?: boolean;
   color?: string;
 };
 
@@ -54,8 +54,8 @@ export const ProgressBarWrap = styled('div')<ProgressBarWrapType>`
   position: relative;
   color: ${({ color }) => color || 'var(--color)'};
 
-  ${({ label }) =>
-    label &&
+  ${({ $label }) =>
+    $label &&
     css`
       margin-top: 20px;
     `}
