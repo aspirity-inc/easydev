@@ -4,7 +4,7 @@ import { ControlWithLabel, Radio } from '@core/Controls';
 
 import { Space } from '.';
 
-export default {
+const metaSpace: Meta<typeof Space> = {
   title: 'Core/Space',
   component: Space,
   argTypes: {
@@ -32,7 +32,8 @@ export default {
       options: ['row', 'column', 'row-reverse', 'column-reverse'],
     },
   },
-} as Meta<typeof Space>;
+};
+export default metaSpace;
 
 const Template: StoryFn<typeof Space> = ({ ...args }) => {
   return (
@@ -45,5 +46,5 @@ const Template: StoryFn<typeof Space> = ({ ...args }) => {
   );
 };
 
-export const DefaultSpace = Template.bind({});
+export const DefaultSpace: StoryFn<typeof Space> = Template.bind({});
 DefaultSpace.args = {};

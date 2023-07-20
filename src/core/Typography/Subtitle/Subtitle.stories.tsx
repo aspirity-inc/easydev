@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 
 import { Subtitle } from '.';
 
-export default {
+const metaSubtitle: Meta<typeof Subtitle> = {
   title: 'Core/Typography/Subtitle',
   component: Subtitle,
   argTypes: {
@@ -33,18 +33,19 @@ export default {
     className: {},
     style: {},
   },
-} as Meta<typeof Subtitle>;
+};
+export default metaSubtitle;
 
 const Template: StoryFn<typeof Subtitle> = ({ children, ...args }) => {
   return <Subtitle {...args}>{children}</Subtitle>;
 };
 
-export const DefaultSubtitle = Template.bind({});
+export const DefaultSubtitle: StoryFn<typeof Subtitle> = Template.bind({});
 DefaultSubtitle.args = {
   children: 'EasyDev the greatest',
 };
 
-export const SubtitleWithStyle = Template.bind({});
+export const SubtitleWithStyle: StoryFn<typeof Subtitle> = Template.bind({});
 SubtitleWithStyle.args = {
   children: 'EasyDev the greatest',
   style: { fontStyle: 'italic' },

@@ -6,7 +6,7 @@ import { Space } from '@core/Space';
 
 import { ControlWithLabel } from '.';
 
-export default {
+const metaControlWithLabel: Meta<typeof ControlWithLabel> = {
   title: 'Core/Controls/ControlWithLabel',
   component: ControlWithLabel,
   argTypes: {
@@ -16,25 +16,26 @@ export default {
       table: { defaultValue: { summary: false } },
     },
   },
-} as Meta<typeof ControlWithLabel>;
+};
+export default metaControlWithLabel;
 
 const Template: StoryFn<typeof ControlWithLabel> = ({ ...args }) => {
   return <ControlWithLabel {...args} />;
 };
 
-export const DefaultControlWithLabel = Template.bind({});
+export const DefaultControlWithLabel: StoryFn<typeof ControlWithLabel> = Template.bind({});
 DefaultControlWithLabel.args = {
   label: 'Checkbox label',
   control: <Checkbox />,
 };
 
-export const RadioWithLabel = Template.bind({});
+export const RadioWithLabel: StoryFn<typeof ControlWithLabel> = Template.bind({});
 RadioWithLabel.args = {
   label: 'Radio label',
   control: <Radio />,
 };
 
-export const ToggleWithLabel = Template.bind({});
+export const ToggleWithLabel: StoryFn<typeof ControlWithLabel> = Template.bind({});
 ToggleWithLabel.args = {
   label: 'Toggle label',
   control: <Toggle />,

@@ -7,7 +7,7 @@ import { Button } from '.';
 const AddIcon = () => <div className="material-symbols-rounded">add</div>;
 const LoaderIcon = () => <div className="material-symbols-rounded">refresh</div>;
 
-export default {
+const metaButton: Meta<typeof Button> = {
   title: 'core/Button',
   component: Button,
   argTypes: {
@@ -70,48 +70,49 @@ export default {
       description: 'Любые дополнительные стили',
     },
   },
-} as Meta<typeof Button>;
+};
+export default metaButton;
 
 const Template: StoryFn<typeof Button> = ({ children, ...args }) => {
   return <Button {...args}>{children}</Button>;
 };
 
-export const IconTextButton = Template.bind({});
+export const IconTextButton: StoryFn<typeof Button> = Template.bind({});
 IconTextButton.args = {
   children: 'Button',
   icon: <AddIcon />,
 };
 
-export const SecondaryIconTextButton = Template.bind({});
+export const SecondaryIconTextButton: StoryFn<typeof Button> = Template.bind({});
 SecondaryIconTextButton.args = {
   children: 'Button',
   icon: <AddIcon />,
   variant: 'secondary',
 };
 
-export const IconButton = Template.bind({});
+export const IconButton: StoryFn<typeof Button> = Template.bind({});
 IconButton.args = {
   icon: <AddIcon />,
 };
 
-export const TextButton = Template.bind({});
+export const TextButton: StoryFn<typeof Button> = Template.bind({});
 TextButton.args = {
   children: 'Button',
 };
 
-export const RoundedButton = Template.bind({});
+export const RoundedButton: StoryFn<typeof Button> = Template.bind({});
 RoundedButton.args = {
   children: 'Button',
   rounded: 'lg',
 };
 
-export const ProgressDefaultIconButton = Template.bind({});
+export const ProgressDefaultIconButton: StoryFn<typeof Button> = Template.bind({});
 ProgressDefaultIconButton.args = {
   children: 'Button',
   loading: true,
 };
 
-export const ProgressUserIconButton = Template.bind({});
+export const ProgressUserIconButton: StoryFn<typeof Button> = Template.bind({});
 ProgressUserIconButton.args = {
   children: 'Button',
   loadingIcon: <LoaderIcon />,

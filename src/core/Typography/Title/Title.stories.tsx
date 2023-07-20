@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 
 import { Title } from '.';
 
-export default {
+const metaTitle: Meta<typeof Title> = {
   title: 'Core/Typography/Title',
   component: Title,
   argTypes: {
@@ -33,18 +33,19 @@ export default {
       description: 'Любые дополнительные стили',
     },
   },
-} as Meta<typeof Title>;
+};
+export default metaTitle;
 
 const Template: StoryFn<typeof Title> = ({ children, ...args }) => {
   return <Title {...args}>{children}</Title>;
 };
 
-export const DefaultTitle = Template.bind({});
+export const DefaultTitle: StoryFn<typeof Title> = Template.bind({});
 DefaultTitle.args = {
   children: 'EasyDev the greatest',
 };
 
-export const TitleWithStyle = Template.bind({});
+export const TitleWithStyle: StoryFn<typeof Title> = Template.bind({});
 TitleWithStyle.args = {
   children: 'EasyDev the greatest',
   style: { fontStyle: 'italic' },
