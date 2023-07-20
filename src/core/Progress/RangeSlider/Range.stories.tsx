@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from 'react';
 
 import { Meta, StoryFn } from '@storybook/react';
 
-import { RangeSlider } from './index';
+import { RangeSlider } from '.';
 
 export default {
   title: 'Core/Progress/RangeSlider',
