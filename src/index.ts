@@ -6,3 +6,4 @@ export { Space } from '@core/Space';
 export { Link } from '@core/Link';
 export { RangeSlider } from '@core/Progress';
 export { Popover } from '@core/Popover';
+export { Tabs, Tab, TabButton } from './core/Tabs';
