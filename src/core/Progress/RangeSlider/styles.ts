@@ -94,7 +94,7 @@ export const StyledProgress = styled('input')<{ progress: number }>`
 `;
 
 export const RangeWrap = styled('div')`
-  margin-top: 50px;
+  margin-top: 35px;
   position: relative;
 
   &:has(.easy_range:hover) {
