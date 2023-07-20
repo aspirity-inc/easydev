@@ -1,3 +1,5 @@
+import { ComponentPropsWithoutRef } from 'react';
+
 import {
   type ProgressBarType,
   ProgressBarWrap,
@@ -6,7 +8,8 @@ import {
   StyledValue,
 } from './styles.ts';
 
-type ProgressBarPropsType = ProgressBarType &
+type ProgressBarPropsType = ComponentPropsWithoutRef<'div'> &
+  ProgressBarType &
   Omit<ProgressBarWrapType, '$label'> & {
     label?: boolean;
   };
