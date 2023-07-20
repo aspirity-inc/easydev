@@ -5,3 +5,4 @@ export { Radio, ControlWithLabel, Toggle, Checkbox } from '@core/Controls';
 export { Space } from '@core/Space';
 export { Link } from '@core/Link';
 export { RangeSlider } from '@core/Progress';
+export { Popover } from '@core/Popover';
