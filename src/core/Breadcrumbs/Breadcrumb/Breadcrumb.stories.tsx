@@ -1,21 +1,16 @@
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Breadcrumb } from '.';
 
-const metaBreadcrumb: Meta<typeof Breadcrumb> = {
+export default {
   title: 'Core/Breadcrumbs/Breadcrumb',
   component: Breadcrumb,
-  argTypes: {
-    disabled: {
-      type: 'boolean',
-      control: 'boolean',
-    },
+} satisfies Meta<typeof Breadcrumb>;
+
+type Story = StoryObj<typeof Breadcrumb>;
+
+export const Default = {
+  args: {
+    children: 'Home',
   },
-};
-export default metaBreadcrumb;
-
-const Template: StoryFn<typeof Breadcrumb> = ({ ...args }) => {
-  return <Breadcrumb {...args}>Home</Breadcrumb>;
-};
-
-export const DefaultBreadcrumb: StoryFn<typeof Breadcrumb> = Template.bind({});
+} satisfies Story;
