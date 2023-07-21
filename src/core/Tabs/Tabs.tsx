@@ -17,6 +17,10 @@ export const Tabs = ({ children, defaultActiveKey = 0 }: TabsProps) => {
   const handleChangeKey = (key: keyType) => setActiveKey(key);
 
   useEffect(() => {
+    setActiveKey(defaultActiveKey);
+  }, [defaultActiveKey]);
+
+  useEffect(() => {
     React.Children.map(children, (child) => {
       if (React.isValidElement(child) && child.props.eventKey === activeKey) setContent(child.props.children);
     });
