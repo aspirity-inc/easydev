@@ -5,7 +5,7 @@ import { getTitleVariant } from '@core/Typography/styles.ts';
 import { StyledStepper } from '../styles.ts';
 
 export const StyledStep = styled('div')`
-  --color: ${({ theme }) => (theme.type === 'light' ? theme.colors.secondary['500'] : theme.colors.surface['400'])};
+  --color: ${({ theme }) => (theme.type === 'light' ? theme.colors.secondary['500'] : theme.colors.secondary['400'])};
 
   display: flex;
   justify-content: center;
@@ -43,7 +43,7 @@ export const StyledNumericStepper = styled(StyledStepper)`
     top: 50%;
     transform: translate(-50%, -50%);
     background-color: ${({ theme }) =>
-      theme.type === 'light' ? theme.colors.secondary['500'] : theme.colors.surface['400']};
+      theme.type === 'light' ? theme.colors.secondary['500'] : theme.colors.secondary['400']};
     z-index: -1;
   }
 `;
