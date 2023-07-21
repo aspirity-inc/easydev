@@ -7,6 +7,6 @@ type TabProps = React.ComponentPropsWithoutRef<'button'> & {
   children: ReactNode | ReactNode[];
 };
 
-export const Tab = (props: TabProps) => {
-  return <>{props.children}</>;
+export const Tab = (_props: TabProps) => {
+  return null;
 };
