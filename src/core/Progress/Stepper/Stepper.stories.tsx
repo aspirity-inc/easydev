@@ -15,3 +15,11 @@ export const Default = {
     currentStep: 3,
   },
 } satisfies Story;
+
+export const Numeric = {
+  args: {
+    count: 10,
+    currentStep: 3,
+    numeric: true,
+  },
+} satisfies Story;

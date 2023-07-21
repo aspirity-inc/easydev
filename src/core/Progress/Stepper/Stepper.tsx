@@ -1,4 +1,5 @@
 import { DefaultStepper } from './DefaultStepper';
+import { NumericStepper } from './NumericStepper';
 import type { StepperPropsType } from './types.ts';
 
 type StepperType = StepperPropsType & {
@@ -6,6 +7,5 @@ type StepperType = StepperPropsType & {
 };
 
 export const Stepper = ({ numeric, ...props }: StepperType) => {
-  console.log(numeric);
-  return <DefaultStepper {...props} />;
+  return numeric ? <NumericStepper {...props} /> : <DefaultStepper {...props} />;
 };
