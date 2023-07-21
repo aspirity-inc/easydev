@@ -13,10 +13,12 @@ type TabButtonProps = React.ComponentPropsWithoutRef<'button'> & {
 };
 
 export const TabButton = ({ title, disabled, active, eventKey, handleChangeKey, ...props }: TabButtonProps) => {
+  const isActive = active && !disabled;
+
   return (
     <StyledTab
       onClick={() => handleChangeKey(eventKey)}
-      className={cx(active && 'active', props.className)}
+      className={cx(isActive && 'active', props.className)}
       disabled={disabled}
       {...props}
     >
