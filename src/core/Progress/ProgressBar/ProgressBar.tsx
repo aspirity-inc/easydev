@@ -1,12 +1,7 @@
 import { ComponentPropsWithoutRef } from 'react';
 
-import {
-  type ProgressBarType,
-  ProgressBarWrap,
-  type ProgressBarWrapType,
-  StyledProgressBar,
-  StyledValue,
-} from './styles.ts';
+import { type ProgressBarType, ProgressBarWrap, type ProgressBarWrapType, StyledValue } from './styles.ts';
+import { StyledProgressBar } from '../styles.ts';
 
 type ProgressBarPropsType = ComponentPropsWithoutRef<'div'> &
   ProgressBarType &
@@ -14,11 +9,11 @@ type ProgressBarPropsType = ComponentPropsWithoutRef<'div'> &
     label?: boolean;
   };
 
-export const ProgressBar = ({ value, label = true, color, ...props }: ProgressBarPropsType) => {
+export const ProgressBar = ({ value, label = true, ...props }: ProgressBarPropsType) => {
   const formattedValue = value > 100 ? 100 : value;
 
   return (
-    <ProgressBarWrap $label={label} className="easy_progressWrap" color={color}>
+    <ProgressBarWrap $label={label} className="easy_progressWrap">
       {label && (
         <StyledValue level={5} tag="span" className="easy_progressText">
           {formattedValue}%

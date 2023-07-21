@@ -60,9 +60,10 @@ export const Tooltip = styled(Text)<TooltipType>`
 
 export const StyledProgress = styled('input')<{ progress: number }>`
   --progressValue: ${({ progress }) => progress}%;
-  --progressBg: ${({ theme }) => theme.colors.secondary['500']};
+  --progressBg: ${({ theme }) =>
+    theme.type === 'light' ? theme.colors.secondary['500'] : theme.colors.secondary['400']};
 
-  --trackBg: ${({ theme }) => theme.colors.secondary['200']};
+  --trackBg: ${({ theme }) => (theme.type === 'light' ? theme.colors.secondary['200'] : theme.colors.surface['800'])};
   --thumbBg: var(--trackBg);
 
   position: relative;
