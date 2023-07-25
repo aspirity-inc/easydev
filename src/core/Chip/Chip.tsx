@@ -29,21 +29,27 @@ export const Chip = ({
   onDelete,
   ...props
 }: ChipProps) => {
-  const hasOnDelete = Boolean(onDelete);
+  const hasDeleteButton = Boolean(onDelete);
 
   const ExtraChipContent = () => {
     switch (variant) {
       case 'default':
-        return defaultSelected && hasOnDelete && <DeleteButton disabled={disabled} onClick={onDelete} />;
+        return defaultSelected && hasDeleteButton && <DeleteButton disabled={disabled} onClick={onDelete} />;
       case 'checkbox':
         return <Checkbox disabled={disabled} defaultChecked={defaultSelected} />;
       case 'multiselect':
-        return hasOnDelete && <DeleteButton />;
+        return hasDeleteButton && <DeleteButton disabled={disabled} onClick={onDelete} />;
     }
   };
 
   return (
-    <StyledChip variant={variant} disabled={disabled} selected={defaultSelected} hasOnDelete={hasOnDelete} {...props}>
+    <StyledChip
+      variant={variant}
+      disabled={disabled}
+      selected={defaultSelected}
+      $hasDeleteButton={hasDeleteButton}
+      {...props}
+    >
       {ExtraChipContent()}
       {children}
     </StyledChip>

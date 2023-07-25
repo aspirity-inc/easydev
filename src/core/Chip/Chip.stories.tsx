@@ -27,7 +27,7 @@ export const ListOfDefaultChips = ({ ...args }) => {
         Selected chip
       </Chip>
       <Chip {...args} defaultSelected>
-        Selected chip with delete icon
+        Selected chip with delete button
       </Chip>
       <Chip {...args} disabled>
         Disabled chip

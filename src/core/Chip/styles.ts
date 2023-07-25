@@ -8,7 +8,7 @@ type ChipProps = {
   disabled?: boolean;
   selected?: boolean;
   variant?: ChipVariant;
-  hasOnDelete?: boolean;
+  $hasDeleteButton?: boolean;
 };
 
 export const StyledDeleteButton = styled('button')`
@@ -49,7 +49,7 @@ export const StyledChip = styled('div')<ChipProps>`
   }};
 `;
 
-const getDefaultChipStyle = ({ selected, hasOnDelete }: ChipProps) => {
+const getDefaultChipStyle = ({ selected, $hasDeleteButton }: ChipProps) => {
   return css`
     justify-content: center;
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['50'])};
@@ -73,7 +73,7 @@ const getDefaultChipStyle = ({ selected, hasOnDelete }: ChipProps) => {
       background-color: ${({ theme }) => theme.colors.tretiary['500']};
       color: ${({ theme }) => theme.colors.surface['900']};
 
-      ${hasOnDelete &&
+      ${$hasDeleteButton &&
       css`
         justify-content: flex-start;
       `}
