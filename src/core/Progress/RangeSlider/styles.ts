@@ -2,6 +2,8 @@ import { styled } from 'styled-components';
 
 import { Text } from '@core/Typography';
 
+import { colors } from '../styles.ts';
+
 export type TooltipShownType = 'onHover' | 'always';
 
 type TooltipType = {
@@ -59,12 +61,10 @@ export const Tooltip = styled(Text)<TooltipType>`
 `;
 
 export const StyledProgress = styled('input')<{ progress: number }>`
-  --progressValue: ${({ progress }) => progress}%;
-  --progressBg: ${({ theme }) =>
-    theme.type === 'light' ? theme.colors.secondary['500'] : theme.colors.secondary['400']};
+  ${colors};
 
-  --trackBg: ${({ theme }) => (theme.type === 'light' ? theme.colors.secondary['200'] : theme.colors.surface['800'])};
-  --thumbBg: var(--trackBg);
+  --progressValue: ${({ progress }) => progress}%;
+  --thumbBg: var(--progressBgColor);
 
   position: relative;
   -webkit-appearance: none;
@@ -74,7 +74,11 @@ export const StyledProgress = styled('input')<{ progress: number }>`
   outline: none;
   border-radius: 15px;
   height: 6px;
-  background: linear-gradient(to right, var(--progressBg) var(--progressValue), var(--trackBg) var(--progressValue));
+  background: linear-gradient(
+    to right,
+    var(--progressColor) var(--progressValue),
+    var(--progressBgColor) var(--progressValue)
+  );
 
   &::-webkit-slider-thumb {
     appearance: none;
