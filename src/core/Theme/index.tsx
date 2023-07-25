@@ -1,17 +1,17 @@
-import { darken, lighten } from 'polished';
+import { shade, tint } from 'polished';
 
 const paletteGenerator = (color: string) => ({
   main: color,
-  50: lighten(0.5, color),
-  100: lighten(0.4, color),
-  200: lighten(0.3, color),
-  300: lighten(0.2, color),
-  400: lighten(0.1, color),
+  50: tint(1, color),
+  100: tint(0.4, color),
+  200: tint(0.3, color),
+  300: tint(0.2, color),
+  400: tint(0.1, color),
   500: color,
-  600: darken(0.1, color),
-  700: darken(0.2, color),
-  800: darken(0.3, color),
-  900: darken(0.4, color),
+  600: shade(0.1, color),
+  700: shade(0.2, color),
+  800: shade(0.3, color),
+  900: shade(0.5, color),
 });
 
 export const lightTheme = {

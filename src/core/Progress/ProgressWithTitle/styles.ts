@@ -2,11 +2,13 @@ import { styled } from 'styled-components';
 
 import { Subtitle } from '@core/Typography';
 
-import { StyledProgressBar } from '../styles.ts';
+import { colors, StyledProgressBar } from '../styles.ts';
 
 export const StyledProgress = styled(StyledProgressBar)`
   height: 5px;
   border-radius: 0;
+  background-color: ${({ theme }) =>
+    theme.type === 'light' ? theme.colors.secondary['200'] : theme.colors.surface['500']};
 
   &:after {
     border-radius: 0;
@@ -14,6 +16,8 @@ export const StyledProgress = styled(StyledProgressBar)`
 `;
 
 export const StyledProgressInfo = styled(Subtitle)`
+  ${colors};
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,6 +29,6 @@ export const StyledProgressInfo = styled(Subtitle)`
     theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
 
   > span:first-of-type {
-    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.secondary['500'] : theme.colors.secondary['400'])};
+    color: var(--progressColor);
   }
 `;
