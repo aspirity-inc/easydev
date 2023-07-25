@@ -1,23 +1,21 @@
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Space } from '@core/Space';
 
 import { Chip } from '.';
 
-const metaChip: Meta<typeof Chip> = {
+export default {
   title: 'core/Chip',
   component: Chip,
-};
-export default metaChip;
+} satisfies Meta<typeof Chip>;
 
-const Template: StoryFn<typeof Chip> = ({ children, ...args }) => {
-  return <Chip {...args}>{children}</Chip>;
-};
+type Story = StoryObj<typeof Chip>;
 
-export const DefaultChip: StoryFn<typeof Chip> = Template.bind({});
-DefaultChip.args = {
-  children: 'Chip',
-};
+export const DefaultChip = {
+  args: {
+    children: 'Chip',
+  },
+} satisfies Story;
 
 export const ListOfDefaultChips = ({ ...args }) => {
   return (
