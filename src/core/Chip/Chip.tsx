@@ -15,10 +15,18 @@ type ChipProps = {
   onClick?: () => void;
 };
 
-const DeleteButton = (props: React.ComponentPropsWithoutRef<'button'>) => (
-  <StyledDeleteButton type="button" {...props}>
-    <div className="material-symbols-outlined">close</div>
-  </StyledDeleteButton>
+const DeleteButton = ({
+  checked,
+  hasDeleteButton,
+  ...props
+}: React.ComponentPropsWithoutRef<'button'> & { checked: boolean; hasDeleteButton: boolean }) => (
+  <>
+    {checked && hasDeleteButton && (
+      <StyledDeleteButton type="button" {...props}>
+        <div className="material-symbols-outlined">close</div>
+      </StyledDeleteButton>
+    )}
+  </>
 );
 
 export const Chip = ({
@@ -38,27 +46,6 @@ export const Chip = ({
     if (onClick) onClick();
   };
 
-  const ExtraChipContent = () => {
-    switch (variant) {
-      case 'default':
-        return (
-          <>
-            <input
-              style={{ display: 'none' }}
-              type="checkbox"
-              disabled={disabled}
-              checked={checked}
-              onChange={handleChange}
-            />
-            {checked && hasDeleteButton && <DeleteButton disabled={disabled} onClick={onDelete} />}
-          </>
-        );
-
-      case 'checkbox':
-        return <Checkbox disabled={disabled} checked={checked} onChange={handleChange} />;
-    }
-  };
-
   return (
     <StyledChipLabel
       variant={variant}
@@ -67,7 +54,18 @@ export const Chip = ({
       $hasDeleteButton={hasDeleteButton}
       {...props}
     >
-      {ExtraChipContent()}
+      <input
+        style={{ display: 'none' }}
+        type="checkbox"
+        disabled={disabled}
+        checked={checked}
+        onChange={handleChange}
+      />
+      {variant === 'checkbox' ? (
+        <Checkbox disabled={disabled} checked={checked} onChange={handleChange} />
+      ) : (
+        <DeleteButton disabled={disabled} onClick={onDelete} checked={checked} hasDeleteButton={hasDeleteButton} />
+      )}
       {label}
     </StyledChipLabel>
   );

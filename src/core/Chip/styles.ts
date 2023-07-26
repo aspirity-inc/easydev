@@ -34,6 +34,7 @@ export const StyledChipLabel = styled('label')<ChipProps>`
   user-select: none;
   border-radius: 40px;
   ${getTextVariants('body2')};
+  cursor: pointer;
 
   ${({ variant, ...props }) => {
     switch (variant) {
@@ -66,6 +67,10 @@ const getDefaultChipStyle = ({ checked, $hasDeleteButton }: ChipProps) => {
       }
     }
 
+    &[disabled] {
+      cursor: default;
+    }
+
     ${checked &&
     css`
       background-color: ${({ theme }) => theme.colors.tretiary['500']};
@@ -93,7 +98,7 @@ const getCheckboxChipStyle = () => {
       ${({ theme }) => theme.shadows.gray};
     }
 
-    &:disabled {
+    &[disabled] {
       color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['300'])};
       cursor: default;
     }
