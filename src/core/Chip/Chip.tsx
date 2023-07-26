@@ -1,14 +1,14 @@
-import { ReactNode, CSSProperties } from 'react';
+import { CSSProperties, useState } from 'react';
 
 import { Checkbox } from '@core/Controls';
 
-import { ChipVariant, StyledChip, StyledDeleteButton } from './styles';
+import { ChipVariant, StyledChipLabel, StyledDeleteButton } from './styles';
 
 type ChipProps = {
-  children: ReactNode;
+  label: string;
   variant?: ChipVariant;
   disabled?: boolean;
-  defaultSelected?: boolean;
+  defaultChecked?: boolean;
   className?: string;
   style?: CSSProperties;
   onDelete?: () => void;
@@ -22,36 +22,53 @@ const DeleteButton = (props: React.ComponentPropsWithoutRef<'button'>) => (
 );
 
 export const Chip = ({
-  children,
+  label,
   variant = 'default',
   disabled = false,
-  defaultSelected = false,
+  defaultChecked = false,
   onDelete,
+  onClick,
   ...props
 }: ChipProps) => {
+  const [checked, setChecked] = useState(defaultChecked);
   const hasDeleteButton = Boolean(onDelete);
+
+  const handleChange = () => {
+    setChecked(!checked);
+    if (onClick) onClick();
+  };
 
   const ExtraChipContent = () => {
     switch (variant) {
       case 'default':
-        return defaultSelected && hasDeleteButton && <DeleteButton disabled={disabled} onClick={onDelete} />;
+        return (
+          <>
+            <input
+              style={{ display: 'none' }}
+              type="checkbox"
+              disabled={disabled}
+              checked={checked}
+              onChange={handleChange}
+            />
+            {checked && hasDeleteButton && <DeleteButton disabled={disabled} onClick={onDelete} />}
+          </>
+        );
+
       case 'checkbox':
-        return <Checkbox disabled={disabled} defaultChecked={defaultSelected} />;
-      case 'multiselect':
-        return hasDeleteButton && <DeleteButton disabled={disabled} onClick={onDelete} />;
+        return <Checkbox disabled={disabled} checked={checked} onChange={handleChange} />;
     }
   };
 
   return (
-    <StyledChip
+    <StyledChipLabel
       variant={variant}
       disabled={disabled}
-      selected={defaultSelected}
+      checked={checked}
       $hasDeleteButton={hasDeleteButton}
       {...props}
     >
       {ExtraChipContent()}
-      {children}
-    </StyledChip>
+      {label}
+    </StyledChipLabel>
   );
 };

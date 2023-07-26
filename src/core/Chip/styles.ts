@@ -2,11 +2,11 @@ import { css, styled } from 'styled-components';
 
 import { getTextVariants } from '@core/Typography/Text/styles';
 
-export type ChipVariant = 'default' | 'checkbox' | 'multiselect';
+export type ChipVariant = 'default' | 'checkbox';
 
 type ChipProps = {
   disabled?: boolean;
-  selected?: boolean;
+  checked?: boolean;
   variant?: ChipVariant;
   $hasDeleteButton?: boolean;
 };
@@ -24,7 +24,7 @@ export const StyledDeleteButton = styled('button')`
   }
 `;
 
-export const StyledChip = styled('div')<ChipProps>`
+export const StyledChipLabel = styled('label')<ChipProps>`
   width: fit-content;
   min-width: 160px;
   display: flex;
@@ -40,16 +40,14 @@ export const StyledChip = styled('div')<ChipProps>`
       case 'default':
         return getDefaultChipStyle(props);
       case 'checkbox':
-        return getCheckboxChipStyle(props);
-      case 'multiselect':
-        return getMultiselectChipStyle(props);
+        return getCheckboxChipStyle();
       default:
         return getDefaultChipStyle(props);
     }
   }};
 `;
 
-const getDefaultChipStyle = ({ selected, $hasDeleteButton }: ChipProps) => {
+const getDefaultChipStyle = ({ checked, $hasDeleteButton }: ChipProps) => {
   return css`
     justify-content: center;
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['50'])};
@@ -58,7 +56,7 @@ const getDefaultChipStyle = ({ selected, $hasDeleteButton }: ChipProps) => {
     border: 1px solid
       ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['700'])};
 
-    &:hover {
+    &:hover:not([disabled]) {
       color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
       background-color: ${({ theme }) =>
         theme.type === 'light' ? theme.colors.tretiary['400'] : theme.colors.surface['700']};
@@ -68,7 +66,7 @@ const getDefaultChipStyle = ({ selected, $hasDeleteButton }: ChipProps) => {
       }
     }
 
-    ${selected &&
+    ${checked &&
     css`
       background-color: ${({ theme }) => theme.colors.tretiary['500']};
       color: ${({ theme }) => theme.colors.surface['900']};
@@ -81,8 +79,9 @@ const getDefaultChipStyle = ({ selected, $hasDeleteButton }: ChipProps) => {
   `;
 };
 
-const getCheckboxChipStyle = ({ disabled }: ChipProps) => {
+const getCheckboxChipStyle = () => {
   return css`
+    justify-content: flex-start;
     ${getTextVariants('body3')};
 
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['100'])};
@@ -94,42 +93,9 @@ const getCheckboxChipStyle = ({ disabled }: ChipProps) => {
       ${({ theme }) => theme.shadows.gray};
     }
 
-    ${disabled &&
-    css`
+    &:disabled {
       color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['300'])};
       cursor: default;
-    `};
-  `;
-};
-
-const getMultiselectChipStyle = ({ disabled }: ChipProps) => {
-  return css`
-    flex-direction: row-reverse;
-
-    ${StyledDeleteButton} {
-      color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['800'])};
-      margin-left: auto;
     }
-
-    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['800'])};
-    background-color: ${({ theme }) =>
-      theme.type === 'light' ? theme.colors.tretiary['300'] : theme.colors.tretiary['500']};
-
-    &:hover:not([disabled]) {
-      ${({ theme }) => theme.shadows.violet};
-    }
-
-    ${disabled &&
-    css`
-      background-color: ${({ theme }) =>
-        theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['500']};
-      color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['200'])};
-      cursor: default;
-
-      ${StyledDeleteButton} {
-        color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['200'])};
-        cursor: default;
-      }
-    `};
   `;
 };

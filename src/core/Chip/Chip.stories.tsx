@@ -13,23 +13,24 @@ type Story = StoryObj<typeof Chip>;
 
 export const DefaultChip = {
   args: {
-    children: 'Chip',
+    label: 'Chip',
+  },
+} satisfies Story;
+
+export const CheckboxChip = {
+  args: {
+    label: 'Chip',
+    variant: 'checkbox',
   },
 } satisfies Story;
 
 export const ListOfDefaultChips = ({ ...args }) => {
   return (
     <Space direction="row">
-      <Chip {...args}>Chip</Chip>
-      <Chip {...args} defaultSelected onDelete={undefined}>
-        Selected chip
-      </Chip>
-      <Chip {...args} defaultSelected>
-        Selected chip with delete button
-      </Chip>
-      <Chip {...args} disabled>
-        Disabled chip
-      </Chip>
+      {/* Args have an empty function for onDelete prop by default, so we need pass undefined explicitly for demonstration*/}
+      <Chip {...args} label="Selected chip" defaultChecked onDelete={undefined} />
+      <Chip {...args} label="Selected chip with delete button" defaultChecked />
+      <Chip {...args} label="Disabled chip" disabled />
     </Space>
   );
 };
@@ -37,37 +38,9 @@ export const ListOfDefaultChips = ({ ...args }) => {
 export const ListOfCheckboxChips = ({ ...args }) => {
   return (
     <Space direction="row">
-      <Chip {...args} variant="checkbox">
-        Chip
-      </Chip>
-      <Chip {...args} variant="checkbox" defaultSelected>
-        Selected chip
-      </Chip>
-      <Chip {...args} variant="checkbox" disabled>
-        Disabled chip
-      </Chip>
-      <Chip {...args} variant="checkbox">
-        Chip
-      </Chip>
-    </Space>
-  );
-};
-
-export const ListOfMultiselectChips = ({ ...args }) => {
-  return (
-    <Space direction="row">
-      <Chip {...args} variant="multiselect">
-        Chip
-      </Chip>
-      <Chip {...args} variant="multiselect" defaultSelected>
-        Selected chip
-      </Chip>
-      <Chip {...args} variant="multiselect" disabled>
-        Disabled chip
-      </Chip>
-      <Chip {...args} variant="multiselect">
-        Chip
-      </Chip>
+      <Chip {...args} variant="checkbox" label="Chip" />
+      <Chip {...args} variant="checkbox" label="Selected chip" defaultChecked />
+      <Chip {...args} variant="checkbox" label="Disabled chip" disabled />
     </Space>
   );
 };
