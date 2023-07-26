@@ -129,7 +129,7 @@ export const darkTheme = {
   shadows: {
     gray: 'box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.25)',
     blue: 'box-shadow: 0 0 6px 0 rgba(76, 197, 255, 0.65)',
-    violet: '0 0 11px 0 #1F034C',
-    violet_light: '0 2px 18px 0 rgba(19, 9, 33, 0.45)',
+    violet: 'box-shadow: 0 0 11px 0 #1F034C',
+    violet_light: 'box-shadow: 0 2px 18px 0 rgba(19, 9, 33, 0.45)',
   },
 };
