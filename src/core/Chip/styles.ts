@@ -11,6 +11,13 @@ type ChipProps = {
   $hasDeleteButton?: boolean;
 };
 
+export const StyledInput = styled('input')`
+  position: absolute;
+  opacity: 0;
+  cursor: inherit;
+  z-index: 1;
+`;
+
 export const StyledDeleteButton = styled('button')`
   padding: 0;
   margin: 0;

@@ -2,7 +2,7 @@ import { CSSProperties, useState } from 'react';
 
 import { Checkbox } from '@core/Controls';
 
-import { ChipVariant, StyledChipLabel, StyledDeleteButton } from './styles';
+import { ChipVariant, StyledChipLabel, StyledDeleteButton, StyledInput } from './styles';
 
 type ChipProps = {
   label: string;
@@ -54,13 +54,7 @@ export const Chip = ({
       $hasDeleteButton={hasDeleteButton}
       {...props}
     >
-      <input
-        style={{ display: 'none' }}
-        type="checkbox"
-        disabled={disabled}
-        checked={checked}
-        onChange={handleChange}
-      />
+      <StyledInput type="checkbox" disabled={disabled} checked={checked} onChange={handleChange} />
       {variant === 'checkbox' ? (
         <Checkbox disabled={disabled} checked={checked} onChange={handleChange} />
       ) : (
