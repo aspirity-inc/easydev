@@ -19,16 +19,3 @@ export const parameters = {
 }
 
 export const decorators = [withTheme];
-
-export const globalTypes = {
-  theme: {
-    name: 'theme',
-    description: 'Select Theme',
-    defaultValue: 'light',
-    toolbar: {
-      icon: 'mirror',
-      items: ['light', 'dark'],
-      dynamicTitle: true
-    }
-  }
-}
