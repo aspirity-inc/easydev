@@ -1,4 +1,4 @@
-import ReactSelect, { components, GroupBase, Props } from 'react-select';
+import ReactSelect, { components, DropdownIndicatorProps, GroupBase, OptionProps, Props } from 'react-select';
 
 import 'material-symbols';
 
@@ -12,21 +12,24 @@ type SelectProps<Option, IsMulti extends boolean = false, Group extends GroupBas
   menuHeight?: number;
 };
 
-// Who knows how to type components props ¯\_(ツ)_/¯
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-const CustomOption = (props) => (
+const CustomOption = <Option, IsMulti extends boolean = false, Group extends GroupBase<Option> = GroupBase<Option>>(
+  props: OptionProps<Option, IsMulti, Group>
+) => (
   <div>
-    <components.Option {...props} data-disabled={props.disabled}>
+    <components.Option {...props}>
       {props.children}
       <div className="icon material-symbols-rounded">done</div>
     </components.Option>
   </div>
 );
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-const DropdownIndicator = (props) => {
+const DropdownIndicator = <
+  Option,
+  IsMulti extends boolean = false,
+  Group extends GroupBase<Option> = GroupBase<Option>
+>(
+  props: DropdownIndicatorProps<Option, IsMulti, Group>
+) => {
   return (
     <components.DropdownIndicator {...props}>
       <div className="icon-indicator material-symbols-rounded">arrow_drop_down</div>
@@ -44,9 +47,10 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
         className="react-select-container"
         classNamePrefix="react-select"
         unstyled
-        {...props}
         components={{ Option: CustomOption, DropdownIndicator }}
+        {...props}
       />
     </StyledSelectWrap>
   );
 };
+//
