@@ -17,6 +17,7 @@ export const StyledSelectWrap = styled('div')<SelectWrapType>`
       position: relative;
       height: 56px;
       padding: 0 16px;
+      ${getTextVariants('body2')};
       background-color: ${({ theme }) =>
         theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['800']};
       border-radius: ${({ theme }) => theme.spacing.borderRadius.medium}px;
