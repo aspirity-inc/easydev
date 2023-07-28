@@ -3,11 +3,11 @@ import { css, styled } from 'styled-components';
 import { scrollbarStyles } from '@core/Theme';
 import { getTextVariants } from '@core/Typography/Text/styles.ts';
 
-type SelectWrapType = {
-  $menuHeight?: number;
+export type SelectType = {
+  $rounded?: boolean;
 };
 
-export const StyledSelectWrap = styled('div')<SelectWrapType>`
+export const StyledSelectWrap = styled('div')<SelectType>`
   --transitionTiming: ${({ theme }) => theme.transition.default};
   --transition: color var(--transitionTiming), background-color var(--transitionTiming),
     box-shadow var(--transitionTiming);
@@ -51,6 +51,24 @@ export const StyledSelectWrap = styled('div')<SelectWrapType>`
           transform: rotate(180deg);
         }
       }
+
+      ${({ $rounded }) =>
+        $rounded &&
+        css`
+          border-radius: 40px;
+          background-color: ${({ theme }) =>
+            theme.type === 'light' ? theme.colors.surface['200'] : theme.colors.surface['800']};
+
+          &:hover,
+          &:active,
+          &:focus-within,
+          &:has(.react-select__value-container--has-value) {
+            background-color: ${({ theme }) =>
+              theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
+            ${({ theme }) => theme.shadows.violet_light};
+            border-color: transparent;
+          }
+        `}
     }
 
     &__placeholder {
@@ -67,14 +85,14 @@ export const StyledSelectWrap = styled('div')<SelectWrapType>`
 
       &-list {
         ${scrollbarStyles};
-        ${({ $menuHeight }) =>
-          $menuHeight &&
-          css`
-            max-height: ${$menuHeight}px;
-            scrollbar-gutter: stable;
-            overflow-y: auto;
-            overflow-x: hidden;
-          `}
+        scrollbar-gutter: stable;
+      }
+
+      &-notice--no-options {
+        padding-left: 16px;
+        text-align: left;
+        color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['100'])};
+        ${getTextVariants('caption')};
       }
     }
 
@@ -122,5 +140,43 @@ export const StyledSelectWrap = styled('div')<SelectWrapType>`
           theme.type === 'light' ? theme.colors.secondary['200'] : theme.colors.secondary['100']};
       }
     }
+
+    ${({ $rounded }) =>
+      $rounded &&
+      css`
+        &__menu {
+          margin-top: 16px;
+          border-radius: 20px;
+          overflow: hidden;
+        }
+
+        &__option {
+          border: none;
+
+          &:hover {
+            cursor: pointer;
+            background-color: ${({ theme }) =>
+              theme.type === 'light' ? theme.colors.tretiary['100'] : theme.colors.surface['700']};
+          }
+        }
+      `}
+  }
+`;
+
+export const StyledFilters = styled('div')`
+  margin-top: 32px;
+  padding-bottom: 2px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  ${scrollbarStyles};
+  &::-webkit-scrollbar {
+    height: 4px;
+    background-color: ${({ theme }) =>
+      theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
   }
 `;
