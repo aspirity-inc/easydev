@@ -1,18 +1,11 @@
-import { CSSProperties, MouseEventHandler, ReactNode, useRef } from 'react';
+import { MouseEventHandler, useRef } from 'react';
 
-import { ModalContext } from './ModalContext';
+import { createPortal } from 'react-dom';
+
 import { ModalContent, ModalWrapper } from './styles';
+import { ModalProps } from './types';
 
-export type ModalProps = {
-  open: boolean;
-  onClose: () => void;
-  colorful?: boolean;
-  children: ReactNode;
-  className?: string;
-  style?: CSSProperties;
-};
-
-export const Modal = ({ open, onClose, children, colorful = false, ...props }: ModalProps) => {
+export const Modal = ({ open, onClose, children, colorful = false, portal, ...props }: ModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleClick: MouseEventHandler<HTMLDivElement> = (e) => {
@@ -21,11 +14,13 @@ export const Modal = ({ open, onClose, children, colorful = false, ...props }: M
     }
   };
 
-  return (
-    <ModalWrapper open={open} onClick={handleClick} {...props}>
+  const ModalWindow = () => (
+    <ModalWrapper open={open} onClick={handleClick} $isPortal={Boolean(portal)} {...props}>
       <ModalContent ref={modalRef} $colorful={colorful}>
-        <ModalContext.Provider value={{ colorful, onClose }}>{children}</ModalContext.Provider>
+        {children}
       </ModalContent>
     </ModalWrapper>
   );
+
+  return <>{portal ? createPortal(ModalWindow(), portal) : ModalWindow()}</>;
 };

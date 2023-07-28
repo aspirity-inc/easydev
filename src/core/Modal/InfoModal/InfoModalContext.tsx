@@ -9,4 +9,4 @@ const defaultValue = {
   colorful: false,
 };
 
-export const ModalContext = createContext<ModalContextProps>(defaultValue);
+export const InfoModalContext = createContext<ModalContextProps>(defaultValue);

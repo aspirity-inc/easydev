@@ -1,7 +1,7 @@
 import { CSSProperties, useContext, ReactNode } from 'react';
 
 import { StyledModalBody, StyledImage, StyledTitle, StyledText } from './styles';
-import { ModalContext } from '../ModalContext';
+import { InfoModalContext } from '../InfoModalContext';
 
 export type ModalBodyProps = {
   children?: ReactNode;
@@ -12,8 +12,8 @@ export type ModalBodyProps = {
   style?: CSSProperties;
 };
 
-export const ModalBody = ({ children, title, text, image, ...props }: ModalBodyProps) => {
-  const { colorful } = useContext(ModalContext);
+export const ModalBody = ({ title, text, image, ...props }: ModalBodyProps) => {
+  const { colorful } = useContext(InfoModalContext);
 
   return (
     <StyledModalBody {...props}>
@@ -24,7 +24,6 @@ export const ModalBody = ({ children, title, text, image, ...props }: ModalBodyP
       <StyledText variant="body3" $colorful={colorful}>
         {text}
       </StyledText>
-      {children}
     </StyledModalBody>
   );
 };

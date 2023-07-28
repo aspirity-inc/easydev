@@ -2,12 +2,6 @@ import { css, styled } from 'styled-components';
 
 import { StyledModalContentProps } from '../styles';
 
-export const StyledModalHeader = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-`;
-
 export const StyledCloseButton = styled('button')<StyledModalContentProps>`
   --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['100'])};
   --colorful: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['800'])};
