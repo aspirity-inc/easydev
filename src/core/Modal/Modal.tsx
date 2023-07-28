@@ -1,24 +1,11 @@
-import { CSSProperties, MouseEventHandler, ReactNode, useRef } from 'react';
+import { MouseEventHandler, useRef } from 'react';
 
-import { ModalContent, ModalWrapper, StyledCloseButton, StyledModalContentProps } from './styles';
+import { createPortal } from 'react-dom';
 
-export type ModalProps = {
-  open: boolean;
-  onClose: () => void;
-  colorful?: boolean;
-  closeBtn?: boolean;
-  children: ReactNode;
-  className?: string;
-  style?: CSSProperties;
-};
+import { ModalContent, ModalWrapper } from './styles';
+import { ModalProps } from './types';
 
-const CloseButton = (props: React.ComponentPropsWithoutRef<'button'> & StyledModalContentProps) => (
-  <StyledCloseButton type="button" {...props}>
-    <div className="material-symbols-outlined">close</div>
-  </StyledCloseButton>
-);
-
-export const Modal = ({ open, onClose, children, closeBtn = false, colorful, ...props }: ModalProps) => {
+export const Modal = ({ open, onClose, children, colorful = false, portal, ...props }: ModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleClick: MouseEventHandler<HTMLDivElement> = (e) => {
@@ -27,12 +14,13 @@ export const Modal = ({ open, onClose, children, closeBtn = false, colorful, ...
     }
   };
 
-  return (
-    <ModalWrapper open={open} onClick={handleClick} {...props}>
+  const ModalWindow = () => (
+    <ModalWrapper open={open} onClick={handleClick} $isPortal={Boolean(portal)} {...props}>
       <ModalContent ref={modalRef} $colorful={colorful}>
-        {closeBtn && <CloseButton onClick={onClose} $colorful={colorful} />}
         {children}
       </ModalContent>
     </ModalWrapper>
   );
+
+  return <>{portal ? createPortal(ModalWindow(), portal) : ModalWindow()}</>;
 };

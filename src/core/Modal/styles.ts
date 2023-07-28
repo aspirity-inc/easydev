@@ -2,41 +2,15 @@ import { css, styled } from 'styled-components';
 
 type StyledModalWrapperProps = {
   open: boolean;
+  $isPortal: boolean;
 };
 
 export type StyledModalContentProps = {
   $colorful?: boolean;
 };
 
-export const StyledCloseButton = styled('button')<StyledModalContentProps>`
-  --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['100'])};
-  --colorful: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['800'])};
-
-  display: block;
-  padding: 0;
-  margin: 0;
-  margin-left: auto;
-  margin-bottom: 16px;
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
-
-  ${({ $colorful }) =>
-    $colorful
-      ? css`
-          color: var(--colorful);
-        `
-      : css`
-          color: var(--monochrome);
-        `};
-
-  & > div {
-    display: block;
-  }
-`;
-
 export const ModalWrapper = styled.div<StyledModalWrapperProps>`
-  position: fixed;
+  position: ${({ $isPortal }) => ($isPortal ? 'absolute' : 'fixed')};
   top: 0;
   left: 0;
   z-index: 2;
@@ -65,6 +39,10 @@ export const ModalContent = styled.div<StyledModalContentProps>`
   --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800'])};
   --colorful: ${({ theme }) => (theme.type === 'light' ? theme.colors.tretiary['50'] : theme.colors.tretiary['200'])};
 
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+
   padding: 40px 24px;
   margin: 32px;
 
@@ -77,6 +55,33 @@ export const ModalContent = styled.div<StyledModalContentProps>`
           background-color: var(--monochrome);
         `};
 
-  border-radius: 4px;
+  border-radius: 20px;
   ${({ theme }) => (theme.type === 'light' ? theme.shadows.gray : theme.shadows.violet_light)};
+`;
+
+export const StyledCloseButton = styled('button')<StyledModalContentProps>`
+  --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['100'])};
+  --colorful: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['800'])};
+
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-left: auto;
+
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+
+  ${({ $colorful }) =>
+    $colorful
+      ? css`
+          color: var(--colorful);
+        `
+      : css`
+          color: var(--monochrome);
+        `};
+
+  & > div {
+    display: block;
+  }
 `;

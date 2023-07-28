@@ -4,16 +4,16 @@ import { Meta, StoryFn } from '@storybook/react';
 
 import { Button } from '@core/Button';
 
-import { Modal, PortalModal } from '.';
+import { BaseModal } from '.';
 
-const metaModal: Meta<typeof Modal> = {
-  title: 'Core/Modal',
-  component: Modal,
+const metaBaseModal: Meta<typeof BaseModal> = {
+  title: 'Core/Modals/BaseModal',
+  component: BaseModal,
   argTypes: {},
 };
-export default metaModal;
+export default metaBaseModal;
 
-const Template: StoryFn<typeof Modal> = ({ children, ...args }) => {
+const Template: StoryFn<typeof BaseModal> = ({ children, ...args }) => {
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {
@@ -26,14 +26,14 @@ const Template: StoryFn<typeof Modal> = ({ children, ...args }) => {
   return (
     <>
       <Button onClick={handleOpen}>Open no portal modal window</Button>
-      <Modal {...args} open={open} onClose={handleClose}>
+      <BaseModal {...args} open={open} onClose={handleClose}>
         {children}
-      </Modal>
+      </BaseModal>
     </>
   );
 };
 
-const TemplatePortal: StoryFn<typeof PortalModal> = ({ children, ...args }) => {
+const TemplatePortal: StoryFn<typeof BaseModal> = ({ children, ...args }) => {
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {
@@ -48,9 +48,9 @@ const TemplatePortal: StoryFn<typeof PortalModal> = ({ children, ...args }) => {
   return (
     <>
       <Button onClick={handleOpen}>Open portal modal window</Button>
-      <PortalModal {...args} open={open} onClose={handleClose} portal={portal}>
+      <BaseModal {...args} open={open} onClose={handleClose} portal={portal}>
         {children}
-      </PortalModal>
+      </BaseModal>
       <div
         id="portalElement"
         style={{ position: 'relative', border: '1px solid #aaa', padding: '12px', width: '600px', height: '300px' }}
@@ -61,14 +61,16 @@ const TemplatePortal: StoryFn<typeof PortalModal> = ({ children, ...args }) => {
   );
 };
 
-export const NoPortalModalWindow: StoryFn<typeof Modal> = Template.bind({});
+export const NoPortalModalWindow: StoryFn<typeof BaseModal> = Template.bind({});
 NoPortalModalWindow.args = {
   children:
     'This information could be helpful for streamlining the rest of the process, preventing the user having to fill out a whole chunk of information relating to their mortgage, for example.',
+  closeBtn: true,
 };
 
-export const PortalModalWindow: StoryFn<typeof Modal> = TemplatePortal.bind({});
+export const PortalModalWindow: StoryFn<typeof BaseModal> = TemplatePortal.bind({});
 PortalModalWindow.args = {
   children:
     'This information could be helpful for streamlining the rest of the process, preventing the user having to fill out a whole chunk of information relating to their mortgage, for example.',
+  closeBtn: true,
 };
