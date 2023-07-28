@@ -33,15 +33,16 @@ export const StyledDeleteButton = styled('button')`
 
 export const StyledChipLabel = styled('label')<ChipProps>`
   width: fit-content;
-  min-width: 160px;
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 16px;
+  padding: 12px 48px;
   user-select: none;
   border-radius: 40px;
   ${getTextVariants('body2')};
   cursor: pointer;
+  white-space: nowrap;
+  line-height: 1.5;
 
   ${({ variant, ...props }) => {
     switch (variant) {
@@ -85,6 +86,7 @@ const getDefaultChipStyle = ({ checked, $hasDeleteButton }: ChipProps) => {
 
       ${$hasDeleteButton &&
       css`
+        padding-left: 16px;
         justify-content: flex-start;
       `}
     `};
@@ -94,6 +96,7 @@ const getDefaultChipStyle = ({ checked, $hasDeleteButton }: ChipProps) => {
 const getCheckboxChipStyle = () => {
   return css`
     justify-content: flex-start;
+    padding-left: 16px;
     ${getTextVariants('body3')};
 
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['100'])};
