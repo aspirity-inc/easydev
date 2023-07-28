@@ -114,38 +114,3 @@ NoPortalInfoModal.args = {};
 
 export const PortalInfoModal: StoryFn<typeof InfoModal> = TemplatePortal.bind({});
 PortalInfoModal.args = {};
-
-// const TemplateUser: StoryFn<typeof Modal> = ({ ...args }) => {
-//   const [open, setOpen] = useState(false);
-
-//   const handleClose = () => {
-//     setOpen(false);
-//   };
-//   const handleOpen = () => {
-//     setOpen(true);
-//   };
-
-//   return (
-//     <>
-//       <Button onClick={handleOpen}>Open user modal window</Button>
-//       <Modal {...args} open={open} onClose={handleClose}>
-//         <ModalHeader closeBtn>Some extra title content</ModalHeader>
-//         <ModalBody
-//           title="Window"
-//           text="This information could be helpful for streamlining the rest of the process, preventing the user having to fill
-//         out a whole chunk of information relating to their mortgage, for example."
-//         >
-//           Some extra user content
-//         </ModalBody>
-//         <ModalFooter>
-//           <Button size="lg" rounded="lg" onClick={handleClose}>
-//             back to site
-//           </Button>
-//         </ModalFooter>
-//       </Modal>
-//     </>
-//   );
-// };
-
-// export const TemplateUserModal: StoryFn<typeof Modal> = TemplateUser.bind({});
-// TemplateUserModal.args = {};
