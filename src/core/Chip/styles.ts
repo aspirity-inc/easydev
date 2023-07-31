@@ -36,13 +36,13 @@ export const StyledChipLabel = styled('label')<ChipProps>`
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 16px;
+  padding: 14px 16px;
   user-select: none;
   border-radius: 40px;
   ${getTextVariants('body2')};
   cursor: pointer;
   white-space: nowrap;
-  line-height: 1.5;
+  line-height: 1;
 
   ${({ variant, ...props }) => {
     switch (variant) {
@@ -89,7 +89,8 @@ const getDefaultChipStyle = ({ checked, $hasDeleteButton }: ChipProps) => {
 
       ${$hasDeleteButton &&
       css`
-        padding-left: 16px;
+        padding-top: 10px;
+        padding-bottom: 10px;
         justify-content: flex-start;
       `}
 
@@ -102,8 +103,9 @@ const getDefaultChipStyle = ({ checked, $hasDeleteButton }: ChipProps) => {
 
 const getCheckboxChipStyle = () => {
   return css`
+    padding-top: 10px;
+    padding-bottom: 10px;
     justify-content: flex-start;
-    padding-left: 16px;
     ${getTextVariants('body3')};
 
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['100'])};
