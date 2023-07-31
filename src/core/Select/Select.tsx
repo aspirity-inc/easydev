@@ -1,15 +1,18 @@
+import { ReactNode } from 'react';
+
 import ReactSelect, { components, DropdownIndicatorProps, GroupBase, OptionProps, Props } from 'react-select';
 
 import 'material-symbols';
 
-import { StyledSelectWrap } from './styles.ts';
+import { StyledFilters, StyledSelectWrap } from './styles.ts';
 
 type SelectProps<Option, IsMulti extends boolean = false, Group extends GroupBase<Option> = GroupBase<Option>> = Props<
   Option,
   IsMulti,
   Group
 > & {
-  menuHeight?: number;
+  rounded?: boolean;
+  filters?: ReactNode | ReactNode[];
 };
 
 const CustomOption = <Option, IsMulti extends boolean = false, Group extends GroupBase<Option> = GroupBase<Option>>(
@@ -38,18 +41,24 @@ const DropdownIndicator = <
 };
 
 export const Select = <Option, IsMulti extends boolean = false, Group extends GroupBase<Option> = GroupBase<Option>>({
-  menuHeight = 300,
+  isSearchable = false,
+  rounded,
+  filters,
+  noOptionsMessage = () => 'Oops, not found',
   ...props
 }: SelectProps<Option, IsMulti, Group>) => {
   return (
-    <StyledSelectWrap $menuHeight={menuHeight}>
+    <StyledSelectWrap $rounded={rounded}>
       <ReactSelect
         className="react-select-container"
         classNamePrefix="react-select"
         unstyled
+        isSearchable={isSearchable}
         components={{ Option: CustomOption, DropdownIndicator }}
+        noOptionsMessage={noOptionsMessage}
         {...props}
       />
+      {filters && <StyledFilters>{filters}</StyledFilters>}
     </StyledSelectWrap>
   );
 };

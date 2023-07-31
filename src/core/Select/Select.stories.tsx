@@ -1,13 +1,12 @@
 import { Meta, StoryObj } from '@storybook/react';
 
+import { Chip } from '@core/Chip';
+
 import { Select } from '.';
 
 export default {
   title: 'Core/Select',
   component: Select,
-  argTypes: {
-    menuHeight: { table: { defaultValue: { summary: 300 } } },
-  },
   parameters: {
     docs: {
       description: {
@@ -39,5 +38,52 @@ export const DefaultSelect = {
   ),
   args: {
     options,
+    maxMenuHeight: 250,
+    minMenuHeight: 250,
+    isSearchable: false,
+    rounded: true,
+  },
+} satisfies Story;
+
+export const Autocomplete = {
+  render: (args) => (
+    <div style={{ height: '350px' }}>
+      <Select {...args} />
+    </div>
+  ),
+  args: {
+    options,
+    maxMenuHeight: 250,
+    minMenuHeight: 250,
+    isSearchable: true,
+    rounded: true,
+  },
+} satisfies Story;
+
+const FiltersContent = (
+  <>
+    <Chip label="Filter 1" onDelete={() => null} />
+    <Chip label="Filter 2" onDelete={() => null} />
+    <Chip label="Super ling filter 3 name" onDelete={() => null} />
+    <Chip label="Filter 3" onDelete={() => null} />
+    <Chip label="Filter 3" onDelete={() => null} />
+    <Chip label="Filter 3" onDelete={() => null} />
+    <Chip label="Filter 3" onDelete={() => null} />
+  </>
+);
+export const AutocompleteWithChips = {
+  render: (args) => (
+    <div style={{ height: '350px' }}>
+      <Select {...args} />
+    </div>
+  ),
+  args: {
+    options,
+    maxMenuHeight: 250,
+    minMenuHeight: 250,
+    isSearchable: true,
+    rounded: true,
+    filters: FiltersContent,
+    noOptionsMessage: () => 'Custom no options message',
   },
 } satisfies Story;
