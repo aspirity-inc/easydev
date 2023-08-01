@@ -7,7 +7,7 @@ import { Button } from '@core/Button';
 import { Popover } from '.';
 
 const metaPopover: Meta<typeof Popover> = {
-  title: 'Сore/Popover',
+  title: 'Core/Popover',
   component: Popover,
   argTypes: {
     title: {

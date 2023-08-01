@@ -8,7 +8,7 @@ const AddIcon = () => <div className="material-symbols-rounded">add</div>;
 const LoaderIcon = () => <div className="material-symbols-rounded">refresh</div>;
 
 const metaButton: Meta<typeof Button> = {
-  title: 'Сore/Button',
+  title: 'Core/Button',
   component: Button,
   argTypes: {
     size: {

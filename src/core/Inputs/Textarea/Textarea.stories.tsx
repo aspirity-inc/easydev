@@ -5,7 +5,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import { Textarea } from '.';
 
 const metaTextarea: Meta<typeof Textarea> = {
-  title: 'Сore/Inputs/Textarea',
+  title: 'Core/Inputs/Textarea',
   component: Textarea,
   argTypes: {
     value: {

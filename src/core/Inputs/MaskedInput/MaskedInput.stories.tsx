@@ -5,7 +5,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import { MaskedInput } from '.';
 
 const metaMaskedInput: Meta<typeof MaskedInput> = {
-  title: 'Сore/Inputs/MaskedInput',
+  title: 'Core/Inputs/MaskedInput',
   component: MaskedInput,
   argTypes: {
     mask: {
