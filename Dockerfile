@@ -1,10 +1,25 @@
-FROM node:16
+FROM node:16-alpine as build-stage
 
-RUN mkdir /app
-WORKDIR /app
+ENV NODE_ENV production
 
-COPY . .
-RUN npm set progress=false && npm install
+WORKDIR /usr/app
 
-EXPOSE 39031
-CMD ["npm", "run", "dev"]
+COPY ./package*.json ./
+COPY ./.storybook ./.storybook
+COPY ./nginx ./nginx
+COPY ./@types ./@types
+COPY ./src ./src
+
+RUN npm install 
+# --only=production
+RUN npm run build-storybook
+
+FROM nginx:1.21.6-alpine as production-stage
+
+WORKDIR /usr/app
+
+COPY --from=build-stage /usr/app/storybook-static ./ 
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+
+# CMD ["/bin/bash", "-c", "exec nginx -g 'daemon off;'"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

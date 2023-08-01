@@ -6,5 +6,6 @@ services:
     build: 
       context: .
       dockerfile: ./Dockerfile
-    ports:
-      - 39031:39031
+      target: production-stage
+    environment:
+      - NODE_ENV=production
