@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  easydev:
+    image: easydev
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 39031:39031

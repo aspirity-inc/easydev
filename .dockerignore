@@ -1,0 +1,10 @@
+Dockerfile*
+docker-compose*
+.git
+.gitignore
+.vscode/
+node_modules/
+.prettierrc
+.eslintrc.cjs
+lefthook.yml
+README.md
