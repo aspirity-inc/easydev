@@ -9,7 +9,7 @@ const metaTabs: Meta<typeof TabButton> = {
     title: {
       type: 'string',
       control: 'text',
-      description: 'Заголовок',
+      description: 'Title',
     },
     disabled: {
       type: 'boolean',

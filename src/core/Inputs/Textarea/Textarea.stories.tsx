@@ -11,47 +11,47 @@ const metaTextarea: Meta<typeof Textarea> = {
     value: {
       type: 'string',
       control: 'text',
-      description: 'Текст',
+      description: 'Text',
     },
     label: {
       type: 'string',
       control: 'text',
-      description: 'Метка',
+      description: 'Label',
     },
     placeholder: {
       type: 'string',
       control: 'text',
-      description: 'Подсказка',
+      description: 'Placeholder',
     },
     showLimit: {
       type: 'boolean',
       control: 'boolean',
-      description: 'Показать/скрыть ограничения на ввод',
+      description: 'Show/hide input limit',
       table: { defaultValue: { summary: true } },
     },
     autoresized: {
       type: 'boolean',
       control: 'boolean',
-      description: 'Включить/выключить автоматическое изменение высоты',
+      description: 'On/off automatic height change',
       table: { defaultValue: { summary: true } },
     },
     softLimit: {
       type: 'boolean',
       control: 'boolean',
-      description: 'Включить/выключить мягкое ограничение',
+      description: 'On/off soft limit',
       table: { defaultValue: { summary: false } },
     },
     maxLength: {
       type: 'number',
       control: 'number',
-      description: 'Максимально допустимое кол-во символов',
+      description: 'Maximum number of characters',
       table: { defaultValue: { summary: 1000 } },
     },
     className: {
-      description: 'Любой CSS класс для дополнительной стилизации',
+      description: 'CSS class for additional styling',
     },
     style: {
-      description: 'Любые дополнительные стили',
+      description: 'Additional styles',
     },
   },
 };
@@ -67,19 +67,19 @@ const Template: StoryFn<typeof Textarea> = ({ ...args }) => {
 };
 
 export const DefaultTextarea: StoryFn<typeof Textarea> = Template.bind({});
-DefaultTextarea.args = { placeholder: 'Оставьте комментарий', label: 'Комментарий' };
+DefaultTextarea.args = { placeholder: 'Enter a comment', label: 'Comment' };
 
 export const DisabledTextarea: StoryFn<typeof Textarea> = Template.bind({});
 DisabledTextarea.args = {
-  value: 'Иван',
-  placeholder: 'Введите свое имя',
-  label: 'Имя',
+  value: 'Ivan',
+  placeholder: 'Enter your name',
+  label: 'Name',
   disabled: true,
 };
 
 export const DisabledEmptyTextarea: StoryFn<typeof Textarea> = Template.bind({});
 DisabledEmptyTextarea.args = {
-  placeholder: 'Введите свое имя',
+  placeholder: 'Enter your name',
   label: 'Имя',
   disabled: true,
 };

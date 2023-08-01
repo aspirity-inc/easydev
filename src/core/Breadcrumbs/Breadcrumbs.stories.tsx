@@ -9,7 +9,7 @@ const metaBreadcrumbs: Meta<typeof Breadcrumbs> = {
     separator: {
       type: 'string',
       control: 'text',
-      description: 'Разделитель',
+      description: 'Divider',
     },
   },
 };

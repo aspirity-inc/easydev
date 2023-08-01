@@ -11,7 +11,7 @@ const metaMaskedInput: Meta<typeof MaskedInput> = {
     mask: {
       type: 'string',
       control: 'text',
-      description: 'Маска',
+      description: 'Mask',
     },
     maskPlaceholder: {
       type: 'string',
@@ -19,12 +19,12 @@ const metaMaskedInput: Meta<typeof MaskedInput> = {
       table: {
         defaultValue: { summary: '_' },
       },
-      description: 'Какой символ использовать для незаполненых символов',
+      description: 'Character for blank characters',
     },
     alwaysShowMask: {
       control: 'boolean',
       defaultValue: false,
-      description: 'Всегда показывать маску',
+      description: 'Always show mask',
     },
   },
 };
@@ -57,5 +57,5 @@ ErrorInput.args = {
   value: '0123456789',
   mask: '+7 (999) 999-99-99',
   label: 'Phone number',
-  error: 'Нет такого номера',
+  error: 'There is no such number',
 };

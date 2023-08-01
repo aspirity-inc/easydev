@@ -13,16 +13,16 @@ const metaPopover: Meta<typeof Popover> = {
     title: {
       type: 'string',
       control: 'text',
-      description: 'Заголовок',
+      description: 'Title',
     },
     body: {
       type: 'string',
       control: 'text',
-      description: 'Тело',
+      description: 'Body',
     },
     placement: {
       type: 'string',
-      description: 'Положение',
+      description: 'Position',
       control: {
         type: 'select',
       },

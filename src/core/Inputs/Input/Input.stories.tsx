@@ -13,48 +13,48 @@ const metaInput: Meta<typeof Input> = {
     type: {
       type: 'string',
       control: 'text',
-      description: 'Тип инпута',
+      description: 'Input type',
     },
     error: {
       type: 'string',
       control: 'text',
-      description: 'Сообщение ошибки',
+      description: 'Error message',
     },
     message: {
       type: 'string',
       control: 'text',
-      description: 'Сообщение под инпутом',
+      description: 'Extra message under input',
     },
     warning: {
       type: 'string',
       control: 'text',
-      description: 'Предупреждение',
+      description: 'Warning',
     },
     isLoading: {
       control: 'boolean',
       defaultValue: false,
-      description: 'Загрузка',
+      description: 'Loading',
     },
     renderExtraMessage: {
       control: { type: null },
       action: 'renderExtraMessage',
-      description: 'Функция, возвращающая доп.компонеты для рендеринга',
+      description: 'A function that returns additional components for rendering',
     },
     label: {
       type: 'string',
       control: 'text',
-      description: 'Метка',
+      description: 'Label',
     },
     placeholder: {
       type: 'string',
       control: 'text',
-      description: 'Подсказка',
+      description: 'Placeholder',
     },
     className: {
-      description: 'Любой CSS класс для дополнительной стилизации',
+      description: 'CSS class for additional styling',
     },
     style: {
-      description: 'Любые дополнительные стили',
+      description: 'Additional styles',
     },
   },
 };
@@ -80,28 +80,28 @@ const TemplatePassword: StoryFn<typeof Input> = ({ ...args }) => {
 
 export const DefaultInput: StoryFn<typeof Input> = TemplateInput.bind({});
 DefaultInput.args = {
-  label: 'Имя',
-  placeholder: 'Введите свое имя',
+  label: 'Name',
+  placeholder: 'Enter youe name',
 };
 
 export const ErrorInput: StoryFn<typeof Input> = TemplateInput.bind({});
 ErrorInput.args = {
-  value: 'Иван',
-  label: 'Имя',
-  error: 'Нет такого пользователя',
+  value: 'Ivan',
+  label: 'Name',
+  error: 'There is no such user',
 };
 
 export const LoadingInput: StoryFn<typeof Input> = TemplateInput.bind({});
 LoadingInput.args = {
-  value: 'Иван',
-  label: 'Имя',
+  value: 'Ivan',
+  label: 'Name',
   isLoading: true,
 };
 
 export const DisabledInput: StoryFn<typeof Input> = TemplateInput.bind({});
 DisabledInput.args = {
-  value: 'Иван',
-  label: 'Имя',
+  value: 'Ivan',
+  label: 'Name',
   disabled: true,
 };
 
@@ -115,7 +115,7 @@ DefaultPassword.args = {
 export const ErrorPasswordWithMessage: StoryFn<typeof Input> = TemplatePassword.bind({});
 ErrorPasswordWithMessage.args = {
   type: 'password',
-  value: 'Иван',
+  value: 'Ivan',
   label: 'Password',
   error: 'Invalid password',
   renderExtraMessage: () => <Text variant="caption">Some extra message</Text>,
@@ -124,7 +124,7 @@ ErrorPasswordWithMessage.args = {
 export const LoadingPassword: StoryFn<typeof Input> = TemplatePassword.bind({});
 LoadingPassword.args = {
   type: 'password',
-  value: 'Иван',
+  value: 'Ivan',
   label: 'Password',
   isLoading: true,
 };
