@@ -11,3 +11,4 @@ export { Breadcrumb, Breadcrumbs } from '@core/Breadcrumbs';
 export { Chip } from '@core/Chip';
 export { Select } from '@core/Select';
 export * from '@core/Modal';
+export { Toast } from '@core/Toasts';
