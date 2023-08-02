@@ -18,16 +18,16 @@ export const DefaultToast = {
     title: 'Notification',
     description: 'Description text',
     status: 'info',
+    autoClose: false,
   },
 } satisfies Story;
 
-export const ListOfMonochromeToasts = ({ ...args }) => {
+export const ListOfAutoClosedToasts = ({ ...args }) => {
   return (
     <Space direction="column">
       <Toast {...args} title={'Info notification'} description={'Text'} status="info" />
-      <Toast {...args} title={'Success notification'} description={'Text'} status="success" />
-      <Toast {...args} title={'Warning notification'} description={'Text'} status="warning" />
-      <Toast {...args} title={'Error notification'} description={'Text'} status="error" />
+      <Toast {...args} title={'Success notification'} description={'Text'} status="success" autoCloseDelay={6000} />
+      <Toast {...args} title={'Warning notification'} description={'Text'} status="warning" autoCloseDelay={10000} />
     </Space>
   );
 };
@@ -35,10 +35,38 @@ export const ListOfMonochromeToasts = ({ ...args }) => {
 export const ListOfColorfulToasts = ({ ...args }) => {
   return (
     <Space direction="column">
-      <Toast {...args} title={'Info notification'} description={'Text'} status="info" colorful={true} />
-      <Toast {...args} title={'Success notification'} description={'Text'} status="success" colorful={true} />
-      <Toast {...args} title={'Warning notification'} description={'Text'} status="warning" colorful={true} />
-      <Toast {...args} title={'Error notification'} description={'Text'} status="error" colorful={true} />
+      <Toast
+        {...args}
+        title={'Info notification'}
+        description={'Text'}
+        status="info"
+        colorful={true}
+        autoClose={false}
+      />
+      <Toast
+        {...args}
+        title={'Success notification'}
+        description={'Text'}
+        status="success"
+        colorful={true}
+        autoClose={false}
+      />
+      <Toast
+        {...args}
+        title={'Warning notification'}
+        description={'Text'}
+        status="warning"
+        colorful={true}
+        autoClose={false}
+      />
+      <Toast
+        {...args}
+        title={'Error notification'}
+        description={'Text'}
+        status="error"
+        colorful={true}
+        autoClose={false}
+      />
     </Space>
   );
 };

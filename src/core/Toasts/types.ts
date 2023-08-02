@@ -10,7 +10,9 @@ export type ToastProps = {
   statusBackground?: string;
   status?: ToastStatus;
   closeBtnIcon?: ReactNode;
-  onClose?: () => void;
+  closeBtn?: boolean;
+  autoClose?: boolean;
+  autoCloseDelay?: number;
   className?: string;
   style?: CSSProperties;
 };

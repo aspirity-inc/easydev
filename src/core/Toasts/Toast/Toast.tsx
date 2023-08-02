@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import { Text, Subtitle } from '@core/Typography';
 
 import { StyledMainContent, StyledToast } from './styles';
@@ -11,11 +13,29 @@ export const Toast = ({
   status = 'info',
   colorful = false,
   icon,
+  autoClose = true,
+  autoCloseDelay = 5000,
   statusBackground,
-  onClose,
+  closeBtn = true,
   closeBtnIcon,
   ...props
 }: ToastProps) => {
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    if (autoClose) {
+      const timer = setTimeout(() => {
+        setVisible(false);
+      }, autoCloseDelay);
+
+      return () => clearTimeout(timer);
+    }
+  }, [autoClose, autoCloseDelay]);
+
+  if (!visible) {
+    return null;
+  }
+
   return (
     <StyledToast $colorful={colorful} $statusBackground={statusBackground} $status={status} {...props}>
       <ToastStatusIcon colorful={colorful} status={status} icon={icon} />
@@ -25,7 +45,7 @@ export const Toast = ({
         {description && <Text variant="body2">{description}</Text>}
       </StyledMainContent>
 
-      {onClose && <CloseButton icon={closeBtnIcon} colorful={colorful} />}
+      {closeBtn && <CloseButton icon={closeBtnIcon} colorful={colorful} onClick={() => setVisible(false)} />}
     </StyledToast>
   );
 };
