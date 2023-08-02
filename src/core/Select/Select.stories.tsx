@@ -23,7 +23,7 @@ export default {
 
 type Story = StoryObj<typeof Select>;
 
-const options = [
+const options: OptionType[] = [
   { value: 'chocolate', label: 'Chocolate' },
   { value: 'strawberry', label: 'Strawberry' },
   { value: 'vanilla', label: 'Vanilla' },
