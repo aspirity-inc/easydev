@@ -10,7 +10,7 @@ export const Toast = ({
   description,
   status = 'info',
   colorful = false,
-  icons,
+  icon,
   statusBackground,
   onClose,
   closeBtnIcon,
@@ -18,7 +18,7 @@ export const Toast = ({
 }: ToastProps) => {
   return (
     <StyledToast $colorful={colorful} $statusBackground={statusBackground} $status={status} {...props}>
-      {status && <ToastStatusIcon colorful={colorful} status={status} icons={icons} />}
+      <ToastStatusIcon colorful={colorful} status={status} icon={icon} />
 
       <StyledMainContent $colorful={colorful}>
         <Subtitle level={4}>{title}</Subtitle>

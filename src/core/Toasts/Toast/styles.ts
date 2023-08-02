@@ -1,10 +1,10 @@
 import { css, styled } from 'styled-components';
 
-import { BackgroundProps, ToastStatus } from '../types';
+import { StatusColorType, ToastStatus } from '../types';
 
 type StyledToastProps = {
   $status?: ToastStatus;
-  $statusBackground?: BackgroundProps;
+  $statusBackground?: string;
   $colorful?: boolean;
 };
 
@@ -12,10 +12,46 @@ type StyledMainContentProps = {
   $colorful?: boolean;
 };
 
-export const StyledToast = styled.div<StyledToastProps>`
-  --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
-  --colorful: ${({ theme }) => theme.colors.surface['900']};
+const backgroundColors: StatusColorType = {
+  light: {
+    info: {
+      palette: 'secondary',
+      value: '300',
+    },
+    success: {
+      palette: 'success',
+      value: '300',
+    },
+    warning: {
+      palette: 'warning',
+      value: '500',
+    },
+    error: {
+      palette: 'error',
+      value: '300',
+    },
+  },
+  dark: {
+    info: {
+      palette: 'secondary',
+      value: '100',
+    },
+    success: {
+      palette: 'success',
+      value: '500',
+    },
+    warning: {
+      palette: 'warning',
+      value: '400',
+    },
+    error: {
+      palette: 'error',
+      value: '400',
+    },
+  },
+};
 
+export const StyledToast = styled.div<StyledToastProps>`
   display: flex;
   width: 358px;
   padding: 10px 16px;
@@ -44,11 +80,7 @@ export const StyledMainContent = styled.div<StyledMainContentProps>`
         `};
 `;
 
-export const getBackgroundColor = (
-  status: ToastStatus,
-  statusBackground: BackgroundProps | undefined,
-  colorful: boolean
-) => {
+export const getBackgroundColor = (status: ToastStatus, statusBackground: string | undefined, colorful: boolean) => {
   if (!colorful) {
     return css`
       background-color: ${({ theme }) =>
@@ -56,28 +88,10 @@ export const getBackgroundColor = (
     `;
   }
 
-  switch (status) {
-    case 'info':
-      return css`
-        background-color: ${statusBackground?.info ||
-        (({ theme }) => (theme.type === 'light' ? theme.colors.secondary['500'] : theme.colors.secondary['100']))};
-      `;
-    case 'success':
-      return css`
-        background-color: ${statusBackground?.success ||
-        (({ theme }) => (theme.type === 'light' ? theme.colors.success['500'] : theme.colors.success['400']))};
-      `;
-    case 'warning':
-      return css`
-        background-color: ${statusBackground?.warning ||
-        (({ theme }) => (theme.type === 'light' ? theme.colors.warning['600'] : theme.colors.warning['400']))};
-      `;
-    case 'error':
-      return css`
-        background-color: ${statusBackground?.error ||
-        (({ theme }) => (theme.type === 'light' ? theme.colors.error['500'] : theme.colors.error['400']))};
-      `;
-    default:
-      return css``;
-  }
+  return css`
+    background-color: ${({ theme }) => {
+      const color = backgroundColors[theme.type][status];
+      return statusBackground || theme.colors[color.palette][color.value];
+    }};
+  `;
 };

@@ -1,10 +1,49 @@
 import { styled, css } from 'styled-components';
 
-import { ToastStatus } from '../types';
+import { StatusColorType, ToastStatus } from '../types';
 
 export type StyledStatusIconProps = {
   $status?: ToastStatus;
   $colorful?: boolean;
+};
+
+const iconColors: StatusColorType = {
+  light: {
+    info: {
+      palette: 'secondary',
+      value: '500',
+    },
+    success: {
+      palette: 'success',
+      value: '500',
+    },
+    warning: {
+      palette: 'warning',
+      value: '600',
+    },
+    error: {
+      palette: 'error',
+      value: '500',
+    },
+  },
+  dark: {
+    info: {
+      palette: 'secondary',
+      value: '50',
+    },
+    success: {
+      palette: 'success',
+      value: '400',
+    },
+    warning: {
+      palette: 'warning',
+      value: '400',
+    },
+    error: {
+      palette: 'error',
+      value: '400',
+    },
+  },
 };
 
 export const StyledIcon = styled('div')<StyledStatusIconProps>`
@@ -24,26 +63,10 @@ export const getStatusColor = (status: ToastStatus, colorful: boolean) => {
     `;
   }
 
-  switch (status) {
-    case 'info':
-      return css`
-        color: ${({ theme }) =>
-          theme.type === 'light' ? theme.colors.secondary['500'] : theme.colors.secondary['100']};
-      `;
-    case 'success':
-      return css`
-        color: ${({ theme }) => (theme.type === 'light' ? theme.colors.success['500'] : theme.colors.success['400'])};
-      `;
-    case 'warning':
-      return css`
-        color: ${({ theme }) => (theme.type === 'light' ? theme.colors.warning['600'] : theme.colors.warning['400'])};
-      `;
-    case 'error':
-      return css`
-        color: ${({ theme }) => (theme.type === 'light' ? theme.colors.error['500'] : theme.colors.error['400'])};
-      `;
-
-    default:
-      return css``;
-  }
+  return css`
+    color: ${({ theme }) => {
+      const iconColor = iconColors[theme.type][status];
+      return theme.colors[iconColor.palette][iconColor.value];
+    }};
+  `;
 };

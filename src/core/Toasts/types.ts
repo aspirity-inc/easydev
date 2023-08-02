@@ -5,9 +5,9 @@ export type ToastStatus = 'info' | 'success' | 'warning' | 'error';
 export type ToastProps = {
   title?: string | ReactNode;
   description?: string | ReactNode;
-  icons?: IconsProps;
+  icon?: ReactNode;
   colorful?: boolean;
-  statusBackground?: BackgroundProps;
+  statusBackground?: string;
   status?: ToastStatus;
   closeBtnIcon?: ReactNode;
   onClose?: () => void;
@@ -15,16 +15,11 @@ export type ToastProps = {
   style?: CSSProperties;
 };
 
-export type IconsProps = {
-  info?: ReactNode;
-  success?: ReactNode;
-  warning?: ReactNode;
-  error?: ReactNode;
-};
-
-export type BackgroundProps = {
-  info?: string;
-  success?: string;
-  warning?: string;
-  error?: string;
+export type StatusColorType = {
+  [key: string]: {
+    [key: string]: {
+      palette: string;
+      value: string;
+    };
+  };
 };
