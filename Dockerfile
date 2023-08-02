@@ -1,17 +1,18 @@
 FROM node:16-alpine as build-stage
 
-ENV NODE_ENV production
-
 WORKDIR /usr/app
 
 COPY ./package*.json ./
+COPY ./tsconfig.json ./tsconfig.json
+COPY ./tsconfig.node.json ./tsconfig.node.json
+COPY ./vite.config.ts ./vite.config.ts
 COPY ./.storybook ./.storybook
 COPY ./nginx ./nginx
 COPY ./@types ./@types
 COPY ./src ./src
 
 RUN npm install 
-# --only=production
+RUN npm run build
 RUN npm run build-storybook
 
 FROM nginx:1.21.6-alpine as production-stage
