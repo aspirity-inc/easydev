@@ -20,8 +20,8 @@ export const StyledSelectWrap = styled('div')<SelectType>`
       ${getTextVariants('body2')};
       background-color: ${({ theme }) =>
         theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['800']};
+      border: 1px solid transparent;
       border-radius: ${({ theme }) => theme.spacing.borderRadius.medium}px;
-      border-color: transparent;
       color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
       transition: var(--transition);
       z-index: 2;
@@ -47,7 +47,8 @@ export const StyledSelectWrap = styled('div')<SelectType>`
       }
 
       &--menu-is-open {
-        .icon-indicator {
+        .icon-indicator,
+        .react-select__dropdown-indicator {
           transform: rotate(180deg);
         }
       }
@@ -81,7 +82,13 @@ export const StyledSelectWrap = styled('div')<SelectType>`
     }
 
     &__menu {
-      margin-top: -4px;
+      margin-top: 8px;
+      border: 1px solid
+        ${({ theme }) => (theme.type === 'light' ? theme.colors.secondary['100'] : theme.colors.surface['600'])};
+      border-radius: ${({ theme }) => theme.spacing.borderRadius.medium}px;
+      background-color: ${({ theme }) =>
+        theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
+      overflow: hidden;
 
       &-list {
         ${scrollbarStyles};
@@ -102,10 +109,6 @@ export const StyledSelectWrap = styled('div')<SelectType>`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid
-        ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['500'])};
-      background-color: ${({ theme }) =>
-        theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
       ${getTextVariants('body2')};
       color: inherit;
       transition: var(--transition);
@@ -118,7 +121,7 @@ export const StyledSelectWrap = styled('div')<SelectType>`
         .icon {
           display: block;
           color: ${({ theme }) =>
-            theme.type === 'light' ? theme.colors.secondary['500'] : theme.colors.secondary['100']};
+            theme.type === 'light' ? theme.colors.secondary['700'] : theme.colors.secondary['100']};
           transition: var(--transition);
         }
 
@@ -137,7 +140,7 @@ export const StyledSelectWrap = styled('div')<SelectType>`
       &:hover {
         cursor: pointer;
         background-color: ${({ theme }) =>
-          theme.type === 'light' ? theme.colors.secondary['200'] : theme.colors.secondary['100']};
+          theme.type === 'light' ? theme.colors.secondary['100'] : theme.colors.surface['400']};
       }
     }
 
@@ -179,4 +182,55 @@ export const StyledFilters = styled('div')`
     background-color: ${({ theme }) =>
       theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
   }
+`;
+
+export const StyledMultivalueContainer = styled('div')`
+  > div {
+    margin-top: 16px;
+    gap: 16px;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .react-select {
+    &__indicators {
+      margin-left: auto;
+      pointer-events: all;
+      cursor: pointer;
+
+      .react-select__dropdown-indicator {
+        display: none;
+      }
+    }
+
+    &__value-container--is-multi {
+      pointer-events: none;
+      gap: 16px 5px;
+    }
+
+    &__multi-value {
+      padding: 10px 16px;
+      justify-content: center;
+      align-items: center;
+      background-color: ${({ theme }) =>
+        theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['800']};
+      color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
+      border-radius: 12px;
+      ${getTextVariants('body2')};
+
+      .icon {
+        pointer-events: all;
+        cursor: pointer;
+        color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['400'])};
+      }
+    }
+
+    &__placeholder {
+      display: none;
+    }
+  }
+`;
+export const StyledClearIndicator = styled('span')`
+  ${getTextVariants('body3')};
 `;

@@ -21,14 +21,26 @@ type Story = StoryObj<typeof Select>;
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
   { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla', isDisabled: true },
+  { value: 'vanilla', label: 'Vanilla' },
   { value: 'chocolate1', label: 'Chocolate1' },
   { value: 'strawberry1', label: 'Strawberry1' },
-  { value: 'vanilla1', label: 'Vanilla1', isDisabled: true },
+  { value: 'vanilla1', label: 'Vanilla1' },
   { value: 'chocolate2', label: 'Chocolate2' },
-  { value: 'strawberry2', label: 'Strawberry2' },
+  { value: 'strawberry2', label: 'Strawberry2', isDisabled: true },
   { value: 'vanilla2', label: 'Vanilla2', isDisabled: true },
 ];
+
+const FiltersContent = (
+  <>
+    <Chip label="Filter 1" onDelete={() => null} />
+    <Chip label="Filter 2" onDelete={() => null} />
+    <Chip label="Super ling filter 3 name" onDelete={() => null} />
+    <Chip label="Filter 3" onDelete={() => null} />
+    <Chip label="Filter 3" onDelete={() => null} />
+    <Chip label="Filter 3" onDelete={() => null} />
+    <Chip label="Filter 3" onDelete={() => null} />
+  </>
+);
 
 export const DefaultSelect = {
   render: (args) => (
@@ -41,7 +53,11 @@ export const DefaultSelect = {
     maxMenuHeight: 250,
     minMenuHeight: 250,
     isSearchable: false,
-    rounded: true,
+    isMulti: true,
+    onChange: (a, b) => console.log('ONCHANGE', a, b),
+    filters: FiltersContent,
+    closeMenuOnSelect: false,
+    hideSelectedOptions: false,
   },
 } satisfies Story;
 
@@ -60,17 +76,6 @@ export const Autocomplete = {
   },
 } satisfies Story;
 
-const FiltersContent = (
-  <>
-    <Chip label="Filter 1" onDelete={() => null} />
-    <Chip label="Filter 2" onDelete={() => null} />
-    <Chip label="Super ling filter 3 name" onDelete={() => null} />
-    <Chip label="Filter 3" onDelete={() => null} />
-    <Chip label="Filter 3" onDelete={() => null} />
-    <Chip label="Filter 3" onDelete={() => null} />
-    <Chip label="Filter 3" onDelete={() => null} />
-  </>
-);
 export const AutocompleteWithChips = {
   render: (args) => (
     <div style={{ height: '350px' }}>
