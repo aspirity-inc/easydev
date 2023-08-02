@@ -111,10 +111,14 @@ export const StyledSelectWrap = styled('div')<SelectType>`
       }
 
       &-notice--no-options {
-        padding-left: 16px;
+        padding: 0 16px;
         text-align: left;
         color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['100'])};
         ${getTextVariants('caption')};
+      }
+
+      &:has(.react-select__menu-notice--no-options) {
+        border: 1px solid transparent;
       }
     }
 
@@ -235,4 +239,15 @@ export const Multivalue = styled('div')`
 
 export const RemoveValueButton = styled('button')`
   ${buttonResetCss};
+`;
+
+export const OptionContentWrapper = styled('div')`
+  width: 100%;
+  position: relative;
+`;
+export const HighlightValue = styled('span')`
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.tretiary['600'] : theme.colors.primary['300'])};
 `;

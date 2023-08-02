@@ -63,7 +63,7 @@ const MultiselectTemplate: StoryFn<typeof Select> = ({ ...args }) => {
         {...args}
         value={value}
         onChange={handleSelectChange}
-        selectedPlaceholder={`YourChoice: ${value.length}`}
+        selectedStatePlaceholder={`YourChoice: ${value.length}`}
       />
     </div>
   );

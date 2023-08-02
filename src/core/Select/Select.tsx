@@ -22,8 +22,11 @@ type SelectProps<Option, IsMulti extends boolean = false, Group extends GroupBas
   Group
 > & {
   rounded?: boolean;
-  selectedPlaceholder?: string;
+  selectedStatePlaceholder?: string;
+  clearButtonText?: string;
 };
+
+const SelectComponentsOverride = { Option: CustomOption, DropdownIndicator };
 
 export const Select = <Option, IsMulti extends boolean = false, Group extends GroupBase<Option> = GroupBase<Option>>({
   isSearchable = false,
@@ -33,7 +36,9 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
   value,
   onChange,
   placeholder,
-  selectedPlaceholder,
+  selectedStatePlaceholder,
+  components,
+  clearButtonText = 'Delete all',
   ...props
 }: SelectProps<Option, IsMulti, Group>) => {
   const handleRemoveValue = (evt: MouseEvent<HTMLButtonElement>) => {
@@ -60,7 +65,7 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
     } satisfies ActionMeta<Option>);
   };
 
-  const placeholderText = () => ((value as MultiValue<Option>).length ? selectedPlaceholder : placeholder);
+  const placeholderText = () => ((value as MultiValue<Option>).length ? selectedStatePlaceholder : placeholder);
 
   return (
     <StyledSelectWrap $rounded={rounded}>
@@ -69,13 +74,13 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
         classNamePrefix="react-select"
         unstyled
         isSearchable={isSearchable}
-        components={{ Option: CustomOption, DropdownIndicator }}
+        components={{ ...SelectComponentsOverride, ...components }}
         noOptionsMessage={noOptionsMessage}
         isMulti={isMulti}
         value={value}
         onChange={onChange}
         controlShouldRenderValue={!isMulti}
-        isClearable={isMulti ? false : undefined}
+        isClearable={isMulti ? false : props.isClearable}
         placeholder={isMulti ? placeholderText() : placeholder}
         {...props}
       />
@@ -84,7 +89,7 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
         <MultivalueWrapper>
           {(value as MultiValue<Option>).length ? (
             <ClearValues type="button" onClick={handleClear}>
-              Delete all
+              {clearButtonText}
             </ClearValues>
           ) : null}
           <MultivalueContainer>
