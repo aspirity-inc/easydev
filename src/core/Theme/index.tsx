@@ -12,7 +12,7 @@ const paletteGenerator = (color: string) => ({
   600: shade(0.1, color),
   700: shade(0.2, color),
   800: shade(0.3, color),
-  900: shade(0.5, color),
+  900: shade(0.85, color),
 });
 
 export const scrollbarStyles = css`
