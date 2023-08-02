@@ -1,6 +1,6 @@
 FROM node:16-alpine as build-stage
 
-WORKDIR /usr/app
+WORKDIR /client
 
 COPY ./package*.json ./
 COPY ./tsconfig.json ./tsconfig.json
@@ -12,15 +12,13 @@ COPY ./@types ./@types
 COPY ./src ./src
 
 RUN npm install 
-RUN npm run build
 RUN npm run build-storybook
 
 FROM nginx:1.21.6-alpine as production-stage
 
-WORKDIR /usr/app
+WORKDIR /app
 
-COPY --from=build-stage /usr/app/storybook-static ./ 
+COPY --from=build-stage /client/storybook-static /app
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
-# CMD ["/bin/bash", "-c", "exec nginx -g 'daemon off;'"]
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
