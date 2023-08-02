@@ -1,5 +1,7 @@
 import { components, DropdownIndicatorProps, GroupBase } from 'react-select';
 
+import 'material-symbols';
+
 export const DropdownIndicator = <
   Option,
   IsMulti extends boolean = false,
