@@ -7,7 +7,7 @@ import { Text } from '@core/Typography';
 import { Input } from '.';
 
 const metaInput: Meta<typeof Input> = {
-  title: 'core/Inputs/Input',
+  title: 'Сore/Inputs/Input',
   component: Input,
   argTypes: {
     type: {

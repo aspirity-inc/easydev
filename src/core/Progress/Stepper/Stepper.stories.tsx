@@ -2,10 +2,12 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { Stepper } from '.';
 
-export default {
+const metaStepper: Meta<typeof Stepper> = {
   title: 'Core/Progress/Stepper',
   component: Stepper,
-} as Meta<typeof Stepper>;
+};
+
+export default metaStepper;
 
 type Story = StoryObj<typeof Stepper>;
 

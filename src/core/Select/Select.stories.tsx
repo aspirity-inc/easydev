@@ -4,7 +4,7 @@ import { Chip } from '@core/Chip';
 
 import { Select } from '.';
 
-export default {
+const metaSelect: Meta<typeof Select> = {
   title: 'Core/Select',
   component: Select,
   parameters: {
@@ -14,7 +14,9 @@ export default {
       },
     },
   },
-} satisfies Meta<typeof Select>;
+};
+
+export default metaSelect;
 
 type Story = StoryObj<typeof Select>;
 
@@ -30,7 +32,7 @@ const options = [
   { value: 'vanilla2', label: 'Vanilla2', isDisabled: true },
 ];
 
-export const DefaultSelect = {
+export const DefaultSelect: Story = {
   render: (args) => (
     <div style={{ height: '350px' }}>
       <Select {...args} />
@@ -43,9 +45,9 @@ export const DefaultSelect = {
     isSearchable: false,
     rounded: true,
   },
-} satisfies Story;
+};
 
-export const Autocomplete = {
+export const Autocomplete: Story = {
   render: (args) => (
     <div style={{ height: '350px' }}>
       <Select {...args} />
@@ -58,7 +60,7 @@ export const Autocomplete = {
     isSearchable: true,
     rounded: true,
   },
-} satisfies Story;
+};
 
 const FiltersContent = (
   <>
@@ -71,7 +73,7 @@ const FiltersContent = (
     <Chip label="Filter 3" onDelete={() => null} />
   </>
 );
-export const AutocompleteWithChips = {
+export const AutocompleteWithChips: Story = {
   render: (args) => (
     <div style={{ height: '350px' }}>
       <Select {...args} />
@@ -86,4 +88,4 @@ export const AutocompleteWithChips = {
     filters: FiltersContent,
     noOptionsMessage: () => 'Custom no options message',
   },
-} satisfies Story;
+};
