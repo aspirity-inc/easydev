@@ -14,7 +14,7 @@ export type ToastProps = {
   closeBtn?: boolean;
   autoClose?: boolean;
   autoCloseDelay?: number;
-  onDelete: () => void;
+  onDelete: (id: number | undefined) => void;
   className?: string;
   style?: CSSProperties;
 };

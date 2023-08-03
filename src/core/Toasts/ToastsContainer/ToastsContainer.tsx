@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { StyledContainer } from './styles';
 import { notifyFunction } from './toastEmitters';
@@ -36,12 +36,12 @@ export const ToastContainer = ({ limit }: ToastContainerType) => {
     });
   };
 
-  const deleteToasts = (id: number | undefined) => {
+  const deleteToasts = useCallback((id: number | undefined) => {
     setToasts((prevToasts) => {
       const filteredToasts = prevToasts.filter((toast) => toast.toastId !== id);
       return [...filteredToasts];
     });
-  };
+  }, []);
 
   return (
     <>
@@ -50,7 +50,7 @@ export const ToastContainer = ({ limit }: ToastContainerType) => {
           {visibleToasts
             .filter((toast) => toast.position === pos)
             .map((toast) => (
-              <Toast key={toast.toastId} {...toast} onDelete={() => deleteToasts(toast.toastId)} />
+              <Toast key={toast.toastId} {...toast} onDelete={deleteToasts} />
             ))}
         </StyledContainer>
       ))}

@@ -25,12 +25,12 @@ export const Toast = ({
   useEffect(() => {
     if (autoClose) {
       const timer = setTimeout(() => {
-        onDelete();
+        onDelete(toastId);
       }, autoCloseDelay);
 
       return () => clearTimeout(timer);
     }
-  }, [autoClose, autoCloseDelay]);
+  }, [autoClose, autoCloseDelay, onDelete]);
 
   return (
     <StyledToast $colorful={colorful} $statusBackground={statusBackground} $status={status} {...props}>
@@ -43,7 +43,7 @@ export const Toast = ({
         {description && <Text variant="body2">{description}</Text>}
       </StyledMainContent>
 
-      {closeBtn && <CloseButton icon={closeBtnIcon} colorful={colorful} onClick={() => onDelete()} />}
+      {closeBtn && <CloseButton icon={closeBtnIcon} colorful={colorful} onClick={() => onDelete(toastId)} />}
     </StyledToast>
   );
 };
