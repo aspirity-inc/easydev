@@ -7,10 +7,21 @@ export type SelectType = {
   $rounded?: boolean;
 };
 
-export const StyledSelectWrap = styled('div')<SelectType>`
+const buttonResetCss = css`
+  appearance: none;
+  background: none;
+  padding: 0;
+  border: none;
+`;
+
+const defaultCssVars = css`
   --transitionTiming: ${({ theme }) => theme.transition.default};
   --transition: color var(--transitionTiming), background-color var(--transitionTiming),
     box-shadow var(--transitionTiming);
+`;
+
+export const StyledSelectWrap = styled('div')<SelectType>`
+  ${defaultCssVars};
 
   .react-select {
     &__control {
@@ -20,8 +31,8 @@ export const StyledSelectWrap = styled('div')<SelectType>`
       ${getTextVariants('body2')};
       background-color: ${({ theme }) =>
         theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['800']};
+      border: 1px solid transparent;
       border-radius: ${({ theme }) => theme.spacing.borderRadius.medium}px;
-      border-color: transparent;
       color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
       transition: var(--transition);
       z-index: 2;
@@ -47,9 +58,14 @@ export const StyledSelectWrap = styled('div')<SelectType>`
       }
 
       &--menu-is-open {
-        .icon-indicator {
+        .icon-indicator,
+        .react-select__dropdown-indicator {
           transform: rotate(180deg);
         }
+      }
+
+      &--is-disabled {
+        opacity: 0.5;
       }
 
       ${({ $rounded }) =>
@@ -81,7 +97,13 @@ export const StyledSelectWrap = styled('div')<SelectType>`
     }
 
     &__menu {
-      margin-top: -4px;
+      margin-top: 8px;
+      border: 1px solid
+        ${({ theme }) => (theme.type === 'light' ? theme.colors.secondary['100'] : theme.colors.surface['600'])};
+      border-radius: ${({ theme }) => theme.spacing.borderRadius.medium}px;
+      background-color: ${({ theme }) =>
+        theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
+      overflow: hidden;
 
       &-list {
         ${scrollbarStyles};
@@ -102,10 +124,6 @@ export const StyledSelectWrap = styled('div')<SelectType>`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid
-        ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['500'])};
-      background-color: ${({ theme }) =>
-        theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
       ${getTextVariants('body2')};
       color: inherit;
       transition: var(--transition);
@@ -118,7 +136,7 @@ export const StyledSelectWrap = styled('div')<SelectType>`
         .icon {
           display: block;
           color: ${({ theme }) =>
-            theme.type === 'light' ? theme.colors.secondary['500'] : theme.colors.secondary['100']};
+            theme.type === 'light' ? theme.colors.secondary['700'] : theme.colors.secondary['100']};
           transition: var(--transition);
         }
 
@@ -137,7 +155,7 @@ export const StyledSelectWrap = styled('div')<SelectType>`
       &:hover {
         cursor: pointer;
         background-color: ${({ theme }) =>
-          theme.type === 'light' ? theme.colors.secondary['200'] : theme.colors.secondary['100']};
+          theme.type === 'light' ? theme.colors.secondary['100'] : theme.colors.surface['400']};
       }
     }
 
@@ -163,20 +181,58 @@ export const StyledSelectWrap = styled('div')<SelectType>`
   }
 `;
 
-export const StyledFilters = styled('div')`
-  margin-top: 32px;
-  padding-bottom: 2px;
+export const MultivalueWrapper = styled('div')`
+  margin-top: 16px;
+`;
+
+export const ClearValues = styled('button')`
+  ${buttonResetCss};
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 2px;
+  cursor: pointer;
+  ${getTextVariants('body3')};
+  font-family: inherit;
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['800'] : theme.colors.surface['200'])};
+`;
+
+export const MultivalueContainer = styled('div')`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 30px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  margin-top: 16px;
+  gap: 16px 5px;
+`;
 
-  ${scrollbarStyles};
-  &::-webkit-scrollbar {
-    height: 4px;
+export const Multivalue = styled('div')`
+  ${defaultCssVars};
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: ${({ theme }) =>
+    theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['800']};
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
+  border-radius: 12px;
+  ${getTextVariants('body2')};
+  cursor: default;
+  transition: var(--transition);
+
+  &:hover {
     background-color: ${({ theme }) =>
-      theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
+      theme.type === 'light' ? theme.colors.tretiary['200'] : theme.colors.secondary['50']};
+    ${({ theme }) => theme.shadows.violet_light};
   }
+
+  .icon {
+    pointer-events: all;
+    cursor: pointer;
+    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['400'])};
+  }
+`;
+
+export const RemoveValueButton = styled('button')`
+  ${buttonResetCss};
 `;
