@@ -1,7 +1,7 @@
 FROM node:16.14.2-alpine as build-stage
 
 WORKDIR /client
-ENV NODE_ENV=production
+
 
 COPY ./package*.json ./
 
@@ -14,7 +14,9 @@ COPY ./.storybook ./.storybook
 COPY ./@types ./@types
 COPY ./src ./src
 
+ENV NODE_ENV=production
 RUN --mount=type=cache,mode=0777,target=/client/node_modules/.cache npm run build-storybook
+
 
 FROM nginx:1.21.6-alpine as production-stage
 
