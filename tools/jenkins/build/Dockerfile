@@ -26,7 +26,7 @@ ENV NODE_ENV=production
 COPY --from=build-stage /client/storybook-static /app
 COPY tools/nginx/default.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 3000
-ENV PORT=3000
+EXPOSE 80
+ENV PORT=80
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
