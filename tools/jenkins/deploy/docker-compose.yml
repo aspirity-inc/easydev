@@ -1,11 +1,9 @@
-version: '3.4'
-
 services:
   easydev:
     image: easydev
     build: 
-      context: .
-      dockerfile: ./Dockerfile
+      context: ../../../
+      dockerfile: tools/jenkins/build/Dockerfile
       target: production-stage
     environment:
       - NODE_ENV=production
