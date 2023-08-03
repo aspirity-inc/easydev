@@ -3,6 +3,7 @@ import { CSSProperties, ReactNode } from 'react';
 export type ToastStatus = 'info' | 'success' | 'warning' | 'error';
 
 export type ToastProps = {
+  toastId?: number;
   title?: string | ReactNode;
   description?: string | ReactNode;
   icon?: ReactNode;
@@ -13,8 +14,13 @@ export type ToastProps = {
   closeBtn?: boolean;
   autoClose?: boolean;
   autoCloseDelay?: number;
+  onDelete: () => void;
   className?: string;
   style?: CSSProperties;
+};
+
+export type ToastItemType = Omit<ToastProps, 'onDelete'> & {
+  position?: ToastPosition;
 };
 
 export type StatusColorType = {
@@ -25,3 +31,17 @@ export type StatusColorType = {
     };
   };
 };
+
+export const toastPositions = [
+  'top-right',
+  'top-center',
+  'top-left',
+  'bottom-right',
+  'bottom-center',
+  'bottom-left',
+  'center-center',
+] as const;
+
+export type ToastPosition = (typeof toastPositions)[number];
+
+export type NotifyFnType = (args: ToastItemType) => void;
