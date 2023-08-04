@@ -110,6 +110,12 @@ export const StyledSelectWrap = styled('div')<SelectType>`
         ${getTextVariants('caption')};
       }
 
+      &-notice--loading {
+        padding: 16px;
+        color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['100'])};
+        ${getTextVariants('caption')};
+      }
+
       &:has(.react-select__menu-notice--no-options) {
         border: 1px solid transparent;
       }

@@ -5,7 +5,7 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { Select } from '.';
 import { OptionType } from './types.ts';
 
-export default {
+const SelectMeta: Meta<typeof Select> = {
   title: 'Core/Select',
   component: Select,
   parameters: {
@@ -15,7 +15,8 @@ export default {
       },
     },
   },
-} satisfies Meta<typeof Select>;
+};
+export default SelectMeta;
 
 type Story = StoryObj<typeof Select>;
 
@@ -31,7 +32,7 @@ const options: OptionType[] = [
   { value: 'vanilla2', label: 'Vanilla2', isDisabled: true },
 ];
 
-export const DefaultSelect = {
+export const DefaultSelect: Story = {
   render: (args) => (
     <div style={{ height: '350px' }}>
       <Select {...args} />
@@ -44,7 +45,7 @@ export const DefaultSelect = {
     isSearchable: false,
     isDisabled: false,
   },
-} satisfies Story;
+};
 
 const MultiselectTemplate: StoryFn<typeof Select> = ({ ...args }) => {
   const [value, setValue] = useState<OptionType[]>([]);
@@ -107,15 +108,16 @@ const SearchTemplate: StoryFn<typeof Select> = ({ ...args }) => {
   );
 };
 
-export const DefaultSearch: StoryFn<typeof Select> = SearchTemplate.bind({});
-DefaultSearch.args = {
+export const Search: StoryFn<typeof Select> = SearchTemplate.bind({});
+Search.args = {
   maxMenuHeight: 250,
   minMenuHeight: 250,
   rounded: true,
   selectType: 'async',
+  defaultOptions: true,
 };
 
-export const Autocomplete = {
+export const Autocomplete: Story = {
   render: (args) => (
     <div style={{ height: '350px' }}>
       <Select {...args} />
@@ -128,4 +130,4 @@ export const Autocomplete = {
     isSearchable: true,
     rounded: true,
   },
-} satisfies Story;
+};
