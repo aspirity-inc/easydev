@@ -30,7 +30,6 @@ export const ListOfAutoClosedToasts = ({ ...args }) => {
       <Toast {...toastArgs} title={'Info notification'} description={'Text'} status="info" />
       <Toast
         {...toastArgs}
-        onDelete={() => null}
         title={'Success notification'}
         description={'Text'}
         status="success"
@@ -38,7 +37,6 @@ export const ListOfAutoClosedToasts = ({ ...args }) => {
       />
       <Toast
         {...toastArgs}
-        onDelete={() => null}
         title={'Warning notification'}
         description={'Text'}
         status="warning"

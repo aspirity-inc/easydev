@@ -6,7 +6,3 @@ export const notifyFunction = (notifyFn: NotifyFnType) => {
 };
 
 export const toast = (args: ToastItemType) => notify({ ...args });
-export const info = (args: ToastItemType) => notify({ ...args, status: 'info' });
-export const success = (args: ToastItemType) => notify({ ...args, status: 'success' });
-export const warning = (args: ToastItemType) => notify({ ...args, status: 'warning' });
-export const error = (args: ToastItemType) => notify({ ...args, status: 'error' });

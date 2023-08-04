@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 
+import { createPortal } from 'react-dom';
+
 import { StyledContainer } from './styles';
 import { notifyFunction } from './toastEmitters';
 import { Toast } from '..';
@@ -43,7 +45,7 @@ export const ToastContainer = ({ limit }: ToastContainerType) => {
     });
   }, []);
 
-  return (
+  return createPortal(
     <>
       {toastPositions.map((pos) => (
         <StyledContainer $position={pos} key={pos}>
@@ -54,6 +56,7 @@ export const ToastContainer = ({ limit }: ToastContainerType) => {
             ))}
         </StyledContainer>
       ))}
-    </>
+    </>,
+    document.body
   );
 };

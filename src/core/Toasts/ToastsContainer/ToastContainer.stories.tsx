@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import { Button } from '@core/Button';
 import { Space } from '@core/Space';
 
-import { toast, info, success, warning, error } from './toastEmitters';
+import { toast } from './toastEmitters';
 import { ToastContainer } from './ToastsContainer';
 import { ToastItemType } from '../types';
 
@@ -27,12 +27,24 @@ const Template: StoryFn<typeof ToastContainer> = ({ ...args }) => {
       <ToastContainer {...args} />
       <Space direction="row">
         <Button onClick={() => toast({ ...toastArgs, position: 'top-left' })}>top-left toast</Button>
-        <Button onClick={() => info({ ...toastArgs, position: 'top-center' })}>top-center toast</Button>
-        <Button onClick={() => success({ ...toastArgs, position: 'top-right' })}>top-right toast</Button>
-        <Button onClick={() => warning({ ...toastArgs, position: 'bottom-left' })}>bottom-left toast</Button>
-        <Button onClick={() => error({ ...toastArgs, position: 'bottom-center' })}>bottom-center toast</Button>
-        <Button onClick={() => success({ ...toastArgs, position: 'bottom-right' })}>bottom-right toast</Button>
-        <Button onClick={() => info({ ...toastArgs, position: 'center-center' })}>center-center toast</Button>
+        <Button onClick={() => toast({ ...toastArgs, status: 'info', position: 'top-center' })}>
+          top-center toast
+        </Button>
+        <Button onClick={() => toast({ ...toastArgs, status: 'success', position: 'top-right' })}>
+          top-right toast
+        </Button>
+        <Button onClick={() => toast({ ...toastArgs, status: 'warning', position: 'bottom-left' })}>
+          bottom-left toast
+        </Button>
+        <Button onClick={() => toast({ ...toastArgs, status: 'error', position: 'bottom-center' })}>
+          bottom-center toast
+        </Button>
+        <Button onClick={() => toast({ ...toastArgs, status: 'success', position: 'bottom-right' })}>
+          bottom-right toast
+        </Button>
+        <Button onClick={() => toast({ ...toastArgs, status: 'info', position: 'center-center' })}>
+          center-center toast
+        </Button>
       </Space>
     </>
   );

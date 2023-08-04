@@ -30,16 +30,14 @@ export const Toast = ({
 
       return () => clearTimeout(timer);
     }
-  }, [autoClose, autoCloseDelay, onDelete]);
+  }, [autoClose, autoCloseDelay, onDelete, toastId]);
 
   return (
     <StyledToast $colorful={colorful} $statusBackground={statusBackground} $status={status} {...props}>
       <ToastStatusIcon colorful={colorful} status={status} icon={icon} />
 
       <StyledMainContent $colorful={colorful}>
-        <Subtitle level={4}>
-          {title} {toastId}
-        </Subtitle>
+        <Subtitle level={4}>{title}</Subtitle>
         {description && <Text variant="body2">{description}</Text>}
       </StyledMainContent>
 
