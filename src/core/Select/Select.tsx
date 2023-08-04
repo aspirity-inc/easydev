@@ -1,11 +1,12 @@
 import { MouseEvent } from 'react';
 
 import ReactSelect, { ActionMeta, GroupBase, MultiValue, OnChangeValue, Props } from 'react-select';
+import AsyncSelect, { AsyncProps } from 'react-select/async';
+import CreatableSelect, { CreatableProps } from 'react-select/creatable';
 
 import 'material-symbols';
 
-import { CustomOption } from './Components/CustomOption.tsx';
-import { DropdownIndicator } from './Components/DropdownIndicator.tsx';
+import { CustomOption, DropdownIndicator, SearchValueContainer } from './Components';
 import {
   ClearValues,
   Multivalue,
@@ -20,16 +21,20 @@ type SelectProps<Option, IsMulti extends boolean = false, Group extends GroupBas
   Option,
   IsMulti,
   Group
-> & {
-  rounded?: boolean;
-  selectedStatePlaceholder?: string;
-  clearButtonText?: string;
-};
+> &
+  AsyncProps<Option, IsMulti, Group> &
+  CreatableProps<Option, IsMulti, Group> & {
+    rounded?: boolean;
+    selectedStatePlaceholder?: string;
+    clearButtonText?: string;
+    selectType?: 'creatable' | 'async' | 'default';
+  };
 
-const SelectComponentsOverride = { Option: CustomOption, DropdownIndicator };
+const selectComponentsOverride = { Option: CustomOption, DropdownIndicator };
+const searchComponentsOverride = { Option: CustomOption, DropdownIndicator, ValueContainer: SearchValueContainer };
 
 export const Select = <Option, IsMulti extends boolean = false, Group extends GroupBase<Option> = GroupBase<Option>>({
-  isSearchable = false,
+  // isSearchable = false,
   rounded,
   noOptionsMessage = () => 'Oops, not found',
   isMulti,
@@ -39,8 +44,18 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
   selectedStatePlaceholder,
   components,
   clearButtonText = 'Delete all',
+  selectType = 'default',
   ...props
 }: SelectProps<Option, IsMulti, Group>) => {
+  const selectComponent = {
+    creatable: CreatableSelect,
+    async: AsyncSelect,
+    default: ReactSelect,
+  };
+  const Component = selectComponent[selectType];
+
+  const placeholderText = () => ((value as MultiValue<Option>).length ? selectedStatePlaceholder : placeholder);
+
   const handleRemoveValue = (evt: MouseEvent<HTMLButtonElement>) => {
     if (!onChange) return;
 
@@ -65,16 +80,16 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
     } satisfies ActionMeta<Option>);
   };
 
-  const placeholderText = () => ((value as MultiValue<Option>).length ? selectedStatePlaceholder : placeholder);
-
   return (
     <StyledSelectWrap $rounded={rounded}>
-      <ReactSelect
+      <Component
         className="react-select__container"
         classNamePrefix="react-select"
-        unstyled
-        isSearchable={isSearchable}
-        components={{ ...SelectComponentsOverride, ...components }}
+        unstyled={true}
+        components={{
+          ...(selectType === 'async' ? searchComponentsOverride : selectComponentsOverride),
+          ...components,
+        }}
         noOptionsMessage={noOptionsMessage}
         isMulti={isMulti}
         value={value}
@@ -111,3 +126,18 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
     </StyledSelectWrap>
   );
 };
+
+// const commonSelectProps = {
+//   className: 'react-select__container',
+//   classNamePrefix: 'react-select',
+//   unstyled: true,
+//   components: { ...selectComponentsOverride, ...components },
+//   noOptionsMessage: noOptionsMessage,
+//   isMulti: isMulti,
+//   value: value,
+//   onChange: onChange,
+//   controlShouldRenderValue: !isMulti,
+//   isClearable: isMulti ? false : props.isClearable,
+//   placeholder: isMulti ? placeholderText() : placeholder,
+//   ...props,
+// };

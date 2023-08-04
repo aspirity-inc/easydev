@@ -60,7 +60,7 @@ export const StyledSelectWrap = styled('div')<SelectType>`
       &--menu-is-open {
         .icon-indicator,
         .react-select__dropdown-indicator {
-          transform: rotate(180deg);
+          transform: rotate(90deg);
         }
       }
 
@@ -250,4 +250,11 @@ export const HighlightValue = styled('span')`
   left: 0;
   top: 0;
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.tretiary['600'] : theme.colors.primary['300'])};
+`;
+
+export const StyledSearchValue = styled('div')`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
 `;

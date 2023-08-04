@@ -1,13 +1,9 @@
 import { useState } from 'react';
 
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
-import { styled } from 'styled-components';
-
-import { Chip } from '@core/Chip';
-import { OptionType } from '@core/Select/types.ts';
-import { scrollbarStyles } from '@core/Theme';
 
 import { Select } from '.';
+import { OptionType } from './types.ts';
 
 export default {
   title: 'Core/Select',
@@ -80,6 +76,45 @@ Multiselect.args = {
   closeMenuOnSelect: false,
 };
 
+const SearchTemplate: StoryFn<typeof Select> = ({ ...args }) => {
+  const [value, setValue] = useState<OptionType[]>([]);
+
+  const handleSelectChange = (values: unknown) => {
+    setValue(values as OptionType[]);
+  };
+
+  const filterOptions = (inputValue: string) => {
+    return options.filter((o) => o.label.toLowerCase().includes(inputValue.toLowerCase()));
+  };
+
+  const promiseOptions = (inputValue: string) =>
+    new Promise<OptionType[]>((resolve) => {
+      setTimeout(() => {
+        resolve(filterOptions(inputValue));
+      }, 1000);
+    });
+
+  return (
+    <div style={{ height: '350px' }}>
+      <Select
+        {...args}
+        value={value}
+        onChange={handleSelectChange}
+        selectedStatePlaceholder={`YourChoice: ${value.length}`}
+        loadOptions={promiseOptions}
+      />
+    </div>
+  );
+};
+
+export const DefaultSearch: StoryFn<typeof Select> = SearchTemplate.bind({});
+DefaultSearch.args = {
+  maxMenuHeight: 250,
+  minMenuHeight: 250,
+  rounded: true,
+  selectType: 'async',
+};
+
 export const Autocomplete = {
   render: (args) => (
     <div style={{ height: '350px' }}>
@@ -92,52 +127,5 @@ export const Autocomplete = {
     minMenuHeight: 250,
     isSearchable: true,
     rounded: true,
-  },
-} satisfies Story;
-
-const ChipsContent = () => {
-  const StyledFilters = styled('div')`
-    margin-top: 32px;
-    padding-bottom: 2px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 30px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-
-    ${scrollbarStyles};
-    &::-webkit-scrollbar {
-      height: 4px;
-      background-color: ${({ theme }) =>
-        theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
-    }
-  `;
-  return (
-    <StyledFilters>
-      <Chip label="Filter 1" onDelete={() => null} />
-      <Chip label="Filter 2" onDelete={() => null} />
-      <Chip label="Super ling filter 3 name" onDelete={() => null} />
-      <Chip label="Filter 3" onDelete={() => null} />
-      <Chip label="Filter 3" onDelete={() => null} />
-      <Chip label="Filter 3" onDelete={() => null} />
-      <Chip label="Filter 3" onDelete={() => null} />
-    </StyledFilters>
-  );
-};
-export const AutocompleteWithChips = {
-  render: (args) => (
-    <div style={{ height: '350px' }}>
-      <Select {...args} />
-      <ChipsContent />
-    </div>
-  ),
-  args: {
-    options,
-    maxMenuHeight: 250,
-    minMenuHeight: 250,
-    isSearchable: true,
-    rounded: true,
-    noOptionsMessage: () => 'Custom no options message',
   },
 } satisfies Story;
