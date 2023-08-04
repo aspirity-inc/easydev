@@ -1,6 +1,7 @@
+import Highlighter from 'react-highlight-words';
 import { components, GroupBase, OptionProps } from 'react-select';
 
-import { HighlightValue, OptionContentWrapper } from '../styles.ts';
+import { StyledOption } from './styles.ts';
 
 export const CustomOption = <
   Option,
@@ -11,16 +12,15 @@ export const CustomOption = <
 ) => {
   const { selectProps } = props;
   return (
-    <div>
+    <StyledOption>
       <components.Option {...props}>
-        <OptionContentWrapper>
-          {props.children}
-          {typeof props.children === 'string' ? (
-            <HighlightValue>{props.children?.slice(0, selectProps.inputValue.length)}</HighlightValue>
-          ) : null}
-        </OptionContentWrapper>
+        <Highlighter
+          searchWords={[selectProps.inputValue]}
+          textToHighlight={props.children as string}
+          highlightClassName="easy-option--highlight"
+        />
         <div className="icon material-symbols-rounded">done</div>
       </components.Option>
-    </div>
+    </StyledOption>
   );
 };

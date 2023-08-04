@@ -2,7 +2,7 @@ import { components, GroupBase, ValueContainerProps } from 'react-select';
 
 import 'material-symbols';
 
-import { StyledSearchValue } from '@core/Select/styles.ts';
+import { StyledSearchValue } from './styles.ts';
 
 export const SearchValueContainer = <
   Option,

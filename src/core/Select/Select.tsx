@@ -6,15 +6,10 @@ import CreatableSelect, { CreatableProps } from 'react-select/creatable';
 
 import 'material-symbols';
 
+import { MultivalueSelectedOptions } from '@core/Select/Components/MultivalueSelectedOptions.tsx';
+
 import { CustomOption, DropdownIndicator, SearchValueContainer } from './Components';
-import {
-  ClearValues,
-  Multivalue,
-  MultivalueContainer,
-  MultivalueWrapper,
-  RemoveValueButton,
-  StyledSelectWrap,
-} from './styles.ts';
+import { StyledSelectWrap } from './styles.ts';
 import { OptionType } from './types.ts';
 
 type SelectProps<Option, IsMulti extends boolean = false, Group extends GroupBase<Option> = GroupBase<Option>> = Props<
@@ -101,43 +96,13 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
       />
 
       {isMulti ? (
-        <MultivalueWrapper>
-          {(value as MultiValue<Option>).length ? (
-            <ClearValues type="button" onClick={handleClear}>
-              {clearButtonText}
-            </ClearValues>
-          ) : null}
-          <MultivalueContainer>
-            {(value as OptionType[])?.map((val) => (
-              <Multivalue key={val.value}>
-                {val.label}
-                <RemoveValueButton
-                  className="icon material-symbols-rounded"
-                  name={val.value}
-                  onClick={handleRemoveValue}
-                >
-                  close
-                </RemoveValueButton>
-              </Multivalue>
-            ))}
-          </MultivalueContainer>
-        </MultivalueWrapper>
+        <MultivalueSelectedOptions
+          value={value as OptionType[]}
+          clearButtonText={clearButtonText}
+          handleClear={handleClear}
+          handleRemoveValue={handleRemoveValue}
+        />
       ) : null}
     </StyledSelectWrap>
   );
 };
-
-// const commonSelectProps = {
-//   className: 'react-select__container',
-//   classNamePrefix: 'react-select',
-//   unstyled: true,
-//   components: { ...selectComponentsOverride, ...components },
-//   noOptionsMessage: noOptionsMessage,
-//   isMulti: isMulti,
-//   value: value,
-//   onChange: onChange,
-//   controlShouldRenderValue: !isMulti,
-//   isClearable: isMulti ? false : props.isClearable,
-//   placeholder: isMulti ? placeholderText() : placeholder,
-//   ...props,
-// };
