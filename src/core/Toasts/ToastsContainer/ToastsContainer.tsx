@@ -47,15 +47,17 @@ export const ToastContainer = ({ limit }: ToastContainerType) => {
 
   return createPortal(
     <>
-      {toastPositions.map((pos) => (
-        <StyledContainer $position={pos} key={pos}>
-          {visibleToasts
-            .filter((toast) => toast.position === pos)
-            .map((toast) => (
+      {toastPositions.map((pos) => {
+        const filteredByPositionToasts = visibleToasts.filter((toast) => toast.position === pos);
+
+        return filteredByPositionToasts.length ? (
+          <StyledContainer $position={pos} key={pos}>
+            {filteredByPositionToasts.map((toast) => (
               <Toast key={toast.toastId} {...toast} onDelete={deleteToasts} />
             ))}
-        </StyledContainer>
-      ))}
+          </StyledContainer>
+        ) : null;
+      })}
     </>,
     document.body
   );
