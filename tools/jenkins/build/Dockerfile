@@ -1,4 +1,4 @@
-FROM node:16.14.2-alpine as build-stage
+FROM node:18.17.0-alpine as build-stage
 
 WORKDIR /client
 

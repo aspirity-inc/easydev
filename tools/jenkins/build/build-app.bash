@@ -15,4 +15,4 @@ docker buildx build \
   --tag ${DOCKER_IMAGE_APP} \
   --progress=plain \
   --build-arg VERSION=${VERSION} \
-  --target app .
+  --target production-stage .

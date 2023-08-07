@@ -4,20 +4,12 @@ networks:
 
 services:
   easydev:
-    image: easydev
+    image: ${DOCKER_IMAGE_APP?}
     networks:
-      - default
       - http-entry
-    build: 
-      context: ../../../
-      dockerfile: tools/jenkins/build/Dockerfile
-      target: production-stage
     environment:
       - NODE_ENV=production
     labels:
       - traefik.enable=true
       - traefik.http.routers.easydev-${ENV?}.rule=Host(`${DEPLOY_DOMAIN?}`)
       - traefik.http.routers.easydev-${ENV?}.entrypoints=web443
-      - traefik.http.routers.easydev-${ENV?}.middlewares=easydev-${ENV?}
-      - traefik.http.routers.easydev-${ENV?}.tls.certresolver=letsEncrypt
-      - traefik.http.middlewares.easydev-${ENV?}.basicauth.users=${STUDIO_BASIC_AUTH?}
