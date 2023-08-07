@@ -29,7 +29,6 @@ const selectComponentsOverride = { Option: CustomOption, DropdownIndicator };
 const searchComponentsOverride = { Option: CustomOption, DropdownIndicator, ValueContainer: SearchValueContainer };
 
 export const Select = <Option, IsMulti extends boolean = false, Group extends GroupBase<Option> = GroupBase<Option>>({
-  // isSearchable = false,
   rounded,
   noOptionsMessage = () => 'Oops, not found',
   isMulti,
