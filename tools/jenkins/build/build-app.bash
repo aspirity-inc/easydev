@@ -10,9 +10,8 @@ FULL_PATH_TO_SCRIPT="$(realpath "${BASH_SOURCE[-1]}")"
 SCRIPT_DIRECTORY="$(dirname "$FULL_PATH_TO_SCRIPT")"
 DOCKERFILE_PATH="${SCRIPT_DIRECTORY}/Dockerfile"
 
-docker buildx build \
-  --file ${DOCKERFILE_PATH} \
-  --tag ${DOCKER_IMAGE_APP} \
-  --progress=plain \
-  --build-arg VERSION=${VERSION} \
-  --target production .
+echo "$DOCKERFILE_PATH"
+echo "$DOCKER_IMAGE_APP"
+echo "$VERSION"
+
+docker buildx build --file ${DOCKERFILE_PATH} --tag ${DOCKER_IMAGE_APP} --progress=plain --build-arg VERSION=${VERSION} --target production .
