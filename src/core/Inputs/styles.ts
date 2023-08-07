@@ -12,6 +12,7 @@ export const getBaseInputStyles = ($filled: boolean) => {
 
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
     ${getTextVariants('body2')};
+    font-family: inherit;
 
     border: 1px solid transparent;
     border-radius: 8px;

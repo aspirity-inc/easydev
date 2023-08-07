@@ -35,6 +35,7 @@ export const StyledTextarea = styled('textarea')<TextareaProps>`
   background-color: transparent;
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
   ${getTextVariants('body2')};
+  font-family: inherit;
 
   &:placeholder-shown::placeholder {
     opacity: 0;

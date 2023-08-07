@@ -34,11 +34,11 @@ export const StyledInputLabel = styled('label')`
   height: 56px;
 
   &:has(${StyledInput}:focus-visible) ${StyledLabelText} {
-    transform: scale(0.8) translateY(-22px);
+    transform: scale(0.8) translateY(-28px);
   }
 
   &:has(${StyledInput}:not(:placeholder-shown)) ${StyledLabelText} {
-    transform: scale(0.8) translateY(-22px);
+    transform: scale(0.8) translateY(-28px);
   }
 
   &:has(${StyledInput}:focus-visible:not([disabled])) ${StyledLabelText} {
