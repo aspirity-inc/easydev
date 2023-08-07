@@ -1,15 +1,11 @@
 import { useState } from 'react';
 
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
-import { styled } from 'styled-components';
-
-import { Chip } from '@core/Chip';
-import { OptionType } from '@core/Select/types.ts';
-import { scrollbarStyles } from '@core/Theme';
 
 import { Select } from '.';
+import { OptionType } from './types.ts';
 
-export default {
+const SelectMeta: Meta<typeof Select> = {
   title: 'Core/Select',
   component: Select,
   parameters: {
@@ -19,7 +15,8 @@ export default {
       },
     },
   },
-} satisfies Meta<typeof Select>;
+};
+export default SelectMeta;
 
 type Story = StoryObj<typeof Select>;
 
@@ -35,7 +32,7 @@ const options: OptionType[] = [
   { value: 'vanilla2', label: 'Vanilla2', isDisabled: true },
 ];
 
-export const DefaultSelect = {
+export const DefaultSelect: Story = {
   render: (args) => (
     <div style={{ height: '350px' }}>
       <Select {...args} />
@@ -48,7 +45,7 @@ export const DefaultSelect = {
     isSearchable: false,
     isDisabled: false,
   },
-} satisfies Story;
+};
 
 const MultiselectTemplate: StoryFn<typeof Select> = ({ ...args }) => {
   const [value, setValue] = useState<OptionType[]>([]);
@@ -63,7 +60,7 @@ const MultiselectTemplate: StoryFn<typeof Select> = ({ ...args }) => {
         {...args}
         value={value}
         onChange={handleSelectChange}
-        selectedPlaceholder={`YourChoice: ${value.length}`}
+        selectedStatePlaceholder={`YourChoice: ${value.length}`}
       />
     </div>
   );
@@ -80,56 +77,50 @@ Multiselect.args = {
   closeMenuOnSelect: false,
 };
 
-export const Autocomplete = {
-  render: (args) => (
-    <div style={{ height: '350px' }}>
-      <Select {...args} />
-    </div>
-  ),
-  args: {
-    options,
-    maxMenuHeight: 250,
-    minMenuHeight: 250,
-    isSearchable: true,
-    rounded: true,
-  },
-} satisfies Story;
+const SearchTemplate: StoryFn<typeof Select> = ({ ...args }) => {
+  const [value, setValue] = useState<OptionType[]>([]);
 
-const ChipsContent = () => {
-  const StyledFilters = styled('div')`
-    margin-top: 32px;
-    padding-bottom: 2px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 30px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+  const handleSelectChange = (values: unknown) => {
+    setValue(values as OptionType[]);
+  };
 
-    ${scrollbarStyles};
-    &::-webkit-scrollbar {
-      height: 4px;
-      background-color: ${({ theme }) =>
-        theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
-    }
-  `;
+  const filterOptions = (inputValue: string) => {
+    return options.filter((o) => o.label.toLowerCase().includes(inputValue.toLowerCase()));
+  };
+
+  const promiseOptions = (inputValue: string) =>
+    new Promise<OptionType[]>((resolve) => {
+      setTimeout(() => {
+        resolve(filterOptions(inputValue));
+      }, 1000);
+    });
+
   return (
-    <StyledFilters>
-      <Chip label="Filter 1" onDelete={() => null} />
-      <Chip label="Filter 2" onDelete={() => null} />
-      <Chip label="Super ling filter 3 name" onDelete={() => null} />
-      <Chip label="Filter 3" onDelete={() => null} />
-      <Chip label="Filter 3" onDelete={() => null} />
-      <Chip label="Filter 3" onDelete={() => null} />
-      <Chip label="Filter 3" onDelete={() => null} />
-    </StyledFilters>
+    <div style={{ height: '350px' }}>
+      <Select
+        {...args}
+        value={value}
+        onChange={handleSelectChange}
+        selectedStatePlaceholder={`YourChoice: ${value.length}`}
+        loadOptions={promiseOptions}
+      />
+    </div>
   );
 };
-export const AutocompleteWithChips = {
+
+export const Search: StoryFn<typeof Select> = SearchTemplate.bind({});
+Search.args = {
+  maxMenuHeight: 250,
+  minMenuHeight: 250,
+  rounded: true,
+  selectType: 'async',
+  defaultOptions: true,
+};
+
+export const Autocomplete: Story = {
   render: (args) => (
     <div style={{ height: '350px' }}>
       <Select {...args} />
-      <ChipsContent />
     </div>
   ),
   args: {
@@ -138,6 +129,5 @@ export const AutocompleteWithChips = {
     minMenuHeight: 250,
     isSearchable: true,
     rounded: true,
-    noOptionsMessage: () => 'Custom no options message',
   },
-} satisfies Story;
+};
