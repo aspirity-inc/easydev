@@ -3,9 +3,10 @@ FROM node:18.17.0-alpine as build-stage
 WORKDIR /client
 
 
-COPY ./package*.json ./
+COPY ./package.json ./
+COPY ./package-lock.json ./
 
-RUN CI=1 npm clean-install 
+RUN CI=1 npm clean-install
 
 COPY ./tsconfig.json ./tsconfig.json
 COPY ./tsconfig.node.json ./tsconfig.node.json
