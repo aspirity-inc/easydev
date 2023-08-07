@@ -1,0 +1,15 @@
+networks:
+  http-entry:
+    external: true
+
+services:
+  easydev:
+    image: ${DOCKER_IMAGE_APP?}
+    networks:
+      - http-entry
+    environment:
+      - NODE_ENV=production
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.easydev-${ENV?}.rule=Host(`${DEPLOY_DOMAIN?}`)
+      - traefik.http.routers.easydev-${ENV?}.entrypoints=web443

@@ -5,7 +5,7 @@ import { Space } from '@core/Space';
 import { Chip } from '.';
 
 export default {
-  title: 'core/Chip',
+  title: 'Сore/Chip',
   component: Chip,
 } satisfies Meta<typeof Chip>;
 

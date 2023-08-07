@@ -1,3 +1,5 @@
+const {withoutVitePlugins} = require('@storybook/builder-vite')
+
 module.exports = {
   "stories": ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   "addons": ["@storybook/addon-links", "@storybook/addon-essentials", "@storybook/addon-interactions", "@storybook/addon-styling", "storybook-addon-themes"],
@@ -7,5 +9,11 @@ module.exports = {
   },
   docs: {
     autodocs: true
-  }
+  },
+  async viteFinal(config) {
+    return {
+        ...config,
+        plugins: await withoutVitePlugins(config.plugins, ['vite:dts']),
+    }
+  },
 };

@@ -1,1 +1,1 @@
-export { Select } from './Select.tsx';
+export { Select } from './Select';
