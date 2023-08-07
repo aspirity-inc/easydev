@@ -58,7 +58,8 @@ export const StyledToast = styled.div<StyledToastProps>`
   ${({ $status, $statusBackground, $colorful }) =>
     $status && getBackgroundColor($status, $statusBackground, $colorful || false)}
   border-radius: 8px;
-  ${({ theme }) => theme.shadows.gray}
+  ${({ theme }) => theme.shadows.gray};
+  pointer-events: auto;
 `;
 
 export const StyledMainContent = styled.div<StyledMainContentProps>`

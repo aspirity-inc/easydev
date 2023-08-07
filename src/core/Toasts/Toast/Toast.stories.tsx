@@ -19,24 +19,39 @@ export const DefaultToast = {
     description: 'Description text',
     status: 'info',
     autoClose: false,
+    onDelete: () => null,
   },
 } satisfies Story;
 
 export const ListOfAutoClosedToasts = ({ ...args }) => {
+  const toastArgs = { ...args, onDelete: () => null };
   return (
     <Space direction="column">
-      <Toast {...args} title={'Info notification'} description={'Text'} status="info" />
-      <Toast {...args} title={'Success notification'} description={'Text'} status="success" autoCloseDelay={6000} />
-      <Toast {...args} title={'Warning notification'} description={'Text'} status="warning" autoCloseDelay={10000} />
+      <Toast {...toastArgs} title={'Info notification'} description={'Text'} status="info" />
+      <Toast
+        {...toastArgs}
+        title={'Success notification'}
+        description={'Text'}
+        status="success"
+        autoCloseDelay={6000}
+      />
+      <Toast
+        {...toastArgs}
+        title={'Warning notification'}
+        description={'Text'}
+        status="warning"
+        autoCloseDelay={10000}
+      />
     </Space>
   );
 };
 
 export const ListOfColorfulToasts = ({ ...args }) => {
+  const toastArgs = { ...args, onDelete: () => null };
   return (
     <Space direction="column">
       <Toast
-        {...args}
+        {...toastArgs}
         title={'Info notification'}
         description={'Text'}
         status="info"
@@ -44,7 +59,7 @@ export const ListOfColorfulToasts = ({ ...args }) => {
         autoClose={false}
       />
       <Toast
-        {...args}
+        {...toastArgs}
         title={'Success notification'}
         description={'Text'}
         status="success"
@@ -52,7 +67,7 @@ export const ListOfColorfulToasts = ({ ...args }) => {
         autoClose={false}
       />
       <Toast
-        {...args}
+        {...toastArgs}
         title={'Warning notification'}
         description={'Text'}
         status="warning"
@@ -60,7 +75,7 @@ export const ListOfColorfulToasts = ({ ...args }) => {
         autoClose={false}
       />
       <Toast
-        {...args}
+        {...toastArgs}
         title={'Error notification'}
         description={'Text'}
         status="error"
