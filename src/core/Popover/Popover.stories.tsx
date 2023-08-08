@@ -7,22 +7,22 @@ import { Button } from '@core/Button';
 import { Popover } from '.';
 
 const metaPopover: Meta<typeof Popover> = {
-  title: 'Сore/Popover',
+  title: 'Core/Popover',
   component: Popover,
   argTypes: {
     title: {
       type: 'string',
       control: 'text',
-      description: 'Заголовок',
+      description: 'Title',
     },
     body: {
       type: 'string',
       control: 'text',
-      description: 'Тело',
+      description: 'Body',
     },
     placement: {
       type: 'string',
-      description: 'Положение',
+      description: 'Position',
       control: {
         type: 'select',
       },

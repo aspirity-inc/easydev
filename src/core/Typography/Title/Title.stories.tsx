@@ -8,7 +8,7 @@ const metaTitle: Meta<typeof Title> = {
   argTypes: {
     variant: {
       type: 'string',
-      description: 'Вариант заголовка. h1-h6',
+      description: 'Title variants. h1-h6',
       defaultValue: 'h1',
       control: {
         type: 'select',
@@ -27,10 +27,10 @@ const metaTitle: Meta<typeof Title> = {
       control: { type: 'color' },
     },
     className: {
-      description: 'Любой CSS класс для дополнительной стилизации',
+      description: 'CSS class for additional styling',
     },
     style: {
-      description: 'Любые дополнительные стили',
+      description: 'Additional styles',
     },
   },
 };

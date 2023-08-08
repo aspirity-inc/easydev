@@ -8,12 +8,12 @@ const AddIcon = () => <div className="material-symbols-rounded">add</div>;
 const LoaderIcon = () => <div className="material-symbols-rounded">refresh</div>;
 
 const metaButton: Meta<typeof Button> = {
-  title: 'Сore/Button',
+  title: 'Core/Button',
   component: Button,
   argTypes: {
     size: {
       type: 'string',
-      description: 'Размер кнопки',
+      description: 'Button size',
       control: {
         type: 'select',
       },
@@ -25,7 +25,7 @@ const metaButton: Meta<typeof Button> = {
     },
     rounded: {
       type: 'string',
-      description: 'Скругление углов кнопки',
+      description: 'Round button corners',
       control: {
         type: 'select',
       },
@@ -37,7 +37,7 @@ const metaButton: Meta<typeof Button> = {
     },
     variant: {
       type: 'string',
-      description: 'Вариант кнопки',
+      description: 'Button variants',
       control: {
         type: 'select',
       },
@@ -48,26 +48,26 @@ const metaButton: Meta<typeof Button> = {
       },
     },
     icon: {
-      description: 'Иконка для кнопки',
+      description: 'Button icon',
     },
     loadingIcon: {
-      description: 'Иконка для кнопки в состоянии загрузки',
+      description: 'Button loading icon',
     },
     reversed: {
-      description: 'Направление контента кнопки',
+      description: 'Button content direction',
       control: 'boolean',
       defaultValue: false,
     },
     loading: {
-      description: 'Кнопка в состоянии загрузки',
+      description: 'Loading state',
       control: 'boolean',
       defaultValue: false,
     },
     className: {
-      description: 'Любой CSS класс для дополнительной стилизации',
+      description: 'CSS class for additional styling',
     },
     style: {
-      description: 'Любые дополнительные стили',
+      description: 'Additional styles',
     },
   },
 };
