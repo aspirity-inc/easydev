@@ -1,0 +1,35 @@
+---
+title: Easydev
+template: splash
+hero:
+  tagline: EasyDEV is a modern dashboard template based on React Components. We’ve used modern technologies and best practices to make our product easy to work with.<br/> It’s the most convenient template for developers, because of React Components, clean code and detailed documentation, which allows you to build any projects easily! Use it for e-commerce, analytics, sports and other types of web or mobile applications.
+  image:
+    file: ../../assets/houston.webp
+  actions:
+    - text: Storybook
+      link: /storybook
+      icon: right-arrow
+      variant: primary
+    - text: Read documents
+      link: /docs
+      icon: external
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Next steps
+
+<CardGrid stagger>
+	<Card title="Installation">
+		[Install](https://easydevreact.qa.aspirity.com/easydev/documentation/installation) EasyDev now.
+	</Card>
+	<Card title="Components" >
+		See [examples](/storybook) of using template components.
+	</Card>
+	<Card title="Change color theme">
+		EasyDev uses styled-components to create styles so that you can easily [manage your project's colors and other style things](/theme) .
+	</Card>
+	<Card title="Read the docs">
+		Learn more in [ Docs](/docs).
+	</Card>
+</CardGrid>
