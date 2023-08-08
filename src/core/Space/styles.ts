@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 export type SpaceStylesPropsType = {
   size?: number;
-  alignItems?: React.CSSProperties['alignItems'];
+  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'baseline';
   justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space=around' | 'space-evenly';
   direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
 };
