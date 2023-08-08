@@ -1,6 +1,6 @@
 import { css, DefaultTheme, styled } from 'styled-components';
 
-import { ControlColorType } from '@core/Controls/types.ts';
+import { ControlColorType } from './types.ts';
 
 type ControlProps = {
   disabled?: boolean;

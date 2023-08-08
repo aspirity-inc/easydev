@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { SpaceStylesPropsType, StyledSpace } from '@core/Space/styles.ts';
+import { SpaceStylesPropsType, StyledSpace } from './styles.ts';
 
 type SpacePropsType = SpaceStylesPropsType & {
   children: ReactNode | ReactNode[];

@@ -1,8 +1,9 @@
 import { styled, css } from 'styled-components';
 
-import { InputBaseStatus } from '@core/Inputs/types';
 import { StyledInputLabelText } from '@core/Typography/styles';
 import { getTextVariants } from '@core/Typography/Text/styles';
+
+import { InputBaseStatus } from './types';
 
 export const getBaseInputStyles = ($filled: boolean) => {
   return css`

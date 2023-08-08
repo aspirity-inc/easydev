@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { InputIcon } from '@core/Inputs/Input/InputIcon';
+import { InputIcon } from './InputIcon';
 import {
   StyledExtraMessage,
   StyledInput,
@@ -8,9 +8,9 @@ import {
   StyledMessageWrapper,
   StyledStatus,
   StyledInputWrapper,
-} from '@core/Inputs/Input/styles';
-import { StyledLabelText } from '@core/Inputs/styles';
-import { InputProps } from '@core/Inputs/types';
+} from './styles';
+import { StyledLabelText } from '../styles';
+import { InputProps } from '../types';
 
 export const Input = ({
   type = 'text',

@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
 
-import { StyledLabel } from '@core/Controls/ControlWithLabel/styles.ts';
 import { Text } from '@core/Typography';
+
+import { StyledLabel } from './styles.ts';
 
 type WithLabelProps = {
   control: ReactNode;
