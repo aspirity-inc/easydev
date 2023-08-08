@@ -37,6 +37,11 @@ module.exports = {
                         "group": "internal",
                         "position": "after"
                     },
+										{
+											"pattern": "@helpers/**",
+											"group": "internal",
+											"position": "after"
+									},
                     {
                         "pattern": "material-symbols",
                         "patternOptions": { "matchBase": true },

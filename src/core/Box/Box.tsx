@@ -1,6 +1,6 @@
 import { createElement, CSSProperties, ReactNode } from 'react';
 
-import { cx } from '@linaria/core';
+import { cx } from '@helpers/cx';
 
 type BoxProps = {
   children: ReactNode | string | ReactNode[];

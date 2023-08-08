@@ -20,7 +20,8 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@core/*": ["src/core/*"]
+      "@core/*": ["src/core/*"],
+      "@helpers/*": ["src/helpers/*"]
     }
   },
   "include": ["src"],
