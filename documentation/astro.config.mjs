@@ -10,19 +10,7 @@ export default defineConfig({
 			social: {
 				discord: 'https://discord.com/invite/8aJkBc8gFN'
 			},
-			sidebar: [
-				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', link: '/guides/example/' },
-					],
-				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
-			],
+			
 		}),
 	],
 
