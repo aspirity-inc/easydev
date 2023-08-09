@@ -10,6 +10,7 @@ export default defineConfig({
 			social: {
 				discord: 'https://discord.com/invite/8aJkBc8gFN'
 			},
+			customCss: ['./src/styles/custom.css']
 			
 		}),
 	],
