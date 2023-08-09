@@ -9,7 +9,7 @@ type SubtitleProps = Pick<TypographyBaseType, 'color' | 'bgColor'> & {
   level?: SubtitleLevelType;
 };
 
-const getSubtitleLevelStyles = (level?: SubtitleLevelType) => {
+export const getSubtitleLevelStyles = (level?: SubtitleLevelType) => {
   const defaultLevel = css`
     font-size: 32px;
     font-weight: ${({ theme }) => theme.typography.weight['500']};
