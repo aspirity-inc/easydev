@@ -54,7 +54,7 @@ Example:
 
 ## Themes
 
-lightTheme is the main theme and the rest are inherited from it. The theme specifies fields with appropriate values.
+LightTheme is the main theme and the rest are inherited from it. The theme specifies fields with appropriate values.
 
 ```ts
 # light theme "@core/Theme/index.tsx"
@@ -73,7 +73,7 @@ export const lightTheme = {
 };
 ```
 
-darkTheme inherits fields from lightTheme and overwrites some of them.
+DarkTheme inherits fields from lightTheme and overwrites some of them.
 
 ```ts
 # dark theme "@core/Theme/index.tsx"
