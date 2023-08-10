@@ -7,13 +7,12 @@ COPY ./pnpm-lock.yaml ./
 
 RUN npm install
 
-# COPY ./tsconfig.json ./tsconfig.json
-# COPY ./astro.config.mjs ./astro.config.mjs
-# COPY ./src ./src
-COPY . . 
+COPY ./tsconfig.json ./tsconfig.json
+COPY ./astro.config.mjs ./astro.config.mjs
+COPY ./src ./src
+
 ENV NODE_ENV=production
-# RUN --mount=type=cache,mode=0777,target=/client/node_modules/.cache npm run build
-RUN npm run build
+RUN --mount=type=cache,mode=0777,target=/client/node_modules/.cache npm run build
 
 FROM nginx:1.21.6-alpine as production
 
