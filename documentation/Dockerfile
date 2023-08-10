@@ -1,0 +1,28 @@
+FROM node:18.17.0-alpine as build-documentation 
+
+WORKDIR /documentation
+
+COPY ./package.json ./
+COPY ./pnpm-lock.yaml ./
+
+RUN npm install
+
+COPY ./tsconfig.json ./tsconfig.json
+COPY ./astro.config.mjs ./astro.config.mjs
+COPY ./src ./src
+
+ENV NODE_ENV=production
+RUN --mount=type=cache,mode=0777,target=/client/node_modules/.cache npm run build
+
+FROM nginx:1.21.6-alpine as production
+
+WORKDIR /app
+ENV NODE_ENV=production
+
+COPY --from=build-documentation /documentation/dist /app
+COPY /nginx/default.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+ENV PORT=80
+
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
