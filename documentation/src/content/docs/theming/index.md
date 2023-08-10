@@ -4,13 +4,13 @@ title: Colors and themes
 
 EasyDev uses styled-components to create styles so that you can easily manage your project's colors and other style things.
 
-This template contains dark and light themes. All style variables are contained in "@core/Theme/index.tsx" file.
+This template contains dark and light themes, but you can add your own theme.
 
 ## Colors
 
 There are components with preset colors that can change depending on the chosen theme.
 
-```ts "@core/Chip/styles.ts"
+```ts
 export const StyledDeleteButton = styled('button')`
   padding: 0;
   margin: 0;
@@ -27,7 +27,7 @@ export const StyledDeleteButton = styled('button')`
 
 Example:
 
-```ts example
+```ts
 <StyledDeleteButton type="button" {...props}>
   <div className="material-symbols-outlined">close</div>
 </StyledDeleteButton>
@@ -35,7 +35,7 @@ Example:
 
 In some components that accept color in the props, we can specify the color.
 
-```ts "@core/Controls/Checkbox/index.tsx"
+```ts
 export const Checkbox = ({ disabled, defaultChecked, color, ...props }: ControlBasePropsType) => {
   return (
     <CheckboxWrap disabled={disabled} color={color}>
@@ -48,49 +48,26 @@ export const Checkbox = ({ disabled, defaultChecked, color, ...props }: ControlB
 
 Example:
 
-```ts example
+```ts
 <Checkbox checked={checked} color="red" readOnly {...args} />
 ```
 
 ## Themes
 
-LightTheme is the main theme and the rest are inherited from it. The theme specifies fields with appropriate values.
+There are two standard light and dark themes with their own fields and properties, you can change them or add a new theme.
+
+Example:
 
 ```ts
-# light theme "@core/Theme/index.tsx"
-export const lightTheme = {
-  type: 'light',
-  colors: {
-    primary: {
-      ...paletteGenerator('#4CE1B6'),
-    },
-    secondary: {
-      ...paletteGenerator('#4F96E8'),
-    },
+const lightTheme = { type: 'light', ... }
+const darkTheme = { type: 'dark', ... }
+
+const [theme, useTheme] = useState(lightTheme)
+<ThemeProvider theme={theme}>
+	<App>
 		...
-	}
-	...
-};
+	</App>
+</ThemeProvider>
 ```
 
-DarkTheme inherits fields from lightTheme and overwrites some of them.
-
-```ts
-# dark theme "@core/Theme/index.tsx"
-export const darkTheme = {
-  ...lightTheme,
-  type: 'dark',
-  colors: {
-    primary: {
-      ...paletteGenerator('#6FE7C4'),
-    },
-    secondary: {
-      ...paletteGenerator('#00C2E2'),
-    },
-		...
-  },
-	...
-};
-```
-
-You can add a new theme in the file "@core/Theme/index.tsx" by analogy with darkTheme.
+For more information about changing the theme, see the [styled components documentation](https://styled-components.com/docs/advanced)
