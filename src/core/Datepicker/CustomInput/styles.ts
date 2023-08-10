@@ -33,6 +33,9 @@ export const StyledDatepickerInput = styled('input')<StyleInputProps>`
 
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
   ${getTextVariants('body2')};
+  // Corrected property 'XTRA', because this font was incorrectly displayed in the datepicker input
+  font-variation-settings: 'wdth' 110, 'GRAD' 0, 'slnt' 0, 'XTRA' 450, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514, 'YTUC' 712,
+    'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
   font-family: inherit;
 
   border: 1px solid transparent;

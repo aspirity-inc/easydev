@@ -26,6 +26,10 @@ export const DatepickerWrapper = styled('div')`
     &__week {
       display: flex;
     }
+
+    &__children-container {
+      width: 100%;
+    }
   }
 
   & .react-datepicker__month {
@@ -108,8 +112,8 @@ export const DatepickerWrapper = styled('div')`
     align-items: center;
   }
 
-  & .react-datepicker__year-text,
-  & .react-datepicker__month-text {
+  & .react-datepicker__year .react-datepicker__year-text,
+  & .react-datepicker__month .react-datepicker__month-text {
     width: 112px;
     height: 48px;
     margin: 0;

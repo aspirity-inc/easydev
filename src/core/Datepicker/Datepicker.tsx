@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 import 'material-symbols';
 
-import { CustomContainer } from './CustomContainer';
+import { CustomContent } from './CustomContent';
 import { CustomHeader } from './CustomHeader';
 import { CustomInput } from './CustomInput';
 import { DatepickerWrapper } from './styles';
@@ -37,7 +37,7 @@ export const Datepicker = ({
   const handleChange = (date: Date, event: React.SyntheticEvent<HTMLInputElement, Event> | undefined) => {
     if (mode === 'year') setMode('month');
     if (mode === 'month') setMode('date');
-    onChange(date, event);
+    if (mode === 'date') onChange(date, event);
   };
 
   return (
@@ -54,9 +54,10 @@ export const Datepicker = ({
         placeholderText={placeholderText}
         {...props}
         customInput={<CustomInput open={open} label={label} ref={refCustomInput} />}
-        calendarContainer={CustomContainer(mode, onChange, setOpen)}
         renderCustomHeader={CustomHeader(mode, setMode)}
-      />
+      >
+        <CustomContent mode={mode} onChange={onChange} setOpen={setOpen} />
+      </DatePicker>
     </DatepickerWrapper>
   );
 };
