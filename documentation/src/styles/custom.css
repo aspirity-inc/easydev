@@ -2,6 +2,7 @@ a{
   font-weight: 600;
 }
 
+
 /* dark mode */
 :root,
 ::backdrop {
@@ -12,5 +13,4 @@ a{
 :root[data-theme='light'],
 [data-theme='light'] ::backdrop {
   --sl-color-text-accent:#244153;
-  
 }
