@@ -1,0 +1,15 @@
+a {
+  font-weight: 600;
+}
+
+/* dark mode */
+:root,
+::backdrop {
+  --sl-color-text-accent: #6fe7c4;
+}
+
+/* light mode */
+:root[data-theme='light'],
+[data-theme='light'] ::backdrop {
+  --sl-color-text-accent: #244153;
+}
