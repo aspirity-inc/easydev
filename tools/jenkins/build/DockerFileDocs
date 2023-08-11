@@ -2,17 +2,18 @@ FROM node:18.17.0-alpine as build-documentation
 
 WORKDIR /documentation
 
-COPY ./package.json ./
-COPY ./pnpm-lock.yaml ./
+COPY ./documentation/package.json ./
+COPY ./documentation/pnpm-lock.yaml ./
 
 RUN npm install
 
-COPY ./tsconfig.json ./tsconfig.json
-COPY ./astro.config.mjs ./astro.config.mjs
-COPY ./src ./src
+COPY ./documentation/tsconfig.json ./tsconfig.json
+COPY ./documentation/astro.config.mjs ./astro.config.mjs
+COPY ./documentation/src ./src
 
 ENV NODE_ENV=production
 RUN --mount=type=cache,mode=0777,target=/client/node_modules/.cache npm run build
+
 
 FROM nginx:1.21.6-alpine as production-documentation 
 
