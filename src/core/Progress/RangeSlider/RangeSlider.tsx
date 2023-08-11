@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, useEffect, useState } from 'react';
 
-import { cx } from '@linaria/core';
+import { cx } from '@helpers/cx';
 
 import { RangeWrap, StyledProgress, Tooltip, TooltipShownType, TooltipTail } from './styles';
 

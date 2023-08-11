@@ -1,4 +1,4 @@
-import { cx } from '@linaria/core';
+import { cx } from '@helpers/cx';
 
 import { StyledSubtitle, StyledTab } from './styles';
 

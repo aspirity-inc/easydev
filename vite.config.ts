@@ -1,7 +1,8 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
-import dts from 'vite-plugin-dts';
 import path from 'path';
+
+import react from '@vitejs/plugin-react-swc';
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   plugins: [
@@ -30,6 +31,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@core': path.resolve(__dirname, 'src/core'),
+      '@helpers': path.resolve(__dirname, 'src/helpers'),
     },
   },
 });

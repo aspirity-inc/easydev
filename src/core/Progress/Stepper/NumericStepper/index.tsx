@@ -1,6 +1,6 @@
-import { cx } from '@linaria/core';
-
 import 'material-symbols';
+
+import { cx } from '@helpers/cx';
 
 import { StyledNumericStepper, StyledStep } from './styles.ts';
 import type { StepperPropsType } from '../types.ts';
