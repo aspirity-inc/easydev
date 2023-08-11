@@ -1,5 +1,5 @@
-import { EllipsisType, StyledText, TextVariant } from '@core/Typography/Text/styles.ts';
-import { TypographyBaseType } from '@core/Typography/types.ts';
+import { EllipsisType, StyledText, TextVariant } from './styles.ts';
+import { TypographyBaseType } from '../types.ts';
 
 type TextProps = TypographyBaseType & {
   tag?: keyof Pick<HTMLElementTagNameMap, 'p' | 'span'>;

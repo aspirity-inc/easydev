@@ -1,5 +1,5 @@
-import { StyledSubtitle, SubtitleLevelType } from '@core/Typography/Subtitle/styles.ts';
-import { TypographyBaseType } from '@core/Typography/types.ts';
+import { StyledSubtitle, SubtitleLevelType } from './styles.ts';
+import { TypographyBaseType } from '../types.ts';
 
 type SubtitleProps = TypographyBaseType & {
   tag?: keyof Pick<HTMLElementTagNameMap, 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'>;

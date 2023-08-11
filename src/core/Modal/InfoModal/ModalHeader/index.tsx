@@ -1,8 +1,7 @@
 import { CSSProperties, ReactNode, useContext } from 'react';
 
-import { CloseButton } from '@core/Modal/BaseModal';
-
 import { StyledModalHeader } from './styles';
+import { CloseButton } from '../../BaseModal';
 import { InfoModalContext } from '../InfoModalContext';
 
 export type ModalHeaderProps = {

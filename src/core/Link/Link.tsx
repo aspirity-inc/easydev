@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-import { StyledLink, StyledLinkPropsType } from '@core/Link/styles.ts';
+import { StyledLink, StyledLinkPropsType } from './styles.ts';
 
 type LinkPropsType = ComponentPropsWithoutRef<'a'> &
   StyledLinkPropsType & {

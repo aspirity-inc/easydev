@@ -1,5 +1,5 @@
-import { RadioWrap, StyledRadio, StyledRadioInner } from '@core/Controls/Radio/styles.ts';
-import type { ControlBasePropsType } from '@core/Controls/types.ts';
+import { RadioWrap, StyledRadio, StyledRadioInner } from './styles.ts';
+import type { ControlBasePropsType } from '../types.ts';
 
 export const Radio = ({ disabled, defaultChecked, color, ...props }: ControlBasePropsType) => {
   return (

@@ -1,10 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react';
 
-import { Checkbox, Radio } from '@core/Controls';
-import { Toggle } from '@core/Controls/Toggle';
 import { Space } from '@core/Space';
 
 import { ControlWithLabel } from '.';
+import { Checkbox, Radio, Toggle } from '..';
 
 const metaControlWithLabel: Meta<typeof ControlWithLabel> = {
   title: 'Core/Controls/ControlWithLabel',

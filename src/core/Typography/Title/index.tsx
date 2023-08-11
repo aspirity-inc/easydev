@@ -1,6 +1,5 @@
-import type { TitleVariant, TypographyBaseType } from '@core/Typography/types.ts';
-
 import { StyledTitle } from './styles.ts';
+import type { TitleVariant, TypographyBaseType } from '../types.ts';
 
 type TitleProps = TypographyBaseType & {
   variant?: TitleVariant;

@@ -1,8 +1,7 @@
 import InputMask, { Props } from 'react-input-mask';
 
-import { InputProps } from '@core/Inputs/types';
-
 import { Input } from '..';
+import { InputProps } from '../types';
 
 export type MaskedInputProps = Props & InputProps;
 
