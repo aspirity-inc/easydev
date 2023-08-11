@@ -14,7 +14,7 @@ COPY ./src ./src
 ENV NODE_ENV=production
 RUN --mount=type=cache,mode=0777,target=/client/node_modules/.cache npm run build
 
-FROM nginx:1.21.6-alpine as production
+FROM nginx:1.21.6-alpine as production-documentation 
 
 WORKDIR /app
 ENV NODE_ENV=production

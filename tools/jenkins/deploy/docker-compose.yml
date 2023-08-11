@@ -14,7 +14,7 @@ services:
       - traefik.http.routers.easydev-${ENV?}.rule=Host(`${DEPLOY_DOMAIN?}`)
       - traefik.http.routers.easydev-${ENV?}.entrypoints=web443
   docs:
-    image: docs:${DOCKER_IMAGE_APP?}
+    image: docs:${DOCKER_IMAGE_DOCS?}
     networks:
       - http-entry
     environment:
