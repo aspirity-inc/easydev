@@ -3,9 +3,9 @@ import { ReactNode } from 'react';
 import 'material-symbols';
 
 import { RotateBox } from '@core/Button/styles';
-import { IconProps, InputBaseStatus } from '@core/Inputs/types';
 
 import { StyledIcon } from './styles';
+import { IconProps, InputBaseStatus } from '../../../types';
 
 export type InputStatusIconProps = {
   status?: InputBaseStatus;

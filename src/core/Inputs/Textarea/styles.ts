@@ -1,9 +1,10 @@
 import { styled, css } from 'styled-components';
 
-import { StyledLabelText, getBackgroundColor, getDefaultBorder, getInputTransition } from '@core/Inputs/styles';
-import { InputsBaseProps, TextareaProps } from '@core/Inputs/types';
 import { Text } from '@core/Typography';
 import { getTextVariants } from '@core/Typography/Text/styles';
+
+import { StyledLabelText, getBackgroundColor, getDefaultBorder, getInputTransition } from '../styles';
+import { InputsBaseProps, TextareaProps } from '../types';
 
 export const StyledTextareaWrapper = styled('div')<{ $disabled: boolean }>`
   width: fit-content;

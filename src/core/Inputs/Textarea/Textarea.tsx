@@ -7,7 +7,7 @@ import {
   StyledTextareaLabel,
   StyledTextareaLabelText,
   StyledTextareaWrapper,
-} from '@core/Inputs/Textarea/styles';
+} from './styles';
 
 type TextareaProps = React.ComponentPropsWithoutRef<'textarea'> & {
   className?: string;
