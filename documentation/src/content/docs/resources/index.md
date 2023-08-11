@@ -1,6 +1,7 @@
 ---
 title: Resources
 ---
+
 This page contains links to useful resources.
 
 ### Main
@@ -20,4 +21,3 @@ This page contains links to useful resources.
 ### Fonts and Icons
 
 - Material-symbols https://fonts.google.com/icons
-

@@ -12,3 +12,4 @@ export { Chip } from '@core/Chip';
 export { Select } from '@core/Select';
 export * from '@core/Modal';
 export { Toast } from '@core/Toasts';
+export { Datepicker } from '@core/Datepicker';
