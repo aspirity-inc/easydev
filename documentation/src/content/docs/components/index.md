@@ -80,7 +80,7 @@ export const Example = ({ ...args }) => {
 
 ### [ControlWithLabel](#controls/control-with-label)
 
-ControlWithLabel is based on React and Styled Components. Example:
+Control With Label is based on React and Styled Components. Example:
 
 ```ts
 export const Example = ({ ...args }) => {
@@ -117,7 +117,7 @@ export const Example = ({ ...args }) => {
 
 ### [Toggle](#controls/toggle)
 
-Radio is based on React and Styled Components. Example:
+Toggle is based on React and Styled Components. Example:
 
 ```ts
 export const Example = ({ ...args }) => {
