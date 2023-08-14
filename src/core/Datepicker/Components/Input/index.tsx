@@ -2,12 +2,12 @@ import { InputHTMLAttributes, forwardRef } from 'react';
 
 import { StyledDatepickerIcon, StyledDatepickerInput, StyledDatepickerLabel, StyledDatepickerText } from './styles';
 
-type CustomInputProps = InputHTMLAttributes<HTMLInputElement> & {
+type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   label: string;
   open: boolean;
 };
 
-export const CustomInput = forwardRef<HTMLInputElement | null, CustomInputProps>((props, ref) => {
+export const Input = forwardRef<HTMLInputElement | null, InputProps>((props, ref) => {
   return (
     <StyledDatepickerLabel $open={props.open}>
       <StyledDatepickerText>{props.label}</StyledDatepickerText>

@@ -1,11 +1,11 @@
 import { MouseEvent } from 'react';
 
 import { Button } from '@core/Button';
+import { DatePickerMode } from '@core/Datepicker/Datepicker';
 
 import { StyledButtons } from './styles';
-import { DatePickerMode } from '../Datepicker';
 
-type CustomContentProps = {
+type ContentProps = {
   mode: DatePickerMode;
   onChange: (
     date: Date | null,
@@ -14,7 +14,7 @@ type CustomContentProps = {
   setOpen: (value: boolean) => void;
 };
 
-export const CustomContent = ({ mode, onChange, setOpen }: CustomContentProps) => {
+export const Content = ({ mode, onChange, setOpen }: ContentProps) => {
   // Что должна делать кнопка Cancel?
   const handleCancel = (e: MouseEvent<HTMLButtonElement>) => {
     onChange(null, e);

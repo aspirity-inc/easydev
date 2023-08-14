@@ -5,9 +5,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 import 'material-symbols';
 
-import { CustomContent } from './CustomContent';
-import { CustomHeader } from './CustomHeader';
-import { CustomInput } from './CustomInput';
+import { Content } from './Components/Content';
+import { Header } from './Components/Header';
+import { Input } from './Components/Input';
 import { DatepickerWrapper } from './styles';
 
 type DatepickerType = ReactDatePickerProps & {
@@ -27,7 +27,7 @@ export const Datepicker = ({
   const [open, setOpen] = useState(false);
   const [mode, setMode] = useState<DatePickerMode>('date');
 
-  const refCustomInput = useRef<HTMLInputElement>(null);
+  const refInput = useRef<HTMLInputElement>(null);
 
   const handleFocus = (event: FocusEvent<HTMLInputElement, Element>) => {
     setOpen(true);
@@ -46,6 +46,7 @@ export const Datepicker = ({
         open={open}
         onFocus={handleFocus}
         onChange={handleChange}
+        onClickOutside={() => setOpen(false)}
         dateFormat={dateFormat}
         showYearPicker={mode === 'year'}
         showMonthYearPicker={mode === 'month'}
@@ -53,10 +54,10 @@ export const Datepicker = ({
         yearItemNumber={yearItemNumber}
         placeholderText={placeholderText}
         {...props}
-        customInput={<CustomInput open={open} label={label} ref={refCustomInput} />}
-        renderCustomHeader={CustomHeader(mode, setMode)}
+        customInput={<Input open={open} label={label} ref={refInput} />}
+        renderCustomHeader={Header(mode, setMode)}
       >
-        <CustomContent mode={mode} onChange={onChange} setOpen={setOpen} />
+        <Content mode={mode} onChange={onChange} setOpen={setOpen} />
       </DatePicker>
     </DatepickerWrapper>
   );
