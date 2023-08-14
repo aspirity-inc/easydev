@@ -1,41 +1,62 @@
-import { InputHTMLAttributes, forwardRef, useRef } from 'react';
+import { useRef, FocusEvent, useState } from 'react';
 
 import DatePicker, { ReactDatePickerProps } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import 'material-symbols';
 
-import { StyledDatepickerIcon, StyledDatepickerLabel, StyledDatepickerText, StyledDatepickerInput } from './styles';
+import { Content, Header, Input } from './Components';
+import { DatepickerWrapper } from './styles';
 
 type DatepickerType = ReactDatePickerProps & {
   label: string;
 };
 
-type CustomInputProps = InputHTMLAttributes<HTMLInputElement> & {
-  label: string;
-};
+export type DatePickerMode = 'date' | 'year' | 'month';
 
-const CustomInput = forwardRef<HTMLInputElement | null, CustomInputProps>((props, ref) => {
+export const Datepicker = ({
+  onChange,
+  dateFormat = 'dd.MM.yyyy',
+  yearItemNumber = 8,
+  placeholderText = ' ',
+  label,
+  ...props
+}: DatepickerType) => {
+  const [open, setOpen] = useState(false);
+  const [mode, setMode] = useState<DatePickerMode>('date');
+
+  const refInput = useRef<HTMLInputElement>(null);
+
+  const handleFocus = (event: FocusEvent<HTMLInputElement, Element>) => {
+    setOpen(true);
+    props.onFocus && props.onFocus(event);
+  };
+
+  const handleChange = (date: Date, event: React.SyntheticEvent<HTMLInputElement, Event> | undefined) => {
+    if (mode === 'year') setMode('month');
+    if (mode === 'month') setMode('date');
+    if (mode === 'date') onChange(date, event);
+  };
+
   return (
-    <StyledDatepickerLabel>
-      <StyledDatepickerText>{props.label}</StyledDatepickerText>
-      <StyledDatepickerInput {...props} ref={ref} />
-      <StyledDatepickerIcon className="material-symbols-rounded" onClick={props.onClick}>
-        calendar_today
-      </StyledDatepickerIcon>
-    </StyledDatepickerLabel>
-  );
-});
-
-export const Datepicker = ({ dateFormat = 'dd.MM.yyyy', placeholderText = ' ', label, ...props }: DatepickerType) => {
-  const refCustomInput = useRef<HTMLInputElement>(null);
-
-  return (
-    <DatePicker
-      dateFormat={dateFormat}
-      placeholderText={placeholderText}
-      {...props}
-      customInput={<CustomInput label={label} ref={refCustomInput} />}
-    />
+    <DatepickerWrapper>
+      <DatePicker
+        open={open}
+        onFocus={handleFocus}
+        onChange={handleChange}
+        onClickOutside={() => setOpen(false)}
+        dateFormat={dateFormat}
+        showYearPicker={mode === 'year'}
+        showMonthYearPicker={mode === 'month'}
+        formatWeekDay={(nameOfDay) => nameOfDay.slice(0, 3)}
+        yearItemNumber={yearItemNumber}
+        placeholderText={placeholderText}
+        {...props}
+        customInput={<Input open={open} label={label} ref={refInput} />}
+        renderCustomHeader={Header(mode, setMode)}
+      >
+        <Content mode={mode} onChange={onChange} setOpen={setOpen} />
+      </DatePicker>
+    </DatepickerWrapper>
   );
 };

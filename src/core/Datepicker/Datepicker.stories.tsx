@@ -15,7 +15,7 @@ const TemplateDatepicker: StoryFn<typeof Datepicker> = ({ ...args }) => {
   const [startDate, setStartDate] = useState<Date | null>(null);
 
   return (
-    <div style={{ height: '400px' }}>
+    <div style={{ height: '500px' }}>
       <Datepicker {...args} selected={startDate} onChange={setStartDate} />
     </div>
   );
