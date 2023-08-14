@@ -118,3 +118,12 @@ export const StyledDatepickerLabel = styled(StyledInputLabel)<StyleInputProps>`
     );
   }}
 `;
+
+export const StyledInputsWrapper = styled('div')`
+  display: flex;
+  gap: 24px;
+
+  ${StyledDatepickerInput} {
+    width: 148px;
+  }
+`;
