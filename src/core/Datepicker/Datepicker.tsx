@@ -5,9 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 import 'material-symbols';
 
-import { Content } from './Components/Content';
-import { Header } from './Components/Header';
-import { Input } from './Components/Input';
+import { Content, Header, Input } from './Components';
 import { DatepickerWrapper } from './styles';
 
 type DatepickerType = ReactDatePickerProps & {
