@@ -1,8 +1,10 @@
 import { useState } from 'react';
 
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import { styled } from 'styled-components';
 
 import { Datepicker } from '.';
+import { StyledDatepickerInput } from './Components/Input/styles';
 
 const metaDatepicker: Meta<typeof Datepicker> = {
   title: 'Core/Datepicker',
@@ -10,6 +12,48 @@ const metaDatepicker: Meta<typeof Datepicker> = {
   argTypes: {},
 };
 export default metaDatepicker;
+
+const StyledWrapper = styled('div')`
+  height: 500px;
+  display: flex;
+  gap: 24px;
+
+  ${StyledDatepickerInput} {
+    width: 148px;
+  }
+`;
+
+const TemplateDatepickerRangeTwoInputs: StoryFn<typeof Datepicker> = ({ ...args }) => {
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
+
+  return (
+    <StyledWrapper>
+      <Datepicker
+        {...args}
+        label="Start date"
+        selected={startDate}
+        onChange={(date: Date | null) => setStartDate(date)}
+        selectsStart
+        startDate={startDate}
+        endDate={endDate}
+      />
+      <Datepicker
+        {...args}
+        label="End date"
+        selected={endDate}
+        onChange={(date: Date | null) => setEndDate(date)}
+        selectsEnd
+        startDate={startDate}
+        endDate={endDate}
+        minDate={startDate}
+      />
+    </StyledWrapper>
+  );
+};
+
+export const DefaultDatepickerRangeTwoInputs: StoryFn<typeof Datepicker> = TemplateDatepickerRangeTwoInputs.bind({});
+DefaultDatepickerRangeTwoInputs.args = {};
 
 const TemplateDatepickerRange: StoryFn<typeof Datepicker> = ({ ...args }) => {
   const [startDate, setStartDate] = useState<Date | null>(null);
@@ -37,13 +81,6 @@ const TemplateDatepickerRange: StoryFn<typeof Datepicker> = ({ ...args }) => {
 export const DefaultDatepickerRange: StoryFn<typeof Datepicker> = TemplateDatepickerRange.bind({});
 DefaultDatepickerRange.args = {
   label: 'Select range',
-};
-
-export const DefaultDatepickerRangeTwoInputs: StoryFn<typeof Datepicker> = TemplateDatepickerRange.bind({});
-DefaultDatepickerRangeTwoInputs.args = {
-  label: 'Start date',
-  secondInputLabel: 'End date',
-  twoInputs: true,
 };
 
 const TemplateDatepicker: StoryFn<typeof Datepicker> = ({ ...args }) => {

@@ -10,8 +10,6 @@ import { DatepickerWrapper } from './styles';
 
 type DatepickerType<T extends boolean | undefined = undefined> = ReactDatePickerProps<never, T> & {
   label: string;
-  twoInputs: boolean;
-  secondInputLabel: string;
 };
 
 type DateType<T> = T extends false | undefined ? Date | null : [Date | null, Date | null];
@@ -24,7 +22,6 @@ export const Datepicker = <T extends boolean | undefined>({
   yearItemNumber = 8,
   placeholderText = ' ',
   label,
-  twoInputs = false,
   ...props
 }: DatepickerType<T>) => {
   const [open, setOpen] = useState(false);
@@ -66,15 +63,7 @@ export const Datepicker = <T extends boolean | undefined>({
         yearItemNumber={yearItemNumber}
         placeholderText={placeholderText}
         {...props}
-        customInput={
-          <Input
-            open={open}
-            label={label}
-            $secondLabel={props.secondInputLabel}
-            $twoInputs={twoInputs}
-            ref={refInput}
-          />
-        }
+        customInput={<Input open={open} label={label} ref={refInput} />}
         renderCustomHeader={Header(mode, setMode)}
       >
         {mode === 'date' && <Content handleApply={handleApply} handleCancel={handleCancel} />}
