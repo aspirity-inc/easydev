@@ -13,3 +13,13 @@ a {
 [data-theme='light'] ::backdrop {
   --sl-color-text-accent: #244153;
 }
+
+.palette{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.content .palette p{
+  margin: 0;
+}
