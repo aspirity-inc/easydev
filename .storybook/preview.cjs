@@ -1,5 +1,5 @@
-import {withTheme} from './withTheme.decorator';
-import {darkTheme, lightTheme} from '../src/core/Theme';
+import { withTheme } from './withTheme.decorator';
+import { THEMES } from '../src/core/Theme';
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -11,7 +11,7 @@ export const parameters = {
   },
   backgrounds: {
     default: 'light',
-    values: [{name: 'light', value: lightTheme.colors.background}, {name: 'dark', value: darkTheme.colors.background}]
+    values: [{name: 'light', value: THEMES['light'].colors.background}, {name: 'dark', value: THEMES['dark'].colors.background}]
   },
   docs: {
 

@@ -1,25 +1,20 @@
-import { createContext, ReactNode } from "react";
+import { createContext } from "react";
 
-import { darkTheme, lightTheme } from "@core/Theme/index.tsx";
+import { merge } from "lodash";
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
-type ThemeContextType = {
-  type: "light" | "dark";
-  theme?: typeof lightTheme ;
-};
-type ThemeProviderType = ThemeContextType & {
-  children: ReactNode | ReactNode[];
-}
+import { THEMES } from "./themes.ts";
+import type { ThemeContextType, ThemeProviderType } from "./types.ts";
 
-const THEMES = {
-  light: lightTheme,
-  dark: darkTheme,
-};
+export const ThemeContext = createContext<ThemeContextType>({});
 
-export const ThemeContext = createContext<ThemeContextType>({type: "light"});
+export const ThemeProvider = ({children, theme}: ThemeProviderType) => {
+  const type = theme?.type || 'light';
+  const mergedTheme = theme ? merge(THEMES[type], theme): THEMES[type];
 
-/*export const ThemeProvider = ({children, theme, type}: ThemeProviderType) => {
-  const currentTheme = {...THEMES[type], ...theme};
   return (
-    <ThemeContext.Provider value={}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={{theme: mergedTheme}}>
+      <StyledThemeProvider theme={mergedTheme}>{children}</StyledThemeProvider>
+    </ThemeContext.Provider>
   )
-}*/
+}
