@@ -15,11 +15,20 @@ a {
 }
 
 .palette{
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-evenly;
+  gap: 40px;
 }
+
+@media screen and (max-width: 768px) {
+  .palette{
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 20px;
+  }
+}
+
 .content .palette p{
   margin: 0;
 }
