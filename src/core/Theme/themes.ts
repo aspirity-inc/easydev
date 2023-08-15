@@ -1,5 +1,5 @@
-import { paletteGenerator } from "./helpers/paletteGenerator.ts";
-import { ThemeType } from "./types.ts";
+import { paletteGenerator } from './helpers/paletteGenerator.ts';
+import { ThemeType } from './types.ts';
 
 const lightTheme: ThemeType = {
   type: 'light',

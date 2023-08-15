@@ -1,8 +1,8 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
 export const scrollbarStyles = css`
   --scrollbarColor: ${({ theme }) =>
-  theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['500']};
+    theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['500']};
 
   overflow: auto;
 
@@ -28,7 +28,7 @@ export const scrollbarStyles = css`
     width: 8px;
     height: 8px;
     background-color: ${({ theme }) =>
-  theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
+      theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
   }
 
   &::-webkit-scrollbar-thumb {

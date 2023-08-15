@@ -1,4 +1,4 @@
-import { shade, tint } from "polished";
+import { shade, tint } from 'polished';
 
 export const paletteGenerator = (color: string) => ({
   main: color,
