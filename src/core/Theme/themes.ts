@@ -1,33 +1,11 @@
-import { paletteGenerator } from './helpers/paletteGenerator.ts';
+import { darkPalette, lightPalette } from '@core/Theme/themePalette.ts';
+
 import { ThemeType } from './types.ts';
 
 const lightTheme: ThemeType = {
   type: 'light',
   colors: {
-    primary: {
-      ...paletteGenerator('#4CE1B6'),
-    },
-    secondary: {
-      ...paletteGenerator('#4F96E8'),
-    },
-    surface: {
-      ...paletteGenerator('#A5A5A7'),
-    },
-    tretiary: {
-      ...paletteGenerator('#B693FF'),
-    },
-    success: {
-      ...paletteGenerator('#55B627'),
-    },
-    error: {
-      ...paletteGenerator('#DE0000'),
-    },
-    warning: {
-      ...paletteGenerator('#FF9A00'),
-    },
-    link: {
-      ...paletteGenerator('#0045E6'),
-    },
+    ...lightPalette,
     background: '#FFFFFF',
     text: '#000000',
     icon: '#676769',
@@ -85,30 +63,7 @@ const darkTheme: ThemeType = {
   ...lightTheme,
   type: 'dark',
   colors: {
-    primary: {
-      ...paletteGenerator('#6FE7C4'),
-    },
-    secondary: {
-      ...paletteGenerator('#00C2E2'),
-    },
-    surface: {
-      ...paletteGenerator('#766D7E'),
-    },
-    tretiary: {
-      ...paletteGenerator('#AD9AF9'),
-    },
-    success: {
-      ...paletteGenerator('#8BC34A'),
-    },
-    error: {
-      ...paletteGenerator('#F44336'),
-    },
-    warning: {
-      ...paletteGenerator('#FF9800'),
-    },
-    link: {
-      ...paletteGenerator('#7ECEFF'),
-    },
+    ...darkPalette,
     background: '#232329',
     text: '#EFEFEF',
     icon: '#898290',
