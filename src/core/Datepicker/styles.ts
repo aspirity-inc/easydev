@@ -217,8 +217,8 @@ export const DatepickerWrapper = styled('div')`
     align-items: center;
   }
 
-  & .react-datepicker__year-text,
-  & .react-datepicker__month-text {
+  & .react-datepicker__year .react-datepicker__year-text,
+  & .react-datepicker__month .react-datepicker__month-text {
     width: 112px;
     height: 48px;
     margin: 0;
@@ -242,5 +242,14 @@ export const DatepickerWrapper = styled('div')`
     &--keyboard-selected {
       background-color: ${({ theme }) => theme.colors.tretiary['500']};
     }
+  }
+
+  .react-datepicker-popper[data-placement^='bottom'] {
+    padding-top: 12px;
+  }
+
+  .react-datepicker__close-icon {
+    padding-right: 14px;
+    opacity: 0;
   }
 `;

@@ -19,7 +19,7 @@ const StyledWrapper = styled('div')`
   gap: 24px;
 
   ${StyledDatepickerInput} {
-    width: 148px;
+    width: 180px;
   }
 `;
 

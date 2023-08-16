@@ -16,6 +16,28 @@ export const StyledDatepickerIcon = styled('div')`
   cursor: pointer;
 `;
 
+export const StyledDatepickerClearIcon = styled('div')<{ $disabled: boolean }>`
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['400'])};
+  cursor: pointer;
+
+  ${({ $disabled }) => {
+    return (
+      $disabled &&
+      css`
+        cursor: default;
+        color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['400'])};
+      `
+    );
+  }}
+`;
+
 type StyleInputProps = {
   $open: boolean;
 };
@@ -29,6 +51,7 @@ const focusInputStyles = () => css`
 `;
 
 export const StyledDatepickerInput = styled('input')<StyleInputProps>`
+  width: 368px;
   padding: 25px 18px 11px 48px;
 
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};

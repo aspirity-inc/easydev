@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 import 'material-symbols';
 
-import { Content, Header, Input } from './Components';
+import { Header, Input } from './Components';
 import { DatepickerWrapper } from './styles';
 
 type DatepickerType<T extends boolean | undefined = undefined> = ReactDatePickerProps<never, T> & {
@@ -22,6 +22,7 @@ export const Datepicker = <T extends boolean | undefined>({
   yearItemNumber = 8,
   placeholderText = ' ',
   label,
+  isClearable = true,
   ...props
 }: DatepickerType<T>) => {
   const [open, setOpen] = useState(false);
@@ -37,16 +38,14 @@ export const Datepicker = <T extends boolean | undefined>({
   const handleChange = (date: DateType<T>, event: React.SyntheticEvent<HTMLInputElement, Event> | undefined) => {
     if (mode === 'year') setMode('month');
     if (mode === 'month') setMode('date');
-    if (mode === 'date') onChange(date, event);
-  };
+    if (mode === 'date') {
+      onChange(date, event);
 
-  const handleCancel = (event: React.SyntheticEvent<HTMLInputElement | HTMLButtonElement, Event> | undefined) => {
-    props.selectsRange ? onChange([null, null] as DateType<T>, event) : onChange(null as DateType<T>, event);
-    setOpen(false);
-  };
-
-  const handleApply = () => {
-    setOpen(false);
+      //Close calendar if it's simple datepicker or range datepicker sets second date
+      if (!Array.isArray(date) || (Array.isArray(date) && date[1] !== null)) {
+        setOpen(false);
+      }
+    }
   };
 
   return (
@@ -63,11 +62,10 @@ export const Datepicker = <T extends boolean | undefined>({
         yearItemNumber={yearItemNumber}
         placeholderText={placeholderText}
         {...props}
-        customInput={<Input open={open} label={label} ref={refInput} />}
+        isClearable={isClearable}
+        customInput={<Input open={open} label={label} ref={refInput} isClearable={isClearable} />}
         renderCustomHeader={Header(mode, setMode)}
-      >
-        {mode === 'date' && <Content handleApply={handleApply} handleCancel={handleCancel} />}
-      </DatePicker>
+      />
     </DatepickerWrapper>
   );
 };
