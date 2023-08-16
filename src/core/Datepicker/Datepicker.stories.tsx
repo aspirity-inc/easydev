@@ -16,7 +16,7 @@ export default metaDatepicker;
 const StyledWrapper = styled('div')`
   height: 500px;
   display: flex;
-  gap: 24px;
+  gap: 8px;
 
   ${StyledDatepickerInput} {
     width: 180px;

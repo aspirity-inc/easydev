@@ -22,7 +22,7 @@ export const Datepicker = <T extends boolean | undefined>({
   yearItemNumber = 8,
   placeholderText = ' ',
   label,
-  isClearable = true,
+  isClearable = false,
   ...props
 }: DatepickerType<T>) => {
   const [open, setOpen] = useState(false);
