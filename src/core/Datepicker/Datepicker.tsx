@@ -5,23 +5,26 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 import 'material-symbols';
 
-import { Content, Header, Input } from './Components';
+import { Header, Input } from './Components';
 import { DatepickerWrapper } from './styles';
 
-type DatepickerType = ReactDatePickerProps & {
+type DatepickerType<T extends boolean | undefined = undefined> = ReactDatePickerProps<never, T> & {
   label: string;
 };
 
+type DateType<T> = T extends false | undefined ? Date | null : [Date | null, Date | null];
+
 export type DatePickerMode = 'date' | 'year' | 'month';
 
-export const Datepicker = ({
+export const Datepicker = <T extends boolean | undefined>({
   onChange,
   dateFormat = 'dd.MM.yyyy',
   yearItemNumber = 8,
   placeholderText = ' ',
   label,
+  isClearable = true,
   ...props
-}: DatepickerType) => {
+}: DatepickerType<T>) => {
   const [open, setOpen] = useState(false);
   const [mode, setMode] = useState<DatePickerMode>('date');
 
@@ -32,10 +35,17 @@ export const Datepicker = ({
     props.onFocus && props.onFocus(event);
   };
 
-  const handleChange = (date: Date, event: React.SyntheticEvent<HTMLInputElement, Event> | undefined) => {
+  const handleChange = (date: DateType<T>, event: React.SyntheticEvent<HTMLInputElement, Event> | undefined) => {
     if (mode === 'year') setMode('month');
     if (mode === 'month') setMode('date');
-    if (mode === 'date') onChange(date, event);
+    if (mode === 'date') {
+      onChange(date, event);
+
+      //Close calendar if it's simple datepicker or range datepicker sets second date
+      if (!Array.isArray(date) || (Array.isArray(date) && date[1] !== null)) {
+        setOpen(false);
+      }
+    }
   };
 
   return (
@@ -52,11 +62,10 @@ export const Datepicker = ({
         yearItemNumber={yearItemNumber}
         placeholderText={placeholderText}
         {...props}
-        customInput={<Input open={open} label={label} ref={refInput} />}
+        isClearable={isClearable}
+        customInput={<Input open={open} label={label} ref={refInput} isClearable={isClearable} />}
         renderCustomHeader={Header(mode, setMode)}
-      >
-        <Content mode={mode} onChange={onChange} setOpen={setOpen} />
-      </DatePicker>
+      />
     </DatepickerWrapper>
   );
 };
