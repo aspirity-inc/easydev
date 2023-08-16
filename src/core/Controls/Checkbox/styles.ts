@@ -6,8 +6,4 @@ export const StyledCheckbox = styled(StyledInput)``;
 
 export const StyledCheckboxInner = styled(StyledInnerBase)``;
 
-export const CheckboxWrap = styled(ControlWrap)`
-  .check-mark {
-    font-size: 22px;
-  }
-`;
+export const CheckboxWrap = styled(ControlWrap)``;

@@ -2,8 +2,6 @@ import { useState } from 'react';
 
 import { Meta, StoryFn } from '@storybook/react';
 
-import { Button } from '@core/Button';
-
 import { Checkbox } from '.';
 
 const metaCheckbox: Meta<typeof Checkbox> = {
@@ -25,6 +23,18 @@ const metaCheckbox: Meta<typeof Checkbox> = {
       control: { type: 'color', presetColors: ['success', 'warning', 'error'] },
       description: 'colors presets: success | warning | error',
     },
+    label: {
+      control: 'text',
+    },
+    checked: {
+      type: 'boolean',
+      control: 'boolean',
+      table: { defaultValue: { summary: false } },
+    },
+    onChange: {
+      type: 'function',
+      description: 'function onChange(): void',
+    },
   },
 };
 export default metaCheckbox;
@@ -36,24 +46,52 @@ const Template: StoryFn<typeof Checkbox> = ({ ...args }) => {
 export const DefaultCheckbox: StoryFn<typeof Checkbox> = Template.bind({});
 DefaultCheckbox.args = {};
 
-export const ControlledCheckbox: StoryFn<typeof Checkbox> = ({ ...args }) => {
+export const ControlledCheckbox: StoryFn<typeof Checkbox> = () => {
   const [checked, setChecked] = useState(false);
+  const onChange = () => setChecked((prevState) => !prevState);
 
-  const handleButtonClick = () => {
-    setChecked((prevState) => !prevState);
-  };
+  return <Checkbox checked={checked} onChange={onChange} />;
+};
+
+ControlledCheckbox.parameters = {
+  docs: {
+    source: {
+      type: 'code',
+    },
+  },
+};
+
+export const WithLabel: StoryFn<typeof Checkbox> = () => {
+  const [checked, setChecked] = useState(false);
+  const onChange = () => setChecked((prevState) => !prevState);
 
   return (
     <div>
-      <Checkbox checked={checked} readOnly {...args} />
-      <Button size="sm" rounded="sm" onClick={handleButtonClick}>
-        Change checkbox
-      </Button>
+      <Checkbox checked={checked} onChange={onChange} label="Check me 🌵" />
     </div>
   );
 };
 
-ControlledCheckbox.parameters = {
+WithLabel.parameters = {
+  docs: {
+    source: {
+      type: 'code',
+    },
+  },
+};
+
+export const WithJSXLabel: StoryFn<typeof Checkbox> = () => {
+  const [checked, setChecked] = useState(false);
+  const onChange = () => setChecked((prevState) => !prevState);
+
+  return (
+    <div>
+      <Checkbox checked={checked} onChange={onChange} label={<strong>Check me 🌵</strong>} />
+    </div>
+  );
+};
+
+WithJSXLabel.parameters = {
   docs: {
     source: {
       type: 'code',
