@@ -2,7 +2,7 @@
 title: Resources
 ---
 
-This page contains links to useful resources.
+Below is a short list of sources that we used when creating easydev and which can help you create beautiful and user-friendly applications.
 
 ### Main
 
