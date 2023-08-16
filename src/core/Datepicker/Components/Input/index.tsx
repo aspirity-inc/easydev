@@ -11,7 +11,7 @@ import {
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   label: string;
   open: boolean;
-  isClearable: boolean;
+  isClearable: boolean | undefined;
 };
 
 export const Input = forwardRef<HTMLInputElement | null, InputProps>(
