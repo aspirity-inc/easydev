@@ -58,6 +58,12 @@ export const DatepickerWrapper = styled('div')`
     align-items: center;
     justify-content: center;
     font-family: inherit;
+    background-color: ${({ theme }) =>
+      theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
+  }
+
+  & .react-datepicker__day-name {
+    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['100'])};
   }
 
   & .react-datepicker__day {
@@ -124,89 +130,155 @@ export const DatepickerWrapper = styled('div')`
       width: 100%;
       display: flex;
       justify-content: space-between;
+      margin-bottom: 0;
     }
+  }
 
-    &--in-selecting-range {
-      background-color: transparent;
-    }
+  & .react-datepicker__day--in-selecting-range,
+  & .react-datepicker__day--in-range {
+    color: ${({ theme }) => theme.colors.surface['50']};
+    background-color: ${({ theme }) => theme.colors.tretiary['300']};
+    border-radius: 0;
 
-    &--in-selecting-range:not(.react-datepicker__day--in-range) {
-      background-color: transparent;
-    }
-
-    &--in-range {
+    &.react-datepicker__day--range-start,
+    &.react-datepicker__day--selecting-range-start,
+    &.react-datepicker__day--range-end,
+    &.react-datepicker__day--selecting-range-end {
+      position: relative;
+      z-index: 0;
       color: ${({ theme }) => theme.colors.surface['50']};
-      background-color: ${({ theme }) => theme.colors.tretiary['300']} !important;
-      border-radius: 0;
+      background-color: transparent;
+
+      &:before {
+        content: '';
+        position: absolute;
+        right: 0;
+        z-index: -2;
+        width: 24px;
+        height: 48px;
+        background-color: ${({ theme }) => theme.colors.tretiary['300']};
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        width: 48px;
+        height: 48px;
+        background-color: ${({ theme }) =>
+          theme.type === 'light' ? theme.colors.tretiary['600'] : theme.colors.tretiary['800']};
+        border-radius: 50%;
+      }
+
+      &:hover {
+        &:after {
+          background-color: ${({ theme }) =>
+            theme.type === 'light' ? theme.colors.tretiary['600'] : theme.colors.tretiary['800']};
+        }
+      }
+    }
+
+    &.react-datepicker__day--range-end,
+    &.react-datepicker__day--selecting-range-end {
+      &:before {
+        left: 0;
+      }
+    }
+
+    &.react-datepicker__day--range-start.react-datepicker__day--range-end {
+      &:before {
+        background-color: transparent;
+      }
     }
   }
 
-  & .react-datepicker__day--in-selecting-range.react-datepicker__day--keyboard-selected,
-  & .react-datepicker__day--in-selecting-range.react-datepicker__day--selected {
-    background-color: ${({ theme }) =>
-      theme.type === 'light' ? theme.colors.tretiary['600'] : theme.colors.tretiary['800']};
+  .react-datepicker__month--selecting-range {
+    .react-datepicker__day--range-start,
+    .react-datepicker__day--range-end {
+      color: ${({ theme }) => theme.colors.surface['50']};
+
+      &:before,
+      &:after {
+        background-color: ${({ theme }) => theme.colors.tretiary['300']};
+        border-radius: 0;
+      }
+    }
+
+    .react-datepicker__day--range-start.react-datepicker__day--selecting-range-start,
+    .react-datepicker__day--range-end.react-datepicker__day--selecting-range-end {
+      color: ${({ theme }) => theme.colors.surface['50']};
+
+      &:before {
+      }
+      &:after {
+        background-color: ${({ theme }) =>
+          theme.type === 'light' ? theme.colors.tretiary['600'] : theme.colors.tretiary['800']};
+        border-radius: 50%;
+      }
+    }
   }
 
-  & .react-datepicker__day--in-selecting-range.react-datepicker__day--keyboard-selected:hover,
-  & .react-datepicker__day--in-selecting-range.react-datepicker__day--selected:hover {
+  & .react-datepicker__day--in-selecting-range:not(.react-datepicker__day--in-range) {
+    color: ${({ theme }) => theme.colors.surface['50']};
+    background-color: ${({ theme }) => theme.colors.tretiary['300']};
+    border-radius: 0;
+
+    &.react-datepicker__day--selecting-range-start,
+    &.react-datepicker__day--selecting-range-end {
+      position: relative;
+      z-index: 0;
+      color: ${({ theme }) => theme.colors.surface['50']};
+      background-color: transparent;
+
+      &:before {
+        content: '';
+        position: absolute;
+        right: 0;
+        z-index: -2;
+        width: 24px;
+        height: 48px;
+        background-color: ${({ theme }) => theme.colors.tretiary['300']};
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        width: 48px;
+        height: 48px;
+        background-color: ${({ theme }) =>
+          theme.type === 'light' ? theme.colors.tretiary['600'] : theme.colors.tretiary['800']};
+        border-radius: 50%;
+      }
+    }
+
+    &.react-datepicker__day--selecting-range-start.react-datepicker__day--selecting-range-end {
+      &:before {
+        background-color: transparent;
+      }
+    }
+
+    &.react-datepicker__day--selecting-range-end {
+      &:before {
+        left: 0;
+      }
+    }
+  }
+
+  &
+    .react-datepicker__month--selecting-range
+    .react-datepicker__day--in-range:not(.react-datepicker__day--in-selecting-range) {
     background-color: transparent;
-  }
+    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
 
-  & .react-datepicker__day--in-range.react-datepicker__day--range-start {
-    position: relative;
-    z-index: 0;
-    color: ${({ theme }) => theme.colors.surface['50']};
-    background-color: ${({ theme }) =>
-      theme.type === 'light' ? theme.colors.tretiary['600'] : theme.colors.tretiary['800']};
-    border-radius: 50%;
+    &.react-datepicker__day--range-start,
+    &.react-datepicker__day--range-end {
+      color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
 
-    &:before {
-      content: '';
-      position: absolute;
-      right: 0;
-      z-index: -2;
-      width: 24px;
-      height: 48px;
-      background-color: ${({ theme }) => theme.colors.tretiary['300']};
-    }
-    &:after {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      width: 48px;
-      height: 48px;
-      background-color: ${({ theme }) =>
-        theme.type === 'light' ? theme.colors.tretiary['600'] : theme.colors.tretiary['800']};
-      border-radius: 50%;
-    }
-  }
-
-  & .react-datepicker__day--in-range.react-datepicker__day--range-end {
-    position: relative;
-    z-index: 0;
-    color: ${({ theme }) => theme.colors.surface['50']};
-    background-color: ${({ theme }) =>
-      theme.type === 'light' ? theme.colors.tretiary['600'] : theme.colors.tretiary['800']};
-    border-radius: 50%;
-
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      z-index: -2;
-      width: 24px;
-      height: 48px;
-      background-color: ${({ theme }) => theme.colors.tretiary['300']};
-    }
-    &:after {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      width: 48px;
-      height: 48px;
-      background-color: ${({ theme }) =>
-        theme.type === 'light' ? theme.colors.tretiary['600'] : theme.colors.tretiary['800']};
-      border-radius: 50%;
+      &:before,
+      &:after {
+        background-color: transparent;
+      }
     }
   }
 
