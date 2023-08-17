@@ -81,7 +81,7 @@ const TemplatePassword: StoryFn<typeof Input> = ({ ...args }) => {
 export const DefaultInput: StoryFn<typeof Input> = TemplateInput.bind({});
 DefaultInput.args = {
   label: 'Name',
-  placeholder: 'Enter youe name',
+  placeholder: 'Enter your name',
 };
 
 export const ErrorInput: StoryFn<typeof Input> = TemplateInput.bind({});

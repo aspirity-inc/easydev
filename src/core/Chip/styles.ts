@@ -25,6 +25,7 @@ export const StyledDeleteButton = styled('button')`
   border: 0;
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['80'])};
   cursor: pointer;
+  z-index: 2;
 
   & > div {
     display: block;

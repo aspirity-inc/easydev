@@ -27,8 +27,8 @@ export const CheckboxChip = {
 export const ListOfDefaultChips = ({ ...args }) => {
   return (
     <Space direction="row">
-      {/* Args have an empty function for onDelete prop by default, so we need pass undefined explicitly for demonstration*/}
-      <Chip {...args} label="Selected chip" defaultChecked onDelete={undefined} />
+      {/* Args have an empty function for onClick prop by default, so we need pass undefined explicitly for demonstration*/}
+      <Chip {...args} label="Selected chip" defaultChecked onClick={undefined} />
       <Chip {...args} label="Selected chip with delete button" defaultChecked />
       <Chip {...args} label="Disabled chip" disabled />
     </Space>

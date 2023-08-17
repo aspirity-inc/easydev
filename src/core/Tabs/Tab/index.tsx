@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 type TabProps = React.ComponentPropsWithoutRef<'button'> & {
-  eventKey: number | string;
+  tabKey: number | string;
   title: string;
   disabled?: boolean;
   children: ReactNode | ReactNode[];
