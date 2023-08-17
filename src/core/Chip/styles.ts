@@ -8,6 +8,8 @@ type ChipProps = {
   disabled?: boolean;
   checked?: boolean;
   variant?: ChipVariant;
+  color?: React.CSSProperties['color'];
+  bgColor?: React.CSSProperties['backgroundColor'];
 };
 
 export const StyledInput = styled('input')`
@@ -40,6 +42,11 @@ export const StyledChipLabel = styled('label')<ChipProps>`
         return getDefaultChipStyle(props);
     }
   }};
+
+  ${({ color, bgColor }) => css`
+    color: ${color};
+    background-color: ${bgColor};
+  `};
 `;
 
 const getDefaultChipStyle = ({ checked }: ChipProps) => {
