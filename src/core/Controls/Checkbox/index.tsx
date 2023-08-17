@@ -10,7 +10,7 @@ export const Checkbox = ({ disabled, defaultChecked, color, label, id, ...props 
   const generatedId = useId();
 
   return (
-    <ControlContainer className="easy_checkbox-container">
+    <ControlContainer className="easy_checkbox-container easy_control-container">
       <CheckboxWrap disabled={disabled} color={color} className="easy_checkbox-wrapp">
         <StyledCheckbox
           className="easy_checkbox-item"
@@ -23,7 +23,7 @@ export const Checkbox = ({ disabled, defaultChecked, color, label, id, ...props 
         <StyledCheckboxInner className="material-symbols-rounded check-mark">done</StyledCheckboxInner>
       </CheckboxWrap>
       {label && (
-        <label htmlFor={id || generatedId} className="easy_checkbox-label">
+        <label htmlFor={id || generatedId} className="easy_checkbox-label easy_control-label">
           {label}
         </label>
       )}
