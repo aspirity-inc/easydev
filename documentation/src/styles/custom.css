@@ -2,6 +2,12 @@ a {
   font-weight: 600;
 }
 
+h2 a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+}
+
 /* dark mode */
 :root,
 ::backdrop {

@@ -26,7 +26,7 @@ export const scrollbarStyles = css`
   scrollbar-track-color: transparent;
   scrollbar-arrow-color: var(--scrollbarColor);
   scrollbar-shadow-color: var(--scrollbarColor);
-  scrollbar-dark-shadow-color: var(--scrollbarColor);
+  scrollbar-darkshadow-color: var(--scrollbarColor);
 
   /* for FireFox */
   scrollbar-width: thin;
