@@ -2,13 +2,12 @@ import { css, styled } from 'styled-components';
 
 import { getTextVariants } from '@core/Typography/Text/styles';
 
-export type ChipVariant = 'default' | 'checkbox';
+export type ChipVariant = 'filled' | 'outlined';
 
 type ChipProps = {
   disabled?: boolean;
   checked?: boolean;
   variant?: ChipVariant;
-  $hasDeleteButton?: boolean;
 };
 
 export const StyledInput = styled('input')`
@@ -18,26 +17,12 @@ export const StyledInput = styled('input')`
   z-index: 1;
 `;
 
-export const StyledDeleteButton = styled('button')`
-  padding: 0;
-  margin: 0;
-  background-color: transparent;
-  border: 0;
-  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['80'])};
-  cursor: pointer;
-  z-index: 2;
-
-  & > div {
-    display: block;
-  }
-`;
-
 export const StyledChipLabel = styled('label')<ChipProps>`
   width: fit-content;
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 16px;
+  padding: 10px 16px;
   user-select: none;
   border-radius: 40px;
   ${getTextVariants('body2')};
@@ -47,9 +32,9 @@ export const StyledChipLabel = styled('label')<ChipProps>`
 
   ${({ variant, ...props }) => {
     switch (variant) {
-      case 'default':
+      case 'filled':
         return getDefaultChipStyle(props);
-      case 'checkbox':
+      case 'outlined':
         return getCheckboxChipStyle();
       default:
         return getDefaultChipStyle(props);
@@ -57,7 +42,7 @@ export const StyledChipLabel = styled('label')<ChipProps>`
   }};
 `;
 
-const getDefaultChipStyle = ({ checked, $hasDeleteButton }: ChipProps) => {
+const getDefaultChipStyle = ({ checked }: ChipProps) => {
   return css`
     justify-content: center;
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['50'])};
@@ -72,10 +57,6 @@ const getDefaultChipStyle = ({ checked, $hasDeleteButton }: ChipProps) => {
         theme.type === 'light' ? theme.colors.tretiary['100'] : theme.colors.surface['800']};
       border-color: ${({ theme }) =>
         theme.type === 'light' ? theme.colors.tretiary['400'] : theme.colors.surface['700']};
-
-      ${StyledDeleteButton} {
-        color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
-      }
     }
 
     &[disabled] {
@@ -87,17 +68,6 @@ const getDefaultChipStyle = ({ checked, $hasDeleteButton }: ChipProps) => {
       background-color: ${({ theme }) =>
         theme.type === 'light' ? theme.colors.tretiary['300'] : theme.colors.tretiary['500']};
       color: ${({ theme }) => theme.colors.surface['900']};
-
-      ${$hasDeleteButton &&
-      css`
-        padding-top: 10px;
-        padding-bottom: 10px;
-        justify-content: flex-start;
-      `}
-
-      ${StyledDeleteButton} {
-        color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['800'])};
-      }
     `};
   `;
 };

@@ -3,6 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Space } from '@core/Space';
 
 import { Chip } from '.';
+import { Checkbox } from '@core/Controls';
 
 export default {
   title: 'Core/Chip',
@@ -17,30 +18,25 @@ export const DefaultChip = {
   },
 } satisfies Story;
 
-export const CheckboxChip = {
-  args: {
-    label: 'Chip',
-    variant: 'checkbox',
-  },
-} satisfies Story;
-
-export const ListOfDefaultChips = ({ ...args }) => {
+export const ListOfChips = ({ ...args }) => {
   return (
     <Space direction="row">
-      {/* Args have an empty function for onClick prop by default, so we need pass undefined explicitly for demonstration*/}
-      <Chip {...args} label="Selected chip" defaultChecked onClick={undefined} />
-      <Chip {...args} label="Selected chip with delete button" defaultChecked />
+      <Chip {...args} label="Selected chip" />
+      <Chip {...args} label="Selected chip" defaultChecked />
       <Chip {...args} label="Disabled chip" disabled />
     </Space>
   );
 };
 
-export const ListOfCheckboxChips = ({ ...args }) => {
+export const ListOfExtraContentChips = ({ ...args }) => {
   return (
     <Space direction="row">
-      <Chip {...args} variant="checkbox" label="Chip" />
-      <Chip {...args} variant="checkbox" label="Selected chip" defaultChecked />
-      <Chip {...args} variant="checkbox" label="Disabled chip" disabled />
+      <Chip {...args} label="Сheckbox chip" chipContent={(props: any) => <Checkbox {...props} />} />
+      <Chip
+        {...args}
+        label="Delete button chip"
+        chipContent={() => <div className="material-symbols-outlined">close</div>}
+      />
     </Space>
   );
 };
