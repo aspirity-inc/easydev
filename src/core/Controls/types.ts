@@ -1,6 +1,6 @@
-import { ComponentPropsWithoutRef, ReactNode } from 'react';
+import { ComponentPropsWithoutRef, CSSProperties, ReactNode } from 'react';
 
-export type ControlColorType = 'success' | 'warning' | 'error' | string;
+export type ControlColorType = 'success' | 'warning' | 'error' | CSSProperties['color'];
 
 export type ControlBasePropsType = ComponentPropsWithoutRef<'input'> & {
   disabled?: boolean;
