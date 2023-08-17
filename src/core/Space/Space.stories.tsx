@@ -14,7 +14,7 @@ const metaSpace: Meta<typeof Space> = {
     size: {
       type: 'number',
       control: 'number',
-      description: 'size of spacing in pixels',
+      description: 'Size of spacing in pixels. Only positive value. Based on "gap" property.',
     },
     alignItems: {
       type: 'string',
