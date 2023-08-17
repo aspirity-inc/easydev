@@ -8,13 +8,12 @@ export const StyledCloseButton = styled('button')<StyledCloseBtnProps>`
   --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['100'])};
   --colorful: ${({ theme }) => theme.colors.surface['900']};
 
-  display: block;
+  display: flex;
+  align-items: flex-start;
   padding: 0;
   margin: 0;
   margin-left: auto;
-  padding-top: 4px;
   padding-left: 10px;
-  align-self: flex-start;
 
   ${({ $colorful }) =>
     $colorful

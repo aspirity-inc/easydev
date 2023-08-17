@@ -17,8 +17,7 @@ export const Toast = ({
   autoClose = true,
   autoCloseDelay = 5000,
   statusBackground,
-  closeBtn = true,
-  closeBtnIcon,
+  closeBtn,
   onDelete,
   ...props
 }: ToastProps) => {
@@ -33,7 +32,13 @@ export const Toast = ({
   }, [autoClose, autoCloseDelay, onDelete, toastId]);
 
   return (
-    <StyledToast $colorful={colorful} $statusBackground={statusBackground} $status={status} {...props}>
+    <StyledToast
+      $colorful={colorful}
+      $statusBackground={statusBackground}
+      $status={status}
+      $hasDescription={description ? true : false}
+      {...props}
+    >
       <ToastStatusIcon colorful={colorful} status={status} icon={icon} />
 
       <StyledMainContent $colorful={colorful}>
@@ -41,7 +46,7 @@ export const Toast = ({
         {description && <Text variant="body2">{description}</Text>}
       </StyledMainContent>
 
-      {closeBtn && <CloseButton icon={closeBtnIcon} colorful={colorful} onClick={() => onDelete(toastId)} />}
+      <CloseButton icon={closeBtn} colorful={colorful} onClick={() => onDelete(toastId)} />
     </StyledToast>
   );
 };

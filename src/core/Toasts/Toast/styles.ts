@@ -6,6 +6,7 @@ type StyledToastProps = {
   $status?: ToastStatus;
   $statusBackground?: string;
   $colorful?: boolean;
+  $hasDescription?: boolean | undefined;
 };
 
 type StyledMainContentProps = {
@@ -54,12 +55,22 @@ const backgroundColors: StatusColorType = {
 export const StyledToast = styled.div<StyledToastProps>`
   display: flex;
   width: 358px;
-  padding: 10px 16px;
+  padding: 14px 16px;
   ${({ $status, $statusBackground, $colorful }) =>
     $status && getBackgroundColor($status, $statusBackground, $colorful || false)}
   border-radius: 8px;
   ${({ theme }) => theme.shadows.gray};
   pointer-events: auto;
+
+  ${({ $hasDescription }) => {
+    return (
+      !$hasDescription &&
+      css`
+        padding: 10px 16px;
+        align-items: center;
+      `
+    );
+  }}
 `;
 
 export const StyledMainContent = styled.div<StyledMainContentProps>`
@@ -69,7 +80,6 @@ export const StyledMainContent = styled.div<StyledMainContentProps>`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 8px 0;
 
   ${({ $colorful }) =>
     $colorful
