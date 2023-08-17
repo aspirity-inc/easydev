@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 
-import { ControlWithLabel, Radio } from '@core/Controls';
+import { Radio } from '@core/Controls';
 
 import { Space } from '.';
 
@@ -38,10 +38,10 @@ export default metaSpace;
 const Template: StoryFn<typeof Space> = ({ ...args }) => {
   return (
     <Space {...args}>
-      <ControlWithLabel label="Radio 1" control={<Radio name="name" />} />
-      <ControlWithLabel label="Radio 2" control={<Radio name="name" defaultChecked />} />
-      <ControlWithLabel label="Radio 3" control={<Radio name="name" />} />
-      <ControlWithLabel label="Radio 4" control={<Radio name="name" />} />
+      <Radio label="Radio 1" name="radio" />
+      <Radio label="Radio 2" name="radio" />
+      <Radio label="Radio 3" name="radio" />
+      <Radio label="Radio 4" name="radio" />
     </Space>
   );
 };
