@@ -4,11 +4,11 @@ title: Box
 
 The Box component serves as a wrapper component for most of the CSS utility needs.
 
-Box is based on React and Styled Components.
+The Box has the next props: tag, children, className, style.
 
-Example:
+Code:
 
-```ts
+```tsx
 export const StyledTitle = styled(Box)<TitleProps>`
   margin: 0;
   padding: 0;
@@ -20,4 +20,12 @@ export const StyledTitle = styled(Box)<TitleProps>`
     background-color: ${bgColor};
   `};
 `;
+```
+
+Code:
+
+```tsx
+<Box tag="p" className="easydev" style={{ color: 'white' }}>
+  ...
+</Box>
 ```

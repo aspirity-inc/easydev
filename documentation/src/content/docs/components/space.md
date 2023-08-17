@@ -2,19 +2,19 @@
 title: Space
 ---
 
-Space is a container in which the elements are located at the specified margins, have a certain order and display (justify-content, align-items)
+Space is a container in which the elements are located at the specified margins, have a certain order and display.
 
-Example:
+The Space has the next props: size, alignItems, justifyContent, direction, children. [See there](/?path=/docs/core-space--docs) to get more information.
 
-```ts
-const Example = ({ ...args }) => {
-  return (
-    <Space {...args}>
-      <ControlWithLabel label="Radio 1" control={<Radio name="name" />} />
-      <ControlWithLabel label="Radio 2" control={<Radio name="name" defaultChecked />} />
-      <ControlWithLabel label="Radio 3" control={<Radio name="name" />} />
-      <ControlWithLabel label="Radio 4" control={<Radio name="name" />} />
-    </Space>
-  );
-};
+[Space](/?path=/story/core-space--default-space)
+
+Code:
+
+```tsx
+<Space>
+  <ControlWithLabel control={<Radio name="name" />} label="Radio 1" />
+  <ControlWithLabel control={<Radio defaultChecked name="name" />} label="Radio 2" />
+  <ControlWithLabel control={<Radio name="name" />} label="Radio 3" />
+  <ControlWithLabel control={<Radio name="name" />} label="Radio 4" />
+</Space>
 ```

@@ -5,82 +5,23 @@ title: Toast Container
 The container in which toasts are displayed on the page.
 You can set limit of toasts displayed on the page.
 
-Example:
+The Toast Container has the next props: limit. [See there](/?path=/docs/core-toasts-toastcontainer--docs) to get more information.
 
-```ts
-const Example = ({ ...args }) => {
-  const toastArgs: ToastItemType = {
-    title: 'Notification',
-    description: 'Description text',
-    colorful: false,
-    autoClose: true,
-  };
+[Toast Container](/?path=/story/core-controls-toggle--default-toggle)
 
-  return (
-    <>
-      <ToastContainer {...args} />
-      <Space direction="row">
-        <Button onClick={() => toast({ ...toastArgs, position: 'top-left' })}>top-left toast</Button>
-        <Button onClick={() => toast({ ...toastArgs, status: 'info', position: 'top-center' })}>
-          top-center toast
-        </Button>
-        <Button onClick={() => toast({ ...toastArgs, status: 'success', position: 'top-right' })}>
-          top-right toast
-        </Button>
-        <Button onClick={() => toast({ ...toastArgs, status: 'warning', position: 'bottom-left' })}>
-          bottom-left toast
-        </Button>
-        <Button onClick={() => toast({ ...toastArgs, status: 'error', position: 'bottom-center' })}>
-          bottom-center toast
-        </Button>
-        <Button onClick={() => toast({ ...toastArgs, status: 'success', position: 'bottom-right' })}>
-          bottom-right toast
-        </Button>
-        <Button onClick={() => toast({ ...toastArgs, status: 'info', position: 'center-center' })}>
-          center-center toast
-        </Button>
-      </Space>
-    </>
-  );
-};
-```
+Code:
 
-with limit
-
-```ts
-const Example = ({ ...args }) => {
-  const toastArgs: ToastItemType = {
-    title: 'Notification',
-    description: 'Description text',
-    colorful: false,
-    autoClose: true,
-  };
-
-  return (
-    <>
-      <ToastContainer {...args} limit={3} />
-      <Space direction="row">
-        <Button onClick={() => toast({ ...toastArgs, position: 'top-left' })}>top-left toast</Button>
-        <Button onClick={() => toast({ ...toastArgs, status: 'info', position: 'top-center' })}>
-          top-center toast
-        </Button>
-        <Button onClick={() => toast({ ...toastArgs, status: 'success', position: 'top-right' })}>
-          top-right toast
-        </Button>
-        <Button onClick={() => toast({ ...toastArgs, status: 'warning', position: 'bottom-left' })}>
-          bottom-left toast
-        </Button>
-        <Button onClick={() => toast({ ...toastArgs, status: 'error', position: 'bottom-center' })}>
-          bottom-center toast
-        </Button>
-        <Button onClick={() => toast({ ...toastArgs, status: 'success', position: 'bottom-right' })}>
-          bottom-right toast
-        </Button>
-        <Button onClick={() => toast({ ...toastArgs, status: 'info', position: 'center-center' })}>
-          center-center toast
-        </Button>
-      </Space>
-    </>
-  );
-};
+```tsx
+<>
+  <ToastContainer />
+  <Space direction="row">
+    <Button onClick={function Zo() {}}>top-left toast</Button>
+    <Button onClick={function Zo() {}}>top-center toast</Button>
+    <Button onClick={function Zo() {}}>top-right toast</Button>
+    <Button onClick={function Zo() {}}>bottom-left toast</Button>
+    <Button onClick={function Zo() {}}>bottom-center toast</Button>
+    <Button onClick={function Zo() {}}>bottom-right toast</Button>
+    <Button onClick={function Zo() {}}>center-center toast</Button>
+  </Space>
+</>
 ```

@@ -8,16 +8,26 @@ Use radio buttons when the user needs to see all available options. If available
 
 Radio buttons should have the most commonly used option selected by default.
 
-Radio is based on React and Styled Components. Example:
+The Radio has the next props: disabled, defaultChecked, color. [See there](/?path=/docs/core-controls-radio--docs) to get more information.
 
-```ts
-export const Example = ({ ...args }) => {
+[Default Radio](/?path=/story/core-controls-radio--default-radio)
+
+Code:
+
+```tsx
+<Radio />
+```
+
+[Controlled Radio](/?path=/story/core-controls-radio--controlled-radio)
+
+Code:
+
+```tsx
+({ ...args }) => {
   const [checked, setChecked] = useState(false);
-
   const handleButtonClick = () => {
     setChecked((prevState) => !prevState);
   };
-
   return (
     <div>
       <Radio checked={checked} readOnly {...args} />

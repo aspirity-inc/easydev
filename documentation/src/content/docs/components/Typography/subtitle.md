@@ -4,16 +4,26 @@ title: Subtitle
 
 The Subtitle component makes it easy to apply a default set of sizes in your application.
 
-Example:
+The Subtitle has the next props: children, className, style, color, bgColor, tag, level. [See there](/?path=/docs/core-typography-subtitle--docs) to get more information.
 
-```ts
-const Example = ({ children, ...args }) => {
-  return <Subtitle {...args}>{children}</Subtitle>;
-};
-```
+[Default Subtitle](/?path=/story/core-typography-subtitle--default-subtitle)
+
+Code:
 
 ```tsx
-<Subtitle tag="h2">Example</Subtitle>
-<Subtitle tag="p">Example</Subtitle>
-<Subtitle tag="span">Example</Subtitle>
+<Subtitle>EasyDev the greatest</Subtitle>
+```
+
+[Subtitle With Style](/?path=/story/core-typography-subtitle--subtitle-with-style)
+
+Code:
+
+```tsx
+<Subtitle
+  style={{
+    fontStyle: 'italic',
+  }}
+>
+  EasyDev the greatest
+</Subtitle>
 ```

@@ -8,9 +8,21 @@ Checkboxes can be used to turn an option on or off.
 
 If you have multiple options appearing in a list, you can preserve space by using checkboxes instead of on/off switches. If you have a single option, avoid using a checkbox and use an on/off switch instead.
 
-Checkbox is based on React and Styled Components. Example:
+The Checkbox has the next props: disabled, defaultChecked, color. [See there](/?path=/docs/core-controls-checkbox--docs) to get more information.
 
-```ts
+[Default Checkbox](/?path=/story/core-controls-checkbox--default-checkbox)
+
+Code:
+
+```tsx
+<Checkbox />
+```
+
+[Controlled Checkbox](/?path=/story/core-controls-checkbox--controlled-checkbox)
+
+Code:
+
+```tsx
 export const Example = ({ ...args }) => {
   const [checked, setChecked] = useState(false);
 

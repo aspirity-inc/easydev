@@ -8,29 +8,49 @@ Toast informs users of a process that an app has performed or will perform. They
 
 Toast contains a single line of text directly related to the operation performed. You can use them to display notifications.
 
-Example:
+The Toggle has the next props: title, description, status, autoClose, onDelete, toastId, icon, colorful, statusBackground, closeBtnIcon, closeBtn, autoCloseDelay, className, style. [See there](/?path=/docs/core-toasts-toast--docs) to get more information.
 
-```ts
-export const Example = ({ ...args }) => {
-  const toastArgs = { ...args, onDelete: () => null };
-  return (
-    <Space direction="column">
-      <Toast {...toastArgs} title={'Info notification'} description={'Text'} status="info" />
-      <Toast
-        {...toastArgs}
-        title={'Success notification'}
-        description={'Text'}
-        status="success"
-        autoCloseDelay={6000}
-      />
-      <Toast
-        {...toastArgs}
-        title={'Warning notification'}
-        description={'Text'}
-        status="warning"
-        autoCloseDelay={10000}
-      />
-    </Space>
-  );
-};
+[Default Toast](/?path=/story/core-toasts-toast--default-toast)
+
+Code:
+
+```tsx
+<Toast description="Description text" onDelete={function Zo() {}} status="info" title="Notification" />
+```
+
+[List Of Auto Closed Toasts](/?path=/story/core-toasts-toast--list-of-auto-closed-toasts)
+
+Code:
+
+```tsx
+<Space direction="column">
+  <Toast description="Text" onDelete={function Zo() {}} status="info" title="Info notification" />
+  <Toast
+    autoCloseDelay={6000}
+    description="Text"
+    onDelete={function Zo() {}}
+    status="success"
+    title="Success notification"
+  />
+  <Toast
+    autoCloseDelay={10000}
+    description="Text"
+    onDelete={function Zo() {}}
+    status="warning"
+    title="Warning notification"
+  />
+</Space>
+```
+
+[List Of Colorful Toasts](/?path=/story/core-toasts-toast--list-of-colorful-toasts)
+
+Code:
+
+```tsx
+<Space direction="column">
+  <Toast colorful description="Text" onDelete={function Zo() {}} status="info" title="Info notification" />
+  <Toast colorful description="Text" onDelete={function Zo() {}} status="success" title="Success notification" />
+  <Toast colorful description="Text" onDelete={function Zo() {}} status="warning" title="Warning notification" />
+  <Toast colorful description="Text" onDelete={function Zo() {}} status="error" title="Error notification" />
+</Space>
 ```

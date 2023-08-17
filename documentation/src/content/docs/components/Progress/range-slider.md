@@ -1,16 +1,15 @@
 ---
-title: Components
+title: Range Slider
 ---
 
 Range Slider is designed to select a value from a certain interval.
 
-Example:
+The Range Slider has the next props: min, max, value, tooltip, tooltipShown. [See there](/?path=/docs/core-progress-rangeslider--docs) to get more information.
 
-```ts
-const Example = ({ ...args }) => {
-  const [value, setValue] = useState('25');
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
+[Range Slider](/?path=/story/core-progress-rangeslider--default-progress&args=tooltipShown:always;tooltip:!true)
 
-  return <RangeSlider {...args} value={value} onChange={onChange} min="0" max="100" {...args} />;
-};
+Code:
+
+```tsx
+<RangeSlider max="100" min="0" onChange={function Zo() {}} tooltip tooltipShown="always" value="25" />
 ```

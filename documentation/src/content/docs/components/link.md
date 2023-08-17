@@ -4,8 +4,20 @@ title: Link
 
 Link is based on React and Styled Components. Example:
 
-```ts
-const Example = ({ ...args }) => {
-  return <Link {...args}>Go to the google!!!</Link>;
-};
+The Link has the next props: disabled, defaultUnderline, children. [See there](/?path=/docs/core-link--docs) to get more information.
+
+[Default Link](/?path=/story/core-link--default-link)
+
+Code:
+
+```tsx
+<Link>Go to the google!!!</Link>
+```
+
+[Default Underline Link](/?path=/story/core-link--default-underline-link)
+
+Code:
+
+```tsx
+<Link defaultUnderline>Go to the google!!!</Link>
 ```
