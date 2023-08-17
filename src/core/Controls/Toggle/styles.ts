@@ -1,6 +1,13 @@
+import { CSSProperties } from 'react';
+
 import { css, styled } from 'styled-components';
 
 import { ControlWrap, StyledInnerBase, StyledInput } from '../styles.ts';
+
+type ToggleType = {
+  $checkedColor?: CSSProperties['color'];
+  $innerColor?: CSSProperties['color'];
+};
 
 export const StyledToggle = styled(StyledInput)``;
 
@@ -9,37 +16,51 @@ export const StyledToggleInner = styled(StyledInnerBase)`
   height: 16px;
   border-radius: 50%;
   top: 50%;
-  margin: -8px 4px 0 4px;
-  background-color: ${({ theme }) => theme.colors.surface['800']};
+  left: 4px;
+  translate: 0 -50%;
   opacity: 1;
-  transition: transform ${({ theme }) => theme.transition.default};
+  transition: translate ${({ theme }) => theme.transition.default};
 `;
 
-export const ToggleWrap = styled(ControlWrap)`
+export const ToggleWrap = styled(ControlWrap)<ToggleType>`
+  --toggleBg: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['200'])};
+  --checkedBg: ${({ theme }) => (theme.type === 'light' ? theme.colors.tretiary['600'] : theme.colors.tretiary['400'])};
+  --innerColor: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800'])};
+
   width: 40px;
   border-radius: 20px;
-  background-color: ${({ theme }) => theme.colors.surface.main};
+  background-color: ${({ color }) => color || 'var(--toggleBg)'};
   border: none;
   transition: background-color ${({ theme }) => theme.transition.default};
 
+  ${StyledToggleInner} {
+    background-color: ${({ $innerColor }) => $innerColor || 'var(--innerColor)'};
+  }
+
   &:has(${StyledToggle}:checked) {
-    background-color: ${({ theme }) => theme.colors.tretiary['600']};
+    background-color: ${({ $checkedColor }) => $checkedColor || 'var(--checkedBg)'};
+
+    ${({ disabled }) =>
+      disabled &&
+      css`
+        background-color: ${({ theme }) => theme.colors.surface['400']};
+      `}
   }
 
   ${StyledToggle} {
     &:checked ~ ${StyledToggleInner} {
-      transform: translateX(100%);
-      background-color: ${({ theme }) => theme.colors.background};
+      translate: 100% -50%;
     }
   }
 
   ${({ disabled }) =>
     disabled &&
     css`
-      background-color: ${({ theme }) => theme.colors.surface['400']};
+      background-color: ${({ theme }) =>
+        theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['500']};
 
       ${StyledToggleInner} {
-        background-color: ${({ theme }) => theme.colors.surface['600']};
+        filter: grayscale(1);
       }
     `}
 `;

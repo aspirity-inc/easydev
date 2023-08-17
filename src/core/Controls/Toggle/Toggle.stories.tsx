@@ -20,8 +20,30 @@ const metaToggle: Meta<typeof Toggle> = {
     },
     color: {
       type: 'string',
-      control: { type: 'color', presetColors: ['success', 'warning', 'error'] },
-      description: 'colors presets: success | warning | error',
+      control: { type: 'color' },
+      description: 'Toggle background color',
+    },
+    checkedColor: {
+      type: 'string',
+      control: { type: 'color' },
+      description: 'Checked toggle background color',
+    },
+    innerColor: {
+      type: 'string',
+      control: { type: 'color' },
+      description: 'Inner toggle color',
+    },
+    label: {
+      control: 'text',
+    },
+    checked: {
+      type: 'boolean',
+      control: 'boolean',
+      table: { defaultValue: { summary: false } },
+    },
+    onChange: {
+      type: 'function',
+      description: 'function onChange(): void',
     },
   },
 };
@@ -34,17 +56,41 @@ const Template: StoryFn<typeof Toggle> = ({ ...args }) => {
 export const DefaultToggle: StoryFn<typeof Toggle> = Template.bind({});
 DefaultToggle.args = {};
 
-export const ControlledToggle: StoryFn<typeof Toggle> = ({ ...args }) => {
+export const ControlledToggle: StoryFn<typeof Toggle> = () => {
   const [checked, setChecked] = useState(false);
+  const onChange = () => setChecked((prevState) => !prevState);
 
-  const handleChange = () => {
-    setChecked((prevState) => !prevState);
-  };
-
-  return <Toggle checked={checked} onChange={handleChange} {...args} />;
+  return <Toggle checked={checked} onChange={onChange} />;
+};
+ControlledToggle.parameters = {
+  docs: {
+    source: {
+      type: 'code',
+    },
+  },
 };
 
-ControlledToggle.parameters = {
+export const WithLabel: StoryFn<typeof Toggle> = () => {
+  const [checked, setChecked] = useState(false);
+  const onChange = () => setChecked((prevState) => !prevState);
+
+  return <Toggle checked={checked} onChange={onChange} label="Toggle me ☀️" />;
+};
+WithLabel.parameters = {
+  docs: {
+    source: {
+      type: 'code',
+    },
+  },
+};
+
+export const WithJSXLabel: StoryFn<typeof Toggle> = () => {
+  const [checked, setChecked] = useState(false);
+  const onChange = () => setChecked((prevState) => !prevState);
+
+  return <Toggle checked={checked} onChange={onChange} label={<strong>Toggle me ☀️</strong>} />;
+};
+WithJSXLabel.parameters = {
   docs: {
     source: {
       type: 'code',

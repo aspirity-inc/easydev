@@ -1,16 +1,13 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { darkTheme, lightTheme } from '../src/core/Theme';
-
-const THEMES = {
-  light: lightTheme,
-  dark: darkTheme,
-};
+import { createGlobalStyle, DefaultTheme } from 'styled-components';
+import { THEMES } from '../src/core/Theme';
+import { ThemeProvider, } from "../src/core/Theme/ThemeContext";
+import { StoryContext, StoryFn } from "@storybook/react";
 
 // Sets the background based on theme
-const GlobalStyles = createGlobalStyle`
+const GlobalStyles = createGlobalStyle<{theme?: DefaultTheme}>`
   html, body {
-    background-color: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.text : theme.colors.surface['50'])};
+    background-color: ${({theme}) => theme.colors.background};
+    color: ${({theme}) => (theme.type === 'light' ? theme.colors.text : theme.colors.surface['50'])};
     font-family: "Roboto Flex", sans-serif;
   }
 
@@ -19,9 +16,9 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-export const withTheme = (Story, context) => {
+export const withTheme = (Story: StoryFn, context: StoryContext) => {
   const { backgrounds } = context.globals;
-  const theme = backgrounds?.value !== darkTheme.colors.background ? THEMES['light'] : THEMES['dark'];
+  const theme = backgrounds?.value !== THEMES['dark'].colors.background ? THEMES['light'] : THEMES['dark'];
 
   return (
     <ThemeProvider theme={theme}>

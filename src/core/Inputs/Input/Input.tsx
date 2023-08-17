@@ -51,7 +51,7 @@ export const Input = ({
 
   // TODO: remove prop "$filled" and do it on css
   return (
-    <StyledInputWrapper $disabled={disabled || false}>
+    <StyledInputWrapper $disabled={disabled || false} $isLoading={isLoading || false}>
       <StyledInputLabel>
         <StyledLabelText>{label}</StyledLabelText>
         <StyledInput

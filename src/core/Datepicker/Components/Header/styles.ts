@@ -18,7 +18,7 @@ export const StyledHeader = styled('div')`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['400'])};
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['100'])};
   ${getSubtitleLevelStyles(3)}
   font-family: inherit;
 `;
@@ -29,6 +29,7 @@ export const StyledSelectedButton = styled('button')`
   padding: 0;
   border: none;
   background-color: transparent;
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['100'])};
 
   ${getSubtitleLevelStyles(3)}
   font-family: inherit;

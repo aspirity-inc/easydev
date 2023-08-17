@@ -1,5 +1,7 @@
 import { css, DefaultTheme, styled } from 'styled-components';
 
+import { getTextVariants } from '@core/Typography/Text/styles.ts';
+
 import { ControlColorType } from './types.ts';
 
 type ControlProps = {
@@ -21,8 +23,8 @@ export const StyledInput = styled('input')`
 
 export const StyledInnerBase = styled('span')`
   position: absolute;
-  left: 0;
-  top: 0;
+  left: -1px;
+  top: -2px;
   color: inherit;
   opacity: 0;
   transition: opacity ${({ theme }) => theme.transition.default};
@@ -57,16 +59,29 @@ export const ControlWrap = styled('span')<ControlProps>`
     `}
 `;
 
+export const ControlContainer = styled('div')`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+
+  label {
+    cursor: pointer;
+    user-select: none;
+    ${getTextVariants('body3')}
+  }
+`;
+
 export const getControlColor = (theme: DefaultTheme, color?: ControlColorType) => {
   if (!color) return theme.type === 'light' ? theme.colors.tretiary['700'] : theme.colors.tretiary['400'];
 
   switch (color) {
     case 'success':
-      return theme.colors.success.main;
+      return theme.colors.success['500'];
     case 'warning':
-      return theme.colors.warning.main;
+      return theme.colors.warning['500'];
     case 'error':
-      return theme.colors.error.main;
+      return theme.colors.error['500'];
     default:
       return color;
   }
