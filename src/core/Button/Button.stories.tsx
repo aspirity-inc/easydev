@@ -69,6 +69,14 @@ const metaButton: Meta<typeof Button> = {
     style: {
       description: 'Additional styles',
     },
+    color: {
+      type: 'string',
+      control: { type: 'color' },
+    },
+    bgColor: {
+      type: 'string',
+      control: { type: 'color' },
+    },
   },
 };
 export default metaButton;

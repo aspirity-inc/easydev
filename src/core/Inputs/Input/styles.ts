@@ -65,8 +65,17 @@ export const StyledExtraMessage = styled(Text)`
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.surface['200'])};
 `;
 
-export const StyledInputWrapper = styled('div')<{ $disabled: boolean }>`
+export const StyledInputWrapper = styled('div')<{ $disabled: boolean; $isLoading: boolean }>`
   width: fit-content;
+
+  ${({ $isLoading }) => {
+    return (
+      $isLoading &&
+      css`
+        pointer-events: none;
+      `
+    );
+  }};
 
   ${({ $disabled }) => {
     return (

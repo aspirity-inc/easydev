@@ -16,6 +16,8 @@ type ButtonProps = React.ComponentPropsWithoutRef<'button'> & {
   loading?: boolean;
   loadingIcon?: ReactNode;
   variant?: ButtonVariant;
+  color?: React.CSSProperties['color'];
+  bgColor?: React.CSSProperties['backgroundColor'];
 };
 
 export const Button = ({
