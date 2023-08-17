@@ -9,6 +9,8 @@ type ButtonProps = {
   rounded?: ButtonRounded;
   reversed?: boolean;
   variant?: ButtonVariant;
+  color?: React.CSSProperties['color'];
+  bgColor?: React.CSSProperties['backgroundColor'];
 };
 
 export const StyledButton = styled('button')<ButtonProps>`
@@ -35,12 +37,12 @@ export const StyledButton = styled('button')<ButtonProps>`
     switch (size) {
       case 'sm':
         return css`
-          padding: 16px 8px;
+          padding: 8px 6px;
           min-width: 120px;
         `;
       default:
         return css`
-          padding: 16px 30px;
+          padding: 12px 30px;
           min-width: 180px;
         `;
     }
@@ -50,7 +52,7 @@ export const StyledButton = styled('button')<ButtonProps>`
     switch (rounded) {
       case 'sm':
         return css`
-          border-radius: 4px;
+          border-radius: 8px;
         `;
       case 'lg':
         return css`
@@ -60,6 +62,11 @@ export const StyledButton = styled('button')<ButtonProps>`
         return css``;
     }
   }};
+
+  ${({ color, bgColor }) => css`
+    color: ${color};
+    background-color: ${bgColor};
+  `};
 `;
 
 const rotate = keyframes`
