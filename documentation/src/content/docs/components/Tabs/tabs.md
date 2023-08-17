@@ -2,8 +2,7 @@
 title: Tabs
 ---
 
-Tabs make it easy to explore and switch between different views.
-Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.
+Tabs facilitate effortless exploration and transition between distinct perspectives. They structure and permit movement between clusters of content that are associated and situated at an equivalent level of hierarchy.
 
 The Tabs component has the next props: defaultActiveKey. [See there](/?path=/docs/core-tabs-tabs--docs) to get more information.
 

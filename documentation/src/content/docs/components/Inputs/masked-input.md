@@ -2,7 +2,7 @@
 title: Masked Input
 ---
 
-The Masked Input wrapper component is a complete form control including a label, input, and help text. Instead of Input you need to set mask for need input. You can use it to mask phone number, tickets, etc. inputs.
+Masked Input allows the user to enter text in the desired format. You can use it to mask phone number, tickets, etc. inputs.
 
 The Masked Input has the next props: mask, label, error, warning, message, isLoading, icons, renderExtraMessage, maskPlaceholder, alwaysShowMask. [See there](/?path=/docs/core-inputs-maskedinput--docs) to get more information.
 

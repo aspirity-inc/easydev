@@ -2,11 +2,11 @@
 title: Radio
 ---
 
-The Radio Group allows the user to select one option from a set.
+Radio is used to select one option from the suggested set. It is a list of options where only one option can be selected. It is often used to create surveys, forms and other interactive elements on web pages.
 
-Use radio buttons when the user needs to see all available options. If available options can be collapsed, consider using a Select component because it uses less space.
+If you want the user to choose only one option from a list, use the radio button component. It's perfect for surveys, forms, and other interactive elements on web pages. However, if you have a long list of options, consider using a select component to save space. 
 
-Radio buttons should have the most commonly used option selected by default.
+By default, the most commonly used option should be selected in radio buttons.
 
 The Radio has the next props: disabled, defaultChecked, color. [See there](/?path=/docs/core-controls-radio--docs) to get more information.
 

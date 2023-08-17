@@ -1,6 +1,7 @@
 ---
 title: Control With Label
 ---
+You can provide a label to the Checkbox thanks to the ControlWithLabel component.
 
 The Control With Label has the next props: label, control, reversed. [See there](/?path=/docs/core-controls-controlwithlabel--docs) to get more information.
 

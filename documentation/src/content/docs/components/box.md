@@ -2,7 +2,7 @@
 title: Box
 ---
 
-The Box component serves as a wrapper component for most of the CSS utility needs.
+The Box component acts as a container component for the majority of CSS utility requirements.
 
 The Box has the next props: tag, children, className, style.
 

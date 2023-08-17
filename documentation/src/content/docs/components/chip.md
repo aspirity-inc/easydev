@@ -2,9 +2,7 @@
 title: Chip
 ---
 
-Chip is compact element that represent an input, attribute, or action.
-
-Chip allows users to enter information, make selections, filter content, or trigger actions.
+Сhip is an interface component that represents a small piece of information, usually in the form of a label or tag. It can contain text, an icon, or both elements together. Chips are often used to display selected items, filters, or categories in the user interface. Chip allows users to enter information, make selections, filter content, or trigger actions.
 
 While included here as a standalone component, the most common use will be in some form of input, so some of the behavior demonstrated here is not shown in context.
 

@@ -2,11 +2,7 @@
 title: Toast
 ---
 
-Toast provides brief notifications.
-
-Toast informs users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn't interrupt the user experience, and they don't require user input to disappear.
-
-Toast contains a single line of text directly related to the operation performed. You can use them to display notifications.
+Toast is used to notify users. It serves as a means of updating users on an app's actions or upcoming actions, appearing briefly at the bottom of the screen without disrupting the user experience or requiring any input to disappear. Toast messages consist of a single line of text that is relevant to the specific operation being performed, making them ideal for displaying notifications.
 
 The Toggle has the next props: title, description, status, autoClose, onDelete, toastId, icon, colorful, statusBackground, closeBtnIcon, closeBtn, autoCloseDelay, className, style. [See there](/?path=/docs/core-toasts-toast--docs) to get more information.
 

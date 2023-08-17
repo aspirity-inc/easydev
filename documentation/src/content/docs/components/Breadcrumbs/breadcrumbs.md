@@ -2,7 +2,7 @@
 title: Breadcrumbs
 ---
 
-A breadcrumbs is a list of links that help visualize a page's location within a site's hierarchical structure, it allows navigation up to any of the ancestors.
+Breadcrumbs are a series of links that provide a visual representation of a page's position within a website's hierarchical structure, enabling users to navigate back to any of its ancestors.
 
 The Breadcrumbs component has the next props: separator. [See there](/?path=/docs/core-breadcrumbs-breadcrumbs--docs) to get more information.
 

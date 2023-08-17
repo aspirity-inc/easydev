@@ -2,11 +2,9 @@
 title: Checkbox
 ---
 
-Checkboxes allow the user to select one or more items from a set.
+Checkbox is used to select one or more options from the suggested set. It can be used to filter, sort, or select options when filling out a form.
 
-Checkboxes can be used to turn an option on or off.
-
-If you have multiple options appearing in a list, you can preserve space by using checkboxes instead of on/off switches. If you have a single option, avoid using a checkbox and use an on/off switch instead.
+If you have a list of multiple options, checkboxes can be used instead of on/off switches to save space. However, if there is only one option, it is recommended to use an on/off switch instead of a checkbox.
 
 The Checkbox has the next props: disabled, defaultChecked, color. [See there](/?path=/docs/core-controls-checkbox--docs) to get more information.
 

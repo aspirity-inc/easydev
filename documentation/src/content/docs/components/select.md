@@ -2,7 +2,7 @@
 title: Select
 ---
 
-Select components are used for collecting user provided information from a list of options.
+Select allows the user to select one or more options from the suggested list. It is usually a drop-down list that displays all available choices. Select can be used to select options, categories, dates, times, etc. It can also be configured for multiple selection, allowing the user to select multiple options at the same time.
 
 The Select has the next props: options, maxMenuHeight, minMenuHeight, isSearchable, isDisabled, rounded, selectedStatePlaceholder, clearButtonText, selectType. [See there](/?path=/docs/core-select--docs) to get more information.
 
