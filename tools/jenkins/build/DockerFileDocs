@@ -17,10 +17,10 @@ RUN --mount=type=cache,mode=0777,target=/client/node_modules/.cache npm run buil
 
 FROM nginx:1.21.6-alpine as production-documentation 
 
-WORKDIR /app
+WORKDIR /app/docs
 ENV NODE_ENV=production
 
-COPY --from=build-documentation /documentation/dist /app
+COPY --from=build-documentation /documentation/dist /app/docs
 COPY tools/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
