@@ -5,19 +5,19 @@ import { StyledSubtitle, StyledTab } from './styles';
 type keyType = number | string;
 
 type TabButtonProps = React.ComponentPropsWithoutRef<'button'> & {
-  eventKey: keyType;
+  tabKey: keyType;
   title: string;
   disabled?: boolean;
   active: boolean;
-  handleChangeKey: (key: keyType) => void;
+  onClick: (key: keyType) => void;
 };
 
-export const TabButton = ({ title, disabled, active, eventKey, handleChangeKey, ...props }: TabButtonProps) => {
+export const TabButton = ({ title, disabled, active, tabKey, onClick, ...props }: TabButtonProps) => {
   const isActive = active && !disabled;
 
   return (
     <StyledTab
-      onClick={() => handleChangeKey(eventKey)}
+      onClick={() => onClick(tabKey)}
       className={cx(isActive && 'active', props.className)}
       disabled={disabled}
       {...props}

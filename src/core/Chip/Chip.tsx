@@ -1,65 +1,44 @@
-import { CSSProperties, useState } from 'react';
+import { CSSProperties, useState, ChangeEvent, ReactNode } from 'react';
 
-import { Checkbox } from '@core/Controls';
-
-import { ChipVariant, StyledChipLabel, StyledDeleteButton, StyledInput } from './styles';
+import { ChipVariant, StyledChipLabel, StyledInput } from './styles';
 
 type ChipProps = {
   label: string;
   variant?: ChipVariant;
   disabled?: boolean;
   defaultChecked?: boolean;
+  chipContent?: (props: any) => ReactNode | ReactNode;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   className?: string;
   style?: CSSProperties;
-  onDelete?: () => void;
-  onClick?: () => void;
+  color?: React.CSSProperties['color'];
+  bgColor?: React.CSSProperties['backgroundColor'];
 };
 
-const DeleteButton = ({
-  checked,
-  hasDeleteButton,
-  ...props
-}: React.ComponentPropsWithoutRef<'button'> & { checked: boolean; hasDeleteButton: boolean }) => (
-  <>
-    {checked && hasDeleteButton && (
-      <StyledDeleteButton type="button" {...props}>
-        <div className="material-symbols-outlined">close</div>
-      </StyledDeleteButton>
-    )}
-  </>
-);
+export const Chip = (props: ChipProps) => {
+  const { label, variant = 'filled', disabled, defaultChecked, onChange, chipContent, ...otherProps } = props;
 
-export const Chip = ({
-  label,
-  variant = 'default',
-  disabled = false,
-  defaultChecked = false,
-  onDelete,
-  onClick,
-  ...props
-}: ChipProps) => {
   const [checked, setChecked] = useState(defaultChecked);
-  const hasDeleteButton = Boolean(onDelete);
 
-  const handleChange = () => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setChecked(!checked);
-    if (onClick) onClick();
+    onChange && onChange(event);
   };
 
   return (
-    <StyledChipLabel
-      variant={variant}
-      disabled={disabled}
-      checked={checked}
-      $hasDeleteButton={hasDeleteButton}
-      {...props}
-    >
-      <StyledInput type="checkbox" disabled={disabled} checked={checked} onChange={handleChange} />
-      {variant === 'checkbox' ? (
-        <Checkbox disabled={disabled} checked={checked} onChange={handleChange} />
-      ) : (
-        <DeleteButton disabled={disabled} onClick={onDelete} checked={checked} hasDeleteButton={hasDeleteButton} />
-      )}
+    <StyledChipLabel variant={variant} disabled={disabled} checked={checked} {...otherProps}>
+      <StyledInput
+        type="checkbox"
+        disabled={disabled}
+        checked={checked}
+        onChange={(event: ChangeEvent<HTMLInputElement>) => handleChange(event)}
+      />
+      {chipContent &&
+        chipContent({
+          ...props,
+          checked,
+          onChange: (event: ChangeEvent<HTMLInputElement>) => handleChange(event),
+        })}
       {label}
     </StyledChipLabel>
   );

@@ -30,5 +30,5 @@ const Template: StoryFn<typeof TabButton> = ({ ...args }) => {
 export const DefaultTabButton: StoryFn<typeof TabButton> = Template.bind({});
 DefaultTabButton.args = {
   title: 'Tab',
-  handleChangeKey: (k) => k,
+  onClick: (k) => k,
 };
