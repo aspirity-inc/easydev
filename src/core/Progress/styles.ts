@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import { ProgressBarType } from './ProgressBar/styles.ts';
+import { ProgressBarTypeBase } from './types.ts';
 
 export const colors = css`
   --progressColor: ${({ theme }) =>
@@ -9,13 +9,13 @@ export const colors = css`
     theme.type === 'light' ? theme.colors.secondary['200'] : theme.colors.surface['700']};
 `;
 
-export const StyledProgressBar = styled('div')<ProgressBarType>`
+export const StyledProgressBarBase = styled('div')<ProgressBarTypeBase>`
   ${colors};
 
   position: relative;
   width: 100%;
   height: 10px;
-  background-color: var(--progressBgColor);
+  background-color: ${({ $progressBackground }) => $progressBackground || 'var(--progressBgColor)'};
   border-radius: 10px;
   overflow: hidden;
 
@@ -27,7 +27,7 @@ export const StyledProgressBar = styled('div')<ProgressBarType>`
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: var(--progressColor);
+    background-color: ${({ $progressColor }) => $progressColor || 'var(--progressColor)'};
     border-radius: 10px;
     transform-origin: left;
     transition: transform ${({ theme }) => theme.transition.default};
