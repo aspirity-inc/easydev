@@ -12,8 +12,8 @@ Code:
 
 ```tsx
 <>
-  <Button onClick={function Zo() {}}>Open no portal modal window</Button>
-  <BaseModal closeBtn onClose={function Zo() {}}>
+  <Button onClick={() => alert('clicked')}>Open no portal modal window</Button>
+  <BaseModal closeBtn onClose={() => alert('closed')}>
     This information could be helpful for streamlining the rest of the process, preventing the user having to fill out a
     whole chunk of information relating to their mortgage, for example.
   </BaseModal>
@@ -26,8 +26,10 @@ Code:
 
 ```tsx
 <>
-  <Button onClick={function Zo() {}}>Open portal modal window</Button>
-  <BaseModal closeBtn onClose={function Zo() {}} portal={null}>
+  <Button onClick={() => alert('clicked')}>
+    Open portal modal window
+  </Button>
+  <BaseModal closeBtn onClose={() => alert('closed')} portal={null}>
     This information could be helpful for streamlining the rest of the process, preventing the user having to fill out a
     whole chunk of information relating to their mortgage, for example.
   </BaseModal>

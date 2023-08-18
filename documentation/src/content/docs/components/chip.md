@@ -13,7 +13,7 @@ The Chip has the next props: label, variant, disabled, defaultChecked, className
 Code:
 
 ```tsx
-<Chip label="Chip" onClick={function Zo() {}} onDelete={function Zo() {}} />
+<Chip label="Chip" onClick={() => alert('clicked')} onDelete={() => alert('deleted')} />
 ```
 
 [Checkbox Chip](/?path=/story/core-chip--checkbox-chip)
@@ -21,7 +21,12 @@ Code:
 Code:
 
 ```tsx
-<Chip label="Chip" onClick={function Zo() {}} onDelete={function Zo() {}} variant="checkbox" />
+<Chip 
+  label="Chip" 
+  variant="checkbox" 
+  onClick={() => alert('clicked')} 
+  onDelete={() => alert('deleted')}
+/>
 ```
 
 [List Of Default Chips](/?path=/story/core-chip--list-of-default-chips)
@@ -30,14 +35,19 @@ Code:
 
 ```tsx
 <Space direction="row">
-  <Chip defaultChecked label="Selected chip" onClick={function Zo() {}} />
+  <Chip defaultChecked label="Selected chip" onClick={() => alert('clicked')} />
   <Chip
     defaultChecked
     label="Selected chip with delete button"
-    onClick={function Zo() {}}
-    onDelete={function Zo() {}}
+    onClick={() => alert('clicked')}
+    onDelete={() => alert('deleted')}
   />
-  <Chip disabled label="Disabled chip" onClick={function Zo() {}} onDelete={function Zo() {}} />
+  <Chip 
+    disabled 
+    label="Disabled chip" 
+    onClick={() => alert('clicked')}
+    onDelete={() => alert('deleted')}
+  />
 </Space>
 ```
 
@@ -47,14 +57,25 @@ Code:
 
 ```tsx
 <Space direction="row">
-  <Chip label="Chip" onClick={function Zo() {}} onDelete={function Zo() {}} variant="checkbox" />
+  <Chip 
+    label="Chip" 
+    variant="checkbox" 
+    onClick={() => alert('clicked')} 
+    onDelete={() => alert('deleted')}
+  />
   <Chip
     defaultChecked
     label="Selected chip"
-    onClick={function Zo() {}}
-    onDelete={function Zo() {}}
+    onClick={() => alert('clicked')}
+    onDelete={() => alert('deleted')}
     variant="checkbox"
   />
-  <Chip disabled label="Disabled chip" onClick={function Zo() {}} onDelete={function Zo() {}} variant="checkbox" />
+  <Chip 
+    disabled 
+    label="Disabled chip" 
+    variant="checkbox" 
+    onClick={() => alert('clicked')} 
+    onDelete={() => alert('deleted')}
+  />
 </Space>
 ```

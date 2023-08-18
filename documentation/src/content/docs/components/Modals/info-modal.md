@@ -12,8 +12,10 @@ Code:
 
 ```tsx
 <>
-  <Button onClick={function Zo() {}}>Open no portal modal window</Button>
-  <InfoModal onClose={function Zo() {}}>
+  <Button onClick={() => alert('clicked')}>
+    Open no portal modal window
+  </Button>
+  <InfoModal onClose={() => alert('closed')}>
     <ModalHeader />
     <ModalBody
       image={
@@ -25,7 +27,18 @@ Code:
         out a whole chunk of information relating to their mortgage, for example."
       title="Window"
     />
-    <ModalFooter footerContent={function Zo() {}} />
+    <ModalFooter 
+      footerContent={() => (
+        <>
+          <Button size="sm" rounded="sm">
+            learn more
+          </Button>
+          <Button variant="secondary" size="sm" rounded="sm">
+            got it
+          </Button>
+        </>
+      )}
+    />
   </InfoModal>
 </>
 ```
@@ -36,8 +49,10 @@ Code:
 
 ```tsx
 <>
-  <Button onClick={function Zo() {}}>Open portal modal window</Button>
-  <InfoModal onClose={function Zo() {}} portal={null}>
+  <Button onClick={() => alert('clicked')}>
+    Open portal modal window
+  </Button>
+  <InfoModal onClose={() => alert('clicked')} portal={null}>
     <ModalHeader />
     <ModalBody
       image={
@@ -49,7 +64,18 @@ Code:
         out a whole chunk of information relating to their mortgage, for example."
       title="Window"
     />
-    <ModalFooter footerContent={function Zo() {}} />
+    <ModalFooter 
+      footerContent={() => (
+        <>
+          <Button size="sm" rounded="sm">
+            learn more
+          </Button>
+          <Button variant="secondary" size="sm" rounded="sm">
+            got it
+          </Button>
+        </>
+      )}
+    />
   </InfoModal>
   <div
     id="portalElement"

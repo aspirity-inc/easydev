@@ -78,7 +78,9 @@ Code:
     isSearchable
     maxMenuHeight={250}
     minMenuHeight={250}
-    onChange={function Zo() {}}
+    onChange={() => {
+      alert('changed');
+    }}
     options={[
       {
         label: 'Chocolate',
@@ -137,10 +139,11 @@ Code:
 >
   <Select
     defaultOptions
-    loadOptions={function Zo() {}}
     maxMenuHeight={250}
     minMenuHeight={250}
-    onChange={function Zo() {}}
+    onChange={() => {
+      alert('changed');
+    }}
     rounded
     selectType="async"
     selectedStatePlaceholder="YourChoice: 0"

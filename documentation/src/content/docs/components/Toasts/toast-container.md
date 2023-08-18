@@ -15,13 +15,13 @@ Code:
 <>
   <ToastContainer />
   <Space direction="row">
-    <Button onClick={function Zo() {}}>top-left toast</Button>
-    <Button onClick={function Zo() {}}>top-center toast</Button>
-    <Button onClick={function Zo() {}}>top-right toast</Button>
-    <Button onClick={function Zo() {}}>bottom-left toast</Button>
-    <Button onClick={function Zo() {}}>bottom-center toast</Button>
-    <Button onClick={function Zo() {}}>bottom-right toast</Button>
-    <Button onClick={function Zo() {}}>center-center toast</Button>
+    <Button onClick={() => alert('clicked')}>top-left toast</Button>
+    <Button onClick={() => alert('clicked')}>top-center toast</Button>
+    <Button onClick={() => alert('clicked')}>top-right toast</Button>
+    <Button onClick={() => alert('clicked')}>bottom-left toast</Button>
+    <Button onClick={() => alert('clicked')}>bottom-center toast</Button>
+    <Button onClick={() => alert('clicked')}>bottom-right toast</Button>
+    <Button onClick={() => alert('clicked')}>center-center toast</Button>
   </Space>
 </>
 ```

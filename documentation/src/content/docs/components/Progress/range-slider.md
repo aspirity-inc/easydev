@@ -11,5 +11,14 @@ The Range Slider has the next props: min, max, value, tooltip, tooltipShown. [Se
 Code:
 
 ```tsx
-<RangeSlider max="100" min="0" onChange={function Zo() {}} tooltip tooltipShown="always" value="25" />
+<RangeSlider 
+  max="100" 
+  min="0" 
+  onChange={() => {
+    alert('changed');
+  }} 
+  tooltip 
+  tooltipShown="always" 
+  value="25" 
+/>
 ```
