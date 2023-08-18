@@ -1,37 +1,49 @@
-import { ComponentPropsWithoutRef, CSSProperties } from 'react';
+import { ComponentPropsWithoutRef, CSSProperties, ReactNode } from 'react';
 
-import { ProgressBarWrap, type ProgressBarWrapType, StyledProgressBar, StyledValue } from './styles.ts';
+import { Subtitle } from '@core/Typography';
+
+import { ProgressBarWrap, type ProgressBarWrapType, StyledProgressBar, TitleWrap } from './styles.ts';
 import { ProgressBarTypeBase } from '../types.ts';
 
 type ProgressBarPropsType = ComponentPropsWithoutRef<'div'> &
-  Omit<ProgressBarTypeBase, '$progressColor' | '$progressBackground'> &
-  Omit<ProgressBarWrapType, '$label' | '$progressColor'> & {
-    label?: boolean;
+  Omit<ProgressBarTypeBase, '$progressColor' | '$progressBackground' | '$size' | '$rounded'> &
+  Omit<ProgressBarWrapType, '$isTitle' | '$progressColor'> & {
+    customTitle?: ReactNode;
     progressColor?: CSSProperties['color'];
     progressBackground?: CSSProperties['color'];
+    size?: 'small' | 'default';
+    rounded?: boolean;
   };
 
 export const ProgressBar = ({
   value,
-  label = true,
+  customTitle,
   progressColor,
   progressBackground,
+  size = 'default',
+  rounded = true,
   ...props
 }: ProgressBarPropsType) => {
   const negativeToZero = value < 0 ? 0 : value;
   const formattedValue = negativeToZero > 100 ? 100 : negativeToZero;
 
   return (
-    <ProgressBarWrap $label={label} $progressColor={progressColor} className="easy_progressWrap">
-      {label && (
-        <StyledValue level={5} tag="span" className="easy_progressText">
-          {formattedValue}%
-        </StyledValue>
+    <ProgressBarWrap $progressColor={progressColor} className="easy_progressWrap">
+      {customTitle ? (
+        <TitleWrap>{customTitle}</TitleWrap>
+      ) : (
+        <TitleWrap>
+          <Subtitle level={5} tag="span" className="easy_progressText">
+            {formattedValue}%
+          </Subtitle>
+        </TitleWrap>
       )}
       <StyledProgressBar
         value={formattedValue}
         $progressColor={progressColor}
         $progressBackground={progressBackground}
+        $size={size}
+        $rounded={rounded}
         {...props}
       />
     </ProgressBarWrap>

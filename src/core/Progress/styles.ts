@@ -14,9 +14,10 @@ export const StyledProgressBarBase = styled('div')<ProgressBarTypeBase>`
 
   position: relative;
   width: 100%;
-  height: 10px;
+  height: ${({ $size }) => ($size === 'small' ? 5 : 10)}px;
   background-color: ${({ $progressBackground }) => $progressBackground || 'var(--progressBgColor)'};
-  border-radius: 10px;
+  ${({ $rounded }) => $rounded && ' border-radius: 10px;'}
+
   overflow: hidden;
 
   &:after {
@@ -28,7 +29,7 @@ export const StyledProgressBarBase = styled('div')<ProgressBarTypeBase>`
     height: 100%;
     width: 100%;
     background-color: ${({ $progressColor }) => $progressColor || 'var(--progressColor)'};
-    border-radius: 10px;
+    border-radius: inherit;
     transform-origin: left;
     transition: transform ${({ theme }) => theme.transition.default};
     transform: translate(${({ value }) => value}%);
