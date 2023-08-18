@@ -19,3 +19,22 @@ h2 a {
 [data-theme='light'] ::backdrop {
   --sl-color-text-accent: #244153;
 }
+
+.palette{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-evenly;
+  gap: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .palette{
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 20px;
+  }
+}
+
+.content .palette p{
+  margin: 0;
+}
