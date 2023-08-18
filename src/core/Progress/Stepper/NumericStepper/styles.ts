@@ -5,24 +5,21 @@ import { getTitleVariant } from '@core/Typography/styles.ts';
 import { StyledStepper } from '../styles.ts';
 
 export const StyledStep = styled('div')`
-  --color: ${({ theme }) => (theme.type === 'light' ? theme.colors.secondary['500'] : theme.colors.secondary['400'])};
-
   display: flex;
   justify-content: center;
   align-items: center;
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 2px solid var(--color);
-  color: var(--color);
-  background-color: ${({ theme }) =>
-    theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
+  border: 2px solid var(--mainColor);
+  color: var(--mainColor);
+  background-color: var(--secondaryNumericColor);
 
   ${getTitleVariant('h4')}
 
   &.active {
-    background-color: var(--color);
-    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800'])};
+    background-color: var(--mainColor);
+    color: var(--secondaryNumericColor);
   }
 
   &.done {
@@ -42,8 +39,7 @@ export const StyledNumericStepper = styled(StyledStepper)`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background-color: ${({ theme }) =>
-      theme.type === 'light' ? theme.colors.secondary['500'] : theme.colors.secondary['400']};
+    background-color: var(--mainColor);
     z-index: -1;
   }
 `;

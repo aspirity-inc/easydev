@@ -5,6 +5,10 @@ import { Stepper } from '.';
 const metaStepper: Meta<typeof Stepper> = {
   title: 'Core/Progress/Stepper',
   component: Stepper,
+  argTypes: {
+    activeColor: { control: 'color' },
+    secondaryColor: { control: 'color' },
+  },
 };
 
 export default metaStepper;

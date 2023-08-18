@@ -2,14 +2,11 @@ import { Step } from './styles.ts';
 import { StyledStepper } from '../styles.ts';
 import { StepperPropsType } from '../types.ts';
 
-export const DefaultStepper = ({ count, currentStep }: StepperPropsType) => {
-  const maxStep = currentStep > count ? count : currentStep;
-  const formattedCurrenStep = currentStep < 1 ? 1 : maxStep;
-
+export const DefaultStepper = ({ count, currentStep, secondaryColor, activeColor }: StepperPropsType) => {
   return (
-    <StyledStepper>
+    <StyledStepper $activeColor={activeColor} $secondaryColor={secondaryColor}>
       {Array.from(Array(count).keys()).map((step) => (
-        <Step key={step} className={step < formattedCurrenStep ? 'active' : ''} />
+        <Step key={step} className={step < currentStep ? 'active' : ''} />
       ))}
     </StyledStepper>
   );
