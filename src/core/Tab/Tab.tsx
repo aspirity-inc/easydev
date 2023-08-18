@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import { cx } from '@helpers/cx';
 
 import { StyledSubtitle, StyledTab } from './styles';
@@ -6,7 +8,7 @@ type keyType = number | string;
 
 type TabProps = React.ComponentPropsWithoutRef<'button'> & {
   tabKey: keyType;
-  title: string;
+  title: ReactNode;
   disabled?: boolean;
   active: boolean;
   onClick: (key: keyType) => void;
