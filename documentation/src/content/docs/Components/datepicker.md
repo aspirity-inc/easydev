@@ -16,7 +16,7 @@ Code:
     height: '500px',
   }}
 >
-  <Datepicker label="Birth date" onChange={function Zo() {}} selected={null} />
+  <Datepicker label="Birth date" onChange={() => alert('changed')} selected={null} />
 </div>
 ```
 

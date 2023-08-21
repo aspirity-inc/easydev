@@ -11,7 +11,14 @@ The Textarea has the next props: placeholder, label, showLimit, autoresized, sof
 Code:
 
 ```tsx
-<Textarea label="Comment" onChange={function Zo() {}} placeholder="Enter a comment" value="" />
+<Textarea 
+  label="Comment" 
+  onChange={() => {
+    alert('changed');
+  }} 
+  placeholder="Enter a comment" 
+  value="" 
+/>
 ```
 
 [Disabled Textarea](/?path=/story/core-inputs-textarea--disabled-textarea)
@@ -19,7 +26,15 @@ Code:
 Code:
 
 ```tsx
-<Textarea disabled label="Name" onChange={function Zo() {}} placeholder="Enter your name" value="Ivan" />
+<Textarea 
+  disabled 
+  label="Name" 
+  onChange={() => {
+    alert('changed');
+  }} 
+  placeholder="Enter your name" 
+  value="Ivan" 
+/>
 ```
 
 [Disabled Empty Textarea](/?path=/story/core-inputs-textarea--disabled-empty-textarea)
@@ -27,5 +42,13 @@ Code:
 Code:
 
 ```tsx
-<Textarea disabled label="Имя" onChange={function Zo() {}} placeholder="Enter your name" value="" />
+<Textarea 
+  disabled 
+  label="Имя" 
+  onChange={() => {
+    alert('changed');
+  }} 
+  placeholder="Enter your name" 
+  value="" 
+/>
 ```
