@@ -23,29 +23,6 @@ export const DefaultToast = {
   },
 } satisfies Story;
 
-export const ListOfAutoClosedToasts = ({ ...args }) => {
-  const toastArgs = { ...args, onDelete: () => null };
-  return (
-    <Space direction="column">
-      <Toast {...toastArgs} title={'Info notification'} description={'Text'} status="info" />
-      <Toast
-        {...toastArgs}
-        title={'Success notification'}
-        description={'Text'}
-        status="success"
-        autoCloseDelay={6000}
-      />
-      <Toast
-        {...toastArgs}
-        title={'Warning notification'}
-        description={'Text'}
-        status="warning"
-        autoCloseDelay={10000}
-      />
-    </Space>
-  );
-};
-
 export const ListOfColorfulToasts = ({ ...args }) => {
   const toastArgs = { ...args, onDelete: () => null };
   return (
