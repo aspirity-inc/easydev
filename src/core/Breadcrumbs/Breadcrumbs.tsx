@@ -1,31 +1,41 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 import 'material-symbols';
 
-import { StyledBreadcrumbs, StyledSeparator } from './styles';
 
-type BreadcrumbsProps = {
-  children: ReactNode | ReactNode[];
-  separator?: string | ReactNode;
-};
+import { StyledBreadcrumbs, StyledLink, StyledSeparator } from './styles';
+import { BreadcrumbsProps, BreadcrumbsItem } from './types';
+
+
 
 const DefaultSeparator = () => <div className="material-symbols-rounded">keyboard_arrow_right</div>;
 
-export const Breadcrumbs = ({ children, separator }: BreadcrumbsProps) => {
+export const Breadcrumbs = ({ itemRender, items, separator }: BreadcrumbsProps) => {
   const Separator = () => <StyledSeparator>{separator || <DefaultSeparator />}</StyledSeparator>;
 
+  const lastItemIndex = items?.length - 1;  
+
+  const renderItem = (item: BreadcrumbsItem) => {
+    if(itemRender){
+      return itemRender(item)
+    }
+
+    const url = item.href || '/'
+ 
+    return <StyledLink href={url} onClick={()=>item.onClick}>{item.title}</StyledLink> 
+  }
+
   return (
-    <StyledBreadcrumbs>
-      {React.Children.map(
-        children,
-        (child, index) =>
-          React.isValidElement(child) && (
+    <StyledBreadcrumbs>  
+      {Array.isArray(items) && items.map(
+        (item, index) =>
+          (
             <React.Fragment key={index}>
-              {child}
-              {Array.isArray(children) && index < children?.length - 1 && <Separator />}
+              {renderItem(item)}
+              { index < lastItemIndex && <Separator />}
             </React.Fragment>
-          )
-      )}
+          )) 
+      }
     </StyledBreadcrumbs>
   );
 };
