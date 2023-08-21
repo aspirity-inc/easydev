@@ -24,8 +24,8 @@ export const ProgressBar = ({
   rounded = true,
   ...props
 }: ProgressBarPropsType) => {
-  const negativeToZero = value < 0 ? 0 : value;
-  const formattedValue = negativeToZero > 100 ? 100 : negativeToZero;
+  const negativeToPositive = value < 0 ? 0 : value;
+  const formattedValue = negativeToPositive > 100 ? 100 : negativeToPositive;
 
   return (
     <ProgressBarWrap $progressColor={progressColor} className="easy_progressWrap">
