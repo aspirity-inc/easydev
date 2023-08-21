@@ -21,7 +21,7 @@ export const DefaultChip = {
 export const ListOfChips = ({ ...args }) => {
   return (
     <Space direction="row">
-      <Chip {...args} label="Selected chip" />
+      <Chip {...args} label="Chip" />
       <Chip {...args} label="Selected chip" defaultChecked />
       <Chip {...args} label="Disabled chip" disabled />
     </Space>
@@ -31,12 +31,9 @@ export const ListOfChips = ({ ...args }) => {
 export const ListOfExtraContentChips = ({ ...args }) => {
   return (
     <Space direction="row">
-      <Chip {...args} label="Сheckbox chip" chipContent={(props: any) => <Checkbox {...props} />} />
-      <Chip
-        {...args}
-        label="Delete button chip"
-        chipContent={() => <div className="material-symbols-outlined">close</div>}
-      />
+      <Chip {...args} label="Сheckbox chip" chipContent={<Checkbox />} />
+      <Chip {...args} label="Disabled checkbox chip" disabled defaultChecked chipContent={<Checkbox />} />
+      <Chip {...args} label="Delete button chip" chipContent={<div className="material-symbols-outlined">close</div>} />
     </Space>
   );
 };

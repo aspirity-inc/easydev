@@ -6,18 +6,11 @@ export type ChipVariant = 'filled' | 'outlined';
 
 type ChipProps = {
   disabled?: boolean;
-  checked?: boolean;
+  $active?: boolean | undefined;
   variant?: ChipVariant;
   color?: React.CSSProperties['color'];
   bgColor?: React.CSSProperties['backgroundColor'];
 };
-
-export const StyledInput = styled('input')`
-  position: absolute;
-  opacity: 0;
-  cursor: inherit;
-  z-index: 1;
-`;
 
 export const StyledChipLabel = styled('label')<ChipProps>`
   width: fit-content;
@@ -35,11 +28,11 @@ export const StyledChipLabel = styled('label')<ChipProps>`
   ${({ variant, ...props }) => {
     switch (variant) {
       case 'filled':
-        return getDefaultChipStyle(props);
+        return getFilledStyle(props);
       case 'outlined':
-        return getCheckboxChipStyle();
+        return getOutlinedStyle();
       default:
-        return getDefaultChipStyle(props);
+        return getFilledStyle(props);
     }
   }};
 
@@ -49,7 +42,7 @@ export const StyledChipLabel = styled('label')<ChipProps>`
   `};
 `;
 
-const getDefaultChipStyle = ({ checked }: ChipProps) => {
+const getFilledStyle = ({ $active }: ChipProps) => {
   return css`
     justify-content: center;
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['50'])};
@@ -68,9 +61,11 @@ const getDefaultChipStyle = ({ checked }: ChipProps) => {
 
     &[disabled] {
       cursor: default;
+      background-color: ${({ theme }) =>
+        theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
     }
 
-    ${checked &&
+    ${$active &&
     css`
       background-color: ${({ theme }) =>
         theme.type === 'light' ? theme.colors.tretiary['300'] : theme.colors.tretiary['500']};
@@ -79,7 +74,7 @@ const getDefaultChipStyle = ({ checked }: ChipProps) => {
   `;
 };
 
-const getCheckboxChipStyle = () => {
+const getOutlinedStyle = () => {
   return css`
     padding-top: 10px;
     padding-bottom: 10px;
