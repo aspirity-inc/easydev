@@ -1,25 +1,51 @@
-import { ComponentPropsWithoutRef } from 'react';
+import { ComponentPropsWithoutRef, CSSProperties, ReactNode } from 'react';
 
-import { type ProgressBarType, ProgressBarWrap, type ProgressBarWrapType, StyledValue } from './styles.ts';
-import { StyledProgressBar } from '../styles.ts';
+import { Subtitle } from '@core/Typography';
+
+import { ProgressBarWrap, type ProgressBarWrapType, StyledProgressBar, TitleWrap } from './styles.ts';
+import { ProgressBarTypeBase } from '../types.ts';
 
 type ProgressBarPropsType = ComponentPropsWithoutRef<'div'> &
-  ProgressBarType &
-  Omit<ProgressBarWrapType, '$label'> & {
-    label?: boolean;
+  Omit<ProgressBarTypeBase, '$progressColor' | '$progressBackground' | '$size' | '$rounded'> &
+  Omit<ProgressBarWrapType, '$isTitle' | '$progressColor'> & {
+    customTitle?: ReactNode;
+    progressColor?: CSSProperties['color'];
+    progressBackground?: CSSProperties['color'];
+    size?: 'small' | 'default';
+    rounded?: boolean;
   };
 
-export const ProgressBar = ({ value, label = true, ...props }: ProgressBarPropsType) => {
-  const formattedValue = value > 100 ? 100 : value;
+export const ProgressBar = ({
+  value,
+  customTitle,
+  progressColor,
+  progressBackground,
+  size = 'default',
+  rounded = true,
+  ...props
+}: ProgressBarPropsType) => {
+  const negativeToPositive = value < 0 ? 0 : value;
+  const formattedValue = negativeToPositive > 100 ? 100 : negativeToPositive;
 
   return (
-    <ProgressBarWrap $label={label} className="easy_progressWrap">
-      {label && (
-        <StyledValue level={5} tag="span" className="easy_progressText">
-          {formattedValue}%
-        </StyledValue>
+    <ProgressBarWrap $progressColor={progressColor} className="easy_progressWrap">
+      {customTitle ? (
+        <TitleWrap>{customTitle}</TitleWrap>
+      ) : (
+        <TitleWrap>
+          <Subtitle level={5} tag="span" className="easy_progressText">
+            {formattedValue}%
+          </Subtitle>
+        </TitleWrap>
       )}
-      <StyledProgressBar value={formattedValue} {...props} />
+      <StyledProgressBar
+        value={formattedValue}
+        $progressColor={progressColor}
+        $progressBackground={progressBackground}
+        $size={size}
+        $rounded={rounded}
+        {...props}
+      />
     </ProgressBarWrap>
   );
 };

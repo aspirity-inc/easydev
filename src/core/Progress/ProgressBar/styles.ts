@@ -1,31 +1,26 @@
-import { css, styled } from 'styled-components';
+import { CSSProperties } from 'react';
 
-import { Subtitle } from '@core/Typography';
+import { styled } from 'styled-components';
 
-export type ProgressBarType = {
-  value: number;
-};
+import { StyledProgressBarBase } from '@core/Progress/styles.ts';
 
 export type ProgressBarWrapType = {
-  $label?: boolean;
+  $progressColor?: CSSProperties['color'];
 };
 
-export const StyledValue = styled(Subtitle)`
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
+export const TitleWrap = styled('span')`
+  margin-bottom: 5px;
   color: inherit;
 `;
+
 export const ProgressBarWrap = styled('div')<ProgressBarWrapType>`
   --color: ${({ theme }) => (theme.type === 'light' ? theme.colors.secondary['900'] : theme.colors.secondary['200'])};
 
   position: relative;
-  color: var(--color);
-
-  ${({ $label }) =>
-    $label &&
-    css`
-      margin-top: 20px;
-    `}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: ${({ $progressColor }) => $progressColor || 'var(--color)'};
 `;
+
+export const StyledProgressBar = styled(StyledProgressBarBase)``;
