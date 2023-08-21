@@ -12,18 +12,20 @@ export const Breadcrumbs = ({ itemRender, items, separator }: BreadcrumbsProps) 
 
   const lastItemIndex = items?.length - 1;
 
-  const renderItem = (item: BreadcrumbsItem) => {
+  const renderItem = (item: BreadcrumbsItem, index: number) => {
     if (itemRender) {
       return itemRender(item);
     }
 
     const url = item.href || '/';
+    const isLast = index < lastItemIndex 
 
-    return (
+    return  isLast ? 
       <StyledLink href={url} onClick={() => item.onClick}>
         {item.title}
       </StyledLink>
-    );
+     : 
+      <StyledLink disabled>{item.title}</StyledLink>
   };
 
   return (
@@ -31,7 +33,7 @@ export const Breadcrumbs = ({ itemRender, items, separator }: BreadcrumbsProps) 
       {Array.isArray(items) &&
         items.map((item, index) => (
           <React.Fragment key={index}>
-            {renderItem(item)}
+            {renderItem(item, index)}
             {index < lastItemIndex && <Separator />}
           </React.Fragment>
         ))}

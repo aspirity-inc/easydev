@@ -7,7 +7,7 @@ export { Link } from '@core/Link';
 export * from '@core/Progress';
 export { Popover } from '@core/Popover';
 export { Tab } from '@core/Tab';
-export { Breadcrumb, Breadcrumbs } from '@core/Breadcrumbs';
+export {  Breadcrumbs } from '@core/Breadcrumbs';
 export { Chip } from '@core/Chip';
 export { Select } from '@core/Select';
 export * from '@core/Modal';
