@@ -1,10 +1,10 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export type BreadcrumbsItem = {
   title: string | ReactNode;
   href?: string;
-  onClick?: (e:MouseEvent) => void;
-}
+  onClick?: (e: MouseEvent) => void;
+};
 
 export type BreadcrumbsProps = {
   itemRender?: (item: BreadcrumbsItem) => ReactNode;

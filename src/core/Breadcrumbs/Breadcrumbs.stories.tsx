@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 
-import {  Breadcrumbs } from '.';
+import { Breadcrumbs } from '.';
 
 const metaBreadcrumbs: Meta<typeof Breadcrumbs> = {
   title: 'Core/Breadcrumbs/Breadcrumbs',
@@ -11,19 +11,13 @@ const metaBreadcrumbs: Meta<typeof Breadcrumbs> = {
       control: 'text',
       description: 'Divider',
     },
-    
   },
 };
 export default metaBreadcrumbs;
 
 const Template: StoryFn<typeof Breadcrumbs> = ({ ...args }) => {
-
-  return (
-    <Breadcrumbs {...args}/>
-  );
+  return <Breadcrumbs {...args} />;
 };
-
-
 
 export const DefaultBreadcrumbs: StoryFn<typeof Breadcrumbs> = Template.bind({});
 DefaultBreadcrumbs.args = {

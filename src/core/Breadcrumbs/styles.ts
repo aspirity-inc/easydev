@@ -19,7 +19,6 @@ export const StyledBreadcrumbs = styled('div')`
   align-items: center;
 `;
 
-
 export const StyledLink = styled('a')<StyledBreadcrumbPropsType>`
   --hoverColor: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
   --transition: ${({ theme }) => theme.transition.default};
