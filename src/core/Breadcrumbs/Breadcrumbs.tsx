@@ -7,25 +7,27 @@ import { BreadcrumbsProps, BreadcrumbsItem } from './types';
 
 const DefaultSeparator = () => <div className="material-symbols-rounded">keyboard_arrow_right</div>;
 
-export const Breadcrumbs = ({ itemRender, items, separator }: BreadcrumbsProps) => {
+export function Breadcrumbs<TItem>({ itemRender, items, separator }: BreadcrumbsProps<TItem>) {
   const Separator = () => <StyledSeparator>{separator || <DefaultSeparator />}</StyledSeparator>;
-
   const lastItemIndex = items?.length - 1;
 
-  const renderItem = (item: BreadcrumbsItem, index: number) => {
+  const renderItem = (item: BreadcrumbsItem & TItem, index: number) => {
     if (itemRender) {
-      return itemRender(item);
+      return itemRender(item, index, items);
     }
 
     const url = item.href || '/';
-    const isLast = index < lastItemIndex 
+    const isLast = index < lastItemIndex;
 
-    return  isLast ? 
+    return isLast ? (
       <StyledLink href={url} onClick={() => item.onClick}>
         {item.title}
       </StyledLink>
-     : 
-      <StyledLink disabled>{item.title}</StyledLink>
+    ) : (
+      <StyledLink disabled onClick={() => item.onClick}>
+        {item.title}
+      </StyledLink>
+    );
   };
 
   return (
@@ -39,4 +41,4 @@ export const Breadcrumbs = ({ itemRender, items, separator }: BreadcrumbsProps) 
         ))}
     </StyledBreadcrumbs>
   );
-};
+}

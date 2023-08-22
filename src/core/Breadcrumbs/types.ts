@@ -6,9 +6,9 @@ export type BreadcrumbsItem = {
   onClick?: (e: MouseEvent) => void;
 };
 
-export type BreadcrumbsProps = {
-  itemRender?: (item: BreadcrumbsItem) => ReactNode;
-  items: BreadcrumbsItem[];
+export type BreadcrumbsProps<TItem> = {
+  itemRender?: (item: BreadcrumbsItem & TItem, index?: number, items?: (BreadcrumbsItem & TItem)[]) => ReactNode;
+  items: (BreadcrumbsItem & TItem)[];
   separator?: string | ReactNode;
 };
 

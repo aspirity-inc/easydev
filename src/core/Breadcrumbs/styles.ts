@@ -42,3 +42,26 @@ export const StyledLink = styled('a')<StyledBreadcrumbPropsType>`
       pointer-events: none;
     `};
 `;
+
+export const StyledUserLink = styled('a')<StyledBreadcrumbPropsType>`
+  --hoverColor: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
+  --transition: ${({ theme }) => theme.transition.default};
+
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.success['900'] : theme.colors.error['600'])};
+  text-decoration: none;
+  transition: color var(--transition), text-decoration-color var(--transition);
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--hoverColor);
+  }
+
+  ${({ disabled, theme }) =>
+    disabled &&
+    css`
+      color: ${theme.colors.surface['500']};
+      cursor: default;
+      pointer-events: none;
+    `};
+`;

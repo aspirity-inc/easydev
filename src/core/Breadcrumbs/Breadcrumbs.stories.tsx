@@ -1,6 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Breadcrumbs } from '.';
+import { StyledUserLink } from './styles';
+import { BreadcrumbsItem } from './types';
 
 const metaBreadcrumbs: Meta<typeof Breadcrumbs> = {
   title: 'Core/Breadcrumbs/Breadcrumbs',
@@ -10,6 +12,13 @@ const metaBreadcrumbs: Meta<typeof Breadcrumbs> = {
       type: 'string',
       control: 'text',
       description: 'Divider',
+    },
+    itemRender: {
+      type: 'function',
+      description: 'Function for custom item render',
+    },
+    items: {
+      description: 'Array of breadcrumb elements',
     },
   },
 };
@@ -46,4 +55,22 @@ BreadcrumbsUserIconSeparator.args = {
       href: '',
     },
   ],
+};
+
+const userItemRender = (item: BreadcrumbsItem) => {
+  return <StyledUserLink>{item.title}</StyledUserLink>;
+};
+
+export const BreadcrumbsUserItem: StoryFn<typeof Breadcrumbs> = Template.bind({});
+BreadcrumbsUserItem.args = {
+  items: [
+    {
+      title: 'Home',
+    },
+    {
+      title: 'Application Center',
+      href: '',
+    },
+  ],
+  itemRender: userItemRender,
 };
