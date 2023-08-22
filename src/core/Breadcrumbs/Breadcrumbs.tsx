@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 
 import 'material-symbols';
 
@@ -32,10 +32,10 @@ export function Breadcrumbs<TItem>({ itemRender, items, separator }: Breadcrumbs
     <StyledBreadcrumbs>
       {items.length &&
         items.map((item, index) => (
-          <React.Fragment key={index}>
+          <Fragment key={index}>
             {renderItem(item, index)}
             {index < lastItemIndex && <Separator />}
-          </React.Fragment>
+          </Fragment>
         ))}
     </StyledBreadcrumbs>
   );
