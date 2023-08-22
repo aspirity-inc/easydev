@@ -2,7 +2,7 @@ import { css, styled } from 'styled-components';
 
 import { Text, Title } from '@core/Typography';
 
-import { StyledModalContentProps } from '../../styles';
+import { StyledModalContentProps } from '../styles';
 
 export const StyledModalBody = styled.div`
   display: flex;
@@ -15,30 +15,24 @@ export const StyledModalBody = styled.div`
 
 export const StyledTitle = styled(Title)<StyledModalContentProps>`
   --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.secondary['50'])};
-  --colorful: ${({ theme }) => theme.colors.surface['900']};
 
-  ${({ $colorful }) =>
-    $colorful
-      ? css`
-          color: var(--colorful);
-        `
-      : css`
-          color: var(--monochrome);
-        `};
+  color: var(--monochrome);
 `;
 
-export const StyledText = styled(Text)<StyledModalContentProps>`
-  --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['800'] : theme.colors.surface['200'])};
-  --colorful: ${({ theme }) => theme.colors.surface['800']};
+export type StyledModalTextProps = {
+  centered?: boolean;
+};
 
-  ${({ $colorful }) =>
-    $colorful
-      ? css`
-          color: var(--colorful);
-        `
-      : css`
-          color: var(--monochrome);
-        `};
+export const StyledText = styled(Text)<StyledModalTextProps>`
+  --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['800'] : theme.colors.surface['200'])};
+
+  ${({ centered }) =>
+    centered &&
+    css`
+      text-align: center;
+    `}
+
+  color: var(--monochrome);
 `;
 
 export const StyledImage = styled.div``;
