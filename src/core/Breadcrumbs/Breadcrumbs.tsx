@@ -1,31 +1,42 @@
-import React, { ReactNode } from 'react';
+import { Fragment } from 'react';
 
 import 'material-symbols';
 
-import { StyledBreadcrumbs, StyledSeparator } from './styles';
-
-type BreadcrumbsProps = {
-  children: ReactNode | ReactNode[];
-  separator?: string | ReactNode;
-};
+import { StyledBreadcrumbs, StyledLink, StyledSeparator } from './styles';
+import { BreadcrumbsProps, BreadcrumbsItem } from './types';
 
 const DefaultSeparator = () => <div className="material-symbols-rounded">keyboard_arrow_right</div>;
 
-export const Breadcrumbs = ({ children, separator }: BreadcrumbsProps) => {
+export function Breadcrumbs<TItem>({ itemRender, items, separator }: BreadcrumbsProps<TItem>) {
   const Separator = () => <StyledSeparator>{separator || <DefaultSeparator />}</StyledSeparator>;
+  const lastItemIndex = items?.length - 1;
+
+  const renderItem = (item: BreadcrumbsItem & TItem, index: number) => {
+    if (itemRender) {
+      return itemRender(item, index, items);
+    }
+
+    const url = item.href || '/';
+    const isLast = index < lastItemIndex;
+
+    return isLast ? (
+      <StyledLink href={url} onClick={() => item.onClick}>
+        {item.title}
+      </StyledLink>
+    ) : (
+      <StyledLink disabled>{item.title}</StyledLink>
+    );
+  };
 
   return (
     <StyledBreadcrumbs>
-      {React.Children.map(
-        children,
-        (child, index) =>
-          React.isValidElement(child) && (
-            <React.Fragment key={index}>
-              {child}
-              {Array.isArray(children) && index < children?.length - 1 && <Separator />}
-            </React.Fragment>
-          )
-      )}
+      {items.length &&
+        items.map((item, index) => (
+          <Fragment key={index}>
+            {renderItem(item, index)}
+            {index < lastItemIndex && <Separator />}
+          </Fragment>
+        ))}
     </StyledBreadcrumbs>
   );
-};
+}
