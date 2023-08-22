@@ -10,7 +10,7 @@ export type SelectType = {
 export const defaultCssVars = css`
   --transitionTiming: ${({ theme }) => theme.transition.default};
   --transition: color var(--transitionTiming), background-color var(--transitionTiming),
-    box-shadow var(--transitionTiming);
+    box-shadow var(--transitionTiming), border-color var(--transitionTiming);
 `;
 
 export const StyledSelectWrap = styled('div')<SelectType>`
@@ -23,8 +23,8 @@ export const StyledSelectWrap = styled('div')<SelectType>`
       padding: 0 16px;
       ${getTextVariants('body2')};
       background-color: ${({ theme }) =>
-        theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['800']};
-      border: 1px solid transparent;
+        theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
+      border: 1px solid ${({ theme }) => theme.colors.surface['400']};
       border-radius: ${({ theme }) => theme.spacing.borderRadius.medium}px;
       color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
       transition: var(--transition);
@@ -36,11 +36,12 @@ export const StyledSelectWrap = styled('div')<SelectType>`
 
       &:hover,
       &:active,
-      &:focus-within,
-      &:has(.react-select__value-container--has-value) {
-        background-color: ${({ theme }) =>
-          theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
+      &:focus-within {
         ${({ theme }) => theme.shadows.blue};
+        border-color: ${({ theme }) =>
+          theme.type === 'light' ? theme.colors.secondary['300'] : theme.colors.secondary['100']};
+      }
+      &:has(.react-select__value-container--has-value) {
         border-color: ${({ theme }) =>
           theme.type === 'light' ? theme.colors.secondary['300'] : theme.colors.secondary['100']};
       }
@@ -57,8 +58,11 @@ export const StyledSelectWrap = styled('div')<SelectType>`
         }
       }
 
-      &--is-disabled {
-        opacity: 0.5;
+      &--is-disabled,
+      &--is-disabled:has(.react-select__value-container--has-value) {
+        color: ${({ theme }) => theme.colors.surface['500']};
+        border: 1px solid ${({ theme }) => theme.colors.surface['400']};
+        pointer-events: none;
       }
 
       ${({ $rounded }) =>
@@ -66,16 +70,18 @@ export const StyledSelectWrap = styled('div')<SelectType>`
         css`
           border-radius: 40px;
           background-color: ${({ theme }) =>
-            theme.type === 'light' ? theme.colors.surface['200'] : theme.colors.surface['800']};
+            theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
 
           &:hover,
           &:active,
-          &:focus-within,
-          &:has(.react-select__value-container--has-value) {
-            background-color: ${({ theme }) =>
-              theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
+          &:focus-within {
+            border-color: ${({ theme }) =>
+              theme.type === 'light' ? theme.colors.tretiary['50'] : theme.colors.tretiary['700']};
             ${({ theme }) => theme.shadows.violet_light};
-            border-color: transparent;
+          }
+          &:has(.react-select__value-container--has-value) {
+            border-color: ${({ theme }) =>
+              theme.type === 'light' ? theme.colors.tretiary['50'] : theme.colors.tretiary['700']};
           }
         `}
     }
@@ -119,6 +125,13 @@ export const StyledSelectWrap = styled('div')<SelectType>`
       &:has(.react-select__menu-notice--no-options) {
         border: 1px solid transparent;
       }
+
+      ${({ $rounded }) =>
+        $rounded &&
+        css`
+          border-color: ${({ theme }) =>
+            theme.type === 'light' ? theme.colors.tretiary['50'] : theme.colors.tretiary['700']};
+        `}
     }
 
     &__option {
@@ -142,12 +155,6 @@ export const StyledSelectWrap = styled('div')<SelectType>`
             theme.type === 'light' ? theme.colors.secondary['700'] : theme.colors.secondary['100']};
           transition: var(--transition);
         }
-
-        &:hover {
-          .icon {
-            color: inherit;
-          }
-        }
       }
 
       &--is-disabled {
@@ -158,7 +165,7 @@ export const StyledSelectWrap = styled('div')<SelectType>`
       &:hover {
         cursor: pointer;
         background-color: ${({ theme }) =>
-          theme.type === 'light' ? theme.colors.secondary['100'] : theme.colors.surface['400']};
+          theme.type === 'light' ? theme.colors.surface['200'] : theme.colors.surface['900']};
       }
     }
 

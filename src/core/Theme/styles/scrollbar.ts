@@ -16,6 +16,7 @@ export const scrollbarStyles = css`
   /* for FireFox */
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbarColor) transparent;
+  margin-right: 4px;
 
   /* for Chrome */
   &::-webkit-scrollbar-track {
