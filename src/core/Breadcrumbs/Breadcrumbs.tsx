@@ -24,15 +24,13 @@ export function Breadcrumbs<TItem>({ itemRender, items, separator }: Breadcrumbs
         {item.title}
       </StyledLink>
     ) : (
-      <StyledLink disabled onClick={() => item.onClick}>
-        {item.title}
-      </StyledLink>
+      <StyledLink disabled>{item.title}</StyledLink>
     );
   };
 
   return (
     <StyledBreadcrumbs>
-      {Array.isArray(items) &&
+      {items.length &&
         items.map((item, index) => (
           <React.Fragment key={index}>
             {renderItem(item, index)}

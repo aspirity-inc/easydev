@@ -28,17 +28,19 @@ const Template: StoryFn<typeof Breadcrumbs> = ({ ...args }) => {
   return <Breadcrumbs {...args} />;
 };
 
+const exampleItems = [
+  {
+    title: 'Home',
+  },
+  {
+    title: 'Application Center',
+    href: '',
+  },
+];
+
 export const DefaultBreadcrumbs: StoryFn<typeof Breadcrumbs> = Template.bind({});
 DefaultBreadcrumbs.args = {
-  items: [
-    {
-      title: 'Home',
-    },
-    {
-      title: 'Application Center',
-      href: '',
-    },
-  ],
+  items: exampleItems,
 };
 
 const UserSeparator = () => <div className="material-symbols-outlined">keyboard_double_arrow_right</div>;
@@ -46,15 +48,7 @@ const UserSeparator = () => <div className="material-symbols-outlined">keyboard_
 export const BreadcrumbsUserIconSeparator: StoryFn<typeof Breadcrumbs> = Template.bind({});
 BreadcrumbsUserIconSeparator.args = {
   separator: <UserSeparator />,
-  items: [
-    {
-      title: 'Home',
-    },
-    {
-      title: 'Application Center',
-      href: '',
-    },
-  ],
+  items: exampleItems,
 };
 
 const userItemRender = (item: BreadcrumbsItem) => {
@@ -63,14 +57,6 @@ const userItemRender = (item: BreadcrumbsItem) => {
 
 export const BreadcrumbsUserItem: StoryFn<typeof Breadcrumbs> = Template.bind({});
 BreadcrumbsUserItem.args = {
-  items: [
-    {
-      title: 'Home',
-    },
-    {
-      title: 'Application Center',
-      href: '',
-    },
-  ],
+  items: exampleItems,
   itemRender: userItemRender,
 };
