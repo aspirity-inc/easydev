@@ -2,7 +2,7 @@ import { css, styled } from 'styled-components';
 
 import { Text, Title } from '@core/Typography';
 
-import { StyledModalContentProps } from '../styles';
+import { StyledModalContentProps } from '../../styles';
 
 export const StyledModalBody = styled.div`
   display: flex;
