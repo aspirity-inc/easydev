@@ -7,15 +7,11 @@ export type PortalElement = Element | DocumentFragment | HTMLElement | null;
 export type ModalProps = {
   open: boolean;
   onClose: () => void;
-  colorful?: boolean;
+  bgColor?: CSSProperties['backgroundColor'];
   portal?: PortalElement;
-  children: ReactNode;
+  children: ReactNode | ReactNode[];
   className?: string;
   style?: CSSProperties;
-};
-
-export type BaseModalProps = ModalProps & {
-  closeBtn?: boolean;
 };
 
 export type CloseBtnProps = React.ComponentPropsWithoutRef<'button'> & StyledModalContentProps;

@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react';
+
 import { css, styled } from 'styled-components';
 
 type StyledModalWrapperProps = {
@@ -6,7 +8,7 @@ type StyledModalWrapperProps = {
 };
 
 export type StyledModalContentProps = {
-  $colorful?: boolean;
+  bgColor?: CSSProperties['backgroundColor'];
 };
 
 export const ModalWrapper = styled.div<StyledModalWrapperProps>`
@@ -37,7 +39,6 @@ export const ModalWrapper = styled.div<StyledModalWrapperProps>`
 
 export const ModalContent = styled.div<StyledModalContentProps>`
   --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800'])};
-  --colorful: ${({ theme }) => (theme.type === 'light' ? theme.colors.tretiary['50'] : theme.colors.tretiary['200'])};
 
   max-width: 460px;
   display: flex;
@@ -46,10 +47,10 @@ export const ModalContent = styled.div<StyledModalContentProps>`
   padding: 40px 24px;
   margin: 32px;
 
-  ${({ $colorful }) =>
-    $colorful
+  ${({ bgColor }) =>
+    bgColor
       ? css`
-          background-color: var(--colorful);
+          background-color: ${bgColor};
         `
       : css`
           background-color: var(--monochrome);
@@ -57,31 +58,4 @@ export const ModalContent = styled.div<StyledModalContentProps>`
 
   border-radius: 20px;
   ${({ theme }) => (theme.type === 'light' ? theme.shadows.gray : theme.shadows.violet_light)};
-`;
-
-export const StyledCloseButton = styled('button')<StyledModalContentProps>`
-  --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['100'])};
-  --colorful: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['800'])};
-
-  display: block;
-  padding: 0;
-  margin: 0;
-  margin-left: auto;
-
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
-
-  ${({ $colorful }) =>
-    $colorful
-      ? css`
-          color: var(--colorful);
-        `
-      : css`
-          color: var(--monochrome);
-        `};
-
-  & > div {
-    display: block;
-  }
 `;
