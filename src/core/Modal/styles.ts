@@ -59,23 +59,3 @@ export const ModalContent = styled.div<StyledModalContentProps>`
   border-radius: 20px;
   ${({ theme }) => (theme.type === 'light' ? theme.shadows.gray : theme.shadows.violet_light)};
 `;
-
-export const StyledCloseButton = styled('button')<StyledModalContentProps>`
-  --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['100'])};
-
-  display: block;
-  padding: 0;
-  margin: 0;
-  margin-left: auto;
-  margin-bottom: 16px;
-
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
-
-  color: var(--monochrome);
-
-  & > div {
-    display: block;
-  }
-`;

@@ -9,10 +9,9 @@ export type ModalProps = {
   onClose: () => void;
   bgColor?: CSSProperties['backgroundColor'];
   portal?: PortalElement;
-  children: ReactNode;
+  children: ReactNode | ReactNode[];
   className?: string;
   style?: CSSProperties;
-  closeBtn?: boolean;
 };
 
 export type CloseBtnProps = React.ComponentPropsWithoutRef<'button'> & StyledModalContentProps;

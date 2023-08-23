@@ -3,7 +3,7 @@ title: Modal
 ---
 
 The Modal component provides a solid foundation for creating dialogs.
-The Modal has the next props: children, closeBtn, open, onClose, portal, className, style. [See there](/?path=/docs/core-modal-modal--docs) to get more information.
+The Modal has the next props: children, open, onClose, portal, className, style. [See there](/?path=/docs/core-modal-modal--docs) to get more information.
 
 [No Portal Modal Window](/?path=/story/core-modal-modal--no-portal-modal-window)
 
@@ -12,7 +12,8 @@ Code:
 ```tsx
 <>
   <Button onClick={() => {}}>Open no portal modal window</Button>
-  <Modal closeBtn onClose={() => {}}>
+  <Modal onClose={() => {}} portal={null}>
+    <CloseButton onClick={() => {}} />
     This information could be helpful for streamlining the rest of the process, preventing the user having to fill out a
     whole chunk of information relating to their mortgage, for example.
   </Modal>
@@ -26,7 +27,8 @@ Code:
 ```tsx
 <>
   <Button onClick={() => {}}>Open portal modal window</Button>
-  <Modal closeBtn onClose={() => {}} portal={null}>
+  <Modal onClose={() => {}} portal={null}>
+    <CloseButton onClick={() => {}} />
     This information could be helpful for streamlining the rest of the process, preventing the user having to fill out a
     whole chunk of information relating to their mortgage, for example.
   </Modal>
@@ -55,10 +57,10 @@ Code:
     Open no portal modal window
   </Button>
   <Modal
-    closeBtn
     onClose={() => {}}
     portal={null}
   >
+    <CloseButton onClick={() => {}} />
     <ModalBody>
       <styled.div>
         <div
@@ -78,21 +80,19 @@ Code:
       </Styled(Text)>
     </ModalBody>
     <ModalFooter>
-      <React.Fragment key=".0">
-        <Button
-          rounded="sm"
-          size="sm"
-        >
-          learn more
-        </Button>
-        <Button
-          rounded="sm"
-          size="sm"
-          variant="secondary"
-        >
-          got it
-        </Button>
-      </React.Fragment>
+      <Button
+        rounded="sm"
+        size="sm"
+      >
+        learn more
+      </Button>
+      <Button
+        rounded="sm"
+        size="sm"
+        variant="secondary"
+      >
+        got it
+      </Button>
     </ModalFooter>
   </Modal>
 </>
@@ -103,54 +103,43 @@ Code:
 Code:
 
 ```tsx
-<>
-  <Button onClick={() => {}}>
-    Open no portal modal window
-  </Button>
-  <Modal
-    bgColor="lightblue"
-    onClose={() => {}}
-    portal={null}
-  >
-    <ModalHeader onClose={() => {}} />
-    <ModalBody>
-      <styled.div>
-        <div
-          className="material-symbols-rounded"
-          style={{
-            fontSize: '100px'
-          }}
-        >
-          rocket_launch
-        </div>
-      </styled.div>
-      <Styled(Title) variant="h3">
-        Window
-      </Styled(Title)>
-      <Styled(Text)
-        centered
-        variant="body3"
-      >
-        This information could be helpful for streamlining the rest of the process, preventing the user having to fill out a whole chunk of information relating to their mortgage, for example.
-      </Styled(Text)>
-    </ModalBody>
-    <ModalFooter>
-      <React.Fragment key=".0">
-        <Button
-          rounded="sm"
-          size="sm"
-        >
-          learn more
-        </Button>
-        <Button
-          rounded="sm"
-          size="sm"
-          variant="secondary"
-        >
-          got it
-        </Button>
-      </React.Fragment>
-    </ModalFooter>
-  </Modal>
-</>
+({ ...args }) => {
+  const [open, setOpen] = useState(false);
+  const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true);
+  const ModalImage = (
+    <div
+      className="material-symbols-rounded"
+      style={{
+        fontSize: '100px',
+      }}
+    >
+      rocket_launch
+    </div>
+  );
+  return (
+    <>
+      <Button onClick={handleOpen}>Open no portal modal window</Button>
+      <Modal {...args} open={open} onClose={handleClose}>
+        <ModalHeader onClose={handleClose} />
+        <ModalBody>
+          <StyledImage>{ModalImage}</StyledImage>
+          <StyledTitle variant="h3">Window</StyledTitle>
+          <StyledText variant="body3" centered>
+            This information could be helpful for streamlining the rest of the process, preventing the user having to
+            fill out a whole chunk of information relating to their mortgage, for example.
+          </StyledText>
+        </ModalBody>
+        <ModalFooter>
+          <Button size="sm" rounded="sm">
+            learn more
+          </Button>
+          <Button variant="secondary" size="sm" rounded="sm">
+            got it
+          </Button>
+        </ModalFooter>
+      </Modal>
+    </>
+  );
+};
 ```

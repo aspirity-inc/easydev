@@ -4,11 +4,12 @@ import { Meta, StoryFn } from '@storybook/react';
 
 import { Button } from '@core/Button';
 
+import { CloseButton } from './Components/CloseButton';
+import { ModalBody } from './Components/ModalBody';
+import { StyledImage, StyledTitle, StyledText } from './Components/ModalBody/styles';
+import { ModalFooter } from './Components/ModalFooter';
+import { ModalHeader } from './Components/ModalHeader';
 import { Modal } from './Modal';
-import { ModalBody } from './ModalBody';
-import { StyledImage, StyledTitle, StyledText } from './ModalBody/styles';
-import { ModalFooter } from './ModalFooter';
-import { ModalHeader } from './ModalHeader';
 
 const metaModal: Meta<typeof Modal> = {
   title: 'Core/Modal/Modal',
@@ -25,6 +26,7 @@ const Template: StoryFn<typeof Modal> = ({ children, ...args }) => {
     <>
       <Button onClick={handleOpen}>Open no portal modal window</Button>
       <Modal {...args} open={open} onClose={handleClose}>
+        <CloseButton onClick={handleClose} />
         {children}
       </Modal>
     </>
@@ -43,6 +45,7 @@ const TemplatePortal: StoryFn<typeof Modal> = ({ children, ...args }) => {
     <>
       <Button onClick={handleOpen}>Open portal modal window</Button>
       <Modal {...args} open={open} onClose={handleClose} portal={portal}>
+        <CloseButton onClick={handleClose} />
         {children}
       </Modal>
       <div
@@ -71,6 +74,7 @@ const TemplateNoPortalWithModalElements: StoryFn<typeof Modal> = ({ ...args }) =
     <>
       <Button onClick={handleOpen}>Open no portal modal window</Button>
       <Modal {...args} open={open} onClose={handleClose}>
+        <CloseButton onClick={handleClose} />
         <ModalBody>
           <StyledImage>{ModalImage}</StyledImage>
           <StyledTitle variant="h3">Window</StyledTitle>
@@ -134,7 +138,6 @@ export const NoPortalModalWindow: StoryFn<typeof Modal> = Template.bind({});
 NoPortalModalWindow.args = {
   children:
     'This information could be helpful for streamlining the rest of the process, preventing the user having to fill out a whole chunk of information relating to their mortgage, for example.',
-  closeBtn: true,
   portal: null,
 };
 
@@ -142,12 +145,10 @@ export const PortalModalWindow: StoryFn<typeof Modal> = TemplatePortal.bind({});
 PortalModalWindow.args = {
   children:
     'This information could be helpful for streamlining the rest of the process, preventing the user having to fill out a whole chunk of information relating to their mortgage, for example.',
-  closeBtn: true,
 };
 
 export const NoPortalModalWindowWithModalElements: StoryFn<typeof Modal> = TemplateNoPortalWithModalElements.bind({});
 NoPortalModalWindowWithModalElements.args = {
-  closeBtn: true,
   portal: null,
 };
 

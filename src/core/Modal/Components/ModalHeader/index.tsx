@@ -1,7 +1,7 @@
 import { CSSProperties, ReactNode } from 'react';
 
 import { StyledModalHeader } from './styles';
-import { CloseButton } from '../Modal';
+import { CloseButton } from '../CloseButton';
 
 export type ModalHeaderProps = {
   onClose: () => void;

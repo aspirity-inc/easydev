@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle<{theme?: DefaultTheme}>`
     background-color: ${({theme}) => theme.colors.background};
     color: ${({theme}) => (theme.type === 'light' ? theme.colors.text : theme.colors.surface['50'])};
     font-family: "Roboto Flex", sans-serif;
-		scrollbar-gutter: 'stable';
+		scrollbar-gutter: stable;
   }
 
   * {
