@@ -1,12 +1,27 @@
 import { css, styled } from 'styled-components';
 
-import { StatusColorType, ToastStatus } from '../types';
+import {
+  slideInRight,
+  slideOutRight,
+  slideInLeft,
+  slideOutLeft,
+  slideInUp,
+  slideOutUp,
+  slideInDown,
+  slideOutDown,
+  duration,
+} from './animation';
+
+import { StatusColorType, ToastPosition, ToastStatus } from '../types';
 
 type StyledToastProps = {
   $status?: ToastStatus;
   $statusBackground?: string;
   $colorful?: boolean;
   $hasDescription?: boolean | undefined;
+  $isDeleting: boolean;
+  $position: ToastPosition;
+  $isAdded: boolean;
 };
 
 type StyledMainContentProps = {
@@ -56,6 +71,7 @@ export const StyledToast = styled.div<StyledToastProps>`
   display: flex;
   width: 358px;
   padding: 14px 16px;
+  margin-bottom: 8px;
   ${({ $status, $statusBackground, $colorful }) =>
     $status && getBackgroundColor($status, $statusBackground, $colorful || false)}
   border-radius: 8px;
@@ -70,6 +86,101 @@ export const StyledToast = styled.div<StyledToastProps>`
         align-items: center;
       `
     );
+  }}
+
+  opacity: 1;
+  transition: max-height ${duration} ease-out, padding ${duration} ease-out, margin ${duration} ease-out,
+    opacity 0.2s ease-out;
+  // Animation for enter(add) toast
+  ${({ $isAdded, $position }) => {
+    let isAddedStyle, notAddedStyle;
+
+    switch ($position) {
+      case 'bottom-right':
+      case 'bottom-left':
+      case 'bottom-center':
+      case 'center-center': {
+        isAddedStyle = css`
+          max-height: 100px;
+        `;
+        notAddedStyle = css`
+          opacity: 0;
+          max-height: 0px;
+          padding: 0;
+          margin: 0;
+        `;
+        break;
+      }
+    }
+
+    return $isAdded ? isAddedStyle : notAddedStyle;
+  }}
+
+  // Animation for exit(delete) toast
+  ${({ $isDeleting }) =>
+    $isDeleting &&
+    css`
+      opacity: 0;
+      max-height: 0;
+      padding: 0;
+      margin: 0;
+    `}
+
+  // Shift right/left
+  ${({ $isDeleting, $position }) => {
+    let slideInStyle, slideOutStyle;
+
+    switch ($position) {
+      case 'top-right':
+      case 'bottom-right': {
+        slideInStyle = css`
+          animation: ${slideInRight} ${duration} ease-in-out forwards;
+        `;
+        slideOutStyle = css`
+          animation: ${slideOutRight} ${duration} ease-out forwards;
+        `;
+        break;
+      }
+      case 'top-left':
+      case 'bottom-left': {
+        slideInStyle = css`
+          animation: ${slideInLeft} ${duration} ease-in-out forwards;
+        `;
+        slideOutStyle = css`
+          animation: ${slideOutLeft} ${duration} ease-out forwards;
+        `;
+        break;
+      }
+      case 'top-center': {
+        slideInStyle = css`
+          animation: ${slideInUp} ${duration} ease-in-out forwards;
+        `;
+        slideOutStyle = css`
+          animation: ${slideOutUp} ${duration} ease-out forwards;
+        `;
+        break;
+      }
+      case 'center-center': {
+        slideInStyle = css`
+          animation: ${slideInDown} ${duration} ease-in-out forwards;
+        `;
+        slideOutStyle = css`
+          animation: ${slideOutUp} ${duration} ease-out forwards;
+        `;
+        break;
+      }
+      case 'bottom-center': {
+        slideInStyle = css`
+          animation: ${slideInDown} ${duration} ease-in-out forwards;
+        `;
+        slideOutStyle = css`
+          animation: ${slideOutDown} ${duration} ease-out forwards;
+        `;
+        break;
+      }
+    }
+
+    return $isDeleting ? slideOutStyle : slideInStyle;
   }}
 `;
 

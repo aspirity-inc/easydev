@@ -20,6 +20,7 @@ const Template: StoryFn<typeof ToastContainer> = ({ ...args }) => {
     description: 'Description text',
     colorful: false,
     autoClose: true,
+    position: 'top-right',
   };
 
   return (
