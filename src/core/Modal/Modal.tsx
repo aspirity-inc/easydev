@@ -31,7 +31,6 @@ export const Modal = ({ open, onClose, children, bgColor, closeBtn, portal = doc
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
-    document.body.style.scrollbarGutter = open ? 'stable' : '';
   }, [open]);
 
   return <>{portal ? createPortal(ModalWindow(), portal) : ModalWindow()}</>;

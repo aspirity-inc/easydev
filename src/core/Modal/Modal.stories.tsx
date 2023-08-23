@@ -10,11 +10,11 @@ import { StyledImage, StyledTitle, StyledText } from './ModalBody/styles';
 import { ModalFooter } from './ModalFooter';
 import { ModalHeader } from './ModalHeader';
 
-const metaBaseModal: Meta<typeof Modal> = {
+const metaModal: Meta<typeof Modal> = {
   title: 'Core/Modal/Modal',
   component: Modal,
 };
-export default metaBaseModal;
+export default metaModal;
 
 const Template: StoryFn<typeof Modal> = ({ children, ...args }) => {
   const [open, setOpen] = useState(false);
@@ -153,7 +153,6 @@ NoPortalModalWindowWithModalElements.args = {
 
 export const NoPortalModalWindowWithCustomBgColor: StoryFn<typeof Modal> = TemplateNoPortalWithCustomBgColor.bind({});
 NoPortalModalWindowWithCustomBgColor.args = {
-  closeBtn: false,
   portal: null,
   bgColor: 'lightblue',
 };
