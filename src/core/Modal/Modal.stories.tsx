@@ -4,11 +4,11 @@ import { Meta, StoryFn } from '@storybook/react';
 
 import { Button } from '@core/Button';
 
-import { CloseButton } from './Components/CloseButton';
-import { ModalBody } from './Components/ModalBody';
-import { StyledImage, StyledTitle, StyledText } from './Components/ModalBody/styles';
-import { ModalFooter } from './Components/ModalFooter';
-import { ModalHeader } from './Components/ModalHeader';
+import { CloseButton } from './components/CloseButton';
+import { ModalBody } from './components/ModalBody';
+import { StyledImage, StyledTitle, StyledText } from './components/ModalBody/styles';
+import { ModalFooter } from './components/ModalFooter';
+import { ModalHeader } from './components/ModalHeader';
 import { Modal } from './Modal';
 
 const metaModal: Meta<typeof Modal> = {

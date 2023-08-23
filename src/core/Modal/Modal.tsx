@@ -2,7 +2,7 @@ import { MouseEventHandler, useEffect, useRef } from 'react';
 
 import { createPortal } from 'react-dom';
 
-import { CloseButton } from './Components/CloseButton';
+import { CloseButton } from './components/CloseButton';
 import { ModalContent, ModalWrapper } from './styles';
 import { ModalProps } from './types';
 
