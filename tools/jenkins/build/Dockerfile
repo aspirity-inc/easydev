@@ -16,7 +16,7 @@ COPY ./@types ./@types
 COPY ./src ./src
 
 ENV NODE_ENV=production
-RUN --mount=type=cache,mode=0777,target=/client/node_modules/.cache npm run build-storybook
+RUN npm run build-storybook
 
 
 FROM nginx:1.21.6-alpine as production
