@@ -8,7 +8,7 @@ export type ModalProps = {
   open: boolean;
   onClose: () => void;
   bgColor?: CSSProperties['backgroundColor'];
-  portal: PortalElement;
+  portal?: PortalElement;
   children: ReactNode;
   className?: string;
   style?: CSSProperties;
