@@ -2,7 +2,7 @@
 title: Modal
 ---
 
-The Modal component provides a solid foundation for creating dialogs. Example:
+The Modal component provides a solid foundation for creating dialogs.
 The Modal has the next props: children, closeBtn, open, onClose, portal, className, style. [See there](/?path=/docs/core-modal-basemodal--docs) to get more information.
 
 [No Portal Modal Window](/?path=/story/core-modal-modal--no-portal-modal-window)
