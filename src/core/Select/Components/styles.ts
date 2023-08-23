@@ -67,7 +67,12 @@ export const Multivalue = styled('div')`
   &:hover {
     background-color: ${({ theme }) =>
       theme.type === 'light' ? theme.colors.tretiary['200'] : theme.colors.secondary['50']};
+    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['800'])};
     ${({ theme }) => theme.shadows.violet_light};
+
+    .icon {
+      color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['800'])};
+    }
   }
 
   .icon {
