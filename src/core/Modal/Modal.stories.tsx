@@ -80,14 +80,12 @@ const TemplateNoPortalWithModalElements: StoryFn<typeof Modal> = ({ ...args }) =
           </StyledText>
         </ModalBody>
         <ModalFooter>
-          <>
-            <Button size="sm" rounded="sm">
-              learn more
-            </Button>
-            <Button variant="secondary" size="sm" rounded="sm">
-              got it
-            </Button>
-          </>
+          <Button size="sm" rounded="sm">
+            learn more
+          </Button>
+          <Button variant="secondary" size="sm" rounded="sm">
+            got it
+          </Button>
         </ModalFooter>
       </Modal>
     </>
@@ -120,14 +118,12 @@ const TemplateNoPortalWithCustomBgColor: StoryFn<typeof Modal> = ({ ...args }) =
           </StyledText>
         </ModalBody>
         <ModalFooter>
-          <>
-            <Button size="sm" rounded="sm">
-              learn more
-            </Button>
-            <Button variant="secondary" size="sm" rounded="sm">
-              got it
-            </Button>
-          </>
+          <Button size="sm" rounded="sm">
+            learn more
+          </Button>
+          <Button variant="secondary" size="sm" rounded="sm">
+            got it
+          </Button>
         </ModalFooter>
       </Modal>
     </>

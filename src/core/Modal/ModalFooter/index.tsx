@@ -3,7 +3,7 @@ import { CSSProperties, ReactNode } from 'react';
 import { StyledModalFooter } from './styles';
 
 export type ModalFooterProps = {
-  children: ReactNode;
+  children: ReactNode | ReactNode[];
   className?: string;
   style?: CSSProperties;
 };
