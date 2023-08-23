@@ -13,7 +13,6 @@ import { ModalHeader } from './ModalHeader';
 const metaBaseModal: Meta<typeof Modal> = {
   title: 'Core/Modal/Modal',
   component: Modal,
-  argTypes: {},
 };
 export default metaBaseModal;
 
