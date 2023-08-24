@@ -6,8 +6,8 @@ export const StyledGrid = styled('div')<StyledGridProps>`
   display: flex;
   flex-direction: ${({ direction }) => direction || 'row'};
   flex-wrap: ${({ wrap }) => wrap || 'wrap'};
-  justify-content: ${({ justifycontent }) => justifycontent || 'flex-start'};
-  align-items: ${({ alignitems }) => alignitems || 'center'};
+  justify-content: ${({ justifyContent }) => justifyContent || 'flex-start'};
+  align-items: ${({ alignItems }) => alignItems || 'center'};
   row-gap: ${({ rowGap }) => rowGap && `${rowGap}px`};
   column-gap: ${({ columnGap }) => columnGap && `${columnGap}px`};
   box-sizing: border-box;

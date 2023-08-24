@@ -29,8 +29,8 @@ export type GridProps = {
   // vertical space between items
   rowSpacing?: number;
   wrap?: Wrap;
-  justifycontent?: JustifyContent;
-  alignitems?: AlignItems;
+  justifyContent?: JustifyContent;
+  alignItems?: AlignItems;
   rowGap?: number;
   columnGap?: number;
 };

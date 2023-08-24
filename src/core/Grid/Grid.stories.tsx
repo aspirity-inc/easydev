@@ -39,7 +39,7 @@ const Template: StoryFn<typeof Grid> = ({ ...args }) => {
 export const DefaultGrid: StoryFn<typeof Grid> = Template.bind({});
 
 DefaultGrid.args = {
-  alignitems: 'flex-end',
-  justifycontent: 'start',
+  alignItems: 'flex-end',
+  justifyContent: 'start',
   columns: 12,
 };
