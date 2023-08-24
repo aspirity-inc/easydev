@@ -14,7 +14,7 @@ export default metaGrid;
 const Template: StoryFn<typeof Grid> = ({ ...args }) => {
   return (
     <Grid {...args}>
-      <GridItem size={6}>
+      <GridItem size={4}>
         <ItemExample>example 1</ItemExample>
       </GridItem>
       <GridItem>
@@ -22,6 +22,15 @@ const Template: StoryFn<typeof Grid> = ({ ...args }) => {
       </GridItem>
       <GridItem>
         <ItemExample>example 3</ItemExample>
+      </GridItem>
+      <GridItem>
+        <ItemExample>example 4</ItemExample>
+      </GridItem>
+      <GridItem>
+        <ItemExample>example 5</ItemExample>
+      </GridItem>
+      <GridItem>
+        <ItemExample>example 6</ItemExample>
       </GridItem>
     </Grid>
   );
@@ -31,6 +40,6 @@ export const DefaultGrid: StoryFn<typeof Grid> = Template.bind({});
 
 DefaultGrid.args = {
   alignitems: 'flex-end',
-  justifycontent: 'space-between',
+  justifycontent: 'start',
   columns: 12,
 };

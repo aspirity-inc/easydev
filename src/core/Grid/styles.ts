@@ -10,6 +10,7 @@ export const StyledGrid = styled('div')<StyledGridProps>`
   align-items: ${({ alignitems }) => alignitems || 'center'};
   row-gap: ${({ rowGap }) => rowGap && `${rowGap}px`};
   column-gap: ${({ columnGap }) => columnGap && `${columnGap}px`};
+  box-sizing: border-box;
 
   ${({ columnSpacing, rowSpacing }) => css`
     .grid-item {

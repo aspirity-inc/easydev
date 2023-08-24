@@ -9,7 +9,7 @@ export const GridItem = ({ children, columns, size }: GridItemProps) => {
         flexGrow: 1,
         maxWidth: '100%',
       };
-    } else if (size === 'auto') {
+    } else if (size === 'auto' || !size) {
       return {
         flexBasis: 'auto',
         flexGrow: 0,
@@ -18,7 +18,7 @@ export const GridItem = ({ children, columns, size }: GridItemProps) => {
         width: 'auto',
       };
     } else {
-      const width = `${Math.round(((size || 1) / (columns || 12)) * 10e7) / 10e5}%`;
+      const width = `${Math.round(((size || 6) / (columns || 12)) * 10e7) / 10e5}%`;
       return {
         flexBasis: width,
         flexGrow: 0,
