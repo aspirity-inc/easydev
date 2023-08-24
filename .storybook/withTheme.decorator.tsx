@@ -1,13 +1,13 @@
 import { createGlobalStyle, DefaultTheme } from 'styled-components';
 import { THEMES } from '../src/core/Theme';
-import { ThemeProvider, } from "../src/core/Theme/ThemeContext";
-import { StoryContext, StoryFn } from "@storybook/react";
+import { ThemeProvider } from '../src/core/Theme/ThemeContext';
+import { StoryContext, StoryFn } from '@storybook/react';
 
 // Sets the background based on theme
-const GlobalStyles = createGlobalStyle<{theme?: DefaultTheme}>`
+const GlobalStyles = createGlobalStyle<{ theme?: DefaultTheme }>`
   html, body {
-    background-color: ${({theme}) => theme.colors.background};
-    color: ${({theme}) => (theme.type === 'light' ? theme.colors.text : theme.colors.surface['50'])};
+    background-color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.text : theme.colors.surface['50'])};
     font-family: "Roboto Flex", sans-serif;
 		scrollbar-gutter: stable;
   }
