@@ -23,20 +23,11 @@ export const Toast = ({
   ...props
 }: ToastProps) => {
   const [isDeleting, setIsDeleting] = useState(false);
-  const [isAdded, setIsAdded] = useState(false);
-
-  // Start animation for enter new toast
-  useEffect(() => {
-    const timeoutId = setTimeout(() => setIsAdded(true), 50);
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, []);
 
   // Start animation for exit(delete) new toast
   useEffect(() => {
     if (isDeleting) {
-      const timeoutId = setTimeout(() => onDelete(toastId), 500);
+      const timeoutId = setTimeout(() => onDelete(toastId), 400);
 
       return () => {
         clearTimeout(timeoutId);
@@ -62,7 +53,6 @@ export const Toast = ({
       $hasDescription={description ? true : false}
       $isDeleting={isDeleting}
       $position={position}
-      $isAdded={isAdded}
       {...props}
     >
       <ToastStatusIcon colorful={colorful} status={status} icon={icon} />

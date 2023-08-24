@@ -4,7 +4,7 @@ export const duration = '0.4s';
 
 export const slideInRight = keyframes`
   0% {
-    transform: translateX(110%);
+    transform: translateX(100%);
     visibility: visible;
   }
   100% {
@@ -14,7 +14,7 @@ export const slideInRight = keyframes`
 
 export const slideInLeft = keyframes`
   0% {
-    transform: translateX(-110%);
+    transform: translateX(-100%);
     visibility: visible;
   }
   100% {
@@ -24,7 +24,7 @@ export const slideInLeft = keyframes`
 
 export const slideInDown = keyframes`
   0% {
-    transform: translateY(110%);
+    transform: translateY(100%);
     visibility: visible;
   }
   100% {
@@ -34,7 +34,7 @@ export const slideInDown = keyframes`
 
 export const slideInUp = keyframes`
   0% {
-    transform: translateY(-110%);
+    transform: translateY(-100%);
     visibility: visible;
   }
   100% {
@@ -47,7 +47,7 @@ export const slideOutRight = keyframes`
     transform: translateX(0);
   }
   100% {
-    transform: translateX(110%);
+    transform: translateX(100%);
     visibility: hidden;
   }
 `;
@@ -57,7 +57,7 @@ export const slideOutLeft = keyframes`
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-110%);
+    transform: translateX(-100%);
     visibility: hidden;
   }
 `;
@@ -68,7 +68,7 @@ export const slideOutDown = keyframes`
    
   }
   100% {
-    transform: translateY(110%);
+    transform: translateY(100%);
     visibility: hidden;
   }
 `;
@@ -78,7 +78,7 @@ export const slideOutUp = keyframes`
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-110%);
+    transform: translateY(-100%);
     visibility: hidden;
   }
 `;

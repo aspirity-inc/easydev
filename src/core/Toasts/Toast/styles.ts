@@ -21,7 +21,6 @@ type StyledToastProps = {
   $hasDescription?: boolean | undefined;
   $isDeleting: boolean;
   $position: ToastPosition;
-  $isAdded: boolean;
 };
 
 type StyledMainContentProps = {
@@ -88,45 +87,7 @@ export const StyledToast = styled.div<StyledToastProps>`
     );
   }}
 
-  opacity: 1;
-  transition: max-height ${duration} ease-out, padding ${duration} ease-out, margin ${duration} ease-out,
-    opacity 0.2s ease-out;
-  // Animation for enter(add) toast
-  ${({ $isAdded, $position }) => {
-    let isAddedStyle, notAddedStyle;
-
-    switch ($position) {
-      case 'bottom-right':
-      case 'bottom-left':
-      case 'bottom-center':
-      case 'center-center': {
-        isAddedStyle = css`
-          max-height: 100px;
-        `;
-        notAddedStyle = css`
-          opacity: 0;
-          max-height: 0px;
-          padding: 0;
-          margin: 0;
-        `;
-        break;
-      }
-    }
-
-    return $isAdded ? isAddedStyle : notAddedStyle;
-  }}
-
-  // Animation for exit(delete) toast
-  ${({ $isDeleting }) =>
-    $isDeleting &&
-    css`
-      opacity: 0;
-      max-height: 0;
-      padding: 0;
-      margin: 0;
-    `}
-
-  // Shift right/left
+  // Animation for enter/exit toast
   ${({ $isDeleting, $position }) => {
     let slideInStyle, slideOutStyle;
 
