@@ -29,8 +29,10 @@ export type GridProps = {
   // vertical space between items
   rowSpacing?: number;
   wrap?: Wrap;
-  justifyContent?: JustifyContent;
-  alignItems?: AlignItems;
+  justifycontent?: JustifyContent;
+  alignitems?: AlignItems;
+  rowGap?: number;
+  columnGap?: number;
 };
 
 export type StyledGridProps = Omit<GridProps, 'children' | 'classname'>;

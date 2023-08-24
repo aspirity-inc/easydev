@@ -14,17 +14,23 @@ export default metaGrid;
 const Template: StoryFn<typeof Grid> = ({ ...args }) => {
   return (
     <Grid {...args}>
-      <GridItem>
-        <ItemExample>example</ItemExample>
+      <GridItem size={6}>
+        <ItemExample>example 1</ItemExample>
       </GridItem>
       <GridItem>
-        <ItemExample>example</ItemExample>
+        <ItemExample>example 2</ItemExample>
       </GridItem>
       <GridItem>
-        <ItemExample>example</ItemExample>
+        <ItemExample>example 3</ItemExample>
       </GridItem>
     </Grid>
   );
 };
 
-export const DefaultBreadcrumbs: StoryFn<typeof Grid> = Template.bind({});
+export const DefaultGrid: StoryFn<typeof Grid> = Template.bind({});
+
+DefaultGrid.args = {
+  alignitems: 'flex-end',
+  justifycontent: 'space-between',
+  columns: 12,
+};
