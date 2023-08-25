@@ -2,9 +2,7 @@ FROM node:18.17.0-alpine as build-stage
 
 WORKDIR /client
 
-
-COPY package.json ./
-COPY package-lock.json ./
+COPY package.json package-lock.json  ./
 
 RUN npm clean-install
 
