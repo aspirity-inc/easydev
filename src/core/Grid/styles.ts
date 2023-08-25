@@ -8,14 +8,14 @@ export const StyledRow = styled('div')<StyledRowProps>`
   flex-wrap: ${({ wrap }) => wrap || 'wrap'};
   justify-content: ${({ justify }) => justify || 'flex-start'};
   align-items: ${({ align }) => align || 'center'};
-  row-gap: ${({ rowGap }) => rowGap && `${rowGap}px`};
-  column-gap: ${({ columnGap }) => columnGap && `${columnGap}px`};
+  row-gap: ${({ $rowGap }) => $rowGap && `${$rowGap}px`};
+  column-gap: ${({ $columnGap }) => $columnGap && `${$columnGap}px`};
   box-sizing: border-box;
 
-  ${({ columnSpacing, rowSpacing }) => css`
+  ${({ $columnSpacing, $rowSpacing }) => css`
     .Row-item {
-      padding-top: ${rowSpacing || 0}px;
-      padding-left: ${columnSpacing || 0}px;
+      padding-top: ${$rowSpacing || 0}px;
+      padding-left: ${$columnSpacing || 0}px;
     }
   `};
 `;

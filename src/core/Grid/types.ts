@@ -19,4 +19,19 @@ export type RowProps = {
   columnGap?: number;
 };
 
-export type StyledRowProps = Omit<RowProps, 'children' | 'classname'>;
+export type StyledRowProps = {
+  style?: CSSProperties;
+  // flex-direction
+  direction?: CSSProperties['flexDirection'];
+  // The number of columns
+  columns?: number;
+  //horizontal space between items
+  $columnSpacing?: number;
+  // vertical space between items
+  $rowSpacing?: number;
+  wrap?: CSSProperties['flexWrap'];
+  justify?: CSSProperties['justifyContent'];
+  align?: CSSProperties['alignItems'];
+  $rowGap?: number;
+  $columnGap?: number;
+};

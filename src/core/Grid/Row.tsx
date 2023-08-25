@@ -4,7 +4,7 @@ import { StyledRow } from './styles';
 import { RowProps } from './types';
 
 export const Row = (props: RowProps) => {
-  const { children, className, columns, style, ...otherProps } = props;
+  const { children, className, columns, style, rowGap, columnGap, rowSpacing, columnSpacing, ...otherProps } = props;
 
   const childrenWithProps = Children.toArray(children).map((child) => {
     if (isValidElement(child) && (child as any)?.type?.name === 'Col') {
@@ -14,7 +14,15 @@ export const Row = (props: RowProps) => {
   });
 
   return (
-    <StyledRow className={className} style={style} {...otherProps}>
+    <StyledRow
+      className={className}
+      style={style}
+      $rowGap={rowGap}
+      $columnGap={columnGap}
+      $rowSpacing={rowSpacing}
+      $columnSpacing={columnSpacing}
+      {...otherProps}
+    >
       {childrenWithProps}
     </StyledRow>
   );
