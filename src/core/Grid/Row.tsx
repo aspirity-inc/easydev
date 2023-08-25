@@ -7,7 +7,7 @@ export const Row = (props: RowProps) => {
   const { children, className, columns, style, ...otherProps } = props;
 
   const childrenWithProps = Children.toArray(children).map((child) => {
-    if (isValidElement(child) && (child as any)?.type?.displayName === 'Col') {
+    if (isValidElement(child) && (child as any)?.type?.name === 'Col') {
       return cloneElement(child, { ...child.props, columns: columns });
     }
     return child;

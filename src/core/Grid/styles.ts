@@ -6,8 +6,8 @@ export const StyledRow = styled('div')<StyledRowProps>`
   display: flex;
   flex-direction: ${({ direction }) => direction || 'row'};
   flex-wrap: ${({ wrap }) => wrap || 'wrap'};
-  justify-content: ${({ justifyContent }) => justifyContent || 'flex-start'};
-  align-items: ${({ alignItems }) => alignItems || 'center'};
+  justify-content: ${({ justify }) => justify || 'flex-start'};
+  align-items: ${({ align }) => align || 'center'};
   row-gap: ${({ rowGap }) => rowGap && `${rowGap}px`};
   column-gap: ${({ columnGap }) => columnGap && `${columnGap}px`};
   box-sizing: border-box;
