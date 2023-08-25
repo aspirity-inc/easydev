@@ -7,6 +7,7 @@ module.exports = {
     name: "@storybook/react-vite",
     options: {}
   },
+  publicDir: '../public',
   docs: {
     autodocs: true
   },
