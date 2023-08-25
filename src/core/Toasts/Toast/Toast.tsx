@@ -36,7 +36,7 @@ export const Toast = ({
   // Start animation for exit(delete) new toast
   useEffect(() => {
     if (isDeleting) {
-      const timeoutId = setTimeout(() => onDelete(toastId), 800);
+      const timeoutId = setTimeout(() => onDelete(toastId), 500);
 
       return () => {
         clearTimeout(timeoutId);

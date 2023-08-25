@@ -1,6 +1,6 @@
 import { keyframes } from 'styled-components';
 
-export const duration = '0.4s';
+export const duration = '0.25s';
 
 export const slideInRight = keyframes`
   0% {
