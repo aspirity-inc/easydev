@@ -12,16 +12,15 @@ export const Col = (props: ColProps) => {
         basis: 'auto',
         grow: 0,
         shrink: 0,
-        maxWidth: 'none',
+        $maxWidth: 'none',
         width: 'auto',
       };
     } else {
-      console.log(columns);
       const width = `${Math.round((size / (columns || DEFAULT_NUMBER_OF_COLUMNS)) * 10e7) / 10e5}%`;
       return {
         basis: width,
         grow: 0,
-        maxWidth: width,
+        $maxWidth: width,
       };
     }
   };

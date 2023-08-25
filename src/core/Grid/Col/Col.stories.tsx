@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 
-import { Col, Row } from '.';
-import { ItemExample } from './styles';
+import { Col, Row } from '..';
+import { ItemExample } from '../styles';
 
 const metaCol: Meta<typeof Col> = {
   title: '',
