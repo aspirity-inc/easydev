@@ -6,6 +6,14 @@ COPY package.json package-lock.json  ./
 
 RUN npm install
 
+COPY ./tsconfig.json ./tsconfig.json
+COPY ./tsconfig.node.json ./tsconfig.node.json
+COPY ./vite.config.ts ./vite.config.ts
+COPY ./.storybook ./.storybook
+COPY ./@types ./@types
+COPY ./src ./src
+COPY ./public ./public
+
 COPY tsconfig.json tsconfig.node.json vite.config.ts .storybook @types src public ./
 
 ENV NODE_ENV=production
