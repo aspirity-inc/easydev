@@ -1,19 +1,18 @@
 import { Meta, StoryFn } from '@storybook/react';
 
-import { Grid } from '.';
-import { Col } from './GridItem/GrdItem';
+import { Row, Col } from '.';
 import { ItemExample } from './styles';
 
-const metaGrid: Meta<typeof Grid> = {
+const metaRow: Meta<typeof Row> = {
   title: '',
-  component: Grid,
+  component: Row,
 };
 
-export default metaGrid;
+export default metaRow;
 
-const Template: StoryFn<typeof Grid> = ({ ...args }) => {
+const Template: StoryFn<typeof Row> = ({ ...args }) => {
   return (
-    <Grid {...args}>
+    <Row {...args}>
       <Col size={4}>
         <ItemExample>example 1</ItemExample>
       </Col>
@@ -32,13 +31,13 @@ const Template: StoryFn<typeof Grid> = ({ ...args }) => {
       <Col>
         <ItemExample>example 6</ItemExample>
       </Col>
-    </Grid>
+    </Row>
   );
 };
 
-export const DefaultGrid: StoryFn<typeof Grid> = Template.bind({});
+export const DefaultRow: StoryFn<typeof Row> = Template.bind({});
 
-DefaultGrid.args = {
+DefaultRow.args = {
   alignItems: 'flex-end',
   justifyContent: 'start',
   columns: 12,
