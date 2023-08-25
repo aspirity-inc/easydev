@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Text, Subtitle } from '@core/Typography';
 
-import { StyledMainContent, StyledToast } from './styles';
+import { StyledMainContent, StyledToast, StyledAnimationWrapper } from './styles';
 import { CloseButton } from '../CloseButton';
 import { ToastStatusIcon } from '../StatusIcons';
 import { ToastProps } from '../types';
@@ -55,24 +55,23 @@ export const Toast = ({
   }, [autoClose, autoCloseDelay, onDelete, toastId]);
 
   return (
-    <StyledToast
-      $colorful={colorful}
-      $statusBackground={statusBackground}
-      $status={status}
-      $hasDescription={description ? true : false}
-      $isDeleting={isDeleting}
-      $position={position}
-      $isAdded={isAdded}
-      {...props}
-    >
-      <ToastStatusIcon colorful={colorful} status={status} icon={icon} />
+    <StyledAnimationWrapper $isDeleting={isDeleting} $position={position} $isAdded={isAdded}>
+      <StyledToast
+        $colorful={colorful}
+        $statusBackground={statusBackground}
+        $status={status}
+        $hasDescription={description ? true : false}
+        {...props}
+      >
+        <ToastStatusIcon colorful={colorful} status={status} icon={icon} />
 
-      <StyledMainContent $colorful={colorful}>
-        <Subtitle level={4}>{title}</Subtitle>
-        {description && <Text variant="body2">{description}</Text>}
-      </StyledMainContent>
+        <StyledMainContent $colorful={colorful}>
+          <Subtitle level={4}>{title}</Subtitle>
+          {description && <Text variant="body2">{description}</Text>}
+        </StyledMainContent>
 
-      <CloseButton icon={closeBtn} colorful={colorful} onClick={() => setIsDeleting(true)} />
-    </StyledToast>
+        <CloseButton icon={closeBtn} colorful={colorful} onClick={() => setIsDeleting(true)} />
+      </StyledToast>
+    </StyledAnimationWrapper>
   );
 };

@@ -19,6 +19,9 @@ type StyledToastProps = {
   $statusBackground?: string;
   $colorful?: boolean;
   $hasDescription?: boolean | undefined;
+};
+
+type StyledAnimationProps = {
   $isDeleting: boolean;
   $position: ToastPosition;
   $isAdded: boolean;
@@ -67,65 +70,20 @@ const backgroundColors: StatusColorType = {
   },
 };
 
-export const StyledToast = styled.div<StyledToastProps>`
-  display: flex;
-  width: 358px;
-  padding: 14px 16px;
-  margin-bottom: 8px;
-  ${({ $status, $statusBackground, $colorful }) =>
-    $status && getBackgroundColor($status, $statusBackground, $colorful || false)}
-  border-radius: 8px;
-  ${({ theme }) => theme.shadows.gray};
-  pointer-events: auto;
-
-  ${({ $hasDescription }) => {
-    return (
-      !$hasDescription &&
-      css`
-        padding: 10px 16px;
-        align-items: center;
-      `
-    );
-  }}
-
-  max-height: 74px;
+export const StyledAnimationWrapper = styled.div<StyledAnimationProps>`
+  max-height: 500px;
   opacity: 1;
-  transition: max-height ${duration} ease-out, padding ${duration} ease-out, margin ${duration} ease-out,
-    opacity 0.2s ease-out;
+  transition: max-height ${duration} cubic-bezier(0, 0.91, 1, 1), opacity 0.2s ease-out;
 
-  // Animation for smoothly resize the toast list when the toast is added
-  ${({ $isAdded, $position }) => {
-    switch ($position) {
-      case 'bottom-right':
-      case 'bottom-left':
-      case 'bottom-center':
-      case 'center-center': {
-        return (
-          !$isAdded &&
-          css`
-            opacity: 0;
-            max-height: 0px;
-            padding: 0;
-            margin: 0;
-          `
-        );
-      }
-    }
-  }}
-
-  // Animation for smoothly resize the toast list 
-  // when removing toast from the middle of the list
-  ${({ $isDeleting }) =>
-    $isDeleting &&
+  // Animation for smoothly resize the toast list when the toast is added or deleted
+  ${({ $isAdded, $isDeleting }) =>
+    (!$isAdded || $isDeleting) &&
     css`
-      transition-delay: ${duration};
       opacity: 0;
-      max-height: 0;
-      padding: 0;
-      margin: 0;
-    `} 
-    
-    // Animation for enter/exit toast
+      max-height: 0px;
+    `}
+
+  // Animation for enter/exit toast
   ${({ $isDeleting, $position }) => {
     let slideInStyle, slideOutStyle;
 
@@ -180,6 +138,28 @@ export const StyledToast = styled.div<StyledToastProps>`
     }
 
     return $isDeleting ? slideOutStyle : slideInStyle;
+  }}
+`;
+
+export const StyledToast = styled.div<StyledToastProps>`
+  display: flex;
+  width: 358px;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  ${({ $status, $statusBackground, $colorful }) =>
+    $status && getBackgroundColor($status, $statusBackground, $colorful || false)}
+  border-radius: 8px;
+  ${({ theme }) => theme.shadows.gray};
+  pointer-events: auto;
+
+  ${({ $hasDescription }) => {
+    return (
+      !$hasDescription &&
+      css`
+        padding: 10px 16px;
+        align-items: center;
+      `
+    );
   }}
 `;
 
