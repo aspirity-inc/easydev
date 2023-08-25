@@ -4,7 +4,7 @@ WORKDIR /client
 
 COPY package.json package-lock.json  ./
 
-RUN npm clean-install
+RUN npm install
 
 COPY ./tsconfig.json ./tsconfig.json
 COPY ./tsconfig.node.json ./tsconfig.node.json
