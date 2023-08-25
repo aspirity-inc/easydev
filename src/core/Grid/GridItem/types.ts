@@ -1,13 +1,13 @@
 import { ReactNode } from 'react';
 
-export type GridItemProps = {
+export type ColProps = {
   children: ReactNode;
   // the number of columns that item occupies
   size?: number | 'auto' | boolean;
   columns?: number;
 };
 
-export type GridItemSizeProps = {
+export type ColSizeProps = {
   flexBasis?: string | number;
   flexGrow?: number;
   flexShrink?: number;
@@ -15,4 +15,4 @@ export type GridItemSizeProps = {
   width?: string | number;
 };
 
-export type StyledGridItemProps = Omit<GridItemProps, 'children'> & GridItemSizeProps;
+export type StyledColProps = Omit<ColProps, 'children'> & ColSizeProps;

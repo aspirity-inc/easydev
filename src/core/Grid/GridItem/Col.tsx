@@ -1,7 +1,7 @@
-import { StyledGridItem } from './styles';
-import { GridItemProps } from './types';
+import { StyledCol } from './styles';
+import { ColProps } from './types';
 
-export const GridItem = ({ children, columns, size }: GridItemProps) => {
+export const Col = ({ children, columns, size }: ColProps) => {
   const calculateStyle = () => {
     if (size === true) {
       return {
@@ -28,8 +28,8 @@ export const GridItem = ({ children, columns, size }: GridItemProps) => {
   };
 
   return (
-    <StyledGridItem className="grid-item" {...calculateStyle()}>
+    <StyledCol className="grid-item" {...calculateStyle()}>
       {children}
-    </StyledGridItem>
+    </StyledCol>
   );
 };

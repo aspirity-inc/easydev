@@ -16,7 +16,7 @@ type JustifyContent =
 
 type AlignItems = 'stretch' | 'flex-start' | 'flex-end' | 'center' | 'baseline';
 
-export type GridProps = {
+export type RowProps = {
   children: ReactNode;
   className?: string;
   style?: CSSProperties;
@@ -35,4 +35,4 @@ export type GridProps = {
   columnGap?: number;
 };
 
-export type StyledGridProps = Omit<GridProps, 'children' | 'classname'>;
+export type StyledRowProps = Omit<RowProps, 'children' | 'classname'>;

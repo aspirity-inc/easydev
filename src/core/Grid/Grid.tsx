@@ -1,21 +1,21 @@
 import { Children, cloneElement, isValidElement } from 'react';
 
-import { StyledGrid } from './styles';
-import { GridProps } from './types';
+import { StyledRow } from './styles';
+import { RowProps } from './types';
 
-export const Grid = (props: GridProps) => {
+export const Row = (props: RowProps) => {
   const { children, className, columns, style, ...otherProps } = props;
 
   const childrenWithProps = Children.toArray(children).map((child) => {
-    if (isValidElement(child) && (child as any)?.type?.displayName === 'GridItem') {
+    if (isValidElement(child) && (child as any)?.type?.displayName === 'Col') {
       return cloneElement(child, { ...child.props, columns: columns });
     }
     return child;
   });
 
   return (
-    <StyledGrid className={className} style={style} {...otherProps}>
+    <StyledRow className={className} style={style} {...otherProps}>
       {childrenWithProps}
-    </StyledGrid>
+    </StyledRow>
   );
 };

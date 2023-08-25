@@ -14,5 +14,5 @@ export { Select } from '@core/Select';
 export * from '@core/Modal';
 export { Toast } from '@core/Toasts';
 export { Datepicker } from '@core/Datepicker';
-export { Grid } from '@core/Grid';
+export * from '@core/Grid';
 export { ThemeProvider, ThemeContext, THEMES } from '@core/Theme';

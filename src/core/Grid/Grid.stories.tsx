@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Grid } from '.';
-import { GridItem } from './GridItem/GrdItem';
+import { Col } from './GridItem/GrdItem';
 import { ItemExample } from './styles';
 
 const metaGrid: Meta<typeof Grid> = {
@@ -14,24 +14,24 @@ export default metaGrid;
 const Template: StoryFn<typeof Grid> = ({ ...args }) => {
   return (
     <Grid {...args}>
-      <GridItem size={4}>
+      <Col size={4}>
         <ItemExample>example 1</ItemExample>
-      </GridItem>
-      <GridItem>
+      </Col>
+      <Col>
         <ItemExample>example 2</ItemExample>
-      </GridItem>
-      <GridItem>
+      </Col>
+      <Col>
         <ItemExample>example 3</ItemExample>
-      </GridItem>
-      <GridItem>
+      </Col>
+      <Col>
         <ItemExample>example 4</ItemExample>
-      </GridItem>
-      <GridItem>
+      </Col>
+      <Col>
         <ItemExample>example 5</ItemExample>
-      </GridItem>
-      <GridItem>
+      </Col>
+      <Col>
         <ItemExample>example 6</ItemExample>
-      </GridItem>
+      </Col>
     </Grid>
   );
 };

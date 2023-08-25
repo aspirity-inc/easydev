@@ -1,8 +1,8 @@
 import { css, styled } from 'styled-components';
 
-import { StyledGridProps } from './types';
+import { StyledRowProps } from './types';
 
-export const StyledGrid = styled('div')<StyledGridProps>`
+export const StyledRow = styled('div')<StyledRowProps>`
   display: flex;
   flex-direction: ${({ direction }) => direction || 'row'};
   flex-wrap: ${({ wrap }) => wrap || 'wrap'};
@@ -13,7 +13,7 @@ export const StyledGrid = styled('div')<StyledGridProps>`
   box-sizing: border-box;
 
   ${({ columnSpacing, rowSpacing }) => css`
-    .grid-item {
+    .Row-item {
       padding-top: ${rowSpacing || 0}px;
       padding-left: ${columnSpacing || 0}px;
     }

@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
-import { StyledGridItemProps } from './types';
+import { StyledColProps } from './types';
 
-export const StyledGridItem = styled('div')<StyledGridItemProps>`
+export const StyledCol = styled('div')<StyledColProps>`
   width: ${({ width }) => width};
   max-width: ${({ maxWidth }) => maxWidth};
   flex-basis: ${({ flexBasis }) => flexBasis};
