@@ -12,7 +12,6 @@ export const StyledContainer = styled.div<StyledToastProps>`
   padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
   pointer-events: none;
 
   ${({ $position }) => {

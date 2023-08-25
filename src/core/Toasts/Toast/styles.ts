@@ -1,12 +1,30 @@
 import { css, styled } from 'styled-components';
 
-import { StatusColorType, ToastStatus } from '../types';
+import {
+  slideInRight,
+  slideOutRight,
+  slideInLeft,
+  slideOutLeft,
+  slideInUp,
+  slideOutUp,
+  slideInDown,
+  slideOutDown,
+  duration,
+} from './animation';
+
+import { StatusColorType, ToastPosition, ToastStatus } from '../types';
 
 type StyledToastProps = {
   $status?: ToastStatus;
   $statusBackground?: string;
   $colorful?: boolean;
   $hasDescription?: boolean | undefined;
+};
+
+type StyledAnimationProps = {
+  $isDeleting: boolean;
+  $position: ToastPosition;
+  $isAdded: boolean;
 };
 
 type StyledMainContentProps = {
@@ -52,10 +70,82 @@ const backgroundColors: StatusColorType = {
   },
 };
 
+export const StyledAnimationWrapper = styled.div<StyledAnimationProps>`
+  max-height: 500px;
+  opacity: 1;
+  transition: max-height ${duration} cubic-bezier(0, 0.91, 1, 1), opacity 0.2s ease-out;
+
+  // Animation for smoothly resize the toast list when the toast is added or deleted
+  ${({ $isAdded, $isDeleting }) =>
+    (!$isAdded || $isDeleting) &&
+    css`
+      opacity: 0;
+      max-height: 0px;
+    `}
+
+  // Animation for enter/exit toast
+  ${({ $isDeleting, $position }) => {
+    let slideInStyle, slideOutStyle;
+
+    switch ($position) {
+      case 'top-right':
+      case 'bottom-right': {
+        slideInStyle = css`
+          animation: ${slideInRight} ${duration} ease-in-out forwards;
+        `;
+        slideOutStyle = css`
+          animation: ${slideOutRight} ${duration} ease-out forwards;
+        `;
+        break;
+      }
+      case 'top-left':
+      case 'bottom-left': {
+        slideInStyle = css`
+          animation: ${slideInLeft} ${duration} ease-in-out forwards;
+        `;
+        slideOutStyle = css`
+          animation: ${slideOutLeft} ${duration} ease-out forwards;
+        `;
+        break;
+      }
+      case 'top-center': {
+        slideInStyle = css`
+          animation: ${slideInUp} ${duration} ease-in-out forwards;
+        `;
+        slideOutStyle = css`
+          animation: ${slideOutUp} ${duration} ease-out forwards;
+        `;
+        break;
+      }
+      case 'center-center': {
+        slideInStyle = css`
+          animation: ${slideInDown} ${duration} ease-in-out forwards;
+        `;
+        slideOutStyle = css`
+          animation: ${slideOutUp} ${duration} ease-out forwards;
+        `;
+        break;
+      }
+      case 'bottom-center': {
+        slideInStyle = css`
+          animation: ${slideInDown} ${duration} ease-in-out forwards;
+        `;
+        slideOutStyle = css`
+          animation: ${slideOutDown} ${duration} ease-out forwards;
+        `;
+        break;
+      }
+    }
+
+    return $isDeleting ? slideOutStyle : slideInStyle;
+  }}
+`;
+
 export const StyledToast = styled.div<StyledToastProps>`
   display: flex;
   width: 358px;
   padding: 14px 16px;
+  margin-bottom: 8px;
   ${({ $status, $statusBackground, $colorful }) =>
     $status && getBackgroundColor($status, $statusBackground, $colorful || false)}
   border-radius: 8px;
