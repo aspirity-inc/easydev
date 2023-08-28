@@ -11,6 +11,7 @@ export default defineConfig({
         discord: 'https://discord.com/invite/8aJkBc8gFN',
       },
       customCss: ['./src/styles/custom.css'],
+      favicon: '/favicon.ico',
     }),
   ],
   base: '/docs',

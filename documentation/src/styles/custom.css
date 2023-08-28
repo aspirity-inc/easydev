@@ -20,21 +20,58 @@ h2 a {
   --sl-color-text-accent: #244153;
 }
 
-.palette{
+.aspirity-logo {
+  background-image: url('src/assets/aspirity-logo-dark.svg');
+  display: block;
+  height: 100px;
+  width: 130px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-inline: auto;
+}
+
+:root[data-theme='light'] .aspirity-logo {
+  background-image: url('src/assets/aspirity-logo.svg');
+}
+
+.palette {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-evenly;
   gap: 40px;
 }
 
+.about {
+  display: flex;
+  flex-direction: column;
+  max-width: 40rem;
+  gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+  margin-inline: auto;
+  margin-top: 3rem;
+}
+
+.content .about {
+  margin-top: 3rem;
+}
+
+.about small {
+  color: var(--sl-color-gray-3);
+}
+.about img {
+  max-width: 30%;
+  margin-inline: auto;
+}
+
 @media screen and (max-width: 768px) {
-  .palette{
+  .palette {
     grid-template-columns: 1fr;
     justify-items: center;
     gap: 20px;
   }
 }
 
-.content .palette p{
+.content .palette p {
   margin: 0;
 }
