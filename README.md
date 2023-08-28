@@ -4,7 +4,7 @@ EasyDev is a library of React UI components based on styled-components made by t
 
 # Installation
 
-```npm install easydev```
+```npm i @aspirity/easydev```
 
 # Usage 
 You can find more information about easydev in the  [documentation](https://easydev-library.qa.aspirity.com/docs/)
