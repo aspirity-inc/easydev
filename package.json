@@ -1,5 +1,5 @@
 {
-  "name": "easydev",
+  "name": "@aspirity/easydev",
   "description": "Library of React UI components based on styled-components made by the Aspirity team.",
   "keywords": [
     "react",
@@ -11,7 +11,7 @@
     "styled-components",
     "styling"
   ],
-  "private": true,
+  "private": false,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
