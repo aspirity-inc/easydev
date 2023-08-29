@@ -18,7 +18,7 @@ export const Toast = ({
   autoCloseDelay = 5000,
   statusBackground,
   closeBtn,
-  position,
+  position = 'bottom-center',
   onDelete,
   ...props
 }: ToastProps) => {

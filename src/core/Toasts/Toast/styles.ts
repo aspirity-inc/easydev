@@ -11,7 +11,6 @@ import {
   slideOutDown,
   duration,
 } from './animation';
-
 import { StatusColorType, ToastPosition, ToastStatus } from '../types';
 
 type StyledToastProps = {
