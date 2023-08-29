@@ -34,6 +34,7 @@ export const ListOfColorfulToasts = ({ ...args }) => {
         status="info"
         colorful={true}
         autoClose={false}
+        position="top-right"
       />
       <Toast
         {...toastArgs}
@@ -42,6 +43,7 @@ export const ListOfColorfulToasts = ({ ...args }) => {
         status="success"
         colorful={true}
         autoClose={false}
+        position="bottom-left"
       />
       <Toast
         {...toastArgs}
@@ -50,6 +52,7 @@ export const ListOfColorfulToasts = ({ ...args }) => {
         status="warning"
         colorful={true}
         autoClose={false}
+        position="bottom-center"
       />
       <Toast
         {...toastArgs}
@@ -58,6 +61,7 @@ export const ListOfColorfulToasts = ({ ...args }) => {
         status="error"
         colorful={true}
         autoClose={false}
+        position="center-center"
       />
     </Space>
   );

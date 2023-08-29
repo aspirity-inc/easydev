@@ -7,13 +7,13 @@ title: Installation
 Run one of the following commands to add EasyDev to your project:
 
 ```bash
-npm install easydev
+npm i @aspirity/easydev
 ```
 
 or
 
 ```bash
-yarn add easydev
+yarn add @aspirity/easydev
 ```
 
 ## With styled-components
@@ -23,11 +23,11 @@ This library is centered around styled-components, so it's necessary to install 
 Run one of the following commands to add EasyDev to your project:
 
 ```bash
-npm install easydev styled-components
+npm i @aspirity/easydev styled-components
 ```
 
 or
 
 ```bash
-yarn add easydev styled-components
+yarn add @aspirity/easydev styled-components
 ```
