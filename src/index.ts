@@ -14,4 +14,4 @@ export { Select } from '@core/Select';
 export * from '@core/Modal';
 export { Toast } from '@core/Toasts';
 export { Datepicker } from '@core/Datepicker';
-export { ThemeProvider, ThemeContext, THEMES } from '@core/Theme';
+export { EasydevProvider, ThemeContext, THEMES } from '@core/Theme';

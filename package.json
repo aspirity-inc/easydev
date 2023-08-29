@@ -91,7 +91,12 @@
   "exports": {
     ".": {
       "import": "./dist/easydev.es.js",
-      "require": "./dist/easydev.umd.js"
+      "require": "./dist/easydev.umd.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     }
   }
 }
