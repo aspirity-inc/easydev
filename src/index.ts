@@ -15,3 +15,4 @@ export * from '@core/Modal';
 export { Toast } from '@core/Toasts';
 export { Datepicker } from '@core/Datepicker';
 export { ThemeProvider, ThemeContext, THEMES } from '@core/Theme';
+export { Center } from '@core/Center';
