@@ -1,5 +1,5 @@
 {
-  "name": "easydev",
+  "name": "@aspirity/easydev",
   "description": "Library of React UI components based on styled-components made by the Aspirity team.",
   "keywords": [
     "react",
@@ -11,14 +11,13 @@
     "styled-components",
     "styling"
   ],
-  "private": true,
-  "version": "0.0.1",
+  "private": false,
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies",
     "dev": "storybook dev",
     "build-storybook": "storybook build",
     "prettier-check": "prettier --check ./src",
