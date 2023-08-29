@@ -1,5 +1,16 @@
 {
   "name": "easydev",
+  "description": "Library of React UI components based on styled-components made by the Aspirity team.",
+  "keywords": [
+    "react",
+    "components",
+    "easydev",
+    "aspirity",
+    "react-component",
+    "css-in-js",
+    "styled-components",
+    "styling"
+  ],
   "private": true,
   "version": "0.0.1",
   "type": "module",
