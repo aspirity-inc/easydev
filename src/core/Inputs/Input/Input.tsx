@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 
 import { InputIcon } from './InputIcon';
 import {
@@ -12,42 +12,46 @@ import {
 import { StyledLabelText } from '../styles';
 import { InputProps } from '../types';
 
-export const Input = ({
-  type = 'text',
-  label,
-  value,
-  error,
-  warning,
-  message,
-  isLoading,
-  icons,
-  disabled,
-  placeholder = ' ',
-  renderExtraMessage,
-  ...props
-}: InputProps) => {
-  const [isHidePassword, setIsHidePassword] = useState(true);
-  const onToggle = () => {
-    setIsHidePassword((prev) => !prev);
-  };
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+  (
+    {
+      type = 'text',
+      label,
+      value,
+      error,
+      warning,
+      message,
+      isLoading,
+      icons,
+      disabled,
+      placeholder = ' ',
+      renderExtraMessage,
+      ...props
+    },
+    ref
+  ) => {
+    const [isHidePassword, setIsHidePassword] = useState(true);
+    const onToggle = () => {
+      setIsHidePassword((prev) => !prev);
+    };
 
-  const getInputStatus = () => {
-    if (error) {
-      return 'error';
-    } else if (warning) {
-      return 'warning';
-    } else if (isLoading) {
-      return 'loading';
-    }
-  };
+    const getInputStatus = () => {
+      if (error) {
+        return 'error';
+      } else if (warning) {
+        return 'warning';
+      } else if (isLoading) {
+        return 'loading';
+      }
+    };
 
-  const getInputMessage = () => error || warning || message;
+    const getInputMessage = () => error || warning || message;
 
-  const getInputType = () => {
-    if (type === 'password') return isHidePassword ? 'password' : 'text';
+    const getInputType = () => {
+      if (type === 'password') return isHidePassword ? 'password' : 'text';
 
-    return type;
-  };
+      return type;
+    };
 
   // TODO: remove prop "$filled" and do it on css
   return (

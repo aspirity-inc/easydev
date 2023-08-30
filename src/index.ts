@@ -1,6 +1,6 @@
 export { Title, Subtitle, Text } from '@core/Typography';
 export * from '@core/Button';
-export { Input, Textarea, MaskedInput } from '@core/Inputs';
+export * from '@core/Inputs';
 export { Radio, Toggle, Checkbox } from '@core/Controls';
 export * from '@core/Space';
 export * from '@core/Link';
