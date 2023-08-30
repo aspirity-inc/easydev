@@ -3,7 +3,7 @@ import { styled, css } from 'styled-components';
 import { Text } from '@core/Typography';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
-import { StyledLabelText, getBackgroundColor, getDefaultBorder, getInputTransition } from '../styles';
+import { StyledLabelText, getDefaultBorder, getInputTransition } from '../styles';
 import { InputsBaseProps, TextareaProps } from '../types';
 
 export const StyledTextareaWrapper = styled('div')<{ $disabled: boolean }>`
@@ -60,10 +60,11 @@ export const StyledTextareaLabel = styled('label')<InputsBaseProps>`
   display: block;
   padding: 32px 16px 16px;
 
-  border: 1px solid transparent;
+  border: 1px solid ${({ theme }) => theme.colors.surface['400']};
   border-radius: 8px;
   ${({ $filled }) => getDefaultBorder($filled)};
-  ${({ $filled }) => getBackgroundColor($filled)};
+  background-color: ${({ theme }) =>
+    theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
   ${({ theme }) => getInputTransition(theme.transition.default)};
 
   // States
@@ -89,16 +90,12 @@ export const StyledTextareaLabel = styled('label')<InputsBaseProps>`
   }
 
   &:has(${StyledTextarea}:hover:not([disabled])) {
-    background-color: ${({ theme }) =>
-      theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
     border-color: ${({ theme }) =>
       theme.type === 'light' ? theme.colors.secondary['300'] : theme.colors.secondary['100']};
     ${({ theme }) => theme.shadows.blue};
   }
 
   &:has(${StyledTextarea}:focus-visible:not([disabled])) {
-    background-color: ${({ theme }) =>
-      theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
     ${({ theme }) => theme.shadows.blue};
   }
 
@@ -121,17 +118,10 @@ const getDisabledStateTextareaWrapper = ($filled: boolean) => {
   return $filled
     ? css`
         &:has(${StyledTextarea}:disabled) {
-          background-color: ${({ theme }) =>
-            theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
-          border-color: ${({ theme }) =>
-            theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['400']};
+          border-color: ${({ theme }) => theme.colors.surface['400']};
         }
       `
-    : css`
-        &:has(${StyledTextarea}:disabled) {
-          ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['200'] : theme.colors.surface['800'])};
-        }
-      `;
+    : css``;
 };
 
 const getDisabledStateTextareaText = ($filled: boolean) => {

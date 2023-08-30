@@ -15,3 +15,5 @@ export * from '@core/Modal';
 export { Toast } from '@core/Toasts';
 export { Datepicker } from '@core/Datepicker';
 export { EasydevProvider, ThemeContext, THEMES } from '@core/Theme';
+export * from '@core/Grid';
+export { Center } from '@core/Center';

@@ -16,9 +16,13 @@ export const ToggleWrapper = styled('button')<{ disabled: boolean }>`
     disabled &&
     css`
       cursor: default;
+
+      ${StyledIcon} {
+        color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['400'])};
+      }
     `}
 `;
 
 export const StyledIcon = styled('div')`
-  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['400'])};
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.secondary['100'])};
 `;
