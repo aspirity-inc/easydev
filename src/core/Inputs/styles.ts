@@ -15,9 +15,11 @@ export const getBaseInputStyles = ($filled: boolean) => {
     ${getTextVariants('body2')};
     font-family: inherit;
 
-    border: 1px solid transparent;
+    border: 1px solid ${({ theme }) => theme.colors.surface['400']};
     border-radius: 8px;
-    ${getBackgroundColor($filled)};
+    background-color: ${({ theme }) =>
+      theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
+
     ${({ theme }) => getInputTransition(theme.transition.default)};
 
     &:placeholder-shown::placeholder {
@@ -29,10 +31,7 @@ export const getBaseInputStyles = ($filled: boolean) => {
       opacity: 1;
     }
 
-    // States
     &:hover:not([disabled]) {
-      background-color: ${({ theme }) =>
-        theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
       border-color: ${({ theme }) =>
         theme.type === 'light' ? theme.colors.secondary['300'] : theme.colors.secondary['100']};
       ${({ theme }) => theme.shadows.blue};
@@ -40,8 +39,6 @@ export const getBaseInputStyles = ($filled: boolean) => {
 
     &:focus-visible:not([disabled]) {
       outline: 0;
-      background-color: ${({ theme }) =>
-        theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
       ${({ theme }) => theme.shadows.blue};
     }
 
@@ -89,40 +86,22 @@ export const getDefaultBorder = (filled: boolean) => {
   return filled
     ? css`
         border-color: ${({ theme }) =>
-          theme.type === 'light' ? theme.colors.secondary['400'] : theme.colors.secondary['300']};
+          theme.type === 'light' ? theme.colors.secondary['400'] : theme.colors.secondary['100']};
       `
     : css``;
-};
-
-export const getBackgroundColor = ($filled: boolean) => {
-  return $filled
-    ? css`
-        background-color: ${({ theme }) =>
-          theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
-      `
-    : css`
-        background-color: ${({ theme }) =>
-          theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['800']};
-      `;
 };
 
 export const getDisabledState = ($filled: boolean) => {
   return $filled
     ? css`
         &:disabled {
-          background-color: ${({ theme }) =>
-            theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
-
           color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['400'])};
-          border-color: ${({ theme }) =>
-            theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['400']};
+          border-color: ${({ theme }) => theme.colors.surface['400']};
           cursor: default;
         }
       `
     : css`
         &:disabled {
-          background-color: ${({ theme }) =>
-            theme.type === 'light' ? theme.colors.surface['200'] : theme.colors.surface['800']};
           cursor: default;
         }
 

@@ -62,7 +62,7 @@ export const StyledMessageWrapper = styled('div')`
 `;
 
 export const StyledExtraMessage = styled(Text)`
-  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.surface['200'])};
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.link['400'] : theme.colors.link['500'])};
 `;
 
 export const StyledInputWrapper = styled('div')<{ $disabled: boolean; $isLoading: boolean }>`
