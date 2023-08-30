@@ -8,7 +8,7 @@ import type { ThemeContextType, ThemeProviderType } from './types.ts';
 
 export const ThemeContext = createContext<ThemeContextType>({});
 
-export const ThemeProvider = ({ children, theme }: ThemeProviderType) => {
+export const EasydevProvider = ({ children, theme }: ThemeProviderType) => {
   const type = theme?.type || 'light';
   const mergedTheme = theme ? merge(THEMES[type], theme) : THEMES[type];
 

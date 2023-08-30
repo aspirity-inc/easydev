@@ -12,7 +12,7 @@
     "styling"
   ],
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "build": "tsc && vite build",
@@ -91,7 +91,12 @@
   "exports": {
     ".": {
       "import": "./dist/easydev.es.js",
-      "require": "./dist/easydev.umd.js"
+      "require": "./dist/easydev.umd.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     }
   }
 }
