@@ -63,6 +63,7 @@ const getFilledStyle = ({ $active }: ChipProps) => {
       cursor: default;
       background-color: ${({ theme }) =>
         theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
+      color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['500'])};
     }
 
     ${$active &&
