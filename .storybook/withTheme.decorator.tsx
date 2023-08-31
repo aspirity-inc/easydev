@@ -1,6 +1,6 @@
 import { createGlobalStyle, DefaultTheme } from 'styled-components';
 import { THEMES } from '../src/core/Theme';
-import { ThemeProvider } from '../src/core/Theme/ThemeContext';
+import { EasydevProvider } from '../src/core/Theme/ThemeContext';
 import { StoryContext, StoryFn } from '@storybook/react';
 
 // Sets the background based on theme
@@ -22,9 +22,9 @@ export const withTheme = (Story: StoryFn, context: StoryContext) => {
   const theme = backgrounds?.value !== THEMES['dark'].colors.background ? THEMES['light'] : THEMES['dark'];
 
   return (
-    <ThemeProvider theme={theme}>
+    <EasydevProvider theme={theme}>
       <GlobalStyles />
       <Story />
-    </ThemeProvider>
+    </EasydevProvider>
   );
 };
