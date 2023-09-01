@@ -12,6 +12,33 @@ export default defineConfig({
       },
       customCss: ['./src/styles/custom.css'],
       favicon: '/favicon.ico',
+      sidebar: [
+        {
+          label: 'Changelog',
+          autogenerate: { directory: 'changelog' },
+        },
+        {
+          label: 'Components',
+          autogenerate: { directory: 'components' },
+        },
+        {
+          label: 'Getting started',
+          items: [
+            { label: 'Introduction', link: 'getting-started/introduction' },
+            { label: 'Installation', link: 'getting-started/installation' },
+            { label: 'Resources', link: 'getting-started/resources' },
+            { label: 'Usage', link: 'getting-started/usage' },
+          ],
+        },
+        {
+          label: 'Road map',
+          autogenerate: { directory: 'road-map' },
+        },
+        {
+          label: 'Theming',
+          autogenerate: { directory: 'theming' },
+        },
+      ],
     }),
   ],
   base: '/docs',
