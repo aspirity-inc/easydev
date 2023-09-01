@@ -6,76 +6,40 @@ title: Chip
 
 While included here as a standalone component, the most common use will be in some form of input, so some of the behavior demonstrated here is not shown in context.
 
-The Chip has the next props: label, variant, disabled, defaultChecked, className, style, onDelete, onClick. [See there](/?path=/docs/core-chip--docs) to get more information.
+The Chip has the next props: label, variant, disabled, defaultChecked, className, style, onChange, chipContent, color, bgColor. [See there](/?path=/docs/core-chip--docs) to get more information.
 
 [Default Chip](/?path=/story/core-chip--default-chip)
 
 Code:
 
 ```tsx
-<Chip label="Chip" onClick={() => alert('clicked')} onDelete={() => alert('deleted')} />
+<Chip label="Chip" onChange={function ou() {}} />
 ```
 
-[Checkbox Chip](/?path=/story/core-chip--checkbox-chip)
-
-Code:
-
-```tsx
-<Chip 
-  label="Chip" 
-  variant="checkbox" 
-  onClick={() => alert('clicked')} 
-  onDelete={() => alert('deleted')}
-/>
-```
-
-[List Of Default Chips](/?path=/story/core-chip--list-of-default-chips)
+[List Of Chips](/?path=/story/core-chip--list-of-chips)
 
 Code:
 
 ```tsx
 <Space direction="row">
-  <Chip defaultChecked label="Selected chip" onClick={() => alert('clicked')} />
-  <Chip
-    defaultChecked
-    label="Selected chip with delete button"
-    onClick={() => alert('clicked')}
-    onDelete={() => alert('deleted')}
-  />
-  <Chip 
-    disabled 
-    label="Disabled chip" 
-    onClick={() => alert('clicked')}
-    onDelete={() => alert('deleted')}
-  />
+  <Chip label="Chip" onChange={function ou() {}} />
+  <Chip defaultChecked label="Selected chip" onChange={function ou() {}} />
+  <Chip disabled label="Disabled chip" onChange={function ou() {}} />
 </Space>
 ```
 
-[List Of Checkbox Chips](/?path=/story/core-chip--list-of-checkbox-chips)
+[List Of Extra Content Chips](/?path=/story/core-chip--list-of-extra-content-chips)
 
 Code:
 
 ```tsx
 <Space direction="row">
-  <Chip 
-    label="Chip" 
-    variant="checkbox" 
-    onClick={() => alert('clicked')} 
-    onDelete={() => alert('deleted')}
-  />
+  <Chip chipContent={<Checkbox />} label="Сheckbox chip" onChange={function ou() {}} />
+  <Chip chipContent={<Checkbox />} defaultChecked disabled label="Disabled checkbox chip" onChange={function ou() {}} />
   <Chip
-    defaultChecked
-    label="Selected chip"
-    onClick={() => alert('clicked')}
-    onDelete={() => alert('deleted')}
-    variant="checkbox"
-  />
-  <Chip 
-    disabled 
-    label="Disabled chip" 
-    variant="checkbox" 
-    onClick={() => alert('clicked')} 
-    onDelete={() => alert('deleted')}
+    chipContent={<div className="material-symbols-outlined">close</div>}
+    label="Delete button chip"
+    onChange={function ou() {}}
   />
 </Space>
 ```

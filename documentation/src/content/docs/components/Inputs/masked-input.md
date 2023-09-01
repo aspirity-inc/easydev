@@ -14,7 +14,7 @@ Code:
 <MaskedInput label="Phone number" mask="+7 (999) 999-99-99" onChange={function Zo() {}} value="" />
 ```
 
-[Masked Default Input Reg Exp](/?path=/story/core-controls-controlwithlabel--default-control-with-label)
+[Masked Default Input Reg Exp](/?path=/story/core-inputs-maskedinput--masked-default-input-reg-exp)
 
 Code:
 
@@ -23,12 +23,12 @@ Code:
   label="Postal code mask"
   mask={[/[A-Z]/, /[0-9]/, /[A-Z]/, ' ', /[0-9]/, /[A-Z]/, /[0-9]/]}
   message="Example: A4E 2P9"
-  onChange={function Zo() {}}
+  onChange={function ou() {}}
   value=""
 />
 ```
 
-[Error Input](/?path=/story/core-controls-controlwithlabel--default-control-with-label)
+[Error Input](/?path=/story/core-inputs-maskedinput--error-input)
 
 Code:
 
