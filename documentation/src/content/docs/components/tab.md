@@ -1,5 +1,5 @@
 ---
-title: Tabs
+title: Tab
 ---
 
 Tabs facilitate effortless exploration and transition between distinct perspectives. They structure and permit movement between clusters of content that are associated and situated at an equivalent level of hierarchy.
