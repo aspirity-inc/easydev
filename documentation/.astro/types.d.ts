@@ -199,261 +199,247 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"docs": {
-"Changelog/index.md": {
-	id: "Changelog/index.md";
+"changelog/index.md": {
+	id: "changelog/index.md";
   slug: "changelog";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/Controls/checkbox.md": {
-	id: "Components/Controls/checkbox.md";
+"components/Controls/checkbox.md": {
+	id: "components/Controls/checkbox.md";
   slug: "components/controls/checkbox";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/Controls/control-with-label.md": {
-	id: "Components/Controls/control-with-label.md";
-  slug: "components/controls/control-with-label";
-  body: string;
-  collection: "docs";
-  data: any
-} & { render(): Render[".md"] };
-"Components/Controls/radio.md": {
-	id: "Components/Controls/radio.md";
+"components/Controls/radio.md": {
+	id: "components/Controls/radio.md";
   slug: "components/controls/radio";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/Controls/toggle.md": {
-	id: "Components/Controls/toggle.md";
+"components/Controls/toggle.md": {
+	id: "components/Controls/toggle.md";
   slug: "components/controls/toggle";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/Grid/index.md": {
-	id: "Components/Grid/index.md";
+"components/Grid/index.md": {
+	id: "components/Grid/index.md";
   slug: "components/grid";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/Inputs/input.md": {
-	id: "Components/Inputs/input.md";
+"components/Inputs/input.md": {
+	id: "components/Inputs/input.md";
   slug: "components/inputs/input";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/Inputs/masked-input.md": {
-	id: "Components/Inputs/masked-input.md";
+"components/Inputs/masked-input.md": {
+	id: "components/Inputs/masked-input.md";
   slug: "components/inputs/masked-input";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/Inputs/textarea.md": {
-	id: "Components/Inputs/textarea.md";
+"components/Inputs/textarea.md": {
+	id: "components/Inputs/textarea.md";
   slug: "components/inputs/textarea";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/Progress/progress-bar-with-title.md": {
-	id: "Components/Progress/progress-bar-with-title.md";
+"components/Progress/progress-bar-with-title.md": {
+	id: "components/Progress/progress-bar-with-title.md";
   slug: "components/progress/progress-bar-with-title";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/Progress/progress-bar.md": {
-	id: "Components/Progress/progress-bar.md";
+"components/Progress/progress-bar.md": {
+	id: "components/Progress/progress-bar.md";
   slug: "components/progress/progress-bar";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/Progress/range-slider.md": {
-	id: "Components/Progress/range-slider.md";
+"components/Progress/range-slider.md": {
+	id: "components/Progress/range-slider.md";
   slug: "components/progress/range-slider";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/Progress/stepper.md": {
-	id: "Components/Progress/stepper.md";
+"components/Progress/stepper.md": {
+	id: "components/Progress/stepper.md";
   slug: "components/progress/stepper";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/Tabs/tab-button.md": {
-	id: "Components/Tabs/tab-button.md";
-  slug: "components/tabs/tab-button";
-  body: string;
-  collection: "docs";
-  data: any
-} & { render(): Render[".md"] };
-"Components/Tabs/tabs.md": {
-	id: "Components/Tabs/tabs.md";
-  slug: "components/tabs/tabs";
-  body: string;
-  collection: "docs";
-  data: any
-} & { render(): Render[".md"] };
-"Components/Toasts/toast-container.md": {
-	id: "Components/Toasts/toast-container.md";
+"components/Toasts/toast-container.md": {
+	id: "components/Toasts/toast-container.md";
   slug: "components/toasts/toast-container";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/Toasts/toast.md": {
-	id: "Components/Toasts/toast.md";
+"components/Toasts/toast.md": {
+	id: "components/Toasts/toast.md";
   slug: "components/toasts/toast";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/Typography/subtitle.md": {
-	id: "Components/Typography/subtitle.md";
+"components/Typography/subtitle.md": {
+	id: "components/Typography/subtitle.md";
   slug: "components/typography/subtitle";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/Typography/text.md": {
-	id: "Components/Typography/text.md";
+"components/Typography/text.md": {
+	id: "components/Typography/text.md";
   slug: "components/typography/text";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/Typography/title.md": {
-	id: "Components/Typography/title.md";
+"components/Typography/title.md": {
+	id: "components/Typography/title.md";
   slug: "components/typography/title";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/box.md": {
-	id: "Components/box.md";
+"components/box.md": {
+	id: "components/box.md";
   slug: "components/box";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/breadcrumbs.md": {
-	id: "Components/breadcrumbs.md";
+"components/breadcrumbs.md": {
+	id: "components/breadcrumbs.md";
   slug: "components/breadcrumbs";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/chip.md": {
-	id: "Components/chip.md";
+"components/chip.md": {
+	id: "components/chip.md";
   slug: "components/chip";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/datepicker.md": {
-	id: "Components/datepicker.md";
+"components/datepicker.md": {
+	id: "components/datepicker.md";
   slug: "components/datepicker";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/link.md": {
-	id: "Components/link.md";
+"components/link.md": {
+	id: "components/link.md";
   slug: "components/link";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/modal.md": {
-	id: "Components/modal.md";
+"components/modal.md": {
+	id: "components/modal.md";
   slug: "components/modal";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/popover.md": {
-	id: "Components/popover.md";
+"components/popover.md": {
+	id: "components/popover.md";
   slug: "components/popover";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/select.md": {
-	id: "Components/select.md";
+"components/select.md": {
+	id: "components/select.md";
   slug: "components/select";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/space.md": {
-	id: "Components/space.md";
+"components/space.md": {
+	id: "components/space.md";
   slug: "components/space";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Components/theme.md": {
-	id: "Components/theme.md";
+"components/tab.md": {
+	id: "components/tab.md";
+  slug: "components/tab";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".md"] };
+"components/theme.md": {
+	id: "components/theme.md";
   slug: "components/theme";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Getting started/1-introduction.md": {
-	id: "Getting started/1-introduction.md";
-  slug: "getting-started/1-introduction";
-  body: string;
-  collection: "docs";
-  data: any
-} & { render(): Render[".md"] };
-"Getting started/Usage.md": {
-	id: "Getting started/Usage.md";
-  slug: "getting-started/usage";
-  body: string;
-  collection: "docs";
-  data: any
-} & { render(): Render[".md"] };
-"Getting started/installation.md": {
-	id: "Getting started/installation.md";
+"getting-started/installation.md": {
+	id: "getting-started/installation.md";
   slug: "getting-started/installation";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Getting started/resources.md": {
-	id: "Getting started/resources.md";
+"getting-started/introduction.md": {
+	id: "getting-started/introduction.md";
+  slug: "getting-started/introduction";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".md"] };
+"getting-started/resources.md": {
+	id: "getting-started/resources.md";
   slug: "getting-started/resources";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Road map/index.md": {
-	id: "Road map/index.md";
+"getting-started/usage.md": {
+	id: "getting-started/usage.md";
+  slug: "getting-started/usage";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".md"] };
+"index.mdx": {
+	id: "index.mdx";
+  slug: "index";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"road-map/index.md": {
+	id: "road-map/index.md";
   slug: "road-map";
   body: string;
   collection: "docs";
   data: any
 } & { render(): Render[".md"] };
-"Theming/index.mdx": {
-	id: "Theming/index.mdx";
+"theming/index.mdx": {
+	id: "theming/index.mdx";
   slug: "theming";
-  body: string;
-  collection: "docs";
-  data: any
-} & { render(): Render[".mdx"] };
-"index.mdx": {
-	id: "index.mdx";
-  slug: "index";
   body: string;
   collection: "docs";
   data: any
