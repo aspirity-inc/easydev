@@ -4,21 +4,54 @@ import { Text } from '@core/Typography';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
 import { StyledLabelText, getDefaultBorder, getInputTransition } from '../styles';
-import { InputsBaseProps, TextareaProps } from '../types';
+import { TextareaProps } from '../types';
 
-export const StyledTextareaWrapper = styled('div')<{ $disabled: boolean }>`
+export type StyledWrapperProps = {
+  $filled: boolean;
+  $disabled: boolean;
+  $focused: boolean;
+};
+
+export const StyledTextareaWrapper = styled('div')<StyledWrapperProps>`
   width: fit-content;
 
   ${({ $disabled }) => {
     return (
       $disabled &&
       css`
-        ${StyledLabelText},
+        ${StyledTextareaLabelText},
         ${StyledCounterText} {
           color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['400'])};
         }
       `
     );
+  }}
+
+  ${({ $filled }) => {
+    return css`
+      ${StyledTextareaLabel} {
+        ${getDefaultBorder($filled)};
+      }
+    `;
+  }};
+
+  ${({ $disabled, $filled, $focused }) => {
+    return $disabled
+      ? css`
+          ${StyledTextareaLabel} {
+            ${getDisabledLabelStyle($filled || false)};
+          }
+        `
+      : css`
+          ${StyledTextareaLabel} {
+            &:hover {
+              border-color: ${({ theme }) =>
+                theme.type === 'light' ? theme.colors.secondary['300'] : theme.colors.secondary['100']};
+              ${({ theme }) => theme.shadows.blue};
+            }
+            ${getFocusLabelStyles($focused)}
+          }
+        `;
   }}
 `;
 
@@ -54,7 +87,7 @@ export const StyledTextarea = styled('textarea')<TextareaProps>`
   ${({ $filled }) => getDisabledStateTextareaText($filled || false)};
 `;
 
-export const StyledTextareaLabel = styled('label')<InputsBaseProps>`
+export const StyledTextareaLabel = styled('label')`
   box-sizing: border-box;
   position: relative;
   display: block;
@@ -62,44 +95,27 @@ export const StyledTextareaLabel = styled('label')<InputsBaseProps>`
 
   border: 1px solid ${({ theme }) => theme.colors.surface['400']};
   border-radius: 8px;
-  ${({ $filled }) => getDefaultBorder($filled)};
+
   background-color: ${({ theme }) =>
     theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
   ${({ theme }) => getInputTransition(theme.transition.default)};
 
   // States
-  &:has(${StyledTextarea}:focus-visible:not([disabled])) {
-    border-color: ${({ theme }) =>
-      theme.type === 'light' ? theme.colors.secondary['400'] : theme.colors.secondary['300']};
-  }
-
-  &:has(${StyledTextarea}:focus-visible) ${StyledTextareaLabelText} {
+  & ${StyledTextarea}:focus-visible + ${StyledTextareaLabelText} {
     transform: scale(0.8) translateY(-22px);
   }
 
-  &:has(${StyledTextarea}:not(:placeholder-shown)) ${StyledTextareaLabelText} {
+  & ${StyledTextarea}:not(:placeholder-shown) + ${StyledTextareaLabelText} {
     transform: scale(0.8) translateY(-22px);
   }
 
-  &:has(${StyledTextarea}:focus-visible:not([disabled])) ${StyledTextareaLabelText} {
+  & ${StyledTextarea}:focus-visible:not([disabled]) + ${StyledTextareaLabelText} {
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.secondary['100'])};
   }
 
-  &:has(${StyledTextarea}:not(:placeholder-shown):not([disabled])) ${StyledTextareaLabelText} {
+  & ${StyledTextarea}:not(:placeholder-shown):not([disabled]) + ${StyledTextareaLabelText} {
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.secondary['100'])};
   }
-
-  &:has(${StyledTextarea}:hover:not([disabled])) {
-    border-color: ${({ theme }) =>
-      theme.type === 'light' ? theme.colors.secondary['300'] : theme.colors.secondary['100']};
-    ${({ theme }) => theme.shadows.blue};
-  }
-
-  &:has(${StyledTextarea}:focus-visible:not([disabled])) {
-    ${({ theme }) => theme.shadows.blue};
-  }
-
-  ${({ $filled }) => getDisabledStateTextareaWrapper($filled || false)};
 `;
 
 export const StyledCounterText = styled(Text)`
@@ -114,14 +130,24 @@ export const StyledCharactersNumber = styled('span')<{ $isOverflow: boolean }>`
   color: ${({ theme, $isOverflow }) => $isOverflow && theme.colors.error['500']};
 `;
 
-const getDisabledStateTextareaWrapper = ($filled: boolean) => {
-  return $filled
-    ? css`
-        &:has(${StyledTextarea}:disabled) {
-          border-color: ${({ theme }) => theme.colors.surface['400']};
-        }
-      `
-    : css``;
+const getDisabledLabelStyle = ($filled: boolean) => {
+  return (
+    $filled &&
+    css`
+      border-color: ${({ theme }) => theme.colors.surface['400']};
+    `
+  );
+};
+
+const getFocusLabelStyles = ($focused: boolean) => {
+  return (
+    $focused &&
+    css`
+      border-color: ${({ theme }) =>
+        theme.type === 'light' ? theme.colors.secondary['400'] : theme.colors.secondary['300']};
+      ${({ theme }) => theme.shadows.blue};
+    `
+  );
 };
 
 const getDisabledStateTextareaText = ($filled: boolean) => {

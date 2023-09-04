@@ -122,11 +122,11 @@ export const StyledDatepickerText = styled(StyledLabelText)`
 `;
 
 export const StyledDatepickerLabel = styled(StyledInputLabel)<StyleInputProps>`
-  &:has(${StyledDatepickerInput}:focus-visible) ${StyledDatepickerText} {
+  & ${StyledDatepickerInput}:focus-visible + ${StyledDatepickerText} {
     transform: scale(0.8) translateY(-28px);
   }
 
-  &:has(${StyledDatepickerInput}:not(:placeholder-shown)) ${StyledDatepickerText} {
+  & ${StyledDatepickerInput}:not(:placeholder-shown) + ${StyledDatepickerText} {
     transform: scale(0.8) translateY(-28px);
   }
 
