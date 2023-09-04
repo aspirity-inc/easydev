@@ -11,7 +11,7 @@ The Toggle has the next props: disabled, defaultChecked, color, checkedColor, la
 Code:
 
 ```tsx
-<Toggle onChange={function ou() {}} />
+<Toggle onChange={() => {}} />
 ```
 
 [Controlled Toggle](/?path=/story/core-controls-toggle--controlled-toggle)

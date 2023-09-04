@@ -15,7 +15,7 @@ The Radio has the next props: disabled, defaultChecked, color, label, checked, o
 Code:
 
 ```tsx
-<Radio onChange={function ou() {}} />
+<Radio onChange={() => {}} />
 ```
 
 [Controlled Radio](/?path=/story/core-controls-radio--controlled-radio)

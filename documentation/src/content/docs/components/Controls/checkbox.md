@@ -13,7 +13,7 @@ The Checkbox has the next props: disabled, defaultChecked, color, label, checked
 Code:
 
 ```tsx
-<Checkbox onChange={function ou() {}} />
+<Checkbox onChange={() => {}} />
 ```
 
 [Controlled Checkbox](/?path=/story/core-controls-checkbox--controlled-checkbox)
