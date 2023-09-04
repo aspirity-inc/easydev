@@ -1,6 +1,7 @@
 ---
 title: Input
 ---
+
 Input is used to input text.
 
 The Input wrapper component is a complete form control including a label, input, and help text.
@@ -12,13 +13,7 @@ The Input has the next props: label, placeholder, error, warning, message, isLoa
 Code:
 
 ```tsx
-<Input
-  label="Name"
-  onChange={function Zo() {}}
-  placeholder="Enter youe name"
-  renderExtraMessage={function Zo() {}}
-  value=""
-/>
+<Input label="Name" onChange={() => {}} placeholder="Enter youe name" renderExtraMessage={() => {}} value="" />
 ```
 
 [Error Input](/?path=/story/core-inputs-input--error-input)
@@ -26,13 +21,7 @@ Code:
 Code:
 
 ```tsx
-<Input
-  error="There is no such user"
-  label="Name"
-  onChange={function Zo() {}}
-  renderExtraMessage={function Zo() {}}
-  value="Ivan"
-/>
+<Input error="There is no such user" label="Name" onChange={() => {}} renderExtraMessage={() => {}} value="Ivan" />
 ```
 
 [Loading Input](/?path=/story/core-inputs-input--loading-input)
@@ -40,7 +29,7 @@ Code:
 Code:
 
 ```tsx
-<Input isLoading label="Name" onChange={function Zo() {}} renderExtraMessage={function Zo() {}} value="Ivan" />
+<Input isLoading label="Name" onChange={() => {}} renderExtraMessage={() => {}} value="Ivan" />
 ```
 
 [Disabled Input](/?path=/story/core-inputs-input--disabled-input)
@@ -48,7 +37,7 @@ Code:
 Code:
 
 ```tsx
-<Input disabled label="Name" onChange={function Zo() {}} renderExtraMessage={function Zo() {}} value="Ivan" />
+<Input disabled label="Name" onChange={() => {}} renderExtraMessage={() => {}} value="Ivan" />
 ```
 
 [Default Password](/?path=/story/core-inputs-input--default-password)
@@ -59,8 +48,8 @@ Code:
 <Input
   label="Password"
   message="6 or more characters"
-  onChange={function Zo() {}}
-  renderExtraMessage={function Zo() {}}
+  onChange={() => {}}
+  renderExtraMessage={() => {}}
   type="password"
   value=""
 />
@@ -74,8 +63,8 @@ Code:
 <Input
   error="Invalid password"
   label="Password"
-  onChange={function Zo() {}}
-  renderExtraMessage={function Zo() {}}
+  onChange={() => {}}
+  renderExtraMessage={() => {}}
   type="password"
   value="Ivan"
 />
@@ -86,12 +75,5 @@ Code:
 Code:
 
 ```tsx
-<Input
-  isLoading
-  label="Password"
-  onChange={function Zo() {}}
-  renderExtraMessage={function Zo() {}}
-  type="password"
-  value="Ivan"
-/>
+<Input isLoading label="Password" onChange={() => {}} renderExtraMessage={() => {}} type="password" value="Ivan" />
 ```

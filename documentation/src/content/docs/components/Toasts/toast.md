@@ -11,7 +11,7 @@ The Toast has the next props: title, description, status, autoClose, onDelete, t
 Code:
 
 ```tsx
-<Toast description="Description text" onDelete={function Zo() {}} status="info" title="Notification" />
+<Toast description="Description text" onDelete={() => {}} status="info" title="Notification" />
 ```
 
 [List Of Auto Closed Toasts](/?path=/story/core-toasts-toast--list-of-auto-closed-toasts)
@@ -20,21 +20,9 @@ Code:
 
 ```tsx
 <Space direction="column">
-  <Toast description="Text" onDelete={function Zo() {}} status="info" title="Info notification" />
-  <Toast
-    autoCloseDelay={6000}
-    description="Text"
-    onDelete={function Zo() {}}
-    status="success"
-    title="Success notification"
-  />
-  <Toast
-    autoCloseDelay={10000}
-    description="Text"
-    onDelete={function Zo() {}}
-    status="warning"
-    title="Warning notification"
-  />
+  <Toast description="Text" onDelete={() => {}} status="info" title="Info notification" />
+  <Toast autoCloseDelay={6000} description="Text" onDelete={() => {}} status="success" title="Success notification" />
+  <Toast autoCloseDelay={10000} description="Text" onDelete={() => {}} status="warning" title="Warning notification" />
 </Space>
 ```
 
@@ -44,9 +32,9 @@ Code:
 
 ```tsx
 <Space direction="column">
-  <Toast colorful description="Text" onDelete={function Zo() {}} status="info" title="Info notification" />
-  <Toast colorful description="Text" onDelete={function Zo() {}} status="success" title="Success notification" />
-  <Toast colorful description="Text" onDelete={function Zo() {}} status="warning" title="Warning notification" />
-  <Toast colorful description="Text" onDelete={function Zo() {}} status="error" title="Error notification" />
+  <Toast colorful description="Text" onDelete={() => {}} status="info" title="Info notification" />
+  <Toast colorful description="Text" onDelete={() => {}} status="success" title="Success notification" />
+  <Toast colorful description="Text" onDelete={() => {}} status="warning" title="Warning notification" />
+  <Toast colorful description="Text" onDelete={() => {}} status="error" title="Error notification" />
 </Space>
 ```
