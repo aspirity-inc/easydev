@@ -93,13 +93,39 @@ describe('Button default', () => {
     expect(container.getElementsByClassName('material-symbols-rounded').length).toBe(1);
   });
 
-  // test('Should have correct type', () => {
-  //   const { container } = render(
-  //     <EasydevProvider>
-  //       <Button type="submit">{mockButtonText}</Button>
-  //     </EasydevProvider>
-  //   );
-  //   screen.debug();
-  //   expect(container).toBe('submit');
-  // });
+  test('Should have correct type', () => {
+    render(
+      <EasydevProvider>
+        <Button type="submit">{mockButtonText}</Button>
+      </EasydevProvider>
+    );
+    expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
+  });
+
+  test('Should have correct variant', () => {
+    render(
+      <EasydevProvider>
+        <Button variant="secondary">{mockButtonText}</Button>
+      </EasydevProvider>
+    );
+    expect(screen.getByText(mockButtonText)).toHaveStyleRule('background-color', '#C3C3C5');
+  });
+
+  test('Should have correct color', () => {
+    render(
+      <EasydevProvider>
+        <Button color="#aaaaaa">{mockButtonText}</Button>
+      </EasydevProvider>
+    );
+    expect(screen.getByText(mockButtonText)).toHaveStyleRule('color', '#aaaaaa');
+  });
+
+  test('Should have correct bgColor', () => {
+    render(
+      <EasydevProvider>
+        <Button bgColor="#eaeaea">{mockButtonText}</Button>
+      </EasydevProvider>
+    );
+    expect(screen.getByText(mockButtonText)).toHaveStyleRule('background-color', '#eaeaea');
+  });
 });
