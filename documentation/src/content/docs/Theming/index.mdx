@@ -8,8 +8,9 @@ EasyDev uses styled-components to create styles so that you can easily customize
 
 ## Colors
 
-A palette of harmoniously matching colors has been developed especially for easydev. 
+A palette of harmoniously matching colors has been developed especially for easydev.
 There are the following primary colors:
+
 - Primary - for primary interface elements.
 - Secondary - for secondary interface elements.
 - Surface - for text color.
@@ -40,6 +41,7 @@ Below is a palette of colors for dark and light themes.
 ![Links](../../../assets/light/Links.png)
 
 ![Tretiary](../../../assets/light/Tretiary.png)
+
 </div>
 
 ##### Dark theme
@@ -61,14 +63,14 @@ Below is a palette of colors for dark and light themes.
 ![Links](../../../assets/dark/Links.png)
 
 ![Tretiary](../../../assets/dark/Tretiary.png)
+
 </div>
 
 In easydev you can access color shade by color name and index, colors with larger index are darker. The default value is 500 as shown above.
 
 <Card stagger>
-theme.colors.surface['900']<br></br>theme.colors.primary['500']<br></br>theme.colors.warning['200']
+  theme.colors.surface['900']<br></br>theme.colors.primary['500']<br></br>theme.colors.warning['200']
 </Card>
-
 
 You can change the standard colors of a component either by styling the component itself (we'll talk about this later) or by using prop color.
 Some components have prop _color_ and we can explicitly specify the color as shown in the examples.
@@ -93,8 +95,8 @@ export const Checkbox = ({ disabled, defaultChecked, color, ...props }: ControlB
 
 ## Themes
 
-There are two standard light and dark themes with their own fields and properties, you can change them or add a new theme. 
-To create a new theme, you need to create an object as in the example where you can specify your own styles: colors, spacing etc.To customize theme, pass theme override object to ThemeProvider theme prop.
+There are two standard light and dark themes with their own fields and properties, you can change them or add a new theme.
+To create a new theme, you need to create an object as in the example where you can specify your own styles: colors, spacing etc.To customize theme, pass theme override object to EasydevProvider theme prop.
 
 Example:
 
@@ -104,23 +106,21 @@ const darkTheme = { type: 'dark', ... }
 
 const [theme, setTheme] = useState(lightTheme)
 
-<ThemeProvider theme={theme}>
+<EasydevProvider theme={theme}>
 	<App>
 		...
 	</App>
-</ThemeProvider>
+</EasydevProvider>
 ```
-In addition to creating your own themes, you can style ready-made components with using styled from styled-components. 
+
+In addition to creating your own themes, you can style ready-made components with using styled from styled-components.
 Example:
+
 ```ts
 const StyledSelect = styled(Select)`
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['800'])};
   padding: 20px;
-`
-
+`;
 ```
-
-
-
 
 For more information about changing the theme, see the [styled components documentation](https://styled-components.com/docs/advanced)

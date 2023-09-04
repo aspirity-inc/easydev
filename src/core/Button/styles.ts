@@ -1,19 +1,30 @@
+import { CSSProperties } from 'react';
+
 import { css, keyframes, styled } from 'styled-components';
 
 export type ButtonSize = 'sm' | 'lg';
 export type ButtonRounded = 'sm' | 'lg';
 export type ButtonVariant = 'primary' | 'secondary';
 
-type ButtonProps = {
+// type ButtonProps = {
+//   size?: ButtonSize;
+//   rounded?: ButtonRounded;
+//   reversed?: boolean;
+//   variant?: ButtonVariant;
+//   color?: CSSProperties['color'];
+//   bgColor?: CSSProperties['backgroundColor'];
+// };
+
+type StyledButtonProps = {
   size?: ButtonSize;
-  rounded?: ButtonRounded;
+  $rounded?: ButtonRounded;
   reversed?: boolean;
   variant?: ButtonVariant;
-  color?: React.CSSProperties['color'];
-  bgColor?: React.CSSProperties['backgroundColor'];
+  color?: CSSProperties['color'];
+  bgColor?: CSSProperties['backgroundColor'];
 };
 
-export const StyledButton = styled('button')<ButtonProps>`
+export const StyledButton = styled('button')<StyledButtonProps>`
   display: flex;
   flex-direction: ${({ reversed }) => reversed && 'row-reverse'};
   align-items: center;
@@ -48,8 +59,8 @@ export const StyledButton = styled('button')<ButtonProps>`
     }
   }};
 
-  ${({ rounded }) => {
-    switch (rounded) {
+  ${({ $rounded }) => {
+    switch ($rounded) {
       case 'sm':
         return css`
           border-radius: 8px;

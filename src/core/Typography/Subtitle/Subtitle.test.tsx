@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
 
-import { ThemeProvider } from '@core/Theme/ThemeContext';
+import { EasydevProvider } from '@core/Theme/ThemeContext';
 
 import { Subtitle } from '.';
 
@@ -10,27 +10,27 @@ const mockSubtitle = 'Subtitle';
 describe('Subtitle default', () => {
   test('Should be in document', () => {
     render(
-      <ThemeProvider>
+      <EasydevProvider>
         <Subtitle>{mockSubtitle}</Subtitle>
-      </ThemeProvider>
+      </EasydevProvider>
     );
     expect(screen.getByText(mockSubtitle)).toBeInTheDocument();
   });
 
   test('Should have class subtitle', () => {
     render(
-      <ThemeProvider>
+      <EasydevProvider>
         <Subtitle className="subtitle">{mockSubtitle}</Subtitle>
-      </ThemeProvider>
+      </EasydevProvider>
     );
     expect(screen.getByText(mockSubtitle)).toHaveClass('subtitle');
   });
 
   test('Should be h1', () => {
     render(
-      <ThemeProvider>
+      <EasydevProvider>
         <Subtitle tag="h1">{mockSubtitle}</Subtitle>
-      </ThemeProvider>
+      </EasydevProvider>
     );
     expect(screen.getByText(mockSubtitle)?.tagName).equal('H1');
   });
@@ -38,9 +38,9 @@ describe('Subtitle default', () => {
 
 test('Should be correct level', () => {
   render(
-    <ThemeProvider>
+    <EasydevProvider>
       <Subtitle level={3}>{mockSubtitle}</Subtitle>
-    </ThemeProvider>
+    </EasydevProvider>
   );
   expect(screen.getByText(mockSubtitle)).toBeInTheDocument();
 });
@@ -48,27 +48,27 @@ test('Should be correct level', () => {
 describe('Subtitle styles', () => {
   test('Should be correct styles', () => {
     render(
-      <ThemeProvider>
+      <EasydevProvider>
         <Subtitle style={{ fontSize: 40 }}>{mockSubtitle}</Subtitle>
-      </ThemeProvider>
+      </EasydevProvider>
     );
     expect(screen.getByText(mockSubtitle)).toHaveStyle({ fontSize: 40 });
   });
 
   test('Should be color #cdcdcd', () => {
     render(
-      <ThemeProvider>
+      <EasydevProvider>
         <Subtitle color="#cdcdcd">{mockSubtitle}</Subtitle>
-      </ThemeProvider>
+      </EasydevProvider>
     );
     expect(screen.getByText(mockSubtitle)).toHaveStyle('color: "#cdcdcd" ');
   });
 
   test('Should be background-color #efefef', () => {
     render(
-      <ThemeProvider>
+      <EasydevProvider>
         <Subtitle bgColor="#efefef">{mockSubtitle}</Subtitle>
-      </ThemeProvider>
+      </EasydevProvider>
     );
     expect(screen.getByText(mockSubtitle)).toHaveStyle('backgroundColor: "#efefef"');
   });

@@ -42,7 +42,7 @@ export const Button = ({
     <StyledButton
       className={className}
       reversed={reversed}
-      rounded={rounded}
+      $rounded={rounded}
       size={size}
       type={type}
       variant={variant}
