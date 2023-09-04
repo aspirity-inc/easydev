@@ -6,15 +6,6 @@ export type ButtonSize = 'sm' | 'lg';
 export type ButtonRounded = 'sm' | 'lg';
 export type ButtonVariant = 'primary' | 'secondary';
 
-// type ButtonProps = {
-//   size?: ButtonSize;
-//   rounded?: ButtonRounded;
-//   reversed?: boolean;
-//   variant?: ButtonVariant;
-//   color?: CSSProperties['color'];
-//   bgColor?: CSSProperties['backgroundColor'];
-// };
-
 type StyledButtonProps = {
   size?: ButtonSize;
   $rounded?: ButtonRounded;

@@ -36,13 +36,70 @@ describe('Button default', () => {
     expect(screen.getByText(mockButtonText)).toHaveClass('hey');
   });
 
-  test('Should be in document', () => {
+  test('Should be correct font', () => {
+    render(
+      <EasydevProvider>
+        <Button style={{ fontSize: 55 }}>{mockButtonText}</Button>
+      </EasydevProvider>
+    );
+    expect(screen.getByText(mockButtonText)).toHaveStyle({ fontSize: 55 });
+  });
+
+  test('Should be correct flex direction', () => {
+    render(
+      <EasydevProvider>
+        <Button reversed>{mockButtonText}</Button>
+      </EasydevProvider>
+    );
+    expect(screen.getByText(mockButtonText)).toHaveStyleRule('flex-direction', 'row-reverse');
+  });
+
+  test('Should be correct size', () => {
+    render(
+      <EasydevProvider>
+        <Button size="sm">{mockButtonText}</Button>
+      </EasydevProvider>
+    );
+    expect(screen.getByText(mockButtonText)).toHaveStyleRule('padding', '8px 6px');
+    expect(screen.getByText(mockButtonText)).toHaveStyleRule('min-width', '120px');
+  });
+
+  test('Should be correct border radius', () => {
     render(
       <EasydevProvider>
         <Button rounded="lg">{mockButtonText}</Button>
       </EasydevProvider>
     );
-
     expect(screen.getByText(mockButtonText)).toHaveStyleRule('border-radius', '40px');
   });
+
+  test('Should have loading icon', () => {
+    const { container } = render(
+      <EasydevProvider>
+        <Button loading>{mockButtonText}</Button>
+      </EasydevProvider>
+    );
+    expect(container.getElementsByClassName('material-symbols-rounded').length).toBe(1);
+  });
+
+  test('Should have custom loading icon', () => {
+    const { container } = render(
+      <EasydevProvider>
+        <Button loading loadingIcon={<div className="material-symbols-rounded">add</div>}>
+          {mockButtonText}
+        </Button>
+      </EasydevProvider>
+    );
+    expect(container.getElementsByClassName('material-symbols-rounded').length).toBe(1);
+  });
+
+  // test('Should have correct type', () => {
+  //   const { container } = render(
+  //     <EasydevProvider>
+  //       <Button type="submit">{mockButtonText}</Button>
+  //     </EasydevProvider>
+  //   );
+  //   screen.debug();
+  //   expect(container).toBe('submit');
+  // });
 });
