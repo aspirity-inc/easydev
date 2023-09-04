@@ -2,14 +2,9 @@ import { css, styled } from 'styled-components';
 
 import { Box } from '@core/Box';
 
-import type { TypographyBaseType } from '../types.ts';
+import type { LevelVariantsType, StyledSubtitleProps } from './types';
 
-export type SubtitleLevelType = 1 | 2 | 3 | 4 | 5;
-type SubtitleProps = Pick<TypographyBaseType, 'color' | 'bgColor'> & {
-  level?: SubtitleLevelType;
-};
-
-export const getSubtitleLevelStyles = (level?: SubtitleLevelType) => {
+export const getSubtitleLevelStyles = (level?: LevelVariantsType) => {
   const defaultLevel = css`
     font-size: 32px;
     font-weight: ${({ theme }) => theme.typography.weight['500']};
@@ -73,7 +68,7 @@ export const getSubtitleLevelStyles = (level?: SubtitleLevelType) => {
   }
 };
 
-export const StyledSubtitle = styled(Box)<SubtitleProps>`
+export const StyledSubtitle = styled(Box)<StyledSubtitleProps>`
   margin: 0;
   padding: 0;
   font-variation-settings: 'wdth' 144, 'GRAD' 20, 'slnt' 0, 'xtra' 468, 'xopq' 96, 'yopq' 79, 'ytlc' 514, 'ytuc' 712,
@@ -82,8 +77,8 @@ export const StyledSubtitle = styled(Box)<SubtitleProps>`
 
   ${({ level }) => getSubtitleLevelStyles(level)}
 
-  ${({ color, bgColor }) => css`
-    color: ${color};
-    background-color: ${bgColor};
+  ${({ $color, $bgColor }) => css`
+    color: ${$color};
+    background-color: ${$bgColor};
   `};
 `;

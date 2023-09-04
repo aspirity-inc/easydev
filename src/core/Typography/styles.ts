@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import { type TitleVariant } from './types.ts';
+import type { TitleTagVariantsType } from './Title/types';
 
 export const StyledTooltipText = styled('span')`
   font-size: 12px;
@@ -16,7 +16,7 @@ export const StyledInputLabelText = styled('span')`
     'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
 `;
 
-export const getTitleVariant = (variant?: TitleVariant) => {
+export const getTitleVariant = (variant?: TitleTagVariantsType) => {
   switch (variant) {
     case 'h1':
       return css`

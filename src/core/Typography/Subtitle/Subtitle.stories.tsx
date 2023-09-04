@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Subtitle } from '.';
+import { tagVariants, levelVariants } from './types';
 
 const metaSubtitle: Meta<typeof Subtitle> = {
   title: 'Core/Typography/Subtitle',
@@ -12,14 +13,14 @@ const metaSubtitle: Meta<typeof Subtitle> = {
       control: {
         type: 'select',
       },
-      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'],
+      options: tagVariants,
       table: { defaultValue: { summary: 'h4' } },
     },
     level: {
       type: 'number',
       description: 'Size of subheading element',
       control: 'select',
-      options: [1, 2, 3, 4, 5],
+      options: levelVariants,
       table: { defaultValue: { summary: 1 } },
     },
     color: {

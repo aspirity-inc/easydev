@@ -1,3 +1,6 @@
+/// <reference types="vitest" />
+/// <reference types="vite/client" />
+
 import path from 'path';
 
 import react from '@vitejs/plugin-react-swc';
@@ -11,6 +14,13 @@ export default defineConfig({
       insertTypesEntry: true,
     }),
   ],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    root: './src',
+    setupFiles: '../setupTests.ts',
+    css: true,
+  },
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
