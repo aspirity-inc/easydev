@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 
 import { Center } from '@core/Center';
 import { getSubtitleLevelStyles } from '@core/Typography/Subtitle/styles';
@@ -6,50 +6,61 @@ import { getTextVariants } from '@core/Typography/Text/styles';
 import { getTitleVariant } from '@core/Typography/styles';
 import { TitleVariant } from '@core/Typography/types';
 
-type AvatarWrapperProps = {
-  $radius: number | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-  $size: number | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+import { AvatarSizesRadiusesType } from './types';
+
+export type AvatarWrapperProps = {
+  $radius: AvatarSizesRadiusesType;
+  $size: AvatarSizesRadiusesType;
+  color?: React.CSSProperties['color'];
+  bgColor?: React.CSSProperties['backgroundColor'];
 };
 
-const sizes = {
+export const sizes = {
   xxs: {
-    box: '24px',
+    avatar: '24px',
     iconFont: '16px',
     fontStyle: 'сaption',
+    onlineIndicator: '10px',
   },
   xs: {
-    box: '32px',
+    avatar: '32px',
     iconFont: '20px',
     fontStyle: '5',
+    onlineIndicator: '12px',
   },
   sm: {
-    box: '48px',
+    avatar: '48px',
     iconFont: '28px',
     fontStyle: 'h5',
+    onlineIndicator: '16px',
   },
   md: {
-    box: '56px',
+    avatar: '56px',
     iconFont: '32px',
     fontStyle: 'h4',
+    onlineIndicator: '18px',
   },
   lg: {
-    box: '64px',
+    avatar: '64px',
     iconFont: '32px',
     fontStyle: 'h4',
+    onlineIndicator: '20px',
   },
   xl: {
-    box: '96px',
+    avatar: '96px',
     iconFont: '48px',
     fontStyle: 'h3',
+    onlineIndicator: '20px',
   },
   xxl: {
-    box: '160px',
+    avatar: '160px',
     iconFont: '80px',
     fontStyle: 'h1',
+    onlineIndicator: '20px',
   },
 };
 
-const radiuses = {
+export const radiuses = {
   xxs: '2px',
   xs: '4px',
   sm: '8px',
@@ -59,16 +70,48 @@ const radiuses = {
   xxl: '80px',
 };
 
+export const StyledCenter = styled(Center)`
+  height: 100%;
+  overflow: hidden;
+  text-transform: uppercase;
+`;
+
+export const OnlineIndicator = styled('div')<{ $online?: boolean }>`
+  border: 2px solid ${({ theme }) => (theme.type == 'light' ? theme.colors.surface['50'] : theme.colors.surface['900'])};
+  border-radius: 50%;
+
+  ${({ $online }) => {
+    return $online
+      ? css`
+          background-color: ${({ theme }) => theme.colors.primary['500']};
+        `
+      : css`
+          background-color: ${({ theme }) => theme.colors.surface['300']};
+        `;
+  }}
+`;
+
 export const StyledAvatarWrapper = styled('div')<AvatarWrapperProps>`
-  width: ${({ $size }) => (typeof $size === 'number' ? `${$size}px` : sizes[$size].box)};
-  height: ${({ $size }) => (typeof $size === 'number' ? `${$size}px` : sizes[$size].box)};
+  position: relative;
+  width: ${({ $size }) => (typeof $size === 'number' ? `${$size}px` : sizes[$size].avatar)};
+  height: ${({ $size }) => (typeof $size === 'number' ? `${$size}px` : sizes[$size].avatar)};
 
   background-color: ${({ theme }) => theme.colors.primary['50']};
   color: ${({ theme }) => theme.colors.primary['900']};
-  ${({ $size }) => getTextStyles($size)}
+  ${({ $size }) => getTextStyles($size)};
+  user-select: none;
 
   border-radius: ${({ $radius }) => (typeof $radius === 'number' ? `${$radius}px` : radiuses[$radius])};
-  overflow: hidden;
+
+  ${({ color, bgColor }) => css`
+    color: ${color};
+    background-color: ${bgColor};
+  `};
+
+  & .material-symbols-outlined {
+    display: block;
+    font-size: ${({ $size }) => (typeof $size === 'number' ? `${$size / 2}px` : sizes[$size].iconFont)};
+  }
 
   & img {
     display: block;
@@ -76,15 +119,33 @@ export const StyledAvatarWrapper = styled('div')<AvatarWrapperProps>`
     height: 100%;
     object-fit: cover;
     object-position: center center;
+    border-radius: ${({ $radius }) => (typeof $radius === 'number' ? `${$radius}px` : radiuses[$radius])};
   }
 
-  & .material-symbols-outlined {
-    font-size: ${({ $size }) => (typeof $size === 'number' ? `${$size / 2}px` : sizes[$size].iconFont)};
-  }
-`;
+  & ${OnlineIndicator} {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: ${({ $size }) => (typeof $size === 'number' ? `12px` : sizes[$size].onlineIndicator)};
+    height: ${({ $size }) => (typeof $size === 'number' ? `12px` : sizes[$size].onlineIndicator)};
 
-export const StyledCenter = styled(Center)`
-  height: 100%;
+    // Correct position for big sizes and radiuses
+    ${({ $radius, $size }) => {
+      if ($size === 'xxl' && ($radius === 'xxl' || $radius === 'xl')) {
+        return css`
+          bottom: ${$radius === 'xxl' ? '14px' : '6px'};
+          right: ${$radius === 'xxl' ? '14px' : '6px'};
+        `;
+      }
+
+      if ($size === 'xl' && ($radius === 'xxl' || $radius === 'xl')) {
+        return css`
+          bottom: 2px;
+          right: 2px;
+        `;
+      }
+    }}
+  }
 `;
 
 const getTextStyles = ($size: string | number) => {

@@ -1,1 +1,2 @@
-export { Avatar } from './Avatar.tsx';
+export { Avatar } from './Avatar';
+export { AvatarGroup } from './AvatarGroup';

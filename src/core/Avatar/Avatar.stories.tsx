@@ -1,11 +1,24 @@
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Avatar } from '.';
-import { Space } from '@core/Space';
 
 export default {
   title: 'Core/Avatar',
   component: Avatar,
+  argTypes: {
+    size: {
+      defaultValue: 'lg',
+      description: 'Size',
+      control: 'select',
+      options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+    radius: {
+      defaultValue: 'lg',
+      description: 'Radius',
+      control: 'select',
+      options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+  },
 } satisfies Meta<typeof Avatar>;
 
 const Template: StoryFn<typeof Avatar> = ({ ...args }) => {
@@ -15,75 +28,36 @@ const Template: StoryFn<typeof Avatar> = ({ ...args }) => {
 export const DefaultAvatar: StoryFn<typeof Avatar> = Template.bind({});
 DefaultAvatar.args = {};
 
+export const OnlineAvatar: StoryFn<typeof Avatar> = Template.bind({});
+OnlineAvatar.args = {
+  online: true,
+};
+
+export const OfflineAvatar: StoryFn<typeof Avatar> = Template.bind({});
+OfflineAvatar.args = {
+  online: false,
+};
+
 export const ImageAvatar: StoryFn<typeof Avatar> = Template.bind({});
 ImageAvatar.args = {
+  online: true,
   alt: 'photo',
   src: 'https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=826&t=st=1693801961~exp=1693802561~hmac=7555601ef0121b3c969f8485d8595331e3e576d084f4fe459c9c65862ddb422b',
 };
 
 export const LetterAvatar: StoryFn<typeof Avatar> = Template.bind({});
 LetterAvatar.args = {
+  online: true,
   children: 'AB',
 };
 
-const CustomIcon = () => <span className="material-symbols-outlined">sentiment_very_satisfied</span>;
+const CustomIcon = () => (
+  <div className="material-symbols-outlined" style={{ display: 'block' }}>
+    sentiment_very_satisfied
+  </div>
+);
 export const CustomIconAvatar: StoryFn<typeof Avatar> = Template.bind({});
 CustomIconAvatar.args = {
+  online: true,
   children: <CustomIcon />,
-};
-
-export const DifferentSizesAvatars = ({ ...args }) => {
-  return (
-    <Space direction="row">
-      <Avatar {...args} size={'xxl'}>
-        AB
-      </Avatar>
-      <Avatar {...args} size={'xl'}>
-        AB
-      </Avatar>
-      <Avatar {...args} size={'lg'}>
-        AB
-      </Avatar>
-      <Avatar {...args} size={'md'}>
-        AB
-      </Avatar>
-      <Avatar {...args} size={'sm'}>
-        AB
-      </Avatar>
-      <Avatar {...args} size={'xs'}>
-        AB
-      </Avatar>
-      <Avatar {...args} size={'xxs'}>
-        AB
-      </Avatar>
-    </Space>
-  );
-};
-
-export const DifferentRadiusesAvatars = ({ ...args }) => {
-  return (
-    <Space direction="row">
-      <Avatar {...args} size={'xl'} radius={'xxl'}>
-        AB
-      </Avatar>
-      <Avatar {...args} size={'xl'} radius={'xl'}>
-        AB
-      </Avatar>
-      <Avatar {...args} size={'xl'} radius={'lg'}>
-        AB
-      </Avatar>
-      <Avatar {...args} size={'xl'} radius={'md'}>
-        AB
-      </Avatar>
-      <Avatar {...args} size={'xl'} radius={'sm'}>
-        AB
-      </Avatar>
-      <Avatar {...args} size={'xl'} radius={'xs'}>
-        AB
-      </Avatar>
-      <Avatar {...args} size={'xl'} radius={'xxs'}>
-        AB
-      </Avatar>
-    </Space>
-  );
 };

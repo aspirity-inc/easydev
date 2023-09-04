@@ -1,24 +1,24 @@
-import { ReactNode } from 'react';
-
 import 'material-symbols';
 
-import { StyledAvatarWrapper, StyledCenter } from './styles';
+import { OnlineIndicator, StyledAvatarWrapper, StyledCenter } from './styles';
+import { AvatarProps } from './types';
 
-type AvatarProps = {
-  alt?: string;
-  src?: string;
-  imageProps?: Record<string, any>;
-  radius?: number | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-  size?: number | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-  children?: ReactNode;
-};
-
-export const Avatar = ({ alt, src, radius = 'lg', size = 'lg', imageProps, children, ...props }: AvatarProps) => {
+export const Avatar = ({
+  alt,
+  src,
+  radius = 'lg',
+  size = 'lg',
+  imageProps,
+  online,
+  children,
+  ...otherProps
+}: AvatarProps) => {
   return (
-    <StyledAvatarWrapper $size={size} $radius={radius}>
+    <StyledAvatarWrapper $size={size} $radius={radius} {...otherProps}>
       <StyledCenter>
-        {src ? <img {...imageProps} src={src} alt={alt} /> : <div title={alt}>{children || <DefaultAvatarIcon />}</div>}
+        {src ? <img {...imageProps} src={src} alt={alt} /> : <div>{children || <DefaultAvatarIcon />}</div>}
       </StyledCenter>
+      {typeof online !== 'undefined' && <OnlineIndicator $online={online} />}
     </StyledAvatarWrapper>
   );
 };

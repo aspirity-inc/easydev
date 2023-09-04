@@ -19,4 +19,4 @@ export * from '@core/Grid';
 export * from '@core/Layout';
 export { Center } from '@core/Center';
 export { Flex } from '@core/Flex';
-export { Avatar } from '@core/Avatar';
+export { Avatar, AvatarGroup } from '@core/Avatar';
