@@ -15,13 +15,13 @@ Code:
 <>
   <ToastContainer />
   <Space direction="row">
-    <Button onClick={() => alert('clicked')}>top-left toast</Button>
-    <Button onClick={() => alert('clicked')}>top-center toast</Button>
-    <Button onClick={() => alert('clicked')}>top-right toast</Button>
-    <Button onClick={() => alert('clicked')}>bottom-left toast</Button>
-    <Button onClick={() => alert('clicked')}>bottom-center toast</Button>
-    <Button onClick={() => alert('clicked')}>bottom-right toast</Button>
-    <Button onClick={() => alert('clicked')}>center-center toast</Button>
+    <Button onClick={() => toast({ status: 'success', position: 'top-left' })>top-left toast</Button>
+    <Button onClick={() => toast({ status: 'success', position: 'top-center' })}>top-center toast</Button>
+    <Button onClick={() => toast({ status: 'success', position: 'top-right' })}>top-right toast</Button>
+    <Button onClick={() => toast({ status: 'success', position: 'bottom-left' })}>bottom-left toast</Button>
+    <Button onClick={() => toast({ status: 'success', position: 'bottom-center' })}>bottom-center toast</Button>
+    <Button onClick={() => toast({ status: 'success', position: 'bottom-right' })}>bottom-right toast</Button>
+    <Button onClick={() => toast({ status: 'success', position: 'center-center' })}>center-center toast</Button>
   </Space>
 </>
 ```
