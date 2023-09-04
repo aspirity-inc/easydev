@@ -1,7 +1,7 @@
 import { css, styled } from 'styled-components';
 
 import { scrollbarStyles } from '@core/Theme';
-import { getTextVariants } from '@core/Typography/Text/styles.ts';
+import { getTextVariants } from '@core/Typography/Text/styles';
 
 export type SelectType = {
   $rounded?: boolean;

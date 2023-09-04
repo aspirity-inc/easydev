@@ -1,13 +1,9 @@
 import { StyledTitle } from './styles.ts';
-import type { TitleVariant, TypographyBaseType } from '../types.ts';
+import type { TitleProps } from './types.ts';
 
-type TitleProps = TypographyBaseType & {
-  variant?: TitleVariant;
-};
-
-export const Title = ({ children, variant, ...props }: TitleProps) => {
+export const Title = ({ children, variant, bgColor, color, ...props }: TitleProps) => {
   return (
-    <StyledTitle tag={variant || 'h1'} variant={variant} {...props}>
+    <StyledTitle tag={variant || 'h1'} variant={variant} $bgColor={bgColor} $color={color} {...props}>
       {children}
     </StyledTitle>
   );

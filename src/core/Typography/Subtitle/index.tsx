@@ -1,14 +1,9 @@
-import { StyledSubtitle, SubtitleLevelType } from './styles.ts';
-import { TypographyBaseType } from '../types.ts';
+import { StyledSubtitle } from './styles.ts';
+import type { SubtitleProps } from './types.ts';
 
-type SubtitleProps = TypographyBaseType & {
-  tag?: keyof Pick<HTMLElementTagNameMap, 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'>;
-  level?: SubtitleLevelType;
-};
-
-export const Subtitle = ({ children, tag, ...props }: SubtitleProps) => {
+export const Subtitle = ({ children, tag, bgColor, color, ...props }: SubtitleProps) => {
   return (
-    <StyledSubtitle tag={tag || 'h4'} {...props}>
+    <StyledSubtitle tag={tag || 'h4'} $bgColor={bgColor} $color={color} {...props}>
       {children}
     </StyledSubtitle>
   );

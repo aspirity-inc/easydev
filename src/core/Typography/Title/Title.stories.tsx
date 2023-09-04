@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Title } from '.';
+import { titleTagVariants } from './types';
 
 const metaTitle: Meta<typeof Title> = {
   title: 'Core/Typography/Title',
@@ -13,7 +14,7 @@ const metaTitle: Meta<typeof Title> = {
       control: {
         type: 'select',
       },
-      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+      options: titleTagVariants,
       table: {
         defaultValue: { summary: 'h1' },
       },

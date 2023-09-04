@@ -2,20 +2,13 @@ import { css, styled } from 'styled-components';
 
 import { Box } from '@core/Box';
 
-import type { TypographyBaseType } from '../types.ts';
-
-export type TextVariant = 'body1' | 'body2' | 'body3' | 'body4' | 'caption';
-export type EllipsisType = { rows: number };
-type StyledTextType = Pick<TypographyBaseType, 'color' | 'bgColor'> & {
-  variant?: TextVariant;
-  ellipsis?: EllipsisType;
-};
+import type { TextVariantsType, EllipsisType, StyledTextProps } from './types';
 
 const baseLineHeight = css`
   line-height: 1.2;
 `;
 
-export const getTextVariants = (variant?: TextVariant) => {
+export const getTextVariants = (variant?: TextVariantsType) => {
   const defaultVariant = css`
     font-size: 18px;
     font-weight: 140;
@@ -70,16 +63,16 @@ const getEllipsisStyles = (ellipsis: EllipsisType) => {
   `;
 };
 
-export const StyledText = styled(Box)<StyledTextType>`
+export const StyledText = styled(Box)<StyledTextProps>`
   margin: 0;
   padding: 0;
   ${baseLineHeight};
 
   ${({ variant }) => getTextVariants(variant)};
 
-  ${({ color, bgColor }) => css`
-    color: ${color};
-    background-color: ${bgColor};
+  ${({ $color, $bgColor }) => css`
+    color: ${$color};
+    background-color: ${$bgColor};
   `};
 
   ${({ ellipsis }) => ellipsis && getEllipsisStyles(ellipsis)};

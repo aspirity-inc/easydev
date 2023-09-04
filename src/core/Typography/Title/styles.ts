@@ -2,21 +2,17 @@ import { css, styled } from 'styled-components';
 
 import { Box } from '@core/Box';
 
+import type { StyledTitleProps } from './types.ts';
 import { getTitleVariant } from '../styles.ts';
-import { TitleVariant, TypographyBaseType } from '../types.ts';
 
-type TitleProps = Pick<TypographyBaseType, 'color' | 'bgColor'> & {
-  variant?: TitleVariant;
-};
-
-export const StyledTitle = styled(Box)<TitleProps>`
+export const StyledTitle = styled(Box)<StyledTitleProps>`
   margin: 0;
   padding: 0;
 
   ${({ variant }) => getTitleVariant(variant)};
 
-  ${({ color, bgColor }) => css`
-    color: ${color};
-    background-color: ${bgColor};
+  ${({ $color, $bgColor }) => css`
+    color: ${$color};
+    background-color: ${$bgColor};
   `};
 `;

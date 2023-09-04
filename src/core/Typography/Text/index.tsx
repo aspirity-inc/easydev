@@ -1,15 +1,9 @@
-import { EllipsisType, StyledText, TextVariant } from './styles.ts';
-import { TypographyBaseType } from '../types.ts';
+import { StyledText } from './styles.ts';
+import type { TextProps } from './types.ts';
 
-type TextProps = TypographyBaseType & {
-  tag?: keyof Pick<HTMLElementTagNameMap, 'p' | 'span'>;
-  variant?: TextVariant;
-  ellipsis?: EllipsisType;
-};
-
-export const Text = ({ children, tag, ...props }: TextProps) => {
+export const Text = ({ children, tag, bgColor, color, ...props }: TextProps) => {
   return (
-    <StyledText tag={tag || 'p'} {...props}>
+    <StyledText tag={tag || 'p'} $bgColor={bgColor} $color={color} {...props}>
       {children}
     </StyledText>
   );

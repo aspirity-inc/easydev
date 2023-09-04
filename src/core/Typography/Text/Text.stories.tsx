@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Text } from '.';
+import { tagVariants, textVariants } from './types';
 
 const metaText: Meta<typeof Text> = {
   title: 'Core/Typography/Text',
@@ -12,7 +13,7 @@ const metaText: Meta<typeof Text> = {
       control: {
         type: 'select',
       },
-      options: ['p', 'span'],
+      options: tagVariants,
       table: {
         defaultValue: { summary: 'p' },
       },
@@ -20,7 +21,7 @@ const metaText: Meta<typeof Text> = {
     variant: {
       type: 'string',
       control: 'select',
-      options: ['body1', 'body2', 'body3', 'body4', 'caption', 'tooltip'],
+      options: textVariants,
       table: { defaultValue: { summary: 'body1' } },
     },
     ellipsis: {

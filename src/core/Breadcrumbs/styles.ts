@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import { getTextVariants } from '@core/Typography/Text/styles.ts';
+import { getTextVariants } from '@core/Typography/Text/styles';
 
 import { StyledBreadcrumbPropsType } from './types';
 
