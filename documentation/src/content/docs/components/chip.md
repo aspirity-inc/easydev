@@ -13,7 +13,7 @@ The Chip has the next props: label, variant, disabled, defaultChecked, className
 Code:
 
 ```tsx
-<Chip label="Chip" onChange={function ou() {}} />
+<Chip label="Chip" onChange={() => {}} />
 ```
 
 [List Of Chips](/?path=/story/core-chip--list-of-chips)
@@ -22,9 +22,9 @@ Code:
 
 ```tsx
 <Space direction="row">
-  <Chip label="Chip" onChange={function ou() {}} />
-  <Chip defaultChecked label="Selected chip" onChange={function ou() {}} />
-  <Chip disabled label="Disabled chip" onChange={function ou() {}} />
+  <Chip label="Chip" onChange={() => {}} />
+  <Chip defaultChecked label="Selected chip" onChange={() => {}} />
+  <Chip disabled label="Disabled chip" onChange={() => {}} />
 </Space>
 ```
 
@@ -34,12 +34,12 @@ Code:
 
 ```tsx
 <Space direction="row">
-  <Chip chipContent={<Checkbox />} label="Сheckbox chip" onChange={function ou() {}} />
-  <Chip chipContent={<Checkbox />} defaultChecked disabled label="Disabled checkbox chip" onChange={function ou() {}} />
+  <Chip chipContent={<Checkbox />} label="Сheckbox chip" onChange={() => {}} />
+  <Chip chipContent={<Checkbox />} defaultChecked disabled label="Disabled checkbox chip" onChange={() => {}} />
   <Chip
     chipContent={<div className="material-symbols-outlined">close</div>}
     label="Delete button chip"
-    onChange={function ou() {}}
+    onChange={() => {}}
   />
 </Space>
 ```

@@ -23,7 +23,7 @@ Code:
   label="Postal code mask"
   mask={[/[A-Z]/, /[0-9]/, /[A-Z]/, ' ', /[0-9]/, /[A-Z]/, /[0-9]/]}
   message="Example: A4E 2P9"
-  onChange={function ou() {}}
+  onChange={() => {}}
   value=""
 />
 ```

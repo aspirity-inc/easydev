@@ -11,7 +11,7 @@ The Tabs component has the next props: title, onClick, tabKey, active, disabled.
 Code:
 
 ```tsx
-<Tab onClick={function ou() {}} title="Tab" />
+<Tab onClick={() => {}} title="Tab" />
 ```
 
 [Tabs](/?path=/story/core-tab--default-tabs)
