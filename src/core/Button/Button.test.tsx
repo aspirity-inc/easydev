@@ -26,7 +26,7 @@ test('Should be in document', () => {
   expect(screen.getByText('add')).toBeInTheDocument();
 });
 
-test('Should be in document', () => {
+test('Should have class', () => {
   render(
     <EasydevProvider>
       <Button className="hey">{mockButtonText}</Button>
