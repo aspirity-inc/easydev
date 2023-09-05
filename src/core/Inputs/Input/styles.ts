@@ -28,19 +28,19 @@ export const StyledInputLabel = styled('label')`
   display: block;
   height: 56px;
 
-  &:has(${StyledInput}:focus-visible) ${StyledLabelText} {
+  & ${StyledInput}:focus-visible + ${StyledLabelText} {
     transform: scale(0.8) translateY(-28px);
   }
 
-  &:has(${StyledInput}:not(:placeholder-shown)) ${StyledLabelText} {
+  & ${StyledInput}:not(:placeholder-shown) + ${StyledLabelText} {
     transform: scale(0.8) translateY(-28px);
   }
 
-  &:has(${StyledInput}:focus-visible:not([disabled])) ${StyledLabelText} {
+  & ${StyledInput}:focus-visible:not([disabled]) + ${StyledLabelText} {
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.secondary['100'])};
   }
 
-  &:has(${StyledInput}:not(:placeholder-shown):not([disabled])) ${StyledLabelText} {
+  & ${StyledInput}:not(:placeholder-shown):not([disabled]) + ${StyledLabelText} {
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.secondary['100'])};
   }
 `;

@@ -53,7 +53,6 @@ export const Input = ({
   return (
     <StyledInputWrapper $disabled={disabled || false} $isLoading={isLoading || false}>
       <StyledInputLabel>
-        <StyledLabelText>{label}</StyledLabelText>
         <StyledInput
           type={getInputType()}
           value={value}
@@ -63,6 +62,7 @@ export const Input = ({
           $filled={Boolean(value)}
           $status={getInputStatus()}
         />
+        <StyledLabelText>{label}</StyledLabelText>
         <InputIcon
           type={type}
           icons={icons}

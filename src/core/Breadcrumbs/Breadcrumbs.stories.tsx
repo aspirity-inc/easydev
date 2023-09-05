@@ -5,7 +5,7 @@ import { StyledUserLink } from './styles';
 import { BreadcrumbsItem } from './types';
 
 const metaBreadcrumbs: Meta<typeof Breadcrumbs> = {
-  title: 'Core/Breadcrumbs/Breadcrumbs',
+  title: 'Core/Breadcrumbs',
   component: Breadcrumbs,
   argTypes: {
     separator: {

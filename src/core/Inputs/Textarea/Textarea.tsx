@@ -34,6 +34,7 @@ export const Textarea = ({
   const ref = useRef<HTMLTextAreaElement>(null);
   const [isOverflow, setIsOverflow] = useState(false);
   const [charactersNumber, setCharactersNumber] = useState(0);
+  const [focused, setFocused] = useState(false);
 
   useEffect(() => {
     if (autoresized && ref.current) {
@@ -53,14 +54,25 @@ export const Textarea = ({
     if (onChange) onChange(e);
   };
 
+  const handleFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+    setFocused(true);
+    if (props.onFocus) props.onFocus(e);
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+    setFocused(false);
+    if (props.onBlur) props.onBlur(e);
+  };
+
   return (
-    <StyledTextareaWrapper $disabled={disabled || false}>
-      <StyledTextareaLabel $filled={Boolean(value)}>
-        <StyledTextareaLabelText>{label}</StyledTextareaLabelText>
+    <StyledTextareaWrapper $disabled={disabled || false} $focused={focused} $filled={Boolean(value)}>
+      <StyledTextareaLabel>
         <StyledTextarea
           ref={ref}
           value={value}
           onChange={handleChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           disabled={disabled}
           placeholder={placeholder}
           maxLength={!softLimit ? maxLength : undefined}
@@ -68,6 +80,7 @@ export const Textarea = ({
           $filled={Boolean(value)}
           $autoresized={autoresized}
         />
+        <StyledTextareaLabelText>{label}</StyledTextareaLabelText>
       </StyledTextareaLabel>
       {showLimit && (
         <StyledCounterText variant="caption">
