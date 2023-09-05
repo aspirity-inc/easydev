@@ -10,4 +10,6 @@ export const StyledWrapper = styled('div')<StyledWrapperProps>`
   align-items: center;
   justify-content: center;
   gap: ${({ $gap }) => $gap || 0}px;
+  height: 100%;
+  width: 100%;
 `;
