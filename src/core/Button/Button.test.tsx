@@ -23,7 +23,7 @@ test('Should be in document', () => {
       <Button icon={<AddIcon />}>{mockButtonText}</Button>
     </EasydevProvider>
   );
-  expect(screen.getByText(mockButtonText)).toBeInTheDocument();
+  expect(screen.getByText('add')).toBeInTheDocument();
 });
 
 test('Should be in document', () => {
