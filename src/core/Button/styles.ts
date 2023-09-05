@@ -1,23 +1,10 @@
-import { CSSProperties } from 'react';
-
 import { css, keyframes, styled } from 'styled-components';
 
-export type ButtonSize = 'sm' | 'lg';
-export type ButtonRounded = 'sm' | 'lg';
-export type ButtonVariant = 'primary' | 'secondary';
-
-type StyledButtonProps = {
-  size?: ButtonSize;
-  $rounded?: ButtonRounded;
-  reversed?: boolean;
-  variant?: ButtonVariant;
-  color?: CSSProperties['color'];
-  bgColor?: CSSProperties['backgroundColor'];
-};
+import type { ButtonVariantsType, StyledButtonProps } from './types';
 
 export const StyledButton = styled('button')<StyledButtonProps>`
   display: flex;
-  flex-direction: ${({ reversed }) => reversed && 'row-reverse'};
+  flex-direction: ${({ $reversed }) => $reversed && 'row-reverse'};
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -33,10 +20,10 @@ export const StyledButton = styled('button')<StyledButtonProps>`
   cursor: pointer;
   user-select: none;
 
-  ${({ variant }) => getButtonVariantStyle(variant)}
+  ${({ $variant }) => getButtonVariantStyle($variant)}
 
-  ${({ size }) => {
-    switch (size) {
+  ${({ $size }) => {
+    switch ($size) {
       case 'sm':
         return css`
           padding: 8px 6px;
@@ -65,9 +52,9 @@ export const StyledButton = styled('button')<StyledButtonProps>`
     }
   }};
 
-  ${({ color, bgColor }) => css`
-    color: ${color};
-    background-color: ${bgColor};
+  ${({ $color, $bgColor }) => css`
+    color: ${$color};
+    background-color: ${$bgColor};
   `};
 `;
 
@@ -86,7 +73,7 @@ export const RotateBox = styled.div`
   animation: ${rotate} 1s linear infinite;
 `;
 
-const getButtonVariantStyle = (variant: ButtonVariant = 'primary') => {
+const getButtonVariantStyle = (variant: ButtonVariantsType = 'primary') => {
   const defaultState = css`
     background-color: ${({ theme }) => theme.colors.primary['600']};
 

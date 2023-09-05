@@ -1,24 +1,7 @@
-import { CSSProperties, ReactNode } from 'react';
-
 import 'material-symbols';
 
 import { RotateBox, StyledButton } from './styles';
-import type { ButtonRounded, ButtonSize, ButtonVariant } from './styles.ts';
-
-type ButtonProps = React.ComponentPropsWithoutRef<'button'> & {
-  children?: ReactNode;
-  className?: string;
-  style?: CSSProperties;
-  icon?: ReactNode;
-  reversed?: boolean;
-  size?: ButtonSize;
-  rounded?: ButtonRounded;
-  loading?: boolean;
-  loadingIcon?: ReactNode;
-  variant?: ButtonVariant;
-  color?: React.CSSProperties['color'];
-  bgColor?: React.CSSProperties['backgroundColor'];
-};
+import { ButtonProps } from './types';
 
 export const Button = ({
   children,
@@ -31,6 +14,8 @@ export const Button = ({
   loadingIcon,
   type = 'button',
   variant,
+  color,
+  bgColor,
   ...props
 }: ButtonProps) => {
   const LoadingIcon = () => {
@@ -41,11 +26,13 @@ export const Button = ({
   return (
     <StyledButton
       className={className}
-      reversed={reversed}
+      $reversed={reversed}
       $rounded={rounded}
-      size={size}
+      $size={size}
+      $color={color}
+      $bgColor={bgColor}
+      $variant={variant}
       type={type}
-      variant={variant}
       {...props}
     >
       {children}
