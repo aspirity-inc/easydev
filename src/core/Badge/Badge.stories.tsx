@@ -14,10 +14,14 @@ export default {
       options: ['sm', 'md', 'lg'],
     },
     color: {
-      defaultValue: 'green',
-      description: 'Color',
-      control: 'select',
-      options: [...defaultColors],
+      type: 'string',
+      control: { type: 'color', presetColors: ['success', 'warning', 'error'] },
+      description: 'colors presets: success | warning | error',
+    },
+    textColor: {
+      type: 'string',
+      control: { type: 'color' },
+      description: 'Text color',
     },
   },
 } satisfies Meta<typeof Badge>;
