@@ -12,7 +12,7 @@ import { ModalHeader } from './components/ModalHeader';
 import { Modal } from './Modal';
 
 const metaModal: Meta<typeof Modal> = {
-  title: 'Core/Modal/Modal',
+  title: 'Core/Modal',
   component: Modal,
 };
 export default metaModal;
