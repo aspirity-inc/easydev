@@ -11,10 +11,10 @@ The Masked Input has the next props: mask, label, error, warning, message, isLoa
 Code:
 
 ```tsx
-<MaskedInput label="Phone number" mask="+7 (999) 999-99-99" onChange={function Zo() {}} value="" />
+<MaskedInput label="Phone number" mask="+7 (999) 999-99-99" onChange={() => {}} value="" />
 ```
 
-[Masked Default Input Reg Exp](/?path=/story/core-controls-controlwithlabel--default-control-with-label)
+[Masked Default Input Reg Exp](/?path=/story/core-inputs-maskedinput--masked-default-input-reg-exp)
 
 Code:
 
@@ -23,12 +23,12 @@ Code:
   label="Postal code mask"
   mask={[/[A-Z]/, /[0-9]/, /[A-Z]/, ' ', /[0-9]/, /[A-Z]/, /[0-9]/]}
   message="Example: A4E 2P9"
-  onChange={function Zo() {}}
+  onChange={() => {}}
   value=""
 />
 ```
 
-[Error Input](/?path=/story/core-controls-controlwithlabel--default-control-with-label)
+[Error Input](/?path=/story/core-inputs-maskedinput--error-input)
 
 Code:
 
@@ -37,7 +37,7 @@ Code:
   error="There is no such number"
   label="Phone number"
   mask="+7 (999) 999-99-99"
-  onChange={function Zo() {}}
+  onChange={() => {}}
   value="0123456789"
 />
 ```
