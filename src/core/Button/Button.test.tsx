@@ -19,12 +19,13 @@ test('Should be in document', () => {
 });
 
 test('Should have icon', () => {
-  render(
+  const { container } = render(
     <EasydevProvider>
       <Button icon={<AddIcon />}>{mockButtonText}</Button>
     </EasydevProvider>
   );
   expect(screen.getByText('add')).toBeInTheDocument();
+  expect(container.getElementsByClassName('material-symbols-rounded').length).toBe(1);
 });
 
 test('Should have class', () => {
