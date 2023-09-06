@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef } from 'react';
 
-export type StyledWrapperProps = {
+export type StyledCenterProps = {
   $inline?: boolean;
   $gap?: number;
 };

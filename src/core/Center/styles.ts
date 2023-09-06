@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
-import type { StyledWrapperProps } from './types';
+import type { StyledCenterProps } from './types';
 
-export const StyledWrapper = styled('div')<StyledWrapperProps>`
+export const StyledCenter = styled('div')<StyledCenterProps>`
   display: ${({ $inline }) => ($inline ? 'inline-flex' : 'flex')};
   align-items: center;
   justify-content: center;
