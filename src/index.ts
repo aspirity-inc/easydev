@@ -17,7 +17,7 @@ export { Datepicker } from '@core/Datepicker';
 export { EasydevProvider, ThemeContext, THEMES } from '@core/Theme';
 export * from '@core/Grid';
 export * from '@core/Layout';
-export { Center } from '@core/Center';
+export * from '@core/Center';
 export * from '@core/Avatar';
 export * from '@core/Badge';
 export * from '@core/Flex';
