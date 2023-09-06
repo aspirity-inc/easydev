@@ -18,4 +18,4 @@ export { EasydevProvider, ThemeContext, THEMES } from '@core/Theme';
 export * from '@core/Grid';
 export * from '@core/Layout';
 export { Center } from '@core/Center';
-export { Flex } from '@core/Flex';
+export * from '@core/Flex';
