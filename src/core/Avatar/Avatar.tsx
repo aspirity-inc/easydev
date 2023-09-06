@@ -10,11 +10,13 @@ export const Avatar = ({
   size = 'lg',
   imageProps,
   online,
+  color,
+  bgColor,
   children,
   ...otherProps
 }: AvatarProps) => {
   return (
-    <StyledAvatarWrapper $size={size} $radius={radius} {...otherProps}>
+    <StyledAvatarWrapper $size={size} $radius={radius} $color={color} $bgColor={bgColor} {...otherProps}>
       <StyledCenter>
         {src ? <img {...imageProps} src={src} alt={alt} /> : <div>{children || <DefaultAvatarIcon />}</div>}
       </StyledCenter>

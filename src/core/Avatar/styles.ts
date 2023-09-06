@@ -4,16 +4,9 @@ import { Center } from '@core/Center';
 import { getSubtitleLevelStyles } from '@core/Typography/Subtitle/styles';
 import { getTextVariants } from '@core/Typography/Text/styles';
 import { getTitleVariant } from '@core/Typography/styles';
-import { TitleVariant } from '@core/Typography/types';
+import { TitleTagVariantsType } from '@core/Typography/Title/types';
 
-import { AvatarSizesRadiusesType } from './types';
-
-export type AvatarWrapperProps = {
-  $radius: AvatarSizesRadiusesType;
-  $size: AvatarSizesRadiusesType;
-  color?: React.CSSProperties['color'];
-  bgColor?: React.CSSProperties['backgroundColor'];
-};
+import { AvatarWrapperProps } from './types';
 
 export const sizes = {
   xxs: {
@@ -71,7 +64,6 @@ export const radiuses = {
 };
 
 export const StyledCenter = styled(Center)`
-  height: 100%;
   overflow: hidden;
   text-transform: uppercase;
 `;
@@ -103,9 +95,9 @@ export const StyledAvatarWrapper = styled('div')<AvatarWrapperProps>`
 
   border-radius: ${({ $radius }) => (typeof $radius === 'number' ? `${$radius}px` : radiuses[$radius])};
 
-  ${({ color, bgColor }) => css`
-    color: ${color};
-    background-color: ${bgColor};
+  ${({ $color, $bgColor }) => css`
+    color: ${$color};
+    background-color: ${$bgColor};
   `};
 
   & .material-symbols-outlined {
@@ -161,7 +153,7 @@ const getTextStyles = ($size: string | number) => {
     case 'lg':
     case 'xl':
     case 'xxl': {
-      return getTitleVariant(sizes[$size].fontStyle as TitleVariant);
+      return getTitleVariant(sizes[$size].fontStyle as TitleTagVariantsType);
     }
     default: {
       return getSubtitleLevelStyles(5);

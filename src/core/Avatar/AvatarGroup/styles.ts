@@ -3,10 +3,7 @@ import { styled } from 'styled-components';
 import { Flex } from '@core/Flex';
 
 import { Avatar } from '..';
-
-type StyledAvatarGroupProps = {
-  $spacing: number;
-};
+import { StyledAvatarGroupProps } from '../types';
 
 export const StyledAvatarGroup = styled(Flex)<StyledAvatarGroupProps>`
   padding-left: ${({ $spacing }) => `${$spacing}px`};
