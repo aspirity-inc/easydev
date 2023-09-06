@@ -1,9 +1,6 @@
 import { styled } from 'styled-components';
 
-export type StyledWrapperProps = {
-  $inline?: boolean;
-  $gap?: number;
-};
+import type { StyledWrapperProps } from './types';
 
 export const StyledWrapper = styled('div')<StyledWrapperProps>`
   display: ${({ $inline }) => ($inline ? 'inline-flex' : 'flex')};

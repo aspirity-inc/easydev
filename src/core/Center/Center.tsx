@@ -1,11 +1,5 @@
-import { ComponentPropsWithoutRef } from 'react';
-
 import { StyledWrapper } from './styles';
-
-type CenterProps = ComponentPropsWithoutRef<'div'> & {
-  inline?: boolean;
-  gap?: number;
-};
+import type { CenterProps } from './types';
 
 export const Center = ({ children, inline, gap, ...otherProps }: CenterProps) => {
   return (
