@@ -2,10 +2,11 @@ import { render, screen } from '@testing-library/react';
 import { expect, test } from 'vitest';
 
 import { EasydevProvider } from '@core/Theme/ThemeContext';
+import { lightPalette } from '@core/Theme/themePalette';
 
 import { Button } from '.';
-import { AddIcon } from './Button.stories';
 
+const AddIcon = () => <div className="material-symbols-rounded">add</div>;
 const mockButtonText = 'Button';
 
 test('Should be in document', () => {
@@ -17,7 +18,7 @@ test('Should be in document', () => {
   expect(screen.getByText(mockButtonText)).toBeInTheDocument();
 });
 
-test('Should be in document', () => {
+test('Should have icon', () => {
   render(
     <EasydevProvider>
       <Button icon={<AddIcon />}>{mockButtonText}</Button>
@@ -35,7 +36,7 @@ test('Should have class', () => {
   expect(screen.getByText(mockButtonText)).toHaveClass('hey');
 });
 
-test('Should be correct font', () => {
+test('Should be correct style', () => {
   render(
     <EasydevProvider>
       <Button style={{ fontSize: 55 }}>{mockButtonText}</Button>
@@ -73,16 +74,17 @@ test('Should be correct border radius', () => {
 });
 
 test('Should have loading icon', () => {
-  render(
+  const { container } = render(
     <EasydevProvider>
       <Button loading>{mockButtonText}</Button>
     </EasydevProvider>
   );
   expect(screen.getByText('cached')).toBeInTheDocument();
+  expect(container.getElementsByClassName('material-symbols-rounded').length).toBe(1);
 });
 
 test('Should have custom loading icon', () => {
-  render(
+  const { container } = render(
     <EasydevProvider>
       <Button loading loadingIcon={<AddIcon />}>
         {mockButtonText}
@@ -90,6 +92,7 @@ test('Should have custom loading icon', () => {
     </EasydevProvider>
   );
   expect(screen.getByText('add')).toBeInTheDocument();
+  expect(container.getElementsByClassName('material-symbols-rounded').length).toBe(1);
 });
 
 test('Should have correct type', () => {
@@ -107,7 +110,7 @@ test('Should have correct variant', () => {
       <Button variant="secondary">{mockButtonText}</Button>
     </EasydevProvider>
   );
-  expect(screen.getByText(mockButtonText)).toHaveStyleRule('background-color', '#C3C3C5');
+  expect(screen.getByText(mockButtonText)).toHaveStyleRule('background-color', lightPalette.surface['400']);
 });
 
 test('Should have correct color', () => {

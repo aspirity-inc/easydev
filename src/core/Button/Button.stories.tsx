@@ -5,7 +5,7 @@ import 'material-symbols';
 import { Button } from '.';
 import { ButtonRoundedVariants, ButtonSizeVariants, ButtonVariants } from './types';
 
-export const AddIcon = () => <div className="material-symbols-rounded">add</div>;
+const AddIcon = () => <div className="material-symbols-rounded">add</div>;
 const LoaderIcon = () => <div className="material-symbols-rounded">refresh</div>;
 
 const metaButton: Meta<typeof Button> = {
