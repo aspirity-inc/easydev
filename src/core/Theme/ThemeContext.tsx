@@ -6,7 +6,7 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { THEMES } from './themes.ts';
 import type { ThemeContextType, ThemeProviderType } from './types.ts';
 
-export const ThemeContext = createContext<ThemeContextType>({});
+export const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export const EasydevProvider = ({ children, theme }: ThemeProviderType) => {
   const type = theme?.type || 'light';
