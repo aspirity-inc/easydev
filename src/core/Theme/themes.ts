@@ -1,6 +1,6 @@
-import { darkPalette, lightPalette } from '@core/Theme/themePalette.ts';
+import { darkPalette, lightPalette } from '@core/Theme/themePalette';
 
-import { ThemeType } from './types.ts';
+import { ThemeType } from './types';
 
 const lightTheme: ThemeType = {
   type: 'light',

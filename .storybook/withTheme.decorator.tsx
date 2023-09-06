@@ -1,6 +1,5 @@
 import { createGlobalStyle, DefaultTheme } from 'styled-components';
-import { THEMES } from '../src/core/Theme';
-import { EasydevProvider } from '../src/core/Theme/ThemeContext';
+import { EasydevProvider, THEMES } from '../src';
 import { StoryContext, StoryFn } from '@storybook/react';
 
 // Sets the background based on theme
