@@ -15,3 +15,10 @@ export type BadgeProps = ComponentPropsWithoutRef<'div'> & {
   fullWidth?: boolean;
   children?: ReactNode;
 };
+
+export type StyledBadgeProps = {
+  $color: BadgeColor;
+  $textColor: CSSProperties['color'];
+  $size: BadgeSize;
+  $fullWidth: boolean | undefined;
+};

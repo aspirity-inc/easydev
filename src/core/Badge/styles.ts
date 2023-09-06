@@ -1,18 +1,12 @@
 import { CSSProperties } from 'react';
+
 import { darken } from 'polished';
 import { DefaultTheme, css, styled } from 'styled-components';
 
 import { getTextVariants } from '@core/Typography/Text/styles';
 import { TextVariantsType } from '@core/Typography/Text/types';
 
-import { BadgeColor, BadgeSize, DefaultBadgeColor, defaultColors } from './types';
-
-type StyledBadgeProps = {
-  $color: BadgeColor;
-  $textColor: CSSProperties['color'];
-  $size: BadgeSize;
-  $fullWidth: boolean | undefined;
-};
+import { BadgeColor, BadgeSize, DefaultBadgeColor, StyledBadgeProps, defaultColors } from './types';
 
 const sizes = {
   sm: {
@@ -57,7 +51,7 @@ const getBadgeColors = ($color: BadgeColor, $textColor: CSSProperties['color'], 
       $color &&
       css`
         background-color: ${$color};
-        color: ${$textColor || darken(0.2, $color)};
+        color: ${$textColor || darken(0.3, $color)};
       `
     );
   }
