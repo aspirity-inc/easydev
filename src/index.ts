@@ -1,5 +1,5 @@
 export { Title, Subtitle, Text } from '@core/Typography';
-export { Button } from '@core/Button';
+export * from '@core/Button';
 export { Input, Textarea, MaskedInput } from '@core/Inputs';
 export { Radio, Toggle, Checkbox } from '@core/Controls';
 export { Space } from '@core/Space';
@@ -16,7 +16,6 @@ export { Toast } from '@core/Toasts';
 export { Datepicker } from '@core/Datepicker';
 export { EasydevProvider, ThemeContext, THEMES } from '@core/Theme';
 export * from '@core/Grid';
-export * from '@core/Layout'
+export * from '@core/Layout';
 export { Center } from '@core/Center';
 export { Flex } from '@core/Flex';
-
