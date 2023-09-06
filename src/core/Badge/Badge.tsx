@@ -1,9 +1,9 @@
 import { StyledBadge, StyledBadgeContent } from './styles';
 import { BadgeProps } from './types';
 
-export const Badge = ({ color = 'green', size = 'md', fullWidth, children, ...props }: BadgeProps) => {
+export const Badge = ({ color = 'success', textColor, size = 'md', fullWidth, children, ...props }: BadgeProps) => {
   return (
-    <StyledBadge {...props} $color={color} $size={size} $fullWidth={fullWidth}>
+    <StyledBadge {...props} $color={color} $textColor={textColor} $size={size} $fullWidth={fullWidth}>
       <StyledBadgeContent>{children}</StyledBadgeContent>
     </StyledBadge>
   );

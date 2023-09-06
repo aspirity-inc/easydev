@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 import { DefaultTheme, css, styled } from 'styled-components';
 
 import { getTextVariants } from '@core/Typography/Text/styles';
@@ -7,6 +8,7 @@ import { BadgeColor, BadgeSize, DefaultBadgeColor, defaultColors } from './types
 
 type StyledBadgeProps = {
   $color: BadgeColor;
+  $textColor: CSSProperties['color'];
   $size: BadgeSize;
   $fullWidth: boolean | undefined;
 };
@@ -42,14 +44,14 @@ export const StyledBadge = styled('div')<StyledBadgeProps>`
 
   border-radius: 32px;
   ${({ $size }) => getTextVariants(sizes[$size].fontStyle as TextVariantsType)};
-  ${({ $color, theme }) => getBadgeColors($color, theme)};
+  ${({ $color, $textColor, theme }) => getBadgeColors($color, $textColor, theme)};
 `;
 
-const getBadgeColors = ($color: BadgeColor, theme: DefaultTheme) => {
+const getBadgeColors = ($color: BadgeColor, $textColor: CSSProperties['color'], theme: DefaultTheme) => {
   if (!isDefaultBadgeColor($color)) {
     return css`
       background-color: ${$color};
-      color: ${theme.colors.surface['50']};
+      color: ${$textColor || theme.colors.surface['50']};
     `;
   }
 
@@ -59,23 +61,6 @@ const getBadgeColors = ($color: BadgeColor, theme: DefaultTheme) => {
   };
 
   const colors = {
-    green: {
-      palette: 'primary',
-      ...defaultColorShades,
-    },
-    gray: {
-      palette: 'surface',
-      bgColor: theme.type === 'light' ? '100' : '50',
-      textColor: '900',
-    },
-    blue: {
-      palette: 'secondary',
-      ...defaultColorShades,
-    },
-    violet: {
-      palette: 'tretiary',
-      ...defaultColorShades,
-    },
     success: {
       palette: 'success',
       ...defaultColorShades,

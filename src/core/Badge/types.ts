@@ -1,6 +1,6 @@
 import { CSSProperties, ComponentPropsWithoutRef, ReactNode } from 'react';
 
-export const defaultColors = ['green', 'gray', 'blue', 'violet', 'success', 'error', 'warning'] as const;
+export const defaultColors = ['success', 'error', 'warning'] as const;
 
 export type DefaultBadgeColor = (typeof defaultColors)[number];
 
@@ -10,6 +10,7 @@ export type BadgeSize = 'sm' | 'md' | 'lg';
 
 export type BadgeProps = ComponentPropsWithoutRef<'div'> & {
   color?: BadgeColor;
+  textColor?: CSSProperties['color'];
   size?: BadgeSize;
   fullWidth?: boolean;
   children?: ReactNode;

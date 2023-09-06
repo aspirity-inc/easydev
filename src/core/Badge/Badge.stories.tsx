@@ -41,4 +41,5 @@ export const UserColorBadge: StoryFn<typeof Badge> = Template.bind({});
 UserColorBadge.args = {
   children: 'Badge',
   color: '#0100fa',
+  textColor: 'lightblue',
 };
