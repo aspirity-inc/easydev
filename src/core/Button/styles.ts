@@ -1,21 +1,10 @@
 import { css, keyframes, styled } from 'styled-components';
 
-export type ButtonSize = 'sm' | 'lg';
-export type ButtonRounded = 'sm' | 'lg';
-export type ButtonVariant = 'primary' | 'secondary';
+import type { ButtonVariantsType, StyledButtonProps } from './types';
 
-type ButtonProps = {
-  size?: ButtonSize;
-  rounded?: ButtonRounded;
-  reversed?: boolean;
-  variant?: ButtonVariant;
-  color?: React.CSSProperties['color'];
-  bgColor?: React.CSSProperties['backgroundColor'];
-};
-
-export const StyledButton = styled('button')<ButtonProps>`
+export const StyledButton = styled('button')<StyledButtonProps>`
   display: flex;
-  flex-direction: ${({ reversed }) => reversed && 'row-reverse'};
+  flex-direction: ${({ $reversed }) => $reversed && 'row-reverse'};
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -31,10 +20,10 @@ export const StyledButton = styled('button')<ButtonProps>`
   cursor: pointer;
   user-select: none;
 
-  ${({ variant }) => getButtonVariantStyle(variant)}
+  ${({ $variant }) => getButtonVariantStyle($variant)}
 
-  ${({ size }) => {
-    switch (size) {
+  ${({ $size }) => {
+    switch ($size) {
       case 'sm':
         return css`
           padding: 8px 6px;
@@ -48,8 +37,8 @@ export const StyledButton = styled('button')<ButtonProps>`
     }
   }};
 
-  ${({ rounded }) => {
-    switch (rounded) {
+  ${({ $rounded }) => {
+    switch ($rounded) {
       case 'sm':
         return css`
           border-radius: 8px;
@@ -63,9 +52,9 @@ export const StyledButton = styled('button')<ButtonProps>`
     }
   }};
 
-  ${({ color, bgColor }) => css`
-    color: ${color};
-    background-color: ${bgColor};
+  ${({ $color, $bgColor }) => css`
+    color: ${$color};
+    background-color: ${$bgColor};
   `};
 `;
 
@@ -84,7 +73,7 @@ export const RotateBox = styled.div`
   animation: ${rotate} 1s linear infinite;
 `;
 
-const getButtonVariantStyle = (variant: ButtonVariant = 'primary') => {
+const getButtonVariantStyle = (variant: ButtonVariantsType = 'primary') => {
   const defaultState = css`
     background-color: ${({ theme }) => theme.colors.primary['600']};
 

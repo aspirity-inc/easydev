@@ -3,6 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import 'material-symbols';
 
 import { Button } from '.';
+import { ButtonRoundedVariants, ButtonSizeVariants, ButtonVariants } from './types';
 
 const AddIcon = () => <div className="material-symbols-rounded">add</div>;
 const LoaderIcon = () => <div className="material-symbols-rounded">refresh</div>;
@@ -18,7 +19,7 @@ const metaButton: Meta<typeof Button> = {
         type: 'select',
       },
       defaultValue: 'lg',
-      options: ['lg', 'sm'],
+      options: ButtonSizeVariants,
       table: {
         defaultValue: { summary: 'lg' },
       },
@@ -30,7 +31,7 @@ const metaButton: Meta<typeof Button> = {
         type: 'select',
       },
       defaultValue: 'lg',
-      options: ['lg', 'sm', 'none'],
+      options: ButtonRoundedVariants,
       table: {
         defaultValue: { summary: 'lg' },
       },
@@ -42,7 +43,7 @@ const metaButton: Meta<typeof Button> = {
         type: 'select',
       },
       defaultValue: 'primary',
-      options: ['primary', 'secondary'],
+      options: ButtonVariants,
       table: {
         defaultValue: { summary: 'primary' },
       },
