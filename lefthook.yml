@@ -2,8 +2,10 @@ pre-push:
   parallel: true
   commands:
     eslint:
+      files: staged_files
       glob: "*.{js,ts,jsx,tsx}"
-      run: npx eslint {staged_files}
+      run: npx eslint {files}
     prettier:
+      files: staged_files
       glob: "*.*"
-      run: npx prettier --check --loglevel warn {staged_files}
+      run: npx prettier --check --loglevel warn {files}
