@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, CSSProperties } from 'react';
 
 export const CardVariants = ['outline', 'shadow'] as const;
 export type CardVariantsType = (typeof CardVariants)[number];
@@ -10,6 +10,7 @@ export type CardProps = {
   variant?: CardVariantsType;
   direction?: CardDirectionType;
   media?: ReactNode;
+  maxWidth?: CSSProperties['maxWidth'];
   borderedMedia?: boolean;
   children: ReactNode;
 };
@@ -17,6 +18,7 @@ export type CardProps = {
 export type StyledCardProps = {
   $variant?: CardVariantsType;
   $direction?: CardDirectionType;
+  $maxWidth?: CSSProperties['maxWidth'];
 };
 
 export type StyledMediaProps = {

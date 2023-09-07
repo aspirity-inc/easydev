@@ -4,7 +4,7 @@ import { CardDirectionType, StyledCardProps, StyledMediaProps } from '.';
 import { Flex } from '@core/Flex';
 
 export const StyledMedia = styled('div')<StyledMediaProps>`
-  width: 100%;
+  width: ${({ $direction }) => ($direction === 'column' ? '100%' : 'auto')};
 
   & img {
     display: block;
@@ -24,11 +24,13 @@ export const StyledMedia = styled('div')<StyledMediaProps>`
 `;
 
 export const StyledContent = styled('div')<StyledCardProps>`
+  width: 100%;
   padding: 16px;
 `;
 
 export const StyledCard = styled(Flex)<StyledCardProps>`
-  width: ${({ $direction }) => ($direction == 'column' ? '360px' : '600px')};
+  width: 100%;
+  max-width: ${({ $maxWidth }) => $maxWidth && getMaxWidth($maxWidth)};
   flex-wrap: ${({ $direction }) => ($direction == 'column' ? 'wrap' : 'nowrap')};
   align-items: ${({ $direction }) => $direction == 'row' && 'stretch'};
   border-radius: 8px;
@@ -52,6 +54,8 @@ export const StyledCard = styled(Flex)<StyledCardProps>`
   }}
 `;
 
+const getMaxWidth = ($maxWidth: string | number) => (typeof $maxWidth === 'number' ? `${$maxWidth}px` : $maxWidth);
+
 const getCommonMediaStyles = ($direction: CardDirectionType) => {
   switch ($direction) {
     case 'column': {
@@ -61,7 +65,7 @@ const getCommonMediaStyles = ($direction: CardDirectionType) => {
     }
     case 'row': {
       return css`
-        width: 260px;
+        max-width: 260px;
       `;
     }
   }

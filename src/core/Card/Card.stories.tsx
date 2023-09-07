@@ -22,6 +22,11 @@ export default {
       control: 'select',
       options: CardDirection,
     },
+    maxWidth: {
+      type: 'number',
+      control: 'number',
+      description: 'Maximum width',
+    },
   },
 } satisfies Meta<typeof Card>;
 
@@ -40,9 +45,13 @@ const Template: StoryFn<typeof Card> = ({ ...args }) => {
           May 6, 2012
         </Text>
         <Flex gap={10}>
-          <Badge>Nature</Badge>
-          <Badge color="pink">Mountains</Badge>
-          <Badge color="lightblue">Travel</Badge>
+          <Badge size="sm">Nature</Badge>
+          <Badge size="sm" color="pink">
+            Mountains
+          </Badge>
+          <Badge size="sm" color="lightblue">
+            Travel
+          </Badge>
         </Flex>
         <Button rounded="sm">Read more</Button>
       </Flex>
@@ -57,6 +66,12 @@ const CardImage = () => (
 export const DefaultCard: StoryFn<typeof Card> = Template.bind({});
 DefaultCard.args = {
   media: CardImage(),
+};
+
+export const DefaultCardWithMaxWidth: StoryFn<typeof Card> = Template.bind({});
+DefaultCardWithMaxWidth.args = {
+  media: CardImage(),
+  maxWidth: 400,
 };
 
 export const NoImageCard: StoryFn<typeof Card> = Template.bind({});
