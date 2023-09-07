@@ -1,20 +1,9 @@
-import { CSSProperties, ComponentPropsWithoutRef } from 'react';
-
-import { StyledWrapper } from './styles';
-
-type FlexProps = ComponentPropsWithoutRef<'div'> & {
-  direction?: CSSProperties['flexDirection'];
-  align?: CSSProperties['alignItems'];
-  justify?: CSSProperties['justifyContent'];
-  wrap?: CSSProperties['flexWrap'];
-  gap?: number;
-  rowGap?: number;
-  columnGap?: number;
-};
+import { StyledFlex } from './styles';
+import type { FlexProps } from './types';
 
 export const Flex = ({ direction, align, justify, wrap, gap, rowGap, columnGap, children, ...props }: FlexProps) => {
   return (
-    <StyledWrapper
+    <StyledFlex
       $direction={direction}
       $align={align}
       $justify={justify}
@@ -25,6 +14,6 @@ export const Flex = ({ direction, align, justify, wrap, gap, rowGap, columnGap, 
       {...props}
     >
       {children}
-    </StyledWrapper>
+    </StyledFlex>
   );
 };
