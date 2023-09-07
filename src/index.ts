@@ -21,3 +21,4 @@ export * from '@core/Center';
 export * from '@core/Avatar';
 export * from '@core/Badge';
 export * from '@core/Flex';
+export * from '@core/Card';
