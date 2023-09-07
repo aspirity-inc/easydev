@@ -3,7 +3,7 @@ import type { LinkProps } from './types.ts';
 
 export const Link = ({ children, disabled, defaultUnderline, ...props }: LinkProps) => {
   return (
-    <StyledLink {...props} $disabled={disabled} $defaultUnderline={defaultUnderline}>
+    <StyledLink $disabled={disabled} $defaultUnderline={defaultUnderline} {...props}>
       {children}
     </StyledLink>
   );
