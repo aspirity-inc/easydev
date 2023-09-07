@@ -1,17 +1,8 @@
-import { CSSProperties } from 'react';
 import { styled } from 'styled-components';
 
-export type StyledWrapperProps = {
-  $direction?: CSSProperties['flexDirection'];
-  $align?: CSSProperties['alignItems'];
-  $justify?: CSSProperties['justifyContent'];
-  $wrap?: CSSProperties['flexWrap'];
-  $gap?: number;
-  $rowGap?: number;
-  $columnGap?: number;
-};
+import type { StyledFlexProps } from './types';
 
-export const StyledWrapper = styled('div')<StyledWrapperProps>`
+export const StyledFlex = styled('div')<StyledFlexProps>`
   display: flex;
   flex-direction: ${({ $direction }) => $direction || 'row'};
   justify-content: ${({ $justify }) => $justify || 'flex-start'};

@@ -1,12 +1,10 @@
-import { ComponentPropsWithoutRef, ReactNode } from 'react';
+import { StyledLink } from './styles.ts';
+import type { LinkProps } from './types.ts';
 
-import { StyledLink, StyledLinkPropsType } from './styles.ts';
-
-type LinkPropsType = ComponentPropsWithoutRef<'a'> &
-  StyledLinkPropsType & {
-    children: ReactNode | ReactNode[] | string;
-  };
-
-export const Link = ({ children, ...props }: LinkPropsType) => {
-  return <StyledLink {...props}>{children}</StyledLink>;
+export const Link = ({ children, disabled, defaultUnderline, ...props }: LinkProps) => {
+  return (
+    <StyledLink $disabled={disabled} $defaultUnderline={defaultUnderline} {...props}>
+      {children}
+    </StyledLink>
+  );
 };
