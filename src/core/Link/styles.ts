@@ -2,19 +2,16 @@ import { css, styled } from 'styled-components';
 
 import { getTextVariants } from '@core/Typography/Text/styles';
 
-export type StyledLinkPropsType = {
-  disabled?: boolean;
-  defaultUnderline?: boolean;
-};
+import type { StyledLinkProps } from './types';
 
-export const StyledLink = styled('a')<StyledLinkPropsType>`
+export const StyledLink = styled('a')<StyledLinkProps>`
   --hoverColor: ${({ theme }) => (theme.type === 'light' ? theme.colors.link['300'] : theme.colors.link['400'])};
   --transition: ${({ theme }) => theme.transition.default};
   ${getTextVariants('body2')}
 
-  ${({ defaultUnderline }) =>
+  ${({ $defaultUnderline }) =>
     css`
-      text-decoration: ${defaultUnderline ? 'underline' : 'underline transparent'};
+      text-decoration: ${$defaultUnderline ? 'underline' : 'underline transparent'};
     `}
 
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.link['300'] : theme.colors.link['500'])};
@@ -36,8 +33,8 @@ export const StyledLink = styled('a')<StyledLinkPropsType>`
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.link['500'] : theme.colors.link['300'])};
   }
 
-  ${({ disabled, theme }) =>
-    disabled &&
+  ${({ $disabled, theme }) =>
+    $disabled &&
     css`
       color: ${theme.type === 'light' ? theme.colors.secondary['300'] : theme.colors.secondary['900']};
       cursor: default;

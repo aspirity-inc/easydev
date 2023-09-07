@@ -1,11 +1,16 @@
-import { ReactNode } from 'react';
+import { StyledSpace } from './styles.ts';
+import type { SpaceProps } from './types.ts';
 
-import { SpaceStylesPropsType, StyledSpace } from './styles.ts';
-
-type SpacePropsType = SpaceStylesPropsType & {
-  children: ReactNode | ReactNode[];
-};
-
-export const Space = ({ children, ...props }: SpacePropsType) => {
-  return <StyledSpace {...props}>{children}</StyledSpace>;
+export const Space = ({ children, size, alignItems, justifyContent, direction, ...props }: SpaceProps) => {
+  return (
+    <StyledSpace
+      $size={size}
+      $alignItems={alignItems}
+      $justifyContent={justifyContent}
+      $direction={direction}
+      {...props}
+    >
+      {children}
+    </StyledSpace>
+  );
 };
