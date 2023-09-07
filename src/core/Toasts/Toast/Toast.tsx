@@ -42,7 +42,7 @@ export const Toast = ({
         clearTimeout(timeoutId);
       };
     }
-  }, [isDeleting, onDelete]);
+  }, [isDeleting, onDelete, toastId]);
 
   useEffect(() => {
     if (autoClose) {

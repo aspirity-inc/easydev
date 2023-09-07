@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 
-import { Button } from '@core/Button';
 import { Badge } from '@core/Badge';
+import { Button } from '@core/Button';
 import { Flex } from '@core/Flex';
 import { Text, Title } from '@core/Typography';
 

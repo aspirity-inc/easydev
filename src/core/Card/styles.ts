@@ -1,7 +1,8 @@
 import { css, styled } from 'styled-components';
 
-import { CardDirectionType, StyledCardProps, StyledMediaProps } from '.';
 import { Flex } from '@core/Flex';
+
+import { CardDirectionType, StyledCardProps, StyledMediaProps } from '.';
 
 export const StyledMedia = styled('div')<StyledMediaProps>`
   width: ${({ $direction }) => ($direction === 'column' ? '100%' : 'auto')};

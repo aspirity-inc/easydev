@@ -33,7 +33,6 @@ const TemplateTab: StoryFn<typeof Tab> = ({ ...args }) => {
 export const DefaultTab: StoryFn<typeof Tab> = TemplateTab.bind({});
 DefaultTab.args = {
   title: 'Tab',
-  onClick: (k) => k,
 };
 
 export const DefaultTabs = () => {
@@ -63,7 +62,6 @@ export const DefaultTabs = () => {
       {tabs.map((tab) => (
         <Tab
           key={tab.tabKey}
-          tabKey={tab.tabKey}
           title={tab.title}
           active={tab.tabKey === activeKey}
           onClick={() => setActiveKey(tab.tabKey)}

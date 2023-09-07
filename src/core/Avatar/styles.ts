@@ -1,9 +1,9 @@
 import { css, styled } from 'styled-components';
 
 import { Center } from '@core/Center';
+import { getTitleVariant } from '@core/Typography/styles';
 import { getSubtitleLevelStyles } from '@core/Typography/Subtitle/styles';
 import { getTextVariants } from '@core/Typography/Text/styles';
-import { getTitleVariant } from '@core/Typography/styles';
 import { TitleTagVariantsType } from '@core/Typography/Title/types';
 
 import { AvatarWrapperProps } from './types';
