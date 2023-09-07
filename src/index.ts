@@ -3,7 +3,6 @@ export * from '@core/Button';
 export { Input, Textarea, MaskedInput } from '@core/Inputs';
 export { Radio, Toggle, Checkbox } from '@core/Controls';
 export * from '@core/Space';
-export { Space } from '@core/Space';
 export * from '@core/Link';
 export * from '@core/Progress';
 export { Popover } from '@core/Popover';
