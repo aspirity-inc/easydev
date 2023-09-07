@@ -1,8 +1,9 @@
 import { Children, ReactElement } from 'react';
 
 import { StyledAvatarGroup, StyledGroupItem } from './styles';
-import { AvatarGroupProps, AvatarProps } from '../types';
+import { AvatarGroupProps } from './types';
 import { sizes } from '../styles';
+import { AvatarProps } from '../types';
 
 export const AvatarGroup = ({ spacing, max = 5, children, ...otherProps }: AvatarGroupProps) => {
   let firstChildProps: AvatarProps = {};
