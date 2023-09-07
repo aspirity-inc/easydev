@@ -5,6 +5,7 @@ import { EasydevProvider } from '@core/Theme/ThemeContext';
 import { lightPalette } from '@core/Theme/themePalette';
 
 import { Avatar } from '.';
+import { sizes } from './styles';
 
 const CustomIcon = () => (
   <div className="material-symbols-outlined" style={{ display: 'block' }}>
@@ -13,6 +14,8 @@ const CustomIcon = () => (
 );
 
 const mockAvatarText = 'Avatar text';
+
+const avatarClassName = 'avatar';
 
 test('Should be in document', () => {
   render(
@@ -40,6 +43,7 @@ test('Should be online indicator with correct background-color', () => {
     </EasydevProvider>
   );
   const onlineElement = screen.getByText(mockAvatarText).parentNode?.parentNode?.childNodes[1];
+  expect(onlineElement).toBeInTheDocument();
   expect(onlineElement).toHaveStyleRule('background-color', lightPalette.primary['500']);
 });
 
@@ -49,8 +53,9 @@ test('Should be offline indicator with correct background-color', () => {
       <Avatar online={false}>{mockAvatarText}</Avatar>
     </EasydevProvider>
   );
-  const onlineElement = screen.getByText(mockAvatarText).parentNode?.parentNode?.childNodes[1];
-  expect(onlineElement).toHaveStyleRule('background-color', lightPalette.surface['300']);
+  const offlineElement = screen.getByText(mockAvatarText).parentNode?.parentNode?.childNodes[1];
+  expect(offlineElement).toBeInTheDocument();
+  expect(offlineElement).toHaveStyleRule('background-color', lightPalette.surface['300']);
 });
 
 test('Should have custom image', () => {
@@ -82,4 +87,50 @@ test('Should have custom icon', () => {
   );
   expect(screen.getByText('sentiment_very_satisfied')).toBeInTheDocument();
   expect(container.getElementsByClassName('material-symbols-outlined').length).toBe(1);
+});
+
+test('Should have correct color', () => {
+  const { container } = render(
+    <EasydevProvider>
+      <Avatar className={avatarClassName} color="#efefef" />
+    </EasydevProvider>
+  );
+
+  const avatarElement = container.getElementsByClassName(avatarClassName)[0];
+  expect(avatarElement).toHaveStyleRule('color', '#efefef');
+});
+
+test('Should have correct bgColor', () => {
+  const { container } = render(
+    <EasydevProvider>
+      <Avatar className={avatarClassName} bgColor="#efefef" />
+    </EasydevProvider>
+  );
+
+  const avatarElement = container.getElementsByClassName(avatarClassName)[0];
+  expect(avatarElement).toHaveStyleRule('background-color', '#efefef');
+});
+
+test('Should have correct size', () => {
+  const { container } = render(
+    <EasydevProvider>
+      <Avatar className={avatarClassName} size={'xl'} />
+    </EasydevProvider>
+  );
+
+  const avatarElement = container.getElementsByClassName(avatarClassName)[0];
+  expect(avatarElement).toHaveStyleRule('height', sizes['xl'].avatar);
+  expect(avatarElement).toHaveStyleRule('height', sizes['xl'].avatar);
+});
+
+test('Should have correct border-radius', () => {
+  const { container } = render(
+    <EasydevProvider>
+      <Avatar className={avatarClassName} radius={58} />
+    </EasydevProvider>
+  );
+
+  const avatarElement = container.getElementsByClassName(avatarClassName)[0];
+  expect(avatarElement).toHaveStyleRule('border-radius', '58px');
+  expect(avatarElement).toHaveStyleRule('border-radius', '58px');
 });
