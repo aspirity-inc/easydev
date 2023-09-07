@@ -1,18 +1,13 @@
 import { styled } from 'styled-components';
 
-export type SpaceStylesPropsType = {
-  size?: number;
-  alignItems?: React.CSSProperties['alignItems'];
-  justifyContent?: React.CSSProperties['justifyContent'];
-  direction?: React.CSSProperties['flexDirection'];
-};
+import type { StylesSpaceProps } from './types';
 
-export const StyledSpace = styled('div')<SpaceStylesPropsType>`
+export const StyledSpace = styled('div')<StylesSpaceProps>`
   display: flex;
   max-width: fit-content;
   flex-wrap: wrap;
-  flex-direction: ${({ direction }) => direction || 'column'};
-  gap: ${({ size }) => (typeof size === 'undefined' ? 16 : size)}px;
-  align-items: ${({ alignItems }) => alignItems || 'center'};
-  justify-content: ${({ justifyContent }) => justifyContent || 'flex-start'};
+  flex-direction: ${({ $direction }) => $direction || 'column'};
+  gap: ${({ $size }) => (typeof $size === 'undefined' ? 16 : $size)}px;
+  align-items: ${({ $alignItems }) => $alignItems || 'center'};
+  justify-content: ${({ $justifyContent }) => $justifyContent || 'flex-start'};
 `;

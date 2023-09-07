@@ -24,7 +24,7 @@ const metaSpace: Meta<typeof Space> = {
     justifyContent: {
       type: 'string',
       control: 'select',
-      options: ['flex-start', 'flex-end', 'center', 'space-between', 'space=around', 'space-evenly'],
+      options: ['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly'],
     },
     direction: {
       type: 'string',
