@@ -16,19 +16,21 @@ export const StyledMedia = styled('div')<StyledMediaProps>`
     ${({ $direction }) => {
       return getCommonMediaStyles($direction);
     }}
-
-    ${({ $direction, $borderedMedia }) => {
-      return $borderedMedia ? getBorderedMediaStyles() : getDefaultMediaStyles($direction);
-    }}
   }
+
+  ${({ $direction, $borderedMedia }) => {
+    return $borderedMedia ? getBorderedMediaStyles($direction) : getDefaultMediaStyles($direction);
+  }}
+`;
+
+export const StyledContent = styled('div')<StyledCardProps>`
+  padding: 16px;
 `;
 
 export const StyledCard = styled(Flex)<StyledCardProps>`
   width: ${({ $direction }) => ($direction == 'column' ? '360px' : '600px')};
   flex-wrap: ${({ $direction }) => ($direction == 'column' ? 'wrap' : 'nowrap')};
   align-items: ${({ $direction }) => $direction == 'row' && 'stretch'};
-  padding: 16px;
-
   border-radius: 8px;
   background: ${({ theme }) => (theme.type == 'light' ? theme.colors.surface['50'] : theme.colors.surface['900'])};
 
@@ -69,25 +71,29 @@ const getDefaultMediaStyles = ($direction: CardDirectionType) => {
   switch ($direction) {
     case 'column': {
       return css`
-        width: calc(100% + 32px);
-        margin: -16px -16px 0 -16px;
-        border-top-right-radius: 8px;
-        border-top-left-radius: 8px;
+        & img {
+          border-top-right-radius: 8px;
+          border-top-left-radius: 8px;
+        }
       `;
     }
     case 'row': {
       return css`
-        height: calc(100% + 32px);
-        margin: -16px 0 -16px -16px;
-        border-top-left-radius: 8px;
-        border-bottom-left-radius: 8px;
+        & img {
+          border-top-left-radius: 8px;
+          border-bottom-left-radius: 8px;
+        }
       `;
     }
   }
 };
 
-const getBorderedMediaStyles = () => {
+const getBorderedMediaStyles = ($direction: CardDirectionType) => {
   return css`
-    border-radius: 4px;
+    padding: ${$direction === 'column' ? '16px 16px 0 16px' : '16px 0 16px 16px'};
+
+    & img {
+      border-radius: 4px;
+    }
   `;
 };
