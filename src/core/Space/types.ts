@@ -1,6 +1,6 @@
 import { CSSProperties, ReactNode } from 'react';
 
-export type StylesSpaceProps = {
+export type StyledSpaceProps = {
   $size?: number;
   $alignItems?: CSSProperties['alignItems'];
   $justifyContent?: CSSProperties['justifyContent'];
