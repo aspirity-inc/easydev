@@ -26,7 +26,7 @@ export const PasswordToggle = ({ disabled, isHidePassword, onToggle, ...icons }:
   };
 
   return (
-    <ToggleWrapper disabled={disabled} onClick={handleClick}>
+    <ToggleWrapper type="button" disabled={disabled} onClick={handleClick}>
       {isHidePassword ? <ShowIcon icon={icons.showIcon} /> : <HideIcon icon={icons.hideIcon} />}
     </ToggleWrapper>
   );

@@ -24,5 +24,7 @@ export const ToggleWrapper = styled('button')<{ disabled: boolean }>`
 `;
 
 export const StyledIcon = styled('div')`
+  display: block;
+  line-height: normal;
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.secondary['100'])};
 `;
