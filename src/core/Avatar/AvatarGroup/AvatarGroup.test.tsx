@@ -147,7 +147,7 @@ test('Should have 3 children', () => {
   expect(avatarGroupElement.childNodes.length).toBe(3);
 });
 
-test('Should have 3 children', () => {
+test('Should have 4 children', () => {
   const { container } = render(
     <EasydevProvider>
       <AvatarGroup max={3} className={avatarGroupClassName}>
@@ -166,7 +166,7 @@ test('Should have 3 children', () => {
   expect(avatarGroupElement.childNodes.length).toBe(4);
 });
 
-test('Should have 3 children', () => {
+test('Should have 7 children', () => {
   const { container } = render(
     <EasydevProvider>
       <AvatarGroup max={7} className={avatarGroupClassName}>
