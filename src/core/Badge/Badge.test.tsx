@@ -27,14 +27,14 @@ describe('Badge default', () => {
     expect(screen.getByText(mockBadgeText).parentNode).toHaveStyleRule('width', 'auto');
   });
 
-  test('background color should be success 50', () => {
+  test('background color should be success lightPalette.success', () => {
     expect(screen.getByText(mockBadgeText).parentNode).toHaveStyleRule(
       'background-color',
       lightPalette.success[defaultColorShades.bgColor]
     );
   });
 
-  test('color should be success 900', () => {
+  test('color should be success lightPalette.success', () => {
     expect(screen.getByText(mockBadgeText).parentNode).toHaveStyleRule(
       'color',
       lightPalette.success[defaultColorShades.textColor]
@@ -42,7 +42,7 @@ describe('Badge default', () => {
   });
 });
 
-test('background-color should be error 50 and color error 900', () => {
+test('background-color and color should be error lightPalette.error', () => {
   render(
     <EasydevProvider>
       <Badge color="error">{mockBadgeText}</Badge>
