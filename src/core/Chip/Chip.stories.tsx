@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
 
+import { Checkbox } from '@core/Controls';
 import { Space } from '@core/Space';
 
 import { Chip } from '.';
-import { Checkbox } from '@core/Controls';
 
 export default {
   title: 'Core/Chip',
