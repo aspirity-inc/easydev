@@ -4,9 +4,15 @@ import { darken } from 'polished';
 import { DefaultTheme, css, styled } from 'styled-components';
 
 import { getTextVariants } from '@core/Typography/Text/styles';
-import { TextVariantsType } from '@core/Typography/Text/types';
+import type { TextVariantsType } from '@core/Typography/Text/types';
 
-import { BadgeColor, BadgeSize, DefaultBadgeColor, StyledBadgeProps, defaultColors } from './types';
+import {
+  type BadgeColor,
+  type BadgeSizeVariantsType,
+  type DefaultBadgeColor,
+  type StyledBadgeProps,
+  defaultColors,
+} from './types';
 
 const sizes = {
   sm: {
@@ -44,6 +50,10 @@ export const StyledBadge = styled('div')<StyledBadgeProps>`
   ${({ $size }) => getTextStyles($size)};
   ${({ $color, $textColor, theme }) => getBadgeColors($color, $textColor, theme)};
 `;
+export const defaultColorShades = {
+  bgColor: '50',
+  textColor: '900',
+} as const;
 
 const getBadgeColors = ($color: BadgeColor, $textColor: CSSProperties['color'], theme: DefaultTheme) => {
   if (!isDefaultBadgeColor($color)) {
@@ -55,11 +65,6 @@ const getBadgeColors = ($color: BadgeColor, $textColor: CSSProperties['color'], 
       `
     );
   }
-
-  const defaultColorShades = {
-    bgColor: '50',
-    textColor: '900',
-  };
 
   const colors = {
     success: {
@@ -88,7 +93,7 @@ const isDefaultBadgeColor = (color: BadgeColor): color is DefaultBadgeColor => {
   return defaultColors.includes(color as DefaultBadgeColor);
 };
 
-const getTextStyles = ($size: BadgeSize) => {
+const getTextStyles = ($size: BadgeSizeVariantsType) => {
   return css`
     ${getTextVariants(sizes[$size].fontStyle as TextVariantsType)};
     font-weight: ${sizes[$size].fontWeight};
