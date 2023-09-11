@@ -8,6 +8,7 @@ import { InputBaseStatus } from './types';
 export const getBaseInputStyles = ($filled: boolean) => {
   return css`
     box-sizing: border-box;
+    width: 100%;
     height: 100%;
     padding: 24px 60px 8px 16px;
 

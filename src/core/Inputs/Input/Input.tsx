@@ -73,12 +73,14 @@ export const Input = ({
         />
       </StyledInputLabel>
 
-      <StyledMessageWrapper>
-        <StyledStatus $status={getInputStatus()} variant="caption">
-          {getInputMessage()}
-        </StyledStatus>
-        <StyledExtraMessage variant="caption">{renderExtraMessage && renderExtraMessage()}</StyledExtraMessage>
-      </StyledMessageWrapper>
+      {(getInputMessage() || renderExtraMessage) && (
+        <StyledMessageWrapper>
+          <StyledStatus $status={getInputStatus()} variant="caption">
+            {getInputMessage()}
+          </StyledStatus>
+          <StyledExtraMessage variant="caption">{renderExtraMessage && renderExtraMessage()}</StyledExtraMessage>
+        </StyledMessageWrapper>
+      )}
     </StyledInputWrapper>
   );
 };

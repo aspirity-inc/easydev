@@ -59,6 +59,9 @@ export const StyledMessageWrapper = styled('div')`
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
+  margin-bottom: -24px;
+  gap: 20px;
+  min-height: 16px;
 `;
 
 export const StyledExtraMessage = styled(Text)`
@@ -66,8 +69,6 @@ export const StyledExtraMessage = styled(Text)`
 `;
 
 export const StyledInputWrapper = styled('div')<{ $disabled: boolean; $isLoading: boolean }>`
-  width: fit-content;
-
   ${({ $isLoading }) => {
     return (
       $isLoading &&

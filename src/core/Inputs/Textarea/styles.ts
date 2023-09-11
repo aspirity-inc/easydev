@@ -13,8 +13,6 @@ export type StyledWrapperProps = {
 };
 
 export const StyledTextareaWrapper = styled('div')<StyledWrapperProps>`
-  width: fit-content;
-
   ${({ $disabled }) => {
     return (
       $disabled &&
