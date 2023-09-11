@@ -1,14 +1,26 @@
 import { Children, cloneElement, isValidElement } from 'react';
 
 import { StyledRow } from './styles';
-import { RowProps } from './types';
+import type { RowProps } from './types';
 
-export const Row = (props: RowProps) => {
-  const { children, className, columns, style, rowGap, columnGap, rowSpacing, columnSpacing, ...otherProps } = props;
-
+export const Row = ({
+  children,
+  className,
+  columns,
+  style,
+  rowGap,
+  columnGap,
+  rowSpacing,
+  columnSpacing,
+  direction,
+  wrap,
+  justify,
+  align,
+  ...props
+}: RowProps) => {
   const childrenWithProps = Children.toArray(children).map((child) => {
     if (isValidElement(child) && (child as any)?.type?.name === 'Col') {
-      return cloneElement(child, { ...child.props, columns: columns });
+      return cloneElement(child, { ...child.props, columns });
     }
     return child;
   });
@@ -21,7 +33,12 @@ export const Row = (props: RowProps) => {
       $columnGap={columnGap}
       $rowSpacing={rowSpacing}
       $columnSpacing={columnSpacing}
-      {...otherProps}
+      $direction={direction}
+      $columns={columns}
+      $wrap={wrap}
+      $justify={justify}
+      $align={align}
+      {...props}
     >
       {childrenWithProps}
     </StyledRow>

@@ -20,18 +20,17 @@ export type RowProps = {
 };
 
 export type StyledRowProps = {
-  style?: CSSProperties;
   // flex-direction
-  direction?: CSSProperties['flexDirection'];
+  $direction?: CSSProperties['flexDirection'];
   // The number of columns
-  columns?: number;
+  $columns?: number;
   //horizontal space between items
   $columnSpacing?: number;
   // vertical space between items
   $rowSpacing?: number;
-  wrap?: CSSProperties['flexWrap'];
-  justify?: CSSProperties['justifyContent'];
-  align?: CSSProperties['alignItems'];
+  $wrap?: CSSProperties['flexWrap'];
+  $justify?: CSSProperties['justifyContent'];
+  $align?: CSSProperties['alignItems'];
   $rowGap?: number;
   $columnGap?: number;
 };

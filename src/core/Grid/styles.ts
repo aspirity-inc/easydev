@@ -1,19 +1,19 @@
 import { css, styled } from 'styled-components';
 
-import { StyledRowProps } from './types';
+import type { StyledRowProps } from './types';
 
 export const StyledRow = styled('div')<StyledRowProps>`
   display: flex;
-  flex-direction: ${({ direction }) => direction || 'row'};
-  flex-wrap: ${({ wrap }) => wrap || 'wrap'};
-  justify-content: ${({ justify }) => justify || 'flex-start'};
-  align-items: ${({ align }) => align || 'center'};
+  flex-direction: ${({ $direction }) => $direction || 'row'};
+  flex-wrap: ${({ $wrap }) => $wrap || 'wrap'};
+  justify-content: ${({ $justify }) => $justify || 'flex-start'};
+  align-items: ${({ $align }) => $align || 'center'};
   row-gap: ${({ $rowGap }) => $rowGap && `${$rowGap}px`};
   column-gap: ${({ $columnGap }) => $columnGap && `${$columnGap}px`};
   box-sizing: border-box;
 
   ${({ $columnSpacing, $rowSpacing }) => css`
-    .Row-item {
+    .grid-item {
       padding-top: ${$rowSpacing || 0}px;
       padding-left: ${$columnSpacing || 0}px;
     }

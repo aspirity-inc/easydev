@@ -9,12 +9,12 @@ export type ColProps = {
   alignSelf?: CSSProperties['alignSelf'];
 };
 
-export type ColSizeProps = {
-  basis?: CSSProperties['flexBasis'];
-  grow?: CSSProperties['flexGrow'];
-  shrink?: CSSProperties['flexShrink'];
-  maxWidth?: CSSProperties['maxWidth'];
-  width?: CSSProperties['width'];
+export type StyledColProps = {
+  $basis?: CSSProperties['flexBasis'];
+  $grow?: CSSProperties['flexGrow'];
+  $shrink?: CSSProperties['flexShrink'];
+  $width?: CSSProperties['width'];
+  $alignContent?: CSSProperties['alignContent'];
+  $alignSelf?: CSSProperties['alignSelf'];
+  $maxWidth?: CSSProperties['maxWidth'];
 };
-
-export type StyledColProps = Omit<ColProps, 'children'> & ColSizeProps;
