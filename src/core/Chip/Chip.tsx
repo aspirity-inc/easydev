@@ -1,7 +1,7 @@
 import { useState, BaseSyntheticEvent, cloneElement, isValidElement } from 'react';
 
 import { StyledChipLabel } from './styles';
-import { ChipProps } from './types';
+import type { ChipProps } from './types';
 
 export const Chip = (props: ChipProps) => {
   const {
