@@ -1,22 +1,20 @@
-import { CSSProperties, useState, ReactNode, BaseSyntheticEvent, cloneElement, isValidElement } from 'react';
+import { useState, BaseSyntheticEvent, cloneElement, isValidElement } from 'react';
 
-import { ChipVariant, StyledChipLabel } from './styles';
-
-type ChipProps = {
-  label: string;
-  variant?: ChipVariant;
-  disabled?: boolean;
-  defaultChecked?: boolean;
-  chipContent?: ReactNode;
-  onChange?: (event: BaseSyntheticEvent) => void;
-  className?: string;
-  style?: CSSProperties;
-  color?: React.CSSProperties['color'];
-  bgColor?: React.CSSProperties['backgroundColor'];
-};
+import { StyledChipLabel } from './styles';
+import { ChipProps } from './types';
 
 export const Chip = (props: ChipProps) => {
-  const { label, variant = 'filled', disabled, defaultChecked, onChange, chipContent, ...otherProps } = props;
+  const {
+    label,
+    variant = 'filled',
+    disabled,
+    defaultChecked,
+    bgColor,
+    color,
+    onChange,
+    chipContent,
+    ...otherProps
+  } = props;
   const [active, setActive] = useState(defaultChecked);
 
   const handleClick = (event: BaseSyntheticEvent) => {
@@ -43,7 +41,15 @@ export const Chip = (props: ChipProps) => {
     : chipContent;
 
   return (
-    <StyledChipLabel variant={variant} disabled={disabled} $active={active} onClick={handleClick} {...otherProps}>
+    <StyledChipLabel
+      $variant={variant}
+      $bgColor={bgColor}
+      $color={color}
+      disabled={disabled}
+      $active={active}
+      onClick={handleClick}
+      {...otherProps}
+    >
       {enhancedChipContent}
       {label}
     </StyledChipLabel>

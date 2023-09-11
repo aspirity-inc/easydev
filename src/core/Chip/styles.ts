@@ -2,17 +2,9 @@ import { css, styled } from 'styled-components';
 
 import { getTextVariants } from '@core/Typography/Text/styles';
 
-export type ChipVariant = 'filled' | 'outlined';
+import type { StyledChipProps } from './types';
 
-type ChipProps = {
-  disabled?: boolean;
-  $active?: boolean | undefined;
-  variant?: ChipVariant;
-  color?: React.CSSProperties['color'];
-  bgColor?: React.CSSProperties['backgroundColor'];
-};
-
-export const StyledChipLabel = styled('label')<ChipProps>`
+export const StyledChipLabel = styled('label')<StyledChipProps>`
   width: fit-content;
   display: flex;
   align-items: center;
@@ -25,8 +17,8 @@ export const StyledChipLabel = styled('label')<ChipProps>`
   white-space: nowrap;
   line-height: 1;
 
-  ${({ variant, ...props }) => {
-    switch (variant) {
+  ${({ $variant, ...props }) => {
+    switch ($variant) {
       case 'filled':
         return getFilledStyle(props);
       case 'outlined':
@@ -36,13 +28,13 @@ export const StyledChipLabel = styled('label')<ChipProps>`
     }
   }};
 
-  ${({ color, bgColor }) => css`
-    color: ${color};
-    background-color: ${bgColor};
+  ${({ $color, $bgColor }) => css`
+    color: ${$color};
+    background-color: ${$bgColor};
   `};
 `;
 
-const getFilledStyle = ({ $active }: ChipProps) => {
+const getFilledStyle = ({ $active }: StyledChipProps) => {
   return css`
     justify-content: center;
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['50'])};
