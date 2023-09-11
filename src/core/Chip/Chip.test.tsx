@@ -57,7 +57,7 @@ test('Testing click on the chip, should not change isChecked state', () => {
   expect(isChecked).toBe(false);
 });
 
-test('Testing defaultChecked of the chip', () => {
+test('Testing defaultChecked value of the chip', () => {
   let isChecked = true;
   const changeIsChecked = () => {
     isChecked = !isChecked;
@@ -73,7 +73,7 @@ test('Testing defaultChecked of the chip', () => {
   expect(isChecked).toBe(false);
 });
 
-test('Should be correct background color ', () => {
+test('Should be correct background color', () => {
   render(
     <EasydevProvider>
       <Chip label={mockChipText} bgColor="#ededed" />
@@ -83,7 +83,7 @@ test('Should be correct background color ', () => {
   expect(screen.getByText(mockChipText)).toHaveStyleRule('background-color', '#ededed');
 });
 
-test('Should be correct color ', () => {
+test('Should be correct color', () => {
   render(
     <EasydevProvider>
       <Chip label={mockChipText} color="#eaeaea" />
@@ -93,7 +93,7 @@ test('Should be correct color ', () => {
   expect(screen.getByText(mockChipText)).toHaveStyleRule('color', '#eaeaea');
 });
 
-test('Chip content should be in the document ', () => {
+test('Chip content should be in the document', () => {
   render(
     <EasydevProvider>
       <Chip label={mockChipText} chipContent={<div>Chip content</div>} />
@@ -103,7 +103,7 @@ test('Chip content should be in the document ', () => {
   expect(screen.getByText('Chip content')).toBeInTheDocument();
 });
 
-test('Should have correct style ', () => {
+test('Should have correct style', () => {
   render(
     <EasydevProvider>
       <Chip label={mockChipText} style={{ fontSize: 60 }} />
