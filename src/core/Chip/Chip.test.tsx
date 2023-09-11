@@ -113,7 +113,7 @@ test('Should have correct style', () => {
   expect(screen.getByText(mockChipText)).toHaveStyle({ fontSize: 60 });
 });
 
-test('Should have correct class name ', () => {
+test('Should have correct class name', () => {
   const { container } = render(
     <EasydevProvider>
       <Chip label={mockChipText} className="chip" />
