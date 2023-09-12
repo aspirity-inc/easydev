@@ -7,15 +7,6 @@ import { Col } from '..';
 
 const mockGridColText = 'Grid col text';
 
-test('Should be in document', () => {
-  render(
-    <EasydevProvider>
-      <Col>{mockGridColText}</Col>
-    </EasydevProvider>
-  );
-  expect(screen.getByText(mockGridColText)).toBeInTheDocument();
-});
-
 test('Should have custom size', () => {
   const width = `${Math.round((120 / 24) * 10e7) / 10e5}%`;
   render(

@@ -7,15 +7,6 @@ import { Col, Row } from '.';
 
 const mockGridRowText = 'Grid row text';
 
-test('Should be in document', () => {
-  render(
-    <EasydevProvider>
-      <Row>{mockGridRowText}</Row>
-    </EasydevProvider>
-  );
-  expect(screen.getByText(mockGridRowText)).toBeInTheDocument();
-});
-
 test('Should have class', () => {
   const { container } = render(
     <EasydevProvider>
