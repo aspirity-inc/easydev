@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import {
   StyledCounterText,
@@ -8,16 +8,7 @@ import {
   StyledTextareaLabelText,
   StyledTextareaWrapper,
 } from './styles';
-
-type TextareaProps = React.ComponentPropsWithoutRef<'textarea'> & {
-  className?: string;
-  style?: CSSProperties;
-  placeholder?: string;
-  label: string;
-  showLimit?: boolean;
-  autoresized?: boolean;
-  softLimit?: boolean;
-};
+import { TextareaProps } from '../types';
 
 export const Textarea = ({
   label,

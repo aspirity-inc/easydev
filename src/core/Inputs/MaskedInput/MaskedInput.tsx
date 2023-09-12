@@ -1,9 +1,7 @@
-import InputMask, { Props } from 'react-input-mask';
+import InputMask from 'react-input-mask';
 
 import { Input } from '..';
-import { InputProps } from '../types';
-
-export type MaskedInputProps = Props & InputProps;
+import { MaskedInputProps } from '../types';
 
 export const MaskedInput = (props: MaskedInputProps) => {
   return (

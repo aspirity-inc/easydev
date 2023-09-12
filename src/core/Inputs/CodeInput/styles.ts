@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { Center } from '@core/Center';
 import { getSubtitleLevelStyles } from '@core/Typography/Subtitle/styles';

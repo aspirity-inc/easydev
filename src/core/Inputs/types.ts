@@ -1,5 +1,7 @@
 import { CSSProperties, ComponentPropsWithoutRef, ReactNode } from 'react';
 
+import { Props } from 'react-input-mask';
+
 export type InputBaseStatus = 'warning' | 'error' | 'loading' | 'success';
 
 export type StatusProps = {
@@ -24,7 +26,22 @@ export type InputProps = ComponentPropsWithoutRef<'input'> & {
   renderExtraMessage?: () => React.ReactNode;
 };
 
-export type TextareaProps = InputsBaseProps & { $autoresized: boolean };
+export type TextareaProps = React.ComponentPropsWithoutRef<'textarea'> & {
+  className?: string;
+  style?: CSSProperties;
+  placeholder?: string;
+  label: string;
+  showLimit?: boolean;
+  autoresized?: boolean;
+  softLimit?: boolean;
+};
+
+export type StyledTextareaProps = InputsBaseProps & { $autoresized: boolean };
+export type StyledTextareaWrapperProps = {
+  $filled: boolean;
+  $disabled: boolean;
+  $focused: boolean;
+};
 
 export type IconsProps = {
   warningIcon?: ReactNode;
@@ -37,6 +54,8 @@ export type IconsProps = {
 export type IconProps = {
   icon?: ReactNode;
 };
+
+export type MaskedInputProps = Props & InputProps;
 
 export type CodeInputProps = Omit<ComponentPropsWithoutRef<'div'>, 'onChange'> & {
   length?: number;
