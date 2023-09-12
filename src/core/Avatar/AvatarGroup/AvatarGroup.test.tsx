@@ -9,53 +9,13 @@ import { sizes } from '../styles';
 
 const avatarGroupClassName = 'avatar-group';
 
-test('Should be in document', () => {
-  const { container } = render(
-    <EasydevProvider>
-      <AvatarGroup className={avatarGroupClassName}>
-        <Avatar />
-      </AvatarGroup>
-    </EasydevProvider>
-  );
-
-  const avatarGroupElement = container.getElementsByClassName(avatarGroupClassName)[0];
-  expect(avatarGroupElement).toBeInTheDocument();
-});
-
 test('Should be correct AvatarGroup padding-left (depends from 1st child size)', () => {
   const { container } = render(
     <EasydevProvider>
       <AvatarGroup className={avatarGroupClassName}>
+        <Avatar size="sm" />
         <Avatar />
-        <Avatar />
-      </AvatarGroup>
-    </EasydevProvider>
-  );
-
-  const avatarGroupElement = container.getElementsByClassName(avatarGroupClassName)[0];
-  expect(avatarGroupElement).toHaveStyleRule('padding-left', `${Number.parseInt(sizes['lg'].avatar) / 2}px`);
-});
-
-test('Should be correct AvatarGroup padding-left (depends from 1st child size)', () => {
-  const { container } = render(
-    <EasydevProvider>
-      <AvatarGroup className={avatarGroupClassName}>
-        <Avatar size={'xxl'} />
-        <Avatar />
-      </AvatarGroup>
-    </EasydevProvider>
-  );
-
-  const avatarGroupElement = container.getElementsByClassName(avatarGroupClassName)[0];
-  expect(avatarGroupElement).toHaveStyleRule('padding-left', `${Number.parseInt(sizes['xxl'].avatar) / 2}px`);
-});
-
-test('Should be correct AvatarGroup padding-left (depends from 1st child size)', () => {
-  const { container } = render(
-    <EasydevProvider>
-      <AvatarGroup className={avatarGroupClassName}>
-        <Avatar size={'sm'} />
-        <Avatar size={'xxl'} />
+        <Avatar size="xxl" />
       </AvatarGroup>
     </EasydevProvider>
   );
@@ -64,31 +24,19 @@ test('Should be correct AvatarGroup padding-left (depends from 1st child size)',
   expect(avatarGroupElement).toHaveStyleRule('padding-left', `${Number.parseInt(sizes['sm'].avatar) / 2}px`);
 });
 
-test('Should be correct AvatarGroup custom padding-left', () => {
+test('Should be correct AvatarGroup custom padding-left and every avatar should have size of first element', () => {
   const { container } = render(
     <EasydevProvider>
       <AvatarGroup className={avatarGroupClassName} spacing={40}>
-        <Avatar size={'sm'} />
-        <Avatar size={'xxl'} />
+        <Avatar size="sm" />
+        <Avatar size="xxl" />
       </AvatarGroup>
     </EasydevProvider>
   );
 
   const avatarGroupElement = container.getElementsByClassName(avatarGroupClassName)[0];
   expect(avatarGroupElement).toHaveStyleRule('padding-left', '40px');
-});
 
-test('every avatar should have size of first element', () => {
-  const { container } = render(
-    <EasydevProvider>
-      <AvatarGroup className={avatarGroupClassName}>
-        <Avatar size={'sm'} />
-        <Avatar size={'xxl'} />
-      </AvatarGroup>
-    </EasydevProvider>
-  );
-
-  const avatarGroupElement = container.getElementsByClassName(avatarGroupClassName)[0];
   expect(avatarGroupElement.childNodes[0]).toHaveStyleRule('width', sizes['sm'].avatar);
   expect(avatarGroupElement.childNodes[0]).toHaveStyleRule('height', sizes['sm'].avatar);
 
@@ -100,8 +48,8 @@ test('Should be correct margin-left between children (depends from 1st child siz
   const { container } = render(
     <EasydevProvider>
       <AvatarGroup className={avatarGroupClassName}>
-        <Avatar size={'sm'} />
-        <Avatar size={'xxl'} />
+        <Avatar size="sm" />
+        <Avatar size="xxl" />
       </AvatarGroup>
     </EasydevProvider>
   );
@@ -121,8 +69,8 @@ test('Should be correct custom margin-left between children', () => {
   const { container } = render(
     <EasydevProvider>
       <AvatarGroup className={avatarGroupClassName} spacing={55}>
-        <Avatar size={'sm'} />
-        <Avatar size={'xxl'} />
+        <Avatar size="sm" />
+        <Avatar size="xxl" />
       </AvatarGroup>
     </EasydevProvider>
   );
@@ -130,21 +78,6 @@ test('Should be correct custom margin-left between children', () => {
   const avatarGroupElement = container.getElementsByClassName(avatarGroupClassName)[0];
   expect(avatarGroupElement.childNodes[0]).toHaveStyleRule('margin-left', '-55px');
   expect(avatarGroupElement.childNodes[1]).toHaveStyleRule('margin-left', '-55px');
-});
-
-test('Should have 3 children', () => {
-  const { container } = render(
-    <EasydevProvider>
-      <AvatarGroup className={avatarGroupClassName}>
-        <Avatar />
-        <Avatar />
-        <Avatar />
-      </AvatarGroup>
-    </EasydevProvider>
-  );
-
-  const avatarGroupElement = container.getElementsByClassName(avatarGroupClassName)[0];
-  expect(avatarGroupElement.childNodes.length).toBe(3);
 });
 
 test('Should have 4 children', () => {

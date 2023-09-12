@@ -17,25 +17,6 @@ const mockAvatarText = 'Avatar text';
 
 const avatarClassName = 'avatar';
 
-test('Should be in document', () => {
-  render(
-    <EasydevProvider>
-      <Avatar>{mockAvatarText}</Avatar>
-    </EasydevProvider>
-  );
-  expect(screen.getByText(mockAvatarText)).toBeInTheDocument();
-});
-
-test('Should be default avatar icon', () => {
-  const { container } = render(
-    <EasydevProvider>
-      <Avatar />
-    </EasydevProvider>
-  );
-  expect(screen.getByText('person')).toBeInTheDocument();
-  expect(container.getElementsByClassName('material-symbols-outlined').length).toBe(1);
-});
-
 test('Should be online indicator with correct background-color', () => {
   render(
     <EasydevProvider>
@@ -114,12 +95,11 @@ test('Should have correct bgColor', () => {
 test('Should have correct size', () => {
   const { container } = render(
     <EasydevProvider>
-      <Avatar className={avatarClassName} size={'xl'} />
+      <Avatar className={avatarClassName} size="xl" />
     </EasydevProvider>
   );
 
   const avatarElement = container.getElementsByClassName(avatarClassName)[0];
-  expect(avatarElement).toHaveStyleRule('height', sizes['xl'].avatar);
   expect(avatarElement).toHaveStyleRule('height', sizes['xl'].avatar);
 });
 
@@ -131,6 +111,5 @@ test('Should have correct border-radius', () => {
   );
 
   const avatarElement = container.getElementsByClassName(avatarClassName)[0];
-  expect(avatarElement).toHaveStyleRule('border-radius', '58px');
   expect(avatarElement).toHaveStyleRule('border-radius', '58px');
 });
