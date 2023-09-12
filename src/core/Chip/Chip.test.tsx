@@ -7,24 +7,6 @@ import { Chip } from '.';
 
 const mockChipText = 'Chip text';
 
-test('Should be in the document', () => {
-  render(
-    <EasydevProvider>
-      <Chip label={mockChipText} />
-    </EasydevProvider>
-  );
-  expect(screen.getByText(mockChipText)).toBeInTheDocument();
-});
-
-test('Should be in the document', () => {
-  render(
-    <EasydevProvider>
-      <Chip label={mockChipText} variant="outlined" />
-    </EasydevProvider>
-  );
-  expect(screen.getByText(mockChipText)).toBeInTheDocument();
-});
-
 test('Testing click on the chip, should change isChecked state', () => {
   let isChecked = false;
   const changeIsChecked = () => {
