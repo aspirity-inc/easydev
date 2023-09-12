@@ -10,30 +10,26 @@ const metaCodeInput: Meta<typeof CodeInput> = {
 };
 export default metaCodeInput;
 
-const TemplateCodeInput: StoryFn<typeof CodeInput> = ({ ...args }) => {
-  const [codeValue, setCodeValue] = useState<string[]>(Array(args.number));
+const TemplateCodeInput: StoryFn<typeof CodeInput> = (args) => {
+  const [value, setValue] = useState('');
 
-  return <CodeInput {...args} code={codeValue} onChangeCode={setCodeValue} />;
+  const onChange = (value: string) => {
+    setValue(value);
+  };
+
+  return <CodeInput value={value} {...args} onChange={onChange} />;
 };
 
 export const DefaultCodeInput: StoryFn<typeof CodeInput> = TemplateCodeInput.bind({});
-DefaultCodeInput.args = {
-  number: 5,
-};
+DefaultCodeInput.args = {};
 
-const TemplateFilledCodeInput: StoryFn<typeof CodeInput> = ({ ...args }) => {
-  const [codeValue, setCodeValue] = useState<string[]>(Array(args.number).fill('1'));
-
-  return <CodeInput {...args} code={codeValue} onChangeCode={setCodeValue} />;
-};
-
-export const FilledCodeInput: StoryFn<typeof CodeInput> = TemplateFilledCodeInput.bind({});
+export const FilledCodeInput: StoryFn<typeof CodeInput> = TemplateCodeInput.bind({});
 FilledCodeInput.args = {
-  number: 5,
+  value: '111111',
 };
 
-export const DisabledCodeInput: StoryFn<typeof CodeInput> = TemplateFilledCodeInput.bind({});
-DisabledCodeInput.args = {
-  number: 5,
-  disabled: true,
+export const ErrorFilledCodeInput: StoryFn<typeof CodeInput> = TemplateCodeInput.bind({});
+ErrorFilledCodeInput.args = {
+  value: '111111',
+  error: true,
 };

@@ -1,42 +1,39 @@
-import { ComponentPropsWithoutRef, useRef, ChangeEvent, KeyboardEvent } from 'react';
+import { useRef, ChangeEvent, KeyboardEvent, useState, FocusEvent } from 'react';
 
-import { Center } from '@core/Center';
+import { StyledCodeInput, StyledCodeInputWrapper } from './styles';
+import { CodeInputProps } from '../types';
 
-import { StyledCodeInput } from './styles';
-
-type CodeInputProps = ComponentPropsWithoutRef<'div'> & {
-  number: number;
-  code: string[];
-  onChangeCode: (code: string[]) => void;
-  disabled: boolean;
-};
-
-export const CodeInput = ({ number, onChangeCode, disabled, ...props }: CodeInputProps) => {
+export const CodeInput = ({ length = 6, value, onChange, error, ...props }: CodeInputProps) => {
+  const [focusedInput, setFocusedInput] = useState(-1);
   const inputRefs = useRef<HTMLInputElement[]>([]);
 
   // Replace undefined values with empty strings
-  const code = Array.from({ length: number }, (_, i) => props.code[i] || '');
+  const code = Array.from({ length }, (_, i) => (value && value.toString()[i]) || '');
 
-  // Always set focus on first empty input
-  const handleInputClick = () => {
-    const firstEmptyIndex = code.findIndex((element) => !element);
-    inputRefs.current[firstEmptyIndex]?.focus();
+  const setCodeInputFocus = (index: number) => {
+    inputRefs.current[index]?.focus();
+    setFocusedInput(index);
   };
 
-  const setCodeByIndex = (index: number, value: string) => {
+  const setCodeValueByIndex = (index: number, value: string) => {
     const newCode = [...code];
     newCode[index] = value;
-    onChangeCode(newCode);
+    onChange && onChange(newCode.join(''));
+  };
+
+  // Always set focus on first empty input or last full index
+  const handleWrapperClick = () => {
+    const firstEmptyIndex = code.findIndex((element) => !element);
+    firstEmptyIndex !== -1 ? setCodeInputFocus(firstEmptyIndex) : setCodeInputFocus(code.length - 1);
   };
 
   const handleInputChange = (index: number, event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
 
     if (value.length === 1) {
-      setCodeByIndex(index, value);
-
+      setCodeValueByIndex(index, value);
       if (index < code.length - 1) {
-        inputRefs.current[index + 1]?.focus();
+        setCodeInputFocus(index + 1);
       }
     }
   };
@@ -47,30 +44,43 @@ export const CodeInput = ({ number, onChangeCode, disabled, ...props }: CodeInpu
 
       if (!code[index] && index > 0) {
         clearIndex = index - 1;
-        inputRefs.current[clearIndex]?.focus();
+        setCodeInputFocus(clearIndex);
       }
-
-      setCodeByIndex(clearIndex, '');
+      setCodeValueByIndex(clearIndex, '');
     }
   };
 
+  const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+    setFocusedInput(-1);
+    props.onBlur && props.onBlur(event);
+  };
+
   return (
-    <Center gap={8} {...props}>
-      {code.map((value, index) => (
-        <StyledCodeInput
-          key={index}
-          label=""
-          value={value}
-          maxLength={1}
-          ref={(ref: HTMLInputElement) => {
-            inputRefs.current[index] = ref as HTMLInputElement;
-          }}
-          onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange(index, event)}
-          onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => handleInputKeyDown(index, event)}
-          onClick={handleInputClick}
-          disabled={disabled}
-        />
-      ))}
-    </Center>
+    <StyledCodeInputWrapper
+      gap={4}
+      onClick={handleWrapperClick}
+      $focused={focusedInput > -1}
+      $filled={Boolean(value)}
+      $error={error}
+    >
+      {code.map((value, index) => {
+        return (
+          <StyledCodeInput
+            key={index}
+            value={value}
+            maxLength={1}
+            ref={(ref: HTMLInputElement) => {
+              inputRefs.current[index] = ref as HTMLInputElement;
+            }}
+            onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange(index, event)}
+            onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => handleInputKeyDown(index, event)}
+            onBlur={handleBlur}
+            $filled={Boolean(value)}
+            $focused={focusedInput === index}
+            {...props}
+          />
+        );
+      })}
+    </StyledCodeInputWrapper>
   );
 };

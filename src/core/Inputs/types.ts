@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react';
+import { CSSProperties, ComponentPropsWithoutRef, ReactNode } from 'react';
 
 export type InputBaseStatus = 'warning' | 'error' | 'loading' | 'success';
 
@@ -12,7 +12,7 @@ export type InputsBaseProps = {
 
 export type StyledInputProps = InputsBaseProps & StatusProps;
 
-export type InputProps = React.ComponentPropsWithoutRef<'input'> & {
+export type InputProps = ComponentPropsWithoutRef<'input'> & {
   className?: string;
   style?: CSSProperties;
   label: string;
@@ -37,3 +37,12 @@ export type IconsProps = {
 export type IconProps = {
   icon?: ReactNode;
 };
+
+export type CodeInputProps = Omit<ComponentPropsWithoutRef<'div'>, 'onChange'> & {
+  length?: number;
+  error?: boolean;
+  value?: string;
+  onChange?: (value: string) => void;
+};
+
+export type StyledCodeInputProps = { $filled: boolean; $focused: boolean; $error?: boolean };
