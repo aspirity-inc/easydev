@@ -9,7 +9,7 @@ export { Popover } from '@core/Popover';
 export * from '@core/Tab';
 export { Breadcrumbs } from '@core/Breadcrumbs';
 export type { BreadcrumbsItem } from '@core/Breadcrumbs';
-export { Chip } from '@core/Chip';
+export * from '@core/Chip';
 export { Select } from '@core/Select';
 export * from '@core/Modal';
 export { Toast } from '@core/Toasts';
