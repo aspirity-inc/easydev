@@ -112,7 +112,7 @@ const Template: StoryFn<typeof Table> = ({ ...args }) => {
 
   const selectAllRows = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = data.map((item) => +item.id);
+      const newSelected = data.map((item) => Number(item.id));
       setSelected(newSelected);
       return;
     }
@@ -160,7 +160,10 @@ const Template: StoryFn<typeof Table> = ({ ...args }) => {
           <TableRow key={item.id}>
             <TableCell>
               <Center>
-                <Checkbox checked={isSelected(+item.id)} onChange={(event) => selectItem(event, +item.id)} />
+                <Checkbox
+                  checked={isSelected(Number(item.id))}
+                  onChange={(event) => selectItem(event, Number(item.id))}
+                />
               </Center>
             </TableCell>
             <TableCell>
@@ -180,7 +183,7 @@ const Template: StoryFn<typeof Table> = ({ ...args }) => {
 
             <TableCell>{item.course}</TableCell>
             <TableCell>
-              <ProgressBar value={+item.progress} />
+              <ProgressBar value={Number(item.progress)} />
             </TableCell>
             <TableCell>{item.updated}</TableCell>
           </TableRow>
