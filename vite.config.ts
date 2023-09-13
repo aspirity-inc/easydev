@@ -29,7 +29,7 @@ export default defineConfig({
       fileName: (format) => `easydev.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: ['react', 'react-dom', 'styled-components'],
       output: {
         globals: {
           react: 'React',
@@ -42,6 +42,7 @@ export default defineConfig({
     alias: {
       '@core': path.resolve(__dirname, 'src/core'),
       '@helpers': path.resolve(__dirname, 'src/helpers'),
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
     },
   },
 });

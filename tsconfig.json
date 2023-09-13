@@ -23,7 +23,8 @@
     "baseUrl": ".",
     "paths": {
       "@core/*": ["src/core/*"],
-      "@helpers/*": ["src/helpers/*"]
+      "@helpers/*": ["src/helpers/*"],
+      "@hooks": ["src/hooks"]
     }
   },
   "include": ["src"],

@@ -23,4 +23,8 @@ export type ThemeContextType = {
 
 export type ThemeProviderType = ThemeContextType & {
   children: ReactNode | ReactNode[];
+  target?: HTMLElement;
+  customTarget?: HTMLElement;
+  enableVendorPrefixes?: boolean;
+  disableCSSOMInjection?: boolean;
 };
