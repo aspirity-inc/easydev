@@ -22,5 +22,5 @@ export * from '@core/Avatar';
 export * from '@core/Badge';
 export * from '@core/Flex';
 export * from '@core/Card';
-
 export * from '@hooks';
+export * from '@core/Table';
