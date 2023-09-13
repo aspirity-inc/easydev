@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 
 import { Placement } from '@popperjs/core';
 import { usePopper } from 'react-popper';
@@ -6,15 +6,7 @@ import { usePopper } from 'react-popper';
 import { Subtitle } from '@core/Typography';
 
 import { StyledArrow, StyledBody, StyledTitle, StyledPopover, TriggerPopoverWrapper } from './styles';
-
-type PopoverProps = {
-  placement: Placement;
-  title?: string;
-  body: string;
-  children: ReactNode;
-};
-
-type ElementType = HTMLDivElement | null;
+import { PopoverProps, ElementType } from './types';
 
 export const Popover = ({ placement, title, body, children }: PopoverProps) => {
   const [referenceElement, setReferenceElement] = useState<ElementType>(null);

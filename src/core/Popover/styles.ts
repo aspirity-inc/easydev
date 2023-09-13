@@ -2,6 +2,8 @@ import { css, styled } from 'styled-components';
 
 import { getTextVariants } from '@core/Typography/Text/styles';
 
+import { StyledPopoverProps } from './types';
+
 export const TriggerPopoverWrapper = styled.div`
   width: fit-content;
 `;
@@ -45,7 +47,7 @@ export const StyledArrow = styled.div`
   }
 `;
 
-export const StyledPopover = styled.div<{ $isTitled: boolean }>`
+export const StyledPopover = styled.div<StyledPopoverProps>`
   max-width: 210px;
   ${({ $isTitled }) => getBorderRasius($isTitled)};
   ${({ theme }) => theme.shadows.gray};
