@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 
-import { Badge } from '.';
+import { Badge, badgeSizeVariants, defaultColors } from '.';
 
 export default {
   title: 'Core/Badge',
@@ -10,11 +10,11 @@ export default {
       defaultValue: 'md',
       description: 'Size',
       control: 'select',
-      options: ['sm', 'md', 'lg'],
+      options: badgeSizeVariants,
     },
     color: {
       type: 'string',
-      control: { type: 'color', presetColors: ['success', 'warning', 'error'] },
+      control: { type: 'color', presetColors: defaultColors },
       description: 'colors presets: success | warning | error',
     },
     textColor: {

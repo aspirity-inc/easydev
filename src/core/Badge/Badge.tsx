@@ -1,5 +1,5 @@
 import { StyledBadge, StyledBadgeContent } from './styles';
-import { BadgeProps } from './types';
+import type { BadgeProps } from './types';
 
 export const Badge = ({ color = 'success', textColor, size = 'md', fullWidth, children, ...props }: BadgeProps) => {
   return (
