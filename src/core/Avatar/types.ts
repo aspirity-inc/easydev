@@ -1,16 +1,16 @@
 import { CSSProperties, ComponentPropsWithoutRef, ReactNode } from 'react';
 
-export const avatarRadiusesVariants = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
-export type AvatarRadiusesVariantsType = (typeof avatarRadiusesVariants)[number] | number;
+export const avatarRadiusVariants = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+export type AvatarRadiusVariantsType = (typeof avatarRadiusVariants)[number] | number;
 
-export const avatarSizesVariants = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
-export type AvatarSizesVariantsType = (typeof avatarSizesVariants)[number] | number;
+export const avatarSizeVariants = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+export type AvatarSizeVariantsType = (typeof avatarSizeVariants)[number] | number;
 
 export type AvatarProps = ComponentPropsWithoutRef<'div'> & {
   alt?: string;
   src?: string;
-  radius?: AvatarRadiusesVariantsType;
-  size?: AvatarSizesVariantsType;
+  radius?: AvatarRadiusVariantsType;
+  size?: AvatarSizeVariantsType;
   imageProps?: ComponentPropsWithoutRef<'img'>;
   online?: boolean;
   children?: ReactNode;
@@ -19,8 +19,8 @@ export type AvatarProps = ComponentPropsWithoutRef<'div'> & {
 };
 
 export type StyledAvatarProps = {
-  $radius: AvatarRadiusesVariantsType;
-  $size: AvatarSizesVariantsType;
+  $radius: AvatarRadiusVariantsType;
+  $size: AvatarSizeVariantsType;
   $color?: CSSProperties['color'];
   $bgColor?: CSSProperties['backgroundColor'];
 };

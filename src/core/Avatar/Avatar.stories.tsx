@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 
-import { Avatar, avatarRadiusesVariants, avatarSizesVariants } from '.';
+import { Avatar, avatarRadiusVariants, avatarSizeVariants } from '.';
 
 export default {
   title: 'Core/Avatar',
@@ -10,13 +10,13 @@ export default {
       defaultValue: 'lg',
       description: 'Size',
       control: 'select',
-      options: avatarSizesVariants,
+      options: avatarSizeVariants,
     },
     radius: {
       defaultValue: 'lg',
       description: 'Radius',
       control: 'select',
-      options: avatarRadiusesVariants,
+      options: avatarRadiusVariants,
     },
   },
 } satisfies Meta<typeof Avatar>;
