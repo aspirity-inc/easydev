@@ -1,7 +1,8 @@
-import { css } from 'styled-components';
+import { IStyledComponent, Runtime, css } from 'styled-components';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const getClassFromStyledComponent = (styledComponent: any) => {
+export const getClassFromStyledComponent = <R extends Runtime, Props extends object>(
+  styledComponent: IStyledComponent<R, Props>
+) => {
   return css`
     ${styledComponent}
   `
