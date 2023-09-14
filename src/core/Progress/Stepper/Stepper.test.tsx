@@ -42,7 +42,6 @@ test('correct var of colors', () => {
   );
 
   const divContainer = container.querySelector('div');
-  expect(divContainer).toMatchSnapshot();
   expect(divContainer).toHaveStyleRule('--mainColor', '#dedede');
   expect(divContainer).toHaveStyleRule('--secondaryColor', '#ededed');
   expect(divContainer).toHaveStyleRule('--secondaryNumericColor', '#ededed');

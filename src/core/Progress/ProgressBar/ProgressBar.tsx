@@ -1,19 +1,7 @@
-import { ComponentPropsWithoutRef, CSSProperties, ReactNode } from 'react';
-
 import { Subtitle } from '@core/Typography';
 
-import { ProgressBarWrap, type ProgressBarWrapType, StyledProgressBar, TitleWrap } from './styles.ts';
-import { ProgressBarTypeBase } from '../types.ts';
-
-type ProgressBarPropsType = ComponentPropsWithoutRef<'div'> &
-  Omit<ProgressBarTypeBase, '$progressColor' | '$progressBackground' | '$size' | '$rounded'> &
-  Omit<ProgressBarWrapType, '$isTitle' | '$progressColor'> & {
-    customTitle?: ReactNode;
-    progressColor?: CSSProperties['color'];
-    progressBackground?: CSSProperties['color'];
-    size?: 'small' | 'default';
-    rounded?: boolean;
-  };
+import { ProgressBarWrap, StyledProgressBar, TitleWrap } from './styles.ts';
+import { ProgressBarPropsType } from './types.ts';
 
 export const ProgressBar = ({
   value,
