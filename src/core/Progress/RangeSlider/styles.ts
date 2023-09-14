@@ -2,13 +2,8 @@ import { styled } from 'styled-components';
 
 import { Text } from '@core/Typography';
 
+import type { TooltipType } from './types.ts';
 import { colors } from '../styles.ts';
-
-export type TooltipShownType = 'onHover' | 'always';
-
-type TooltipType = {
-  tooltipShown?: TooltipShownType;
-};
 
 export const TooltipTail = styled('span')`
   display: block;

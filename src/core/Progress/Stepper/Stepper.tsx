@@ -1,10 +1,6 @@
 import { DefaultStepper } from './DefaultStepper';
 import { NumericStepper } from './NumericStepper';
-import type { StepperPropsType } from './types.ts';
-
-type StepperType = StepperPropsType & {
-  numeric?: boolean;
-};
+import type { StepperType } from './types.ts';
 
 export const Stepper = ({ numeric, count, currentStep, ...props }: StepperType) => {
   const formattedCount = Math.abs(count);
