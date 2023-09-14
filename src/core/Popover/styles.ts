@@ -2,7 +2,7 @@ import { css, styled } from 'styled-components';
 
 import { getTextVariants } from '@core/Typography/Text/styles';
 
-import { StyledPopoverProps } from './types';
+import type { StyledPopoverProps } from './types';
 
 export const TriggerPopoverWrapper = styled.div`
   width: fit-content;

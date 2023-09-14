@@ -6,7 +6,7 @@ import { usePopper } from 'react-popper';
 import { Subtitle } from '@core/Typography';
 
 import { StyledArrow, StyledBody, StyledTitle, StyledPopover, TriggerPopoverWrapper } from './styles';
-import { PopoverProps, ElementType } from './types';
+import type { PopoverProps, ElementType } from './types';
 
 export const Popover = ({ placement, title, body, children }: PopoverProps) => {
   const [referenceElement, setReferenceElement] = useState<ElementType>(null);
