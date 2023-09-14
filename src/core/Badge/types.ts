@@ -6,12 +6,14 @@ export type DefaultBadgeColor = (typeof defaultColors)[number];
 
 export type BadgeColor = DefaultBadgeColor | CSSProperties['color'];
 
-export type BadgeSize = 'sm' | 'md' | 'lg';
+export const badgeSizeVariants = ['sm', 'md', 'lg'] as const;
+
+export type BadgeSizeVariantsType = (typeof badgeSizeVariants)[number];
 
 export type BadgeProps = ComponentPropsWithoutRef<'div'> & {
   color?: BadgeColor;
   textColor?: CSSProperties['color'];
-  size?: BadgeSize;
+  size?: BadgeSizeVariantsType;
   fullWidth?: boolean;
   children?: ReactNode;
 };
@@ -19,6 +21,6 @@ export type BadgeProps = ComponentPropsWithoutRef<'div'> & {
 export type StyledBadgeProps = {
   $color: BadgeColor;
   $textColor: CSSProperties['color'];
-  $size: BadgeSize;
+  $size: BadgeSizeVariantsType;
   $fullWidth: boolean | undefined;
 };

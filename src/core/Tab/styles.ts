@@ -2,13 +2,11 @@ import { css, styled } from 'styled-components';
 
 import { Subtitle } from '@core/Typography';
 
-export type StyledTabPropsType = {
-  disabled?: boolean;
-};
+import type { StyledTabProps } from './types';
 
 export const StyledSubtitle = styled(Subtitle)``;
 
-export const StyledTab = styled('button')<StyledTabPropsType>`
+export const StyledTab = styled('button')<StyledTabProps>`
   --defaultBorderColor: ${({ theme }) =>
     theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['700']};
   --activeBorderColor: ${({ theme }) =>
@@ -37,8 +35,8 @@ export const StyledTab = styled('button')<StyledTabPropsType>`
     border-bottom-color: var(--activeBorderColor);
   }
 
-  ${({ disabled }) =>
-    disabled &&
+  ${({ $disabled }) =>
+    $disabled &&
     css`
       ${StyledSubtitle} {
         color: ${({ theme }) => theme.colors.surface['500']};
