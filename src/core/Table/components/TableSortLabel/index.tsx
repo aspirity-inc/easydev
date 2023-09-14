@@ -1,6 +1,7 @@
 import 'material-symbols';
 
-import { StyledSortButton, StyledIcon, StyledTableSortLabel } from './styles';
+import { StyledTableSortLabel } from './styles';
+import { TableSortButton } from './TableSortButton';
 import { TableSortLabelProps } from '../../types';
 
 export const TableSortLabel = ({
@@ -10,23 +11,9 @@ export const TableSortLabel = ({
   onClick,
   children,
   ...props
-}: TableSortLabelProps) => {
-  const SortButton = () => {
-    return (
-      <StyledSortButton type="button" onClick={onClick}>
-        {IconComponent || (
-          <StyledIcon $order={order} className="material-symbols-rounded">
-            north
-          </StyledIcon>
-        )}
-      </StyledSortButton>
-    );
-  };
-
-  return (
-    <StyledTableSortLabel gap={4} wrap="nowrap" {...props}>
-      {children}
-      {hideSortButton ? null : <SortButton />}
-    </StyledTableSortLabel>
-  );
-};
+}: TableSortLabelProps) => (
+  <StyledTableSortLabel gap={4} wrap="nowrap" {...props}>
+    {children}
+    {!hideSortButton && <TableSortButton onClick={onClick} order={order} IconComponent={IconComponent} />}
+  </StyledTableSortLabel>
+);

@@ -26,3 +26,9 @@ export type TableSortLabelProps = ComponentPropsWithoutRef<'div'> & {
   IconComponent?: ReactNode;
   onClick: () => void;
 };
+
+export type TableSortButtonProps = ComponentPropsWithoutRef<'button'> & {
+  order: OrderType;
+  IconComponent?: ReactNode;
+  onClick: () => void;
+};
