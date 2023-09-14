@@ -27,4 +27,5 @@ export type ThemeProviderType = ThemeContextType & {
   customTarget?: HTMLElement;
   enableVendorPrefixes?: boolean;
   disableCSSOMInjection?: boolean;
+  defaultStyledInjection?: boolean;
 };

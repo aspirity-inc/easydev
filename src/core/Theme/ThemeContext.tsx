@@ -16,6 +16,7 @@ export const EasydevProvider = ({
   customTarget,
   enableVendorPrefixes = true,
   disableCSSOMInjection,
+  defaultStyledInjection = false,
 }: ThemeProviderType) => {
   const type = theme?.type || 'light';
   const mergedTheme = theme ? merge(THEMES[type], theme) : THEMES[type];
@@ -24,7 +25,9 @@ export const EasydevProvider = ({
     const head = document.querySelector('head');
     const styled = document.querySelector('[data-styled="active"]') as Element;
 
-    if (!target) customTarget ? customTarget.after(styled) : head?.prepend(styled);
+    if (!defaultStyledInjection) {
+      if (!target) customTarget ? customTarget.after(styled) : head?.prepend(styled);
+    }
   }, []);
 
   return (

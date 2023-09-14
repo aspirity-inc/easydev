@@ -2,7 +2,6 @@ import { createGlobalStyle, DefaultTheme } from 'styled-components';
 import { EasydevProvider, THEMES } from '../src';
 import { StoryContext, StoryFn } from '@storybook/react';
 
-// Sets the background based on theme
 const GlobalStyles = createGlobalStyle<{ theme?: DefaultTheme }>`
   html, body {
     background-color: ${({ theme }) => theme.colors.background};
@@ -21,7 +20,7 @@ export const withTheme = (Story: StoryFn, context: StoryContext) => {
   const theme = backgrounds?.value !== THEMES['dark'].colors.background ? THEMES['light'] : THEMES['dark'];
 
   return (
-    <EasydevProvider theme={theme}>
+    <EasydevProvider theme={theme} defaultStyledInjection>
       <GlobalStyles />
       <Story />
     </EasydevProvider>

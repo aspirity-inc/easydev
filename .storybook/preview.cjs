@@ -1,5 +1,5 @@
 import { withTheme } from './withTheme.decorator';
-import { THEMES } from '../src/core/Theme';
+import { THEMES } from '../src';
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
