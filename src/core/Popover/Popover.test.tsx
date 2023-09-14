@@ -4,11 +4,14 @@ import { expect, test } from 'vitest';
 import { Button } from '@core/Button';
 import { EasydevProvider } from '@core/Theme';
 
+import { getClassFromStyledComponent } from '@helpers/get-class-from-styled-component';
+
 import { Popover } from '.';
+import { StyledArrow } from './styles';
 
 const mockPopoverText = 'Open popover';
 
-test('open popover', () => {
+test('open popover with placement top', () => {
   render(
     <EasydevProvider>
       <Popover
@@ -25,4 +28,8 @@ test('open popover', () => {
 
   const element = screen.getByText(mockPopoverText).parentElement?.parentElement?.childNodes[1];
   expect(element).toHaveAttribute('data-show');
+  expect(element).toHaveStyleRule('opacity', '1', { modifier: '[data-show]' });
+  expect(element).toHaveStyleRule('bottom', '-4px', {
+    modifier: `[data-popper-placement^='top']>${getClassFromStyledComponent(StyledArrow)}`,
+  });
 });
