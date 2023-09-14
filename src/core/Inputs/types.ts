@@ -23,10 +23,10 @@ export type InputProps = ComponentPropsWithoutRef<'input'> & {
   message?: string;
   isLoading?: boolean;
   icons?: IconsProps;
-  renderExtraMessage?: () => React.ReactNode;
+  renderExtraMessage?: () => ReactNode;
 };
 
-export type TextareaProps = React.ComponentPropsWithoutRef<'textarea'> & {
+export type TextareaProps = ComponentPropsWithoutRef<'textarea'> & {
   className?: string;
   style?: CSSProperties;
   placeholder?: string;
