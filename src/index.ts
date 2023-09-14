@@ -5,7 +5,7 @@ export { Radio, Toggle, Checkbox } from '@core/Controls';
 export * from '@core/Space';
 export * from '@core/Link';
 export * from '@core/Progress';
-export { Popover } from '@core/Popover';
+export * from '@core/Popover';
 export * from '@core/Tab';
 export { Breadcrumbs } from '@core/Breadcrumbs';
 export type { BreadcrumbsItem } from '@core/Breadcrumbs';
