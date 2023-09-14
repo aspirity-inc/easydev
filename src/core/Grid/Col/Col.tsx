@@ -36,7 +36,6 @@ export const Col = ({
       $alignContent={alignContent}
       $alignSelf={alignSelf}
       {...props}
-      className="grid-item"
     >
       {children}
     </StyledCol>

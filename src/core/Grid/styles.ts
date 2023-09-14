@@ -1,5 +1,6 @@
 import { css, styled } from 'styled-components';
 
+import { StyledCol } from './Col/styles';
 import type { StyledRowProps } from './types';
 
 export const StyledRow = styled('div')<StyledRowProps>`
@@ -13,7 +14,7 @@ export const StyledRow = styled('div')<StyledRowProps>`
   box-sizing: border-box;
 
   ${({ $columnSpacing, $rowSpacing }) => css`
-    .grid-item {
+    ${StyledCol} {
       padding-top: ${$rowSpacing || 0}px;
       padding-left: ${$columnSpacing || 0}px;
     }
