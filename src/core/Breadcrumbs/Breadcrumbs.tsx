@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import 'material-symbols';
 
 import { StyledBreadcrumbs, StyledLink, StyledSeparator } from './styles';
-import { BreadcrumbsProps, BreadcrumbsItem } from './types';
+import type { BreadcrumbsProps, BreadcrumbsItem } from './types';
 
 const DefaultSeparator = () => <div className="material-symbols-rounded">keyboard_arrow_right</div>;
 
