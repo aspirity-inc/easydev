@@ -1,19 +1,22 @@
 import 'material-symbols';
 
+import { Flex } from '@core/Flex';
+
 import { StyledTableSortLabel } from './styles';
-import { TableSortButton } from './TableSortButton';
+import { TableSortIcon } from './TableSortIcon';
 import type { TableSortLabelProps } from '../../types';
 
 export const TableSortLabel = ({
   order = 'asc',
-  hideSortButton = false,
+  hideSortIcon = false,
   sortIcon,
-  onClick,
   children,
   ...props
 }: TableSortLabelProps) => (
-  <StyledTableSortLabel gap={4} wrap="nowrap" {...props}>
-    {children}
-    {!hideSortButton && <TableSortButton onClick={onClick} order={order} sortIcon={sortIcon} />}
+  <StyledTableSortLabel {...props}>
+    <Flex gap={4} wrap="nowrap">
+      {children}
+      {!hideSortIcon && <TableSortIcon order={order} sortIcon={sortIcon} />}
+    </Flex>
   </StyledTableSortLabel>
 );

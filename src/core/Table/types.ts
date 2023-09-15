@@ -20,15 +20,14 @@ export type TableBodyProps = ComponentPropsWithoutRef<'tbody'>;
 
 export type OrderType = 'asc' | 'desc';
 
-export type TableSortLabelProps = ComponentPropsWithoutRef<'div'> & {
+export type TableSortLabelProps = ComponentPropsWithoutRef<'button'> & {
   order?: OrderType;
-  hideSortButton?: boolean;
+  hideSortIcon?: boolean;
   sortIcon?: ReactNode;
   onClick: () => void;
 };
 
-export type TableSortButtonProps = ComponentPropsWithoutRef<'button'> & {
+export type TableSortIconProps = ComponentPropsWithoutRef<'div'> & {
   order: OrderType;
   sortIcon?: ReactNode;
-  onClick: () => void;
 };

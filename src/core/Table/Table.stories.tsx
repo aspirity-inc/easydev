@@ -121,9 +121,9 @@ const Template: StoryFn<typeof Table> = ({ ...args }) => {
 
   const isSelected = (id: number) => selected.indexOf(id) !== -1;
 
-  const selectItem = (event: ChangeEvent<HTMLInputElement>, id: number) => {
+  const selectItem = (id: number) => {
     const selectedIndex = selected.indexOf(id);
-    let newSelectedIds = [];
+    let newSelectedIds: number[] = [];
 
     if (selectedIndex === -1) {
       newSelectedIds = [...selected, id];
@@ -160,10 +160,7 @@ const Template: StoryFn<typeof Table> = ({ ...args }) => {
           <TableRow key={item.id}>
             <TableCell>
               <Center>
-                <Checkbox
-                  checked={isSelected(Number(item.id))}
-                  onChange={(event) => selectItem(event, Number(item.id))}
-                />
+                <Checkbox checked={isSelected(Number(item.id))} onChange={() => selectItem(Number(item.id))} />
               </Center>
             </TableCell>
             <TableCell>

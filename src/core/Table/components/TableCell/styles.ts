@@ -7,7 +7,7 @@ import { getTextVariants } from '@core/Typography/Text/styles';
 
 export const StyledTableCell = styled(Box)<StyledTableCellProps>`
   display: table-cell;
-  vertical-align: 'middle';
+  vertical-align: middle;
   text-align: ${({ $align }) => $align};
   padding: 0 16px;
   font-family: inherit;
