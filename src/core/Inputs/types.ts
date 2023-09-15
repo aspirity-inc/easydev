@@ -1,6 +1,6 @@
 import { CSSProperties, ComponentPropsWithoutRef, ReactNode } from 'react';
 
-import { Props } from 'react-input-mask';
+import type { Props } from 'react-input-mask';
 
 export type InputBaseStatus = 'warning' | 'error' | 'loading' | 'success';
 
