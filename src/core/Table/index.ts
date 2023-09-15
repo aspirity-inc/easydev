@@ -4,4 +4,4 @@ export { TableBody } from './components/TableBody';
 export { TableHead } from './components/TableHead';
 export { TableRow } from './components/TableRow';
 export { Table } from './Table';
-export * from './types';
+export type * from './types';

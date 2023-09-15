@@ -1,4 +1,4 @@
-import { TableRowProps } from '..';
+import type { TableRowProps } from '..';
 import { StyledTableRow } from '../styled';
 
 export const TableRow = (props: TableRowProps) => {

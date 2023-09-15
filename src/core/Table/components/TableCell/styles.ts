@@ -1,7 +1,7 @@
 import { styled, css } from 'styled-components';
 
 import { Box } from '@core/Box';
-import { StyledTableCellProps } from '@core/Table/types';
+import type { StyledTableCellProps } from '@core/Table/types';
 import { getSubtitleLevelStyles } from '@core/Typography/Subtitle/styles';
 import { getTextVariants } from '@core/Typography/Text/styles';
 

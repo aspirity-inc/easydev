@@ -1,11 +1,11 @@
 import 'material-symbols';
 
 import { StyledIcon, StyledSortButton } from './styles';
-import { TableSortButtonProps } from '../../../types';
+import type { TableSortButtonProps } from '../../../types';
 
-export const TableSortButton = ({ order, IconComponent, onClick }: TableSortButtonProps) => (
+export const TableSortButton = ({ order, sortIcon, onClick }: TableSortButtonProps) => (
   <StyledSortButton type="button" onClick={onClick}>
-    {IconComponent || (
+    {sortIcon || (
       <StyledIcon $order={order} className="material-symbols-rounded">
         north
       </StyledIcon>

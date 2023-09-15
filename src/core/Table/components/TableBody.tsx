@@ -1,4 +1,4 @@
-import { TableBodyProps } from '..';
+import type { TableBodyProps } from '..';
 import { StyledTableBody } from '../styled';
 
 export const TableBody = (props: TableBodyProps) => {

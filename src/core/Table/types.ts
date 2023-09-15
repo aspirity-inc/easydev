@@ -23,12 +23,12 @@ export type OrderType = 'asc' | 'desc';
 export type TableSortLabelProps = ComponentPropsWithoutRef<'div'> & {
   order?: OrderType;
   hideSortButton?: boolean;
-  IconComponent?: ReactNode;
+  sortIcon?: ReactNode;
   onClick: () => void;
 };
 
 export type TableSortButtonProps = ComponentPropsWithoutRef<'button'> & {
   order: OrderType;
-  IconComponent?: ReactNode;
+  sortIcon?: ReactNode;
   onClick: () => void;
 };

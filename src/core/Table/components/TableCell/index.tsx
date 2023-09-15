@@ -1,5 +1,5 @@
 import { StyledTableCell } from './styles';
-import { TableCellProps } from '../../types';
+import type { TableCellProps } from '../../types';
 
 export const TableCell = ({ variant = 'td', align = 'left', children, ...props }: TableCellProps) => {
   return (

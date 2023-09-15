@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import { StyledTableProps } from '.';
+import type { StyledTableProps } from '.';
 
 export const StyledTableBody = styled('tbody')``;
 
