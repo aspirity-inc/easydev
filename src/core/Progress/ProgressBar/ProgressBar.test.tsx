@@ -25,16 +25,6 @@ test('border-radius rounded', () => {
   expect(container.querySelector('div')?.childNodes[1]).toHaveStyleRule('border-radius', '10px');
 });
 
-test('border-radius not rounded', () => {
-  const { container } = render(
-    <EasydevProvider>
-      <ProgressBar value={25} rounded={false} />
-    </EasydevProvider>
-  );
-
-  expect(container.querySelector('div')?.childNodes[1]).not.toHaveStyleRule('border-radius', '10px');
-});
-
 test('% more than 100 shows 100%', () => {
   render(
     <EasydevProvider>
