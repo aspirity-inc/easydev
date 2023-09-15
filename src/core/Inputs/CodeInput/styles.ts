@@ -4,7 +4,7 @@ import { Center } from '@core/Center';
 import { getSubtitleLevelStyles } from '@core/Typography/Subtitle/styles';
 
 import { getDefaultBorder } from '../styles';
-import { StyledCodeInputProps } from '../types';
+import type { StyledCodeInputProps } from '../types';
 
 export const StyledCodeInputWrapper = styled(Center)<StyledCodeInputProps>`
   padding: 16px;

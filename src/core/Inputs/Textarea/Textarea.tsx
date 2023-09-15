@@ -8,7 +8,7 @@ import {
   StyledTextareaLabelText,
   StyledTextareaWrapper,
 } from './styles';
-import { TextareaProps } from '../types';
+import type { TextareaProps } from '../types';
 
 export const Textarea = ({
   label,

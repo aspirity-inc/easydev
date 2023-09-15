@@ -10,7 +10,7 @@ import {
   StyledInputWrapper,
 } from './styles';
 import { StyledLabelText } from '../styles';
-import { InputProps } from '../types';
+import type { InputProps } from '../types';
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (

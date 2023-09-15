@@ -4,7 +4,7 @@ import { Text } from '@core/Typography';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
 import { StyledLabelText, getDefaultBorder, getInputTransition } from '../styles';
-import { StyledTextareaWrapperProps, StyledTextareaProps } from '../types';
+import type { StyledTextareaWrapperProps, StyledTextareaProps } from '../types';
 
 export const StyledTextareaWrapper = styled('div')<StyledTextareaWrapperProps>`
   ${({ $disabled }) => {

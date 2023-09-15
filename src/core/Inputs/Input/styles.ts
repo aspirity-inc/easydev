@@ -3,7 +3,7 @@ import { styled, css } from 'styled-components';
 import { Text } from '@core/Typography';
 
 import { StyledLabelText, getBaseInputStyles, getDefaultBorder, getStatusBorder, getStatusColor } from '../styles';
-import { StyledInputProps, StatusProps } from '../types';
+import type { StyledInputProps, StatusProps } from '../types';
 
 export const IconWrapper = styled('div')`
   position: absolute;

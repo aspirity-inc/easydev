@@ -1,7 +1,7 @@
 import { useRef, ChangeEvent, KeyboardEvent, useState, FocusEvent } from 'react';
 
 import { StyledCodeInput, StyledCodeInputWrapper } from './styles';
-import { CodeInputProps } from '../types';
+import type { CodeInputProps } from '../types';
 
 export const CodeInput = ({ length = 6, value, onChange, error, ...props }: CodeInputProps) => {
   const [focusedInput, setFocusedInput] = useState(-1);
