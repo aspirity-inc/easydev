@@ -7,14 +7,14 @@ export type ColProps = {
   columns?: number;
   alignContent?: CSSProperties['alignContent'];
   alignSelf?: CSSProperties['alignSelf'];
-};
-
-export type ColSizeProps = {
-  basis?: CSSProperties['flexBasis'];
   grow?: CSSProperties['flexGrow'];
   shrink?: CSSProperties['flexShrink'];
-  maxWidth?: CSSProperties['maxWidth'];
-  width?: CSSProperties['width'];
 };
 
-export type StyledColProps = Omit<ColProps, 'children'> & ColSizeProps;
+export type StyledColProps = {
+  $basis?: CSSProperties['flexBasis'];
+  $alignContent?: CSSProperties['alignContent'];
+  $alignSelf?: CSSProperties['alignSelf'];
+  $grow?: CSSProperties['flexGrow'];
+  $shrink?: CSSProperties['flexShrink'];
+};

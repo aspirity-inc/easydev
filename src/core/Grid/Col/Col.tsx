@@ -1,32 +1,36 @@
 import { StyledCol } from './styles';
-import { ColProps } from './types';
+import type { ColProps } from './types';
 
 export const DEFAULT_NUMBER_OF_COLUMNS = 24;
 
-export const Col = (props: ColProps) => {
-  const { children, columns, size, ...otherProps } = props;
-
-  const calculateStyle = () => {
-    if (!size) {
+export const Col = ({
+  children,
+  columns = DEFAULT_NUMBER_OF_COLUMNS,
+  size,
+  alignContent,
+  alignSelf,
+  shrink,
+  grow,
+  ...props
+}: ColProps) => {
+  const getStyles = () => {
+    if (size) {
+      const width = `${Math.round((size / columns) * 10e7) / 10e5}%`;
       return {
-        basis: 'auto',
-        grow: 0,
-        shrink: 0,
-        $maxWidth: 'none',
-        width: 'auto',
-      };
-    } else {
-      const width = `${Math.round((size / (columns || DEFAULT_NUMBER_OF_COLUMNS)) * 10e7) / 10e5}%`;
-      return {
-        basis: width,
-        grow: 0,
-        $maxWidth: width,
+        $basis: width,
       };
     }
   };
 
   return (
-    <StyledCol className="grid-item" {...calculateStyle()} {...otherProps}>
+    <StyledCol
+      {...getStyles()}
+      $alignContent={alignContent}
+      $alignSelf={alignSelf}
+      $shrink={shrink}
+      $grow={grow}
+      {...props}
+    >
       {children}
     </StyledCol>
   );
