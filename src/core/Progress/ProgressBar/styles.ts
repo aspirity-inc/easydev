@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 import { StyledProgressBarBase } from '@core/Progress/styles.ts';
 
-import { ProgressBarWrapType } from './types';
+import type { ProgressBarWrapType } from './types';
 
 export const TitleWrap = styled('span')`
   margin-bottom: 5px;

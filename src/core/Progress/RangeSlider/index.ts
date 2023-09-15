@@ -1,2 +1,2 @@
 export { RangeSlider } from './RangeSlider.tsx';
-export * from './types.ts';
+export type * from './types.ts';

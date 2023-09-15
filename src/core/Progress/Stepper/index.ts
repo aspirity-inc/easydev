@@ -1,2 +1,2 @@
 export { Stepper } from './Stepper.tsx';
-export * from './types.ts';
+export type * from './types.ts';

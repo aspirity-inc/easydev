@@ -1,7 +1,7 @@
 import { Subtitle } from '@core/Typography';
 
 import { ProgressBarWrap, StyledProgressBar, TitleWrap } from './styles.ts';
-import { ProgressBarPropsType } from './types.ts';
+import type { ProgressBarPropsType } from './types.ts';
 
 export const ProgressBar = ({
   value,
