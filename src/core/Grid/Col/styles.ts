@@ -6,4 +6,6 @@ export const StyledCol = styled('div')<StyledColProps>`
   flex-basis: ${({ $basis }) => $basis};
   align-self: ${({ $alignSelf }) => $alignSelf};
   align-content: ${({ $alignContent }) => $alignContent};
+  flex-grow: ${({ $grow }) => $grow};
+  flex-shrink: ${({ $shrink }) => $shrink};
 `;

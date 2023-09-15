@@ -22,7 +22,7 @@ test('Should have custom size', () => {
 test('Should have custom align-content', () => {
   render(
     <EasydevProvider>
-      <Col alignContent='flex-end'>{mockGridColText}</Col>
+      <Col alignContent="flex-end">{mockGridColText}</Col>
     </EasydevProvider>
   );
   expect(screen.getByText(mockGridColText)).toHaveStyleRule('align-content', 'flex-end');
@@ -31,8 +31,26 @@ test('Should have custom align-content', () => {
 test('Should have custom align-self', () => {
   render(
     <EasydevProvider>
-      <Col alignSelf='flex-end'>{mockGridColText}</Col>
+      <Col alignSelf="flex-end">{mockGridColText}</Col>
     </EasydevProvider>
   );
   expect(screen.getByText(mockGridColText)).toHaveStyleRule('align-self', 'flex-end');
+});
+
+test('Should have custom flex-grow', () => {
+  render(
+    <EasydevProvider>
+      <Col grow="revert">{mockGridColText}</Col>
+    </EasydevProvider>
+  );
+  expect(screen.getByText(mockGridColText)).toHaveStyleRule('flex-grow', 'revert');
+});
+
+test('Should have custom flex-shrink', () => {
+  render(
+    <EasydevProvider>
+      <Col shrink='revert-layer'>{mockGridColText}</Col>
+    </EasydevProvider>
+  );
+  expect(screen.getByText(mockGridColText)).toHaveStyleRule('flex-shrink', 'revert-layer');
 });

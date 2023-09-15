@@ -9,6 +9,8 @@ export const Col = ({
   size,
   alignContent,
   alignSelf,
+  shrink,
+  grow,
   ...props
 }: ColProps) => {
   const getStyles = () => {
@@ -21,7 +23,14 @@ export const Col = ({
   };
 
   return (
-    <StyledCol {...getStyles()} $alignContent={alignContent} $alignSelf={alignSelf} {...props}>
+    <StyledCol
+      {...getStyles()}
+      $alignContent={alignContent}
+      $alignSelf={alignSelf}
+      $shrink={shrink}
+      $grow={grow}
+      {...props}
+    >
       {children}
     </StyledCol>
   );
