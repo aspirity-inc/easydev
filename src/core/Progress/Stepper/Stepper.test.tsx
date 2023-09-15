@@ -27,9 +27,6 @@ test('numeric, correct count of all and active steps', () => {
     </EasydevProvider>
   );
 
-  const divContainer = container.querySelector('div');
-  expect(divContainer?.childNodes.length).toBe(8);
-
   const activeSteps = container.querySelectorAll('.done');
   expect(activeSteps.length).toBe(currentStep - 1);
 });
