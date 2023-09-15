@@ -11,32 +11,17 @@ export const Col = ({
   alignSelf,
   ...props
 }: ColProps) => {
-  const calculateStyle = () => {
-    if (!size) {
-      return {
-        $basis: 'auto',
-        $grow: 0,
-        $shrink: 0,
-        $maxWidth: 'none',
-        $width: 'auto',
-      };
-    } else {
+  const getStyles = () => {
+    if (size) {
       const width = `${Math.round((size / columns) * 10e7) / 10e5}%`;
       return {
         $basis: width,
-        $grow: 0,
-        $maxWidth: width,
       };
     }
   };
 
   return (
-    <StyledCol
-      {...calculateStyle()}
-      $alignContent={alignContent}
-      $alignSelf={alignSelf}
-      {...props}
-    >
+    <StyledCol {...getStyles()} $alignContent={alignContent} $alignSelf={alignSelf} {...props}>
       {children}
     </StyledCol>
   );

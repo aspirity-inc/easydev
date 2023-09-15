@@ -57,7 +57,7 @@ test('row spacing - padding top should be custom', () => {
 test('column spacing - padding left should be custom', () => {
   render(
     <EasydevProvider>
-      <Row rowSpacing={30}>
+      <Row columnSpacing={30}>
         <Col>{mockGridRowText}</Col>
       </Row>
     </EasydevProvider>
@@ -68,7 +68,7 @@ test('column spacing - padding left should be custom', () => {
 test('justify-content should be custom', () => {
   render(
     <EasydevProvider>
-      <Row justify={'left'}>{mockGridRowText}</Row>
+      <Row justify='left'>{mockGridRowText}</Row>
     </EasydevProvider>
   );
   expect(screen.getByText(mockGridRowText)).toHaveStyleRule('justify-content', 'left');
@@ -77,7 +77,7 @@ test('justify-content should be custom', () => {
 test('align-items should be custom', () => {
   render(
     <EasydevProvider>
-      <Row align={'flex-end'}>{mockGridRowText}</Row>
+      <Row align='flex-end'>{mockGridRowText}</Row>
     </EasydevProvider>
   );
   expect(screen.getByText(mockGridRowText)).toHaveStyleRule('align-items', 'flex-end');
@@ -86,7 +86,7 @@ test('align-items should be custom', () => {
 test('flex-direction should be custom', () => {
   render(
     <EasydevProvider>
-      <Row direction={'column-reverse'}>{mockGridRowText}</Row>
+      <Row direction='column-reverse'>{mockGridRowText}</Row>
     </EasydevProvider>
   );
   expect(screen.getByText(mockGridRowText)).toHaveStyleRule('flex-direction', 'column-reverse');
@@ -95,7 +95,7 @@ test('flex-direction should be custom', () => {
 test('flex-wrap should be custom', () => {
   render(
     <EasydevProvider>
-      <Row wrap={'wrap-reverse'}>{mockGridRowText}</Row>
+      <Row wrap='wrap-reverse'>{mockGridRowText}</Row>
     </EasydevProvider>
   );
   expect(screen.getByText(mockGridRowText)).toHaveStyleRule('flex-wrap', 'wrap-reverse');

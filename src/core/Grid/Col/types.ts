@@ -11,10 +11,6 @@ export type ColProps = {
 
 export type StyledColProps = {
   $basis?: CSSProperties['flexBasis'];
-  $grow?: CSSProperties['flexGrow'];
-  $shrink?: CSSProperties['flexShrink'];
-  $width?: CSSProperties['width'];
   $alignContent?: CSSProperties['alignContent'];
   $alignSelf?: CSSProperties['alignSelf'];
-  $maxWidth?: CSSProperties['maxWidth'];
 };

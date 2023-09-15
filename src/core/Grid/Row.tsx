@@ -5,9 +5,7 @@ import type { RowProps } from './types';
 
 export const Row = ({
   children,
-  className,
   columns,
-  style,
   rowGap,
   columnGap,
   rowSpacing,
@@ -27,8 +25,6 @@ export const Row = ({
 
   return (
     <StyledRow
-      className={className}
-      style={style}
       $rowGap={rowGap}
       $columnGap={columnGap}
       $rowSpacing={rowSpacing}

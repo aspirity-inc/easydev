@@ -16,14 +16,13 @@ test('Should have custom size', () => {
       </Col>
     </EasydevProvider>
   );
-  expect(screen.getByText(mockGridColText)).toHaveStyleRule('max-width', width);
   expect(screen.getByText(mockGridColText)).toHaveStyleRule('flex-basis', width);
 });
 
 test('Should have custom align-content', () => {
   render(
     <EasydevProvider>
-      <Col alignContent={'flex-end'}>{mockGridColText}</Col>
+      <Col alignContent='flex-end'>{mockGridColText}</Col>
     </EasydevProvider>
   );
   expect(screen.getByText(mockGridColText)).toHaveStyleRule('align-content', 'flex-end');
@@ -32,7 +31,7 @@ test('Should have custom align-content', () => {
 test('Should have custom align-self', () => {
   render(
     <EasydevProvider>
-      <Col alignSelf={'flex-end'}>{mockGridColText}</Col>
+      <Col alignSelf='flex-end'>{mockGridColText}</Col>
     </EasydevProvider>
   );
   expect(screen.getByText(mockGridColText)).toHaveStyleRule('align-self', 'flex-end');
