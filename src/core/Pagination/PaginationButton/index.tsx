@@ -1,7 +1,7 @@
 import 'material-symbols';
 
 import { StyledIcon, StyledPaginationButton } from './styles';
-import { PaginationButtonProps } from '..';
+import type { PaginationButtonProps } from '..';
 
 const defaultIcons = {
   prev: 'keyboard_arrow_left',

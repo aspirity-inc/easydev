@@ -1,5 +1,5 @@
-import { PaginationItemProps } from '../types';
 import { StyledPaginationItem } from './styles';
+import type { PaginationItemProps } from '../types';
 
 export const PaginationItem = ({ page, active, onClick }: PaginationItemProps) => {
   return (

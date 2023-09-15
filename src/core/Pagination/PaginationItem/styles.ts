@@ -1,6 +1,7 @@
-import { getSubtitleLevelStyles } from '@core/Typography/Subtitle/styles';
 import { css, styled } from 'styled-components';
+
 import { Flex } from '@core/Flex';
+import { getSubtitleLevelStyles } from '@core/Typography/Subtitle/styles';
 
 export const StyledPaginationItem = styled(Flex)<{ $active: boolean }>`
   width: 32px;

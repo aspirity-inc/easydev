@@ -1,8 +1,8 @@
-import { PaginationProps } from './types';
-import { PaginationButton } from './PaginationButton';
-import { StyledPagination } from './styles';
 import { usePagination } from './hooks/usePagination';
+import { PaginationButton } from './PaginationButton';
 import { PaginationItem } from './PaginationItem';
+import { StyledPagination } from './styles';
+import type { PaginationProps } from './types';
 
 export const Pagination = ({
   total,

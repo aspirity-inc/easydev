@@ -1,4 +1,4 @@
-import { PaginationHookParams } from '../types';
+import type { PaginationHookParams } from '../types';
 
 function createArray(start: number, end: number) {
   const length = end - start + 1;
@@ -31,7 +31,7 @@ export function usePagination({ total, siblings, page, onChange }: PaginationHoo
     }
 
     let leftSiblingIndex = Math.max(page - siblings, 1);
-    let rightSiblingIndex = Math.min(leftSiblingIndex + totalPageNumbers - 1, totalPages);
+    const rightSiblingIndex = Math.min(leftSiblingIndex + totalPageNumbers - 1, totalPages);
     if (rightSiblingIndex === totalPages) {
       leftSiblingIndex = rightSiblingIndex - totalPageNumbers + 1;
     }

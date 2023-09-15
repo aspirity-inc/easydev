@@ -1,7 +1,8 @@
+import { useState } from 'react';
+
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Pagination } from '.';
-import { useState } from 'react';
 
 export default {
   title: 'Core/Pagination',
