@@ -19,10 +19,12 @@ test('count of links should be equal to 3 and count of separators - 2, last link
   );
 
   expect(screen.queryAllByText('keyboard_arrow_right').length).toBe(2);
-  expect(container.querySelectorAll('a').length).toBe(3);
-  expect(container.querySelectorAll('a')[0]).not.toHaveAttribute('disabled');
-  expect(container.querySelectorAll('a')[1]).not.toHaveAttribute('disabled');
-  expect(container.querySelectorAll('a')[2]).toHaveAttribute('disabled');
+
+  const linksContainer = container.querySelectorAll('a');
+  expect(linksContainer.length).toBe(3);
+  expect(linksContainer[0]).not.toHaveAttribute('disabled');
+  expect(linksContainer[1]).not.toHaveAttribute('disabled');
+  expect(linksContainer[2]).toHaveAttribute('disabled');
 });
 
 test('custom separator', () => {
