@@ -6,7 +6,7 @@ import { getSubtitleLevelStyles } from '@core/Typography/Subtitle/styles';
 import { getTextVariants } from '@core/Typography/Text/styles';
 import { TitleTagVariantsType } from '@core/Typography/Title/types';
 
-import { AvatarWrapperProps } from './types';
+import type { StyledAvatarProps } from '.';
 
 export const sizes = {
   xxs: {
@@ -83,7 +83,7 @@ export const OnlineIndicator = styled('div')<{ $online?: boolean }>`
   }}
 `;
 
-export const StyledAvatarWrapper = styled('div')<AvatarWrapperProps>`
+export const StyledAvatar = styled('div')<StyledAvatarProps>`
   position: relative;
   width: ${({ $size }) => (typeof $size === 'number' ? `${$size}px` : sizes[$size].avatar)};
   height: ${({ $size }) => (typeof $size === 'number' ? `${$size}px` : sizes[$size].avatar)};

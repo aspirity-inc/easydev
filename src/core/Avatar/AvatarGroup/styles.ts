@@ -2,8 +2,8 @@ import { styled } from 'styled-components';
 
 import { Flex } from '@core/Flex';
 
+import { StyledAvatarGroupProps } from './types';
 import { Avatar } from '..';
-import { StyledAvatarGroupProps } from '../types';
 
 export const StyledAvatarGroup = styled(Flex)<StyledAvatarGroupProps>`
   padding-left: ${({ $spacing }) => `${$spacing}px`};

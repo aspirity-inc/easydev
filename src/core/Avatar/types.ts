@@ -1,12 +1,16 @@
-import { CSSProperties, ComponentPropsWithoutRef, ReactElement, ReactNode } from 'react';
+import { CSSProperties, ComponentPropsWithoutRef, ReactNode } from 'react';
 
-export type AvatarSizesRadiusesType = number | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+export const avatarRadiusVariants = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+export type AvatarRadiusVariantsType = (typeof avatarRadiusVariants)[number] | number;
+
+export const avatarSizeVariants = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+export type AvatarSizeVariantsType = (typeof avatarSizeVariants)[number] | number;
 
 export type AvatarProps = ComponentPropsWithoutRef<'div'> & {
   alt?: string;
   src?: string;
-  radius?: AvatarSizesRadiusesType;
-  size?: AvatarSizesRadiusesType;
+  radius?: AvatarRadiusVariantsType;
+  size?: AvatarSizeVariantsType;
   imageProps?: ComponentPropsWithoutRef<'img'>;
   online?: boolean;
   children?: ReactNode;
@@ -14,19 +18,9 @@ export type AvatarProps = ComponentPropsWithoutRef<'div'> & {
   bgColor?: CSSProperties['backgroundColor'];
 };
 
-export type AvatarWrapperProps = {
-  $radius: AvatarSizesRadiusesType;
-  $size: AvatarSizesRadiusesType;
+export type StyledAvatarProps = {
+  $radius: AvatarRadiusVariantsType;
+  $size: AvatarSizeVariantsType;
   $color?: CSSProperties['color'];
   $bgColor?: CSSProperties['backgroundColor'];
-};
-
-export type AvatarGroupProps = ComponentPropsWithoutRef<'div'> & {
-  spacing?: number;
-  max?: number;
-  children: ReactElement<AvatarProps> | ReactElement<AvatarProps>[];
-};
-
-export type StyledAvatarGroupProps = {
-  $spacing: number;
 };
