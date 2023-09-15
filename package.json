@@ -74,7 +74,7 @@
     "eslint-plugin-storybook": "^0.6.13",
     "eslint-plugin-unused-imports": "^2.0.0",
     "jsdom": "^22.1.0",
-    "lefthook": "^1.4.3",
+    "lefthook": "^1.4.11",
     "prettier": "2.8.8",
     "storybook": "future",
     "storybook-addon-themes": "^6.1.0",
