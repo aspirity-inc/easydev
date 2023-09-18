@@ -55,8 +55,14 @@ export const Toast = ({
   }, [autoClose, autoCloseDelay, onDelete, toastId]);
 
   return (
-    <StyledAnimationWrapper $isDeleting={isDeleting} $position={position} $isAdded={isAdded}>
+    <StyledAnimationWrapper
+      className="easy_toast-animationContainer"
+      $isDeleting={isDeleting}
+      $position={position}
+      $isAdded={isAdded}
+    >
       <StyledToast
+        className="easy_toast"
         $colorful={colorful}
         $statusBackground={statusBackground}
         $status={status}
@@ -65,7 +71,7 @@ export const Toast = ({
       >
         <ToastStatusIcon colorful={colorful} status={status} icon={icon} />
 
-        <StyledMainContent $colorful={colorful}>
+        <StyledMainContent className="easy_toast-content" $colorful={colorful}>
           <Subtitle level={4}>{title}</Subtitle>
           {description && <Text variant="body2">{description}</Text>}
         </StyledMainContent>
