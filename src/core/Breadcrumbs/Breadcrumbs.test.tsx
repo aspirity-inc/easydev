@@ -3,7 +3,7 @@ import { expect, test } from 'vitest';
 
 import { EasydevProvider } from '@core/Theme';
 
-import { Breadcrumbs } from '.';
+import { Breadcrumbs, BreadcrumbsItem } from '.';
 
 const breadcrumbsItems = [
   { title: 'first item' },
@@ -35,4 +35,18 @@ test('custom separator', () => {
   );
 
   expect(screen.queryAllByText(':').length).toBe(2);
+});
+
+test('custom itemRender', () => {
+  // eslint-disable-next-line unused-imports/no-unused-vars
+  const itemRender = (item: BreadcrumbsItem, index?: number, items?: BreadcrumbsItem[]) => {
+    return <div className="custom-item">{item.title}</div>;
+  };
+  const { container } = render(
+    <EasydevProvider>
+      <Breadcrumbs itemRender={itemRender} items={breadcrumbsItems} />
+    </EasydevProvider>
+  );
+
+  expect(container.querySelectorAll('.custom-item').length).toBe(3);
 });
