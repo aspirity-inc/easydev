@@ -265,12 +265,6 @@ const TemplateWithPagination: StoryFn<typeof Table> = ({ ...args }) => {
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(data.length / itemsPerPage);
 
-  const StyledPaginationInfo = styled('div')`
-    ${getSubtitleLevelStyles(5)}
-    font-family: inherit;
-    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.surface['300'])};
-  `;
-
   return (
     <Flex align="flex-end" direction="column">
       <Table {...args}>
@@ -334,6 +328,12 @@ const TemplateWithPagination: StoryFn<typeof Table> = ({ ...args }) => {
     </Flex>
   );
 };
+
+const StyledPaginationInfo = styled('div')`
+  ${getSubtitleLevelStyles(5)}
+  font-family: inherit;
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.surface['300'])};
+`;
 
 export const TableWithPagination: StoryFn<typeof Table> = TemplateWithPagination.bind({});
 TableWithPagination.args = {};
