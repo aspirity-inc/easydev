@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import { ProgressBarTypeBase } from './types.ts';
+import type { ProgressBarTypeBase } from './types.ts';
 
 export const colors = css`
   --progressColor: ${({ theme }) =>

@@ -11,3 +11,7 @@ export type StepperPropsStyledType = {
   $activeColor?: CSSProperties['color'];
   $secondaryColor?: CSSProperties['color'];
 };
+
+export type StepperType = StepperPropsType & {
+  numeric?: boolean;
+};

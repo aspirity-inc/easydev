@@ -1,13 +1,9 @@
-import { ComponentPropsWithoutRef, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { cx } from '@helpers/cx';
 
-import { RangeWrap, StyledProgress, Tooltip, TooltipShownType, TooltipTail } from './styles';
-
-type ProgressPropsType = ComponentPropsWithoutRef<'input'> & {
-  tooltip?: boolean;
-  tooltipShown?: TooltipShownType;
-};
+import { RangeWrap, StyledProgress, Tooltip, TooltipTail } from './styles';
+import type { ProgressPropsType } from './types';
 
 export const RangeSlider = ({
   min = '0',

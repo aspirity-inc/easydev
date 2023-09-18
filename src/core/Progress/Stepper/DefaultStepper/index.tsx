@@ -1,6 +1,6 @@
 import { Step } from './styles.ts';
 import { StyledStepper } from '../styles.ts';
-import { StepperPropsType } from '../types.ts';
+import type { StepperPropsType } from '../types.ts';
 
 export const DefaultStepper = ({ count, currentStep, secondaryColor, activeColor }: StepperPropsType) => {
   return (

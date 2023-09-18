@@ -1,12 +1,8 @@
-import { CSSProperties } from 'react';
-
 import { styled } from 'styled-components';
 
 import { StyledProgressBarBase } from '@core/Progress/styles.ts';
 
-export type ProgressBarWrapType = {
-  $progressColor?: CSSProperties['color'];
-};
+import type { ProgressBarWrapType } from './types';
 
 export const TitleWrap = styled('span')`
   margin-bottom: 5px;
