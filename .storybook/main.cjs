@@ -13,8 +13,9 @@ module.exports = {
   },
   async viteFinal(config) {
     return {
-        ...config,
-        plugins: await withoutVitePlugins(config.plugins, ['vite:dts']),
+      ...config,
+      base: '/storybook/',
+      plugins: await withoutVitePlugins(config.plugins, ['vite:dts']),
     }
   },
 };
