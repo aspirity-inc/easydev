@@ -51,9 +51,10 @@ export const Input = ({
 
   // TODO: remove prop "$filled" and do it on css
   return (
-    <StyledInputWrapper $disabled={disabled || false} $isLoading={isLoading || false}>
-      <StyledInputLabel>
+    <StyledInputWrapper className="easy_input-wrapp" $disabled={disabled || false} $isLoading={isLoading || false}>
+      <StyledInputLabel className="easy_input-label">
         <StyledInput
+          className="easy_input-item"
           type={getInputType()}
           value={value}
           disabled={disabled}
@@ -74,11 +75,13 @@ export const Input = ({
       </StyledInputLabel>
 
       {(getInputMessage() || renderExtraMessage) && (
-        <StyledMessageWrapper>
-          <StyledStatus $status={getInputStatus()} variant="caption">
+        <StyledMessageWrapper className="easy_input-messageContainer">
+          <StyledStatus className="easy_input-statusMessageText" $status={getInputStatus()} variant="caption">
             {getInputMessage()}
           </StyledStatus>
-          <StyledExtraMessage variant="caption">{renderExtraMessage && renderExtraMessage()}</StyledExtraMessage>
+          <StyledExtraMessage className="easy_input-extraMessageText" variant="caption">
+            {renderExtraMessage && renderExtraMessage()}
+          </StyledExtraMessage>
         </StyledMessageWrapper>
       )}
     </StyledInputWrapper>

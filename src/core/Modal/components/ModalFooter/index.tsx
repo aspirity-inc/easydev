@@ -9,5 +9,7 @@ export type ModalFooterProps = {
 };
 
 export const ModalFooter = ({ children, ...props }: ModalFooterProps) => (
-  <StyledModalFooter {...props}>{children}</StyledModalFooter>
+  <StyledModalFooter className="easy_modal-footer" {...props}>
+    {children}
+  </StyledModalFooter>
 );

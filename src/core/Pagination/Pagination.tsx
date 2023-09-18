@@ -21,7 +21,7 @@ export const Pagination = ({
   });
 
   return (
-    <StyledPagination wrap="nowrap">
+    <StyledPagination className="easy_pagination" wrap="nowrap">
       {withEdges && <PaginationButton icons={icons} variant="first" disabled={page === 1} onClick={gotToFirstPage} />}
       <PaginationButton icons={icons} variant="prev" disabled={page === 1} onClick={gotToPrevPage} />
       {!hidePages &&

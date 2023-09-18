@@ -3,7 +3,7 @@ import { HeaderProps } from './types';
 
 export const Header = ({ children, backgroundColor, fix, height, ...props }: HeaderProps) => {
   return (
-    <StyledHeader $backgroundColor={backgroundColor} $fix={fix} $height={height} {...props}>
+    <StyledHeader className="easy_header" $backgroundColor={backgroundColor} $fix={fix} $height={height} {...props}>
       {children}
     </StyledHeader>
   );
