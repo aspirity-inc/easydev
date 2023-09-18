@@ -14,14 +14,6 @@ export default defineConfig({
       favicon: '/favicon.ico',
       sidebar: [
         {
-          label: 'Changelog',
-          autogenerate: { directory: 'changelog' },
-        },
-        {
-          label: 'Components',
-          autogenerate: { directory: 'components' },
-        },
-        {
           label: 'Getting started',
           items: [
             { label: 'Introduction', link: 'getting-started/introduction' },
@@ -31,12 +23,20 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Road map',
-          autogenerate: { directory: 'road-map' },
+          label: 'Components',
+          autogenerate: { directory: 'components' },
         },
         {
           label: 'Theming',
           autogenerate: { directory: 'theming' },
+        },
+        {
+          label: 'Road map',
+          autogenerate: { directory: 'road-map' },
+        },
+        {
+          label: 'Changelog',
+          autogenerate: { directory: 'changelog' },
         },
       ],
     }),
