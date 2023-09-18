@@ -4,9 +4,9 @@ title: Datepicker
 
 Datepicker based on react-datepicker library and uses to get the selected date.
 
-The Datepicker has the next props: label. [See there](/?path=/docs/core-datepicker--docs) to get more information.
+The Datepicker has the next props: label. [See there](/?path=core-datepicker--docs) to get more information.
 
-[Default Datepicker](/?path=/story/core-datepicker--default-datepicker)
+[Default Datepicker](/storybook/?path=/story/core-datepicker--default-datepicker)
 
 Code:
 
@@ -20,7 +20,7 @@ Code:
 </div>
 ```
 
-[Disabled Datepicker](/?path=/story/core-datepicker--disabled-datepicker)
+[Disabled Datepicker](/storybook/?path=/story/core-datepicker--disabled-datepicker)
 
 Code:
 
@@ -28,7 +28,7 @@ Code:
 <Datepicker disabled label="Birth date" value="24.12.1993" />
 ```
 
-[Disabled Empty Datepicker](/?path=/story/core-datepicker--disabled-empty-datepicker)
+[Disabled Empty Datepicker](/storybook/?path=/story/core-datepicker--disabled-empty-datepicker)
 
 Code:
 

@@ -4,9 +4,9 @@ title: Layout
 
 Layout is ready-made component that provides header, main, footer components for uniformity, in other words, in order for all pages to be similar.
 
-The Layout has the next props: className, style, height. [See there](/?path=/docs/core-layout--docs) to get more information.
+The Layout has the next props: className, style, height. [See there](/?path=core-layout--docs) to get more information.
 
-[Default Layout](/?path=/story/core-layout--default-layout)
+[Default Layout](/storybook/?path=/story/core-layout--default-layout)
 
 Code:
 
@@ -36,7 +36,7 @@ Code:
 </Layout>
 ```
 
-[Layout With Fixed Header](/?path=/story/core-layout--layout-with-fixed-header)
+[Layout With Fixed Header](/storybook/?path=/story/core-layout--layout-with-fixed-header)
 
 Code:
 

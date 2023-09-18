@@ -7,12 +7,12 @@ EasyDev is a library of React UI components based on styled-components made by t
 ```npm i @aspirity/easydev```
 
 # Usage 
-You can find more information about easydev in the  [documentation](https://easydev-library.qa.aspirity.com/docs/)
+You can find more information about easydev in the  [documentation](https://easydev-library.qa.aspirity.com)
 Quicklinks to some of the most useful pages:
-- [Introduction](https://easydev-library.qa.aspirity.com/docs/getting-started/introduction/)
-- [Installation](https://easydev-library.qa.aspirity.com/docs/getting-started/installation/)
-- [Theming](https://easydev-library.qa.aspirity.com/docs/theming/)
-- [Components](https://easydev-library.qa.aspirity.com/docs/components/controls/checkbox/)
+- [Introduction](https://easydev-library.qa.aspirity.comgetting-started/introduction/)
+- [Installation](https://easydev-library.qa.aspirity.comgetting-started/installation/)
+- [Theming](https://easydev-library.qa.aspirity.comtheming/)
+- [Components](https://easydev-library.qa.aspirity.comcomponents/controls/checkbox/)
 
 # Storybook
 If you want to see the components in different states and settings, test them, then we recommend that you look at our  [storybook](https://easydev-library.qa.aspirity.com/)

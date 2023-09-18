@@ -5,9 +5,9 @@ title: Toast Container
 The container in which toasts are displayed on the page.
 You can set limit of toasts displayed on the page.
 
-The Toast Container has the next props: limit. [See there](/?path=/docs/core-toasts-toastcontainer--docs) to get more information.
+The Toast Container has the next props: limit. [See there](/?path=core-toasts-toastcontainer--docs) to get more information.
 
-[Toast Container](/?path=/story/core-controls-toggle--default-toggle)
+[Toast Container](/storybook/?path=/story/core-controls-toggle--default-toggle)
 
 Code:
 

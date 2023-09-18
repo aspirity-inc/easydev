@@ -8,9 +8,9 @@ If you want the user to choose only one option from a list, use the radio button
 
 By default, the most commonly used option should be selected in radio buttons.
 
-The Radio has the next props: disabled, defaultChecked, color, label, checked, onChange. [See there](/?path=/docs/core-controls-radio--docs) to get more information.
+The Radio has the next props: disabled, defaultChecked, color, label, checked, onChange. [See there](/?path=core-controls-radio--docs) to get more information.
 
-[Default Radio](/?path=/story/core-controls-radio--default-radio)
+[Default Radio](/storybook/?path=/story/core-controls-radio--default-radio)
 
 Code:
 
@@ -18,7 +18,7 @@ Code:
 <Radio onChange={() => {}} />
 ```
 
-[Controlled Radio](/?path=/story/core-controls-radio--controlled-radio)
+[Controlled Radio](/storybook/?path=/story/core-controls-radio--controlled-radio)
 
 Code:
 
@@ -34,7 +34,7 @@ Code:
 };
 ```
 
-[With Label](/?path=/story/core-controls-radio--with-label)
+[With Label](/storybook/?path=/story/core-controls-radio--with-label)
 
 Code:
 
@@ -50,7 +50,7 @@ Code:
 };
 ```
 
-[With JSX Label](/?path=/story/core-controls-radio--with-jsx-label)
+[With JSX Label](/storybook/?path=/story/core-controls-radio--with-jsx-label)
 
 Code:
 

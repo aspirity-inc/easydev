@@ -4,9 +4,9 @@ title: Masked Input
 
 Masked Input allows the user to enter text in the desired format. You can use it to mask phone number, tickets, etc. inputs.
 
-The Masked Input has the next props: mask, label, error, warning, message, isLoading, icons, renderExtraMessage, maskPlaceholder, alwaysShowMask. [See there](/?path=/docs/core-inputs-maskedinput--docs) to get more information.
+The Masked Input has the next props: mask, label, error, warning, message, isLoading, icons, renderExtraMessage, maskPlaceholder, alwaysShowMask. [See there](/?path=core-inputs-maskedinput--docs) to get more information.
 
-[Masked Default Input](/?path=/story/core-controls-controlwithlabel--default-control-with-label)
+[Masked Default Input](/storybook/?path=/story/core-controls-controlwithlabel--default-control-with-label)
 
 Code:
 
@@ -14,7 +14,7 @@ Code:
 <MaskedInput label="Phone number" mask="+7 (999) 999-99-99" onChange={() => {}} value="" />
 ```
 
-[Masked Default Input Reg Exp](/?path=/story/core-inputs-maskedinput--masked-default-input-reg-exp)
+[Masked Default Input Reg Exp](/storybook/?path=/story/core-inputs-maskedinput--masked-default-input-reg-exp)
 
 Code:
 
@@ -28,7 +28,7 @@ Code:
 />
 ```
 
-[Error Input](/?path=/story/core-inputs-maskedinput--error-input)
+[Error Input](/storybook/?path=/story/core-inputs-maskedinput--error-input)
 
 Code:
 

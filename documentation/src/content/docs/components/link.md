@@ -6,9 +6,9 @@ Link allows you to improve anchor elements.
 
 Link is based on React and Styled Components. Example:
 
-The Link has the next props: disabled, defaultUnderline, children. [See there](/?path=/docs/core-link--docs) to get more information.
+The Link has the next props: disabled, defaultUnderline, children. [See there](/?path=core-link--docs) to get more information.
 
-[Default Link](/?path=/story/core-link--default-link)
+[Default Link](/storybook/?path=/story/core-link--default-link)
 
 Code:
 
@@ -16,7 +16,7 @@ Code:
 <Link>Go to the google!!!</Link>
 ```
 
-[Default Underline Link](/?path=/story/core-link--default-underline-link)
+[Default Underline Link](/storybook/?path=/story/core-link--default-underline-link)
 
 Code:
 

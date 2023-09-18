@@ -3,9 +3,9 @@ title: Modal
 ---
 
 The Modal component provides a solid foundation for creating dialogs.
-The Modal has the next props: children, open, onClose, portal, className, style. [See there](/?path=/docs/core-modal-modal--docs) to get more information.
+The Modal has the next props: children, open, onClose, portal, className, style. [See there](/?path=core-modal-modal--docs) to get more information.
 
-[No Portal Modal Window](/?path=/story/core-modal-modal--no-portal-modal-window)
+[No Portal Modal Window](/storybook/?path=/story/core-modal-modal--no-portal-modal-window)
 
 Code:
 
@@ -20,7 +20,7 @@ Code:
 </>
 ```
 
-[Portal Modal Window](/?path=/story/core-modal-modal--portal-modal-window)
+[Portal Modal Window](/storybook/?path=/story/core-modal-modal--portal-modal-window)
 
 Code:
 
@@ -47,7 +47,7 @@ Code:
 </>
 ```
 
-[No Portal Modal Window With Modal Elements](/?path=/story/core-modal-modal--no-portal-modal-window-with-modal-elements)
+[No Portal Modal Window With Modal Elements](/storybook/?path=/story/core-modal-modal--no-portal-modal-window-with-modal-elements)
 
 Code:
 
@@ -98,7 +98,7 @@ Code:
 </>
 ```
 
-[No Portal Modal Window With Custom Bg Color](/?path=/story/core-modal-modal--no-portal-modal-window-with-custom-bg-color)
+[No Portal Modal Window With Custom Bg Color](/storybook/?path=/story/core-modal-modal--no-portal-modal-window-with-custom-bg-color)
 
 Code:
 

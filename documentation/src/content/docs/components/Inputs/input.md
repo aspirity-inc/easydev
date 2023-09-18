@@ -6,9 +6,9 @@ Input is used to input text.
 
 The Input wrapper component is a complete form control including a label, input, and help text.
 
-The Input has the next props: label, placeholder, error, warning, message, isLoading, icons, renderExtraMessage, type, className, style. [See there](/?path=/docs/core-inputs-input--docs) to get more information.
+The Input has the next props: label, placeholder, error, warning, message, isLoading, icons, renderExtraMessage, type, className, style. [See there](/?path=core-inputs-input--docs) to get more information.
 
-[Default Input](/?path=/story/core-inputs-input--default-input)
+[Default Input](/storybook/?path=/story/core-inputs-input--default-input)
 
 Code:
 
@@ -16,7 +16,7 @@ Code:
 <Input label="Name" onChange={() => {}} placeholder="Enter youe name" renderExtraMessage={() => {}} value="" />
 ```
 
-[Error Input](/?path=/story/core-inputs-input--error-input)
+[Error Input](/storybook/?path=/story/core-inputs-input--error-input)
 
 Code:
 
@@ -24,7 +24,7 @@ Code:
 <Input error="There is no such user" label="Name" onChange={() => {}} renderExtraMessage={() => {}} value="Ivan" />
 ```
 
-[Loading Input](/?path=/story/core-inputs-input--loading-input)
+[Loading Input](/storybook/?path=/story/core-inputs-input--loading-input)
 
 Code:
 
@@ -32,7 +32,7 @@ Code:
 <Input isLoading label="Name" onChange={() => {}} renderExtraMessage={() => {}} value="Ivan" />
 ```
 
-[Disabled Input](/?path=/story/core-inputs-input--disabled-input)
+[Disabled Input](/storybook/?path=/story/core-inputs-input--disabled-input)
 
 Code:
 
@@ -40,7 +40,7 @@ Code:
 <Input disabled label="Name" onChange={() => {}} renderExtraMessage={() => {}} value="Ivan" />
 ```
 
-[Default Password](/?path=/story/core-inputs-input--default-password)
+[Default Password](/storybook/?path=/story/core-inputs-input--default-password)
 
 Code:
 
@@ -55,7 +55,7 @@ Code:
 />
 ```
 
-[Error Password With Message](/?path=/story/core-inputs-input--default-password)
+[Error Password With Message](/storybook/?path=/story/core-inputs-input--default-password)
 
 Code:
 
@@ -70,7 +70,7 @@ Code:
 />
 ```
 
-[Loading Password](/?path=/story/core-inputs-input--loading-password)
+[Loading Password](/storybook/?path=/story/core-inputs-input--loading-password)
 
 Code:
 

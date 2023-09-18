@@ -4,9 +4,9 @@ title: Space
 
 Space is a container in which the elements are located at the specified margins, have a certain order and display.
 
-The Space has the next props: size, alignItems, justifyContent, direction, children. [See there](/?path=/docs/core-space--docs) to get more information.
+The Space has the next props: size, alignItems, justifyContent, direction, children. [See there](/?path=core-space--docs) to get more information.
 
-[Space](/?path=/story/core-space--default-space)
+[Space](/storybook/?path=/story/core-space--default-space)
 
 Code:
 
