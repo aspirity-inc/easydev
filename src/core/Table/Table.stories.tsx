@@ -1,14 +1,17 @@
 import { ChangeEvent, useState } from 'react';
 
 import { Meta, StoryFn } from '@storybook/react';
+import { styled } from 'styled-components';
 
 import { Avatar } from '@core/Avatar';
 import { Badge } from '@core/Badge';
 import { Center } from '@core/Center';
 import { Checkbox } from '@core/Controls';
 import { Flex } from '@core/Flex';
+import { Pagination } from '@core/Pagination';
 import { ProgressBar } from '@core/Progress';
 import { Subtitle } from '@core/Typography';
+import { getSubtitleLevelStyles } from '@core/Typography/Subtitle/styles';
 
 import { OrderType, Table, TableBody, TableCell, TableHead, TableRow, TableSortLabel } from '.';
 
@@ -192,3 +195,145 @@ const Template: StoryFn<typeof Table> = ({ ...args }) => {
 
 export const DefaultTable: StoryFn<typeof Table> = Template.bind({});
 DefaultTable.args = {};
+
+function generateLongDataArray(data: TableDataType[], n: number): TableDataType[] {
+  const newData: TableDataType[] = [];
+  let currentId = 1;
+
+  for (let i = 0; i < n; i++) {
+    for (const item of data) {
+      newData.push({
+        ...item,
+        id: currentId,
+        progress: Math.floor(Math.random() * (100 - 1)),
+        status: Math.random() < 0.5 ? 'active' : 'inactive',
+      });
+      currentId++;
+    }
+  }
+
+  return newData;
+}
+
+const TemplateWithPagination: StoryFn<typeof Table> = ({ ...args }) => {
+  const [data, setData] = useState<TableDataType[]>(generateLongDataArray(rowData, 3));
+  const [sortOrder, setSortOrder] = useState<OrderType>('asc');
+  const [sortedBy, setSortedBy] = useState<keyof TableDataType | null>(null);
+  const [selected, setSelected] = useState<number[]>([]);
+
+  const sortByColumn = (column: keyof TableDataType) => {
+    const sortedData = [...data].sort((a, b) => {
+      if (a[column] < b[column]) return sortOrder === 'asc' ? -1 : 1;
+      if (a[column] > b[column]) return sortOrder === 'asc' ? 1 : -1;
+      return 0;
+    });
+
+    setData(sortedData);
+    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    setSortedBy(column);
+  };
+
+  const selectAllRows = (event: ChangeEvent<HTMLInputElement>) => {
+    if (event.target.checked) {
+      const newSelected = data.map((item) => Number(item.id));
+      setSelected(newSelected);
+      return;
+    }
+    setSelected([]);
+  };
+
+  const isSelected = (id: number) => selected.indexOf(id) !== -1;
+
+  const selectItem = (id: number) => {
+    const selectedIndex = selected.indexOf(id);
+    let newSelectedIds: number[] = [];
+
+    if (selectedIndex === -1) {
+      newSelectedIds = [...selected, id];
+    } else {
+      newSelectedIds = [...selected.slice(0, selectedIndex), ...selected.slice(selectedIndex + 1)];
+    }
+
+    setSelected(newSelectedIds);
+  };
+
+  //Pagination state
+  const [page, setPage] = useState(1);
+  const itemsPerPage = 3;
+  const indexOfLastItem = page * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+
+  const StyledPaginationInfo = styled('div')`
+    ${getSubtitleLevelStyles(5)}
+    font-family: inherit;
+    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.surface['300'])};
+  `;
+
+  return (
+    <Flex align="flex-end" direction="column">
+      <Table {...args}>
+        <TableHead>
+          <TableRow>
+            <TableCell variant="th">
+              <Center>
+                <Checkbox checked={data.length > 0 && selected.length === data.length} onChange={selectAllRows} />
+              </Center>
+            </TableCell>
+            {columnData.map((column) => (
+              <TableCell variant="th" key={column.label}>
+                <TableSortLabel
+                  order={sortedBy === column.label ? sortOrder : undefined}
+                  onClick={() => sortByColumn(column.label)}
+                >
+                  {column.title}
+                </TableSortLabel>
+              </TableCell>
+            ))}
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {currentItems.map((item) => (
+            <TableRow key={item.id}>
+              <TableCell>
+                <Center>
+                  <Checkbox checked={isSelected(Number(item.id))} onChange={() => selectItem(Number(item.id))} />
+                </Center>
+              </TableCell>
+              <TableCell>
+                <Flex gap={8} wrap="nowrap">
+                  <Avatar size="sm" alt="photo" src={item.src_img.toString()} />
+                  <Flex direction="column" align="flex-start">
+                    <Subtitle tag="h4" level={4}>
+                      {item.name} {item.id}
+                    </Subtitle>
+                    {item.nickname}
+                  </Flex>
+                </Flex>
+              </TableCell>
+              <TableCell>
+                <Badge color={item.status === 'inactive' ? 'warning' : 'success'}>{item.status}</Badge>
+              </TableCell>
+
+              <TableCell>{item.course}</TableCell>
+              <TableCell>
+                <ProgressBar value={Number(item.progress)} />
+              </TableCell>
+              <TableCell>{item.updated}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+      <Flex gap={32}>
+        <StyledPaginationInfo>
+          {indexOfFirstItem + 1}-{indexOfLastItem} of {data.length}{' '}
+        </StyledPaginationInfo>
+        <Pagination page={page} onChange={setPage} total={totalPages} siblings={1} withEdges={true} />
+      </Flex>
+    </Flex>
+  );
+};
+
+export const TableWithPagination: StoryFn<typeof Table> = TemplateWithPagination.bind({});
+TableWithPagination.args = {};

@@ -11,7 +11,7 @@ export type PaginationProps = {
   total: number;
   page: number;
   onChange: (page: number) => void;
-  icons: PaginationIconProps;
+  icons?: PaginationIconProps;
   hidePages?: boolean;
   withEdges?: boolean;
   siblings?: number;
