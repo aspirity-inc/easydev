@@ -22,10 +22,10 @@ RUN npm run build-storybook
 
 FROM nginx:1.21.6-alpine as production
 
-WORKDIR /app
+WORKDIR /app/storybook
 ENV NODE_ENV=production
 
-COPY --from=build-stage /client/storybook-static /app
+COPY --from=build-stage /client/storybook-static /app/storybook
 COPY tools/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
