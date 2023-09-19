@@ -4,15 +4,9 @@ import { Text } from '@core/Typography';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
 import { StyledLabelText, getDefaultBorder, getInputTransition } from '../styles';
-import { TextareaProps } from '../types';
+import type { StyledTextareaWrapperProps, StyledTextareaProps } from '../types';
 
-export type StyledWrapperProps = {
-  $filled: boolean;
-  $disabled: boolean;
-  $focused: boolean;
-};
-
-export const StyledTextareaWrapper = styled('div')<StyledWrapperProps>`
+export const StyledTextareaWrapper = styled('div')<StyledTextareaWrapperProps>`
   ${({ $disabled }) => {
     return (
       $disabled &&
@@ -57,7 +51,7 @@ export const StyledTextareaLabelText = styled(StyledLabelText)`
   top: 30px;
 `;
 
-export const StyledTextarea = styled('textarea')<TextareaProps>`
+export const StyledTextarea = styled('textarea')<StyledTextareaProps>`
   display: block;
   min-height: ${({ $autoresized }) => ($autoresized ? '50px' : '100px')};
   resize: none;

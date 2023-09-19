@@ -1,4 +1,6 @@
-import { CSSProperties, ReactNode } from 'react';
+import { CSSProperties, ComponentPropsWithoutRef, ReactNode } from 'react';
+
+import type { Props } from 'react-input-mask';
 
 export type InputBaseStatus = 'warning' | 'error' | 'loading' | 'success';
 
@@ -12,7 +14,7 @@ export type InputsBaseProps = {
 
 export type StyledInputProps = InputsBaseProps & StatusProps;
 
-export type InputProps = React.ComponentPropsWithoutRef<'input'> & {
+export type InputProps = ComponentPropsWithoutRef<'input'> & {
   className?: string;
   style?: CSSProperties;
   label: string;
@@ -21,10 +23,25 @@ export type InputProps = React.ComponentPropsWithoutRef<'input'> & {
   message?: string;
   isLoading?: boolean;
   icons?: IconsProps;
-  renderExtraMessage?: () => React.ReactNode;
+  renderExtraMessage?: () => ReactNode;
 };
 
-export type TextareaProps = InputsBaseProps & { $autoresized: boolean };
+export type TextareaProps = ComponentPropsWithoutRef<'textarea'> & {
+  className?: string;
+  style?: CSSProperties;
+  placeholder?: string;
+  label: string;
+  showLimit?: boolean;
+  autoresized?: boolean;
+  softLimit?: boolean;
+};
+
+export type StyledTextareaProps = InputsBaseProps & { $autoresized: boolean };
+export type StyledTextareaWrapperProps = {
+  $filled: boolean;
+  $disabled: boolean;
+  $focused: boolean;
+};
 
 export type IconsProps = {
   warningIcon?: ReactNode;
@@ -37,3 +54,14 @@ export type IconsProps = {
 export type IconProps = {
   icon?: ReactNode;
 };
+
+export type MaskedInputProps = Props & InputProps;
+
+export type CodeInputProps = Omit<ComponentPropsWithoutRef<'div'>, 'onChange'> & {
+  length?: number;
+  error?: boolean;
+  value?: string;
+  onChange?: (value: string) => void;
+};
+
+export type StyledCodeInputProps = { $filled: boolean; $focused: boolean; $error?: boolean };

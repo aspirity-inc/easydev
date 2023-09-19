@@ -3,7 +3,7 @@ import { styled, css } from 'styled-components';
 import { StyledInputLabelText } from '@core/Typography/styles';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
-import { InputBaseStatus } from './types';
+import type { InputBaseStatus } from './types';
 
 export const getBaseInputStyles = ($filled: boolean) => {
   return css`

@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 import { StyledIcon, ToggleWrapper } from './styles';
-import { IconProps } from '../../../types';
+import type { IconProps } from '../../../types';
 
 export type ToggleProps = {
   disabled: boolean;
