@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { StyledFooterProps } from './types';
+import type { StyledFooterProps } from './types';
 
 export const StyledFooter = styled('footer')<StyledFooterProps>`
   width: 100%;

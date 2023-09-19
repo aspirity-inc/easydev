@@ -1,6 +1,6 @@
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 
-import { BaseLayoutProps } from '../types';
+import type { BaseLayoutProps } from '../types';
 
 export type HeaderProps = BaseLayoutProps & {
   fix?: boolean;

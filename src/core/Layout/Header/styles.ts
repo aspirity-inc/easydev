@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import { StyledHeaderProps } from './types';
+import type { StyledHeaderProps } from './types';
 
 export const StyledHeader = styled('header')<StyledHeaderProps>`
   width: 100%;
