@@ -1,3 +1,3 @@
-import { BaseLayoutProps } from '../types';
+import type { BaseLayoutProps } from '../types';
 
 export type MainProps = BaseLayoutProps;

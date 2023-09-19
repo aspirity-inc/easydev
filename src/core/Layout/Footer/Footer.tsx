@@ -1,5 +1,5 @@
 import { StyledFooter } from './styles';
-import { FooterProps } from './types';
+import type { FooterProps } from './types';
 
 export const Footer = ({ children, backgroundColor, height, ...props }: FooterProps) => {
   return (

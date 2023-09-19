@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { StyledLayoutProps } from './types';
+import type { StyledLayoutProps } from './types';
 
 export const StyledLayout = styled('div')<StyledLayoutProps>`
   display: grid;
