@@ -1,7 +1,6 @@
 import { styled, css } from 'styled-components';
 
 import { Center } from '@core/Center';
-import { getSubtitleLevelStyles } from '@core/Typography/Subtitle/styles';
 
 import { getDefaultBorder } from '../styles';
 import type { StyledCodeInputProps } from '../types';
@@ -43,14 +42,22 @@ export const StyledCodeInput = styled('input')<StyledCodeInputProps>`
   padding: 0;
 
   color: inherit;
-  ${getSubtitleLevelStyles(1)};
   font-family: inherit;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
+  font-variation-settings: 'wdth' 144, 'GRAD' 20, 'slnt' 0, 'xtra' 468, 'xopq' 96, 'yopq' 79, 'ytlc' 514, 'ytuc' 712,
+    'ytas' 750, 'ytde' -203, 'ytfi' 738;
   caret-color: transparent;
   text-align: center;
 
-  background-color: ${({ theme }) => (theme.type === 'light' ? '#FFF' : theme.colors.surface['800'])};
+  background-color: transparent;
   border: 0;
   ${({ $filled, $focused }) => !$filled && getCodeInputBorder($focused)};
+
+  &:placeholder-shown {
+    background-color: ${({ theme }) => (theme.type === 'light' ? '#FFF' : theme.colors.surface['800'])};
+  }
 
   &:focus-visible:not([disabled]) {
     outline: 0;

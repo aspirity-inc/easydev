@@ -75,6 +75,7 @@ export const CodeInput = ({ length = 6, value, onChange, error, ...props }: Code
             onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputChange(index, event)}
             onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => handleInputKeyDown(index, event)}
             onBlur={handleBlur}
+            placeholder=""
             $filled={Boolean(value)}
             $focused={focusedInput === index}
             {...props}

@@ -13,7 +13,7 @@ export const getSubtitleLevelStyles = (level?: LevelVariantsType) => {
       font-size: 24px;
       font-weight: ${({ theme }) => theme.typography.weight['600']};
     }
-    @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
       font-size: 18px;
     }
   `;
@@ -29,7 +29,7 @@ export const getSubtitleLevelStyles = (level?: LevelVariantsType) => {
           font-size: 18px;
           font-weight: ${({ theme }) => theme.typography.weight['600']};
         }
-        @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+        @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
           font-size: 16px;
           font-weight: 550;
         }
