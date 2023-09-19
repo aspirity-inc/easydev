@@ -1,4 +1,4 @@
-import { CardProps } from '.';
+import type { CardProps } from '.';
 import { StyledCard, StyledMedia, StyledContent } from './styles';
 
 export const Card = ({
