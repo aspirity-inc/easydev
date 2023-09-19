@@ -9,5 +9,9 @@ export type ModalBodyProps = {
 };
 
 export const ModalBody = ({ children, ...props }: ModalBodyProps) => {
-  return <StyledModalBody {...props}>{children}</StyledModalBody>;
+  return (
+    <StyledModalBody className="easy_modal-body" {...props}>
+      {children}
+    </StyledModalBody>
+  );
 };

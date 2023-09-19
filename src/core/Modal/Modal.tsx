@@ -16,8 +16,8 @@ export const Modal = ({ open, onClose, children, bgColor, portal = document.body
   };
 
   const ModalWindow = () => (
-    <ModalWrapper open={open} onClick={handleClick} $isPortal={Boolean(portal)} {...props}>
-      <ModalContent ref={modalRef} bgColor={bgColor}>
+    <ModalWrapper className="easy_modal-wrapp" open={open} onClick={handleClick} $isPortal={Boolean(portal)} {...props}>
+      <ModalContent className="easy_modal-item" ref={modalRef} bgColor={bgColor}>
         {children}
       </ModalContent>
     </ModalWrapper>

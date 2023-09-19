@@ -24,6 +24,7 @@ export const Col = ({
 
   return (
     <StyledCol
+      className="easy_grid-col"
       {...getStyles()}
       $alignContent={alignContent}
       $alignSelf={alignSelf}

@@ -65,9 +65,15 @@ export const Textarea = ({
   };
 
   return (
-    <StyledTextareaWrapper $disabled={disabled || false} $focused={focused} $filled={Boolean(value)}>
-      <StyledTextareaLabel>
+    <StyledTextareaWrapper
+      className="easy_textarea-wrapp"
+      $disabled={disabled || false}
+      $focused={focused}
+      $filled={Boolean(value)}
+    >
+      <StyledTextareaLabel className="easy_textarea-label">
         <StyledTextarea
+          className="easy_textarea-item"
           ref={ref}
           value={value}
           onChange={handleChange}
@@ -83,7 +89,7 @@ export const Textarea = ({
         <StyledTextareaLabelText>{label}</StyledTextareaLabelText>
       </StyledTextareaLabel>
       {showLimit && (
-        <StyledCounterText variant="caption">
+        <StyledCounterText className="easy_textarea-counter" variant="caption">
           <StyledCharactersNumber $isOverflow={isOverflow}>{charactersNumber}</StyledCharactersNumber>/{maxLength}
         </StyledCounterText>
       )}

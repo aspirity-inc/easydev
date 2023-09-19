@@ -3,7 +3,7 @@ import { FooterProps } from './types';
 
 export const Footer = ({ children, backgroundColor, height, ...props }: FooterProps) => {
   return (
-    <StyledFooter $backgroundColor={backgroundColor} $height={height} {...props}>
+    <StyledFooter className="easy_footer" $backgroundColor={backgroundColor} $height={height} {...props}>
       {children}
     </StyledFooter>
   );
