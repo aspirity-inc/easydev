@@ -11,7 +11,7 @@ import {
   slideOutDown,
   duration,
 } from './animation';
-import { StatusColorType, ToastPosition, ToastStatus } from '../types';
+import type { StatusColorType, ToastPosition, ToastStatus } from '../types';
 
 type StyledToastProps = {
   $status?: ToastStatus;
