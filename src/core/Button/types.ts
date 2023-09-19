@@ -2,8 +2,6 @@ import { CSSProperties, ComponentPropsWithoutRef, ReactNode } from 'react';
 
 export type ButtonProps = ComponentPropsWithoutRef<'button'> & {
   children?: ReactNode;
-  className?: string;
-  style?: CSSProperties;
   icon?: ReactNode;
   reversed?: boolean;
   size?: ButtonSizeVariantsType;

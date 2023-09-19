@@ -42,6 +42,7 @@ export const Chip = (props: ChipProps) => {
 
   return (
     <StyledChipLabel
+      className="easy_chip"
       $variant={variant}
       $bgColor={bgColor}
       $color={color}
