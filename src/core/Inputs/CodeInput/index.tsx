@@ -57,6 +57,7 @@ export const CodeInput = ({ length = 6, value, onChange, error, ...props }: Code
 
   return (
     <StyledCodeInputWrapper
+      className="easy_code-input-wrapp"
       gap={4}
       onClick={handleWrapperClick}
       $focused={focusedInput > -1}
@@ -66,6 +67,7 @@ export const CodeInput = ({ length = 6, value, onChange, error, ...props }: Code
       {code.map((value, index) => {
         return (
           <StyledCodeInput
+            className="easy_code-input-item"
             key={index}
             value={value}
             maxLength={1}
