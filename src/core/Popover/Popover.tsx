@@ -31,19 +31,29 @@ export const Popover = ({ placement, title, body, children }: PopoverProps) => {
 
   return (
     <>
-      <TriggerPopoverWrapper onClick={togglePopover} ref={setReferenceElement}>
+      <TriggerPopoverWrapper
+        className="easy_popover-triggerContainer"
+        onClick={togglePopover}
+        ref={setReferenceElement}
+      >
         {children}
       </TriggerPopoverWrapper>
 
-      <StyledPopover $isTitled={Boolean(title)} style={styles.popper} {...attributes.popper} ref={setPopperElement}>
+      <StyledPopover
+        className="easy_popover"
+        $isTitled={Boolean(title)}
+        style={styles.popper}
+        {...attributes.popper}
+        ref={setPopperElement}
+      >
         {title && (
-          <StyledTitle>
+          <StyledTitle className="easy_popover-title">
             <Subtitle tag="span" level={5}>
               {title}
             </Subtitle>
           </StyledTitle>
         )}
-        <StyledBody>{body}</StyledBody>
+        <StyledBody className="easy_popover-body">{body}</StyledBody>
         <StyledArrow ref={setArrowElement} style={styles.arrow} />
       </StyledPopover>
     </>
