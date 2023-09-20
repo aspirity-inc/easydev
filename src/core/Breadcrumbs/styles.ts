@@ -2,7 +2,7 @@ import { css, styled } from 'styled-components';
 
 import { getTextVariants } from '@core/Typography/Text/styles';
 
-import { StyledBreadcrumbPropsType } from './types';
+import type { StyledBreadcrumbPropsType } from './types';
 
 export const StyledSeparator = styled('div')`
   margin: 0 4px;

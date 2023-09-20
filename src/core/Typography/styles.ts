@@ -27,7 +27,7 @@ export const getTitleVariant = (variant?: TitleTagVariantsType) => {
         @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
           font-size: 48px;
         }
-        @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+        @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
           font-size: 40px;
         }
       `;
@@ -86,7 +86,7 @@ export const getTitleVariant = (variant?: TitleTagVariantsType) => {
         @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
           font-size: 48px;
         }
-        @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+        @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
           font-size: 40px;
         }
       `;

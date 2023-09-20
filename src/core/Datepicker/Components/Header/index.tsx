@@ -39,7 +39,7 @@ export const Header =
     };
 
     return (
-      <StyledHeader>
+      <StyledHeader className="easy_datepicker-header">
         <StyledArrowButton className="material-symbols-rounded" aria-label="Previous" onClick={handleClickPrev}>
           keyboard_arrow_left
         </StyledArrowButton>

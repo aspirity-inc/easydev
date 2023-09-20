@@ -1,6 +1,6 @@
 import { InputStatusIcon } from './InputStatusIcon';
 import { PasswordToggle } from './PasswordToggle';
-import { IconsProps, InputBaseStatus } from '../../types';
+import type { IconsProps, InputBaseStatus } from '../../types';
 import { IconWrapper } from '../styles';
 
 export type InputIconProps = {

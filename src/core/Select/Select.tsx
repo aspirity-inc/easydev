@@ -8,6 +8,8 @@ import 'material-symbols';
 
 import { MultivalueSelectedOptions } from '@core/Select/Components/MultivalueSelectedOptions.tsx';
 
+import { cx } from '@helpers/cx.ts';
+
 import { CustomOption, DropdownIndicator, SearchValueContainer } from './Components';
 import { StyledSelectWrap } from './styles.ts';
 import { OptionType } from './types.ts';
@@ -77,7 +79,7 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
   return (
     <StyledSelectWrap $rounded={rounded}>
       <Component
-        className="react-select__container"
+        className={cx('easy_select-container', 'react-select__container')}
         classNamePrefix="react-select"
         unstyled={true}
         components={{

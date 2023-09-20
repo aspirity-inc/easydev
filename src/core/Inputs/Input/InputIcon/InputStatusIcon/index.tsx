@@ -5,7 +5,7 @@ import 'material-symbols';
 import { RotateBox } from '@core/Button/styles';
 
 import { StyledIcon } from './styles';
-import { IconProps, InputBaseStatus } from '../../../types';
+import type { IconProps, InputBaseStatus } from '../../../types';
 
 export type InputStatusIconProps = {
   status?: InputBaseStatus;

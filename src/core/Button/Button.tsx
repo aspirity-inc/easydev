@@ -5,7 +5,6 @@ import type { ButtonProps } from './types';
 
 export const Button = ({
   children,
-  className,
   icon,
   reversed,
   size,
@@ -25,7 +24,7 @@ export const Button = ({
 
   return (
     <StyledButton
-      className={className}
+      className="easy_button"
       $reversed={reversed}
       $rounded={rounded}
       $size={size}

@@ -49,7 +49,7 @@ export const Datepicker = <T extends boolean | undefined>({
   };
 
   return (
-    <DatepickerWrapper>
+    <DatepickerWrapper className="easy_datepicker">
       <DatePicker
         open={open}
         onFocus={handleFocus}

@@ -1,4 +1,4 @@
-import { CardProps } from '.';
+import type { CardProps } from '.';
 import { StyledCard, StyledMedia, StyledContent } from './styles';
 
 export const Card = ({
@@ -10,13 +10,19 @@ export const Card = ({
   children,
 }: CardProps) => {
   return (
-    <StyledCard $variant={variant} $direction={direction} align={'flex-start'} $maxWidth={maxWidth}>
+    <StyledCard
+      className="easy_card"
+      $variant={variant}
+      $direction={direction}
+      align={'flex-start'}
+      $maxWidth={maxWidth}
+    >
       {media && (
-        <StyledMedia $direction={direction} $borderedMedia={borderedMedia}>
+        <StyledMedia className="easy_card-media" $direction={direction} $borderedMedia={borderedMedia}>
           {media}
         </StyledMedia>
       )}
-      <StyledContent>{children}</StyledContent>
+      <StyledContent className="easy_card-content">{children}</StyledContent>
     </StyledCard>
   );
 };

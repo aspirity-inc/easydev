@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import 'material-symbols';
 
 import { StyledBreadcrumbs, StyledLink, StyledSeparator } from './styles';
-import { BreadcrumbsProps, BreadcrumbsItem } from './types';
+import type { BreadcrumbsProps, BreadcrumbsItem } from './types';
 
 const DefaultSeparator = () => <div className="material-symbols-rounded">keyboard_arrow_right</div>;
 
@@ -20,16 +20,18 @@ export function Breadcrumbs<TItem>({ itemRender, items, separator }: Breadcrumbs
     const isLast = index < lastItemIndex;
 
     return isLast ? (
-      <StyledLink href={url} onClick={() => item.onClick}>
+      <StyledLink className="easy_breadcrumbs-link" href={url} onClick={() => item.onClick}>
         {item.title}
       </StyledLink>
     ) : (
-      <StyledLink disabled>{item.title}</StyledLink>
+      <StyledLink className="easy_breadcrumbs-link" disabled>
+        {item.title}
+      </StyledLink>
     );
   };
 
   return (
-    <StyledBreadcrumbs>
+    <StyledBreadcrumbs className="easy_breadcrumbs">
       {items.length &&
         items.map((item, index) => (
           <Fragment key={index}>

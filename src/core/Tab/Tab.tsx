@@ -7,7 +7,12 @@ export const Tab = ({ title, disabled, active, onClick, ...props }: TabProps) =>
   const isActive = active && !disabled;
 
   return (
-    <StyledTab onClick={onClick} className={cx(isActive && 'active', props.className)} $disabled={disabled} {...props}>
+    <StyledTab
+      onClick={onClick}
+      className={cx(isActive && 'active', 'easy_tab', props.className)}
+      $disabled={disabled}
+      {...props}
+    >
       <StyledSubtitle level={4}>{title}</StyledSubtitle>
     </StyledTab>
   );

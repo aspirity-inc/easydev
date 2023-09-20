@@ -40,10 +40,10 @@ export const AvatarGroup = ({ spacing, max = 5, children, ...otherProps }: Avata
   });
 
   return (
-    <StyledAvatarGroup $spacing={calcSpacing()} {...otherProps}>
+    <StyledAvatarGroup className="easy_avatarGroup" $spacing={calcSpacing()} {...otherProps}>
       {StyledChildArray}
       {extraAvatars ? (
-        <StyledGroupItem $spacing={calcSpacing()} {...firstChildProps} src="">
+        <StyledGroupItem className="easy_avatarGroup-item" $spacing={calcSpacing()} {...firstChildProps} src="">
           {`+${extraAvatars}`}
         </StyledGroupItem>
       ) : null}

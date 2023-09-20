@@ -12,7 +12,7 @@ export type ModalHeaderProps = {
 
 export const ModalHeader = ({ headerContent, onClose, ...props }: ModalHeaderProps) => {
   return (
-    <StyledModalHeader {...props}>
+    <StyledModalHeader className="easy_modal-header" {...props}>
       {headerContent && headerContent()}
       <CloseButton onClick={onClose} />
     </StyledModalHeader>

@@ -25,6 +25,7 @@ export const Row = ({
 
   return (
     <StyledRow
+      className="easy_grid-row"
       $rowGap={rowGap}
       $columnGap={columnGap}
       $rowSpacing={rowSpacing}

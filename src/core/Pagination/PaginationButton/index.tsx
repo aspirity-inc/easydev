@@ -11,7 +11,7 @@ const defaultIcons = {
 };
 
 export const PaginationButton = ({ variant, icons, ...props }: PaginationButtonProps) => (
-  <StyledPaginationButton {...props}>
+  <StyledPaginationButton className="easy_pagination-btn" {...props}>
     <StyledIcon>
       {(icons && icons[variant]) || <div className="material-symbols-rounded">{defaultIcons[variant]}</div>}
     </StyledIcon>
