@@ -1,4 +1,4 @@
-import { useRef, FocusEvent, useState } from 'react';
+import { useRef, type FocusEvent, useState } from 'react';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
