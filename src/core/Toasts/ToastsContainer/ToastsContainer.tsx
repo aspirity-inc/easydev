@@ -10,7 +10,11 @@ import type { ToastItemType } from '../types';
 
 let TOAST_ID = 0;
 
-export const ToastContainer = ({ limit }: ToastContainerProps) => {
+type ToastContainerType = {
+  limit?: number;
+};
+
+export const ToastContainer = ({ limit }: ToastContainerType) => {
   const [toasts, setToasts] = useState<ToastItemType[]>([]);
   const [visibleToasts, setVisibleToasts] = useState<ToastItemType[]>([]);
 

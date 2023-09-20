@@ -1,4 +1,4 @@
-import type { NotifyFnType, ToastItemType } from '../types';
+import { NotifyFnType, ToastItemType } from '../types';
 
 let notify: NotifyFnType;
 export const notifyFunction = (notifyFn: NotifyFnType) => {

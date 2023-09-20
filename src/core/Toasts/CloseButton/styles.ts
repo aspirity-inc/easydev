@@ -1,6 +1,8 @@
 import { styled, css } from 'styled-components';
 
-import type { StyledCloseBtnProps } from '../types';
+type StyledCloseBtnProps = {
+  $colorful?: boolean;
+};
 
 export const StyledCloseButton = styled('button')<StyledCloseBtnProps>`
   --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['100'])};

@@ -5,7 +5,7 @@ import { Subtitle, Text } from '@core/Typography';
 import { StyledAnimationWrapper, StyledMainContent, StyledToast } from './styles';
 import { CloseButton } from '../CloseButton';
 import { ToastStatusIcon } from '../StatusIcons';
-import type { ToastProps } from '../types';
+import { ToastProps } from '../types';
 
 export const Toast = ({
   toastId,
