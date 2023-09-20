@@ -1,14 +1,5 @@
-import { MouseEvent } from 'react';
-
 import { ClearValues, Multivalue, MultivalueContainer, MultivalueWrapper, RemoveValueButton } from './styles.ts';
-import { OptionType } from '../types.ts';
-
-type MultivalueSelectedOptionsType = {
-  handleClear: () => void;
-  handleRemoveValue: (evt: MouseEvent<HTMLButtonElement>) => void;
-  clearButtonText: string;
-  value?: OptionType[];
-};
+import type { MultivalueSelectedOptionsType } from '../types.ts';
 
 export const MultivalueSelectedOptions = ({
   handleClear,
