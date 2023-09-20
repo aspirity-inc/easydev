@@ -5,7 +5,7 @@ import { Space } from '@core/Space';
 
 import { toast } from './toastEmitters';
 import { ToastContainer } from './ToastsContainer';
-import { ToastItemType } from '../types';
+import type { ToastItemType } from '../types';
 
 const metaToastContainer: Meta<typeof ToastContainer> = {
   title: 'Core/Toasts/ToastContainer',

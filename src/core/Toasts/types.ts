@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 export type ToastStatus = 'info' | 'success' | 'warning' | 'error';
 
@@ -15,7 +15,7 @@ export type ToastProps = {
   autoCloseDelay?: number;
   onDelete: (id: number | undefined) => void;
   className?: string;
-  position: ToastPosition;
+  position?: ToastPosition;
   style?: CSSProperties;
 };
 

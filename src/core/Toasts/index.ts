@@ -1,2 +1,3 @@
-export { Toast } from './Toast';
-export { ToastContainer, toast } from './ToastsContainer';
+export * from './Toast';
+export * from './ToastsContainer';
+export * from './types';

@@ -12,7 +12,7 @@ export type { BreadcrumbsItem } from '@core/Breadcrumbs';
 export * from '@core/Chip';
 export { Select } from '@core/Select';
 export * from '@core/Modal';
-export { Toast } from '@core/Toasts';
+export * from '@core/Toasts';
 export { Datepicker } from '@core/Datepicker';
 export * from '@core/Theme';
 export * from '@core/Grid';
