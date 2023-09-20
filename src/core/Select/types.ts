@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react';
+import type { MouseEvent } from 'react';
 
 import type { GroupBase, Props } from 'react-select';
 import type { AsyncProps } from 'react-select/async';
