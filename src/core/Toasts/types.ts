@@ -37,3 +37,48 @@ export type StatusColorType = {
 export type ToastPosition = (typeof toastPositions)[number];
 
 export type NotifyFnType = (args: ToastItemType) => void;
+
+export type CloseBtnProps = ComponentPropsWithoutRef<'button'> & {
+  icon?: ReactNode;
+  colorful?: boolean;
+};
+
+export type StyledCloseBtnProps = {
+  $colorful?: boolean;
+};
+
+export type ToastStatusIconProps = {
+  status: ToastStatus;
+  icon?: ReactNode;
+  colorful?: boolean;
+};
+
+export type StyledStatusIconProps = {
+  $status?: ToastStatus;
+  $colorful?: boolean;
+};
+
+export type ToastContainerProps = {
+  limit?: number;
+};
+
+export type StyledToastContainerProps = {
+  $position: ToastPosition;
+};
+
+export type StyledToastProps = {
+  $status?: ToastStatus;
+  $statusBackground?: string;
+  $colorful?: boolean;
+  $hasDescription?: boolean | undefined;
+};
+
+export type StyledAnimationProps = {
+  $isDeleting: boolean;
+  $position: ToastPosition;
+  $isAdded: boolean;
+};
+
+export type StyledMainContentProps = {
+  $colorful?: boolean;
+};

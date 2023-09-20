@@ -11,6 +11,7 @@ export const RangeSlider = ({
   value,
   tooltip = true,
   tooltipShown = 'onHover',
+  className,
   ...props
 }: ProgressPropsType) => {
   const [progress, setProgress] = useState(0);
@@ -39,7 +40,7 @@ export const RangeSlider = ({
         value={value}
         min={min}
         max={max}
-        className={cx('easy_range', props.className)}
+        className={cx('easy_range', className)}
         progress={progress}
         {...props}
       />

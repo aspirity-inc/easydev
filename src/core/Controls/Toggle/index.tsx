@@ -1,7 +1,7 @@
 import { forwardRef, type Ref, useId } from 'react';
 
 import { StyledToggle, StyledToggleInner, ToggleWrap } from '@core/Controls/Toggle/styles.ts';
-import type { ControlBasePropsType } from '@core/Controls/types.ts';
+import type { TogglePropsType } from '@core/Controls/types.ts';
 
 import { ControlWrapper } from '../ControlWrapper';
 import { ControlContainer, LabelContent } from '../styles';

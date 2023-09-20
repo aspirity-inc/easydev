@@ -4,6 +4,8 @@ import { StyledInputLabel } from '@core/Inputs/Input/styles';
 import { StyledLabelText, getInputTransition } from '@core/Inputs/styles';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
+import type { StyleInputProps } from '../../types';
+
 export const StyledDatepickerIcon = styled('div')`
   position: absolute;
   top: 50%;
@@ -37,10 +39,6 @@ export const StyledDatepickerClearIcon = styled('div')<{ $disabled: boolean }>`
     );
   }}
 `;
-
-type StyleInputProps = {
-  $open: boolean;
-};
 
 const focusInputStyles = () => css`
   background-color: ${({ theme }) =>
