@@ -1,12 +1,12 @@
-import { MouseEventHandler, useEffect, useRef } from 'react';
+import { type MouseEventHandler, useEffect, useRef } from 'react';
 
 import { createPortal } from 'react-dom';
 
 import { CloseButton } from './components/CloseButton';
 import { ModalContent, ModalWrapper } from './styles';
-import { ModalProps } from './types';
+import type { ModalProps } from './types';
 
-export const Modal = ({ open, onClose, children, bgColor, portal = document.body, ...props }: ModalProps) => {
+export const Modal = ({ open, onClose, children, portal = document?.body, ...props }: ModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleClick: MouseEventHandler<HTMLDivElement> = (e) => {
@@ -17,7 +17,7 @@ export const Modal = ({ open, onClose, children, bgColor, portal = document.body
 
   const ModalWindow = () => (
     <ModalWrapper className="easy_modal-wrapp" open={open} onClick={handleClick} $isPortal={Boolean(portal)} {...props}>
-      <ModalContent className="easy_modal-item" ref={modalRef} bgColor={bgColor}>
+      <ModalContent className="easy_modal-item" ref={modalRef}>
         {children}
       </ModalContent>
     </ModalWrapper>

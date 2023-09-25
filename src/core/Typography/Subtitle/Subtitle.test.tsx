@@ -29,7 +29,7 @@ describe('Subtitle default', () => {
   test('Should be h1', () => {
     render(
       <EasydevProvider>
-        <Subtitle tag="h1">{mockSubtitle}</Subtitle>
+        <Subtitle as="h1">{mockSubtitle}</Subtitle>
       </EasydevProvider>
     );
     expect(screen.getByText(mockSubtitle)?.tagName).equal('H1');
@@ -53,23 +53,5 @@ describe('Subtitle styles', () => {
       </EasydevProvider>
     );
     expect(screen.getByText(mockSubtitle)).toHaveStyle({ fontSize: 40 });
-  });
-
-  test('Should be color #cdcdcd', () => {
-    render(
-      <EasydevProvider>
-        <Subtitle color="#cdcdcd">{mockSubtitle}</Subtitle>
-      </EasydevProvider>
-    );
-    expect(screen.getByText(mockSubtitle)).toHaveStyle('color: "#cdcdcd" ');
-  });
-
-  test('Should be background-color #efefef', () => {
-    render(
-      <EasydevProvider>
-        <Subtitle bgColor="#efefef">{mockSubtitle}</Subtitle>
-      </EasydevProvider>
-    );
-    expect(screen.getByText(mockSubtitle)).toHaveStyle('backgroundColor: "#efefef"');
   });
 });

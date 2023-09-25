@@ -1,5 +1,7 @@
 import { css, styled } from 'styled-components';
 
+import { Box } from '@core/Box';
+
 import type { ProgressBarTypeBase } from './types.ts';
 
 export const colors = css`
@@ -9,15 +11,14 @@ export const colors = css`
     theme.type === 'light' ? theme.colors.secondary['200'] : theme.colors.surface['700']};
 `;
 
-export const StyledProgressBarBase = styled('div')<ProgressBarTypeBase>`
+export const StyledProgressBarBase = styled(Box)<ProgressBarTypeBase>`
   ${colors};
 
   position: relative;
   width: 100%;
   height: ${({ $size }) => ($size === 'small' ? 5 : 10)}px;
-  background-color: ${({ $progressBackground }) => $progressBackground || 'var(--progressBgColor)'};
-  ${({ $rounded }) => $rounded && ' border-radius: 10px;'}
-
+  background-color: var(--progressBgColor);
+  ${({ $rounded }) => $rounded && ' border-radius: 10px;'};
   overflow: hidden;
 
   &:after {
@@ -28,7 +29,7 @@ export const StyledProgressBarBase = styled('div')<ProgressBarTypeBase>`
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: ${({ $progressColor }) => $progressColor || 'var(--progressColor)'};
+    background-color: var(--progressColor);
     border-radius: inherit;
     transform-origin: left;
     transition: transform ${({ theme }) => theme.transition.default};

@@ -1,2 +1,2 @@
 export { Badge } from './Badge';
-export * from './types.ts';
+export type * from './types.ts';

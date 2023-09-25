@@ -1,8 +1,7 @@
-import { Meta, StoryFn } from '@storybook/react';
-
 import { Button } from '@core/Button';
 
 import { Flex } from '.';
+import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
   title: 'Core/Flex',

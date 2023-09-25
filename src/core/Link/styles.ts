@@ -1,10 +1,11 @@
 import { css, styled } from 'styled-components';
 
+import { Box } from '@core/Box';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
 import type { StyledLinkProps } from './types';
 
-export const StyledLink = styled('a')<StyledLinkProps>`
+export const StyledLink = styled(Box)<StyledLinkProps>`
   --hoverColor: ${({ theme }) => (theme.type === 'light' ? theme.colors.link['300'] : theme.colors.link['400'])};
   --transition: ${({ theme }) => theme.transition.default};
   ${getTextVariants('body2')}

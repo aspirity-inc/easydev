@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
-import { Meta, StoryFn } from '@storybook/react';
-
 import { Checkbox } from '.';
+import type { Meta, StoryFn } from '@storybook/react';
 
 const metaCheckbox: Meta<typeof Checkbox> = {
   title: 'Core/Controls/Checkbox',
@@ -20,8 +19,8 @@ const metaCheckbox: Meta<typeof Checkbox> = {
     },
     color: {
       type: 'string',
-      control: { type: 'color', presetColors: ['success', 'warning', 'error'] },
-      description: 'colors presets: success | warning | error',
+      control: 'radio',
+      options: ['success', 'warning', 'error'],
     },
     label: {
       control: 'text',

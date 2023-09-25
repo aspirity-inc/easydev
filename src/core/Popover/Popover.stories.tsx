@@ -1,10 +1,9 @@
-import { Meta, StoryFn } from '@storybook/react';
-
 import 'material-symbols';
 
 import { Button } from '@core/Button';
 
 import { Popover } from '.';
+import type { Meta, StoryFn } from '@storybook/react';
 
 const metaPopover: Meta<typeof Popover> = {
   title: 'Core/Popover',

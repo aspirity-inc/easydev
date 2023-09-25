@@ -49,17 +49,7 @@ test('media and borderMedia', () => {
       </Card>
     </EasydevProvider>
   );
-	
+
   expect(screen.getByText('media')).toBeInTheDocument();
   expect(screen.getByText('media').parentNode).toHaveStyleRule('padding', '16px 16px 0 16px');
-});
-
-test('maxWidth', () => {
-  const { container } = render(
-    <EasydevProvider>
-      <Card maxWidth="120px">{mockCardText}</Card>
-    </EasydevProvider>
-  );
-
-  expect(container.querySelector('div')).toHaveStyleRule('max-width', '120px');
 });

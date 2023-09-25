@@ -1,8 +1,14 @@
 import { MouseEvent } from 'react';
 
-import ReactSelect, { ActionMeta, GroupBase, MultiValue, OnChangeValue, Props } from 'react-select';
-import AsyncSelect, { AsyncProps } from 'react-select/async';
-import CreatableSelect, { CreatableProps } from 'react-select/creatable';
+import ReactSelect, {
+  type ActionMeta,
+  type GroupBase,
+  type MultiValue,
+  type OnChangeValue,
+  type Props,
+} from 'react-select';
+import AsyncSelect, { type AsyncProps } from 'react-select/async';
+import CreatableSelect, { type CreatableProps } from 'react-select/creatable';
 
 import 'material-symbols';
 
@@ -12,7 +18,7 @@ import { cx } from '@helpers/cx.ts';
 
 import { CustomOption, DropdownIndicator, SearchValueContainer } from './Components';
 import { StyledSelectWrap } from './styles.ts';
-import { OptionType } from './types.ts';
+import type { OptionType } from './types.ts';
 
 type SelectProps<Option, IsMulti extends boolean = false, Group extends GroupBase<Option> = GroupBase<Option>> = Props<
   Option,

@@ -1,2 +1,2 @@
 export { Space } from './Space.tsx';
-export * from './types.ts';
+export type * from './types.ts';

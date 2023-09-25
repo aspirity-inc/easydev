@@ -1,10 +1,10 @@
-import { ReactNode } from 'react';
+import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 import 'material-symbols';
 
 import { StyledCloseButton } from './styles';
 
-type CloseBtnProps = React.ComponentPropsWithoutRef<'button'> & {
+type CloseBtnProps = ComponentPropsWithoutRef<'button'> & {
   icon?: ReactNode;
   colorful?: boolean;
 };

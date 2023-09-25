@@ -1,13 +1,6 @@
-import { CSSProperties } from 'react';
-
 import { css, styled } from 'styled-components';
 
 import { ControlWrap, StyledInnerBase, StyledInput } from '../styles.ts';
-
-type ToggleType = {
-  $checkedColor?: CSSProperties['color'];
-  $innerColor?: CSSProperties['color'];
-};
 
 export const StyledToggle = styled(StyledInput)``;
 
@@ -22,23 +15,23 @@ export const StyledToggleInner = styled(StyledInnerBase)`
   transition: translate ${({ theme }) => theme.transition.default};
 `;
 
-export const ToggleWrap = styled(ControlWrap)<ToggleType>`
+export const ToggleWrap = styled(ControlWrap)`
   --toggleBg: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['200'])};
   --checkedBg: ${({ theme }) => (theme.type === 'light' ? theme.colors.tretiary['600'] : theme.colors.tretiary['400'])};
   --innerColor: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800'])};
 
   width: 40px;
   border-radius: 20px;
-  background-color: ${({ color }) => color || 'var(--toggleBg)'};
+  background-color: var(--toggleBg);
   border: none;
   transition: background-color ${({ theme }) => theme.transition.default};
 
   ${StyledToggleInner} {
-    background-color: ${({ $innerColor }) => $innerColor || 'var(--innerColor)'};
+    background-color: var(--innerColor);
   }
 
   &:has(${StyledToggle}:checked) {
-    background-color: ${({ $checkedColor }) => $checkedColor || 'var(--checkedBg)'};
+    background-color: var(--checkedBg);
 
     ${({ disabled }) =>
       disabled &&

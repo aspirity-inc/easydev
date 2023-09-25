@@ -1,9 +1,9 @@
 import { StyledLayout } from './styles';
-import type { LayoutProps } from './types';
+import type { BaseLayoutProps } from './types';
 
-export const Layout = ({ children, height, ...props }: LayoutProps) => {
+export const Layout = ({ children, ...props }: BaseLayoutProps) => {
   return (
-    <StyledLayout className="easy_layout" $height={height} {...props}>
+    <StyledLayout className="easy_layout" {...props}>
       {children}
     </StyledLayout>
   );

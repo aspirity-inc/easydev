@@ -48,7 +48,7 @@ export const Popover = ({ placement, title, body, children }: PopoverProps) => {
       >
         {title && (
           <StyledTitle className="easy_popover-title">
-            <Subtitle tag="span" level={5}>
+            <Subtitle as="span" level={5}>
               {title}
             </Subtitle>
           </StyledTitle>

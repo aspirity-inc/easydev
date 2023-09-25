@@ -1,8 +1,10 @@
 import { styled } from 'styled-components';
 
+import { Box } from '@core/Box';
+
 import type { StylesSpaceProps } from './types';
 
-export const StyledSpace = styled('div')<StylesSpaceProps>`
+export const StyledSpace = styled(Box)<StylesSpaceProps>`
   display: flex;
   max-width: fit-content;
   flex-wrap: wrap;

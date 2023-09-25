@@ -1,11 +1,11 @@
-import { InputHTMLAttributes, forwardRef } from 'react';
+import { forwardRef, type InputHTMLAttributes } from 'react';
 
 import {
+  StyledDatepickerClearIcon,
   StyledDatepickerIcon,
   StyledDatepickerInput,
   StyledDatepickerLabel,
   StyledDatepickerText,
-  StyledDatepickerClearIcon,
 } from './styles';
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {

@@ -1,17 +1,16 @@
 import { css, styled } from 'styled-components';
 
+import { Box } from '@core/Box';
+
 import type { StyledHeaderProps } from './types';
 
-export const StyledHeader = styled('header')<StyledHeaderProps>`
+export const StyledHeader = styled(Box)<StyledHeaderProps>`
   width: 100%;
-  background-color: ${({ $backgroundColor }) => $backgroundColor || 'transparent'};
-  ${({ $fix }) => getFixStyles($fix)};
-  //TODO: if height is really necessary here?
-  height: ${({ $height }) => $height && `${$height}px`};
+  ${({ $fixed }) => getFixStyles($fixed)};
 `;
 
-export const getFixStyles = (fix?: boolean) => {
-  if (fix) {
+export const getFixStyles = (fixed?: boolean) => {
+  if (fixed) {
     return css`
       position: sticky;
       top: 0;

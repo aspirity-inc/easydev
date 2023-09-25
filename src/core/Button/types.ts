@@ -1,7 +1,8 @@
-import { CSSProperties, ComponentPropsWithoutRef, ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
-export type ButtonProps = ComponentPropsWithoutRef<'button'> & {
-  children?: ReactNode;
+import type { BaseComponentType } from '@core/Box/types.ts';
+
+export type ButtonProps = BaseComponentType & {
   icon?: ReactNode;
   reversed?: boolean;
   size?: ButtonSizeVariantsType;
@@ -9,8 +10,6 @@ export type ButtonProps = ComponentPropsWithoutRef<'button'> & {
   loading?: boolean;
   loadingIcon?: ReactNode;
   variant?: ButtonVariantsType;
-  color?: CSSProperties['color'];
-  bgColor?: CSSProperties['backgroundColor'];
 };
 
 export const ButtonSizeVariants = ['sm', 'lg'] as const;

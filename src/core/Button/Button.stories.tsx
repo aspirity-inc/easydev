@@ -1,9 +1,8 @@
-import { Meta, StoryFn } from '@storybook/react';
-
 import 'material-symbols';
 
 import { Button } from '.';
 import { ButtonRoundedVariants, ButtonSizeVariants, ButtonVariants } from './types';
+import type { Meta, StoryFn } from '@storybook/react';
 
 const AddIcon = () => <div className="material-symbols-rounded">add</div>;
 const LoaderIcon = () => <div className="material-symbols-rounded">refresh</div>;
@@ -70,14 +69,6 @@ const metaButton: Meta<typeof Button> = {
     style: {
       description: 'Additional styles',
     },
-    color: {
-      type: 'string',
-      control: { type: 'color' },
-    },
-    bgColor: {
-      type: 'string',
-      control: { type: 'color' },
-    },
   },
 };
 export default metaButton;
@@ -126,4 +117,15 @@ ProgressUserIconButton.args = {
   children: 'Button',
   loadingIcon: <LoaderIcon />,
   loading: true,
+};
+
+const TemplateLinkButton: StoryFn<typeof Button> = ({ children, ...args }) => {
+  return <Button {...args}>{children}</Button>;
+};
+
+export const LinkLikeButton: StoryFn<typeof Button> = TemplateLinkButton.bind({});
+LinkLikeButton.args = {
+  children: 'This is a link',
+  as: 'a',
+  href: 'https://google.com',
 };

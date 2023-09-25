@@ -38,8 +38,7 @@ test('custom separator', () => {
 });
 
 test('custom itemRender', () => {
-  // eslint-disable-next-line unused-imports/no-unused-vars
-  const itemRender = (item: BreadcrumbsItem, index?: number, items?: BreadcrumbsItem[]) => {
+  const itemRender = (item: BreadcrumbsItem) => {
     return <div className="custom-item">{item.title}</div>;
   };
   const { container } = render(

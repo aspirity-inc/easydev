@@ -1,17 +1,12 @@
-import { CSSProperties, ComponentPropsWithoutRef, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+
+import type { BaseComponentType } from '@core/Box/types.ts';
 
 import type { ProgressBarTypeBase } from '..';
 
-export type ProgressBarWrapType = {
-  $progressColor?: CSSProperties['color'];
-};
-
-export type ProgressBarPropsType = ComponentPropsWithoutRef<'div'> &
-  Omit<ProgressBarTypeBase, '$progressColor' | '$progressBackground' | '$size' | '$rounded'> &
-  Omit<ProgressBarWrapType, '$isTitle' | '$progressColor'> & {
+export type ProgressBarPropsType = BaseComponentType &
+  Omit<ProgressBarTypeBase, '$size' | '$rounded'> & {
     customTitle?: ReactNode;
-    progressColor?: CSSProperties['color'];
-    progressBackground?: CSSProperties['color'];
     size?: 'small' | 'default';
     rounded?: boolean;
   };

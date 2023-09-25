@@ -1,2 +1,2 @@
 export { Chip } from './Chip.tsx';
-export * from './types.ts';
+export type * from './types.ts';

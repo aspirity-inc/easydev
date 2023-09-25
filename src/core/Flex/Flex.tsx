@@ -1,7 +1,18 @@
 import { StyledFlex } from './styles';
 import type { FlexProps } from './types';
 
-export const Flex = ({ direction, align, justify, wrap, gap, rowGap, columnGap, children, ...props }: FlexProps) => {
+export const Flex = ({
+  direction,
+  align,
+  justify,
+  wrap,
+  gap,
+  rowGap,
+  columnGap,
+  inline,
+  children,
+  ...props
+}: FlexProps) => {
   return (
     <StyledFlex
       className="easy_flex"
@@ -12,6 +23,7 @@ export const Flex = ({ direction, align, justify, wrap, gap, rowGap, columnGap, 
       $gap={gap}
       $rowGap={rowGap}
       $columnGap={columnGap}
+      $inline={inline}
       {...props}
     >
       {children}

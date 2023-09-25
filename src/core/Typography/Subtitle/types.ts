@@ -1,21 +1,14 @@
-import { CSSProperties } from 'react';
+import { subtitleLevelVariants, subtitleTagVariants } from '../constants';
+import type { TypographyBaseType } from '../types';
 
-import { TypographyBaseType } from '../types';
-
-export const tagVariants = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'] as const;
-
-export const levelVariants = [1, 2, 3, 4, 5] as const;
-
-export type LevelVariantsType = (typeof levelVariants)[number];
+export type LevelVariantsType = (typeof subtitleLevelVariants)[number];
 
 export type StyledSubtitleProps = {
-  level?: LevelVariantsType;
-  $bgColor?: CSSProperties['backgroundColor'];
-  $color?: CSSProperties['color'];
+  $level?: LevelVariantsType;
 };
 
-export type TagVariantsType = (typeof tagVariants)[number];
+export type TagVariantsType = (typeof subtitleTagVariants)[number];
 export type SubtitleProps = TypographyBaseType & {
-  tag?: keyof Pick<HTMLElementTagNameMap, TagVariantsType>;
+  as?: keyof Pick<HTMLElementTagNameMap, TagVariantsType>;
   level?: LevelVariantsType;
 };

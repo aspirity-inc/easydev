@@ -1,11 +1,3 @@
-import type { CSSProperties, ReactNode } from 'react';
+import type { BaseComponentType } from '@core/Box/types.ts';
 
-export type BaseLayoutProps = { children: ReactNode; className?: string; style?: CSSProperties };
-
-export type LayoutProps = BaseLayoutProps & {
-  height?: number;
-};
-
-export type StyledLayoutProps = {
-  $height?: number;
-};
+export type BaseLayoutProps = BaseComponentType;

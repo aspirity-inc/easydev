@@ -1,20 +1,14 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { styled } from 'styled-components';
 
 import { Subtitle } from '@core/Typography';
 
 import { ProgressBar } from '.';
+import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 export default {
   title: 'Core/Progress/ProgressBar',
   component: ProgressBar,
   argTypes: {
-    progressColor: {
-      control: 'color',
-    },
-    progressBackground: {
-      control: 'color',
-    },
     customTitle: {
       control: 'text',
     },
@@ -45,7 +39,7 @@ export const CustomTitle: StoryFn<typeof ProgressBar> = () => {
   const value = 33;
 
   const Title = (
-    <StyledProgressInfo level={3} tag="span">
+    <StyledProgressInfo level={3} as="span">
       <span>{value}%</span> <span>Update in progress..</span>
     </StyledProgressInfo>
   );

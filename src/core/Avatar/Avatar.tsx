@@ -1,5 +1,7 @@
 import 'material-symbols';
 
+import { cx } from '@helpers/cx.ts';
+
 import { OnlineIndicator, StyledAvatar, StyledCenter } from './styles';
 import type { AvatarProps } from './types';
 
@@ -10,20 +12,12 @@ export const Avatar = ({
   size = 'lg',
   imageProps,
   online,
-  color,
-  bgColor,
   children,
-  ...otherProps
+  className,
+  ...props
 }: AvatarProps) => {
   return (
-    <StyledAvatar
-      className="easy_avatar"
-      $size={size}
-      $radius={radius}
-      $color={color}
-      $bgColor={bgColor}
-      {...otherProps}
-    >
+    <StyledAvatar className={cx(className, 'easy_avatar')} $size={size} $radius={radius} {...props}>
       <StyledCenter>
         {src ? <img {...imageProps} src={src} alt={alt} /> : <div>{children || <DefaultAvatarIcon />}</div>}
       </StyledCenter>

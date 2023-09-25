@@ -1,4 +1,6 @@
-import { CSSProperties, ReactNode } from 'react';
+import type { CSSProperties } from 'react';
+
+import type { BaseComponentType } from '@core/Box/types.ts';
 
 export type StylesSpaceProps = {
   $size?: number;
@@ -7,8 +9,7 @@ export type StylesSpaceProps = {
   $direction?: CSSProperties['flexDirection'];
 };
 
-export type SpaceProps = {
-  children: ReactNode | ReactNode[];
+export type SpaceProps = BaseComponentType & {
   size?: number;
   alignItems?: CSSProperties['alignItems'];
   justifyContent?: CSSProperties['justifyContent'];

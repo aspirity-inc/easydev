@@ -5,7 +5,8 @@ import { createPortal } from 'react-dom';
 import { StyledContainer } from './styles';
 import { notifyFunction } from './toastEmitters';
 import { Toast } from '..';
-import { ToastItemType, toastPositions } from '../types';
+import { toastPositions } from '../constants';
+import type { ToastItemType } from '../types';
 
 let TOAST_ID = 0;
 

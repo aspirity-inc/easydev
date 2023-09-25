@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
-import { Text, Subtitle } from '@core/Typography';
+import { Subtitle, Text } from '@core/Typography';
 
-import { StyledMainContent, StyledToast, StyledAnimationWrapper } from './styles';
+import { StyledAnimationWrapper, StyledMainContent, StyledToast } from './styles';
 import { CloseButton } from '../CloseButton';
 import { ToastStatusIcon } from '../StatusIcons';
-import { ToastProps } from '../types';
+import type { ToastProps } from '../types';
 
 export const Toast = ({
   toastId,
@@ -66,7 +66,7 @@ export const Toast = ({
         $colorful={colorful}
         $statusBackground={statusBackground}
         $status={status}
-        $hasDescription={description ? true : false}
+        $hasDescription={!!description}
         {...props}
       >
         <ToastStatusIcon colorful={colorful} status={status} icon={icon} />

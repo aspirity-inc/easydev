@@ -1,9 +1,11 @@
 import { css, styled } from 'styled-components';
 
+import { Box } from '@core/Box';
+
 import { StyledCol } from './Col/styles';
 import type { StyledRowProps } from './types';
 
-export const StyledRow = styled('div')<StyledRowProps>`
+export const StyledRow = styled(Box)<StyledRowProps>`
   display: flex;
   flex-direction: ${({ $direction }) => $direction || 'row'};
   flex-wrap: ${({ $wrap }) => $wrap || 'wrap'};
@@ -21,7 +23,7 @@ export const StyledRow = styled('div')<StyledRowProps>`
   `};
 `;
 
-export const ItemExample = styled('div')`
+export const ItemExample = styled(Box)`
   --defaultBorderColor: ${({ theme }) =>
     theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['700']};
   border: 1px solid var(--defaultBorderColor);

@@ -1,4 +1,6 @@
-import { CSSProperties, ComponentPropsWithoutRef, ReactNode } from 'react';
+import type { ComponentPropsWithoutRef, CSSProperties, ReactNode } from 'react';
+
+import type { BaseComponentType } from '@core/Box/types.ts';
 
 import type { Props } from 'react-input-mask';
 
@@ -57,7 +59,7 @@ export type IconProps = {
 
 export type MaskedInputProps = Props & InputProps;
 
-export type CodeInputProps = Omit<ComponentPropsWithoutRef<'div'>, 'onChange'> & {
+export type CodeInputProps = BaseComponentType & {
   length?: number;
   error?: boolean;
   value?: string;

@@ -1,10 +1,9 @@
-import { Meta, StoryFn } from '@storybook/react';
-
 import { Box } from '@core/Box';
 import { Center } from '@core/Center/Center';
 import { lightPalette } from '@core/Theme/themePalette';
 
 import { Footer, Header, Layout, Main } from '.';
+import type { Meta, StoryFn } from '@storybook/react';
 
 const metaLayout: Meta<typeof Layout> = {
   title: 'Core/Layout',
@@ -13,16 +12,20 @@ const metaLayout: Meta<typeof Layout> = {
 
 export default metaLayout;
 
+const headerStyle = { padding: '20px 25px', backgroundColor: lightPalette.primary[500] };
+const footerStyle = { padding: '20px 50px', backgroundColor: lightPalette.primary[700] };
+const mainStyle = { border: `1px solid ${lightPalette.secondary[500]}` };
+
 const Template: StoryFn<typeof Layout> = ({ ...args }) => {
   return (
     <Layout {...args}>
-      <Header height={50} backgroundColor={lightPalette.primary[500]} style={{ padding: '20px 0' }}>
+      <Header style={headerStyle}>
         <Center>Header</Center>
       </Header>
-      <Main>
+      <Main style={mainStyle}>
         <Center>Main</Center>
       </Main>
-      <Footer style={{ padding: '20px 0' }} backgroundColor={lightPalette.primary[900]} height={70}>
+      <Footer style={footerStyle}>
         <Center>Footer</Center>
       </Footer>
     </Layout>
@@ -36,13 +39,13 @@ const TemplateWithFixedHeader = ({ ...args }) => {
   return (
     <Box style={{ height: '200px' }}>
       <Layout {...args}>
-        <Header height={50} backgroundColor={lightPalette.primary[500]} style={{ padding: '20px 0' }} fix>
+        <Header style={headerStyle} fixed>
           <Center>Header</Center>
         </Header>
-        <Main style={{ minHeight: 300 }}>
+        <Main style={{ minHeight: 300, ...mainStyle }}>
           <Center>Main</Center>
         </Main>
-        <Footer style={{ padding: '20px 0' }} backgroundColor={lightPalette.primary[900]} height={70}>
+        <Footer style={footerStyle}>
           <Center>Footer</Center>
         </Footer>
       </Layout>

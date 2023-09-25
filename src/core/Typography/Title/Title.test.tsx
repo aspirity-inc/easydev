@@ -45,22 +45,4 @@ describe('Title styles', () => {
     );
     expect(screen.getByText(mockTitle)).toHaveStyle({ fontSize: 40 });
   });
-
-  test('Should be color #cdcdcd', () => {
-    render(
-      <EasydevProvider>
-        <Title color="#cdcdcd">{mockTitle}</Title>
-      </EasydevProvider>
-    );
-    expect(screen.getByText(mockTitle)).toHaveStyle('color: "#cdcdcd" ');
-  });
-
-  test('Should be background-color #efefef', () => {
-    render(
-      <EasydevProvider>
-        <Title bgColor="#efefef">{mockTitle}</Title>
-      </EasydevProvider>
-    );
-    expect(screen.getByText(mockTitle)).toHaveStyle('backgroundColor: "#efefef"');
-  });
 });

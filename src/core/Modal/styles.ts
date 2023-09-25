@@ -1,17 +1,9 @@
-import { CSSProperties } from 'react';
-
 import { css, styled } from 'styled-components';
 
-type StyledModalWrapperProps = {
-  open: boolean;
-  $isPortal: boolean;
-};
+import { Box } from '@core/Box';
+import type { StyledModalWrapperProps } from '@core/Modal/types.ts';
 
-export type StyledModalContentProps = {
-  bgColor?: CSSProperties['backgroundColor'];
-};
-
-export const ModalWrapper = styled.div<StyledModalWrapperProps>`
+export const ModalWrapper = styled(Box)<StyledModalWrapperProps>`
   position: ${({ $isPortal }) => ($isPortal ? 'absolute' : 'fixed')};
   top: 0;
   left: 0;
@@ -37,25 +29,14 @@ export const ModalWrapper = styled.div<StyledModalWrapperProps>`
     `}
 `;
 
-export const ModalContent = styled.div<StyledModalContentProps>`
-  --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800'])};
-
+export const ModalContent = styled(Box)`
   max-width: 460px;
   display: flex;
   flex-direction: column;
-
   padding: 40px 24px;
   margin: 32px;
-
-  ${({ bgColor }) =>
-    bgColor
-      ? css`
-          background-color: ${bgColor};
-        `
-      : css`
-          background-color: var(--monochrome);
-        `};
-
   border-radius: 20px;
+  background-color: ${({ theme }) =>
+    theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
   ${({ theme }) => (theme.type === 'light' ? theme.shadows.gray : theme.shadows.violet_light)};
 `;

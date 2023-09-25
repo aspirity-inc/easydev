@@ -1,6 +1,6 @@
-import { styled, css } from 'styled-components';
+import { css, styled } from 'styled-components';
 
-import { StatusColorType, ToastStatus } from '../types';
+import type { StatusColorType, ToastStatus } from '../types';
 
 export type StyledStatusIconProps = {
   $status?: ToastStatus;

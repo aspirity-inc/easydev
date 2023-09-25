@@ -1,23 +1,9 @@
-import { Meta, StoryFn } from '@storybook/react';
-
 import { Link } from '.';
+import type { Meta, StoryFn } from '@storybook/react';
 
 const metaLink: Meta<typeof Link> = {
   title: 'Core/Link',
   component: Link,
-  argTypes: {
-    children: {
-      description: 'ReactNode | ReactNode[] | string',
-    },
-    disabled: {
-      type: 'boolean',
-      control: 'boolean',
-    },
-    defaultUnderline: {
-      type: 'boolean',
-      control: 'boolean',
-    },
-  },
 };
 export default metaLink;
 

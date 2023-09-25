@@ -1,8 +1,7 @@
-import { Meta, StoryFn } from '@storybook/react';
-
 import { Radio } from '@core/Controls';
 
 import { Space } from '.';
+import type { Meta, StoryFn } from '@storybook/react';
 
 const metaSpace: Meta<typeof Space> = {
   title: 'Core/Space',

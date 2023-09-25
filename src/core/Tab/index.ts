@@ -1,2 +1,2 @@
 export { Tab } from './Tab';
-export * from './types';
+export type * from './types';

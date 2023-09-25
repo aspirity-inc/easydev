@@ -47,20 +47,6 @@ test('custom title', () => {
   expect(screen.getByText('custom title')).toBeInTheDocument();
 });
 
-test('progress color and background', () => {
-  const { container } = render(
-    <EasydevProvider>
-      <ProgressBar value={80} progressColor="#ededed" progressBackground="#dedede" />
-    </EasydevProvider>
-  );
-
-  expect(container.querySelector('div')).toHaveStyleRule('color', '#ededed');
-  expect(container.querySelector('div')?.childNodes[1]).toHaveStyleRule('background-color', '#ededed', {
-    modifier: '&:after',
-  });
-  expect(container.querySelector('div')?.childNodes[1]).toHaveStyleRule('background-color', '#dedede');
-});
-
 test('small size', () => {
   const { container } = render(
     <EasydevProvider>

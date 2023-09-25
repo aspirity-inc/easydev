@@ -1,9 +1,8 @@
 import { useState } from 'react';
 
-import { Meta, StoryFn } from '@storybook/react';
-
 import { Tab } from '.';
 import { TabButtonsList } from './styles';
+import type { Meta, StoryFn } from '@storybook/react';
 
 const metaTabs: Meta<typeof Tab> = {
   title: 'Core/Tab',

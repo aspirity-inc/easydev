@@ -1,7 +1,6 @@
-import { Meta, StoryFn } from '@storybook/react';
-
 import { Title } from '.';
-import { titleTagVariants } from './types';
+import { titleTagVariants } from '../constants.ts';
+import type { Meta, StoryFn } from '@storybook/react';
 
 const metaTitle: Meta<typeof Title> = {
   title: 'Core/Typography/Title',
@@ -18,14 +17,6 @@ const metaTitle: Meta<typeof Title> = {
       table: {
         defaultValue: { summary: 'h1' },
       },
-    },
-    color: {
-      type: 'string',
-      control: { type: 'color' },
-    },
-    bgColor: {
-      type: 'string',
-      control: { type: 'color' },
     },
     className: {
       description: 'CSS class for additional styling',

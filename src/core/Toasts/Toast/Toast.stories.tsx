@@ -1,8 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react';
-
 import { Space } from '@core/Space';
 
 import { Toast } from '.';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const metaToast: Meta<typeof Toast> = {
   title: 'Core/Toasts/Toast',

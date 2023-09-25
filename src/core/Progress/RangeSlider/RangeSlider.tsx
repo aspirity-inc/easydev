@@ -21,12 +21,12 @@ export const RangeSlider = ({
   }, [value, max]);
 
   return (
-    <RangeWrap>
+    <RangeWrap className="easy_rangeWrap">
       {tooltip && (
         <Tooltip
           className="easy_tooltip"
           variant="caption"
-          tag="span"
+          as="span"
           style={{ left: `calc(${progress}% + (${12 - progress * 0.2}px))` }}
           tooltipShown={tooltipShown}
         >

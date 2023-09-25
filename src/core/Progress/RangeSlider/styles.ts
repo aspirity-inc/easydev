@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 
+import { Box } from '@core/Box';
 import { Text } from '@core/Typography';
 
 import type { TooltipType } from './types.ts';
@@ -93,7 +94,7 @@ export const StyledProgress = styled('input')<{ progress: number }>`
   }
 `;
 
-export const RangeWrap = styled('div')`
+export const RangeWrap = styled(Box)`
   margin-top: 35px;
   position: relative;
 

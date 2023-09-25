@@ -1,10 +1,11 @@
 import { styled } from 'styled-components';
 
+import { Box } from '@core/Box';
 import { getTitleVariant } from '@core/Typography/styles.ts';
 
 import { StyledStepper } from '../styles.ts';
 
-export const StyledStep = styled('div')`
+export const StyledStep = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;

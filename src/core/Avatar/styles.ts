@@ -1,10 +1,11 @@
 import { css, styled } from 'styled-components';
 
+import { Box } from '@core/Box';
 import { Center } from '@core/Center';
 import { getTitleVariant } from '@core/Typography/styles';
 import { getSubtitleLevelStyles } from '@core/Typography/Subtitle/styles';
 import { getTextVariants } from '@core/Typography/Text/styles';
-import { TitleTagVariantsType } from '@core/Typography/Title/types';
+import type { TitleTagVariantsType } from '@core/Typography/Title/types';
 
 import type { StyledAvatarProps } from '.';
 
@@ -68,7 +69,7 @@ export const StyledCenter = styled(Center)`
   text-transform: uppercase;
 `;
 
-export const OnlineIndicator = styled('div')<{ $online?: boolean }>`
+export const OnlineIndicator = styled(Box)<{ $online?: boolean }>`
   border: 2px solid ${({ theme }) => (theme.type == 'light' ? theme.colors.surface['50'] : theme.colors.surface['900'])};
   border-radius: 50%;
 
@@ -83,22 +84,15 @@ export const OnlineIndicator = styled('div')<{ $online?: boolean }>`
   }}
 `;
 
-export const StyledAvatar = styled('div')<StyledAvatarProps>`
+export const StyledAvatar = styled(Box)<StyledAvatarProps>`
   position: relative;
   width: ${({ $size }) => (typeof $size === 'number' ? `${$size}px` : sizes[$size].avatar)};
   height: ${({ $size }) => (typeof $size === 'number' ? `${$size}px` : sizes[$size].avatar)};
-
   background-color: ${({ theme }) => theme.colors.primary['50']};
   color: ${({ theme }) => theme.colors.primary['900']};
   ${({ $size }) => getTextStyles($size)};
   user-select: none;
-
   border-radius: ${({ $radius }) => (typeof $radius === 'number' ? `${$radius}px` : radiuses[$radius])};
-
-  ${({ $color, $bgColor }) => css`
-    color: ${$color};
-    background-color: ${$bgColor};
-  `};
 
   & .material-symbols-outlined {
     display: block;

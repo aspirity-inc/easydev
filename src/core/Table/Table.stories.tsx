@@ -1,6 +1,5 @@
-import { ChangeEvent, useState } from 'react';
+import { type ChangeEvent, useState } from 'react';
 
-import { Meta, StoryFn } from '@storybook/react';
 import { styled } from 'styled-components';
 
 import { Avatar } from '@core/Avatar';
@@ -13,7 +12,8 @@ import { ProgressBar } from '@core/Progress';
 import { Subtitle } from '@core/Typography';
 import { getSubtitleLevelStyles } from '@core/Typography/Subtitle/styles';
 
-import { OrderType, Table, TableBody, TableCell, TableHead, TableRow, TableSortLabel } from '.';
+import { type OrderType, Table, TableBody, TableCell, TableHead, TableRow, TableSortLabel } from '.';
+import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
   title: 'Core/Table',
@@ -126,7 +126,7 @@ const Template: StoryFn<typeof Table> = ({ ...args }) => {
 
   const selectItem = (id: number) => {
     const selectedIndex = selected.indexOf(id);
-    let newSelectedIds: number[] = [];
+    let newSelectedIds: number[];
 
     if (selectedIndex === -1) {
       newSelectedIds = [...selected, id];
@@ -170,7 +170,7 @@ const Template: StoryFn<typeof Table> = ({ ...args }) => {
               <Flex gap={8} wrap="nowrap">
                 <Avatar size="sm" alt="photo" src={item.src_img.toString()} />
                 <Flex direction="column" align="flex-start">
-                  <Subtitle tag="h4" level={4}>
+                  <Subtitle as="h4" level={4}>
                     {item.name}
                   </Subtitle>
                   {item.nickname}
@@ -246,7 +246,7 @@ const TemplateWithPagination: StoryFn<typeof Table> = ({ ...args }) => {
 
   const selectItem = (id: number) => {
     const selectedIndex = selected.indexOf(id);
-    let newSelectedIds: number[] = [];
+    let newSelectedIds: number[];
 
     if (selectedIndex === -1) {
       newSelectedIds = [...selected, id];
@@ -299,7 +299,7 @@ const TemplateWithPagination: StoryFn<typeof Table> = ({ ...args }) => {
                 <Flex gap={8} wrap="nowrap">
                   <Avatar size="sm" alt="photo" src={item.src_img.toString()} />
                   <Flex direction="column" align="flex-start">
-                    <Subtitle tag="h4" level={4}>
+                    <Subtitle as="h4" level={4}>
                       {item.name} {item.id}
                     </Subtitle>
                     {item.nickname}

@@ -113,21 +113,3 @@ test('Should have correct variant', () => {
   );
   expect(screen.getByText(mockButtonText)).toHaveStyleRule('background-color', lightPalette.surface['400']);
 });
-
-test('Should have correct color', () => {
-  render(
-    <EasydevProvider>
-      <Button color="#aaaaaa">{mockButtonText}</Button>
-    </EasydevProvider>
-  );
-  expect(screen.getByText(mockButtonText)).toHaveStyleRule('color', '#aaaaaa');
-});
-
-test('Should have correct bgColor', () => {
-  render(
-    <EasydevProvider>
-      <Button bgColor="#eaeaea">{mockButtonText}</Button>
-    </EasydevProvider>
-  );
-  expect(screen.getByText(mockButtonText)).toHaveStyleRule('background-color', '#eaeaea');
-});

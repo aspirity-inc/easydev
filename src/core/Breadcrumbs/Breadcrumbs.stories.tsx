@@ -1,8 +1,7 @@
-import { Meta, StoryFn } from '@storybook/react';
-
 import { Breadcrumbs } from '.';
 import { StyledUserLink } from './styles';
 import type { BreadcrumbsItem } from './types';
+import type { Meta, StoryFn } from '@storybook/react';
 
 const metaBreadcrumbs: Meta<typeof Breadcrumbs> = {
   title: 'Core/Breadcrumbs',

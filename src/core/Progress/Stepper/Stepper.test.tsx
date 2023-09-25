@@ -30,16 +30,3 @@ test('numeric, correct count of all and active steps', () => {
   const activeSteps = container.querySelectorAll('.done');
   expect(activeSteps.length).toBe(currentStep - 1);
 });
-
-test('correct var of colors', () => {
-  const { container } = render(
-    <EasydevProvider>
-      <Stepper count={8} currentStep={5} activeColor="#dedede" secondaryColor="#ededed" />
-    </EasydevProvider>
-  );
-
-  const divContainer = container.querySelector('div');
-  expect(divContainer).toHaveStyleRule('--mainColor', '#dedede');
-  expect(divContainer).toHaveStyleRule('--secondaryColor', '#ededed');
-  expect(divContainer).toHaveStyleRule('--secondaryNumericColor', '#ededed');
-});

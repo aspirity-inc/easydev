@@ -1,12 +1,8 @@
-import { CSSProperties, ReactNode } from 'react';
+import type { BaseComponentType } from '@core/Box/types.ts';
 
 import { StyledModalFooter } from './styles';
 
-export type ModalFooterProps = {
-  children: ReactNode | ReactNode[];
-  className?: string;
-  style?: CSSProperties;
-};
+export type ModalFooterProps = BaseComponentType;
 
 export const ModalFooter = ({ children, ...props }: ModalFooterProps) => (
   <StyledModalFooter className="easy_modal-footer" {...props}>

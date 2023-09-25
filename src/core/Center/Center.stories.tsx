@@ -1,10 +1,9 @@
-import { Meta, StoryFn } from '@storybook/react';
-
 import 'material-symbols';
 
 import { Text } from '@core/Typography';
 
 import { Center } from '.';
+import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
   title: 'Core/Center',

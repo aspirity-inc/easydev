@@ -1,7 +1,6 @@
-import { Meta, StoryFn } from '@storybook/react';
-
-import { Row, Col, DEFAULT_NUMBER_OF_COLUMNS } from '.';
+import { Col, DEFAULT_NUMBER_OF_COLUMNS, Row } from '.';
 import { ItemExample } from './styles';
+import type { Meta, StoryFn } from '@storybook/react';
 
 const metaRow: Meta<typeof Row> = {
   title: 'Core/Grid',

@@ -1,11 +1,10 @@
-import { Meta, StoryFn } from '@storybook/react';
-
 import { Badge } from '@core/Badge';
 import { Button } from '@core/Button';
 import { Flex } from '@core/Flex';
 import { Text, Title } from '@core/Typography';
 
-import { Card, CardVariants, CardDirection } from '.';
+import { Card, CardDirection, CardVariants } from '.';
+import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
   title: 'Core/Card',
@@ -22,40 +21,37 @@ export default {
       control: 'select',
       options: CardDirection,
     },
-    maxWidth: {
-      type: 'number',
-      control: 'number',
-      description: 'Maximum width',
-    },
   },
 } satisfies Meta<typeof Card>;
 
 const Template: StoryFn<typeof Card> = ({ ...args }) => {
   return (
-    <Card {...args}>
-      <Flex gap={12} direction={'column'} align={'stretch'}>
-        <Text variant="caption" color="lightgreen">
-          Nature
-        </Text>
-        <Title variant="h5">Far far away</Title>
-        <Text variant="body2">
-          Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
-        </Text>
-        <Text variant="caption" color="lightgray">
-          May 6, 2012
-        </Text>
-        <Flex gap={10}>
-          <Badge size="sm">Nature</Badge>
-          <Badge size="sm" color="pink">
-            Mountains
-          </Badge>
-          <Badge size="sm" color="lightblue">
-            Travel
-          </Badge>
+    <div style={{ width: '400px' }}>
+      <Card {...args}>
+        <Flex gap={12} direction={'column'} align={'stretch'}>
+          <Text variant="caption" style={{ color: 'lightgreen' }}>
+            Nature
+          </Text>
+          <Title variant="h5">Far far away</Title>
+          <Text variant="body2">
+            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+          </Text>
+          <Text variant="caption" style={{ color: 'lightgray' }}>
+            May 6, 2012
+          </Text>
+          <Flex gap={10}>
+            <Badge size="sm">Nature</Badge>
+            <Badge size="sm" color="pink">
+              Mountains
+            </Badge>
+            <Badge size="sm" color="lightblue">
+              Travel
+            </Badge>
+          </Flex>
+          <Button rounded="sm">Read more</Button>
         </Flex>
-        <Button rounded="sm">Read more</Button>
-      </Flex>
-    </Card>
+      </Card>
+    </div>
   );
 };
 
@@ -66,12 +62,6 @@ const CardImage = () => (
 export const DefaultCard: StoryFn<typeof Card> = Template.bind({});
 DefaultCard.args = {
   media: CardImage(),
-};
-
-export const DefaultCardWithMaxWidth: StoryFn<typeof Card> = Template.bind({});
-DefaultCardWithMaxWidth.args = {
-  media: CardImage(),
-  maxWidth: 400,
 };
 
 export const NoImageCard: StoryFn<typeof Card> = Template.bind({});

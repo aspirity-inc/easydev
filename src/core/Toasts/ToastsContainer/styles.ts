@@ -1,6 +1,6 @@
-import { styled, css } from 'styled-components';
+import { css, styled } from 'styled-components';
 
-import { ToastPosition } from '../types';
+import type { ToastPosition } from '../types';
 
 type StyledToastProps = {
   $position: ToastPosition;

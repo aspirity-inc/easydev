@@ -1,10 +1,9 @@
 import { css, styled } from 'styled-components';
 
+import { Box } from '@core/Box';
 import { Text, Title } from '@core/Typography';
 
-import { StyledModalContentProps } from '../../styles';
-
-export const StyledModalBody = styled.div`
+export const StyledModalBody = styled(Box)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,10 +12,8 @@ export const StyledModalBody = styled.div`
   margin-bottom: 24px;
 `;
 
-export const StyledTitle = styled(Title)<StyledModalContentProps>`
-  --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.secondary['50'])};
-
-  color: var(--monochrome);
+export const StyledTitle = styled(Title)`
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.secondary['50'])};
 `;
 
 export type StyledModalTextProps = {
@@ -24,15 +21,13 @@ export type StyledModalTextProps = {
 };
 
 export const StyledText = styled(Text)<StyledModalTextProps>`
-  --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['800'] : theme.colors.surface['200'])};
-
   ${({ centered }) =>
     centered &&
     css`
       text-align: center;
     `}
 
-  color: var(--monochrome);
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['800'] : theme.colors.surface['200'])};
 `;
 
-export const StyledImage = styled.div``;
+export const StyledImage = styled(Box)``;
