@@ -1,4 +1,4 @@
-import { forwardRef, type InputHTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 
 import {
   StyledDatepickerClearIcon,
