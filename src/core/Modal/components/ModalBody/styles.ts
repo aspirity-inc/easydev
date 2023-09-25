@@ -16,6 +16,10 @@ export const StyledTitle = styled(Title)`
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.secondary['50'])};
 `;
 
+export type StyledModalTextProps = {
+  centered?: boolean;
+};
+
 export const StyledText = styled(Text)<StyledModalTextProps>`
   ${({ centered }) =>
     centered &&
