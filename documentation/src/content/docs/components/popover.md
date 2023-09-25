@@ -4,7 +4,7 @@ title: Popover
 
 Popover can be used to display some content on top of another.
 
-The Popover has the next props: placement, title, body. [See there](/?path=core-popover--docs) to get more information.
+The Popover has the next props: placement, title, body. [See there](/storybook/?path=/docs/core-popover--docs) to get more information.
 
 [Default Popover](/storybook/?path=/story/core-popover--default-popover)
 

@@ -4,7 +4,7 @@ title: Masked Input
 
 Masked Input allows the user to enter text in the desired format. You can use it to mask phone number, tickets, etc. inputs.
 
-The Masked Input has the next props: mask, label, error, warning, message, isLoading, icons, renderExtraMessage, maskPlaceholder, alwaysShowMask. [See there](/?path=core-inputs-maskedinput--docs) to get more information.
+The Masked Input has the next props: mask, label, error, warning, message, isLoading, icons, renderExtraMessage, maskPlaceholder, alwaysShowMask. [See there](/storybook/?path=/docs/core-inputs-maskedinput--docs) to get more information.
 
 [Masked Default Input](/storybook/?path=/story/core-controls-controlwithlabel--default-control-with-label)
 

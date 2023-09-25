@@ -4,7 +4,7 @@ title: Progress Bar
 
 Progress Bar presents a filled line depending on the specified value from 0 to 100%. It is also possible to disable the percentage display.
 
-The Progress Bar has the next props: value, customTitle, progressColor, progressBackground, size, rounded. [See there](/?path=core-progress-progressbar--docs) to get more information.
+The Progress Bar has the next props: value, customTitle, progressColor, progressBackground, size, rounded. [See there](/storybook/?path=/docs/core-progress-progressbar--docs) to get more information.
 
 [Progress Bar](/storybook/?path=/story/core-progress-progressbar--default)
 

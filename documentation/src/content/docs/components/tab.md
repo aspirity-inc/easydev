@@ -4,7 +4,7 @@ title: Tab
 
 Tabs facilitate effortless exploration and transition between distinct perspectives. They structure and permit movement between clusters of content that are associated and situated at an equivalent level of hierarchy.
 
-The Tabs component has the next props: title, onClick, tabKey, active, disabled. [See there](/?path=core-tab--docs) to get more information.
+The Tabs component has the next props: title, onClick, tabKey, active, disabled. [See there](/storybook/?path=/docs/core-tab--docs) to get more information.
 
 [Tab](/storybook/?path=/story/core-tab--default-tab)
 

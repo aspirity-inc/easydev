@@ -6,7 +6,7 @@ Checkbox is used to select one or more options from the suggested set. It can be
 
 If you have a list of multiple options, checkboxes can be used instead of on/off switches to save space. However, if there is only one option, it is recommended to use an on/off switch instead of a checkbox.
 
-The Checkbox has the next props: disabled, defaultChecked, color, label, checked, onChange. [See there](/?path=core-controls-checkbox--docs) to get more information.
+The Checkbox has the next props: disabled, defaultChecked, color, label, checked, onChange. [See there](/storybook/?path=/docs/core-controls-checkbox--docs) to get more information.
 
 [Default Checkbox](/storybook/?path=/story/core-controls-checkbox--default-checkbox)
 

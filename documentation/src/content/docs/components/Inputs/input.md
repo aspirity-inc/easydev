@@ -6,7 +6,7 @@ Input is used to input text.
 
 The Input wrapper component is a complete form control including a label, input, and help text.
 
-The Input has the next props: label, placeholder, error, warning, message, isLoading, icons, renderExtraMessage, type, className, style. [See there](/?path=core-inputs-input--docs) to get more information.
+The Input has the next props: label, placeholder, error, warning, message, isLoading, icons, renderExtraMessage, type, className, style. [See there](/storybook/?path=/docs/core-inputs-input--docs) to get more information.
 
 [Default Input](/storybook/?path=/story/core-inputs-input--default-input)
 

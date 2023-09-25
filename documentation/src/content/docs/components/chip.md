@@ -6,7 +6,7 @@ title: Chip
 
 While included here as a standalone component, the most common use will be in some form of input, so some of the behavior demonstrated here is not shown in context.
 
-The Chip has the next props: label, variant, disabled, defaultChecked, className, style, onChange, chipContent, color, bgColor. [See there](/?path=core-chip--docs) to get more information.
+The Chip has the next props: label, variant, disabled, defaultChecked, className, style, onChange, chipContent, color, bgColor. [See there](/storybook/?path=/docs/core-chip--docs) to get more information.
 
 [Default Chip](/storybook/?path=/story/core-chip--default-chip)
 
