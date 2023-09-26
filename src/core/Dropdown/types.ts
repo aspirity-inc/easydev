@@ -1,15 +1,39 @@
-import { ReactNode } from 'react';
-
 import type { BaseComponentType } from '@core/Box/types';
 
-export type MenuItem = {
-  key: string;
-  label: ReactNode;
+import { menuPositions } from './constants';
+
+export type DropdownPosition = (typeof menuPositions)[number];
+
+export type DropdownProps = BaseComponentType & {
+  open?: boolean;
+  onChangeOpen?: (open: boolean) => void;
+  disabled?: boolean;
+  position?: DropdownPosition;
+  offset?: number;
+  trigger?: 'click' | 'hover';
+};
+
+export type DropdownHookParams = {
+  open?: boolean;
+  onChangeOpen?: (open: boolean) => void;
+  disabled?: boolean;
+  trigger?: 'click' | 'hover';
+};
+
+export type TargetProps = BaseComponentType & {
+  onClick?: () => void;
+  width?: 'full';
+};
+
+export type MenuLabelProps = BaseComponentType;
+
+export type MenuItemProps = BaseComponentType & {
   disabled?: boolean;
 };
 
-export type DropdownProps = BaseComponentType & {
-  menu: MenuItem[];
+export type MenuDividerProps = Omit<BaseComponentType, 'children'>;
+
+export type MenuProps = BaseComponentType & {
   open?: boolean;
-  onChangeOpen?: (open: boolean) => void;
+  position: DropdownPosition;
 };

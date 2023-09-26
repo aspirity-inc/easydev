@@ -1,54 +1,51 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { Children, cloneElement, isValidElement } from 'react';
 
-import { StyledDropdown, StyledMenu, StyledMenuItem } from './styles';
+import { useDropdownControl } from './hooks/useDropdownControl';
+import { StyledDropdown } from './styles';
 import type { DropdownProps } from './types';
 
-export const Dropdown = ({ children, menu, open, onChangeOpen, ...otherProps }: DropdownProps) => {
-  const menuRef = useRef<HTMLDivElement | null>(null);
-  const childrenRef = useRef<HTMLDivElement | null>(null);
+export const Dropdown = ({
+  children,
+  open,
+  onChangeOpen,
+  disabled,
+  position = 'bottom-left',
+  trigger = 'click',
+  ...props
+}: DropdownProps) => {
+  const { opened, handleMouseEnter, handleMouseLeave, toggleOpen, targetRef, menuRef, dropdownRef } =
+    useDropdownControl({
+      open,
+      onChangeOpen,
+      trigger,
+      disabled,
+    });
 
-  const [opened, setOpened] = useState(open || false);
+  const childrenWithProps = Children.toArray(children).map((child) => {
+    if (isValidElement(child)) {
+      const childName = (child as any)?.type?.__docgenInfo.displayName;
 
-  const handleOpenChange = useCallback(
-    (value: boolean) => {
-      setOpened(value);
-      onChangeOpen && onChangeOpen(value);
-    },
-    [onChangeOpen]
-  );
-
-  const toggleOpen = () => {
-    handleOpenChange(!opened);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (!menuRef.current?.contains(event.target as Node) && !childrenRef.current?.contains(event.target as Node)) {
-        handleOpenChange(false);
+      if (childName === 'Target') {
+        return cloneElement(child, {
+          ...child.props,
+          ref: targetRef,
+          onClick: toggleOpen,
+          onMouseEnter: handleMouseEnter,
+        });
+      } else if (childName === 'Menu') {
+        return cloneElement(child, {
+          ...child.props,
+          ref: menuRef,
+          open: opened,
+          position,
+        });
       }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [handleOpenChange]);
+    }
+  });
 
   return (
-    <StyledDropdown {...otherProps}>
-      <div ref={childrenRef} onClick={toggleOpen}>
-        {children}
-      </div>
-
-      {opened && (
-        <StyledMenu className="easy_dropdown-menu" ref={menuRef}>
-          {menu.map((item) => (
-            <StyledMenuItem className="easy_dropdown-menu-item" key={item.key} $disabled={item.disabled}>
-              {item.label}
-            </StyledMenuItem>
-          ))}
-        </StyledMenu>
-      )}
+    <StyledDropdown className="easy_dropdown" ref={dropdownRef} onMouseLeave={handleMouseLeave} {...props}>
+      {childrenWithProps}
     </StyledDropdown>
   );
 };

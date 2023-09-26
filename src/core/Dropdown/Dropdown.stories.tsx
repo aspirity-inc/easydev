@@ -3,8 +3,9 @@ import { useState } from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Button } from '@core/Button';
+import { Flex } from '@core/Flex';
 
-import { Dropdown, MenuItem } from '.';
+import { Dropdown, Menu, MenuItem, Target, MenuLabel, MenuDivider } from '.';
 
 export default {
   title: 'Core/Dropdown',
@@ -12,65 +13,100 @@ export default {
 } satisfies Meta<typeof Dropdown>;
 
 const DefaultAvatarIcon = () => <div className="material-symbols-outlined">person</div>;
-
-const items: MenuItem[] = [
-  {
-    key: '1',
-    label: 'Menu item - string',
-  },
-  {
-    key: '2',
-    label: (
-      <>
-        <DefaultAvatarIcon />
-        <span>Menu item with icon</span>
-      </>
-    ),
-  },
-  {
-    key: '3',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="#">
-        Menu item native tag 'a'
-      </a>
-    ),
-  },
-  {
-    key: '4',
-    label: 'Menu item - string (disabled)',
-    disabled: true,
-  },
-];
+const DefaultArrow = () => <div className="material-symbols-outlined">keyboard_arrow_right</div>;
 
 const TemplateControlled: StoryFn<typeof Dropdown> = ({ ...args }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div style={{ height: '300px' }}>
+    <Flex
+      align="center"
+      justify="center"
+      style={{
+        width: '100%',
+        height: '800px',
+      }}
+    >
       <Dropdown {...args} open={open} onChangeOpen={setOpen}>
-        <Button>Dropdown</Button>
+        <Target>
+          <Button>Dropdown</Button>
+        </Target>
+        <Menu>
+          <MenuLabel>First menu label</MenuLabel>
+          <MenuItem>Menu item - string</MenuItem>
+          <MenuItem>
+            <DefaultAvatarIcon />
+            <span>Menu item with icon</span>
+          </MenuItem>
+
+          <MenuDivider />
+          <MenuLabel>Second menu label</MenuLabel>
+          <MenuItem disabled>Menu item - string (disabled)</MenuItem>
+        </Menu>
       </Dropdown>
-    </div>
+    </Flex>
   );
 };
 
 export const DefaultControlledDropdown: StoryFn<typeof Dropdown> = TemplateControlled.bind({});
-DefaultControlledDropdown.args = {
-  menu: items,
-};
+DefaultControlledDropdown.args = {};
 
-const TemplateUncontrolled: StoryFn<typeof Dropdown> = ({ ...args }) => {
+const TemplateComplexDropdown: StoryFn<typeof Dropdown> = ({ ...args }) => {
+  const [open, setOpen] = useState(false);
+
+  const innerMenu = () => {
+    return (
+      <Dropdown position="right-top" trigger={args.trigger}>
+        <Target width="full">
+          <MenuItem>
+            <Flex justify="space-between" style={{ width: '100%' }}>
+              <span>Second menu</span>
+              <DefaultArrow />
+            </Flex>
+          </MenuItem>
+        </Target>
+        <Menu>
+          <MenuItem>Second menu item</MenuItem>
+          <MenuItem>
+            <DefaultAvatarIcon />
+            <span>Second menu item</span>
+          </MenuItem>
+        </Menu>
+      </Dropdown>
+    );
+  };
+
   return (
-    <div style={{ height: '300px' }}>
-      {' '}
-      <Dropdown {...args}>
-        <Button>Dropdown</Button>
+    <div
+      style={{
+        width: '100%',
+        height: '400px',
+      }}
+    >
+      <Dropdown {...args} open={open} onChangeOpen={setOpen}>
+        <Target>
+          <Button>Dropdown</Button>
+        </Target>
+        <Menu>
+          <MenuItem>Menu item - string</MenuItem>
+          <MenuItem>
+            <DefaultAvatarIcon />
+            <span>Menu item with icon</span>
+          </MenuItem>
+          {innerMenu()}
+          <MenuItem>
+            <a target="_blank" rel="noopener noreferrer" href="#">
+              Menu item native tag 'a'
+            </a>
+          </MenuItem>
+          <MenuItem disabled>Menu item - string (disabled)</MenuItem>
+        </Menu>
       </Dropdown>
     </div>
   );
 };
 
-export const DefaultUncontrolledDropdown: StoryFn<typeof Dropdown> = TemplateUncontrolled.bind({});
-DefaultUncontrolledDropdown.args = {
-  menu: items,
+export const ComplexDropdownWithHover: StoryFn<typeof Dropdown> = TemplateComplexDropdown.bind({});
+ComplexDropdownWithHover.args = {
+  trigger: 'hover',
 };
