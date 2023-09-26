@@ -1,13 +1,9 @@
-import { css, DefaultTheme, styled } from 'styled-components';
+import { css, type DefaultTheme, styled } from 'styled-components';
 
+import { Box } from '@core/Box';
 import { getTextVariants } from '@core/Typography/Text/styles.ts';
 
-import { ControlColorType } from './types.ts';
-
-type ControlProps = {
-  disabled?: boolean;
-  color?: ControlColorType;
-};
+import type { ControlColorType, ControlProps } from './types.ts';
 
 export const StyledInput = styled('input')`
   margin: 0;
@@ -36,9 +32,9 @@ export const ControlWrap = styled('span')<ControlProps>`
   position: relative;
   width: 24px;
   height: 24px;
-  color: ${({ theme, color }) => getControlColor(theme, color)};
+  color: ${({ theme, $color }) => getControlColor(theme, $color)};
   background-color: ${({ theme }) => (theme.type === 'light' ? theme.colors.background : theme.colors.surface['800'])};
-  border: 2px solid ${({ theme, color }) => getControlColor(theme, color)};
+  border: 2px solid ${({ theme, $color }) => getControlColor(theme, $color)};
   border-radius: ${({ theme }) => theme.spacing.borderRadius.small}px;
   cursor: pointer;
   z-index: 2;
@@ -64,25 +60,18 @@ export const ControlContainer = styled('div')`
   justify-content: flex-start;
   align-items: center;
   gap: 8px;
-
-  label {
-    cursor: pointer;
-    user-select: none;
-    ${getTextVariants('body3')}
-  }
 `;
+
+export const LabelContent = styled(Box)`
+  cursor: pointer;
+  user-select: none;
+  ${getTextVariants('body3')}
+`;
+
+export const Label = styled(Box)``;
 
 export const getControlColor = (theme: DefaultTheme, color?: ControlColorType) => {
   if (!color) return theme.type === 'light' ? theme.colors.tretiary['700'] : theme.colors.tretiary['400'];
 
-  switch (color) {
-    case 'success':
-      return theme.colors.success['500'];
-    case 'warning':
-      return theme.colors.warning['500'];
-    case 'error':
-      return theme.colors.error['500'];
-    default:
-      return color;
-  }
+  return theme.colors[color][500];
 };

@@ -1,17 +1,18 @@
-import { CSSProperties, ReactNode } from 'react';
+import type { ComponentPropsWithoutRef } from 'react';
 
-import { StyledModalContentProps } from './styles';
+import type { BaseComponentType } from '@core/Box/types.ts';
 
 export type PortalElement = Element | DocumentFragment | HTMLElement | null;
 
-export type ModalProps = {
+export type ModalProps = BaseComponentType & {
   open: boolean;
   onClose: () => void;
-  bgColor?: CSSProperties['backgroundColor'];
   portal?: PortalElement;
-  children: ReactNode | ReactNode[];
-  className?: string;
-  style?: CSSProperties;
 };
 
-export type CloseBtnProps = React.ComponentPropsWithoutRef<'button'> & StyledModalContentProps;
+export type CloseBtnProps = ComponentPropsWithoutRef<'button'>;
+
+export type StyledModalWrapperProps = {
+  open: boolean;
+  $isPortal: boolean;
+};

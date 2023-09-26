@@ -1,7 +1,14 @@
+import type { ReactNode } from 'react';
+
 import 'material-symbols';
 
 import { RotateBox, StyledButton } from './styles';
 import type { ButtonProps } from './types';
+
+const LoadingIcon = ({ icon }: { icon?: ReactNode }) => {
+  const defaultLoadingIcon = <div className={`material-symbols-rounded`}>cached</div>;
+  return <RotateBox>{icon || defaultLoadingIcon}</RotateBox>;
+};
 
 export const Button = ({
   children,
@@ -11,31 +18,26 @@ export const Button = ({
   rounded,
   loading,
   loadingIcon,
-  type = 'button',
+  type,
   variant,
-  color,
-  bgColor,
+  as = 'button',
   ...props
 }: ButtonProps) => {
-  const LoadingIcon = () => {
-    const defaultLoadingIcon = <div className={`material-symbols-rounded`}>cached</div>;
-    return <RotateBox>{loadingIcon || defaultLoadingIcon}</RotateBox>;
-  };
+  const defaultType = as === 'button' ? 'button' : undefined;
 
   return (
     <StyledButton
+      as={as}
       className="easy_button"
       $reversed={reversed}
       $rounded={rounded}
       $size={size}
-      $color={color}
-      $bgColor={bgColor}
       $variant={variant}
-      type={type}
+      type={type || defaultType}
       {...props}
     >
       {children}
-      {loading ? <LoadingIcon /> : icon}
+      {loading ? <LoadingIcon icon={loadingIcon} /> : icon}
     </StyledButton>
   );
 };

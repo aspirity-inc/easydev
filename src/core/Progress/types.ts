@@ -1,9 +1,7 @@
-import { CSSProperties } from 'react';
+import type { BaseComponentType } from '@core/Box/types.ts';
 
-export type ProgressBarTypeBase = {
+export type ProgressBarTypeBase = BaseComponentType & {
   value: number;
-  $progressColor?: CSSProperties['color'];
-  $progressBackground?: CSSProperties['color'];
   $size?: 'small' | 'default';
   $rounded?: boolean;
 };

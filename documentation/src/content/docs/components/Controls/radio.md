@@ -8,7 +8,7 @@ If you want the user to choose only one option from a list, use the radio button
 
 By default, the most commonly used option should be selected in radio buttons.
 
-The Radio has the next props: disabled, defaultChecked, color, label, checked, onChange. [See there](/?path=core-controls-radio--docs) to get more information.
+The Radio has the next props: disabled, defaultChecked, color, label, checked, onChange. [See there](/storybook/?path=/docs/core-controls-radio--docs) to get more information.
 
 [Default Radio](/storybook/?path=/story/core-controls-radio--default-radio)
 

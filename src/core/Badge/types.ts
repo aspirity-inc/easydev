@@ -1,21 +1,20 @@
-import { CSSProperties, ComponentPropsWithoutRef, ReactNode } from 'react';
+import type { CSSProperties } from 'react';
 
-export const defaultColors = ['success', 'error', 'warning'] as const;
+import type { BaseComponentType } from '@core/Box/types.ts';
+
+import { badgeSizeVariants, defaultColors } from './constants';
 
 export type DefaultBadgeColor = (typeof defaultColors)[number];
 
 export type BadgeColor = DefaultBadgeColor | CSSProperties['color'];
 
-export const badgeSizeVariants = ['sm', 'md', 'lg'] as const;
-
 export type BadgeSizeVariantsType = (typeof badgeSizeVariants)[number];
 
-export type BadgeProps = ComponentPropsWithoutRef<'div'> & {
+export type BadgeProps = BaseComponentType & {
   color?: BadgeColor;
   textColor?: CSSProperties['color'];
   size?: BadgeSizeVariantsType;
   fullWidth?: boolean;
-  children?: ReactNode;
 };
 
 export type StyledBadgeProps = {

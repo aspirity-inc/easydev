@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
-import { Meta, StoryFn } from '@storybook/react';
-
 import { Toggle } from '.';
+import type { Meta, StoryFn } from '@storybook/react';
 
 const metaToggle: Meta<typeof Toggle> = {
   title: 'Core/Controls/Toggle',
@@ -20,18 +19,8 @@ const metaToggle: Meta<typeof Toggle> = {
     },
     color: {
       type: 'string',
-      control: { type: 'color' },
-      description: 'Toggle background color',
-    },
-    checkedColor: {
-      type: 'string',
-      control: { type: 'color' },
-      description: 'Checked toggle background color',
-    },
-    innerColor: {
-      type: 'string',
-      control: { type: 'color' },
-      description: 'Inner toggle color',
+      control: 'radio',
+      options: ['success', 'warning', 'error'],
     },
     label: {
       control: 'text',

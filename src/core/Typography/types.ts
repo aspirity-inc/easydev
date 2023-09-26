@@ -1,9 +1,3 @@
-import { CSSProperties, ReactNode } from 'react';
+import type { BaseComponentType } from '@core/Box/types.ts';
 
-export type TypographyBaseType = {
-  children: ReactNode | ReactNode[] | string;
-  className?: string;
-  style?: CSSProperties;
-  color?: CSSProperties['color'];
-  bgColor?: CSSProperties['backgroundColor'];
-};
+export type TypographyBaseType = BaseComponentType;

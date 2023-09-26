@@ -38,7 +38,7 @@ test('custom separator', () => {
 });
 
 test('custom itemRender', () => {
-  const itemRender = (item: BreadcrumbsItem, _index?: number, _items?: BreadcrumbsItem[]) => {
+  const itemRender = (item: BreadcrumbsItem) => {
     return <div className="custom-item">{item.title}</div>;
   };
   const { container } = render(

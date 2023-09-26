@@ -6,7 +6,8 @@ import { StyledContainer } from './styles';
 import { notifyFunction } from './toastEmitters';
 import type { ToastContainerType } from './types';
 import { Toast } from '..';
-import { type ToastItemType, toastPositions } from '../types';
+import { toastPositions } from '../constants';
+import type { ToastItemType } from '../types';
 
 let TOAST_ID = 0;
 

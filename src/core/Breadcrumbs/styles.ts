@@ -1,5 +1,6 @@
 import { css, styled } from 'styled-components';
 
+import { Box } from '@core/Box';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
 import type { StyledBreadcrumbPropsType } from './types';
@@ -14,7 +15,7 @@ export const StyledSeparator = styled('div')`
   }
 `;
 
-export const StyledBreadcrumbs = styled('div')`
+export const StyledBreadcrumbs = styled(Box)`
   display: flex;
   align-items: center;
 `;

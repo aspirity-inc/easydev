@@ -1,13 +1,13 @@
-import { CSSProperties, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+
+import type { BaseComponentType } from '@core/Box/types.ts';
 
 import { StyledModalHeader } from './styles';
 import { CloseButton } from '../CloseButton';
 
-export type ModalHeaderProps = {
+export type ModalHeaderProps = BaseComponentType & {
   onClose: () => void;
   headerContent?: () => ReactNode;
-  className?: string;
-  style?: CSSProperties;
 };
 
 export const ModalHeader = ({ headerContent, onClose, ...props }: ModalHeaderProps) => {

@@ -1,6 +1,8 @@
-import { ComponentPropsWithoutRef, CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 
-export type FlexProps = ComponentPropsWithoutRef<'div'> & {
+import type { BaseComponentType } from '@core/Box/types.ts';
+
+export type FlexProps = BaseComponentType & {
   direction?: CSSProperties['flexDirection'];
   align?: CSSProperties['alignItems'];
   justify?: CSSProperties['justifyContent'];
@@ -8,6 +10,7 @@ export type FlexProps = ComponentPropsWithoutRef<'div'> & {
   gap?: number;
   rowGap?: number;
   columnGap?: number;
+  inline?: boolean;
 };
 
 export type StyledFlexProps = {
@@ -18,4 +21,5 @@ export type StyledFlexProps = {
   $gap?: number;
   $rowGap?: number;
   $columnGap?: number;
+  $inline?: boolean;
 };

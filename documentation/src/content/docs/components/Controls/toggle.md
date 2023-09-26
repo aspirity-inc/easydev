@@ -4,7 +4,7 @@ title: Toggle
 
 The Toggle button allows the user to select one option of two.
 
-The Toggle has the next props: disabled, defaultChecked, color, checkedColor, label, innerColor, checked, onChange. [See there](/?path=core-controls-toggle--docs) to get more information.
+The Toggle has the next props: disabled, defaultChecked, color, checkedColor, label, innerColor, checked, onChange. [See there](/storybook/?path=/docs/core-controls-toggle--docs) to get more information.
 
 [Default Toggle](/storybook/?path=/story/core-controls-toggle--default-toggle)
 

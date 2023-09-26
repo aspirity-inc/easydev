@@ -1,18 +1,14 @@
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 
 import { darken } from 'polished';
-import { DefaultTheme, css, styled } from 'styled-components';
+import { css, type DefaultTheme, styled } from 'styled-components';
 
+import { Box } from '@core/Box';
 import { getTextVariants } from '@core/Typography/Text/styles';
 import type { TextVariantsType } from '@core/Typography/Text/types';
 
-import {
-  type BadgeColor,
-  type BadgeSizeVariantsType,
-  type DefaultBadgeColor,
-  type StyledBadgeProps,
-  defaultColors,
-} from './types';
+import { defaultColors } from './constants';
+import type { BadgeColor, BadgeSizeVariantsType, DefaultBadgeColor, StyledBadgeProps } from './types';
 
 const sizes = {
   sm: {
@@ -32,13 +28,13 @@ const sizes = {
   },
 };
 
-export const StyledBadgeContent = styled('span')`
+export const StyledBadgeContent = styled(Box)`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
-export const StyledBadge = styled('div')<StyledBadgeProps>`
+export const StyledBadge = styled(Box)<StyledBadgeProps>`
   display: inline-flex;
   justify-content: center;
   align-items: center;

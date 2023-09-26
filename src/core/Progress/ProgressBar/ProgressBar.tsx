@@ -6,8 +6,6 @@ import type { ProgressBarPropsType } from './types.ts';
 export const ProgressBar = ({
   value,
   customTitle,
-  progressColor,
-  progressBackground,
   size = 'default',
   rounded = true,
   ...props
@@ -16,20 +14,21 @@ export const ProgressBar = ({
   const formattedValue = negativeToPositive > 100 ? 100 : negativeToPositive;
 
   return (
-    <ProgressBarWrap $progressColor={progressColor} className="easy_progressWrap">
+    <ProgressBarWrap className="easy_progressWrap">
       {customTitle ? (
-        <TitleWrap>{customTitle}</TitleWrap>
+        <TitleWrap as="span" className="easy_progress--titleWrap">
+          {customTitle}
+        </TitleWrap>
       ) : (
         <TitleWrap>
-          <Subtitle level={5} tag="span" className="easy_progressText">
+          <Subtitle level={5} as="span" className="easy_progressText">
             {formattedValue}%
           </Subtitle>
         </TitleWrap>
       )}
       <StyledProgressBar
+        className="easy_progressBar"
         value={formattedValue}
-        $progressColor={progressColor}
-        $progressBackground={progressBackground}
         $size={size}
         $rounded={rounded}
         {...props}

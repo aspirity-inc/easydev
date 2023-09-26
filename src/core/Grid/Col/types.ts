@@ -1,7 +1,8 @@
-import { CSSProperties, ReactNode } from 'react';
+import type { CSSProperties } from 'react';
 
-export type ColProps = {
-  children: ReactNode;
+import type { BaseComponentType } from '@core/Box/types.ts';
+
+export type ColProps = BaseComponentType & {
   // the number of columns that item occupies
   size?: number;
   columns?: number;

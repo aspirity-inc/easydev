@@ -4,7 +4,7 @@ title: Datepicker
 
 Datepicker based on react-datepicker library and uses to get the selected date.
 
-The Datepicker has the next props: label. [See there](/?path=core-datepicker--docs) to get more information.
+The Datepicker has the next props: label. [See there](/storybook/?path=/docs/core-datepicker--docs) to get more information.
 
 [Default Datepicker](/storybook/?path=/story/core-datepicker--default-datepicker)
 

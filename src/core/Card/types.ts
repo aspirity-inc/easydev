@@ -1,4 +1,6 @@
-import { ReactNode, CSSProperties } from 'react';
+import type { ReactNode } from 'react';
+
+import type { BaseComponentType } from '@core/Box/types.ts';
 
 export const CardVariants = ['outline', 'shadow'] as const;
 export type CardVariantsType = (typeof CardVariants)[number];
@@ -6,19 +8,16 @@ export type CardVariantsType = (typeof CardVariants)[number];
 export const CardDirection = ['column', 'row'] as const;
 export type CardDirectionType = (typeof CardDirection)[number];
 
-export type CardProps = {
+export type CardProps = BaseComponentType & {
   variant?: CardVariantsType;
   direction?: CardDirectionType;
   media?: ReactNode;
-  maxWidth?: CSSProperties['maxWidth'];
   borderedMedia?: boolean;
-  children: ReactNode;
 };
 
 export type StyledCardProps = {
   $variant?: CardVariantsType;
   $direction?: CardDirectionType;
-  $maxWidth?: CSSProperties['maxWidth'];
 };
 
 export type StyledMediaProps = {

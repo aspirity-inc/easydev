@@ -1,4 +1,4 @@
-import { useState, BaseSyntheticEvent, cloneElement, isValidElement } from 'react';
+import { type BaseSyntheticEvent, cloneElement, isValidElement, useState } from 'react';
 
 import { StyledChipLabel } from './styles';
 import type { ChipProps } from './types';

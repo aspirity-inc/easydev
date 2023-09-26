@@ -6,9 +6,8 @@ import { Button } from '@core/Button';
 
 import { CloseButton } from './components/CloseButton';
 import { ModalBody } from './components/ModalBody';
-import { StyledImage, StyledTitle, StyledText } from './components/ModalBody/styles';
+import { StyledImage, StyledText, StyledTitle } from './components/ModalBody/styles';
 import { ModalFooter } from './components/ModalFooter';
-import { ModalHeader } from './components/ModalHeader';
 import { Modal } from './Modal';
 
 const metaModal: Meta<typeof Modal> = {
@@ -23,13 +22,13 @@ const Template: StoryFn<typeof Modal> = ({ children, ...args }) => {
   const handleOpen = () => setOpen(true);
 
   return (
-    <>
+    <div style={{ height: '250px' }}>
       <Button onClick={handleOpen}>Open no portal modal window</Button>
       <Modal {...args} open={open} onClose={handleClose}>
         <CloseButton onClick={handleClose} />
         {children}
       </Modal>
-    </>
+    </div>
   );
 };
 
@@ -71,7 +70,7 @@ const TemplateNoPortalWithModalElements: StoryFn<typeof Modal> = ({ ...args }) =
   );
 
   return (
-    <>
+    <div style={{ height: '450px' }}>
       <Button onClick={handleOpen}>Open no portal modal window</Button>
       <Modal {...args} open={open} onClose={handleClose}>
         <CloseButton onClick={handleClose} />
@@ -92,45 +91,7 @@ const TemplateNoPortalWithModalElements: StoryFn<typeof Modal> = ({ ...args }) =
           </Button>
         </ModalFooter>
       </Modal>
-    </>
-  );
-};
-
-const TemplateNoPortalWithCustomBgColor: StoryFn<typeof Modal> = ({ ...args }) => {
-  const [open, setOpen] = useState(false);
-
-  const handleClose = () => setOpen(false);
-  const handleOpen = () => setOpen(true);
-
-  const ModalImage = (
-    <div className="material-symbols-rounded" style={{ fontSize: '100px' }}>
-      rocket_launch
     </div>
-  );
-
-  return (
-    <>
-      <Button onClick={handleOpen}>Open no portal modal window</Button>
-      <Modal {...args} open={open} onClose={handleClose}>
-        <ModalHeader onClose={handleClose} />
-        <ModalBody>
-          <StyledImage>{ModalImage}</StyledImage>
-          <StyledTitle variant="h3">Window</StyledTitle>
-          <StyledText variant="body3" centered>
-            This information could be helpful for streamlining the rest of the process, preventing the user having to
-            fill out a whole chunk of information relating to their mortgage, for example.
-          </StyledText>
-        </ModalBody>
-        <ModalFooter>
-          <Button size="sm" rounded="sm">
-            learn more
-          </Button>
-          <Button variant="secondary" size="sm" rounded="sm">
-            got it
-          </Button>
-        </ModalFooter>
-      </Modal>
-    </>
   );
 };
 
@@ -150,10 +111,4 @@ PortalModalWindow.args = {
 export const NoPortalModalWindowWithModalElements: StoryFn<typeof Modal> = TemplateNoPortalWithModalElements.bind({});
 NoPortalModalWindowWithModalElements.args = {
   portal: null,
-};
-
-export const NoPortalModalWindowWithCustomBgColor: StoryFn<typeof Modal> = TemplateNoPortalWithCustomBgColor.bind({});
-NoPortalModalWindowWithCustomBgColor.args = {
-  portal: null,
-  bgColor: 'lightblue',
 };

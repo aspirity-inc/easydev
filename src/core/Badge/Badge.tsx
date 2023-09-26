@@ -11,7 +11,9 @@ export const Badge = ({ color = 'success', textColor, size = 'md', fullWidth, ch
       $size={size}
       $fullWidth={fullWidth}
     >
-      <StyledBadgeContent className="easy_badge-content">{children}</StyledBadgeContent>
+      <StyledBadgeContent className="easy_badge-content" as="span">
+        {children}
+      </StyledBadgeContent>
     </StyledBadge>
   );
 };

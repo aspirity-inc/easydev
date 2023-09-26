@@ -1,12 +1,10 @@
 import { styled } from 'styled-components';
 
-import type { StyledLayoutProps } from './types';
+import { Box } from '@core/Box';
 
-export const StyledLayout = styled('div')<StyledLayoutProps>`
+export const StyledLayout = styled(Box)`
   display: grid;
   box-sizing: border-box;
   min-height: 100svh;
-  //TODO: if height is really necessary here?
-  height: ${({ $height }) => $height && `${$height}px`};
   grid-template-rows: auto 1fr auto;
 `;

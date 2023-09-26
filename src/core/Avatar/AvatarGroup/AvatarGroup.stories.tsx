@@ -1,7 +1,6 @@
-import { Meta, StoryFn } from '@storybook/react';
-
 import { AvatarGroup } from '.';
 import { Avatar } from '..';
+import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
   title: 'Core/Avatar/Group',

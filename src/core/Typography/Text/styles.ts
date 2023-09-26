@@ -2,7 +2,7 @@ import { css, styled } from 'styled-components';
 
 import { Box } from '@core/Box';
 
-import type { TextVariantsType, EllipsisType, StyledTextProps } from './types';
+import type { EllipsisType, StyledTextProps, TextVariantsType } from './types';
 
 const baseLineHeight = css`
   line-height: 1.2;
@@ -68,12 +68,6 @@ export const StyledText = styled(Box)<StyledTextProps>`
   padding: 0;
   ${baseLineHeight};
 
-  ${({ variant }) => getTextVariants(variant)};
-
-  ${({ $color, $bgColor }) => css`
-    color: ${$color};
-    background-color: ${$bgColor};
-  `};
-
-  ${({ ellipsis }) => ellipsis && getEllipsisStyles(ellipsis)};
+  ${({ $variant }) => getTextVariants($variant)};
+  ${({ $ellipsis }) => $ellipsis && getEllipsisStyles($ellipsis)};
 `;

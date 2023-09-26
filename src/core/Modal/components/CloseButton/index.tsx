@@ -1,5 +1,5 @@
 import { StyledCloseButton } from './styles';
-import { CloseBtnProps } from '../../types';
+import type { CloseBtnProps } from '../../types';
 
 export const CloseButton = (props: CloseBtnProps) => (
   <StyledCloseButton type="button" {...props}>

@@ -1,5 +1,7 @@
 import type { CSSProperties, ReactNode } from 'react';
 
+import { toastPositions } from './constants';
+
 export type ToastStatus = 'info' | 'success' | 'warning' | 'error';
 
 export type ToastProps = {
@@ -31,16 +33,6 @@ export type StatusColorType = {
     };
   };
 };
-
-export const toastPositions = [
-  'top-right',
-  'top-center',
-  'top-left',
-  'bottom-right',
-  'bottom-center',
-  'bottom-left',
-  'center-center',
-] as const;
 
 export type ToastPosition = (typeof toastPositions)[number];
 

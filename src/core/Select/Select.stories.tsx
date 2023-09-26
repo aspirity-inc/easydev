@@ -1,9 +1,8 @@
 import { useState } from 'react';
 
-import { Meta, StoryFn, StoryObj } from '@storybook/react';
-
 import { Select } from '.';
-import { OptionType } from './types.ts';
+import type { OptionType } from './types.ts';
+import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 const SelectMeta: Meta<typeof Select> = {
   title: 'Core/Select',

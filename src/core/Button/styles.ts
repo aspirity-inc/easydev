@@ -1,24 +1,27 @@
 import { css, keyframes, styled } from 'styled-components';
 
+import { Box } from '@core/Box';
+
 import type { ButtonVariantsType, StyledButtonProps } from './types';
 
-export const StyledButton = styled('button')<StyledButtonProps>`
+export const StyledButton = styled(Box)<StyledButtonProps>`
   display: flex;
   flex-direction: ${({ $reversed }) => $reversed && 'row-reverse'};
   align-items: center;
   justify-content: center;
   text-align: center;
   gap: 9px;
-  margin: 0;
   border: none;
   transition: background-color ${({ theme }) => theme.transition.default};
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900'])};
   font-size: 13px;
-  line-height: 1.9;
+  line-height: 1.2;
   font-weight: ${({ theme }) => theme.typography.weight['800']};
   text-transform: uppercase;
+  text-decoration: none;
   cursor: pointer;
   user-select: none;
+  outline: none;
 
   ${({ $variant }) => getButtonVariantStyle($variant)}
 
@@ -28,11 +31,13 @@ export const StyledButton = styled('button')<StyledButtonProps>`
         return css`
           padding: 8px 6px;
           min-width: 120px;
+          height: 40px;
         `;
       default:
         return css`
           padding: 12px 30px;
           min-width: 180px;
+          height: 48px;
         `;
     }
   }};
@@ -51,11 +56,6 @@ export const StyledButton = styled('button')<StyledButtonProps>`
         return css``;
     }
   }};
-
-  ${({ $color, $bgColor }) => css`
-    color: ${$color};
-    background-color: ${$bgColor};
-  `};
 `;
 
 const rotate = keyframes`
@@ -81,8 +81,10 @@ const getButtonVariantStyle = (variant: ButtonVariantsType = 'primary') => {
       background-color: ${({ theme }) => theme.colors.primary['700']};
     }
     &:focus-visible,
-    &:active {
+    &:active,
+    &:focus {
       background-color: ${({ theme }) => theme.colors.primary['800']};
+      outline: none;
     }
     &:disabled {
       background-color: ${({ theme }) =>

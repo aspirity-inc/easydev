@@ -1,2 +1,2 @@
 export { Flex } from './Flex.tsx';
-export * from './types.ts';
+export type * from './types.ts';

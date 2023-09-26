@@ -17,7 +17,7 @@ export const RadioWrap = styled(ControlWrap)`
   border-radius: 50%;
 
   ${StyledRadioInner} {
-    background-color: ${({ theme, color }) => getControlColor(theme, color) || theme.colors.tretiary['700']};
+    background-color: ${({ theme, $color }) => getControlColor(theme, $color) || theme.colors.tretiary['700']};
   }
 
   ${({ disabled }) =>

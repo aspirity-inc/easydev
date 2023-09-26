@@ -1,4 +1,4 @@
-import { ReactNode, BaseSyntheticEvent, CSSProperties } from 'react';
+import type { BaseSyntheticEvent, CSSProperties, ReactNode } from 'react';
 
 export type StyledChipProps = {
   disabled?: boolean;

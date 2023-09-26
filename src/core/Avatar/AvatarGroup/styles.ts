@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 import { Flex } from '@core/Flex';
 
-import { StyledAvatarGroupProps } from './types';
+import type { StyledAvatarGroupProps } from './types';
 import { Avatar } from '..';
 
 export const StyledAvatarGroup = styled(Flex)<StyledAvatarGroupProps>`

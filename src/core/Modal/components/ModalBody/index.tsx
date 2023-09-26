@@ -1,12 +1,8 @@
-import { CSSProperties, ReactNode } from 'react';
+import type { BaseComponentType } from '@core/Box/types.ts';
 
 import { StyledModalBody } from './styles';
 
-export type ModalBodyProps = {
-  children: ReactNode;
-  className?: string;
-  style?: CSSProperties;
-};
+export type ModalBodyProps = BaseComponentType;
 
 export const ModalBody = ({ children, ...props }: ModalBodyProps) => {
   return (

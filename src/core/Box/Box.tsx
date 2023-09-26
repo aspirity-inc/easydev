@@ -1,14 +1,9 @@
-import { createElement, CSSProperties, ReactNode } from 'react';
+import { styled } from 'styled-components';
 
-import { cx } from '@helpers/cx';
+import type { BoxProps } from './types.ts';
 
-type BoxProps = {
-  children: ReactNode | string | ReactNode[];
-  tag?: keyof HTMLElementTagNameMap;
-  className?: string;
-  style?: CSSProperties;
-};
+const StyledBox = styled('div')``;
 
-export const Box = ({ children, tag, className, ...props }: BoxProps) => {
-  return createElement(tag || 'div', { className: cx(className), ...props }, children);
+export const Box = ({ children, ...props }: BoxProps) => {
+  return <StyledBox {...props}>{children}</StyledBox>;
 };

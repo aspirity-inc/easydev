@@ -1,19 +1,18 @@
-import { Meta, StoryFn } from '@storybook/react';
-
 import { Text } from '.';
-import { tagVariants, textVariants } from './types';
+import { textTagVariants, textVariants } from '../constants.ts';
+import type { Meta, StoryFn } from '@storybook/react';
 
 const metaText: Meta<typeof Text> = {
   title: 'Core/Typography/Text',
   component: Text,
   argTypes: {
-    tag: {
+    as: {
       type: 'string',
       description: 'HTML tag',
       control: {
         type: 'select',
       },
-      options: tagVariants,
+      options: textTagVariants,
       table: {
         defaultValue: { summary: 'p' },
       },
@@ -27,14 +26,6 @@ const metaText: Meta<typeof Text> = {
     ellipsis: {
       type: { name: 'object', value: { rows: { name: 'number' } } },
       description: '{ rows: number }',
-    },
-    color: {
-      type: 'string',
-      control: { type: 'color' },
-    },
-    bgColor: {
-      type: 'string',
-      control: { type: 'color' },
     },
     className: {},
     style: {},

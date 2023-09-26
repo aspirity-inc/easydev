@@ -1,6 +1,6 @@
-import { Meta, StoryFn } from '@storybook/react';
-
-import { Badge, badgeSizeVariants, defaultColors } from '.';
+import { Badge } from '.';
+import { badgeSizeVariants, defaultColors } from './constants';
+import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
   title: 'Core/Badge',

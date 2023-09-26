@@ -1,4 +1,6 @@
-import { CSSProperties, ComponentPropsWithoutRef, ReactNode } from 'react';
+import type { ComponentPropsWithoutRef, CSSProperties, ReactNode } from 'react';
+
+import type { BaseComponentType } from '@core/Box/types.ts';
 
 export type TableProps = ComponentPropsWithoutRef<'table'> & {
   striped?: boolean;
@@ -7,7 +9,7 @@ export type TableProps = ComponentPropsWithoutRef<'table'> & {
 
 export type StyledTableProps = { $striped: boolean; $withRowBorder: boolean };
 
-export type TableCellProps = ComponentPropsWithoutRef<'td'> & {
+export type TableCellProps = BaseComponentType & {
   variant?: 'th' | 'td';
   align?: CSSProperties['textAlign'];
 };

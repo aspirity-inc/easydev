@@ -1,6 +1,8 @@
 import { styled } from 'styled-components';
 
-export const StyledModalHeader = styled.div`
+import { Box } from '@core/Box';
+
+export const StyledModalHeader = styled(Box)`
   display: flex;
   align-items: center;
   margin-bottom: 16px;

@@ -1,6 +1,8 @@
 import { styled } from 'styled-components';
 
-export const Step = styled('div')`
+import { Box } from '@core/Box';
+
+export const Step = styled(Box)`
   background-color: var(--secondaryColor);
   height: 10px;
   width: 100%;
@@ -10,11 +12,4 @@ export const Step = styled('div')`
   &.active {
     background-color: var(--mainColor);
   }
-`;
-
-export const StyledDefaultStepper = styled('div')`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 4px;
 `;

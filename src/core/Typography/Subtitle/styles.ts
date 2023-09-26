@@ -75,10 +75,5 @@ export const StyledSubtitle = styled(Box)<StyledSubtitleProps>`
     'ytas' 750, 'ytde' -203, 'ytfi' 738;
   line-height: 1.2;
 
-  ${({ level }) => getSubtitleLevelStyles(level)}
-
-  ${({ $color, $bgColor }) => css`
-    color: ${$color};
-    background-color: ${$bgColor};
-  `};
+  ${({ $level }) => getSubtitleLevelStyles($level)}
 `;

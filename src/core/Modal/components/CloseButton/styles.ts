@@ -1,21 +1,13 @@
 import { styled } from 'styled-components';
 
-import { StyledModalContentProps } from '../../styles';
-
-export const StyledCloseButton = styled('button')<StyledModalContentProps>`
-  --monochrome: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['100'])};
-
+export const StyledCloseButton = styled('button')`
   display: block;
   padding: 0;
-  margin: 0;
-  margin-left: auto;
-  margin-bottom: 16px;
-
+  margin: 0 0 16px auto;
   background-color: transparent;
   border: 0;
   cursor: pointer;
-
-  color: var(--monochrome);
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['100'])};
 
   & > div {
     display: block;

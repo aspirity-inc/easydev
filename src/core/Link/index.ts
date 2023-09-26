@@ -1,2 +1,2 @@
 export { Link } from './Link';
-export * from './types';
+export type * from './types';

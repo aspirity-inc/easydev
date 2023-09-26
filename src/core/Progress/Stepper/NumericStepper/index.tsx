@@ -5,9 +5,9 @@ import { cx } from '@helpers/cx';
 import { StyledNumericStepper, StyledStep } from './styles.ts';
 import type { StepperPropsType } from '../types.ts';
 
-export const NumericStepper = ({ count, currentStep, secondaryColor, activeColor }: StepperPropsType) => {
+export const NumericStepper = ({ count, currentStep }: StepperPropsType) => {
   return (
-    <StyledNumericStepper $activeColor={activeColor} $secondaryColor={secondaryColor} className="easy_numericStepper">
+    <StyledNumericStepper className="easy_numericStepper">
       {Array.from(Array(count).keys()).map((step) => {
         const formattedStep = step + 1;
         return (

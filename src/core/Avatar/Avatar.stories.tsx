@@ -1,6 +1,6 @@
-import { Meta, StoryFn } from '@storybook/react';
-
-import { Avatar, avatarRadiusVariants, avatarSizeVariants } from '.';
+import { Avatar } from '.';
+import { avatarRadiusVariants, avatarSizeVariants } from './constants';
+import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
   title: 'Core/Avatar',

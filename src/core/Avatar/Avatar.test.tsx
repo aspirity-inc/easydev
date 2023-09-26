@@ -70,28 +70,6 @@ test('Should have custom icon', () => {
   expect(container.getElementsByClassName('material-symbols-outlined').length).toBe(1);
 });
 
-test('Should have correct color', () => {
-  const { container } = render(
-    <EasydevProvider>
-      <Avatar className={avatarClassName} color="#efefef" />
-    </EasydevProvider>
-  );
-
-  const avatarElement = container.getElementsByClassName(avatarClassName)[0];
-  expect(avatarElement).toHaveStyleRule('color', '#efefef');
-});
-
-test('Should have correct bgColor', () => {
-  const { container } = render(
-    <EasydevProvider>
-      <Avatar className={avatarClassName} bgColor="#efefef" />
-    </EasydevProvider>
-  );
-
-  const avatarElement = container.getElementsByClassName(avatarClassName)[0];
-  expect(avatarElement).toHaveStyleRule('background-color', '#efefef');
-});
-
 test('Should have correct size', () => {
   const { container } = render(
     <EasydevProvider>

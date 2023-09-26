@@ -1,15 +1,15 @@
 import { css, styled } from 'styled-components';
 
 import {
-  slideInRight,
-  slideOutRight,
-  slideInLeft,
-  slideOutLeft,
-  slideInUp,
-  slideOutUp,
-  slideInDown,
-  slideOutDown,
   duration,
+  slideInDown,
+  slideInLeft,
+  slideInRight,
+  slideInUp,
+  slideOutDown,
+  slideOutLeft,
+  slideOutRight,
+  slideOutUp,
 } from './animation';
 import type { StyledAnimationProps, StyledToastProps, StyledMainContentProps } from './types';
 import type { StatusColorType, ToastStatus } from '../types';
@@ -63,7 +63,7 @@ export const StyledAnimationWrapper = styled.div<StyledAnimationProps>`
     (!$isAdded || $isDeleting) &&
     css`
       opacity: 0;
-      max-height: 0px;
+      max-height: 0;
     `}
 
   // Animation for enter/exit toast

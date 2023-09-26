@@ -4,7 +4,7 @@ title: Text
 
 Use Text to present your design and content as clearly and efficiently as possible.
 
-The Text has the next props: children, className, style, color, bgColor, tag, variant, ellipsis. [See there](/?path=core-typography-text--docs) to get more information.
+The Text has the next props: children, className, style, color, bgColor, tag, variant, ellipsis. [See there](/storybook/?path=/docs/core-typography-text--docs) to get more information.
 
 [Default Text](/storybook/?path=/story/core-typography-text--default-text)
 

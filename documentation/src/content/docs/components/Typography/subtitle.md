@@ -4,7 +4,7 @@ title: Subtitle
 
 The Subtitle component makes it easy to apply a default set of sizes in your application.
 
-The Subtitle has the next props: children, className, style, color, bgColor, tag, level. [See there](/?path=core-typography-subtitle--docs) to get more information.
+The Subtitle has the next props: children, className, style, color, bgColor, tag, level. [See there](/storybook/?path=/docs/core-typography-subtitle--docs) to get more information.
 
 [Default Subtitle](/storybook/?path=/story/core-typography-subtitle--default-subtitle)
 

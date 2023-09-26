@@ -1,2 +1,3 @@
 export { Row } from './Row.tsx';
-export * from './Col/Col.tsx';
+export type * from './types.ts';
+export * from './Col';
