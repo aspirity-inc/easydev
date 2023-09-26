@@ -1,6 +1,6 @@
 import type { ToastPosition } from '..';
 
-export type StyledToastPropsForContainer = {
+export type StyledToastContainerProps = {
   $position: ToastPosition;
 };
 
