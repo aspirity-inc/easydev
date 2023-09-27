@@ -1,6 +1,7 @@
-import { css, styled } from 'styled-components';
+import { styled } from 'styled-components';
 
-export const StyledTarget = styled('button')<{ $width?: string }>`
+export const StyledTarget = styled('button')`
+  width: 100%;
   margin: 0;
   padding: 0;
   outline: none;
@@ -10,10 +11,4 @@ export const StyledTarget = styled('button')<{ $width?: string }>`
   &:focus {
     outline: none;
   }
-
-  ${({ $width }) =>
-    $width === 'full' &&
-    css`
-      width: 100%;
-    `}
 `;

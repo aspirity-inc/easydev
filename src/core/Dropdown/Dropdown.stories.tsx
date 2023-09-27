@@ -33,7 +33,7 @@ const TemplateControlled: StoryFn<typeof Dropdown> = ({ ...args }) => {
         </Target>
         <Menu>
           <MenuLabel>First menu label</MenuLabel>
-          <MenuItem>Menu item - string</MenuItem>
+          <MenuItem>Menu item</MenuItem>
           <MenuItem>
             <DefaultAvatarIcon />
             <span>Menu item with icon</span>
@@ -41,7 +41,7 @@ const TemplateControlled: StoryFn<typeof Dropdown> = ({ ...args }) => {
 
           <MenuDivider />
           <MenuLabel>Second menu label</MenuLabel>
-          <MenuItem disabled>Menu item - string (disabled)</MenuItem>
+          <MenuItem disabled>Menu item (disabled)</MenuItem>
         </Menu>
       </Dropdown>
     </Flex>
@@ -56,8 +56,8 @@ const TemplateComplexDropdown: StoryFn<typeof Dropdown> = ({ ...args }) => {
 
   const innerMenu = () => {
     return (
-      <Dropdown position="right-top" trigger={args.trigger}>
-        <Target width="full">
+      <Dropdown position="right-top" trigger={args.trigger} width="full">
+        <Target>
           <MenuItem>
             <Flex justify="space-between" style={{ width: '100%' }}>
               <span>Second menu</span>
@@ -88,18 +88,13 @@ const TemplateComplexDropdown: StoryFn<typeof Dropdown> = ({ ...args }) => {
           <Button>Dropdown</Button>
         </Target>
         <Menu>
-          <MenuItem>Menu item - string</MenuItem>
+          <MenuItem>Menu item</MenuItem>
+          {innerMenu()}
           <MenuItem>
             <DefaultAvatarIcon />
             <span>Menu item with icon</span>
           </MenuItem>
-          {innerMenu()}
-          <MenuItem>
-            <a target="_blank" rel="noopener noreferrer" href="#">
-              Menu item native tag 'a'
-            </a>
-          </MenuItem>
-          <MenuItem disabled>Menu item - string (disabled)</MenuItem>
+          <MenuItem disabled>Menu item (disabled)</MenuItem>
         </Menu>
       </Dropdown>
     </div>

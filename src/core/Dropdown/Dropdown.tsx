@@ -11,6 +11,7 @@ export const Dropdown = ({
   disabled,
   position = 'bottom-left',
   trigger = 'click',
+  width,
   ...props
 }: DropdownProps) => {
   const { opened, handleMouseEnter, handleMouseLeave, toggleOpen, targetRef, menuRef, dropdownRef } =
@@ -44,7 +45,13 @@ export const Dropdown = ({
   });
 
   return (
-    <StyledDropdown className="easy_dropdown" ref={dropdownRef} onMouseLeave={handleMouseLeave} {...props}>
+    <StyledDropdown
+      className="easy_dropdown"
+      ref={dropdownRef}
+      onMouseLeave={handleMouseLeave}
+      $width={width}
+      {...props}
+    >
       {childrenWithProps}
     </StyledDropdown>
   );

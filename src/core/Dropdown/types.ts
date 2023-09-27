@@ -11,6 +11,7 @@ export type DropdownProps = BaseComponentType & {
   position?: DropdownPosition;
   offset?: number;
   trigger?: 'click' | 'hover';
+  width?: 'full';
 };
 
 export type DropdownHookParams = {
@@ -22,7 +23,6 @@ export type DropdownHookParams = {
 
 export type TargetProps = BaseComponentType & {
   onClick?: () => void;
-  width?: 'full';
 };
 
 export type MenuLabelProps = BaseComponentType;
