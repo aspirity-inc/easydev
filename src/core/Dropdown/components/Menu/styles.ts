@@ -2,7 +2,9 @@ import { css, styled } from 'styled-components';
 
 import { Box } from '@core/Box';
 
-export const StyledMenu = styled(Box)<{ $position: string }>`
+import { StyledMenuProps } from '../../types';
+
+export const StyledMenu = styled(Box)<StyledMenuProps>`
   position: absolute;
   min-width: 250px;
 

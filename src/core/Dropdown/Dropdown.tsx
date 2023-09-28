@@ -11,7 +11,6 @@ export const Dropdown = ({
   disabled,
   position = 'bottom-left',
   trigger = 'click',
-  width,
   ...props
 }: DropdownProps) => {
   const { opened, handleMouseEnter, handleMouseLeave, toggleOpen, targetRef, menuRef, dropdownRef } =
@@ -30,6 +29,8 @@ export const Dropdown = ({
         return cloneElement(child, {
           ...child.props,
           ref: targetRef,
+          open: opened,
+          disabled: disabled,
           onClick: toggleOpen,
           onMouseEnter: handleMouseEnter,
         });
@@ -45,13 +46,7 @@ export const Dropdown = ({
   });
 
   return (
-    <StyledDropdown
-      className="easy_dropdown"
-      ref={dropdownRef}
-      onMouseLeave={handleMouseLeave}
-      $width={width}
-      {...props}
-    >
+    <StyledDropdown className="easy_dropdown" ref={dropdownRef} onMouseLeave={handleMouseLeave} {...props}>
       {childrenWithProps}
     </StyledDropdown>
   );

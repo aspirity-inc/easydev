@@ -1,12 +1,16 @@
 import { forwardRef } from 'react';
 
-import { StyledTarget } from './styles';
+import { TargetButton } from './TargetButton';
 import { TargetProps } from '../../types';
 
-export const Target = forwardRef<HTMLDivElement, TargetProps>(({ children, ...otherProps }, ref) => {
-  return (
-    <StyledTarget ref={ref} {...otherProps}>
+export const Target = forwardRef<HTMLDivElement, TargetProps>(({ title, children, ...props }, ref) => {
+  return title ? (
+    <TargetButton ref={ref} {...props}>
+      {title}
+    </TargetButton>
+  ) : (
+    <div ref={ref} {...props}>
       {children}
-    </StyledTarget>
+    </div>
   );
 });

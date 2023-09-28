@@ -3,7 +3,11 @@ import { css, styled } from 'styled-components';
 import { Box } from '@core/Box';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
-export const StyledMenuItem = styled(Box)<{ $disabled?: boolean }>`
+import { StyledMenuItemProps } from '../../types';
+
+export const StyledMenuItem = styled(Box)<StyledMenuItemProps>`
+  --transition: ${({ theme }) => theme.transition.default};
+
   height: 56px;
   width: 100%;
   padding: 0 16px;
@@ -12,7 +16,7 @@ export const StyledMenuItem = styled(Box)<{ $disabled?: boolean }>`
   gap: 10px;
   ${getTextVariants('body2')};
   color: inherit;
-  transition: var(--transition);
+  transition: background-color var(--transition);
 
   &:hover {
     cursor: pointer;
