@@ -2,7 +2,7 @@ import { css, styled } from 'styled-components';
 
 import { getTextVariants } from '@core/Typography/Text/styles';
 
-import { StyledTargetProps } from '../../../types';
+import type { StyledTargetProps } from '../../../types';
 
 export const StyledIcon = styled('div')``;
 

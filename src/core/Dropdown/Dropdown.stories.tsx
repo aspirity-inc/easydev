@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { Button } from '@core/Button';
 import { Flex } from '@core/Flex';

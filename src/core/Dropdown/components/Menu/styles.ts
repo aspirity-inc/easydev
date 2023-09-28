@@ -2,7 +2,7 @@ import { css, styled } from 'styled-components';
 
 import { Box } from '@core/Box';
 
-import { StyledMenuProps } from '../../types';
+import type { StyledMenuProps } from '../../types';
 
 export const StyledMenu = styled(Box)<StyledMenuProps>`
   position: absolute;

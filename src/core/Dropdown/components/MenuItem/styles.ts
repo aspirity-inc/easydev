@@ -3,7 +3,7 @@ import { css, styled } from 'styled-components';
 import { Box } from '@core/Box';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
-import { StyledMenuItemProps } from '../../types';
+import type { StyledMenuItemProps } from '../../types';
 
 export const StyledMenuItem = styled(Box)<StyledMenuItemProps>`
   --transition: ${({ theme }) => theme.transition.default};

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { DropdownHookParams } from '../types';
+import type { DropdownHookParams } from '../types';
 
 export function useDropdownControl({ open, onChangeOpen, trigger, disabled }: DropdownHookParams) {
   const [opened, setOpened] = useState(open || false);

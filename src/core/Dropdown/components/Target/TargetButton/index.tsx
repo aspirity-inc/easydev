@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 
 import { StyledIcon, StyledTargetButton } from './styles';
-import { TargetProps } from '../../../types';
+import type { TargetProps } from '../../../types';
 
 export const TargetButton = forwardRef<HTMLDivElement, TargetProps>(
   ({ children, open, withIcon = true, icon, ...props }, ref) => {
