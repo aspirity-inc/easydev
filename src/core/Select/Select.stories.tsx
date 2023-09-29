@@ -130,3 +130,25 @@ export const Autocomplete: Story = {
     rounded: true,
   },
 };
+
+const ControlIcon = () => <div className="material-symbols-rounded">nutrition</div>;
+const ArrowDown = () => <div className="material-symbols-rounded">keyboard_arrow_down</div>;
+const SelectedIcon = () => <div className="material-symbols-rounded">priority</div>;
+
+export const UserIconsSelect: Story = {
+  render: (args) => (
+    <div style={{ height: '350px' }}>
+      <Select {...args} />
+    </div>
+  ),
+  args: {
+    options,
+    maxMenuHeight: 250,
+    minMenuHeight: 250,
+    isSearchable: false,
+    isDisabled: false,
+    dropdownIcon: <ArrowDown />,
+    selectedIcon: <SelectedIcon />,
+    controlIcon: <ControlIcon />,
+  },
+};

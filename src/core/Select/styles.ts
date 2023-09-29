@@ -27,6 +27,7 @@ export const StyledSelectWrap = styled('div')<StyledSelectType>`
       color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
       transition: var(--transition);
       z-index: 2;
+      gap: 6px;
 
       &:hover {
         cursor: pointer;
