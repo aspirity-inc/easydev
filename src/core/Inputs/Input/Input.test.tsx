@@ -6,7 +6,7 @@ import { EasydevProvider } from '@core/Theme';
 import { lightPalette } from '@core/Theme/themePalette';
 
 import { Input } from '.';
-import { IconsProps } from '../types';
+import type { IconsProps } from '../types';
 
 test('label, value, placeholder, error', () => {
   const value = 'abcdef';
