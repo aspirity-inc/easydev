@@ -1,12 +1,20 @@
 import { css, styled } from 'styled-components';
 
-import type { StyledTableProps } from '.';
+import type { StyledTableProps, TableBodyProps, TableRowProps } from '.';
 
-export const StyledTableBody = styled('tbody')``;
+export const StyledTableBody = styled('tbody')<TableBodyProps>`
+  ${({ color }) => {
+    return color ? color : 'inherit';
+  }}
+`;
 
 export const StyledTableHead = styled('thead')``;
 
-export const StyledTableRow = styled('tr')``;
+export const StyledTableRow = styled('tr')<TableRowProps>`
+  ${({ color }) => {
+    return color ? color : 'inherit';
+  }}
+`;
 
 export const StyledTable = styled('table')<StyledTableProps>`
   display: table;
