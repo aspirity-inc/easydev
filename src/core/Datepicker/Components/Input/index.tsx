@@ -1,4 +1,4 @@
-import { forwardRef, type InputHTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 
 import {
   StyledDatepickerClearIcon,
@@ -7,14 +7,9 @@ import {
   StyledDatepickerLabel,
   StyledDatepickerText,
 } from './styles';
+import type { DatepickerInputProps } from '../../types.ts';
 
-type InputProps = InputHTMLAttributes<HTMLInputElement> & {
-  label: string;
-  open: boolean;
-  isClearable: boolean | undefined;
-};
-
-export const Input = forwardRef<HTMLInputElement | null, InputProps>(
+export const Input = forwardRef<HTMLInputElement | null, DatepickerInputProps>(
   ({ isClearable, open, label, disabled, value, ...props }, ref) => {
     return (
       <StyledDatepickerLabel className="easy_datepicker-label" $open={open}>

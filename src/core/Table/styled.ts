@@ -15,6 +15,8 @@ export const StyledTable = styled('table')<StyledTableProps>`
   border-spacing: 0;
 
   border-radius: 8px;
+  background-color: ${({ theme }) =>
+    theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
 
   ${({ $striped }) => {
     return (

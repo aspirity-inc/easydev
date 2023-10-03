@@ -1,20 +1,13 @@
-import { useRef, FocusEvent, useState } from 'react';
+import { useRef, type FocusEvent, useState } from 'react';
 
-import DatePicker, { ReactDatePickerProps } from 'react-datepicker';
+import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import 'material-symbols';
 
 import { Header, Input } from './Components';
 import { DatepickerWrapper } from './styles';
-
-type DatepickerType<T extends boolean | undefined = undefined> = ReactDatePickerProps<never, T> & {
-  label: string;
-};
-
-type DateType<T> = T extends false | undefined ? Date | null : [Date | null, Date | null];
-
-export type DatePickerMode = 'date' | 'year' | 'month';
+import type { DatePickerMode, DateType, DatepickerType } from './types';
 
 export const Datepicker = <T extends boolean | undefined>({
   onChange,

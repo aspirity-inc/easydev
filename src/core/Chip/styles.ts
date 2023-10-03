@@ -36,12 +36,16 @@ export const StyledChipLabel = styled('label')<StyledChipProps>`
 
 const getFilledStyle = ({ $active }: StyledChipProps) => {
   return css`
+    --transition: ${({ theme }) => theme.transition.default};
+
     justify-content: center;
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['50'])};
     background-color: ${({ theme }) =>
       theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
     border: 1px solid
       ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['700'])};
+
+    transition: color var(--transition), background-color var(--transition), border-color var(--transition);
 
     &:hover:not([disabled]) {
       color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};

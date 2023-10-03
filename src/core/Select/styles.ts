@@ -3,9 +3,7 @@ import { css, styled } from 'styled-components';
 import { scrollbarStyles } from '@core/Theme';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
-export type SelectType = {
-  $rounded?: boolean;
-};
+import type { StyledSelectType } from './types';
 
 export const defaultCssVars = css`
   --transitionTiming: ${({ theme }) => theme.transition.default};
@@ -13,7 +11,7 @@ export const defaultCssVars = css`
     box-shadow var(--transitionTiming), border-color var(--transitionTiming);
 `;
 
-export const StyledSelectWrap = styled('div')<SelectType>`
+export const StyledSelectWrap = styled('div')<StyledSelectType>`
   ${defaultCssVars};
 
   .react-select {

@@ -4,6 +4,8 @@ import { StyledInputLabel } from '@core/Inputs/Input/styles';
 import { StyledLabelText, getInputTransition } from '@core/Inputs/styles';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
+import type { StyleInputProps } from '../../types';
+
 export const StyledDatepickerIcon = styled('div')`
   position: absolute;
   top: 50%;
@@ -32,15 +34,11 @@ export const StyledDatepickerClearIcon = styled('div')<{ $disabled: boolean }>`
       $disabled &&
       css`
         cursor: default;
-        color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['400'])};
+        color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['600'])};
       `
     );
   }}
 `;
-
-type StyleInputProps = {
-  $open: boolean;
-};
 
 const focusInputStyles = () => css`
   background-color: ${({ theme }) =>
@@ -61,10 +59,10 @@ export const StyledDatepickerInput = styled('input')<StyleInputProps>`
     'YTAS' 750, 'YTDE' -203, 'YTFI' 738;
   font-family: inherit;
 
-  border: 1px solid transparent;
+  border: 1px solid ${({ theme }) => theme.colors.surface['400']};
   border-radius: 8px;
   background-color: ${({ theme }) =>
-    theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['800']};
+    theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
 
   ${({ theme }) => getInputTransition(theme.transition.default)};
 
@@ -83,33 +81,26 @@ export const StyledDatepickerInput = styled('input')<StyleInputProps>`
     ${focusInputStyles()};
   }
 
-  ${({ $open }) => $open && focusInputStyles()}
+  ${({ $open }) =>
+    $open
+      ? focusInputStyles()
+      : css`
+          &:not(:placeholder-shown):not(:focus-visible):not(:hover):not([disabled]) {
+            box-shadow: none;
+          }
+        `}
 
   &:focus-visible:not([disabled]) {
     outline: 0;
   }
 
-  &:disabled + ${StyledDatepickerIcon} {
+  &:disabled ~ ${StyledDatepickerIcon} {
     cursor: default;
-    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['400'])};
+    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['600'])};
   }
 
-  &:not(:placeholder-shown):disabled {
-    background-color: ${({ theme }) =>
-      theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
-
+  &:disabled {
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['400'])};
-    border-color: ${({ theme }) =>
-      theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['400']};
-    cursor: default;
-  }
-
-  &:placeholder-shown:disabled {
-    background-color: ${({ theme }) =>
-      theme.type === 'light' ? theme.colors.surface['200'] : theme.colors.surface['800']};
-
-    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['400'])};
-    border-color: transparent;
     cursor: default;
   }
 `;
