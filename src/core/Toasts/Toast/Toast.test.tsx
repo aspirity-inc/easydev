@@ -9,7 +9,7 @@ import { duration, slideInUp } from './animation';
 
 const globalMockFn = vi.fn();
 
-test('check how many times onDelete works', async () => {
+test('onDelete', async () => {
   const mockFn = vi.fn();
   render(
     <EasydevProvider>
