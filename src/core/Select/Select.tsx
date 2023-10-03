@@ -1,14 +1,8 @@
-import { MouseEvent } from 'react';
+import type { MouseEvent } from 'react';
 
-import ReactSelect, {
-  type ActionMeta,
-  type GroupBase,
-  type MultiValue,
-  type OnChangeValue,
-  type Props,
-} from 'react-select';
-import AsyncSelect, { type AsyncProps } from 'react-select/async';
-import CreatableSelect, { type CreatableProps } from 'react-select/creatable';
+import ReactSelect, { type ActionMeta, type GroupBase, type MultiValue, type OnChangeValue } from 'react-select';
+import AsyncSelect from 'react-select/async';
+import CreatableSelect from 'react-select/creatable';
 
 import 'material-symbols';
 
@@ -16,25 +10,11 @@ import { MultivalueSelectedOptions } from '@core/Select/Components/MultivalueSel
 
 import { cx } from '@helpers/cx.ts';
 
-import { CustomOption, DropdownIndicator, SearchValueContainer } from './Components';
+import { CustomOption, DropdownIndicator, SearchValueContainer, Control } from './Components';
 import { StyledSelectWrap } from './styles.ts';
-import type { OptionType } from './types.ts';
+import type { EasySelectProps, OptionType } from './types.ts';
 
-type SelectProps<Option, IsMulti extends boolean = false, Group extends GroupBase<Option> = GroupBase<Option>> = Props<
-  Option,
-  IsMulti,
-  Group
-> &
-  AsyncProps<Option, IsMulti, Group> &
-  CreatableProps<Option, IsMulti, Group> & {
-    rounded?: boolean;
-    selectedStatePlaceholder?: string;
-    clearButtonText?: string;
-    selectType?: 'creatable' | 'async' | 'default';
-  };
-
-const selectComponentsOverride = { Option: CustomOption, DropdownIndicator };
-const searchComponentsOverride = { Option: CustomOption, DropdownIndicator, ValueContainer: SearchValueContainer };
+const searchComponentsOverride = { ValueContainer: SearchValueContainer };
 
 export const Select = <Option, IsMulti extends boolean = false, Group extends GroupBase<Option> = GroupBase<Option>>({
   rounded,
@@ -47,8 +27,11 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
   components,
   clearButtonText = 'Delete all',
   selectType = 'default',
+  dropdownIcon,
+  selectedIcon,
+  controlIcon,
   ...props
-}: SelectProps<Option, IsMulti, Group>) => {
+}: EasySelectProps<Option, IsMulti, Group>) => {
   const selectComponent = {
     creatable: CreatableSelect,
     async: AsyncSelect,
@@ -89,7 +72,10 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
         classNamePrefix="react-select"
         unstyled={true}
         components={{
-          ...(selectType === 'async' ? searchComponentsOverride : selectComponentsOverride),
+          ...(selectType === 'async' && searchComponentsOverride),
+          DropdownIndicator: DropdownIndicator(dropdownIcon),
+          Option: CustomOption(selectedIcon),
+          Control: Control(controlIcon),
           ...components,
         }}
         noOptionsMessage={noOptionsMessage}

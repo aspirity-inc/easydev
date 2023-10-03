@@ -1,4 +1,4 @@
-import type { MouseEvent } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
 
 import type { GroupBase, Props } from 'react-select';
 import type { AsyncProps } from 'react-select/async';
@@ -33,4 +33,14 @@ export type MultivalueSelectedOptionsType = {
 
 export type StyledSelectType = {
   $rounded?: boolean;
+};
+
+export type EasySelectProps<
+  Option,
+  IsMulti extends boolean = false,
+  Group extends GroupBase<Option> = GroupBase<Option>
+> = SelectProps<Option, IsMulti, Group> & {
+  dropdownIcon?: ReactNode;
+  selectedIcon?: ReactNode;
+  controlIcon?: ReactNode;
 };
