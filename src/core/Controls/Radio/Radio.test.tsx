@@ -15,8 +15,6 @@ test('radio', () => {
     </EasydevProvider>
   );
 
-  screen.debug();
-
   const inputElement = container.querySelector('input') as Element;
   expect(inputElement).toHaveAttribute('checked');
 
