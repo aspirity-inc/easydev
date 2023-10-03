@@ -31,7 +31,7 @@ export const ToggleWrap = styled(ControlWrap)`
   }
 
   &:has(${StyledToggle}:checked) {
-    background-color: ${({ theme, $color }) => getControlColor(theme, $color) || 'var(--innerColor)'};
+    background-color: ${({ theme, $color }) => getControlColor(theme, $color)};
 
     ${({ disabled }) =>
       disabled &&
