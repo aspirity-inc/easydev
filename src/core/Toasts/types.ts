@@ -17,7 +17,7 @@ export type ToastProps = {
   autoCloseDelay?: number;
   onDelete: (id: number | undefined) => void;
   className?: string;
-  position: ToastPosition;
+  position?: ToastPosition;
   style?: CSSProperties;
 };
 

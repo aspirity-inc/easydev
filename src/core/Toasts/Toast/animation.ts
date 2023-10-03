@@ -65,7 +65,6 @@ export const slideOutLeft = keyframes`
 export const slideOutDown = keyframes`
   0% {
     transform: translateY(0);
-   
   }
   100% {
     transform: translateY(100%);

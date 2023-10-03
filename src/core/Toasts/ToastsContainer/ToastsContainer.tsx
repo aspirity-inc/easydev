@@ -4,29 +4,26 @@ import { createPortal } from 'react-dom';
 
 import { StyledContainer } from './styles';
 import { notifyFunction } from './toastEmitters';
+import type { ToastContainerType } from './types';
 import { Toast } from '..';
 import { toastPositions } from '../constants';
 import type { ToastItemType } from '../types';
 
 let TOAST_ID = 0;
 
-type ToastContainerType = {
-  limit?: number;
-};
-
 export const ToastContainer = ({ limit }: ToastContainerType) => {
   const [toasts, setToasts] = useState<ToastItemType[]>([]);
   const [visibleToasts, setVisibleToasts] = useState<ToastItemType[]>([]);
 
   useEffect(() => {
-    notifyFunction((args: ToastItemType) => createToats(args));
+    notifyFunction((args: ToastItemType) => createToast(args));
   }, []);
 
   useEffect(() => {
     limit ? setVisibleToasts([...toasts.slice(0, limit)]) : setVisibleToasts([...toasts]);
   }, [toasts, limit]);
 
-  const createToats = (args: ToastItemType) => {
+  const createToast = (args: ToastItemType) => {
     setToasts((prevToasts) => {
       return [
         ...prevToasts,

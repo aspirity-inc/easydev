@@ -1,12 +1,8 @@
 import { css, styled } from 'styled-components';
 
-import type { ToastPosition } from '../types';
+import { StyledToastContainerProps } from './types';
 
-type StyledToastProps = {
-  $position: ToastPosition;
-};
-
-export const StyledContainer = styled.div<StyledToastProps>`
+export const StyledContainer = styled.div<StyledToastContainerProps>`
   position: fixed;
   z-index: 2;
   padding: 10px;

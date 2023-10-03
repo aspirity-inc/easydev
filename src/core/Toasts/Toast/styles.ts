@@ -11,24 +11,8 @@ import {
   slideOutRight,
   slideOutUp,
 } from './animation';
-import type { StatusColorType, ToastPosition, ToastStatus } from '../types';
-
-type StyledToastProps = {
-  $status?: ToastStatus;
-  $statusBackground?: string;
-  $colorful?: boolean;
-  $hasDescription?: boolean | undefined;
-};
-
-type StyledAnimationProps = {
-  $isDeleting: boolean;
-  $position: ToastPosition;
-  $isAdded: boolean;
-};
-
-type StyledMainContentProps = {
-  $colorful?: boolean;
-};
+import type { StyledAnimationProps, StyledToastProps, StyledMainContentProps } from './types';
+import type { StatusColorType, ToastStatus } from '../types';
 
 const backgroundColors: StatusColorType = {
   light: {
