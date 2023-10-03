@@ -10,7 +10,7 @@ export type TogglePropsType = ControlBasePropsType;
 
 export const Toggle = forwardRef(
   (
-    { disabled, defaultChecked, label, color = 'success', id, ...props }: TogglePropsType,
+    { disabled, defaultChecked, label, color, id, ...props }: TogglePropsType,
     ref?: Ref<HTMLInputElement>
   ) => {
     const generatedId = useId();
