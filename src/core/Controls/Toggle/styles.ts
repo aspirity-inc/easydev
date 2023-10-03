@@ -1,8 +1,10 @@
 import { css, styled } from 'styled-components';
 
-import { ControlWrap, StyledInnerBase, StyledInput } from '../styles.ts';
+import { ControlWrap, StyledInnerBase, getControlColor, StyledInput } from '../styles.ts';
 
-export const StyledToggle = styled(StyledInput)``;
+export const StyledToggle = styled(StyledInput)`
+  color: ${({ color }) => color || 'inherit'};
+`;
 
 export const StyledToggleInner = styled(StyledInnerBase)`
   width: 16px;
@@ -31,7 +33,7 @@ export const ToggleWrap = styled(ControlWrap)`
   }
 
   &:has(${StyledToggle}:checked) {
-    background-color: var(--checkedBg);
+    background-color: ${({ theme, $color }) => getControlColor(theme, $color) || 'var(--innerColor)'};
 
     ${({ disabled }) =>
       disabled &&
