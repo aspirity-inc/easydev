@@ -2,9 +2,7 @@ import { css, styled } from 'styled-components';
 
 import { ControlWrap, StyledInnerBase, getControlColor, StyledInput } from '../styles.ts';
 
-export const StyledToggle = styled(StyledInput)`
-  color: ${({ color }) => color || 'inherit'};
-`;
+export const StyledToggle = styled(StyledInput)``;
 
 export const StyledToggleInner = styled(StyledInnerBase)`
   width: 16px;
