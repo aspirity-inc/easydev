@@ -1,7 +1,7 @@
 export { Title, Subtitle, Text } from '@core/Typography';
 export * from '@core/Button';
 export * from '@core/Inputs';
-export { Radio, Toggle, Checkbox } from '@core/Controls';
+export * from '@core/Controls';
 export * from '@core/Space';
 export * from '@core/Link';
 export * from '@core/Progress';
