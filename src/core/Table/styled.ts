@@ -2,19 +2,11 @@ import { css, styled } from 'styled-components';
 
 import type { StyledTableProps, TableBodyProps, TableRowProps } from '.';
 
-export const StyledTableBody = styled('tbody')<TableBodyProps>`
-  ${({ color }) => {
-    return color ? color : 'inherit';
-  }}
-`;
+export const StyledTableBody = styled('tbody')<TableBodyProps>``;
 
 export const StyledTableHead = styled('thead')``;
 
-export const StyledTableRow = styled('tr')<TableRowProps>`
-  ${({ color }) => {
-    return color ? color : 'inherit';
-  }}
-`;
+export const StyledTableRow = styled('tr')<TableRowProps>``;
 
 export const StyledTable = styled('table')<StyledTableProps>`
   display: table;
