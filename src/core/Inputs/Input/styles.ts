@@ -23,7 +23,7 @@ export const StyledInput = styled('input')<StyledInputProps>`
   }
 `;
 
-export const StyledInputLabel = styled('label')`
+export const StyledInputLabel = styled.label`
   position: relative;
   display: block;
   height: 56px;
