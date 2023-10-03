@@ -1,12 +1,12 @@
 import { css, styled } from 'styled-components';
 
-import type { StyledTableProps, TableBodyProps, TableRowProps } from '.';
+import type { StyledTableProps } from '.';
 
-export const StyledTableBody = styled('tbody')<TableBodyProps>``;
+export const StyledTableBody = styled('tbody')``;
 
 export const StyledTableHead = styled('thead')``;
 
-export const StyledTableRow = styled('tr')<TableRowProps>``;
+export const StyledTableRow = styled('tr')``;
 
 export const StyledTable = styled('table')<StyledTableProps>`
   display: table;
