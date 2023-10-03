@@ -1,5 +1,6 @@
 import { styled, css } from 'styled-components';
 
+import { scrollbarStyles } from '@core/Theme';
 import { Text } from '@core/Typography';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
@@ -54,6 +55,7 @@ export const StyledTextareaLabelText = styled(StyledLabelText)`
 export const StyledTextarea = styled('textarea')<StyledTextareaProps>`
   display: block;
   min-height: ${({ $autoresized }) => ($autoresized ? '50px' : '100px')};
+  width: 100%;
   resize: none;
   overflow-y: ${({ $autoresized }) => ($autoresized ? 'hidden' : 'auto')};
 
@@ -62,6 +64,9 @@ export const StyledTextarea = styled('textarea')<StyledTextareaProps>`
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
   ${getTextVariants('body2')};
   font-family: inherit;
+
+  ${scrollbarStyles};
+  scrollbar-gutter: stable;
 
   &:placeholder-shown::placeholder {
     opacity: 0;
