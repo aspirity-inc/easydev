@@ -1,8 +1,6 @@
-import { ReactDatePickerCustomHeaderProps } from 'react-datepicker';
-
-import { DatePickerMode } from '@core/Datepicker/Datepicker';
-
 import { StyledSelectedButton, StyledHeader, StyledArrowButton } from './styles';
+import type { DatePickerMode } from '../../types';
+import type { ReactDatePickerCustomHeaderProps } from 'react-datepicker';
 
 export const Header =
   (
