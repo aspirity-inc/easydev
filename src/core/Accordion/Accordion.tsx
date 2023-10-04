@@ -1,51 +1,84 @@
-import { Children, isValidElement, useState } from 'react';
+import { Children, ReactNode, isValidElement, useState } from 'react';
 
 import { Box } from '@core/Box';
 
 import { addPropsToChild } from '@helpers/addPropsToChild';
 import { checkChildrenType } from '@helpers/checkChildrenType';
 
-import type { AccordionProps } from './types';
+import type { AccordionItemValue, AccordionProps, AccordionValue } from './types';
 
-export const Accordion = ({
+export const Accordion = <Multiple extends boolean = false>({
+  multiple = false as Multiple,
   variant = 'filled',
   duration = 400,
   openIcon,
   closeIcon,
-  openIndex = -1,
-  handleOpenIndex,
+  value,
+  onChange,
   children,
   ...props
-}: AccordionProps) => {
-  const [openedIndex, setOpenedIndex] = useState<number>(openIndex);
+}: AccordionProps<Multiple>) => {
+  const defaultOpenItem = (multiple ? [] : '') as AccordionItemValue<Multiple>;
+  const [openedItem, setOpenedItem] = useState<AccordionItemValue<Multiple>>(value || defaultOpenItem);
 
-  const handleClick = (index: number) => {
+  const getOpenedItemAsArray = (openedItem: AccordionValue[], value: AccordionValue) => {
+    return (
+      openedItem.includes(value)
+        ? openedItem.filter((selectedValue) => selectedValue !== value)
+        : [...openedItem, value]
+    ) as AccordionItemValue<Multiple>;
+  };
+
+  const getOpenedItemAsString = (openedItem: AccordionValue, value: AccordionValue) => {
+    return (value === openedItem ? '' : value) as AccordionItemValue<Multiple>;
+  };
+
+  const isOpenedItem = (value: AccordionValue) => {
+    return Array.isArray(openedItem) ? openedItem.includes(value) : value === openedItem;
+  };
+
+  const handleClick = (value: AccordionValue) => {
     return () => {
-      setOpenedIndex(openedIndex === index ? -1 : index);
-      handleOpenIndex && handleOpenIndex(openedIndex === index ? -1 : index);
+      const nextOpenedItem = Array.isArray(openedItem)
+        ? getOpenedItemAsArray(openedItem, value)
+        : getOpenedItemAsString(openedItem, value);
+
+      setOpenedItem(nextOpenedItem);
+      onChange && onChange(nextOpenedItem);
     };
+  };
+
+  const pushPropsToControlAndPanel = (child: ReactNode, value: AccordionValue, disabled: boolean) => {
+    const opened = !disabled && isOpenedItem(value);
+    if (isValidElement(child)) {
+      if (checkChildrenType(child, 'Control')) {
+        return addPropsToChild(child, {
+          onClick: handleClick(value),
+          opened,
+          variant,
+          openIcon,
+          closeIcon,
+          disabled,
+        });
+      } else if (checkChildrenType(child, 'Panel')) {
+        return addPropsToChild(child, { opened, variant, duration });
+      }
+    }
+    return null;
   };
 
   const childrenWithProps = Children.toArray(children).map((child, index) => {
     if (isValidElement(child) && checkChildrenType(child, 'AccordionItem')) {
-      const accordionItemChildren = Children.toArray(child.props.children).map((child) => {
-        if (isValidElement(child) && checkChildrenType(child, 'Control')) {
-          return addPropsToChild(child, {
-            onClick: handleClick(index),
-            opened: index === openedIndex,
-            variant,
-            openIcon,
-            closeIcon,
-          });
-        } else if (isValidElement(child) && checkChildrenType(child, 'Panel')) {
-          return addPropsToChild(child, { opened: index === openedIndex, variant, duration });
-        }
+      const itemValue = child.props.itemId ?? String(index);
+      const isDisabled = child.props.disabled;
 
-        return child;
-      });
+      const accordionItemChildren = Children.toArray(child.props.children).map((child) =>
+        pushPropsToControlAndPanel(child, itemValue, isDisabled)
+      );
 
       return addPropsToChild(child, { children: accordionItemChildren });
     }
+    return null;
   });
 
   return (

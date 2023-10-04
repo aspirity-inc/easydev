@@ -1,7 +1,7 @@
 import { Flex } from '@core/Flex';
 
 import { StyledControl, StyledTitle, StyledSubtitle, StyledIcon } from './styles';
-import type { ControlProps } from '../../types';
+import type { AccordionControlProps } from '../../types';
 import { ChevronIcon } from '../ChevronIcon';
 
 export const Control = ({
@@ -14,7 +14,7 @@ export const Control = ({
   openIcon,
   closeIcon,
   ...props
-}: ControlProps) => {
+}: AccordionControlProps) => {
   return (
     <StyledControl className="easy_accordion-control" $opened={opened} $variant={variant} {...props}>
       <Flex gap={10} justify="space-between" wrap="nowrap">

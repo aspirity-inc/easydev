@@ -1,7 +1,7 @@
-import { cloneElement } from 'react';
+import { type JSXElementConstructor, type ReactElement, type ReactPortal, cloneElement } from 'react';
 
 export const addPropsToChild = (
-  child: React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>>,
+  child: ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>>,
   props: Record<any, any>
 ) => {
   return cloneElement(child, {

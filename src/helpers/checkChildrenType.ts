@@ -1,4 +1,6 @@
+import type { ReactPortal, ReactElement, JSXElementConstructor } from 'react';
+
 export const checkChildrenType = (
-  child: React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>>,
+  child: ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>>,
   type: string
-) => (child as any)?.type?.__docgenInfo.displayName === type;
+) => (child as any)?.type?.__docgenInfo?.displayName === type;

@@ -93,10 +93,10 @@ const items: ItemType[] = [
 
 const Template: StoryFn<typeof Accordion> = ({ ...args }) => {
   return (
-    <Accordion {...args}>
+    <Accordion {...args} onChange={undefined}>
       {items.map((item) => (
-        <AccordionItem key={item.id}>
-          <Control title={item.title} subtitle={item.subtitle} icon={item.icon} disabled={item.disabled}>
+        <AccordionItem key={item.id} disabled={item.disabled}>
+          <Control title={item.title} subtitle={item.subtitle} icon={item.icon}>
             {item.controlChildren}
           </Control>
           <Panel>{item.panel}</Panel>
@@ -109,13 +109,13 @@ const Template: StoryFn<typeof Accordion> = ({ ...args }) => {
 export const DefaultAccordion: StoryFn<typeof Accordion> = Template.bind({});
 DefaultAccordion.args = {};
 
-export const BorderedAccordion: StoryFn<typeof Accordion> = Template.bind({});
-BorderedAccordion.args = {
-  variant: 'bordered',
+export const MultipleAccordion: StoryFn<typeof Accordion> = Template.bind({});
+MultipleAccordion.args = {
+  multiple: true,
 };
 
-export const CustomChevronAccordion: StoryFn<typeof Accordion> = Template.bind({});
-CustomChevronAccordion.args = {
+export const BorderedAccordionWithCustomChevron: StoryFn<typeof Accordion> = Template.bind({});
+BorderedAccordionWithCustomChevron.args = {
   variant: 'bordered',
   openIcon: <UserOpenIcon />,
   closeIcon: <UserCloseIcon />,
