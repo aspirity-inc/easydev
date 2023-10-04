@@ -1,4 +1,4 @@
-import { Children, ReactNode, isValidElement, useState } from 'react';
+import { Children, type ReactNode, isValidElement, useState } from 'react';
 
 import { Box } from '@core/Box';
 

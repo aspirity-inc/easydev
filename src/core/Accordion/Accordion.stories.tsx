@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { Badge } from '@core/Badge';
 import { Flex } from '@core/Flex';
