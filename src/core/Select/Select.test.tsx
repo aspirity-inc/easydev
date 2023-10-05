@@ -4,7 +4,7 @@ import { expect, test } from 'vitest';
 
 import { EasydevProvider } from '@core/Theme';
 
-import { OptionType, Select } from '.';
+import { type OptionType, Select } from '.';
 
 const options: OptionType[] = [
   { value: 'chocolate', label: 'Chocolate' },
