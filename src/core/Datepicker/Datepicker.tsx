@@ -1,4 +1,4 @@
-import { useRef, type FocusEvent, useState } from 'react';
+import { useRef, type FocusEvent, useState, type SyntheticEvent } from 'react';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -28,7 +28,7 @@ export const Datepicker = <T extends boolean | undefined>({
     props.onFocus && props.onFocus(event);
   };
 
-  const handleChange = (date: DateType<T>, event: React.SyntheticEvent<HTMLInputElement, Event> | undefined) => {
+  const handleChange = (date: DateType<T>, event: SyntheticEvent<HTMLInputElement, Event> | undefined) => {
     if (mode === 'year') setMode('month');
     if (mode === 'month') setMode('date');
     if (mode === 'date') {
