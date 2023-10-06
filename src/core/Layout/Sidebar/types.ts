@@ -1,4 +1,4 @@
-import { MenuItemType } from './SidebarMenu';
+import type { MenuItemType } from './SidebarMenu';
 import type { BaseLayoutProps } from '../types';
 
 export type SidebarProps = BaseLayoutProps & {

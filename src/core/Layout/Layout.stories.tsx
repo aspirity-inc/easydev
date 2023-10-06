@@ -2,7 +2,7 @@ import { Box } from '@core/Box';
 import { Center } from '@core/Center/Center';
 import { lightPalette } from '@core/Theme/themePalette';
 
-import { Footer, Header, Layout, Main, MenuItemType, Sidebar } from '.';
+import { Footer, Header, Layout, Main, type MenuItemType, Sidebar } from '.';
 import type { Meta, StoryFn } from '@storybook/react';
 
 const metaLayout: Meta<typeof Layout> = {
