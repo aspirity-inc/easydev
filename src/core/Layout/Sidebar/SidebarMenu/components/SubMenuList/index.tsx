@@ -22,7 +22,7 @@ export const SubMenuList = ({
               icon={item.icon}
               disabled={item.disabled}
               active={item.id === activeId}
-              onChange={onChange}
+              onChange={() => onChange(item.id)}
               onClick={item.onClick}
               collapsed={collapsed}
             >
