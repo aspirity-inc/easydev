@@ -1,19 +1,18 @@
 import { css, styled } from 'styled-components';
 
 import { Box } from '@core/Box';
+import { Text } from '@core/Typography';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
 import type { StyledControlProps } from '../../types';
 import { StyledChevronIcon } from '../ChevronIcon/styles';
 
-export const StyledTitle = styled(Box)`
-  ${getTextVariants('body1')};
+export const StyledTitle = styled(Text)`
   color: inherit;
   transition: color ${({ theme }) => theme.transition.default};
 `;
 
-export const StyledSubtitle = styled(Box)`
-  ${getTextVariants('body3')};
+export const StyledSubtitle = styled(Text)`
   font-family: inherit;
   line-height: 1.2;
   font-weight: 186;

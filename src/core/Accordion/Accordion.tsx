@@ -49,36 +49,37 @@ export const Accordion = <Multiple extends boolean = false>({
   };
 
   const pushPropsToControlAndPanel = (child: ReactNode, value: AccordionValue, disabled: boolean) => {
+    if (!isValidElement(child)) return null;
+
     const opened = !disabled && isOpenedItem(value);
-    if (isValidElement(child)) {
-      if (checkChildrenType(child, 'Control')) {
-        return addPropsToChild(child, {
-          onClick: handleClick(value),
-          opened,
-          variant,
-          openIcon,
-          closeIcon,
-          disabled,
-        });
-      } else if (checkChildrenType(child, 'Panel')) {
-        return addPropsToChild(child, { opened, variant, duration });
-      }
+
+    if (checkChildrenType(child, 'Control')) {
+      return addPropsToChild(child, {
+        onClick: handleClick(value),
+        opened,
+        variant,
+        openIcon,
+        closeIcon,
+        disabled,
+      });
     }
-    return null;
+
+    if (checkChildrenType(child, 'Panel')) {
+      return addPropsToChild(child, { opened, variant, duration });
+    }
   };
 
   const childrenWithProps = Children.toArray(children).map((child, index) => {
-    if (isValidElement(child) && checkChildrenType(child, 'AccordionItem')) {
-      const itemValue = child.props.itemId ?? String(index);
-      const isDisabled = child.props.disabled;
+    if (!(isValidElement(child) && checkChildrenType(child, 'AccordionItem'))) return null;
 
-      const accordionItemChildren = Children.toArray(child.props.children).map((child) =>
-        pushPropsToControlAndPanel(child, itemValue, isDisabled)
-      );
+    const itemValue = child.props.itemId ?? String(index);
+    const isDisabled = child.props.disabled;
 
-      return addPropsToChild(child, { children: accordionItemChildren });
-    }
-    return null;
+    const accordionItemChildren = Children.toArray(child.props.children).map((child) =>
+      pushPropsToControlAndPanel(child, itemValue, isDisabled)
+    );
+
+    return addPropsToChild(child, { children: accordionItemChildren });
   });
 
   return (

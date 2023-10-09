@@ -2,7 +2,8 @@ import type { ReactNode } from 'react';
 
 import type { BaseComponentType } from '@core/Box/types';
 
-export const accordionVariants = ['filled', 'bordered'] as const;
+import { accordionVariants } from './constants';
+
 export type AccordionVariantsType = (typeof accordionVariants)[number];
 
 export type AccordionValue = number | string;

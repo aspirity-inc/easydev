@@ -22,8 +22,8 @@ export const Control = ({
           <Flex gap={10} align="flex-start">
             {icon && <StyledIcon>{icon}</StyledIcon>}
             <Flex gap={8} direction="column" align="flex-start">
-              <StyledTitle as="span">{title}</StyledTitle>
-              {subtitle && <StyledSubtitle>{subtitle}</StyledSubtitle>}
+              <StyledTitle variant="body1">{title}</StyledTitle>
+              {subtitle && <StyledSubtitle variant="body3">{subtitle}</StyledSubtitle>}
             </Flex>
           </Flex>
         )}

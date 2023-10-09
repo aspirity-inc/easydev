@@ -8,13 +8,13 @@ export const ChevronIcon = ({ opened, openIcon, closeIcon, ...props }: ChevronIc
         {opened ? closeIcon : openIcon}
       </StyledChevronIcon>
     );
-  } else {
-    return (
-      <AnimationWrapper $opened={opened}>
-        <StyledChevronIcon className="material-symbols-outlined" {...props}>
-          {openIcon || 'keyboard_arrow_down'}
-        </StyledChevronIcon>
-      </AnimationWrapper>
-    );
   }
+
+  return (
+    <AnimationWrapper $opened={opened}>
+      <StyledChevronIcon className="material-symbols-outlined" {...props}>
+        {openIcon || 'keyboard_arrow_down'}
+      </StyledChevronIcon>
+    </AnimationWrapper>
+  );
 };
