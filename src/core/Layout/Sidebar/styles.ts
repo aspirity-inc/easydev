@@ -15,12 +15,9 @@ export const SidebarContent = styled(Box)`
 export const StyledSidebar = styled(Box)<StyledSidebarProps>`
   height: 100%;
   width: ${({ $maxWidth }) => $maxWidth}px;
-
   background-color: ${({ theme }) =>
     theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
-
   transition: width ${({ theme }) => theme.transition.default} ease;
-  overflow-x: hidden;
 
   ${({ $collapsed, $minWidth }) => {
     return (
@@ -30,6 +27,11 @@ export const StyledSidebar = styled(Box)<StyledSidebarProps>`
       `
     );
   }}
+
+  // For right work hidden case of sidebar
+  ${SidebarContent} {
+    width: ${({ $maxWidth }) => $maxWidth}px;
+  }
 `;
 
 export const ToggleBtn = styled('button')<StyledSidebarProps>`
@@ -49,6 +51,7 @@ export const ToggleBtn = styled('button')<StyledSidebarProps>`
   transition: transform ${({ theme }) => theme.transition.default} ease,
     color ${({ theme }) => theme.transition.default} ease,
     background-color ${({ theme }) => theme.transition.default} ease;
+  cursor: pointer;
 
   &:hover {
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.primary['700'] : theme.colors.primary['500'])};

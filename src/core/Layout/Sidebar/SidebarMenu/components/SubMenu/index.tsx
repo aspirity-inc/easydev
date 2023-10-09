@@ -1,61 +1,54 @@
-import { useState, useRef, useEffect } from 'react';
-
-import { Box } from '@core/Box';
-import { Flex } from '@core/Flex';
-
-import { StyledSubMenuItem } from './styles';
-import { StyledIcon } from '../../styles';
+import { StyledSubMenuItem, StyledBox } from './styles';
+import { useSubMenuState } from '../../hooks/useSubMenuState';
+import { StyledIcon, StyledMenuItemContent } from '../../styles';
 import type { SubMenuProps } from '../../types';
 import { ChevronArrow } from '../ChevronArrow';
 import { SubMenuList } from '../SubMenuList';
 
-export const SubMenu = ({
-  children,
-  disabled,
-  menuChildren,
-  icon,
-  activeId,
-  collapsed,
-  onChange,
-  ...props
-}: SubMenuProps) => {
-  const [opened, setOpened] = useState(false);
-  const [height, setHeight] = useState<number>(0);
-  const panelRef = useRef<HTMLDivElement | null>(null);
-
-  const toggleOpen = () => {
-    if (!collapsed) setOpened((prev) => !prev);
-  };
-
-  useEffect(() => {
-    setHeight(panelRef.current?.offsetHeight || 0);
-  }, [opened]);
-
-  useEffect(() => {
-    opened && collapsed && setOpened(false);
-  }, [collapsed, opened]);
+export const SubMenu = ({ children, disabled, icon, activeId, collapsed, onChange, ...props }: SubMenuProps) => {
+  const {
+    hovered,
+    opened,
+    toggleOpen,
+    height,
+    panelRef,
+    delayCollapsed,
+    handleMouseMove,
+    handleMouseLeave,
+    showLabel,
+  } = useSubMenuState({
+    collapsed,
+  });
 
   return (
-    <Box as="li" className="easy_dropdown-menu-item">
-      <StyledSubMenuItem $disabled={disabled} $opened={opened} onClick={toggleOpen} {...props}>
-        <Flex gap={8} wrap="nowrap">
-          {icon && <StyledIcon>{icon}</StyledIcon>}
-          {!collapsed && children}
-        </Flex>
+    <StyledBox as="li" className="easy_dropdown-menu-item" onMouseLeave={handleMouseLeave}>
+      <StyledSubMenuItem
+        $disabled={disabled}
+        $opened={opened}
+        $collapsed={collapsed}
+        $hovered={hovered}
+        onClick={toggleOpen}
+        {...props}
+      >
+        <StyledMenuItemContent gap={8} wrap="nowrap">
+          <StyledIcon onMouseMove={handleMouseMove}>{icon}</StyledIcon>
+          {showLabel && props.label}
+        </StyledMenuItemContent>
 
-        <ChevronArrow show={menuChildren && !collapsed} />
+        <ChevronArrow show={showLabel} />
       </StyledSubMenuItem>
-      {menuChildren && (
+      {children && (
         <SubMenuList
           opened={opened}
           height={height}
-          collapsed={collapsed}
-          menuChildren={menuChildren}
+          collapsed={delayCollapsed}
+          hovered={hovered}
+          menuChildren={children}
           panelRef={panelRef}
           activeId={activeId || -1}
           onChange={onChange}
         />
       )}
-    </Box>
+    </StyledBox>
   );
 };

@@ -6,8 +6,8 @@ export type SidebarProps = BaseLayoutProps & {
   maxWidth?: number;
   hideButton?: boolean;
   collapsed?: boolean;
-  onCollapsed?: (value: boolean) => void;
   menu?: MenuItemType[];
+  onCollapsed?: (value: boolean) => void;
 };
 
 export type StyledSidebarProps = {

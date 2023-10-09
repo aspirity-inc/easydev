@@ -2,36 +2,27 @@ import { css, styled } from 'styled-components';
 
 import { Box } from '@core/Box';
 
-import { getCommonMenuItemStyles } from '../../styles';
+import { defaultHoverStyles, getCommonMenuItemStyles } from '../../styles';
 import type { StyledMenuItemProps } from '../../types';
 import { AnimationWrapper } from '../ChevronArrow/styles';
-import { WrapperMenu } from '../SubMenuList/styles';
 
-export const Wrapper = styled(Box)<{ $collapsed: boolean }>`
-  ${({ $collapsed }) => {
-    return (
-      $collapsed &&
-      css`
-        position: relative;
-
-        & ${WrapperMenu} {
-          position: absolute;
-          z-index: 10;
-        }
-      `
-    );
-  }};
+export const StyledBox = styled(Box)`
+  position: relative;
 `;
 
 export const StyledSubMenuItem = styled(Box)<StyledMenuItemProps>`
-  ${({ $disabled }) => getCommonMenuItemStyles($disabled || false)};
+  ${({ $disabled, $collapsed, $hovered }) =>
+    getCommonMenuItemStyles($disabled || false, $collapsed || false, $hovered || false)};
 
-  &:hover:not([disabled]) {
-    cursor: pointer;
-    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['100'])};
-    background-color: ${({ theme }) =>
-      theme.type === 'light' ? theme.colors.surface['200'] : theme.colors.surface['900']};
-  }
+  border-radius: 8px 8px 0px 8px;
+
+  ${({ $collapsed, $hovered }) => {
+    if ($collapsed && $hovered) {
+      return css`
+        ${defaultHoverStyles};
+      `;
+    }
+  }}
 
   ${({ $opened }) =>
     $opened &&

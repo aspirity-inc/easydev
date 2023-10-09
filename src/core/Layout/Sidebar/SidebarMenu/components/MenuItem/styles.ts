@@ -6,7 +6,8 @@ import { StyledIcon, getCommonMenuItemStyles } from '../../styles';
 import type { StyledMenuItemProps } from '../../types';
 
 export const StyledMenuItem = styled(Box)<StyledMenuItemProps>`
-  ${({ $disabled }) => getCommonMenuItemStyles($disabled || false)};
+  ${({ $disabled, $collapsed, $hovered }) =>
+    getCommonMenuItemStyles($disabled || false, $collapsed || false, $hovered || false)};
 
   ${({ $active }) =>
     $active &&

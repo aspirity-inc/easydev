@@ -2,27 +2,22 @@ import type { MutableRefObject, ReactNode } from 'react';
 
 import type { BaseComponentType } from '@core/Box/types';
 
-export type MenuItemType = {
+export type MenuItemType = BaseComponentType & {
   label?: ReactNode;
   id: number;
   icon?: ReactNode;
   children?: MenuItemType[];
-  type?: 'submenu' | 'divider' | 'item';
-  disabled?: boolean;
-  onClick?: () => void;
+  type?: 'divider' | 'item';
 };
 
-export type MenuProps = Omit<BaseComponentType, 'children'> & {
+export type SidebarMenuProps = Omit<BaseComponentType, 'children'> & {
   items?: MenuItemType[];
   collapsed?: boolean;
-  onCollapsed?: () => void;
   activeId?: number;
   onChange?: (id: number) => void;
 };
 
-export type MenuItemProps = BaseComponentType & {
-  icon?: ReactNode;
-  disabled?: boolean;
+export type MenuItemProps = MenuItemType & {
   active?: boolean;
   collapsed: boolean;
 };
@@ -30,12 +25,12 @@ export type MenuItemProps = BaseComponentType & {
 export type StyledMenuItemProps = {
   $disabled?: boolean;
   $active?: boolean;
+  $collapsed: boolean;
+  $hovered: boolean;
+  $opened: boolean;
 };
 
-export type SubMenuProps = BaseComponentType & {
-  icon?: ReactNode;
-  href?: string;
-  disabled?: boolean;
+export type SubMenuProps = MenuItemType & {
   activeId?: number;
   collapsed: boolean;
 };
@@ -44,6 +39,7 @@ export type SubMenuListProps = BaseComponentType & {
   opened: boolean;
   height: number;
   collapsed: boolean;
+  hovered: boolean;
   menuChildren: MenuItemType[];
   panelRef: MutableRefObject<HTMLDivElement | null>;
   activeId: number;
@@ -53,4 +49,13 @@ export type MenuDividerProps = Omit<BaseComponentType, 'children'>;
 
 export type ChevronArrowProps = {
   show: boolean;
+};
+
+export type MenuItemStateHookParams = {
+  collapsed: boolean;
+  hovered: boolean;
+};
+
+export type SubMenuStateHookParams = {
+  collapsed: boolean;
 };

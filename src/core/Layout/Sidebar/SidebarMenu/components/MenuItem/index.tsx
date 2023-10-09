@@ -1,24 +1,28 @@
 import { Box } from '@core/Box';
-import { Flex } from '@core/Flex';
 
 import { StyledMenuItem } from './styles';
-import { StyledIcon } from '../../styles';
+import { useMenuItemState } from '../../hooks/useMenuItemState';
+import { StyledIcon, StyledMenuItemContent } from '../../styles';
 import type { MenuItemProps } from '../../types';
 
 export const MenuItem = ({
-  children,
+  id,
   disabled,
   icon,
-  active,
+  activeId,
   collapsed,
   href,
+  hovered: controlledHovered,
   onChange,
-  onClick,
   ...props
 }: MenuItemProps) => {
+  const { hovered, handleMouseMove, handleMouseLeave, showLabel } = useMenuItemState({
+    collapsed,
+    hovered: controlledHovered,
+  });
+
   const handleClick = () => {
-    onChange && onChange();
-    onClick && onClick();
+    onChange && onChange(id);
   };
 
   return (
@@ -26,15 +30,18 @@ export const MenuItem = ({
       as="li"
       className="easy_dropdown-menu-item"
       $disabled={disabled}
-      $active={active}
+      $collapsed={collapsed}
+      $hovered={hovered}
+      $active={activeId === id}
       onClick={handleClick}
+      onMouseLeave={handleMouseLeave}
       {...props}
     >
       <Box as="a" href={href}>
-        <Flex gap={8} wrap="nowrap">
-          {icon && <StyledIcon>{icon}</StyledIcon>}
-          {!collapsed && children}
-        </Flex>
+        <StyledMenuItemContent gap={8} wrap="nowrap">
+          <StyledIcon onMouseMove={handleMouseMove}>{icon}</StyledIcon>
+          {showLabel && props.label}
+        </StyledMenuItemContent>
       </Box>
     </StyledMenuItem>
   );

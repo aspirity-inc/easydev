@@ -1,4 +1,4 @@
-import { WrapperMenu, StyledSubMenu } from './styles';
+import { AnimationMenuWrapper, StyledSubMenu } from './styles';
 import type { MenuItemType, SubMenuListProps } from '../../types';
 import { MenuItem } from '../MenuItem';
 
@@ -6,6 +6,7 @@ export const SubMenuList = ({
   opened,
   height,
   collapsed,
+  hovered,
   menuChildren,
   panelRef,
   activeId,
@@ -13,24 +14,21 @@ export const SubMenuList = ({
   ...props
 }: SubMenuListProps) => {
   return (
-    <WrapperMenu $opened={opened} $height={height} $collapsed={collapsed}>
+    <AnimationMenuWrapper $opened={opened} $height={height} $collapsed={collapsed} $hovered={hovered}>
       <StyledSubMenu as="ul" className="easy_dropdown-submenu" {...props} ref={panelRef}>
         {menuChildren.map((item: MenuItemType) => {
           return (
             <MenuItem
               key={item.id}
-              icon={item.icon}
-              disabled={item.disabled}
-              active={item.id === activeId}
-              onChange={() => onChange(item.id)}
-              onClick={item.onClick}
+              {...item}
               collapsed={collapsed}
-            >
-              {item.label}
-            </MenuItem>
+              hovered={hovered}
+              activeId={activeId}
+              onChange={onChange}
+            />
           );
         })}
       </StyledSubMenu>
-    </WrapperMenu>
+    </AnimationMenuWrapper>
   );
 };

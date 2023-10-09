@@ -8,14 +8,14 @@ export const Sidebar = ({
   children,
   as = 'aside',
   hideButton = false,
-  collapsed: controlCollapsed,
+  collapsed: controledCollapsed,
   onCollapsed,
   minWidth = 56,
   maxWidth = 220,
   menu,
   ...props
 }: SidebarProps) => {
-  const [collapsed, setCollapsed] = useState(controlCollapsed || false);
+  const [collapsed, setCollapsed] = useState(controledCollapsed || false);
 
   const onToggle = () => {
     setCollapsed(!collapsed);
@@ -33,7 +33,7 @@ export const Sidebar = ({
         {...props}
       >
         <SidebarContent>
-          <SidebarMenu items={menu} collapsed={collapsed} onCollapsed={onToggle} />
+          <SidebarMenu items={menu} collapsed={collapsed} />
           {children}
         </SidebarContent>
       </StyledSidebar>

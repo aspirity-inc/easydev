@@ -2,8 +2,6 @@ import { styled } from 'styled-components';
 
 import { Box } from '@core/Box';
 
-import type { StyledMenuItemProps } from '../../types';
-
-export const AnimationWrapper = styled(Box)<StyledMenuItemProps>`
+export const AnimationWrapper = styled(Box)`
   transition: transform ${({ theme }) => theme.transition.default};
 `;

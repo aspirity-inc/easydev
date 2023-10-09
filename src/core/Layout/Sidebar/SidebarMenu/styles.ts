@@ -1,6 +1,7 @@
 import { css, styled } from 'styled-components';
 
 import { Box } from '@core/Box';
+import { Flex } from '@core/Flex';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
 export const StyledMenu = styled(Box)`
@@ -18,7 +19,20 @@ export const StyledIcon = styled(Box)`
   }
 `;
 
-export const getCommonMenuItemStyles = ($disabled: boolean) => {
+export const StyledMenuItemContent = styled(Flex)``;
+
+export const defaultHoverStyles = css`
+  color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['100'])};
+
+  background-color: ${({ theme }) =>
+    theme.type === 'light' ? theme.colors.surface['200'] : theme.colors.surface['700']};
+
+  & ${StyledIcon} {
+    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['100'])};
+  }
+`;
+
+export const getCommonMenuItemStyles = ($disabled: boolean, $collapsed: boolean, $hovered: boolean) => {
   return css`
     --transition: ${({ theme }) => theme.transition.default};
 
@@ -34,21 +48,27 @@ export const getCommonMenuItemStyles = ($disabled: boolean) => {
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['200'])};
     white-space: nowrap;
     transition: background-color var(--transition), color var(--transition);
+    cursor: pointer;
 
-    &:hover:not([disabled]) {
-      cursor: pointer;
-      color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['100'])};
-
-      background-color: ${({ theme }) =>
-        theme.type === 'light' ? theme.colors.surface['200'] : theme.colors.surface['900']};
-
-      & ${StyledIcon} {
-        color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['100'])};
-      }
-    }
+    ${!$collapsed
+      ? css`
+          &:hover:not([disabled]) {
+            ${defaultHoverStyles};
+          }
+        `
+      : $hovered &&
+        css`
+          &:hover:not([disabled]) {
+            ${defaultHoverStyles};
+          }
+          & ${StyledMenuItemContent} {
+            gap: 24px;
+          }
+        `}
 
     ${$disabled &&
     css`
+      cursor: default;
       color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['500'])};
       pointer-events: none;
       & ${StyledIcon} {
