@@ -23,5 +23,6 @@ export * from '@core/Flex';
 export * from '@core/Card';
 export * from '@core/Pagination';
 export * from '@core/Table';
+export * from '@core/Accordion';
 
 export * from '@hooks';
