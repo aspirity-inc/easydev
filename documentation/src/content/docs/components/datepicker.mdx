@@ -35,3 +35,32 @@ Code:
 ```tsx
 <Datepicker disabled label="Birth date" />
 ```
+
+```astro /frontmatter(?:.\w+)?/
+---
+// src/layouts/BlogPostLayout.astro
+const {frontmatter} = Astro.props;
+---
+<html>
+  <!-- ... -->
+  <h1>{frontmatter.title}</h1>
+  <h2>Post author: {frontmatter.author}</h2>
+  <p>{frontmatter.description}</p>
+  <slot /> <!-- Markdown content is injected here -->
+   <!-- ... -->
+</html>
+```
+
+```markdown title="src/pages/page-1.md"
+---
+title: My page of content
+---
+
+## Introduction
+
+I can link internally to [my conclusion](#conclusion) on the same page when writing Markdown.
+
+## Conclusion
+
+I can use the URL `https://my-domain.com/page-1/#introduction` to navigate directly to my Introduction on the page.
+```

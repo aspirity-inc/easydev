@@ -1,10 +1,11 @@
 /* eslint-disable import/order */
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import { astroExpressiveCode } from 'astro-expressive-code';
 
-// https://astro.build/config
 export default defineConfig({
   integrations: [
+    astroExpressiveCode({ theme: 'dracula' }),
     starlight({
       title: 'Easydev',
       social: {
@@ -21,27 +22,28 @@ export default defineConfig({
             { label: 'Resources', link: 'getting-started/resources' },
             { label: 'Usage', link: 'getting-started/usage' },
           ],
+          collapsed: true,
         },
         {
           label: 'Components',
           autogenerate: { directory: 'components' },
+          collapsed: true,
         },
         {
           label: 'Theming',
-          autogenerate: { directory: 'theming' },
+          link: 'theming/',
         },
         {
           label: 'Road map',
-          autogenerate: { directory: 'road-map' },
+          link: 'road-map/',
         },
         {
           label: 'Changelog',
-          autogenerate: { directory: 'changelog' },
+          link: 'changelog/',
         },
       ],
     }),
   ],
   base: '/',
-  // Process images with sharp: https://docs.astro.build/en/guides/assets/#using-sharp
   image: { service: { entrypoint: 'astro/assets/services/sharp' } },
 });
