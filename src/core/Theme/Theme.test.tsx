@@ -58,8 +58,8 @@ test('paletteGenerator', () => {
   const color = '#aaa';
   const paletteGeneratorColors = paletteGenerator(color);
 
-  expect(paletteGeneratorColors['main']).toBe('#aaa');
+  expect(paletteGeneratorColors['main']).toBe(color);
   expect(paletteGeneratorColors['100']).toBe(tint(0.4, color));
-  expect(paletteGeneratorColors['500']).toBe('#aaa');
+  expect(paletteGeneratorColors['500']).toBe(color);
   expect(paletteGeneratorColors['800']).toBe(shade(0.3, color));
 });
