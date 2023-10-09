@@ -13,12 +13,11 @@ const StyledDiv = styled.div`
   transform: scale(1.3);
 `;
 
-const Component: FC<Omit<ThemeProviderType, 'children'>> = ({ enableVendorPrefixes }) => (
+const GlobalComponent: FC<Omit<ThemeProviderType, 'children'>> = ({ enableVendorPrefixes }) => (
   <html>
     <head></head>
     <body>
       <EasydevProvider
-        target={document.getElementById('here') as HTMLElement}
         enableVendorPrefixes={enableVendorPrefixes}
       >
         <StyledDiv>test</StyledDiv>
@@ -45,12 +44,12 @@ test('useEasyThemeContext', () => {
 });
 
 test('enableVendorPrefixes true', () => {
-  const { container } = render(<Component enableVendorPrefixes={true} />);
+  const { container } = render(<GlobalComponent enableVendorPrefixes={true} />);
   expect(container.querySelector('div')).toHaveStyleRule('-webkit-transform', 'scale(1.3)');
 });
 
 test('enableVendorPrefixes false', () => {
-  const { container } = render(<Component enableVendorPrefixes={false} />);
+  const { container } = render(<GlobalComponent enableVendorPrefixes={false} />);
   expect(container.querySelector('div')).not.toHaveStyleRule('-webkit-transform', 'scale(1.3)');
 });
 
