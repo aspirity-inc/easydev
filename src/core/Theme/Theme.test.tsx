@@ -14,9 +14,17 @@ const StyledDiv = styled.div`
 `;
 
 const Component: FC<Omit<ThemeProviderType, 'children'>> = ({ enableVendorPrefixes }) => (
-  <EasydevProvider target={document.getElementById('here') as HTMLElement} enableVendorPrefixes={enableVendorPrefixes}>
-    <StyledDiv>test</StyledDiv>
-  </EasydevProvider>
+  <html>
+    <head></head>
+    <body>
+      <EasydevProvider
+        target={document.getElementById('here') as HTMLElement}
+        enableVendorPrefixes={enableVendorPrefixes}
+      >
+        <StyledDiv>test</StyledDiv>
+      </EasydevProvider>
+    </body>
+  </html>
 );
 
 test('useEasyThemeContext', () => {
