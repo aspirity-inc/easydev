@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-import type { Meta, StoryFn } from '@storybook/react';
 
 import { Button } from '@core/Button';
 import { Flex } from '@core/Flex';
 
 import { Dropdown, Menu, MenuItem, Target, MenuLabel, MenuDivider } from '.';
+import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
   title: 'Core/Dropdown',

@@ -1,5 +1,7 @@
 import { Children, cloneElement, isValidElement } from 'react';
 
+import { Menu } from './components/Menu';
+import { Target } from './components/Target';
 import { useDropdownControl } from './hooks/useDropdownControl';
 import { StyledDropdown } from './styles';
 import type { DropdownProps } from './types';
@@ -22,26 +24,26 @@ export const Dropdown = ({
     });
 
   const childrenWithProps = Children.toArray(children).map((child) => {
-    if (isValidElement(child)) {
-      const childName = (child as any)?.type?.__docgenInfo.displayName;
+    if (!isValidElement(child)) return null;
 
-      if (childName === 'Target') {
-        return cloneElement(child, {
-          ...child.props,
-          ref: targetRef,
-          open: opened,
-          disabled: disabled,
-          onClick: toggleOpen,
-          onMouseEnter: handleMouseEnter,
-        });
-      } else if (childName === 'Menu') {
-        return cloneElement(child, {
-          ...child.props,
-          ref: menuRef,
-          open: opened,
-          position,
-        });
-      }
+    if ((child as any)?.type === Target) {
+      return cloneElement(child, {
+        ...child.props,
+        ref: targetRef,
+        open: opened,
+        disabled: disabled,
+        onClick: toggleOpen,
+        onMouseEnter: handleMouseEnter,
+      });
+    }
+
+    if ((child as any)?.type === Menu) {
+      return cloneElement(child, {
+        ...child.props,
+        ref: menuRef,
+        open: opened,
+        position,
+      });
     }
   });
 

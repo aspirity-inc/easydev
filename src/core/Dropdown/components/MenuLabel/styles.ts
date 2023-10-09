@@ -4,7 +4,7 @@ import { Box } from '@core/Box';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
 export const StyledMenuLabel = styled(Box)`
-  height: 46px;
+  height: 36px;
   padding: 0 16px;
   display: flex;
   align-items: center;

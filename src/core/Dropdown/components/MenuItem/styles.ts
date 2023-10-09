@@ -8,7 +8,7 @@ import type { StyledMenuItemProps } from '../../types';
 export const StyledMenuItem = styled(Box)<StyledMenuItemProps>`
   --transition: ${({ theme }) => theme.transition.default};
 
-  height: 56px;
+  height: 40px;
   width: 100%;
   padding: 0 16px;
   display: flex;

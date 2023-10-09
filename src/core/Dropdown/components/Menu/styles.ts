@@ -4,8 +4,13 @@ import { Box } from '@core/Box';
 
 import type { StyledMenuProps } from '../../types';
 
-export const StyledMenu = styled(Box)<StyledMenuProps>`
+export const PositionWrapper = styled(Box)<StyledMenuProps>`
   position: absolute;
+
+  ${({ $position }) => getMenuPositionStyle($position)};
+`;
+
+export const StyledMenu = styled(Box)<StyledMenuProps>`
   min-width: 250px;
 
   border: 1px solid
@@ -14,8 +19,6 @@ export const StyledMenu = styled(Box)<StyledMenuProps>`
   background-color: ${({ theme }) =>
     theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
-
-  ${({ $position }) => getMenuPositionStyle($position)};
 `;
 
 const getMenuPositionStyle = ($position: string) => {
@@ -25,6 +28,7 @@ const getMenuPositionStyle = ($position: string) => {
         bottom: 0;
         left: 0;
         transform: translateY(100%);
+        padding-top: 8px;
       `;
     }
     case 'bottom-center': {
@@ -32,6 +36,7 @@ const getMenuPositionStyle = ($position: string) => {
         bottom: 0;
         left: 50%;
         transform: translate(-50%, 100%);
+        padding-top: 8px;
       `;
     }
     case 'bottom-right': {
@@ -39,6 +44,7 @@ const getMenuPositionStyle = ($position: string) => {
         bottom: 0;
         right: 0;
         transform: translateY(100%);
+        padding-top: 8px;
       `;
     }
     case 'top-left': {
@@ -46,6 +52,7 @@ const getMenuPositionStyle = ($position: string) => {
         top: 0;
         left: 0;
         transform: translateY(-100%);
+        padding-bottom: 8px;
       `;
     }
     case 'top-center': {
@@ -53,6 +60,7 @@ const getMenuPositionStyle = ($position: string) => {
         top: 0;
         left: 50%;
         transform: translate(-50%, -100%);
+        padding-bottom: 8px;
       `;
     }
     case 'top-right': {
@@ -60,6 +68,7 @@ const getMenuPositionStyle = ($position: string) => {
         top: 0;
         right: 0;
         transform: translateY(-100%);
+        padding-bottom: 8px;
       `;
     }
     case 'left-top': {
@@ -67,6 +76,7 @@ const getMenuPositionStyle = ($position: string) => {
         top: 0;
         left: 0;
         transform: translateX(-100%);
+        padding-right: 8px;
       `;
     }
     case 'left-center': {
@@ -74,6 +84,7 @@ const getMenuPositionStyle = ($position: string) => {
         top: 50%;
         left: 0;
         transform: translate(-100%, -50%);
+        padding-right: 8px;
       `;
     }
     case 'left-bottom': {
@@ -81,6 +92,7 @@ const getMenuPositionStyle = ($position: string) => {
         bottom: 0;
         left: 0;
         transform: translateX(-100%);
+        padding-right: 8px;
       `;
     }
     case 'right-top': {
@@ -88,6 +100,7 @@ const getMenuPositionStyle = ($position: string) => {
         top: 0;
         right: 0;
         transform: translateX(100%);
+        padding-left: 8px;
       `;
     }
     case 'right-center': {
@@ -95,6 +108,7 @@ const getMenuPositionStyle = ($position: string) => {
         top: 50%;
         right: 0;
         transform: translate(100%, -50%);
+        padding-left: 8px;
       `;
     }
     case 'right-bottom': {
@@ -102,6 +116,7 @@ const getMenuPositionStyle = ($position: string) => {
         bottom: 0;
         right: 0;
         transform: translateX(100%);
+        padding-left: 8px;
       `;
     }
   }

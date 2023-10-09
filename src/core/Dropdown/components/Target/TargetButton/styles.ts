@@ -4,7 +4,7 @@ import { getTextVariants } from '@core/Typography/Text/styles';
 
 import type { StyledTargetProps } from '../../../types';
 
-export const StyledIcon = styled('div')``;
+export const StyledIcon = styled('span')``;
 
 export const StyledTargetButton = styled('button')<StyledTargetProps>`
   --transition: ${({ theme }) => theme.transition.default};
