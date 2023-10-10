@@ -4,23 +4,20 @@ title: Tab
 
 Tabs facilitate effortless exploration and transition between distinct perspectives. They structure and permit movement between clusters of content that are associated and situated at an equivalent level of hierarchy.
 
-The Tabs component has the next props: title, onClick, tabKey, active, disabled. [See there](/storybook/?path=/docs/core-tab--docs) to get more information.
+The Tabs component can have the next props: title, onClick, active, disabled. [See there](/storybook/?path=/docs/core-tab--docs) to get more information.
 
-[Tab](/storybook/?path=/story/core-tab--default-tab)
-
-Code:
+## [Default Tab](/storybook/?path=/story/core-tab--default-tab)
 
 ```tsx
-<Tab onClick={() => {}} title="Tab" />
+<Tab title="Tab" />
 ```
 
-[Tabs](/storybook/?path=/story/core-tab--default-tabs)
-
-Code:
+## [Default Tabs](/storybook/?path=/story/core-tab--default-tabs)
 
 ```tsx
-() => {
-  const [activeKey, setActiveKey] = useState<number>(0);
+const Tabs = () => {
+  const [activeKey, setActiveKey] = useState(0);
+
   const tabs = [
     {
       tabKey: 0,
@@ -39,12 +36,12 @@ Code:
       title: 'Tab4',
     },
   ];
+
   return (
     <TabButtonsList>
       {tabs.map((tab) => (
         <Tab
           key={tab.tabKey}
-          tabKey={tab.tabKey}
           title={tab.title}
           active={tab.tabKey === activeKey}
           onClick={() => setActiveKey(tab.tabKey)}

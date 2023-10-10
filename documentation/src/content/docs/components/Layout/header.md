@@ -4,11 +4,9 @@ title: Header
 
 Header is a part of Layout component.
 
-The Header has the next props: fix, height, backgroundColor. Here you can add navigation, avatar, etc...
+The Header can have the next props: fix, height, backgroundColor. Here you can add navigation, avatar, etc...
 
-###### Default Header
-
-Code:
+## Default Header
 
 ```tsx
 <Header height={50} backgroundColor={lightPalette.primary[500]} style={{ padding: '20px 0' }}>
@@ -16,9 +14,7 @@ Code:
 </Header>
 ```
 
-###### Fixed Header
-
-Code:
+## Fixed Header
 
 ```tsx
 <Header height={50} fix backgroundColor={lightPalette.primary[500]} style={{ padding: '20px 0' }}>

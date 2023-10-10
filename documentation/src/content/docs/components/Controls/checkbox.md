@@ -6,56 +6,33 @@ Checkbox is used to select one or more options from the suggested set. It can be
 
 If you have a list of multiple options, checkboxes can be used instead of on/off switches to save space. However, if there is only one option, it is recommended to use an on/off switch instead of a checkbox.
 
-The Checkbox has the next props: disabled, defaultChecked, color, label, checked, onChange. [See there](/storybook/?path=/docs/core-controls-checkbox--docs) to get more information.
+The Checkbox can have the next props: label, checked, onChange. [See there](/storybook/?path=/docs/core-controls-checkbox--docs) to get more information.
 
-[Default Checkbox](/storybook/?path=/story/core-controls-checkbox--default-checkbox)
-
-Code:
+## [Default Checkbox](/storybook/?path=/story/core-controls-checkbox--default-checkbox)
 
 ```tsx
-<Checkbox onChange={() => {}} />
+<Checkbox />
 ```
 
-[Controlled Checkbox](/storybook/?path=/story/core-controls-checkbox--controlled-checkbox)
-
-Code:
+## [Controlled Checkbox](/storybook/?path=/story/core-controls-checkbox--controlled-checkbox)
 
 ```tsx
-() => {
+const ControlledCheckbox = () => {
   const [checked, setChecked] = useState(false);
   const onChange = () => setChecked((prevState) => !prevState);
+
   return <Checkbox checked={checked} onChange={onChange} />;
 };
 ```
 
-[With Label](/storybook/?path=/story/core-controls-checkbox--with-label)
-
-Code:
+## [With Label](/storybook/?path=/story/core-controls-checkbox--with-label)
 
 ```tsx
-() => {
-  const [checked, setChecked] = useState(false);
-  const onChange = () => setChecked((prevState) => !prevState);
-  return (
-    <div>
-      <Checkbox checked={checked} onChange={onChange} label="Check me 🌵" />
-    </div>
-  );
-};
+<Checkbox label="Check me 🌵" />
 ```
 
-[With JSX Label](/storybook/?path=/story/core-controls-checkbox--with-jsx-label)
-
-Code:
+## [With JSX Label](/storybook/?path=/story/core-controls-checkbox--with-jsx-label)
 
 ```tsx
-() => {
-  const [checked, setChecked] = useState(false);
-  const onChange = () => setChecked((prevState) => !prevState);
-  return (
-    <div>
-      <Checkbox checked={checked} onChange={onChange} label={<strong>Check me 🌵</strong>} />
-    </div>
-  );
-};
+<Checkbox label={<strong>Check me 🌵</strong>} />
 ```

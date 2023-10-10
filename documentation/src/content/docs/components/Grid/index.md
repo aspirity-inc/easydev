@@ -2,15 +2,49 @@
 title: Grid
 ---
 
-:::note
-will appear in the following versions
-:::
-
 Grid system uses a rows and columns for layout and align content. It’s built with flexbox for high flexibility.
 
-## How it works?
+The Grid can have the next props: direction, columns, columnSpacing, rowSpacing, wrap, justify, align, rowGap, columnGap. [See there](/storybook/?path=/docs/core-grid--docs) to get more information.
 
-- Create a series of columns that align with the row in a horizontal layout (shortened as col).
-- Place your content elements directly inside the col and only the col should be placed directly inside the row.
-- The range of the column grid system is represented by a value of 1-24.
-- Padding is added to items in order to create space between them.
+## [Default Grid](/storybook/?path=/story/core-grid--default-grid)
+
+```tsx
+<Row align="flex-end" columns={24} direction="row" justify="space-between" wrap="wrap">
+  <Col>
+    <ItemExample>example 1</ItemExample>
+  </Col>
+  <Col>
+    <ItemExample>example 2</ItemExample>
+  </Col>
+  <Col>
+    <ItemExample>example 3</ItemExample>
+  </Col>
+  <Col>
+    <ItemExample>example 4</ItemExample>
+  </Col>
+  <Col>
+    <ItemExample>example 5</ItemExample>
+  </Col>
+  <Col>
+    <ItemExample>example 6</ItemExample>
+  </Col>
+</Row>
+```
+
+## [Columns](/storybook/?path=/story/core-grid--columns)
+
+```tsx
+<Row columns={12} justify="space-between" rowGap={20} wrap="wrap">
+  <Col size={5}>
+    <ItemExample>example 1</ItemExample>
+  </Col>
+  <Col size={6}>
+    <ItemExample>example 2</ItemExample>
+  </Col>
+  <Col size={3}>
+    <ItemExample>example 3</ItemExample>
+  </Col>
+</Row>
+```
+
+The Col can have the next props: size, columns, alignContent, alignSelf, grow, shrink. [See there](/storybook/?path=/docs/core-grid-col--docs) to get more information.

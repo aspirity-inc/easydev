@@ -8,60 +8,33 @@ If you want the user to choose only one option from a list, use the radio button
 
 By default, the most commonly used option should be selected in radio buttons.
 
-The Radio has the next props: disabled, defaultChecked, color, label, checked, onChange. [See there](/storybook/?path=/docs/core-controls-radio--docs) to get more information.
+The Radio can have the next props: label, checked, onChange. [See there](/storybook/?path=/docs/core-controls-radio--docs) to get more information.
 
-[Default Radio](/storybook/?path=/story/core-controls-radio--default-radio)
-
-Code:
+## [Default Radio](/storybook/?path=/story/core-controls-radio--default-radio)
 
 ```tsx
-<Radio onChange={() => {}} />
+<Radio />
 ```
 
-[Controlled Radio](/storybook/?path=/story/core-controls-radio--controlled-radio)
-
-Code:
+## [Controlled Radio](/storybook/?path=/story/core-controls-radio--controlled-radio)
 
 ```tsx
-() => {
+const ControlledRadio = () => {
   const [checked, setChecked] = useState(false);
   const onChange = () => setChecked((prevState) => !prevState);
-  return (
-    <div>
-      <Radio checked={checked} onChange={onChange} />
-    </div>
-  );
+
+  return <Radio checked={checked} onChange={onChange} />;
 };
 ```
 
-[With Label](/storybook/?path=/story/core-controls-radio--with-label)
-
-Code:
+## [With Label](/storybook/?path=/story/core-controls-radio--with-label)
 
 ```tsx
-() => {
-  const [checked, setChecked] = useState(false);
-  const onChange = () => setChecked((prevState) => !prevState);
-  return (
-    <div>
-      <Radio checked={checked} onChange={onChange} label="Pick me 🌵" />
-    </div>
-  );
-};
+<Radio label="Pick me 🌵" />
 ```
 
-[With JSX Label](/storybook/?path=/story/core-controls-radio--with-jsx-label)
-
-Code:
+## [With JSX Label](/storybook/?path=/story/core-controls-radio--with-jsx-label)
 
 ```tsx
-() => {
-  const [checked, setChecked] = useState(false);
-  const onChange = () => setChecked((prevState) => !prevState);
-  return (
-    <div>
-      <Radio checked={checked} onChange={onChange} label={<strong>Pick me 🌵</strong>} />
-    </div>
-  );
-};
+<Radio label={<strong>Pick me 🌵</strong>} />
 ```

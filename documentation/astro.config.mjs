@@ -26,7 +26,87 @@ export default defineConfig({
         },
         {
           label: 'Components',
-          autogenerate: { directory: 'components' },
+          items: [
+            { label: 'Accordion', link: 'components/accordion/' },
+            { label: 'Avatar', link: 'components/avatar/' },
+            { label: 'Badge', link: 'components/badge/' },
+            { label: 'Box', link: 'components/box/' },
+            { label: 'Breadcrumbs', link: 'components/breadcrumbs/' },
+            { label: 'Button', link: 'components/button/' },
+            { label: 'Card', link: 'components/card/' },
+            { label: 'Center', link: 'components/center/' },
+            { label: 'Chip', link: 'components/chip/' },
+            {
+              label: 'Controls',
+              items: [
+                {
+                  label: 'Checkbox',
+                  link: 'components/controls/checkbox',
+                },
+                {
+                  label: 'Radio',
+                  link: 'components/controls/radio',
+                },
+                {
+                  label: 'Toggle',
+                  link: 'components/controls/toggle',
+                },
+              ],
+              collapsed: true,
+            },
+            { label: 'Datepicker', link: 'components/datepicker/' },
+            { label: 'Flex', link: 'components/flex/' },
+            { label: 'Grid', link: 'components/grid/' },
+            {
+              label: 'Inputs',
+              items: [
+                { label: 'Input', link: 'components/inputs/input' },
+                { label: 'CodeInput', link: 'components/inputs/code-input' },
+                { label: 'MaskedInput', link: 'components/inputs/masked-input' },
+                { label: 'Textarea', link: 'components/inputs/textarea' },
+              ],
+              collapsed: true,
+            },
+            {
+              label: 'Layout',
+              items: [
+                { label: 'Layout', link: 'components/layout/' },
+                { label: 'Header', link: 'components/layout/header' },
+                { label: 'Main', link: 'components/layout/main' },
+                { label: 'Sidebar', link: 'components/layout/sidebar' },
+                { label: 'Footer', link: 'components/layout/footer' },
+              ],
+              collapsed: true,
+            },
+            { label: 'Link', link: 'components/link/' },
+            { label: 'Modal', link: 'components/modal/' },
+            { label: 'Pagination', link: 'components/pagination/' },
+            { label: 'Popover', link: 'components/popover/' },
+            {
+              label: 'Progress',
+              items: [
+                { label: 'ProgressBar', link: 'components/progress/progress-bar' },
+                { label: 'RangeSlider', link: 'components/progress/range-slider' },
+                { label: 'Stepper', link: 'components/progress/stepper' },
+              ],
+              collapsed: true,
+            },
+            { label: 'Select', link: 'components/select/' },
+            { label: 'Space', link: 'components/space/' },
+            { label: 'Tab', link: 'components/tab/' },
+            { label: 'Table', link: 'components/table/' },
+            { label: 'Theme', link: 'components/theme/' },
+            { label: 'Toast', link: 'components/toast/' },
+            {
+              label: 'Typography',
+              items: [
+                { label: 'Text', link: 'components/typography/text' },
+                { label: 'Title', link: 'components/typography/title' },
+                { label: 'Subtitle', link: 'components/typography/subtitle' },
+              ],
+              collapsed: true,
+            },
+          ],
           collapsed: true,
         },
         {
