@@ -6,7 +6,9 @@ Grid system uses a rows and columns for layout and align content. It’s built w
 
 The Grid can have the next props: direction, columns, columnSpacing, rowSpacing, wrap, justify, align, rowGap, columnGap. [See there](/storybook/?path=/docs/core-grid--docs) to get more information.
 
-## [Default Grid](/storybook/?path=/story/core-grid--default-grid)
+## Grid variants
+
+### [Default Grid](/storybook/?path=/story/core-grid--default-grid)
 
 ```tsx
 <Row align="flex-end" columns={24} direction="row" justify="space-between" wrap="wrap">
@@ -31,7 +33,7 @@ The Grid can have the next props: direction, columns, columnSpacing, rowSpacing,
 </Row>
 ```
 
-## [Columns](/storybook/?path=/story/core-grid--columns)
+### [Columns](/storybook/?path=/story/core-grid--columns)
 
 ```tsx
 <Row columns={12} justify="space-between" rowGap={20} wrap="wrap">

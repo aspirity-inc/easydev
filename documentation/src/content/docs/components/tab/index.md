@@ -6,13 +6,15 @@ Tabs facilitate effortless exploration and transition between distinct perspecti
 
 The Tabs component can have the next props: title, onClick, active, disabled. [See there](/storybook/?path=/docs/core-tab--docs) to get more information.
 
-## [Default Tab](/storybook/?path=/story/core-tab--default-tab)
+## Tab variants
+
+### [Default Tab](/storybook/?path=/story/core-tab--default-tab)
 
 ```tsx
 <Tab title="Tab" />
 ```
 
-## [Default Tabs](/storybook/?path=/story/core-tab--default-tabs)
+### [Default Tabs](/storybook/?path=/story/core-tab--default-tabs)
 
 ```tsx
 const Tabs = () => {

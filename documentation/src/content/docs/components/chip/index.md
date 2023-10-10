@@ -8,13 +8,15 @@ While included here as a standalone component, the most common use will be in so
 
 The Chip can have the next props: label, variant, disabled, defaultChecked, className, style, onChange, chipContent, color, bgColor. [See there](/storybook/?path=/docs/core-chip--docs) to get more information.
 
-## [Default Chip](/storybook/?path=/story/core-chip--default-chip)
+## Chip variants
+
+### [Default Chip](/storybook/?path=/story/core-chip--default-chip)
 
 ```tsx
 <Chip label="Chip" />
 ```
 
-## [List Of Chips](/storybook/?path=/story/core-chip--list-of-chips)
+### [List Of Chips](/storybook/?path=/story/core-chip--list-of-chips)
 
 ```tsx
 <Space direction="row">
@@ -24,7 +26,7 @@ The Chip can have the next props: label, variant, disabled, defaultChecked, clas
 </Space>
 ```
 
-## [List Of Extra Content Chips](/storybook/?path=/story/core-chip--list-of-extra-content-chips)
+### [List Of Extra Content Chips](/storybook/?path=/story/core-chip--list-of-extra-content-chips)
 
 ```tsx
 <Space direction="row">

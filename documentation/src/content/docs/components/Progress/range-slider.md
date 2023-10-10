@@ -6,7 +6,9 @@ Range Slider is designed to select a value from a certain interval.
 
 The Range Slider can have the next props: tooltip, tooltipShown. [See there](/storybook/?path=/docs/core-progress-rangeslider--docs) to get more information.
 
-## [Range Slider](/storybook/?path=/story/core-progress-rangeslider--default-progress)
+## Range Slider variants
+
+### [Range Slider](/storybook/?path=/story/core-progress-rangeslider--default-progress)
 
 ```tsx
 const RangeSlider = () => {

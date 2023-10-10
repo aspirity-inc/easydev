@@ -5,7 +5,9 @@ title: Pagination
 The Pagination description.
 The Pagination can have the next props: children, open, onClose, portal, className, style. [See there](/storybook/?path=/docs/core-pagination--docs) to get more information.
 
-## [Pagination](/storybook/?path=/story/core-pagination--default-pagination)
+## Pagination variants
+
+### [Pagination](/storybook/?path=/story/core-pagination--default-pagination)
 
 ```tsx
 const Pagination = () => {

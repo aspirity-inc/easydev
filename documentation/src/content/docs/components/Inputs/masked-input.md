@@ -6,13 +6,15 @@ Masked Input allows the user to enter text in the desired format. You can use it
 
 The Masked Input can have the next props: label, error, warning, message, isLoading, icons, renderExtraMessage. [See there](/storybook/?path=/docs/core-inputs-maskedinput--docs) to get more information.
 
-## [Masked Default Input](/storybook/?path=/story/core-controls-controlwithlabel--default-control-with-label)
+## MaskedInput variants
+
+### [Masked Default Input](/storybook/?path=/story/core-controls-controlwithlabel--default-control-with-label)
 
 ```tsx
 <MaskedInput label="Phone number" mask="+7 (999) 999-99-99" />
 ```
 
-## [Masked Default Input Reg Exp](/storybook/?path=/story/core-inputs-maskedinput--masked-default-input-reg-exp)
+### [Masked Default Input Reg Exp](/storybook/?path=/story/core-inputs-maskedinput--masked-default-input-reg-exp)
 
 ```tsx
 <MaskedInput
@@ -22,7 +24,7 @@ The Masked Input can have the next props: label, error, warning, message, isLoad
 />
 ```
 
-## [Error Input](/storybook/?path=/story/core-inputs-maskedinput--error-input)
+### [Error Input](/storybook/?path=/story/core-inputs-maskedinput--error-input)
 
 ```tsx
 <MaskedInput error="There is no such number" label="Phone number" mask="+7 (999) 999-99-99" value="0123456789" />

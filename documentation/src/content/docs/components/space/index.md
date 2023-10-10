@@ -6,7 +6,9 @@ Space is a container in which the elements are located at the specified margins,
 
 The Space can have the next props: size, alignItems, justifyContent, direction. [See there](/storybook/?path=/docs/core-space--docs) to get more information.
 
-## [Default Space](/storybook/?path=/story/core-space--default-space)
+## Space variants
+
+### [Default Space](/storybook/?path=/story/core-space--default-space)
 
 ```tsx
 <Space>

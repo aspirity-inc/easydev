@@ -6,7 +6,9 @@ Select allows the user to select one or more options from the suggested list. It
 
 The Select can have the next props:rounded, selectedStatePlaceholder, clearButtonText, selectType. [See there](/storybook/?path=/docs/core-select--docs) to get more information.
 
-## [Default Select](/storybook/?path=/story/core-select--default-select)
+## Select variants
+
+### [Default Select](/storybook/?path=/story/core-select--default-select)
 
 ```tsx
 const options: OptionType[] = [
@@ -30,7 +32,7 @@ const DefaultSelect = () => {
 };
 ```
 
-## [Multiselect](/storybook/?path=/story/core-select--multiselect)
+### [Multiselect](/storybook/?path=/story/core-select--multiselect)
 
 ```tsx
 const options: OptionType[] = [
@@ -62,7 +64,7 @@ const Multiselect = () => {
 };
 ```
 
-## [Search](/storybook/?path=/story/core-select--search)
+### [Search](/storybook/?path=/story/core-select--search)
 
 ```tsx
 const Search = () => {
@@ -101,7 +103,7 @@ const Search = () => {
 };
 ```
 
-## [Autocomplete](/storybook/?path=/story/core-select--autocomplete)
+### [Autocomplete](/storybook/?path=/story/core-select--autocomplete)
 
 ```tsx
 const options: OptionType[] = [
@@ -125,7 +127,7 @@ const Autocomplete = () => {
 };
 ```
 
-## [User Icons Select](/storybook/?path=/story/core-select--user-icons-select)
+### [User Icons Select](/storybook/?path=/story/core-select--user-icons-select)
 
 ```tsx
 const UserIconsSelect = () => {

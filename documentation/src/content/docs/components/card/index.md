@@ -6,7 +6,9 @@ Card description.
 
 The Card component can have the next props: media, direction, variant, borderedMedia. [See there](/storybook/?path=/docs/core-card--docs) to get more information.
 
-## [Default Card](/storybook/?path=/story/core-card--default-card)
+## Card variants
+
+### [Default Card](/storybook/?path=/story/core-card--default-card)
 
 ```tsx
 const CardImage = () => (
@@ -49,7 +51,7 @@ const DefaultCard = () => {
 };
 ```
 
-## [No Image Card](/storybook/?path=/story/core-card--no-image-card)
+### [No Image Card](/storybook/?path=/story/core-card--no-image-card)
 
 ```tsx
 <div

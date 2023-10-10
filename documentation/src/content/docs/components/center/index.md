@@ -6,7 +6,9 @@ Center are a series of links that provide a visual representation of a page's po
 
 The Center component can have the next props: gap, inline. [See there](/storybook/?path=/docs/core-center--docs) to get more information.
 
-## [Default Center](/storybook/?path=/story/core-center--default-center)
+## Center variants
+
+### [Default Center](/storybook/?path=/story/core-center--default-center)
 
 ```tsx
 const Icon = () => <div className="material-symbols-rounded">check_circle_outline</div>;
@@ -21,7 +23,7 @@ const DefaultCenter = () => {
 };
 ```
 
-## [Inline Center](/storybook/?path=/story/core-center--inline-center)
+### [Inline Center](/storybook/?path=/story/core-center--inline-center)
 
 ```tsx
 const Icon = () => <div className="material-symbols-rounded">check_circle_outline</div>;

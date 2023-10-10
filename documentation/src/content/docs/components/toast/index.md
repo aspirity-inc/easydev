@@ -6,13 +6,15 @@ Toast is used to notify users. It serves as a means of updating users on an app'
 
 The Toast can have the next props: title, description, status, autoClose, onDelete, toastId, icon, colorful, statusBackground, closeBtnIcon, closeBtn, autoCloseDelay, className, position, style. [See there](/storybook/?path=/docs/core-toasts-toast--docs) to get more information.
 
-## [Default Toast](/storybook/?path=/story/core-toasts-toast--default-toast)
+## Toast variants
+
+### [Default Toast](/storybook/?path=/story/core-toasts-toast--default-toast)
 
 ```tsx
 <Toast description="Description text" onDelete={() => null} status="info" title="Notification" />
 ```
 
-## [List Of Colorful Toasts](/storybook/?path=/story/core-toasts-toast--list-of-colorful-toasts)
+### [List Of Colorful Toasts](/storybook/?path=/story/core-toasts-toast--list-of-colorful-toasts)
 
 ```tsx
 <Space direction="column">
@@ -28,7 +30,7 @@ You can set limit of toasts displayed on the page.
 
 The Toast Container can have the next props: limit. [See there](/storybook/?path=/docs/core-toasts-toastcontainer--docs) to get more information.
 
-## [Toast Container](/storybook/?path=/docs/core-toasts-toastcontainer--docs)
+### [Toast Container](/storybook/?path=/docs/core-toasts-toastcontainer--docs)
 
 ```tsx
 const ToastContainerElement = () => {

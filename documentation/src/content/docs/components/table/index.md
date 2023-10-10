@@ -6,7 +6,9 @@ Table description.
 
 The Table component can have the next props: striped, withRowBorder. [See there](/storybook/?path=/docs/core-table--docs) to get more information.
 
-## [Default Table](/storybook/?path=/story/core-table--default-table)
+## Table variants
+
+### [Default Table](/storybook/?path=/story/core-table--default-table)
 
 ```tsx
 type TableDataType = {
@@ -170,7 +172,7 @@ const DefaultTable = () => {
 };
 ```
 
-## [Table With Pagination](/storybook/?path=/story/core-table--table-with-pagination)
+### [Table With Pagination](/storybook/?path=/story/core-table--table-with-pagination)
 
 ```tsx
 type TableDataType = {

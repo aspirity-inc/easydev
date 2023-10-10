@@ -8,13 +8,15 @@ If you have a list of multiple options, checkboxes can be used instead of on/off
 
 The Checkbox can have the next props: label, checked, onChange. [See there](/storybook/?path=/docs/core-controls-checkbox--docs) to get more information.
 
-## [Default Checkbox](/storybook/?path=/story/core-controls-checkbox--default-checkbox)
+## Checkbox variants
+
+### [Default Checkbox](/storybook/?path=/story/core-controls-checkbox--default-checkbox)
 
 ```tsx
 <Checkbox />
 ```
 
-## [Controlled Checkbox](/storybook/?path=/story/core-controls-checkbox--controlled-checkbox)
+### [Controlled Checkbox](/storybook/?path=/story/core-controls-checkbox--controlled-checkbox)
 
 ```tsx
 const ControlledCheckbox = () => {
@@ -25,13 +27,13 @@ const ControlledCheckbox = () => {
 };
 ```
 
-## [With Label](/storybook/?path=/story/core-controls-checkbox--with-label)
+### [With Label](/storybook/?path=/story/core-controls-checkbox--with-label)
 
 ```tsx
 <Checkbox label="Check me 🌵" />
 ```
 
-## [With JSX Label](/storybook/?path=/story/core-controls-checkbox--with-jsx-label)
+### [With JSX Label](/storybook/?path=/story/core-controls-checkbox--with-jsx-label)
 
 ```tsx
 <Checkbox label={<strong>Check me 🌵</strong>} />

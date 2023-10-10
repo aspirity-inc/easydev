@@ -6,7 +6,9 @@ Datepicker based on react-datepicker library and uses to get the selected date. 
 
 The Datepicker have the next props: label. [See there](/storybook/?path=/docs/core-datepicker--docs) to get more information.
 
-## [Default Datepicker Range Two Inputs](/storybook/?path=/story/core-datepicker--default-datepicker-range-two-inputs)
+## Datepicker variants
+
+### [Default Datepicker Range Two Inputs](/storybook/?path=/story/core-datepicker--default-datepicker-range-two-inputs)
 
 ```tsx
 <div
@@ -19,7 +21,7 @@ The Datepicker have the next props: label. [See there](/storybook/?path=/docs/co
 </div>
 ```
 
-## [Default Datepicker Range](/storybook/?path=/story/core-datepicker--default-datepicker-range)
+### [Default Datepicker Range](/storybook/?path=/story/core-datepicker--default-datepicker-range)
 
 ```tsx
 <div
@@ -31,7 +33,7 @@ The Datepicker have the next props: label. [See there](/storybook/?path=/docs/co
 </div>
 ```
 
-## [Default Datepicker](/storybook/?path=/story/core-datepicker--default-datepicker)
+### [Default Datepicker](/storybook/?path=/story/core-datepicker--default-datepicker)
 
 ```tsx
 <div
@@ -43,13 +45,13 @@ The Datepicker have the next props: label. [See there](/storybook/?path=/docs/co
 </div>
 ```
 
-## [Disabled Datepicker](/storybook/?path=/story/core-datepicker--disabled-datepicker)
+### [Disabled Datepicker](/storybook/?path=/story/core-datepicker--disabled-datepicker)
 
 ```tsx
 <Datepicker disabled label="Birth date" value="24.12.1993" />
 ```
 
-## [Disabled Empty Datepicker](/storybook/?path=/story/core-datepicker--disabled-empty-datepicker)
+### [Disabled Empty Datepicker](/storybook/?path=/story/core-datepicker--disabled-empty-datepicker)
 
 ````tsx
 <Datepicker disabled label="Birth date" />

@@ -6,7 +6,9 @@ Layout is ready-made component that provides header, main, footer components for
 
 The Layout can have the next props: className, style, height. [See there](/storybook/?path=/docs/core-layout--docs) to get more information.
 
-## [Default Layout](/storybook/?path=/story/core-layout--default-layout)
+## Layout variants
+
+### [Default Layout](/storybook/?path=/story/core-layout--default-layout)
 
 ```tsx
 <Layout>
@@ -34,7 +36,7 @@ The Layout can have the next props: className, style, height. [See there](/story
 </Layout>
 ```
 
-## [Layout With Fixed Header](/storybook/?path=/story/core-layout--layout-with-fixed-header)
+### [Layout With Fixed Header](/storybook/?path=/story/core-layout--layout-with-fixed-header)
 
 ```tsx
 <Box

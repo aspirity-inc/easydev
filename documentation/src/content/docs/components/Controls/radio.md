@@ -10,13 +10,15 @@ By default, the most commonly used option should be selected in radio buttons.
 
 The Radio can have the next props: label, checked, onChange. [See there](/storybook/?path=/docs/core-controls-radio--docs) to get more information.
 
-## [Default Radio](/storybook/?path=/story/core-controls-radio--default-radio)
+## Radio variants
+
+### [Default Radio](/storybook/?path=/story/core-controls-radio--default-radio)
 
 ```tsx
 <Radio />
 ```
 
-## [Controlled Radio](/storybook/?path=/story/core-controls-radio--controlled-radio)
+### [Controlled Radio](/storybook/?path=/story/core-controls-radio--controlled-radio)
 
 ```tsx
 const ControlledRadio = () => {
@@ -27,13 +29,13 @@ const ControlledRadio = () => {
 };
 ```
 
-## [With Label](/storybook/?path=/story/core-controls-radio--with-label)
+### [With Label](/storybook/?path=/story/core-controls-radio--with-label)
 
 ```tsx
 <Radio label="Pick me 🌵" />
 ```
 
-## [With JSX Label](/storybook/?path=/story/core-controls-radio--with-jsx-label)
+### [With JSX Label](/storybook/?path=/story/core-controls-radio--with-jsx-label)
 
 ```tsx
 <Radio label={<strong>Pick me 🌵</strong>} />

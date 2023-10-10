@@ -6,7 +6,9 @@ Breadcrumbs are a series of links that provide a visual representation of a page
 
 The Breadcrumbs component can have the next props: separator. [See there](/storybook/?path=/docs/core-breadcrumbs--docs) to get more information.
 
-## [Default Breadcrumbs](/storybook/?path=/story/core-breadcrumbs--default-breadcrumbs)
+## Breadcrumbs variants
+
+### [Default Breadcrumbs](/storybook/?path=/story/core-breadcrumbs--default-breadcrumbs)
 
 ```tsx
 <Breadcrumbs
@@ -22,7 +24,7 @@ The Breadcrumbs component can have the next props: separator. [See there](/story
 />
 ```
 
-## [Breadcrumbs User Icon Separator](/storybook/?path=/story/core-breadcrumbs--breadcrumbs-user-icon-separator)
+### [Breadcrumbs User Icon Separator](/storybook/?path=/story/core-breadcrumbs--breadcrumbs-user-icon-separator)
 
 ```tsx
 <Breadcrumbs
@@ -39,7 +41,7 @@ The Breadcrumbs component can have the next props: separator. [See there](/story
 />
 ```
 
-## [Breadcrumbs User Item](/storybook/?path=/story/core-breadcrumbs--breadcrumbs-user-item)
+### [Breadcrumbs User Item](/storybook/?path=/story/core-breadcrumbs--breadcrumbs-user-item)
 
 If you want to customize an item or use your own component to display an item, you can use prop itemRender, which accepts a function with the following arguments: item, index, items.
 

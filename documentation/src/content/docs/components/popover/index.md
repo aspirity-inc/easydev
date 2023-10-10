@@ -6,7 +6,9 @@ Popover can be used to display some content on top of another.
 
 The Popover can have the next props: placement, title, body. [See there](/storybook/?path=/docs/core-popover--docs) to get more information.
 
-## [Default Popover](/storybook/?path=/story/core-popover--default-popover)
+## Popover variants
+
+### [Default Popover](/storybook/?path=/story/core-popover--default-popover)
 
 ```tsx
 <div
@@ -28,7 +30,7 @@ The Popover can have the next props: placement, title, body. [See there](/storyb
 </div>
 ```
 
-## [Default Popover No Title](/storybook/?path=/story/core-popover--default-popover-no-title)
+### [Default Popover No Title](/storybook/?path=/story/core-popover--default-popover-no-title)
 
 ```tsx
 <div

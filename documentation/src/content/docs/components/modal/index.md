@@ -5,7 +5,9 @@ title: Modal
 The Modal component provides a solid foundation for creating dialogs.
 The Modal can have the next props: children, open, onClose, portal, className, style. [See there](/storybook/?path=/docs/core-modal--docs) to get more information.
 
-## [No Portal Modal Window](/storybook/?path=/story/core-modal--no-portal-modal-window)
+## Modal variants
+
+### [No Portal Modal Window](/storybook/?path=/story/core-modal--no-portal-modal-window)
 
 ```tsx
 const NoPortalModalWindow = () => {
@@ -26,7 +28,7 @@ const NoPortalModalWindow = () => {
 };
 ```
 
-## [Portal Modal Window](/storybook/?path=/story/core-modal--portal-modal-window)
+### [Portal Modal Window](/storybook/?path=/story/core-modal--portal-modal-window)
 
 ```tsx
 const PortalModalWindow = () => {
@@ -56,7 +58,7 @@ const PortalModalWindow = () => {
 };
 ```
 
-## [No Portal Modal Window With Modal Elements](/storybook/?path=/story/core-modal--no-portal-modal-window-with-modal-elements)
+### [No Portal Modal Window With Modal Elements](/storybook/?path=/story/core-modal--no-portal-modal-window-with-modal-elements)
 
 ```tsx
 const NoPortalModalWindowWithModalElements = () => {

@@ -6,13 +6,15 @@ Progress Bar presents a filled line depending on the specified value from 0 to 1
 
 The Progress Bar can have the next props: customTitle, size, rounded. [See there](/storybook/?path=/docs/core-progress-progressbar--docs) to get more information.
 
-## [Default Progress Bar](/storybook/?path=/story/core-progress-progressbar--default)
+## Progress Bar variants
+
+### [Default Progress Bar](/storybook/?path=/story/core-progress-progressbar--default)
 
 ```tsx
 <ProgressBar value={25} />
 ```
 
-## [Custom Title](/storybook/?path=/story/core-progress-progressbar--custom-title)
+### [Custom Title](/storybook/?path=/story/core-progress-progressbar--custom-title)
 
 ```tsx
 const StyledProgressInfo = styled(Subtitle)`

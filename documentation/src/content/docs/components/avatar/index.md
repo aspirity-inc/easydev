@@ -6,25 +6,27 @@ Avatar description.
 
 The Avatar component can have the next props: online, radius, size. [See there](/storybook/?path=/docs/core-avatar--docs) to get more information.
 
-## [Default Avatar](/storybook/?path=/story/core-avatar--default-avatar)
+## Avatar variants
+
+#### [Default Avatar](/storybook/?path=/story/core-avatar--default-avatar)
 
 ```tsx
 <Avatar />
 ```
 
-## [Online Avatar](/storybook/?path=/story/core-avatar--online-avatar)
+#### [Online Avatar](/storybook/?path=/story/core-avatar--online-avatar)
 
 ```tsx
 <Avatar online />
 ```
 
-## [Offline Avatar](/storybook/?path=/story/core-avatar--offline-avatar)
+#### [Offline Avatar](/storybook/?path=/story/core-avatar--offline-avatar)
 
 ```tsx
 <Avatar online={false} />
 ```
 
-## [Image Avatar](/storybook/?path=/story/core-avatar--image-avatar)
+#### [Image Avatar](/storybook/?path=/story/core-avatar--image-avatar)
 
 ```tsx
 <Avatar
@@ -34,13 +36,13 @@ The Avatar component can have the next props: online, radius, size. [See there](
 />
 ```
 
-## [Letter Avatar](/storybook/?path=/story/core-avatar--letter-avatar)
+#### [Letter Avatar](/storybook/?path=/story/core-avatar--letter-avatar)
 
 ```tsx
 <Avatar online>AB</Avatar>
 ```
 
-## [Custom Icon Avatar](/storybook/?path=/story/core-avatar--custom-icon-avatar)
+#### [Custom Icon Avatar](/storybook/?path=/story/core-avatar--custom-icon-avatar)
 
 ```tsx
 <Avatar online>
