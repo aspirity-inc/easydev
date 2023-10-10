@@ -1,13 +1,17 @@
-import type { MutableRefObject, ReactNode } from 'react';
+import type { ElementType, MutableRefObject, ReactNode } from 'react';
 
 import type { BaseComponentType } from '@core/Box/types';
 
-export type MenuItemType = BaseComponentType & {
+export type MenuItemType = Omit<BaseComponentType, 'children'> & {
   label?: ReactNode;
   id: number;
   icon?: ReactNode;
   children?: MenuItemType[];
   type?: 'divider' | 'item';
+  as?: ElementType;
+  linkProps?: {
+    [propName: string]: any;
+  };
 };
 
 export type SidebarMenuProps = Omit<BaseComponentType, 'children'> & {
@@ -27,7 +31,7 @@ export type StyledMenuItemProps = {
   $active?: boolean;
   $collapsed: boolean;
   $hovered: boolean;
-  $opened: boolean;
+  $opened?: boolean;
 };
 
 export type SubMenuProps = MenuItemType & {

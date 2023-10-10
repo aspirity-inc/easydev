@@ -1,5 +1,3 @@
-import { Box } from '@core/Box';
-
 import { StyledMenuItem } from './styles';
 import { useMenuItemState } from '../../hooks/useMenuItemState';
 import { StyledIcon, StyledMenuItemContent } from '../../styles';
@@ -11,9 +9,11 @@ export const MenuItem = ({
   icon,
   activeId,
   collapsed,
-  href,
   hovered: controlledHovered,
   onChange,
+  href,
+  as: Component,
+  linkProps,
   ...props
 }: MenuItemProps) => {
   const { hovered, handleMouseMove, handleMouseLeave, showLabel } = useMenuItemState({
@@ -24,6 +24,8 @@ export const MenuItem = ({
   const handleClick = () => {
     onChange && onChange(id);
   };
+
+  const LinkComponent = Component || 'a';
 
   return (
     <StyledMenuItem
@@ -37,12 +39,12 @@ export const MenuItem = ({
       onMouseLeave={handleMouseLeave}
       {...props}
     >
-      <Box as="a" href={href}>
+      <LinkComponent href={href} {...linkProps}>
         <StyledMenuItemContent gap={8} wrap="nowrap">
           <StyledIcon onMouseMove={handleMouseMove}>{icon}</StyledIcon>
           {showLabel && props.label}
         </StyledMenuItemContent>
-      </Box>
+      </LinkComponent>
     </StyledMenuItem>
   );
 };

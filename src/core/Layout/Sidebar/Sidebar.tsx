@@ -23,7 +23,7 @@ export const Sidebar = ({
   };
 
   return (
-    <StyledSidebarWrapper>
+    <StyledSidebarWrapper className="easy_sidebar-container">
       <StyledSidebar
         className="easy_sidebar"
         as={as}
@@ -32,14 +32,14 @@ export const Sidebar = ({
         $maxWidth={maxWidth}
         {...props}
       >
-        <SidebarContent>
-          <SidebarMenu items={menu} collapsed={collapsed} />
+        <SidebarContent className="easy_sidebar-content">
+          <SidebarMenu className="easy_sidebar-menu" items={menu} collapsed={collapsed} />
           {children}
         </SidebarContent>
       </StyledSidebar>
       {!hideButton && (
         <ToggleBtn onClick={onToggle} $collapsed={collapsed}>
-          <div className="material-symbols-rounded">keyboard_arrow_left</div>
+          <span className="material-symbols-rounded">keyboard_arrow_left</span>
         </ToggleBtn>
       )}
     </StyledSidebarWrapper>

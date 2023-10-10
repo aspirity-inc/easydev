@@ -8,7 +8,7 @@ export const ChevronArrow = ({ show }: ChevronArrowProps) => {
   return (
     <AnimationWrapper>
       <StyledIcon>
-        <div className="material-symbols-outlined">keyboard_arrow_down</div>
+        <span className="material-symbols-outlined">keyboard_arrow_down</span>
       </StyledIcon>
     </AnimationWrapper>
   );
