@@ -11,7 +11,7 @@ export type AccordionValue = number | string;
 export type AccordionItemValue<Multiple extends boolean> = Multiple extends true ? AccordionValue[] : AccordionValue;
 
 export type AccrodionItemType = {
-  id: number;
+  id: number | string;
   icon?: ReactNode;
   title?: string;
   subtitle?: string;
@@ -29,6 +29,7 @@ export type AccordionProps<Multiple extends boolean = false> = Omit<BaseComponen
   multiple?: Multiple;
   value?: AccordionItemValue<Multiple>;
   onChange?: (value: AccordionItemValue<Multiple>) => void;
+  unstyledControl?: boolean;
 };
 
 export type AccordionControlProps = BaseComponentType & {
@@ -36,10 +37,10 @@ export type AccordionControlProps = BaseComponentType & {
   title?: string;
   subtitle?: string;
   opened: boolean;
-  variant: AccordionVariantsType;
+  variant?: AccordionVariantsType;
   openIcon?: ReactNode;
   closeIcon?: ReactNode;
-  showIcon?: boolean;
+  unstyled?: boolean;
 };
 
 export type StyledControlProps = {
@@ -49,8 +50,8 @@ export type StyledControlProps = {
 
 export type PanelProps = BaseComponentType & {
   opened: boolean;
-  variant: AccordionVariantsType;
-  duration: number;
+  variant?: AccordionVariantsType;
+  duration?: number;
 };
 
 export type AnimationPanelProps = {

@@ -15,6 +15,7 @@ export const Accordion = <Multiple extends boolean = false>({
   closeIcon,
   value,
   onChange,
+  unstyledControl = false,
   ...props
 }: AccordionProps<Multiple>) => {
   const defaultValue = (multiple ? [] : '') as AccordionItemValue<Multiple>;
@@ -69,6 +70,7 @@ export const Accordion = <Multiple extends boolean = false>({
               openIcon={openIcon}
               closeIcon={closeIcon}
               disabled={item.disabled}
+              unstyled={unstyledControl}
             >
               {item.control}
             </Control>
