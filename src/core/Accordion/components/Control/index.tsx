@@ -13,6 +13,7 @@ export const Control = ({
   children,
   openIcon,
   closeIcon,
+  showIcon = true,
   ...props
 }: AccordionControlProps) => {
   return (
@@ -27,7 +28,7 @@ export const Control = ({
             </Flex>
           </Flex>
         )}
-        <ChevronIcon closeIcon={closeIcon} openIcon={openIcon} opened={opened} />
+        {showIcon && <ChevronIcon closeIcon={closeIcon} openIcon={openIcon} opened={opened} />}
       </Flex>
     </StyledControl>
   );

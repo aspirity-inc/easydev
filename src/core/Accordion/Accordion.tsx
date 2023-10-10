@@ -1,13 +1,13 @@
-import { Children, type ReactNode, isValidElement, useState } from 'react';
+import { useUncontrolled } from '@hooks';
 
 import { Box } from '@core/Box';
 
-import { addPropsToChild } from '@helpers/addPropsToChild';
-import { checkChildrenType } from '@helpers/checkChildrenType';
-
+import { Control } from './components/Control';
+import { Panel } from './components/Panel';
 import type { AccordionItemValue, AccordionProps, AccordionValue } from './types';
 
 export const Accordion = <Multiple extends boolean = false>({
+  items,
   multiple = false as Multiple,
   variant = 'filled',
   duration = 400,
@@ -15,11 +15,14 @@ export const Accordion = <Multiple extends boolean = false>({
   closeIcon,
   value,
   onChange,
-  children,
   ...props
 }: AccordionProps<Multiple>) => {
-  const defaultOpenItem = (multiple ? [] : '') as AccordionItemValue<Multiple>;
-  const [openedItem, setOpenedItem] = useState<AccordionItemValue<Multiple>>(value || defaultOpenItem);
+  const defaultValue = (multiple ? [] : '') as AccordionItemValue<Multiple>;
+  const [openedItem, setOpenedItem] = useUncontrolled({
+    value,
+    defaultValue,
+    onChange,
+  });
 
   const getOpenedItemAsArray = (openedItem: AccordionValue[], value: AccordionValue) => {
     return (
@@ -33,7 +36,9 @@ export const Accordion = <Multiple extends boolean = false>({
     return (value === openedItem ? '' : value) as AccordionItemValue<Multiple>;
   };
 
-  const isOpenedItem = (value: AccordionValue) => {
+  const isOpenedItem = (value: AccordionValue, disabled?: boolean) => {
+    if (disabled) return false;
+
     return Array.isArray(openedItem) ? openedItem.includes(value) : value === openedItem;
   };
 
@@ -48,43 +53,31 @@ export const Accordion = <Multiple extends boolean = false>({
     };
   };
 
-  const pushPropsToControlAndPanel = (child: ReactNode, value: AccordionValue, disabled: boolean) => {
-    if (!isValidElement(child)) return null;
-
-    const opened = !disabled && isOpenedItem(value);
-
-    if (checkChildrenType(child, 'Control')) {
-      return addPropsToChild(child, {
-        onClick: handleClick(value),
-        opened,
-        variant,
-        openIcon,
-        closeIcon,
-        disabled,
-      });
-    }
-
-    if (checkChildrenType(child, 'Panel')) {
-      return addPropsToChild(child, { opened, variant, duration });
-    }
-  };
-
-  const childrenWithProps = Children.toArray(children).map((child, index) => {
-    if (!(isValidElement(child) && checkChildrenType(child, 'AccordionItem'))) return null;
-
-    const itemValue = child.props.itemId ?? String(index);
-    const isDisabled = child.props.disabled;
-
-    const accordionItemChildren = Children.toArray(child.props.children).map((child) =>
-      pushPropsToControlAndPanel(child, itemValue, isDisabled)
-    );
-
-    return addPropsToChild(child, { children: accordionItemChildren });
-  });
-
   return (
     <Box className="easy_accordion" {...props}>
-      {childrenWithProps}
+      {items.map((item) => {
+        const isOpened = isOpenedItem(item.id, item.disabled);
+        return (
+          <Box key={item.id} className="easy_accordion-item" {...props}>
+            <Control
+              title={item.title}
+              subtitle={item.subtitle}
+              icon={item.icon}
+              onClick={handleClick(item.id)}
+              opened={isOpened}
+              variant={variant}
+              openIcon={openIcon}
+              closeIcon={closeIcon}
+              disabled={item.disabled}
+            >
+              {item.control}
+            </Control>
+            <Panel opened={isOpened} variant={variant} duration={duration}>
+              {item.panel}
+            </Panel>
+          </Box>
+        );
+      })}
     </Box>
   );
 };
