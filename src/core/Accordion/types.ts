@@ -10,7 +10,7 @@ export type AccordionValue = number | string;
 
 export type AccordionItemValue<Multiple extends boolean> = Multiple extends true ? AccordionValue[] : AccordionValue;
 
-export type AccrodionItemType = {
+export type AccordionItemType = {
   id: number | string;
   icon?: ReactNode;
   title?: string;
@@ -21,7 +21,7 @@ export type AccrodionItemType = {
 };
 
 export type AccordionProps<Multiple extends boolean = false> = Omit<BaseComponentType, 'children'> & {
-  items: AccrodionItemType[];
+  items: AccordionItemType[];
   variant?: AccordionVariantsType;
   duration?: number;
   openIcon?: ReactNode;

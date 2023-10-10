@@ -1,9 +1,8 @@
-
 import { Badge } from '@core/Badge';
 import { Flex } from '@core/Flex';
 
 import { Accordion } from '.';
-import type { AccrodionItemType } from './types';
+import type { AccordionItemType } from './types';
 import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
@@ -24,7 +23,7 @@ const UserCloseIcon = () => {
   return <div className="material-symbols-outlined">do_not_disturb_on</div>;
 };
 
-const items: AccrodionItemType[] = [
+const items: AccordionItemType[] = [
   {
     id: 1,
     title: 'Title 1',
