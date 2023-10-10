@@ -6,12 +6,15 @@ import { menuPositions } from './constants';
 
 export type DropdownPosition = (typeof menuPositions)[number];
 
-export type DropdownProps = BaseComponentType & {
+export type DropdownProps = Omit<BaseComponentType, 'children'> & {
   open?: boolean;
   onChangeOpen?: (open: boolean) => void;
   disabled?: boolean;
   position?: DropdownPosition;
   trigger?: 'click' | 'hover';
+  targetTitle?: string;
+  target?: ReactNode;
+  content: ReactNode;
 };
 
 export type DropdownHookParams = {

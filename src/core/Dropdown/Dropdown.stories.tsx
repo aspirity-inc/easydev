@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
-
 import { Button } from '@core/Button';
 import { Flex } from '@core/Flex';
 
-import { Dropdown, Menu, MenuItem, Target, MenuLabel, MenuDivider } from '.';
+import { Dropdown, MenuItem, MenuLabel, MenuDivider } from '.';
 import type { Meta, StoryFn } from '@storybook/react';
 
 export default {
@@ -27,21 +26,26 @@ const TemplateDefault: StoryFn<typeof Dropdown> = ({ ...args }) => {
         height: '800px',
       }}
     >
-      <Dropdown {...args} open={open} onChangeOpen={setOpen}>
-        <Target title="Dropdown" />
-        <Menu>
-          <MenuLabel>First menu label</MenuLabel>
-          <MenuItem>Menu item</MenuItem>
-          <MenuItem>
-            <DefaultAvatarIcon />
-            <span>Menu item with icon</span>
-          </MenuItem>
+      <Dropdown
+        {...args}
+        open={open}
+        onChangeOpen={setOpen}
+        targetTitle="Dropdown"
+        content={
+          <>
+            <MenuLabel>First menu label</MenuLabel>
+            <MenuItem>Menu item</MenuItem>
+            <MenuItem>
+              <DefaultAvatarIcon />
+              <span>Menu item with icon</span>
+            </MenuItem>
 
-          <MenuDivider />
-          <MenuLabel>Second menu label</MenuLabel>
-          <MenuItem disabled>Menu item (disabled)</MenuItem>
-        </Menu>
-      </Dropdown>
+            <MenuDivider />
+            <MenuLabel>Second menu label</MenuLabel>
+            <MenuItem disabled>Menu item (disabled)</MenuItem>
+          </>
+        }
+      />
     </Flex>
   );
 };
@@ -59,23 +63,26 @@ const TemplateUserButtonDropdown: StoryFn<typeof Dropdown> = ({ ...args }) => {
         height: '400px',
       }}
     >
-      <Dropdown {...args} open={open} onChangeOpen={setOpen}>
-        <Target>
-          <Button>Dropdown</Button>
-        </Target>
-        <Menu>
-          <MenuLabel>First menu label</MenuLabel>
-          <MenuItem>Menu item</MenuItem>
-          <MenuItem>
-            <DefaultAvatarIcon />
-            <span>Menu item with icon</span>
-          </MenuItem>
+      <Dropdown
+        {...args}
+        open={open}
+        onChangeOpen={setOpen}
+        target={<Button>Dropdown</Button>}
+        content={
+          <>
+            <MenuLabel>First menu label</MenuLabel>
+            <MenuItem>Menu item</MenuItem>
+            <MenuItem>
+              <DefaultAvatarIcon />
+              <span>Menu item with icon</span>
+            </MenuItem>
 
-          <MenuDivider />
-          <MenuLabel>Second menu label</MenuLabel>
-          <MenuItem disabled>Menu item (disabled)</MenuItem>
-        </Menu>
-      </Dropdown>
+            <MenuDivider />
+            <MenuLabel>Second menu label</MenuLabel>
+            <MenuItem disabled>Menu item (disabled)</MenuItem>
+          </>
+        }
+      />
     </div>
   );
 };
@@ -88,23 +95,28 @@ const TemplateComplexDropdown: StoryFn<typeof Dropdown> = ({ ...args }) => {
 
   const innerMenu = () => {
     return (
-      <Dropdown position="right-top" trigger={args.trigger} style={{ width: '100%' }}>
-        <Target>
+      <Dropdown
+        position="right-top"
+        trigger={args.trigger}
+        style={{ width: '100%' }}
+        target={
           <MenuItem>
             <Flex justify="space-between" style={{ width: '100%' }}>
               <span>Second menu</span>
               <DefaultArrow />
             </Flex>
           </MenuItem>
-        </Target>
-        <Menu>
-          <MenuItem>Second menu item</MenuItem>
-          <MenuItem>
-            <DefaultAvatarIcon />
-            <span>Second menu item</span>
-          </MenuItem>
-        </Menu>
-      </Dropdown>
+        }
+        content={
+          <>
+            <MenuItem>Second menu item</MenuItem>
+            <MenuItem>
+              <DefaultAvatarIcon />
+              <span>Second menu item</span>
+            </MenuItem>
+          </>
+        }
+      />
     );
   };
 
@@ -115,18 +127,23 @@ const TemplateComplexDropdown: StoryFn<typeof Dropdown> = ({ ...args }) => {
         height: '400px',
       }}
     >
-      <Dropdown {...args} open={open} onChangeOpen={setOpen}>
-        <Target title="Dropdown" />
-        <Menu>
-          <MenuItem>Menu item</MenuItem>
-          {innerMenu()}
-          <MenuItem>
-            <DefaultAvatarIcon />
-            <span>Menu item with icon</span>
-          </MenuItem>
-          <MenuItem disabled>Menu item (disabled)</MenuItem>
-        </Menu>
-      </Dropdown>
+      <Dropdown
+        {...args}
+        open={open}
+        onChangeOpen={setOpen}
+        targetTitle="Dropdown"
+        content={
+          <>
+            <MenuItem>Menu item</MenuItem>
+            {innerMenu()}
+            <MenuItem>
+              <DefaultAvatarIcon />
+              <span>Menu item with icon</span>
+            </MenuItem>
+            <MenuItem disabled>Menu item (disabled)</MenuItem>
+          </>
+        }
+      />
     </div>
   );
 };
