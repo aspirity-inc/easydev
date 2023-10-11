@@ -55,6 +55,7 @@ export default defineConfig({
               collapsed: true,
             },
             { label: 'Datepicker', link: 'components/datepicker/' },
+            { label: 'Dropdown', link: 'components/dropdown/' },
             { label: 'Flex', link: 'components/flex/' },
             { label: 'Grid', link: 'components/grid/' },
             {
