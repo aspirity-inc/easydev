@@ -39,7 +39,7 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
   };
   const Component = selectComponent[selectType];
 
-  const placeholderText = () => ((value as MultiValue<Option>).length ? selectedStatePlaceholder : placeholder);
+  const placeholderText = () => ((value as MultiValue<Option>)?.length ? selectedStatePlaceholder : placeholder);
 
   const handleRemoveValue = (evt: MouseEvent<HTMLButtonElement>) => {
     if (!onChange) return;
@@ -88,14 +88,14 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
         {...props}
       />
 
-      {isMulti ? (
+      {isMulti && (
         <MultivalueSelectedOptions
           value={value as OptionType[]}
           clearButtonText={clearButtonText}
           handleClear={handleClear}
           handleRemoveValue={handleRemoveValue}
         />
-      ) : null}
+      )}
     </StyledSelectWrap>
   );
 };
