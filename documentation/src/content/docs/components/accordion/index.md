@@ -2,7 +2,7 @@
 title: Accordion
 ---
 
-The Accordion is used to show and hide sections of related content on a page.
+The Accordion uses to show and hide sections of related content on a page.
 
 The Accordion component can have the next props: items, variant, duration, openIcon, closeIcon, multiple, value, onChange, unstyledControl. [See there](/storybook/?path=/docs/core-accordion--docs) to get more information.
 

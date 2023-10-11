@@ -2,7 +2,7 @@
 title: Badge
 ---
 
-The Badge is used to display some additional information, such as status of an event, number of messages, etc.
+The Badge uses to display some additional information, such as status of an event, number of messages, etc.
 
 The Badge component can have the next props: color, textColor. [See there](/storybook/?path=/docs/core-badge--docs) to get more information.
 

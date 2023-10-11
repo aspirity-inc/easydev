@@ -2,7 +2,7 @@
 title: Avatar
 ---
 
-The Avatar is used to display a profile picture, initials, online/offline state.
+The Avatar uses to display a profile picture, initials, online/offline state.
 
 The Avatar component can have the next props: online, radius, size. [See there](/storybook/?path=/docs/core-avatar--docs) to get more information.
 

@@ -2,7 +2,7 @@
 title: Button
 ---
 
-The Button is used to user could to take actions, make choices with a single click. You can use either a regular text button or add an icon.
+The Button uses to user could to take actions, make choices with a single click. You can use either a regular text button or add an icon.
 
 The Button component can have the next props: icon, size, reversed, rounded, loading, loadingIcon, variant. [See there](/storybook/?path=/docs/core-button--docs) to get more information.
 
