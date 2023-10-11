@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { AnimationWrapper, StyledPanel } from './styles';
 import type { PanelProps } from '../../types';
 
-export const Panel = ({ children, opened = false, variant, duration, ...props }: PanelProps) => {
+export const Panel = ({ children, opened, variant = 'filled', duration = 400, ...props }: PanelProps) => {
   const [height, setHeight] = useState<number>(0);
   const panelRef = useRef<HTMLDivElement | null>(null);
 
