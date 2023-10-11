@@ -2,9 +2,9 @@
 title: Pagination
 ---
 
-The Pagination description.
+The Pagination allows to select a specific page from a range of pages.
 
-The Pagination can have the next props: children, open, onClose, portal, className, style. [See there](/storybook/?path=/docs/core-pagination--docs) to get more information.
+The Pagination can have the next props: total, page, onChange, icons, hidePages, withEdges, siblings. [See there](/storybook/?path=/docs/core-pagination--docs) to get more information.
 
 ## Pagination variants
 

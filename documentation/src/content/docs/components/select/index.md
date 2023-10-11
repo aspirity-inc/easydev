@@ -67,6 +67,18 @@ const Multiselect = () => {
 ### [Search](/storybook/?path=/story/core-select--search)
 
 ```tsx
+const options: OptionType[] = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
+  { value: 'chocolate1', label: 'Chocolate1' },
+  { value: 'strawberry1', label: 'Strawberry1' },
+  { value: 'vanilla1', label: 'Vanilla1' },
+  { value: 'chocolate2', label: 'Chocolate2' },
+  { value: 'strawberry2', label: 'Strawberry2', isDisabled: true },
+  { value: 'vanilla2', label: 'Vanilla2', isDisabled: true },
+];
+
 const Search = () => {
   const [value, setValue] = useState<OptionType[]>([]);
 
@@ -130,23 +142,23 @@ const Autocomplete = () => {
 ### [User Icons Select](/storybook/?path=/story/core-select--user-icons-select)
 
 ```tsx
+const options: OptionType[] = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
+  { value: 'chocolate1', label: 'Chocolate1' },
+  { value: 'strawberry1', label: 'Strawberry1' },
+  { value: 'vanilla1', label: 'Vanilla1' },
+  { value: 'chocolate2', label: 'Chocolate2' },
+  { value: 'strawberry2', label: 'Strawberry2', isDisabled: true },
+  { value: 'vanilla2', label: 'Vanilla2', isDisabled: true },
+];
+
+const ControlIcon = () => <div className="material-symbols-rounded">nutrition</div>;
+const ArrowDown = () => <div className="material-symbols-rounded">keyboard_arrow_down</div>;
+const SelectedIcon = () => <div className="material-symbols-rounded">priority</div>;
+
 const UserIconsSelect = () => {
-  const options: OptionType[] = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
-    { value: 'chocolate1', label: 'Chocolate1' },
-    { value: 'strawberry1', label: 'Strawberry1' },
-    { value: 'vanilla1', label: 'Vanilla1' },
-    { value: 'chocolate2', label: 'Chocolate2' },
-    { value: 'strawberry2', label: 'Strawberry2', isDisabled: true },
-    { value: 'vanilla2', label: 'Vanilla2', isDisabled: true },
-  ];
-
-  const ControlIcon = () => <div className="material-symbols-rounded">nutrition</div>;
-  const ArrowDown = () => <div className="material-symbols-rounded">keyboard_arrow_down</div>;
-  const SelectedIcon = () => <div className="material-symbols-rounded">priority</div>;
-
   return (
     <div style={{ height: '350px' }}>
       <Select

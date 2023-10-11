@@ -2,11 +2,9 @@
 title: Link
 ---
 
-The Link allows you to improve anchor elements.
+The Link is used for navigation.
 
-The Link is based on React and Styled Components. Example:
-
-The Link can have the next props: disabled, defaultUnderline, children. [See there](/storybook/?path=/docs/core-link--docs) to get more information.
+The Link can have the next props: disabled, defaultUnderline. [See there](/storybook/?path=/docs/core-link--docs) to get more information.
 
 ## Link variants
 
