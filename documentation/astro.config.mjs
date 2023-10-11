@@ -73,8 +73,8 @@ export default defineConfig({
               items: [
                 { label: 'Layout', link: 'components/layout/' },
                 { label: 'Header', link: 'components/layout/header' },
-                { label: 'Main', link: 'components/layout/main' },
                 { label: 'Sidebar', link: 'components/layout/sidebar' },
+                { label: 'Main', link: 'components/layout/main' },
                 { label: 'Footer', link: 'components/layout/footer' },
               ],
               collapsed: true,
