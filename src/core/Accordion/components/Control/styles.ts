@@ -24,6 +24,24 @@ export const StyledIcon = styled(Box)`
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['300'])};
 `;
 
+export const BaseStyledControl = styled('button')<StyledControlProps>`
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  font-family: inherit;
+  line-height: 1.2;
+
+  &:focus-visible:not([disabled]),
+  &:active:not([disabled]),
+  &:focus:not([disabled]) {
+    outline: none;
+  }
+`;
+
 export const StyledControl = styled('button')<StyledControlProps>`
   width: 100%;
   padding: 16px;

@@ -1,20 +1,29 @@
 import { Flex } from '@core/Flex';
 
-import { StyledControl, StyledTitle, StyledSubtitle, StyledIcon } from './styles';
+import { StyledControl, StyledTitle, StyledSubtitle, StyledIcon, BaseStyledControl } from './styles';
 import type { AccordionControlProps } from '../../types';
 import { ChevronIcon } from '../ChevronIcon';
 
 export const Control = ({
   opened,
-  variant,
+  variant = 'filled',
   icon,
   title,
   subtitle,
   children,
   openIcon,
   closeIcon,
+  unstyled = false,
   ...props
 }: AccordionControlProps) => {
+  if (unstyled && children) {
+    return (
+      <BaseStyledControl className="easy_accordion-control" {...props}>
+        {children}
+      </BaseStyledControl>
+    );
+  }
+
   return (
     <StyledControl className="easy_accordion-control" $opened={opened} $variant={variant} {...props}>
       <Flex gap={10} justify="space-between" wrap="nowrap">
