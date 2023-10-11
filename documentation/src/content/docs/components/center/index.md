@@ -2,7 +2,7 @@
 title: Center
 ---
 
-Center are a series of links that provide a visual representation of a page's position within a website's hierarchical structure, enabling users to navigate back to any of its ancestors.
+The Center are a series of links that provide a visual representation of a page's position within a website's hierarchical structure, enabling users to navigate back to any of its ancestors.
 
 The Center component can have the next props: gap, inline. [See there](/storybook/?path=/docs/core-center--docs) to get more information.
 

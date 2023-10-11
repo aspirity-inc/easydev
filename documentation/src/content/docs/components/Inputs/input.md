@@ -2,7 +2,7 @@
 title: Input
 ---
 
-Input is used to type text.
+The Input is used to type text.
 
 The Input wrapper component is a complete form control including a label, input, and help text.
 

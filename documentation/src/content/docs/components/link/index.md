@@ -2,9 +2,9 @@
 title: Link
 ---
 
-Link allows you to improve anchor elements.
+The Link allows you to improve anchor elements.
 
-Link is based on React and Styled Components. Example:
+The Link is based on React and Styled Components. Example:
 
 The Link can have the next props: disabled, defaultUnderline, children. [See there](/storybook/?path=/docs/core-link--docs) to get more information.
 

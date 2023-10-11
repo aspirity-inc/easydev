@@ -2,7 +2,7 @@
 title: Stepper
 ---
 
-Stepper displays progress through a sequence of logical and numbered steps.
+The Stepper displays progress through a sequence of logical and numbered steps.
 
 The Stepper can have the next props: count, currentStep, numeric. [See there](/storybook/?path=/docs/core-progress-stepper--docs) to get more information.
 

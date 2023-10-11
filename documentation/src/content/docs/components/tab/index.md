@@ -2,7 +2,7 @@
 title: Tab
 ---
 
-Tabs facilitate effortless exploration and transition between distinct perspectives. They structure and permit movement between clusters of content that are associated and situated at an equivalent level of hierarchy.
+The Tabs facilitate effortless exploration and transition between distinct perspectives. They structure and permit movement between clusters of content that are associated and situated at an equivalent level of hierarchy.
 
 The Tabs component can have the next props: title, onClick, active, disabled. [See there](/storybook/?path=/docs/core-tab--docs) to get more information.
 

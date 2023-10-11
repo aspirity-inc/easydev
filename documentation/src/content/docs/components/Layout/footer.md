@@ -2,7 +2,7 @@
 title: Footer
 ---
 
-Footer is a part of Layout component.
+The Footer is a part of Layout component.
 
 The Footer can have the next props: height, backgroundColor. Here you can add contact information, social networks, etc...
 

@@ -2,7 +2,7 @@
 title: Table
 ---
 
-Table description.
+The Table  display sets of data. You can customize it as you want.
 
 The Table component can have the next props: striped, withRowBorder. [See there](/storybook/?path=/docs/core-table--docs) to get more information.
 

@@ -2,9 +2,9 @@
 title: Badge
 ---
 
-Badge description.
+The Badge is used to display some additional information, such as status of an event, number of messages, etc.
 
-The Avatar component can have the next props: color, textColor. [See there](/storybook/?path=/docs/core-badge--docs) to get more information.
+The Badge component can have the next props: color, textColor. [See there](/storybook/?path=/docs/core-badge--docs) to get more information.
 
 ## Badge variants
 

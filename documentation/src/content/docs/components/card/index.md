@@ -2,7 +2,7 @@
 title: Card
 ---
 
-Card description.
+The Card is used to place some content with any elements.
 
 The Card component can have the next props: media, direction, variant, borderedMedia. [See there](/storybook/?path=/docs/core-card--docs) to get more information.
 

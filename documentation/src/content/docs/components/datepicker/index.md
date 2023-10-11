@@ -2,7 +2,7 @@
 title: Datepicker
 ---
 
-Datepicker based on react-datepicker library and uses to get the selected date. [See there](https://github.com/Hacker0x01/react-datepicker/blob/main/docs/datepicker.md) to get more info about datepicker props.
+The Datepicker based on react-datepicker library and uses to get the selected date. [See there](https://github.com/Hacker0x01/react-datepicker/blob/main/docs/datepicker.md) to get more info about datepicker props.
 
 The Datepicker have the next props: label. [See there](/storybook/?path=/docs/core-datepicker--docs) to get more information.
 

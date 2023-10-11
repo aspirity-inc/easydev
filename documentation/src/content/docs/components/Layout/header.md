@@ -2,7 +2,7 @@
 title: Header
 ---
 
-Header is a part of Layout component.
+The Header is a part of Layout component.
 
 The Header can have the next props: fix, height, backgroundColor. Here you can add navigation, avatar, etc...
 

@@ -2,7 +2,7 @@
 title: Popover
 ---
 
-Popover can be used to display some content on top of another.
+The Popover can be used to display some content on top of another.
 
 The Popover can have the next props: placement, title, body. [See there](/storybook/?path=/docs/core-popover--docs) to get more information.
 

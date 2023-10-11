@@ -2,7 +2,7 @@
 title: Main
 ---
 
-Main is a part of Layout component. Here you can add your main content.
+The Main is a part of Layout component. Here you can add your main content.
 
 ```tsx
 <Main

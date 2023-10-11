@@ -2,7 +2,7 @@
 title: Layout
 ---
 
-Layout is ready-made component that provides header, main, footer components for uniformity, in other words, in order for all pages to be similar.
+The Layout is ready-made component that provides header, main, footer components for uniformity, in other words, in order for all pages to be similar.
 
 The Layout can have the next props: className, style, height. [See there](/storybook/?path=/docs/core-layout--docs) to get more information.
 

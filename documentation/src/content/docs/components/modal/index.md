@@ -3,6 +3,7 @@ title: Modal
 ---
 
 The Modal component provides a solid foundation for creating dialogs.
+
 The Modal can have the next props: children, open, onClose, portal, className, style. [See there](/storybook/?path=/docs/core-modal--docs) to get more information.
 
 ## Modal variants

@@ -2,7 +2,7 @@
 title: Code Input
 ---
 
-Code Input allows the user to type code to confirm email/phone form.
+The Code Input allows an user to type code to confirm email/phone form.
 
 The Code Input can have the next props: length, error, value. [See there](/storybook/?path=/docs/core-inputs-codeinput--docs) to get more information.
 

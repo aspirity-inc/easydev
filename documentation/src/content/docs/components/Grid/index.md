@@ -2,7 +2,7 @@
 title: Grid
 ---
 
-Grid system uses a rows and columns for layout and align content. It’s built with flexbox for high flexibility.
+The Grid system uses a rows and columns for layout and align content. It’s built with flexbox for high flexibility.
 
 The Grid can have the next props: direction, columns, columnSpacing, rowSpacing, wrap, justify, align, rowGap, columnGap. [See there](/storybook/?path=/docs/core-grid--docs) to get more information.
 

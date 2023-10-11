@@ -2,7 +2,7 @@
 title: Range Slider
 ---
 
-Range Slider is designed to select a value from a certain interval.
+The Range Slider is designed to select a value from a certain interval.
 
 The Range Slider can have the next props: tooltip, tooltipShown. [See there](/storybook/?path=/docs/core-progress-rangeslider--docs) to get more information.
 

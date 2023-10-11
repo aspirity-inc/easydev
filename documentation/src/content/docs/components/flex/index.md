@@ -2,7 +2,7 @@
 title: Flex
 ---
 
-Flex uses a rows or columns for layout and align content.
+The Flex uses a rows or columns for layout and align content.
 
 The Flex can have the next props: direction, align, justify, wrap, gap, rowGap, columnGap, inline. [See there](/storybook/?path=/docs/core-flex--docs) to get more information.
 
