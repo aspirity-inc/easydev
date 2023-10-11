@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-interface UseUncontrolledParams<T> {
+type UseUncontrolledParams<T> = {
   value?: T;
   defaultValue: T;
   onChange?: (value: T) => void;
-}
+};
 
 export function useUncontrolled<T>({
   value,
