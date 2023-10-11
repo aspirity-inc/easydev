@@ -1,15 +1,13 @@
-import { AnimationWrapper } from './styles';
+import { ChevronAnimationWrapper } from './styles';
 import { StyledIcon } from '../../styles';
 import type { ChevronArrowProps } from '../../types';
 
-export const ChevronArrow = ({ show }: ChevronArrowProps) => {
-  if (!show) return null;
-
+export const ChevronArrow = ({ opened }: ChevronArrowProps) => {
   return (
-    <AnimationWrapper>
+    <ChevronAnimationWrapper $opened={opened}>
       <StyledIcon>
         <span className="material-symbols-outlined">keyboard_arrow_down</span>
       </StyledIcon>
-    </AnimationWrapper>
+    </ChevronAnimationWrapper>
   );
 };

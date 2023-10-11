@@ -19,7 +19,9 @@ export const StyledIcon = styled(Box)`
   }
 `;
 
-export const StyledMenuItemContent = styled(Flex)``;
+export const StyledMenuItemContent = styled(Flex)`
+  width: 100%;
+`;
 
 export const defaultHoverStyles = css`
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['100'])};
@@ -48,7 +50,17 @@ export const getCommonMenuItemStyles = ($disabled: boolean, $collapsed: boolean,
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['200'])};
     white-space: nowrap;
     transition: background-color var(--transition), color var(--transition);
-    cursor: pointer;
+
+    ${$collapsed &&
+    $hovered &&
+    css`
+      cursor: pointer;
+    `}
+
+    ${!$collapsed &&
+    css`
+      cursor: pointer;
+    `}
 
     ${!$collapsed
       ? css`
@@ -66,7 +78,7 @@ export const getCommonMenuItemStyles = ($disabled: boolean, $collapsed: boolean,
           }
         `}
 
-    ${$disabled &&
+      ${$disabled &&
     css`
       cursor: default;
       color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['500'])};
@@ -74,6 +86,23 @@ export const getCommonMenuItemStyles = ($disabled: boolean, $collapsed: boolean,
       & ${StyledIcon} {
         color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['500'])};
       }
-    `}
+    `};
   `;
 };
+
+export const StyledLabel = styled(Box)`
+  --transition: ${({ theme }) => theme.transition.default};
+  transition: transform var(--transition) ease, opacity var(--transition) ease;
+  transform-origin: left;
+
+  ${({ $collapsedAnimation }) =>
+    $collapsedAnimation
+      ? css`
+          transform: scale(0);
+          opacity: 0;
+        `
+      : css`
+          transform: scale(1);
+          opacity: 1;
+        `}
+`;

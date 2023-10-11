@@ -1,6 +1,6 @@
 import { StyledMenuItem } from './styles';
 import { useMenuItemState } from '../../hooks/useMenuItemState';
-import { StyledIcon, StyledMenuItemContent } from '../../styles';
+import { StyledIcon, StyledLabel, StyledMenuItemContent } from '../../styles';
 import type { MenuItemProps } from '../../types';
 
 export const MenuItem = ({
@@ -12,20 +12,24 @@ export const MenuItem = ({
   hovered: controlledHovered,
   onChange,
   href,
-  as: Component,
+  as: LinkComponent = 'a',
   linkProps,
   ...props
 }: MenuItemProps) => {
-  const { hovered, handleMouseMove, handleMouseLeave, showLabel } = useMenuItemState({
+  const {
+    hovered,
+    handleMouseMove,
+    handleMouseLeave,
+    handleClickItem,
+    handleClickIcon,
+    showLabel,
+    collapsedAnimation,
+  } = useMenuItemState({
     collapsed,
     hovered: controlledHovered,
+    onChange,
+    id,
   });
-
-  const handleClick = () => {
-    onChange && onChange(id);
-  };
-
-  const LinkComponent = Component || 'a';
 
   return (
     <StyledMenuItem
@@ -33,16 +37,20 @@ export const MenuItem = ({
       className="easy_dropdown-menu-item"
       $disabled={disabled}
       $collapsed={collapsed}
-      $hovered={hovered}
+      $hovered={hovered || controlledHovered}
       $active={activeId === id}
-      onClick={handleClick}
+      onClick={handleClickItem}
       onMouseLeave={handleMouseLeave}
       {...props}
     >
       <LinkComponent href={href} {...linkProps}>
         <StyledMenuItemContent gap={8} wrap="nowrap">
-          <StyledIcon onMouseMove={handleMouseMove}>{icon}</StyledIcon>
-          {showLabel && props.label}
+          {icon && (
+            <StyledIcon onMouseMove={handleMouseMove} onClick={handleClickIcon}>
+              {icon}
+            </StyledIcon>
+          )}
+          {showLabel && <StyledLabel $collapsedAnimation={collapsedAnimation}>{props.label}</StyledLabel>}
         </StyledMenuItemContent>
       </LinkComponent>
     </StyledMenuItem>

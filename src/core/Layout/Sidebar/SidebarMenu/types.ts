@@ -1,4 +1,4 @@
-import type { ElementType, MutableRefObject, ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 
 import type { BaseComponentType } from '@core/Box/types';
 
@@ -31,7 +31,7 @@ export type StyledMenuItemProps = {
   $active?: boolean;
   $collapsed: boolean;
   $hovered: boolean;
-  $opened?: boolean;
+  $collapsedAnimation?: boolean;
 };
 
 export type SubMenuProps = MenuItemType & {
@@ -39,27 +39,24 @@ export type SubMenuProps = MenuItemType & {
   collapsed: boolean;
 };
 
-export type SubMenuListProps = BaseComponentType & {
-  opened: boolean;
-  height: number;
-  collapsed: boolean;
-  hovered: boolean;
-  menuChildren: MenuItemType[];
-  panelRef: MutableRefObject<HTMLDivElement | null>;
-  activeId: number;
-};
-
 export type MenuDividerProps = Omit<BaseComponentType, 'children'>;
 
 export type ChevronArrowProps = {
-  show: boolean;
+  opened: boolean;
+};
+
+export type StyledChevronArrowProps = {
+  $opened: boolean;
 };
 
 export type MenuItemStateHookParams = {
   collapsed: boolean;
   hovered: boolean;
+  id: number | string;
+  onChange?: (id: number | string) => void;
 };
 
-export type SubMenuStateHookParams = {
+export type MenuAccordionStateHookParams = {
   collapsed: boolean;
+  id: number | string;
 };

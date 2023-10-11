@@ -23,7 +23,7 @@ export const Sidebar = ({
   };
 
   return (
-    <StyledSidebarWrapper className="easy_sidebar-container">
+    <StyledSidebarWrapper className="easy_sidebar-wrapper">
       <StyledSidebar
         className="easy_sidebar"
         as={as}

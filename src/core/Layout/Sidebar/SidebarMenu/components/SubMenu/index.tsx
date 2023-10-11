@@ -1,54 +1,86 @@
-import { StyledSubMenuItem, StyledBox } from './styles';
-import { useSubMenuState } from '../../hooks/useSubMenuState';
-import { StyledIcon, StyledMenuItemContent } from '../../styles';
-import type { SubMenuProps } from '../../types';
+import { useId } from 'react';
+
+import { AccordionItemType } from '@core/Accordion';
+import { Box } from '@core/Box';
+
+import { StyledBox, StyledAccordion, StyledControl, CollapsedChevronWrapper } from './styles';
+import { useMenuAccordionState } from '../../hooks/useMenuAccordionState';
+import { StyledIcon, StyledLabel, StyledMenuItemContent } from '../../styles';
+import type { MenuItemType, SubMenuProps } from '../../types';
 import { ChevronArrow } from '../ChevronArrow';
-import { SubMenuList } from '../SubMenuList';
+import { MenuItem } from '../MenuItem';
 
 export const SubMenu = ({ children, disabled, icon, activeId, collapsed, onChange, ...props }: SubMenuProps) => {
+  const id = useId();
   const {
     hovered,
     opened,
-    toggleOpen,
-    height,
-    panelRef,
+    onChange: onChangeValue,
     delayCollapsed,
     handleMouseMove,
     handleMouseLeave,
     showLabel,
-  } = useSubMenuState({
+    collapsedAnimation,
+  } = useMenuAccordionState({
+    id,
     collapsed,
   });
 
+  const createAccordion = () => {
+    const accordion: AccordionItemType = {
+      id,
+      control: (
+        <StyledControl
+          $disabled={disabled}
+          $opened={opened ? true : false}
+          $collapsed={collapsed}
+          $hovered={hovered}
+          $collapsedAnimation={collapsedAnimation}
+        >
+          <StyledMenuItemContent gap={8} wrap="nowrap">
+            <StyledIcon onMouseMove={handleMouseMove}>{icon}</StyledIcon>
+            {showLabel && (
+              <>
+                <StyledLabel>{props.label}</StyledLabel>
+                <CollapsedChevronWrapper>
+                  <ChevronArrow opened={opened ? true : false} />
+                </CollapsedChevronWrapper>
+              </>
+            )}
+          </StyledMenuItemContent>
+        </StyledControl>
+      ),
+      panel: (
+        <Box as="ul">
+          {children?.map((item: MenuItemType) => {
+            return (
+              <MenuItem
+                key={item.id}
+                {...item}
+                collapsed={collapsed}
+                hovered={hovered}
+                activeId={activeId}
+                onChange={onChange}
+              />
+            );
+          })}
+        </Box>
+      ),
+    };
+    return [accordion];
+  };
+
   return (
     <StyledBox as="li" className="easy_dropdown-menu-item" onMouseLeave={handleMouseLeave}>
-      <StyledSubMenuItem
-        $disabled={disabled}
-        $opened={opened}
-        $collapsed={collapsed}
+      <StyledAccordion
+        items={createAccordion()}
+        value={opened}
+        onChange={onChangeValue}
+        unstyledControl={true}
+        $opened={opened ? true : false}
+        $collapsed={delayCollapsed}
         $hovered={hovered}
-        onClick={toggleOpen}
-        {...props}
-      >
-        <StyledMenuItemContent gap={8} wrap="nowrap">
-          <StyledIcon onMouseMove={handleMouseMove}>{icon}</StyledIcon>
-          {showLabel && props.label}
-        </StyledMenuItemContent>
-
-        <ChevronArrow show={showLabel} />
-      </StyledSubMenuItem>
-      {children && (
-        <SubMenuList
-          opened={opened}
-          height={height}
-          collapsed={delayCollapsed}
-          hovered={hovered}
-          menuChildren={children}
-          panelRef={panelRef}
-          activeId={activeId || -1}
-          onChange={onChange}
-        />
-      )}
+      ></StyledAccordion>
     </StyledBox>
   );
 };
