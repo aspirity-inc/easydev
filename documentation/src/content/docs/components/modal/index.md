@@ -62,17 +62,17 @@ const PortalModalWindow = () => {
 ### [No Portal Modal Window With Modal Elements](/storybook/?path=/story/core-modal--no-portal-modal-window-with-modal-elements)
 
 ```tsx
+const ModalImage = (
+  <div className="material-symbols-rounded" style={{ fontSize: '100px' }}>
+    rocket_launch
+  </div>
+);
+
 const NoPortalModalWindowWithModalElements = () => {
   const [open, setOpen] = useState(false);
 
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
-
-  const ModalImage = (
-    <div className="material-symbols-rounded" style={{ fontSize: '100px' }}>
-      rocket_launch
-    </div>
-  );
 
   return (
     <div style={{ height: '450px' }}>
