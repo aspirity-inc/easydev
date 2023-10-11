@@ -13,8 +13,8 @@ const StyledDiv = styled.div`
   transform: scale(1.3);
 `;
 
-const GlobalComponent: FC<Omit<ThemeProviderType, 'children'>> = ({ enableVendorPrefixes }) => (
-  <EasydevProvider enableVendorPrefixes={enableVendorPrefixes}>
+const GlobalComponent: FC<Omit<ThemeProviderType, 'children'>> = (props) => (
+  <EasydevProvider {...props}>
     <StyledDiv>test</StyledDiv>
   </EasydevProvider>
 );
