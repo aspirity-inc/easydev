@@ -53,7 +53,6 @@ The Datepicker have the next props: label. [See there](/storybook/?path=/docs/co
 
 ### [Disabled Empty Datepicker](/storybook/?path=/story/core-datepicker--disabled-empty-datepicker)
 
-````tsx
+```tsx
 <Datepicker disabled label="Birth date" />
-``` -->
-````
+```
