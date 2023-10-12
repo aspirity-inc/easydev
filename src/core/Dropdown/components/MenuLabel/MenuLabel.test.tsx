@@ -5,7 +5,7 @@ import { EasydevProvider } from '@core/Theme';
 
 import { MenuLabel } from '.';
 
-test('withIcon open', () => {
+test('default MenuLabel', () => {
   const menuLabelText = 'Menu Label Text';
 	
   render(
