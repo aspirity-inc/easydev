@@ -9,8 +9,8 @@ import type { AccordionItemValue, AccordionProps, AccordionValue } from './types
 export const Accordion = <Multiple extends boolean = false>({
   items,
   multiple = false as Multiple,
-  variant = 'filled',
-  duration = 400,
+  variant,
+  duration,
   openIcon,
   closeIcon,
   value,
