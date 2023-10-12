@@ -57,6 +57,7 @@ export const SubMenu = ({ children, disabled, icon, activeId, collapsed, onChang
               <MenuItem
                 key={item.id}
                 {...item}
+                isSubmenuItem={true}
                 collapsed={collapsed}
                 hovered={hovered}
                 activeId={activeId}

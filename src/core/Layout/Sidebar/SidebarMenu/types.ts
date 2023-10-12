@@ -1,4 +1,4 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import type { BaseComponentType } from '@core/Box/types';
 
@@ -8,10 +8,6 @@ export type MenuItemType = Omit<BaseComponentType, 'children'> & {
   icon?: ReactNode;
   children?: MenuItemType[];
   type?: 'divider' | 'item';
-  as?: ElementType;
-  linkProps?: {
-    [propName: string]: any;
-  };
 };
 
 export type SidebarMenuProps = Omit<BaseComponentType, 'children'> & {
@@ -24,6 +20,7 @@ export type SidebarMenuProps = Omit<BaseComponentType, 'children'> & {
 export type MenuItemProps = MenuItemType & {
   active?: boolean;
   collapsed: boolean;
+  isSubmenuItem?: boolean;
 };
 
 export type StyledMenuItemProps = {

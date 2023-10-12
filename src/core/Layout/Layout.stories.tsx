@@ -20,6 +20,46 @@ const mainStyle = {
   border: `1px solid ${lightPalette.secondary[500]}`,
 };
 
+const Template: StoryFn<typeof Layout> = ({ ...args }) => {
+  return (
+    <Layout {...args}>
+      <Header style={headerStyle}>
+        <Center>Header</Center>
+      </Header>
+      <Main style={mainStyle}>
+        <Center>Main</Center>
+      </Main>
+      <Footer style={footerStyle}>
+        <Center>Footer</Center>
+      </Footer>
+    </Layout>
+  );
+};
+
+export const DefaultLayout: StoryFn<typeof Layout> = Template.bind({});
+DefaultLayout.args = {};
+
+const TemplateWithFixedHeader = ({ ...args }) => {
+  return (
+    <Box style={{ height: '200px' }}>
+      <Layout {...args}>
+        <Header style={headerStyle} fixed>
+          <Center>Header</Center>
+        </Header>
+        <Main style={{ minHeight: 300, ...mainStyle }}>
+          <Center>Main</Center>
+        </Main>
+        <Footer style={footerStyle}>
+          <Center>Footer</Center>
+        </Footer>
+      </Layout>
+    </Box>
+  );
+};
+
+export const LayoutWithFixedHeader: StoryFn<typeof Layout> = TemplateWithFixedHeader.bind({});
+LayoutWithFixedHeader.args = {};
+
 const menuItems: MenuItemType[] = [
   {
     id: 0,
@@ -60,6 +100,10 @@ const menuItems: MenuItemType[] = [
     icon: <div className="material-symbols-outlined">store</div>,
     label: 'Marketing',
   },
+  {
+    id: 9,
+    label: 'Sales',
+  },
 ];
 
 const TemplateWithSidebar = ({ ...args }) => {
@@ -81,43 +125,3 @@ const TemplateWithSidebar = ({ ...args }) => {
 
 export const LayoutWithSidebar: StoryFn<typeof Layout> = TemplateWithSidebar.bind({});
 LayoutWithSidebar.args = {};
-
-const Template: StoryFn<typeof Layout> = ({ ...args }) => {
-  return (
-    <Layout {...args}>
-      <Header style={headerStyle}>
-        <Center>Header</Center>
-      </Header>
-      <Main style={mainStyle}>
-        <Center>Main</Center>
-      </Main>
-      <Footer style={footerStyle}>
-        <Center>Footer</Center>
-      </Footer>
-    </Layout>
-  );
-};
-
-export const DefaultLayout: StoryFn<typeof Layout> = Template.bind({});
-DefaultLayout.args = {};
-
-const TemplateWithFixedHeader = ({ ...args }) => {
-  return (
-    <Box style={{ height: '200px' }}>
-      <Layout {...args}>
-        <Header style={headerStyle} fixed>
-          <Center>Header</Center>
-        </Header>
-        <Main style={{ minHeight: 300, ...mainStyle }}>
-          <Center>Main</Center>
-        </Main>
-        <Footer style={footerStyle}>
-          <Center>Footer</Center>
-        </Footer>
-      </Layout>
-    </Box>
-  );
-};
-
-export const LayoutWithFixedHeader: StoryFn<typeof Layout> = TemplateWithFixedHeader.bind({});
-LayoutWithFixedHeader.args = {};

@@ -11,9 +11,7 @@ export const MenuItem = ({
   collapsed,
   hovered: controlledHovered,
   onChange,
-  href,
-  as: LinkComponent = 'a',
-  linkProps,
+  isSubmenuItem = false,
   ...props
 }: MenuItemProps) => {
   const {
@@ -31,6 +29,8 @@ export const MenuItem = ({
     id,
   });
 
+  const defaultMenuIcon = <span className="material-symbols-outlined">category</span>;
+
   return (
     <StyledMenuItem
       as="li"
@@ -43,16 +43,14 @@ export const MenuItem = ({
       onMouseLeave={handleMouseLeave}
       {...props}
     >
-      <LinkComponent href={href} {...linkProps}>
-        <StyledMenuItemContent gap={8} wrap="nowrap">
-          {icon && (
-            <StyledIcon onMouseMove={handleMouseMove} onClick={handleClickIcon}>
-              {icon}
-            </StyledIcon>
-          )}
-          {showLabel && <StyledLabel $collapsedAnimation={collapsedAnimation}>{props.label}</StyledLabel>}
-        </StyledMenuItemContent>
-      </LinkComponent>
+      <StyledMenuItemContent gap={8} wrap="nowrap">
+        {!isSubmenuItem && (
+          <StyledIcon onMouseMove={handleMouseMove} onClick={handleClickIcon}>
+            {icon || defaultMenuIcon}
+          </StyledIcon>
+        )}
+        {showLabel && <StyledLabel $collapsedAnimation={collapsedAnimation}>{props.label}</StyledLabel>}
+      </StyledMenuItemContent>
     </StyledMenuItem>
   );
 };

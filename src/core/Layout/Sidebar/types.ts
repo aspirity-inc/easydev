@@ -2,6 +2,7 @@ import type { MenuItemType } from './SidebarMenu';
 import type { BaseLayoutProps } from '../types';
 
 export type SidebarProps = BaseLayoutProps & {
+  isStatic?: boolean;
   minWidth?: number;
   maxWidth?: number;
   hideButton?: boolean;

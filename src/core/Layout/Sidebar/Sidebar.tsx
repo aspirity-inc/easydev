@@ -5,6 +5,7 @@ import { StyledSidebar, ToggleBtn, StyledSidebarWrapper, SidebarContent } from '
 import type { SidebarProps } from './types';
 
 export const Sidebar = ({
+  isStatic = false,
   children,
   as = 'aside',
   hideButton = false,
@@ -18,6 +19,8 @@ export const Sidebar = ({
   const [collapsed, setCollapsed] = useState(controledCollapsed || false);
 
   const onToggle = () => {
+    if (isStatic) return;
+
     setCollapsed(!collapsed);
     onCollapsed && onCollapsed(!collapsed);
   };
@@ -37,7 +40,7 @@ export const Sidebar = ({
           {children}
         </SidebarContent>
       </StyledSidebar>
-      {!hideButton && (
+      {!isStatic && !hideButton && (
         <ToggleBtn onClick={onToggle} $collapsed={collapsed}>
           <span className="material-symbols-rounded">keyboard_arrow_left</span>
         </ToggleBtn>
