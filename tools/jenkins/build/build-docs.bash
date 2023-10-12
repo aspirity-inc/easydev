@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DOCKER_IMAGE_APP=$1
+DOCKER_IMAGE_DOCS=$1
 VERSION=$2
 : ${DOCKER_IMAGE_DOCS:?Provide DOCKER_IMAGE_DOCS as the 1st param}
 : ${VERSION:?Provide VERSION as the 2ndparam}
