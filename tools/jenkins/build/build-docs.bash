@@ -11,7 +11,7 @@ SCRIPT_DIRECTORY="$(dirname "$FULL_PATH_TO_SCRIPT")"
 DOCKERFILE_PATH="${SCRIPT_DIRECTORY}/DockerFileDocs"
 
 echo "$DOCKERFILE_PATH"
-echo "$DOCKER_IMAGE_APP"
+echo "$DOCKER_IMAGE_DOCS"
 echo "$VERSION"
 
 docker buildx build --file ${DOCKERFILE_PATH} --tag ${DOCKER_IMAGE_DOCS?} --progress=plain --build-arg VERSION=${VERSION} --target production-documentation .
