@@ -139,7 +139,7 @@ test('maxWidth onCollapsed', async () => {
   expect(mockFn).toBeCalledTimes(1);
 });
 
-test('hideButton', async () => {
+test('hideButton', () => {
   const { container } = render(
     <EasydevProvider>
       <Layout>
