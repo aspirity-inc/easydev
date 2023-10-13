@@ -8,7 +8,7 @@ import { useMenuAccordionState } from '../../hooks/useMenuAccordionState';
 import { StyledIcon, StyledLabel, StyledMenuItemContent } from '../../styles';
 import type { MenuItemType, SubMenuProps } from '../../types';
 import { ChevronArrow } from '../ChevronArrow';
-import { MenuItem } from '../MenuItem';
+import { SidebarMenuItem } from '../SidebarMenuItem';
 
 export const SubMenu = ({ children, disabled, icon, activeId, collapsed, onChange, ...props }: SubMenuProps) => {
   const id = useId();
@@ -54,7 +54,7 @@ export const SubMenu = ({ children, disabled, icon, activeId, collapsed, onChang
         <Box as="ul">
           {children?.map((item: MenuItemType) => {
             return (
-              <MenuItem
+              <SidebarMenuItem
                 key={item.id}
                 {...item}
                 isSubmenuItem={true}

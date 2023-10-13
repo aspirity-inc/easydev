@@ -18,13 +18,13 @@ export type SidebarMenuProps = Omit<BaseComponentType, 'children'> & {
   minWidth: number;
 };
 
-export type MenuItemProps = MenuItemType & {
+export type SidebarMenuItemProps = MenuItemType & {
   active?: boolean;
   collapsed: boolean;
   isSubmenuItem?: boolean;
 };
 
-export type StyledMenuItemProps = {
+export type StyledSidebarMenuItemProps = {
   $disabled?: boolean;
   $active?: boolean;
   $collapsed: boolean;
@@ -37,7 +37,7 @@ export type SubMenuProps = MenuItemType & {
   collapsed: boolean;
 };
 
-export type MenuDividerProps = Omit<BaseComponentType, 'children'> & { $collapsed: boolean; $minWidth: number };
+export type SidebarMenuDividerProps = Omit<BaseComponentType, 'children'> & { $collapsed: boolean; $minWidth: number };
 
 export type ChevronArrowProps = {
   opened: boolean;
