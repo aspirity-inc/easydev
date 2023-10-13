@@ -11,6 +11,7 @@ export const SidebarMenu = ({
   collapsed = false,
   activeId: controlledActiveId,
   onChange,
+  minWidth,
   ...props
 }: SidebarMenuProps) => {
   const [activeId, setActiveId] = useState(controlledActiveId || -1);
@@ -26,7 +27,7 @@ export const SidebarMenu = ({
     <StyledMenu as="ul" className="easy_dropdown-menu" {...props}>
       {items.map((item: MenuItemType) => {
         if (item.type === 'divider') {
-          return <MenuDivider key={item.id} />;
+          return <MenuDivider key={item.id} $collapsed={collapsed} $minWidth={minWidth} />;
         } else {
           const props = {
             key: item.id,

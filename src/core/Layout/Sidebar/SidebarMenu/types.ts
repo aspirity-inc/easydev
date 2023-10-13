@@ -15,6 +15,7 @@ export type SidebarMenuProps = Omit<BaseComponentType, 'children'> & {
   collapsed?: boolean;
   activeId?: number;
   onChange?: (id: number) => void;
+  minWidth: number;
 };
 
 export type MenuItemProps = MenuItemType & {
@@ -36,7 +37,7 @@ export type SubMenuProps = MenuItemType & {
   collapsed: boolean;
 };
 
-export type MenuDividerProps = Omit<BaseComponentType, 'children'>;
+export type MenuDividerProps = Omit<BaseComponentType, 'children'> & { $collapsed: boolean; $minWidth: number };
 
 export type ChevronArrowProps = {
   opened: boolean;
@@ -56,4 +57,9 @@ export type MenuItemStateHookParams = {
 export type MenuAccordionStateHookParams = {
   collapsed: boolean;
   id: number | string;
+};
+
+export type StyledMenuDividerProps = {
+  $collapsed: boolean;
+  $minWidth: number;
 };

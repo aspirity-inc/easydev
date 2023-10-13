@@ -77,6 +77,10 @@ const menuItems: MenuItemType[] = [
     label: 'Favourites',
   },
   {
+    id: 3,
+    type: 'divider',
+  },
+  {
     id: 4,
     icon: <div className="material-symbols-outlined">rocket_launch</div>,
     label: 'UI Elements',
@@ -99,10 +103,6 @@ const menuItems: MenuItemType[] = [
     id: 8,
     icon: <div className="material-symbols-outlined">store</div>,
     label: 'Marketing',
-  },
-  {
-    id: 9,
-    label: 'Sales',
   },
 ];
 
