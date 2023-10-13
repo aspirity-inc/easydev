@@ -25,6 +25,10 @@ const menuItems: MenuItemType[] = [
     icon: <div className="material-symbols-outlined">shopping_cart</div>,
     label: 'E-commerce',
   },
+	{
+    id: 3,
+    type: 'divider',
+  },
   {
     id: 2,
     icon: <div className="material-symbols-outlined">diamond</div>,

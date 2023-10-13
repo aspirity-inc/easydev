@@ -104,6 +104,10 @@ const menuItems: MenuItemType[] = [
     icon: <div className="material-symbols-outlined">store</div>,
     label: 'Marketing',
   },
+  {
+    id: 9,
+    label: 'Sales',
+  },
 ];
 
 const TemplateWithSidebar = ({ ...args }) => {
