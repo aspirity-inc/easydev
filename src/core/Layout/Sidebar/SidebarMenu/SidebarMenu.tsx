@@ -27,9 +27,7 @@ export const SidebarMenu = ({
     <StyledMenu as="ul" className="easy_dropdown-menu" {...props}>
       {items.map((item: MenuItemType) => {
         if (item.type === 'divider') {
-
           return <SidebarMenuDivider key={item.id} $collapsed={collapsed} $minWidth={minWidth} />;
-
         } else {
           const props = {
             key: item.id,

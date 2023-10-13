@@ -11,7 +11,9 @@ export const StyledMenuDivider = styled(Box)<StyledMenuDividerProps>`
   ${({ $collapsed, $minWidth }) =>
     $collapsed &&
     css`
-      width: calc(${$minWidth}px - (8px * 2)); // minWidth - width of collapsed easy_sidebar, 8px * 2  - paddings of easy_sidebar-content
+      width: calc(
+        ${$minWidth}px - (8px * 2)
+      ); // minWidth - width of collapsed easy_sidebar, 8px * 2  - paddings of easy_sidebar-content
     `}
 
   border-bottom: 1px solid
