@@ -17,13 +17,13 @@ export type SidebarMenuProps = Omit<BaseComponentType, 'children'> & {
   onChange?: (id: number) => void;
 };
 
-export type MenuItemProps = MenuItemType & {
+export type SidebarMenuItemProps = MenuItemType & {
   active?: boolean;
   collapsed: boolean;
   isSubmenuItem?: boolean;
 };
 
-export type StyledMenuItemProps = {
+export type StyledSidebarMenuItemProps = {
   $disabled?: boolean;
   $active?: boolean;
   $collapsed: boolean;
@@ -36,7 +36,7 @@ export type SubMenuProps = MenuItemType & {
   collapsed: boolean;
 };
 
-export type MenuDividerProps = Omit<BaseComponentType, 'children'>;
+export type SidebarMenuDividerProps = Omit<BaseComponentType, 'children'>;
 
 export type ChevronArrowProps = {
   opened: boolean;

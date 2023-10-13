@@ -1,9 +1,9 @@
 import { StyledMenuItem } from './styles';
 import { useMenuItemState } from '../../hooks/useMenuItemState';
 import { StyledIcon, StyledLabel, StyledMenuItemContent } from '../../styles';
-import type { MenuItemProps } from '../../types';
+import type { SidebarMenuItemProps } from '../../types';
 
-export const MenuItem = ({
+export const SidebarMenuItem = ({
   id,
   disabled,
   icon,
@@ -13,7 +13,7 @@ export const MenuItem = ({
   onChange,
   isSubmenuItem = false,
   ...props
-}: MenuItemProps) => {
+}: SidebarMenuItemProps) => {
   const {
     hovered,
     handleMouseMove,

@@ -5,14 +5,13 @@ import { AnimationWrapper } from '@core/Accordion/components/Panel/styles';
 import { Box } from '@core/Box';
 
 import { StyledLabel, defaultHoverStyles, getCommonMenuItemStyles } from '../../styles';
-import type { StyledMenuItemProps } from '../../types';
-
+import type { StyledSidebarMenuItemProps } from '../../types';
 
 export const StyledBox = styled(Box)`
   position: relative;
 `;
 
-export const StyledControl = styled(Box)<StyledMenuItemProps>`
+export const StyledControl = styled(Box)<StyledSidebarMenuItemProps>`
   cursor: default;
   &:hover:not([disabled]) {
     background-color: transparent;
