@@ -3,9 +3,9 @@ import { css, styled } from 'styled-components';
 import { Box } from '@core/Box';
 
 import { StyledIcon, getCommonMenuItemStyles } from '../../styles';
-import type { StyledMenuItemProps } from '../../types';
+import type { StyledSidebarMenuItemProps } from '../../types';
 
-export const StyledMenuItem = styled(Box)<StyledMenuItemProps>`
+export const StyledMenuItem = styled(Box)<StyledSidebarMenuItemProps>`
   ${({ $disabled, $collapsed, $hovered }) =>
     getCommonMenuItemStyles($disabled || false, $collapsed || false, $hovered || false)};
 

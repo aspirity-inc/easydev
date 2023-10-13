@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { MenuDivider } from './components/MenuDivider';
-import { MenuItem } from './components/MenuItem';
+import { SidebarMenuDivider } from './components/SidebarMenuDivider';
+import { SidebarMenuItem } from './components/SidebarMenuItem';
 import { SubMenu } from './components/SubMenu';
 import { StyledMenu } from './styles';
 import type { MenuItemType, SidebarMenuProps } from './types';
@@ -26,7 +26,7 @@ export const SidebarMenu = ({
     <StyledMenu as="ul" className="easy_dropdown-menu" {...props}>
       {items.map((item: MenuItemType) => {
         if (item.type === 'divider') {
-          return <MenuDivider key={item.id} />;
+          return <SidebarMenuDivider key={item.id} />;
         } else {
           const props = {
             key: item.id,
@@ -38,7 +38,7 @@ export const SidebarMenu = ({
           if (item.children) {
             return <SubMenu {...props} />;
           } else {
-            return <MenuItem {...props} />;
+            return <SidebarMenuItem {...props} />;
           }
         }
       })}
