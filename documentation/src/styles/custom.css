@@ -75,9 +75,3 @@ h2 a {
 .content .palette p {
   margin: 0;
 }
-
-@media screen and (min-width: 50rem) {
-  .stagger:where(.astro-ZNTQMYDN) > *:nth-child(2n) {
-    transform: none;
-  }
-}
