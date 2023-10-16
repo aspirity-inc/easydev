@@ -2,17 +2,24 @@ import type { ReactNode, MouseEvent } from 'react';
 
 import type { BaseComponentType } from '@core/Box/types';
 
+import { arrowTypes } from './constants';
 import type { KeenSliderHooks, KeenSliderInstance, KeenSliderOptions } from 'keen-slider';
+
+export type CarouselArrowTypes = (typeof arrowTypes)[number];
 
 export type CarouselProps = BaseComponentType & {
   items: ReactNode[];
   arrows?: boolean;
-  arrowsType?: 'center' | 'withDots' | 'onTop';
+  arrowsType?: CarouselArrowTypes;
   dots?: boolean;
   thumbnails?: boolean;
   height?: number;
   keenSliderProps?: KeenSliderOptions;
   thumbnailsProps?: KeenSliderOptions;
+};
+
+export type StyledCarouselProps = {
+  $height?: number;
 };
 
 export type ThumbnailsProps = BaseComponentType & {
@@ -21,7 +28,7 @@ export type ThumbnailsProps = BaseComponentType & {
 };
 
 export type ArrowProps = BaseComponentType & {
-  type?: 'center' | 'withDots' | 'onTop';
+  type?: CarouselArrowTypes;
   left?: boolean;
   onClick: (e: MouseEvent) => void;
 };
@@ -53,7 +60,7 @@ export type DotsProps = BaseComponentType & {
 export type ArrowsProps = BaseComponentType & {
   currentSlide: number;
   instanceRef: React.MutableRefObject<KeenSliderInstance<object, object, KeenSliderHooks> | null>;
-  type?: 'center' | 'withDots' | 'onTop';
+  type?: CarouselArrowTypes;
   loop?:
     | boolean
     | {

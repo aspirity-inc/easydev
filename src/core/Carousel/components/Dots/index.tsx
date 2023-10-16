@@ -25,38 +25,24 @@ export const Dots = ({ currentSlide, withArrows, instanceRef, ...props }: DotsPr
     return length;
   };
 
+  const handleClickArrow =
+    (isLeftArrow = false) =>
+    (e: MouseEvent) => {
+      e.stopPropagation();
+      isLeftArrow ? instanceRef.current?.prev() : instanceRef.current?.next();
+    };
+
+  const handleClickDot = (index: number) => {
+    instanceRef.current?.moveToIdx(index);
+  };
+
   return (
     <StyledDots className="easy_carousel-dots" gap={8} {...props}>
-      {withArrows && (
-        <Arrow
-          left
-          type="withDots"
-          onClick={(e: MouseEvent) => {
-            e.stopPropagation();
-            instanceRef.current?.prev();
-          }}
-        />
-      )}
+      {withArrows && <Arrow left type="withDots" onClick={handleClickArrow(true)} />}
       {[...Array(getLength()).keys()].map((idx) => {
-        return (
-          <Dot
-            key={idx}
-            onClick={() => {
-              instanceRef.current?.moveToIdx(idx);
-            }}
-            active={currentSlide === idx}
-          />
-        );
+        return <Dot key={idx} onClick={() => handleClickDot(idx)} active={currentSlide === idx} />;
       })}
-      {withArrows && (
-        <Arrow
-          type="withDots"
-          onClick={(e: MouseEvent) => {
-            e.stopPropagation();
-            instanceRef.current?.next();
-          }}
-        />
-      )}
+      {withArrows && <Arrow type="withDots" onClick={handleClickArrow()} />}
     </StyledDots>
   );
 };

@@ -2,12 +2,14 @@ import { styled } from 'styled-components';
 
 import { Box } from '@core/Box';
 
+import type { StyledCarouselProps } from './types';
+
 export const CarouselInnerWrapper = styled(Box)`
   width: 100%;
   position: relative;
 `;
 
-export const StyledCarousel = styled(Box)<{ $height?: number }>`
+export const StyledCarousel = styled(Box)<StyledCarouselProps>`
   border-radius: 8px;
   height: ${({ $height }) => ($height ? `${$height}px` : 'auto')};
 `;

@@ -41,29 +41,18 @@ export const Arrows = ({ currentSlide, instanceRef, type, loop, ...props }: Arro
     return true;
   };
 
+  const handleClickArrow =
+    (isLeftArrow = false) =>
+    (e: MouseEvent) => {
+      e.stopPropagation();
+      isLeftArrow ? instanceRef.current?.prev() : instanceRef.current?.next();
+    };
+
   return (
     <StyledArrows className="easy_carousel-arrows" $type={type} {...props}>
-      {!isDisabledLeft() && (
-        <Arrow
-          left
-          onClick={(e: MouseEvent) => {
-            e.stopPropagation();
-            instanceRef.current?.prev();
-          }}
-          type={type}
-        />
-      )}
+      {!isDisabledLeft() && <Arrow left onClick={handleClickArrow(true)} type={type} />}
 
-      {!isDisabledRight() && (
-        <Arrow
-          onClick={(e: MouseEvent) => {
-            e.stopPropagation();
-            instanceRef.current?.next();
-          }}
-          disabled={isDisabledRight()}
-          type={type}
-        />
-      )}
+      {!isDisabledRight() && <Arrow onClick={handleClickArrow()} disabled={isDisabledRight()} type={type} />}
     </StyledArrows>
   );
 };
