@@ -1,37 +1,51 @@
 ---
 title: Easydev
 template: splash
-hero:
-  tagline: EasyDev is a library of React UI components based on styled-components made by the Aspirity team. Leveraging best practices gleaned from diverse projects, we've architected this library for code elegance and user-friendly integration. Although it is still in its pre-alpha stage, this version has a kit of core components that can effectively cover your development requirements.
-  image:
-    file: ../../assets/easydev-logo.svg
-  actions:
-    - text: Storybook
-      link: /storybook
-      variant: primary
-    - text: Read documentation
-      link: getting-started/introduction/
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import Layout from '../../layout/layout.astro';
 
-## Next steps
+import logo from '../../assets/easydev-logo.svg';
+import { Image } from 'astro:assets';
 
-<CardGrid>
-  <Card title="Installation" icon="rocket">
-    [Install](getting-started/installation/) EasyDev now.
-  </Card>
-  <Card title="Components" icon="puzzle">
-    See [examples](components/controls/checkbox/) of using template components.
-  </Card>
-  <Card title="Change color theme" icon="pencil">
-    EasyDev uses styled-components to create styles so that you can easily [manage your project's colors and other style
-    things](theming).
-  </Card>
-  <Card title="Read the docs" icon="document">
-    Learn more in [ Docs](getting-started/introduction).
-  </Card>
-</CardGrid>
+<Layout>
+  <main>
+    <div class="easy-container">
+      <div class="easy-container__content">
+        <div>
+          <h2>Easydev</h2>
+          <p>
+            EasyDev is a library of React UI components based on styled-components made by the Aspirity team. Leveraging
+            best practices gleaned from diverse projects, we've architected this library for code elegance and
+            user-friendly integration. Although it is still in its pre-alpha stage, this version has a kit of core
+            components that can effectively cover your development requirements.
+          </p>
+        </div>
+        <div class="buttons-container">
+          <a href="/storybook">
+            <button class="primary">Storybook</button>
+          </a>
+          <a href="/getting-started/introduction/">
+            <button>Read documentation</button>
+          </a>
+        </div>
+      </div>
+      <div class="easy-container__image">
+        <Image src={logo} alt="logo" />
+      </div>
+    </div>
+  </main>
+<h2>Toggle Switch</h2>
+<div class="toggle-theme-container">
+  <span>light</span>
+  <label class="switch">
+    <input type="checkbox" id="toggle-theme" />
+    <span class="slider round"></span>
+  </label>
+  <span>dark</span>
+</div>
+
+</Layout>
 
 <article class="about">
   <small>Brought to you by</small>

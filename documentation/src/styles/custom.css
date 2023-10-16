@@ -12,12 +12,19 @@ h2 a {
 :root,
 ::backdrop {
   --sl-color-text-accent: #6fe7c4;
+  --bg-color-btn-accent: #93edd4;
+  --color-primary-button-text-accent: #272729;
+  --color-button-text-accent: #cecccf;
+  --border-color-button: #cecccf;
 }
 
 /* light mode */
 :root[data-theme='light'],
 [data-theme='light'] ::backdrop {
   --sl-color-text-accent: #244153;
+  --color-primary-button-text-accent: #ffffff;
+  --color-button-text-accent: #272729;
+  --border-color-button: #524c58;
 }
 
 .aspirity-logo {
