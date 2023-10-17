@@ -1,0 +1,30 @@
+import { Image } from 'astro:assets';
+
+import lightTableLeft from '../assets/examples/light/table-left.png';
+import darkTableLeft from '../assets/examples/dark/table-left.png';
+import lightTableRight from '../assets/examples/light/table-right.png';
+import darkTableRight from '../assets/examples/dark/table-right.png';
+
+
+
+import Examples from './Examples.astro'
+
+<Examples>
+<div class="example-wrapper table-left">
+		<div class="dark">
+			<Image src={darkTableLeft} alt="dark-table" />
+		</div>
+		<div class="light">
+			<Image src={lightTableLeft} alt="light-table" />
+		</div>
+</div>
+
+<div class="example-wrapper table-right">
+		<div class="dark">
+			<Image src={darkTableRight} alt="dark-table" />
+		</div>
+		<div class="light">
+			<Image src={lightTableRight} alt="light-table" />
+		</div>
+</div>
+</Examples>

@@ -1,0 +1,54 @@
+<div class="examples-component">
+	<slot />
+</div>
+
+
+
+<style is:global>
+html[data-theme='light'] .example-wrapper > .dark {
+	display: none;
+}
+
+html[data-theme='dark'] .example-wrapper > .light {
+	display: none;
+}
+
+.examples-component {
+	min-height: 1164px;
+	position: relative;
+	width: 100vw!important;
+
+	margin-left: calc((100vw - 1080px) / -2);
+}
+@media screen and (max-width: 1080px) {
+	.examples-component {
+		margin-left: auto;
+  }
+}
+
+.example-wrapper {
+	position: absolute;
+}
+
+.table-left {
+	top: calc(100vh * 0.13);
+	left: 0;
+}
+
+.table-left div img {
+	height: calc(100vh * 0.56);
+	width: calc(100vw * 0.17); 
+}
+
+
+.table-right {
+	top: calc(100vh * 0.4);
+	right: 0;
+}
+
+.table-right div img {
+	height: calc(100vh * 0.56);
+	width: calc(100vw * 0.17); 
+}
+
+</style>

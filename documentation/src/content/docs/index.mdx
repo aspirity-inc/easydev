@@ -1,12 +1,19 @@
 ---
-title: Easydev
+title: ''
 template: splash
 ---
 
 import Layout from '../../layout/layout.astro';
+import Ellipses from '../../layout/Ellipses.astro';
+// import Examples from '../../layout/Examples.astro';
+import Examples from '../../layout/examples.mdx';
 
 import logo from '../../assets/easydev-logo.svg';
+import arrow from '../../assets/arrow.svg';
+
 import { Image } from 'astro:assets';
+
+<Ellipses />
 
 <Layout>
   <main>
@@ -35,17 +42,29 @@ import { Image } from 'astro:assets';
       </div>
     </div>
   </main>
-<h2>Toggle Switch</h2>
-<div class="toggle-theme-container">
-  <span>light</span>
-  <label class="switch">
-    <input type="checkbox" id="toggle-theme" />
-    <span class="slider round"></span>
-  </label>
-  <span>dark</span>
-</div>
-
+  <div class="demo-and-light-toggle">
+    <div class="demo-container">
+      <p class="demo-container__text">Here UI elements.</p>
+      <p class="demo-container__text">Make any idea for real with EasyDev</p>
+      <a href="/">
+        <button class="primary">
+          Go to the DEMO
+          <Image src={arrow} alt="arrow" />
+        </button>
+      </a>
+    </div>
+    <div class="toggle-theme-container">
+      <span>light</span>
+      <label class="switch">
+        <input type="checkbox" id="toggle-theme" />
+        <span class="slider round"></span>
+      </label>
+      <span>dark</span>
+    </div>
+  </div>
 </Layout>
+
+<Examples />
 
 <article class="about">
   <small>Brought to you by</small>
