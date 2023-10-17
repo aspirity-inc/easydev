@@ -108,18 +108,20 @@ const menuItems: MenuItemType[] = [
 
 const TemplateWithSidebar = ({ ...args }) => {
   return (
-    <Layout {...args}>
-      <Header style={headerStyle}>
-        <Center>Header</Center>
-      </Header>
-      <Main style={mainStyle}>
-        <Sidebar menu={menuItems} />
-        <Center>Main</Center>
-      </Main>
-      <Footer style={footerStyle}>
-        <Center>Footer</Center>
-      </Footer>
-    </Layout>
+    <Box style={{ height: '500px' }}>
+      <Layout {...args}>
+        <Header style={headerStyle}>
+          <Center>Header</Center>
+        </Header>
+        <Main style={mainStyle}>
+          <Sidebar menu={menuItems} />
+          <Center>Main</Center>
+        </Main>
+        <Footer style={footerStyle}>
+          <Center>Footer</Center>
+        </Footer>
+      </Layout>
+    </Box>
   );
 };
 

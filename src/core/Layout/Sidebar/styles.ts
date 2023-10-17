@@ -9,6 +9,10 @@ export const StyledSidebarWrapper = styled(Box)`
 `;
 
 export const SidebarContent = styled(Box)`
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
   padding: 8px;
 `;
 
@@ -19,27 +23,32 @@ export const StyledSidebar = styled(Box)<StyledSidebarProps>`
     theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
   transition: width ${({ theme }) => theme.transition.default} ease;
 
+  // For right work hidden case of sidebar
+  ${SidebarContent} {
+    width: ${({ $maxWidth }) => $maxWidth}px;
+  }
+
   ${({ $collapsed, $minWidth }) => {
     return (
       $collapsed &&
       css`
         width: ${$minWidth}px;
+
+        ${SidebarContent} {
+          width: 100%;
+        }
       `
     );
   }}
-
-  // For right work hidden case of sidebar
-  ${SidebarContent} {
-    width: ${({ $maxWidth }) => $maxWidth}px;
-  }
 `;
 
 export const ToggleBtn = styled('button')<StyledSidebarProps>`
-  position: absolute;
-  right: 0;
-  bottom: 30px;
-  padding: 5px 0 5px 2px;
+  position: sticky;
+  left: ${({ $maxWidth }) => $maxWidth}px;
+  bottom: 50px;
+  z-index: 1;
 
+  padding: 5px 0 5px 2px;
   border: none;
   border-radius: 0;
   border-bottom-left-radius: 100%;

@@ -5,10 +5,15 @@ import { AnimationWrapper } from '@core/Accordion/components/Panel/styles';
 import { Box } from '@core/Box';
 
 import { StyledLabel, defaultHoverStyles, getCommonMenuItemStyles } from '../../styles';
-import type { StyledSidebarMenuItemProps } from '../../types';
+import type { StyledAccordionProps, StyledSidebarMenuItemProps, StyledAccordionListProps } from '../../types';
 
-export const StyledBox = styled(Box)`
+export const StyledAccordionWrapper = styled(Box)<StyledAccordionListProps>`
   position: relative;
+  ${({ $hovered, $maxWidth }) =>
+    $hovered &&
+    css`
+      width: ${$maxWidth}px;
+    `};
 `;
 
 export const StyledControl = styled(Box)<StyledSidebarMenuItemProps>`
@@ -31,6 +36,12 @@ export const StyledControl = styled(Box)<StyledSidebarMenuItemProps>`
       `;
     }
   }}
+
+  ${({ $hovered, $maxWidth }) =>
+    $hovered &&
+    css`
+      width: ${$maxWidth}px;
+    `};
 
   ${({ $collapsedAnimation, $hovered }) =>
     !$hovered && $collapsedAnimation
@@ -57,7 +68,7 @@ export const StyledPanel = styled(Box)`
   background-color: transparent;
 `;
 
-export const StyledAccordion = styled(Accordion<false>)<{ $opened: boolean; $collapsed?: boolean; $hovered?: boolean }>`
+export const StyledAccordion = styled(Accordion<false>)<StyledAccordionProps>`
   & ${AnimationWrapper} {
     border: none;
   }

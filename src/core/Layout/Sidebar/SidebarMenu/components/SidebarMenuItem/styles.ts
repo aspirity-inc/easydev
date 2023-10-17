@@ -9,6 +9,12 @@ export const StyledMenuItem = styled(Box)<StyledSidebarMenuItemProps>`
   ${({ $disabled, $collapsed, $hovered }) =>
     getCommonMenuItemStyles($disabled || false, $collapsed || false, $hovered || false)};
 
+  ${({ $hovered, $maxWidth }) =>
+    $hovered &&
+    css`
+      width: ${$maxWidth}px;
+    `};
+
   ${({ $active }) =>
     $active &&
     css`

@@ -36,12 +36,12 @@ export const Sidebar = ({
         {...props}
       >
         <SidebarContent className="easy_sidebar-content">
-          <SidebarMenu className="easy_sidebar-menu" items={menu} collapsed={collapsed} />
+          <SidebarMenu className="easy_sidebar-menu" items={menu} collapsed={collapsed} maxWidth={maxWidth} />
           {children}
         </SidebarContent>
       </StyledSidebar>
       {!isStatic && !hideButton && (
-        <ToggleBtn onClick={onToggle} $collapsed={collapsed}>
+        <ToggleBtn onClick={onToggle} $collapsed={collapsed} $maxWidth={maxWidth}>
           <span className="material-symbols-rounded">keyboard_arrow_left</span>
         </ToggleBtn>
       )}
