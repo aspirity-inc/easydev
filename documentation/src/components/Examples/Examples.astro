@@ -1,0 +1,28 @@
+<div id="examples-component">
+	<slot />
+</div>
+
+<style is:global>
+	html[data-theme='light'] .example-wrapper > .dark {
+		display: none;
+	}
+
+	html[data-theme='dark'] .example-wrapper > .light {
+		display: none;
+	}
+
+	#examples-component {
+		width: 100vw!important;
+		margin-left: calc((100vw - 1080px) / -2);
+	}
+	.example-wrapper div img{
+		width: 100vw;
+		pointer-events: none;
+	}
+
+	@media screen and (max-width: 1080px) {
+		#examples-component {
+			margin-left: auto;
+		}
+	}
+</style>

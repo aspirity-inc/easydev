@@ -1,0 +1,323 @@
+<div style="margin-top:0px;">
+	<slot />
+</div>
+
+<style is:global>
+header, footer {
+	display: none;
+}
+
+main.astro-NYFQ2LET {
+	padding-bottom: 0;
+}
+
+main.astro-NYFQ2LET > div:first-child {
+	display: none;
+}
+
+.content-panel {
+	margin: 0!important;
+	padding: 0!important;
+}
+
+.main-frame.astro-2GH5JEOH {
+	padding-top: 0;
+}
+</style>
+
+<style is:global>
+	.easydev-container {
+		display: grid;
+		align-items: center;
+		padding-bottom: 1rem;
+
+		grid-template-columns: 7fr 4fr;
+		gap: 147px;
+
+		margin-top: 0;
+		padding-top: 270px;
+		padding-bottom: 216px;
+	}
+
+	.easydev-container__image {
+		height: 100%;
+		pointer-events: none;
+	}
+
+	.easydev-container__content-title {
+		font-size: 108px!important; 
+
+		font-weight: 600!important;
+		line-height: 120%!important;
+		letter-spacing: 2.16px!important;
+	}
+
+	p {
+		font-size: clamp(var(--sl-text-base),calc(0.0625rem + 2vw),var(--sl-text-xl));
+		font-style: normal!important ; 
+		font-weight: 300!important ; 
+		line-height: 120%!important ;  
+		letter-spacing: 0.32px!important ;
+
+		color: var(--sl-color-gray-2);
+
+		max-width: 63ch;
+	}
+
+	img {
+		width: min(100%,25rem);
+	}
+
+	.easydev-container__content-buttons-container {
+		display: flex;
+		gap: 20px;
+		margin-top: 40px!important;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.easydev-button {
+		width: 180px;
+		height: 48px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 40px;
+		border-width: 0;
+		
+		color: var(--color-button-text-accent);
+		background-color: inherit;
+		border: 1px solid var(--border-color-button);
+		cursor: pointer;
+
+		font-size: 16px!important;
+		font-style: normal!important;
+		font-weight: 600!important;
+		line-height: 120%!important;
+		letter-spacing: 0.32px!important;
+	}
+
+	.easydev-button.primary {
+		border: none;
+		background-color: var(--bg-color-btn-accent);
+		color: var(--color-primary-button-text-accent);
+	}
+
+	.easydev-demo-and-light-toggle {
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+
+	.easydev-demo-container {
+		margin-right: 160px;
+	}
+
+	.easydev-demo-container__text {
+		margin-top: 0!important;
+
+		font-size: 24px!important;
+		font-style: normal!important;
+		font-weight: 500!important;
+		line-height: 120%!important;
+		letter-spacing: 0.48px!important;  
+	}
+
+	.easydev-demo-container button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.easydev-demo-container button p {
+		color: var(--color-primary-button-text-accent);
+		font-size: 16px!important;
+		font-style: normal!important;
+		font-weight: 600!important;
+		line-height: 120%!important;
+		letter-spacing: 0.32px!important;
+
+	}
+
+	.easydev-demo-container__button {
+		margin-top: 31px;
+	}
+
+	.easydev-demo-container__button_image {
+		height: 24px;
+		width: 24px;
+		margin-left: 4px;
+		margin-top: 0!important;
+	}
+
+	html[data-theme="light"] .easydev-demo-container__button_image {
+		filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(4%) hue-rotate(125deg) brightness(101%) contrast(100%);
+	}
+
+	.easydev-toggle-theme-container {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin-top: 0px!important;
+	}
+
+	.easydev-toggle-theme-container span {
+		font-size: 16px!important;
+		font-style: normal!important;
+		font-weight: 600!important;
+		line-height: 120%!important;
+		letter-spacing: 0.32px!important;
+	}
+
+	@media screen and (max-width: 1200px) {
+		.easydev-main-wrapper {
+			padding: 10px;
+		}
+
+		.easydev-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			padding-block: 40px;
+			gap: 0;
+		}
+
+		.easydev-container__image {
+			order: 1;
+		}
+
+		.easydev-container__content {
+			order: 2;
+		}
+
+		.easydev-container__content-buttons-container {
+			justify-content: center;
+			align-items: center;
+		}
+
+		.easydev-container__content-title {
+			text-align: center;
+		}
+
+		.easydev-container__content p {
+			text-align: center;
+		}
+
+		.easydev-demo-and-light-toggle {
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			justify-content: center;
+		}
+
+		.easydev-demo-container {
+			margin-right: 0;
+			order: 2;
+		}
+
+		.easydev-demo-container a {
+			display: block;
+			width: fit-content;
+			margin: 0 auto;
+		}
+
+		.easydev-toggle-theme-container {
+			order: 1;
+			margin-bottom: 10px;
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		.easydev-button {
+			width: 140px;
+		}
+	}
+</style>
+
+<!-- toggle -->
+<style is:global>
+	.easydev-toggle {
+		position: relative;
+		display: inline-block;
+		width: 40px;
+		height: 24px;
+	}
+
+	.easydev-toggle input {
+		display:none;
+	}
+
+	.easydev-slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #A5A5A7;
+		-webkit-transition: .3s;
+		transition: .3s;
+	}
+
+	.easydev-slider:before {
+		position: absolute;
+		content: "";
+		height: 16px;
+		width: 16px;
+		left: 4px;
+		bottom: 4px;
+		background-color: #3F3A43;
+		-webkit-transition: .3s;
+		transition: .3s;
+	}
+
+	input:checked + .easydev-slider {
+		background-color: #C8AEFF;
+	}
+
+	input:checked + .easydev-slider:before {
+		-webkit-transform: translateX(16px);
+		-ms-transform: translateX(16px);
+		transform: translateX(16px);
+	}
+
+	.easydev-slider.round {
+		border-radius: 20px;
+	}
+
+	.easydev-slider.round:before {
+		border-radius: 50%;
+	}
+</style>
+
+
+<script defer>
+	const toggleThemeInput = document.getElementById('toggle-theme');
+	const currentTheme = localStorage.getItem('starlight-theme');
+
+	if(currentTheme === 'light' || currentTheme ==='dark')  {
+		toggleThemeInput.checked = localStorage.getItem('starlight-theme') === 'light' ? false : true;
+	} else {
+		toggleThemeInput.checked = false;
+	}
+</script>
+
+<script>
+	const toggleThemeInput = document.getElementById('toggle-theme') as HTMLInputElement;
+
+	if (toggleThemeInput) {
+		toggleThemeInput.addEventListener('change', () => {
+		const htmlElement = (document.querySelector('html')as any);
+
+		if (htmlElement?.attributes['data-theme']) {
+			const newTheme = htmlElement?.attributes['data-theme'].value === 'light' ? 'dark' : 'light';
+
+			localStorage.setItem('starlight-theme', newTheme);
+			htmlElement.setAttribute('data-theme', newTheme);
+		}
+	})}
+</script>
+

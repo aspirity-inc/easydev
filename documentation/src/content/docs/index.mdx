@@ -1,70 +1,16 @@
 ---
-title: ''
+title: Easydev
 template: splash
 ---
 
-import Layout from '../../layout/layout.astro';
-import Ellipses from '../../layout/Ellipses.astro';
-// import Examples from '../../layout/Examples.astro';
-import Examples from '../../layout/examples.mdx';
-
-import logo from '../../assets/easydev-logo.svg';
-import arrow from '../../assets/arrow.svg';
-
-import { Image } from 'astro:assets';
+import Main from '../../components/Main/Main.mdx';
+import Ellipses from '../../components/Ellipses/Ellipses.astro';
+import Examples from '../../components/Examples/Examples.mdx';
 
 <Ellipses />
-
-<Layout>
-  <main>
-    <div class="easy-container">
-      <div class="easy-container__content">
-        <div>
-          <h2>Easydev</h2>
-          <p>
-            EasyDev is a library of React UI components based on styled-components made by the Aspirity team. Leveraging
-            best practices gleaned from diverse projects, we've architected this library for code elegance and
-            user-friendly integration. Although it is still in its pre-alpha stage, this version has a kit of core
-            components that can effectively cover your development requirements.
-          </p>
-        </div>
-        <div class="buttons-container">
-          <a href="/storybook">
-            <button class="primary">Storybook</button>
-          </a>
-          <a href="/getting-started/introduction/">
-            <button>Read documentation</button>
-          </a>
-        </div>
-      </div>
-      <div class="easy-container__image">
-        <Image src={logo} alt="logo" />
-      </div>
-    </div>
-  </main>
-  <div class="demo-and-light-toggle">
-    <div class="demo-container">
-      <p class="demo-container__text">Here UI elements.</p>
-      <p class="demo-container__text">Make any idea for real with EasyDev</p>
-      <a href="/">
-        <button class="primary">
-          Go to the DEMO
-          <Image src={arrow} alt="arrow" />
-        </button>
-      </a>
-    </div>
-    <div class="toggle-theme-container">
-      <span>light</span>
-      <label class="switch">
-        <input type="checkbox" id="toggle-theme" />
-        <span class="slider round"></span>
-      </label>
-      <span>dark</span>
-    </div>
-  </div>
-</Layout>
-
+<Main />
 <Examples />
+
 
 {/* <article class="about">
   <small>Brought to you by</small>

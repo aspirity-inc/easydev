@@ -13,8 +13,6 @@ h2 a {
   font-weight: inherit;
 }
 
-
-
 /* dark mode */
 :root,
 ::backdrop {
@@ -47,8 +45,6 @@ h2 a {
 :root[data-theme='light'] .aspirity-logo {
   background-image: url('src/assets/aspirity-logo.svg');
 }
-
-
 
 .palette {
   display: grid;
@@ -91,4 +87,3 @@ h2 a {
 .content .palette p {
   margin: 0;
 }
-
