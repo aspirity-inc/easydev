@@ -1,4 +1,4 @@
-<div class="examples-component">
+<div id="examples-component">
 	<slot />
 </div>
 
@@ -13,15 +13,16 @@ html[data-theme='dark'] .example-wrapper > .light {
 	display: none;
 }
 
-.examples-component {
-	min-height: 1164px;
-	position: relative;
+#examples-component {
 	width: 100vw!important;
-
 	margin-left: calc((100vw - 1080px) / -2);
 }
+.example-wrapper div img{
+  width: 100vw;
+}
+
 @media screen and (max-width: 1080px) {
-	.examples-component {
+	#examples-component {
 		margin-left: auto;
   }
 }
@@ -30,16 +31,83 @@ html[data-theme='dark'] .example-wrapper > .light {
 	position: absolute;
 }
 
+.example-wrapper div img {
+	pointer-events: none;
+}
+
 .table-left {
 	top: calc(100vh * 0.13);
 	left: 0;
 }
 
 .table-left div img {
-	height: calc(100vh * 0.56);
-	width: calc(100vw * 0.17); 
+	width: calc(100vw * 0.27); 
 }
 
+.notification {
+	top: calc(100vh * 0.87);
+	left: calc(100vw * 0.01);
+}
+
+.notification div img {
+	width: calc(100vw * 0.195); 
+}
+
+.datapicker {
+	top: calc(100vh * 0.06);
+	left: calc(100vw * 0.18);
+}
+
+.datapicker div img {
+	width: calc(100vw * 0.21); 
+}
+
+.card {
+	top: calc(100vh * 0.22);
+	left: calc(100vw * 0.48);
+}
+
+.card div img {
+	width: calc(100vw * 0.2); 
+}
+
+.popover {
+	top: calc(100vh * 0.13);
+	left: calc(100vw * 0.6);
+}
+
+.popover div img {
+	width: calc(100vw * 0.11); 
+}
+
+.chip-1 {
+	top: calc(100vh * 0.73);
+}
+
+.chip-2 {
+	top: calc(100vh * 0.8);
+}
+
+.chip-3 {
+	top: calc(100vh * 0.87);
+}
+
+.chip {
+	left: calc(100vw * 0.275);
+}
+
+.chip div img {
+	width: calc(100vw * 0.08); 
+}
+
+.progress-bar {
+	top: calc(100vh * 0.47);
+	left: calc(100vw * 0.29);
+}
+
+.progress-bar div img {
+	width: calc(100vw * 0.125); 
+}
 
 .table-right {
 	top: calc(100vh * 0.4);
@@ -47,8 +115,26 @@ html[data-theme='dark'] .example-wrapper > .light {
 }
 
 .table-right div img {
-	height: calc(100vh * 0.56);
-	width: calc(100vw * 0.17); 
+	width: calc(100vw * 0.24);
 }
 
+.carousel {
+	top: calc(100vh * 0.48);
+	left: calc(100vw * 0.3); 
+}
+
+.carousel div img {
+	width: calc(100vw * 0.62); 
+}
+
+.frame div img {
+	width: 100vw;
+}
 </style>
+
+
+<script defer>
+	const a = document.getElementById('examples-component')
+	const scrollHeight = a.scrollHeight;
+  a.style.height = `${scrollHeight}px`;
+</script>
