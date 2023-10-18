@@ -1,8 +1,10 @@
+import { Scrollbar } from 'smooth-scrollbar-react';
 import { css, styled } from 'styled-components';
 
 import { Box } from '@core/Box';
 
 import type { StyledSidebarProps } from './types';
+
 
 export const StyledSidebarWrapper = styled(Box)`
   height: 100%;
@@ -23,11 +25,63 @@ export const SidebarContent = styled(Box)`
   height: inherit;
 `;
 
+export const StyledScrollbar = styled(Scrollbar)<StyledSidebarProps>`
+  height: 100vh;
+  overflow: hidden;
+
+  ${({ $collapsed }) => {
+    return $collapsed
+      ? css`
+          .scrollbar-track {
+            &.scrollbar-track-y {
+              display: none !important;
+            }
+
+            &.scrollbar-track-x {
+              display: none !important;
+            }
+          }
+        `
+      : css`
+          .scrollbar-track {
+            width: 8px;
+            background-color: transparent;
+
+            &.scrollbar-track-y {
+              width: 8px;
+            }
+
+            &.scrollbar-track-x {
+              display: none !important;
+            }
+          }
+
+          .scrollbar-thumb {
+            width: 8px;
+            transition: height 0.3s;
+            cursor: pointer;
+            background-color: ${({ theme }) =>
+              theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['500']};
+          }
+        `;
+  }}
+`;
+
 export const StyledSidebar = styled(Box)<StyledSidebarProps>`
   height: inherit;
   width: ${({ $maxWidth }) => $maxWidth}px;
   padding: 8px;
   transition: width ${({ theme }) => theme.transition.default} ease;
+
+  ${({ $collapsed }) => {
+    return $collapsed
+      ? css`
+          overflow: visible !important;
+        `
+      : css`
+          overflow: hidden;
+        `;
+  }}
 
   // For right work hidden case of sidebar
   ${SidebarContent} {
