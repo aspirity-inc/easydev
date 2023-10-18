@@ -8,6 +8,9 @@ export const StyledMenu = styled(Box)`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 `;
 
 export const StyledIcon = styled(Box)`

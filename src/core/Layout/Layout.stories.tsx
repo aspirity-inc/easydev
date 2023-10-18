@@ -77,6 +77,10 @@ const menuItems: MenuItemType[] = [
     label: 'Favourites',
   },
   {
+    id: 3,
+    type: 'divider',
+  },
+  {
     id: 4,
     icon: <div className="material-symbols-outlined">rocket_launch</div>,
     label: 'UI Elements',
@@ -106,6 +110,10 @@ const menuItems: MenuItemType[] = [
   },
 ];
 
+const sidebarStyle = {
+  height: '500px',
+};
+
 const TemplateWithSidebar = ({ ...args }) => {
   return (
     <Box style={{ height: '500px' }}>
@@ -114,8 +122,8 @@ const TemplateWithSidebar = ({ ...args }) => {
           <Center>Header</Center>
         </Header>
         <Main style={mainStyle}>
-          <Sidebar menu={menuItems} />
-          <Center>Main</Center>
+          <Sidebar menu={menuItems} style={sidebarStyle} />
+          <Center style={{ height: '1000px' }}>Main</Center>
         </Main>
         <Footer style={footerStyle}>
           <Center>Footer</Center>

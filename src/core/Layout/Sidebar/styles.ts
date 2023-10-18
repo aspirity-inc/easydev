@@ -5,22 +5,28 @@ import { Box } from '@core/Box';
 import type { StyledSidebarProps } from './types';
 
 export const StyledSidebarWrapper = styled(Box)`
-  position: relative;
+  height: 100%;
+  background-color: ${({ theme }) =>
+    theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
 `;
 
-export const SidebarContent = styled(Box)`
+export const SidebarStickyContent = styled(Box)`
   position: sticky;
   top: 0;
   left: 0;
   z-index: 1;
-  padding: 8px;
+  height: 100vh;
+`;
+
+export const SidebarContent = styled(Box)`
+  position: relative;
+  height: inherit;
 `;
 
 export const StyledSidebar = styled(Box)<StyledSidebarProps>`
-  height: 100%;
+  height: inherit;
   width: ${({ $maxWidth }) => $maxWidth}px;
-  background-color: ${({ theme }) =>
-    theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['900']};
+  padding: 8px;
   transition: width ${({ theme }) => theme.transition.default} ease;
 
   // For right work hidden case of sidebar
@@ -43,8 +49,8 @@ export const StyledSidebar = styled(Box)<StyledSidebarProps>`
 `;
 
 export const ToggleBtn = styled('button')<StyledSidebarProps>`
-  position: sticky;
-  left: ${({ $maxWidth }) => $maxWidth}px;
+  position: absolute;
+  right: 0;
   bottom: 50px;
   z-index: 1;
 
