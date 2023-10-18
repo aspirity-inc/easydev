@@ -53,29 +53,6 @@ h2 a {
   gap: 40px;
 }
 
-.about {
-  display: flex;
-  flex-direction: column;
-  max-width: 40rem;
-  gap: 0.5rem;
-  align-items: center;
-  text-align: center;
-  margin-inline: auto;
-  margin-top: 3rem;
-}
-
-.content .about {
-  margin-top: 3rem;
-}
-
-.about small {
-  color: var(--sl-color-gray-3);
-}
-.about img {
-  max-width: 30%;
-  margin-inline: auto;
-}
-
 @media screen and (max-width: 768px) {
   .palette {
     grid-template-columns: 1fr;
