@@ -65,6 +65,7 @@ export type MenuItemStateHookParams = {
   hovered: boolean;
   id: number | string;
   onChange?: (id: number | string) => void;
+  onClick?: () => void;
 };
 
 export type MenuAccordionStateHookParams = {

@@ -13,6 +13,7 @@ export const SidebarMenuItem = ({
   onChange,
   isSubmenuItem = false,
   maxWidth,
+  onClick,
   ...props
 }: SidebarMenuItemProps) => {
   const {
@@ -27,6 +28,7 @@ export const SidebarMenuItem = ({
     collapsed,
     hovered: controlledHovered,
     onChange,
+    onClick,
     id,
   });
 
