@@ -30,7 +30,6 @@ export default defineConfig({
             { label: 'Accordion', link: 'components/accordion/' },
             { label: 'Avatar', link: 'components/avatar/' },
             { label: 'Badge', link: 'components/badge/' },
-            { label: 'Box', link: 'components/box/' },
             { label: 'Breadcrumbs', link: 'components/breadcrumbs/' },
             { label: 'Button', link: 'components/button/' },
             { label: 'Card', link: 'components/card/' },
