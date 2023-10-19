@@ -97,7 +97,7 @@ export const StyledAccordion = styled(Accordion<false>)<StyledAccordionProps>`
           right: 0;
           width: calc(100% - 48px);
           background-color: ${({ theme }) =>
-            theme.type === 'light' ? theme.colors.surface['200'] : theme.colors.surface['700']};
+            theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['700']};
           border: none;
           border-radius: 0px 0px 8px 8px;
         }

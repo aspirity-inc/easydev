@@ -30,7 +30,7 @@ export const defaultHoverStyles = css`
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['100'])};
 
   background-color: ${({ theme }) =>
-    theme.type === 'light' ? theme.colors.surface['200'] : theme.colors.surface['700']};
+    theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['700']};
 
   & ${StyledIcon} {
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['100'])};
