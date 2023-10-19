@@ -14,10 +14,30 @@ export const withTheme = (Story, context) => {
   const theme = backgrounds?.value !== darkTheme.colors.background ? THEMES['light'] : THEMES['dark'];
 
   return (
-    < <EasydevProvider> theme={theme}>
+    <EasydevProvider> theme={theme}>
       <GlobalStyles />
       <Story />
     </EasydevProvider>
   );
 };
+```
+
+You can use useEasyThemeContext hook to get more info about theme.
+
+Example:
+
+```ts
+
+const UseEasyThemeContextExample = () => {
+  return (
+		<EasydevProvider>
+			<Component>
+		</EasydevProvider>
+	);
+}
+
+const Component = () => {
+	const {theme} = useEasyThemeContext();
+	return <>{theme.type}</>;
+}
 ```

@@ -2,78 +2,52 @@
 title: Input
 ---
 
-Input is used to input text.
+The Input uses to type text.
 
 The Input wrapper component is a complete form control including a label, input, and help text.
 
-The Input has the next props: label, placeholder, error, warning, message, isLoading, icons, renderExtraMessage, type, className, style. [See there](/storybook/?path=/docs/core-inputs-input--docs) to get more information.
+The Input can have the next props: label, error, warning, message, isLoading, icons, renderExtraMessage. [See there](/storybook/?path=/docs/core-inputs-input--docs) to get more information.
 
-[Default Input](/storybook/?path=/story/core-inputs-input--default-input)
+## Input variants
 
-Code:
+### [Default Input](/storybook/?path=/story/core-inputs-input--default-input)
 
 ```tsx
-<Input label="Name" onChange={() => {}} placeholder="Enter youe name" renderExtraMessage={() => {}} value="" />
+<Input />
 ```
 
-[Error Input](/storybook/?path=/story/core-inputs-input--error-input)
-
-Code:
+### [Error Input](/storybook/?path=/story/core-inputs-input--error-input)
 
 ```tsx
-<Input error="There is no such user" label="Name" onChange={() => {}} renderExtraMessage={() => {}} value="Ivan" />
+<Input error="There is no such user" />
 ```
 
-[Loading Input](/storybook/?path=/story/core-inputs-input--loading-input)
-
-Code:
+### [Loading Input](/storybook/?path=/story/core-inputs-input--loading-input)
 
 ```tsx
-<Input isLoading label="Name" onChange={() => {}} renderExtraMessage={() => {}} value="Ivan" />
+<Input isLoading />
 ```
 
-[Disabled Input](/storybook/?path=/story/core-inputs-input--disabled-input)
-
-Code:
+### [Disabled Input](/storybook/?path=/story/core-inputs-input--disabled-input)
 
 ```tsx
-<Input disabled label="Name" onChange={() => {}} renderExtraMessage={() => {}} value="Ivan" />
+<Input disabled />
 ```
 
-[Default Password](/storybook/?path=/story/core-inputs-input--default-password)
-
-Code:
+### [Default Password](/storybook/?path=/story/core-inputs-input--default-password)
 
 ```tsx
-<Input
-  label="Password"
-  message="6 or more characters"
-  onChange={() => {}}
-  renderExtraMessage={() => {}}
-  type="password"
-  value=""
-/>
+<Input type="password" />
 ```
 
-[Error Password With Message](/storybook/?path=/story/core-inputs-input--default-password)
-
-Code:
+### [Error Password With Message](/storybook/?path=/story/core-inputs-input--error-password-with-message)
 
 ```tsx
-<Input
-  error="Invalid password"
-  label="Password"
-  onChange={() => {}}
-  renderExtraMessage={() => {}}
-  type="password"
-  value="Ivan"
-/>
+<Input error="Invalid password" type="password" />
 ```
 
-[Loading Password](/storybook/?path=/story/core-inputs-input--loading-password)
-
-Code:
+### [Loading Password](/storybook/?path=/story/core-inputs-input--loading-password)
 
 ```tsx
-<Input isLoading label="Password" onChange={() => {}} renderExtraMessage={() => {}} type="password" value="Ivan" />
+<Input isLoading type="password" />
 ```

@@ -2,66 +2,41 @@
 title: Radio
 ---
 
-Radio is used to select one option from the suggested set. It is a list of options where only one option can be selected. It is often used to create surveys, forms and other interactive elements on web pages.
+The Radio uses to select one option from the suggested set. It is a list of options where only one option can be selected. It is often used to create surveys, forms and other interactive elements on web pages.
 
 If you want the user to choose only one option from a list, use the radio button component. It's perfect for surveys, forms, and other interactive elements on web pages. However, if you have a long list of options, consider using a select component to save space.
 
 By default, the most commonly used option should be selected in radio buttons.
 
-The Radio has the next props: disabled, defaultChecked, color, label, checked, onChange. [See there](/storybook/?path=/docs/core-controls-radio--docs) to get more information.
+The Radio can have the next props: label, checked, onChange. [See there](/storybook/?path=/docs/core-controls-radio--docs) to get more information.
 
-[Default Radio](/storybook/?path=/story/core-controls-radio--default-radio)
+## Radio variants
 
-Code:
+### [Default Radio](/storybook/?path=/story/core-controls-radio--default-radio)
 
 ```tsx
-<Radio onChange={() => {}} />
+<Radio />
 ```
 
-[Controlled Radio](/storybook/?path=/story/core-controls-radio--controlled-radio)
-
-Code:
+### [Controlled Radio](/storybook/?path=/story/core-controls-radio--controlled-radio)
 
 ```tsx
-() => {
+const ControlledRadio = () => {
   const [checked, setChecked] = useState(false);
   const onChange = () => setChecked((prevState) => !prevState);
-  return (
-    <div>
-      <Radio checked={checked} onChange={onChange} />
-    </div>
-  );
+
+  return <Radio checked={checked} onChange={onChange} />;
 };
 ```
 
-[With Label](/storybook/?path=/story/core-controls-radio--with-label)
-
-Code:
+### [With Label](/storybook/?path=/story/core-controls-radio--with-label)
 
 ```tsx
-() => {
-  const [checked, setChecked] = useState(false);
-  const onChange = () => setChecked((prevState) => !prevState);
-  return (
-    <div>
-      <Radio checked={checked} onChange={onChange} label="Pick me 🌵" />
-    </div>
-  );
-};
+<Radio label="Pick me 🌵" />
 ```
 
-[With JSX Label](/storybook/?path=/story/core-controls-radio--with-jsx-label)
-
-Code:
+### [With JSX Label](/storybook/?path=/story/core-controls-radio--with-jsx-label)
 
 ```tsx
-() => {
-  const [checked, setChecked] = useState(false);
-  const onChange = () => setChecked((prevState) => !prevState);
-  return (
-    <div>
-      <Radio checked={checked} onChange={onChange} label={<strong>Pick me 🌵</strong>} />
-    </div>
-  );
-};
+<Radio label={<strong>Pick me 🌵</strong>} />
 ```
