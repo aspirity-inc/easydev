@@ -1,4 +1,3 @@
-import { Box } from '@core/Box';
 import { Center } from '@core/Center/Center';
 import { lightPalette } from '@core/Theme/themePalette';
 
@@ -41,7 +40,7 @@ DefaultLayout.args = {};
 
 const TemplateWithFixedHeader = ({ ...args }) => {
   return (
-    <Box style={{ height: '200px' }}>
+    <div style={{ height: '200px' }}>
       <Layout {...args}>
         <Header style={headerStyle} fixed>
           <Center>Header</Center>
@@ -53,7 +52,7 @@ const TemplateWithFixedHeader = ({ ...args }) => {
           <Center>Footer</Center>
         </Footer>
       </Layout>
-    </Box>
+    </div>
   );
 };
 
@@ -116,7 +115,7 @@ const sidebarStyle = {
 
 const TemplateWithSidebar = ({ ...args }) => {
   return (
-    <Box style={{ height: '500px' }}>
+    <div style={{ height: '500px' }}>
       <Layout {...args}>
         <Header style={headerStyle}>
           <Center>Header</Center>
@@ -129,7 +128,7 @@ const TemplateWithSidebar = ({ ...args }) => {
           <Center>Footer</Center>
         </Footer>
       </Layout>
-    </Box>
+    </div>
   );
 };
 
