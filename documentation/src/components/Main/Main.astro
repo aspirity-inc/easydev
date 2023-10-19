@@ -26,7 +26,7 @@ main.astro-NYFQ2LET > div:first-child {
 </style>
 
 <style is:global>
-	.easydev-container {
+	.easy-container {
 		display: grid;
 		align-items: center;
 		padding-bottom: 1rem;
@@ -39,12 +39,12 @@ main.astro-NYFQ2LET > div:first-child {
 		padding-bottom: 216px;
 	}
 
-	.easydev-container__image {
+	.easy-container__image {
 		height: 100%;
 		pointer-events: none;
 	}
 
-	.easydev-container__content-title {
+	.easy-container__content-title {
 		font-size: 108px!important; 
 
 		font-weight: 600!important;
@@ -68,7 +68,7 @@ main.astro-NYFQ2LET > div:first-child {
 		width: min(100%,25rem);
 	}
 
-	.easydev-container__content-buttons-container {
+	.easy-container__content-buttons-container {
 		display: flex;
 		gap: 20px;
 		margin-top: 40px!important;
@@ -78,7 +78,7 @@ main.astro-NYFQ2LET > div:first-child {
 		text-decoration: none;
 	}
 
-	.easydev-button {
+	.easy-button {
 		width: 180px;
 		height: 48px;
 		display: flex;
@@ -99,23 +99,23 @@ main.astro-NYFQ2LET > div:first-child {
 		letter-spacing: 0.32px!important;
 	}
 
-	.easydev-button.primary {
+	.easy-button.primary {
 		border: none;
 		background-color: var(--bg-color-btn-accent);
 		color: var(--color-primary-button-text-accent);
 	}
 
-	.easydev-demo-and-light-toggle {
+	.easy-demo-and-light-toggle {
 		display: flex;
 		justify-content: flex-start;
 		align-items: flex-start;
 	}
 
-	.easydev-demo-container {
+	.easy-demo-container {
 		margin-right: 160px;
 	}
 
-	.easydev-demo-container__text {
+	.easy-demo-container__text {
 		margin-top: 0!important;
 
 		font-size: 24px!important;
@@ -125,13 +125,13 @@ main.astro-NYFQ2LET > div:first-child {
 		letter-spacing: 0.48px!important;  
 	}
 
-	.easydev-demo-container button {
+	.easy-demo-container button {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
 
-	.easydev-demo-container button p {
+	.easy-demo-container button p {
 		color: var(--color-primary-button-text-accent);
 		font-size: 16px!important;
 		font-style: normal!important;
@@ -141,29 +141,25 @@ main.astro-NYFQ2LET > div:first-child {
 
 	}
 
-	.easydev-demo-container__button {
+	.easy-demo-container__button {
 		margin-top: 31px;
 	}
 
-	.easydev-demo-container__button_image {
+	.easy-demo-container__button_image {
 		height: 24px;
 		width: 24px;
 		margin-left: 4px;
 		margin-top: 0!important;
 	}
 
-	html[data-theme="light"] .easydev-demo-container__button_image {
-		filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(4%) hue-rotate(125deg) brightness(101%) contrast(100%);
-	}
-
-	.easydev-toggle-theme-container {
+	.easy-toggle-theme-container {
 		display: flex;
 		align-items: center;
 		gap: 8px;
 		margin-top: 0px!important;
 	}
 
-	.easydev-toggle-theme-container span {
+	.easy-toggle-theme-container span {
 		font-size: 16px!important;
 		font-style: normal!important;
 		font-weight: 600!important;
@@ -172,11 +168,11 @@ main.astro-NYFQ2LET > div:first-child {
 	}
 
 	@media screen and (max-width: 1200px) {
-		.easydev-main-wrapper {
+		.easy-main-wrapper {
 			padding: 10px;
 		}
 
-		.easydev-container {
+		.easy-container {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -185,53 +181,53 @@ main.astro-NYFQ2LET > div:first-child {
 			gap: 0;
 		}
 
-		.easydev-container__image {
+		.easy-container__image {
 			order: 1;
 		}
 
-		.easydev-container__content {
+		.easy-container__content {
 			order: 2;
 		}
 
-		.easydev-container__content-buttons-container {
+		.easy-container__content-buttons-container {
 			justify-content: center;
 			align-items: center;
 		}
 
-		.easydev-container__content-title {
+		.easy-container__content-title {
 			text-align: center;
 		}
 
-		.easydev-container__content p {
+		.easy-container__content p {
 			text-align: center;
 		}
 
-		.easydev-demo-and-light-toggle {
+		.easy-demo-and-light-toggle {
 			flex-direction: column;
 			align-items: center;
 			text-align: center;
 			justify-content: center;
 		}
 
-		.easydev-demo-container {
+		.easy-demo-container {
 			margin-right: 0;
 			order: 2;
 		}
 
-		.easydev-demo-container a {
+		.easy-demo-container a {
 			display: block;
 			width: fit-content;
 			margin: 0 auto;
 		}
 
-		.easydev-toggle-theme-container {
+		.easy-toggle-theme-container {
 			order: 1;
 			margin-bottom: 10px;
 		}
 	}
 
 	@media screen and (max-width: 480px) {
-		.easydev-button {
+		.easy-button {
 			width: 140px;
 		}
 	}
@@ -239,18 +235,18 @@ main.astro-NYFQ2LET > div:first-child {
 
 <!-- toggle -->
 <style is:global>
-	.easydev-toggle {
+	.easy-toggle {
 		position: relative;
 		display: inline-block;
 		width: 40px;
 		height: 24px;
 	}
 
-	.easydev-toggle input {
+	.easy-toggle input {
 		display:none;
 	}
 
-	.easydev-slider {
+	.easy-slider {
 		position: absolute;
 		cursor: pointer;
 		top: 0;
@@ -262,7 +258,7 @@ main.astro-NYFQ2LET > div:first-child {
 		transition: .3s;
 	}
 
-	.easydev-slider:before {
+	.easy-slider:before {
 		position: absolute;
 		content: "";
 		height: 16px;
@@ -274,48 +270,42 @@ main.astro-NYFQ2LET > div:first-child {
 		transition: .3s;
 	}
 
-	input:checked + .easydev-slider {
+	input:checked + .easy-slider {
 		background-color: #C8AEFF;
 	}
 
-	input:checked + .easydev-slider:before {
+	input:checked + .easy-slider:before {
 		-webkit-transform: translateX(16px);
 		-ms-transform: translateX(16px);
 		transform: translateX(16px);
 	}
 
-	.easydev-slider.round {
+	.easy-slider.round {
 		border-radius: 20px;
 	}
 
-	.easydev-slider.round:before {
+	.easy-slider.round:before {
 		border-radius: 50%;
 	}
 </style>
 
+<script defer>
+	document.querySelector('html').setAttribute('data-theme', 'dark');
+	localStorage.setItem('starlight-theme', 'dark')
+	document.getElementById('main-page-container').setAttribute('data-theme', 'dark');
+</script>
 
 <script defer>
 	const toggleThemeInput = document.getElementById('toggle-theme');
-	const currentTheme = localStorage.getItem('starlight-theme');
-
-	if(currentTheme === 'light' || currentTheme ==='dark')  {
-		toggleThemeInput.checked = localStorage.getItem('starlight-theme') === 'light' ? false : true;
-	} else {
-		toggleThemeInput.checked = false;
-	}
-</script>
-
-<script>
-	const toggleThemeInput = document.getElementById('toggle-theme') as HTMLInputElement;
+	toggleThemeInput.checked = true;
 
 	if (toggleThemeInput) {
 		toggleThemeInput.addEventListener('change', () => {
-		const htmlElement = (document.querySelector('html')as any);
+		const htmlElement = (document.getElementById('main-page-container'));
 
 		if (htmlElement?.attributes['data-theme']) {
 			const newTheme = htmlElement?.attributes['data-theme'].value === 'light' ? 'dark' : 'light';
-
-			localStorage.setItem('starlight-theme', newTheme);
+			toggleThemeInput.checked = newTheme === 'light' ? false : true;
 			htmlElement.setAttribute('data-theme', newTheme);
 		}
 	})}

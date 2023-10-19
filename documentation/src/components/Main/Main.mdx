@@ -5,15 +5,13 @@ import Main from './Main.astro';
 import logo from '../../assets/easydev-logo.svg';
 import arrow from '../../assets/arrow.svg';
 
-
-
 <Main>
-  <div class="easydev-main-wrapper">
+  <div class="easy-main-wrapper">
     <main>
-      <div class="easydev-container">
-        <div class="easydev-container__content">
+      <div class="easy-container">
+        <div class="easy-container__content">
           <div>
-            <h2 class="easydev-container__content-title">Easydev</h2>
+            <h2 class="easy-container__content-title">Easydev</h2>
             <p>
               EasyDev is a library of React UI components based on styled-components made by the Aspirity team.
               Leveraging best practices gleaned from diverse projects, we've architected this library for code elegance
@@ -21,36 +19,36 @@ import arrow from '../../assets/arrow.svg';
               components that can effectively cover your development requirements.
             </p>
           </div>
-          <div class="easydev-container__content-buttons-container">
+          <div class="easy-container__content-buttons-container">
             <a href="/storybook">
-              <button class="easydev-button primary">Storybook</button>
+              <button class="easy-button primary">Storybook</button>
             </a>
             <a href="/getting-started/introduction/">
-              <button class="easydev-button">Read documentation</button>
+              <button class="easy-button">Read documentation</button>
             </a>
           </div>
         </div>
-        <div class="easydev-container__image">
+        <div class="easy-container__image">
           <Image src={logo} alt="logo" />
         </div>
       </div>
     </main>
-    <div class="easydev-demo-and-light-toggle">
-      <div class="easydev-demo-container">
-        <p class="easydev-demo-container__text">Here UI elements.</p>
-        <p class="easydev-demo-container__text">Make any idea for real with EasyDev</p>
+    <div class="easy-demo-and-light-toggle">
+      <div class="easy-demo-container">
+        <p class="easy-demo-container__text">Here UI elements.</p>
+        <p class="easy-demo-container__text">Make any idea for real with EasyDev</p>
         <a href="/">
-          <button class="easydev-demo-container__button easydev-button primary">
+          <button class="easy-demo-container__button easy-button primary">
             Go to the DEMO
-            <Image src={arrow} alt="arrow" class="easydev-demo-container__button_image" />
+            <Image src={arrow} alt="arrow" class="easy-demo-container__button_image" />
           </button>
         </a>
       </div>
-      <div class="easydev-toggle-theme-container">
+      <div class="easy-toggle-theme-container">
         <span>light</span>
-        <label class="easydev-toggle">
+        <label class="easy-toggle">
           <input type="checkbox" id="toggle-theme" />
-          <span class="easydev-slider round"></span>
+          <span class="easy-slider round"></span>
         </label>
         <span>dark</span>
       </div>
