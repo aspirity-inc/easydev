@@ -39,40 +39,34 @@ The Layout can have the next props: className, style, height. [See there](/story
 ### [Layout With Fixed Header](/storybook/?path=/story/core-layout--layout-with-fixed-header)
 
 ```tsx
-<Box
-  style={{
-    height: '200px',
-  }}
->
-  <Layout>
-    <Header
-      backgroundColor="#4CE1B6"
-      fix
-      height={50}
-      style={{
-        padding: '20px 0',
-      }}
-    >
-      <Center>Header</Center>
-    </Header>
-    <Main
-      style={{
-        minHeight: 300,
-      }}
-    >
-      <Center>Main</Center>
-    </Main>
-    <Footer
-      backgroundColor="#178767"
-      height={70}
-      style={{
-        padding: '20px 0',
-      }}
-    >
-      <Center>Footer</Center>
-    </Footer>
-  </Layout>
-</Box>
+
+<Layout>
+	<Header
+		backgroundColor="#4CE1B6"
+		fix
+		height={50}
+		style={{
+			padding: '20px 0',
+		}}
+	>
+		<Center>Header</Center>
+	</Header>
+	<Main
+		style={{
+			minHeight: 300,
+		}}
+	>
+		<Center>Main</Center>
+	</Main>
+	<Footer
+		backgroundColor="#178767"
+		height={70}
+		style={{
+			padding: '20px 0',
+		}}
+	>
+		<Center>Footer</Center>
+	</Footer>
 ```
 
 ### [Layout With Sidebar](/storybook/?path=/story/core-layout--layout-with-sidebar)
