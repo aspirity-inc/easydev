@@ -16,6 +16,7 @@ export type CarouselProps = BaseComponentType & {
   height?: number;
   keenSliderProps?: KeenSliderOptions;
   thumbnailsProps?: KeenSliderOptions;
+  title?: ReactNode;
 };
 
 export type StyledCarouselProps = {

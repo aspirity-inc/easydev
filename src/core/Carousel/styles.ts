@@ -1,8 +1,14 @@
 import { styled } from 'styled-components';
 
 import { Box } from '@core/Box';
+import { Flex } from '@core/Flex';
 
 import type { StyledCarouselProps } from './types';
+
+export const CarouselWrapper = styled(Flex)`
+  width: 100%;
+  overflow: hidden;
+`;
 
 export const CarouselInnerWrapper = styled(Box)`
   width: 100%;
