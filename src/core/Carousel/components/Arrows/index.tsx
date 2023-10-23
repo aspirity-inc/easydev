@@ -4,7 +4,7 @@ import { Arrow } from './Arrow';
 import { StyledArrows } from './styles';
 import type { ArrowsProps } from '../../types';
 
-export const Arrows = ({ currentSlide, instanceRef, type, loop, ...props }: ArrowsProps) => {
+export const Arrows = ({ currentSlide, instanceRef, type, loop, icon, ...props }: ArrowsProps) => {
   if (!instanceRef.current) return null;
   if (type === 'withDots') return null;
 
@@ -12,7 +12,7 @@ export const Arrows = ({ currentSlide, instanceRef, type, loop, ...props }: Arro
     if (typeof loop === 'boolean' || !loop) {
       if (type === 'onTop') return false;
 
-      return loop ? true : currentSlide === 0;
+      return loop ? false : currentSlide === 0;
     }
 
     return true;
@@ -35,7 +35,7 @@ export const Arrows = ({ currentSlide, instanceRef, type, loop, ...props }: Arro
         }
       }
 
-      return loop ? true : currentSlide === length - perView;
+      return loop ? false : currentSlide === length - perView;
     }
 
     return true;
@@ -50,9 +50,11 @@ export const Arrows = ({ currentSlide, instanceRef, type, loop, ...props }: Arro
 
   return (
     <StyledArrows className="easy_carousel-arrows" $type={type} {...props}>
-      {!isDisabledLeft() && <Arrow left onClick={handleClickArrow(true)} type={type} />}
+      {!isDisabledLeft() && <Arrow left onClick={handleClickArrow(true)} type={type} icon={icon} />}
 
-      {!isDisabledRight() && <Arrow onClick={handleClickArrow()} disabled={isDisabledRight()} type={type} />}
+      {!isDisabledRight() && (
+        <Arrow onClick={handleClickArrow()} disabled={isDisabledRight()} type={type} icon={icon} />
+      )}
     </StyledArrows>
   );
 };

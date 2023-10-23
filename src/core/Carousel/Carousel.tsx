@@ -16,7 +16,9 @@ export const Carousel = ({
   title,
   items,
   arrows = true,
+  arrowIcon,
   dots = true,
+  dotIcons,
   thumbnails = false,
   arrowsType = 'center',
   keenSliderProps,
@@ -82,6 +84,7 @@ export const Carousel = ({
               currentSlide={currentSlide}
               instanceRef={instanceRef}
               type={arrowsType}
+              icon={arrowIcon}
               loop={keenSliderProps?.loop}
             />
           )}
@@ -97,7 +100,13 @@ export const Carousel = ({
       </CarouselInnerWrapper>
 
       {!thumbnails && dots && (
-        <Dots currentSlide={currentSlide} instanceRef={instanceRef} withArrows={arrowsType === 'withDots'} />
+        <Dots
+          currentSlide={currentSlide}
+          instanceRef={instanceRef}
+          withArrows={arrowsType === 'withDots'}
+          icons={dotIcons}
+          arrowIcon={arrowIcon}
+        />
       )}
 
       {thumbnails && <Thumbnails items={items} thumbnailRef={thumbnailRef} />}

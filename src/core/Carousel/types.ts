@@ -7,11 +7,18 @@ import type { KeenSliderHooks, KeenSliderInstance, KeenSliderOptions } from 'kee
 
 export type CarouselArrowTypes = (typeof arrowTypes)[number];
 
+export type DotsIconsType = {
+  default: ReactNode;
+  active: ReactNode;
+};
+
 export type CarouselProps = BaseComponentType & {
   items: ReactNode[];
   arrows?: boolean;
   arrowsType?: CarouselArrowTypes;
+  arrowIcon?: ReactNode;
   dots?: boolean;
+  dotIcons?: DotsIconsType;
   thumbnails?: boolean;
   height?: number;
   keenSliderProps?: KeenSliderOptions;
@@ -32,6 +39,7 @@ export type ArrowProps = BaseComponentType & {
   type?: CarouselArrowTypes;
   left?: boolean;
   onClick: (e: MouseEvent) => void;
+  icon?: ReactNode;
 };
 
 export type StyledArrowProps = {
@@ -42,6 +50,7 @@ export type StyledArrowProps = {
 export type DotProps = BaseComponentType & {
   active: boolean;
   onClick: (e: MouseEvent) => void;
+  icons?: DotsIconsType;
 };
 
 export type StyledDotProps = {
@@ -56,12 +65,15 @@ export type DotsProps = BaseComponentType & {
   currentSlide: number;
   instanceRef: React.MutableRefObject<KeenSliderInstance<object, object, KeenSliderHooks> | null>;
   withArrows: boolean;
+  icons?: DotsIconsType;
+  arrowIcon?: ReactNode;
 };
 
 export type ArrowsProps = BaseComponentType & {
   currentSlide: number;
   instanceRef: React.MutableRefObject<KeenSliderInstance<object, object, KeenSliderHooks> | null>;
   type?: CarouselArrowTypes;
+  icon?: ReactNode;
   loop?:
     | boolean
     | {

@@ -5,7 +5,7 @@ import { StyledDots } from './styles';
 import type { DotsProps } from '../../types';
 import { Arrow } from '../Arrows/Arrow';
 
-export const Dots = ({ currentSlide, withArrows, instanceRef, ...props }: DotsProps) => {
+export const Dots = ({ currentSlide, withArrows, instanceRef, icons, arrowIcon, ...props }: DotsProps) => {
   if (!instanceRef.current) return null;
 
   const getLength = () => {
@@ -38,11 +38,11 @@ export const Dots = ({ currentSlide, withArrows, instanceRef, ...props }: DotsPr
 
   return (
     <StyledDots className="easy_carousel-dots" gap={8} {...props}>
-      {withArrows && <Arrow left type="withDots" onClick={handleClickArrow(true)} />}
+      {withArrows && <Arrow left type="withDots" onClick={handleClickArrow(true)} icon={arrowIcon} />}
       {[...Array(getLength()).keys()].map((idx) => {
-        return <Dot key={idx} onClick={() => handleClickDot(idx)} active={currentSlide === idx} />;
+        return <Dot key={idx} onClick={() => handleClickDot(idx)} active={currentSlide === idx} icons={icons} />;
       })}
-      {withArrows && <Arrow type="withDots" onClick={handleClickArrow()} />}
+      {withArrows && <Arrow type="withDots" onClick={handleClickArrow()} icon={arrowIcon} />}
     </StyledDots>
   );
 };

@@ -31,3 +31,16 @@ export const StyledDot = styled('button')<StyledDotProps>`
         theme.type === 'light' ? theme.colors.tretiary['500'] : theme.colors.tretiary['300']};
     `}
 `;
+
+export const StyledUserDot = styled('button')`
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:focus-visible,
+  &:active,
+  &:focus {
+    outline: none;
+  }
+`;
