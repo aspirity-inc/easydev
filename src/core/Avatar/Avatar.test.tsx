@@ -57,7 +57,7 @@ test('Should have custom icon', () => {
   const { container } = render(
     <EasydevProvider>
       <Avatar>
-        <SentimentVerySatisfiedIcon className="custom_icon" style={{ display: 'block' }} />
+        <SentimentVerySatisfiedIcon className="custom_icon" />
       </Avatar>
     </EasydevProvider>
   );
