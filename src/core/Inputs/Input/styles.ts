@@ -28,13 +28,20 @@ export const StyledInputLabel = styled.label<StyledInputLabelProps>`
   display: block;
   height: 56px;
 
-  &:hover {
-    & ${StyledInput} {
-      border-color: ${({ theme, $disabled }) =>
-        !$disabled && (theme.type === 'light' ? theme.colors.secondary['300'] : theme.colors.secondary['100'])};
-      ${({ theme, $disabled }) => !$disabled && theme.shadows.blue};
-    }
-  }
+  ${({ $disabled }) => {
+    return (
+      !$disabled &&
+      css`
+        &:hover {
+          & ${StyledInput} {
+            border-color: ${({ theme }) =>
+              theme.type === 'light' ? theme.colors.secondary['300'] : theme.colors.secondary['100']};
+            ${({ theme }) => theme.shadows.blue};
+          }
+        }
+      `
+    );
+  }}
 
   & ${StyledInput}:focus-visible + ${StyledLabelText} {
     transform: scale(0.8) translateY(-28px);
