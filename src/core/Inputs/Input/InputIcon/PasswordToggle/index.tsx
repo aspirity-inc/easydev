@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { StyledIcon, ToggleWrapper } from './styles';
 import type { IconProps } from '../../../types';

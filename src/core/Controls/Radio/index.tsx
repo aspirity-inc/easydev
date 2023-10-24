@@ -12,7 +12,7 @@ export const Radio = forwardRef(
     return (
       <ControlWrapper label={Boolean(label)} className="easy_radio-label">
         <ControlContainer className="easy_radio-container easy_control-container">
-          <RadioWrap disabled={disabled} $color={color} className="easy_radio-wrapp">
+          <RadioWrap disabled={disabled} $color={color} className="easy_radio-wrap">
             <StyledRadio
               ref={ref}
               className="easy_radio-item"

@@ -15,7 +15,7 @@ export const Checkbox = forwardRef(
     return (
       <ControlWrapper label={Boolean(label)} className="easy_checkbox-label">
         <ControlContainer className="easy_checkbox-container easy_control-container">
-          <CheckboxWrap disabled={disabled} $color={color} className="easy_checkbox-wrapp">
+          <CheckboxWrap disabled={disabled} $color={color} className="easy_checkbox-wrap">
             <StyledCheckbox
               ref={ref}
               className="easy_checkbox-item"

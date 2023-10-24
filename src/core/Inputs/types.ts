@@ -10,6 +10,8 @@ export type StatusProps = {
   $status?: InputBaseStatus;
 };
 
+export type StyledInputLabelProps = { $disabled: boolean };
+
 export type InputsBaseProps = {
   $filled: boolean;
 };

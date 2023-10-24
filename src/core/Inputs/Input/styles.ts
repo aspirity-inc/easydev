@@ -3,7 +3,7 @@ import { styled, css } from 'styled-components';
 import { Text } from '@core/Typography';
 
 import { StyledLabelText, getBaseInputStyles, getDefaultBorder, getStatusBorder, getStatusColor } from '../styles';
-import type { StyledInputProps, StatusProps } from '../types';
+import type { StyledInputProps, StatusProps, StyledInputLabelProps } from '../types';
 
 export const IconWrapper = styled('div')`
   position: absolute;
@@ -23,10 +23,18 @@ export const StyledInput = styled('input')<StyledInputProps>`
   }
 `;
 
-export const StyledInputLabel = styled.label`
+export const StyledInputLabel = styled.label<StyledInputLabelProps>`
   position: relative;
   display: block;
   height: 56px;
+
+  &:hover {
+    & ${StyledInput} {
+      border-color: ${({ theme, $disabled }) =>
+        !$disabled && (theme.type === 'light' ? theme.colors.secondary['300'] : theme.colors.secondary['100'])};
+      ${({ theme, $disabled }) => !$disabled && theme.shadows.blue};
+    }
+  }
 
   & ${StyledInput}:focus-visible + ${StyledLabelText} {
     transform: scale(0.8) translateY(-28px);
