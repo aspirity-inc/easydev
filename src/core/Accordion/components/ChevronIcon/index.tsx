@@ -1,3 +1,5 @@
+import { KeyboardArrowDownIcon } from '@icons';
+
 import { AnimationWrapper, StyledChevronIcon } from './styles';
 import type { ChevronIconProps } from '../../types';
 
@@ -8,13 +10,7 @@ export const ChevronIcon = ({ opened, openIcon, closeIcon, ...props }: ChevronIc
 
   return (
     <AnimationWrapper $opened={opened}>
-      {openIcon ? (
-        <StyledChevronIcon {...props}>{openIcon}</StyledChevronIcon>
-      ) : (
-        <StyledChevronIcon className="material-symbols-outlined" {...props}>
-          keyboard_arrow_down
-        </StyledChevronIcon>
-      )}
+      <StyledChevronIcon {...props}>{openIcon || <KeyboardArrowDownIcon />}</StyledChevronIcon>
     </AnimationWrapper>
   );
 };

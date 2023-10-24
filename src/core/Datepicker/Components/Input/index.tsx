@@ -22,13 +22,9 @@ export const Input = forwardRef<HTMLInputElement | null, DatepickerInputProps>(
           ref={ref}
         />
         <StyledDatepickerText>{label}</StyledDatepickerText>
-        <StyledDatepickerIcon className="material-symbols-rounded">calendar_today</StyledDatepickerIcon>
+        <StyledDatepickerIcon />
 
-        {isClearable && value && (
-          <StyledDatepickerClearIcon $disabled={disabled || false} className="material-symbols-rounded">
-            cancel
-          </StyledDatepickerClearIcon>
-        )}
+        {isClearable && value && <StyledDatepickerClearIcon $disabled={disabled || false} />}
       </StyledDatepickerLabel>
     );
   }

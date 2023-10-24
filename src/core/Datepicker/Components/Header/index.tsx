@@ -1,3 +1,5 @@
+import { KeyboardArrowLeftIcon, KeyboardArrowRightIcon } from '@icons';
+
 import { StyledSelectedButton, StyledHeader, StyledArrowButton } from './styles';
 import type { DatePickerMode } from '../../types';
 import type { ReactDatePickerCustomHeaderProps } from 'react-datepicker';
@@ -38,12 +40,12 @@ export const Header =
 
     return (
       <StyledHeader className="easy_datepicker-header">
-        <StyledArrowButton className="material-symbols-rounded" aria-label="Previous" onClick={handleClickPrev}>
-          keyboard_arrow_left
+        <StyledArrowButton aria-label="Previous" onClick={handleClickPrev}>
+          <KeyboardArrowLeftIcon />
         </StyledArrowButton>
         {HeaderContent()}
-        <StyledArrowButton className="material-symbols-rounded" aria-label="Next" onClick={handleClickNext}>
-          keyboard_arrow_right
+        <StyledArrowButton aria-label="Next" onClick={handleClickNext}>
+          <KeyboardArrowRightIcon />
         </StyledArrowButton>
       </StyledHeader>
     );

@@ -1,4 +1,4 @@
-import 'material-symbols';
+import { RocketLaunchIcon } from '@icons';
 
 import { Text } from '@core/Typography';
 
@@ -14,14 +14,12 @@ const Template: StoryFn<typeof Center> = ({ ...args }) => {
   return <Center {...args}>{args.children}</Center>;
 };
 
-const Icon = () => <div className="material-symbols-rounded">check_circle_outline</div>;
-
 export const DefaultCenter: StoryFn<typeof Center> = Template.bind({});
 DefaultCenter.args = {
   children: (
     <>
       <Text>Some text for demonstration</Text>
-      <Icon />
+      <RocketLaunchIcon />
     </>
   ),
 };
@@ -32,7 +30,7 @@ InlineCenter.args = {
   children: (
     <>
       <Text>Some text for demonstration</Text>
-      <Icon />
+      <RocketLaunchIcon />
     </>
   ),
 };

@@ -1,3 +1,4 @@
+import { SentimentVerySatisfiedIcon } from '@icons';
 import { render, screen } from '@testing-library/react';
 import { expect, test } from 'vitest';
 
@@ -6,12 +7,6 @@ import { lightPalette } from '@core/Theme/themePalette';
 
 import { Avatar } from '.';
 import { sizes } from './styles';
-
-const CustomIcon = () => (
-  <div className="material-symbols-outlined" style={{ display: 'block' }}>
-    sentiment_very_satisfied
-  </div>
-);
 
 const mockAvatarText = 'Avatar text';
 
@@ -62,12 +57,11 @@ test('Should have custom icon', () => {
   const { container } = render(
     <EasydevProvider>
       <Avatar>
-        <CustomIcon />
+        <SentimentVerySatisfiedIcon className="custom_icon" style={{ display: 'block' }} />
       </Avatar>
     </EasydevProvider>
   );
-  expect(screen.getByText('sentiment_very_satisfied')).toBeInTheDocument();
-  expect(container.getElementsByClassName('material-symbols-outlined').length).toBe(1);
+  expect(container.getElementsByClassName('custom_icon').length).toBe(1);
 });
 
 test('Should have correct size', () => {

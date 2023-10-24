@@ -1,3 +1,4 @@
+import { CalendarTodayIcon, CancelIcon } from '@icons';
 import { css, styled } from 'styled-components';
 
 import { StyledInputLabel } from '@core/Inputs/Input/styles';
@@ -6,7 +7,7 @@ import { getTextVariants } from '@core/Typography/Text/styles';
 
 import type { StyleInputProps } from '../../types';
 
-export const StyledDatepickerIcon = styled('div')`
+export const StyledDatepickerIcon = styled(CalendarTodayIcon)`
   position: absolute;
   top: 50%;
   left: 16px;
@@ -18,7 +19,7 @@ export const StyledDatepickerIcon = styled('div')`
   cursor: pointer;
 `;
 
-export const StyledDatepickerClearIcon = styled('div')<{ $disabled: boolean }>`
+export const StyledDatepickerClearIcon = styled(CancelIcon)<{ $disabled: boolean }>`
   position: absolute;
   top: 50%;
   right: 16px;
