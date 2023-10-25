@@ -22,6 +22,11 @@ const metaCheckbox: Meta<typeof Checkbox> = {
       control: 'radio',
       options: ['success', 'warning', 'error'],
     },
+    reversed: {
+      type: 'boolean',
+      control: 'boolean',
+      table: { defaultValue: { summary: false } },
+    },
     label: {
       control: 'text',
     },

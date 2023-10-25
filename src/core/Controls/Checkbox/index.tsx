@@ -9,12 +9,15 @@ import { ControlContainer, LabelContent } from '../styles.ts';
 import type { ControlBasePropsType } from '../types.ts';
 
 export const Checkbox = forwardRef(
-  ({ disabled, defaultChecked, label, id, color, ...props }: ControlBasePropsType, ref?: Ref<HTMLInputElement>) => {
+  (
+    { disabled, defaultChecked, label, id, color, reversed = false, ...props }: ControlBasePropsType,
+    ref?: Ref<HTMLInputElement>
+  ) => {
     const generatedId = useId();
 
     return (
       <ControlWrapper label={Boolean(label)} className="easy_checkbox-label">
-        <ControlContainer className="easy_checkbox-container easy_control-container">
+        <ControlContainer className="easy_checkbox-container easy_control-container" $reversed={reversed}>
           <CheckboxWrap disabled={disabled} $color={color} className="easy_checkbox-wrapp">
             <StyledCheckbox
               ref={ref}
@@ -27,7 +30,11 @@ export const Checkbox = forwardRef(
             />
             <StyledCheckboxInner className="material-symbols-rounded check-mark">done</StyledCheckboxInner>
           </CheckboxWrap>
-          {label && <LabelContent as="span">{label}</LabelContent>}
+          {label && (
+            <LabelContent as="span" className="easy_checkbox-label">
+              {label}
+            </LabelContent>
+          )}
         </ControlContainer>
       </ControlWrapper>
     );
