@@ -1,3 +1,4 @@
+import { AddIcon, CloseIcon } from '@icons';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { expect, test, vi } from 'vitest';
 
@@ -16,7 +17,7 @@ test('onDelete', async () => {
       <Toast onDelete={mockFn} />
     </EasydevProvider>
   );
-  fireEvent.click(screen.getByText('close'));
+  fireEvent.click(screen.getByTestId('close'));
 
   // onDelete works after 0.5s after click on close button
   await new Promise((_) => setTimeout(_, 500));
@@ -44,17 +45,17 @@ test('toastId, check auto close/delete', async () => {
 test('custom title, description, icon, closeBtn, statusBackground (works with colorful=true), position', () => {
   const title = 'Toast title';
   const description = 'Description title';
-  const iconName = 'add';
-  const closeBtnName = 'close';
+  const icon = <AddIcon className="add-custom-icon" />;
+  const closeBtnIcon = <CloseIcon className="close-custom-icon" />;
 
   const { container } = render(
     <EasydevProvider>
       <Toast
-        icon={<div className="material-symbols-outlined">{iconName}</div>}
+        icon={icon}
         onDelete={globalMockFn}
         title={title}
         description={description}
-        closeBtn={<div className="material-symbols-outlined">{closeBtnName}</div>}
+        closeBtn={closeBtnIcon}
         position="top-center"
         statusBackground="#ededed"
         colorful
@@ -66,13 +67,8 @@ test('custom title, description, icon, closeBtn, statusBackground (works with co
 
   expect(screen.getByText(description)).toBeInTheDocument();
 
-  const iconComponent = screen.getByText(iconName);
-  expect(iconComponent).toBeInTheDocument();
-  expect(iconComponent.className).toBe('material-symbols-outlined');
-
-  const closeBtnComponent = screen.getByText(closeBtnName);
-  expect(closeBtnComponent).toBeInTheDocument();
-  expect(closeBtnComponent.className).toBe('material-symbols-outlined');
+  expect(container.getElementsByClassName('add-custom-icon').length).toBe(1);
+  expect(container.getElementsByClassName('close-custom-icon').length).toBe(1);
 
   const wrapper = container.querySelector('div');
   expect(wrapper?.childNodes[0]).toHaveStyleRule('background-color', '#ededed');

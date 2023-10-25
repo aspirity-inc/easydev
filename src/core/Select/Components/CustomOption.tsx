@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 
+import { DoneIcon } from '@icons';
 import Highlighter from 'react-highlight-words';
 import { components, type GroupBase, type OptionProps } from 'react-select';
 
@@ -19,7 +20,7 @@ export const CustomOption =
             textToHighlight={props.children as string}
             highlightClassName="easy-option--highlight"
           />
-          <div className="icon">{icon || <div className="material-symbols-rounded">done</div>}</div>
+          <div className="icon">{icon || <DoneIcon />}</div>
         </components.Option>
       </StyledOption>
     );

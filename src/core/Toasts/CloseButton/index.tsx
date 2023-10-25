@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-import 'material-symbols';
+import { CloseIcon } from '@icons';
 
 import { StyledCloseButton } from './styles';
 
@@ -11,6 +11,6 @@ type CloseBtnProps = ComponentPropsWithoutRef<'button'> & {
 
 export const CloseButton = ({ icon, colorful, ...props }: CloseBtnProps) => (
   <StyledCloseButton type="button" $colorful={colorful} {...props}>
-    {icon || <div className="material-symbols-outlined">close</div>}
+    {icon || <CloseIcon />}
   </StyledCloseButton>
 );

@@ -76,7 +76,7 @@ export const Toast = ({
           {description && <Text variant="body2">{description}</Text>}
         </StyledMainContent>
 
-        <CloseButton icon={closeBtn} colorful={colorful} onClick={() => setIsDeleting(true)} />
+        <CloseButton icon={closeBtn} colorful={colorful} onClick={() => setIsDeleting(true)} data-testid="close" />
       </StyledToast>
     </StyledAnimationWrapper>
   );
