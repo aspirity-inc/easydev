@@ -1,4 +1,5 @@
-import { fireEvent, render, renderHook, screen } from '@testing-library/react';
+import { RocketLaunchIcon } from '@icons';
+import { fireEvent, render, renderHook } from '@testing-library/react';
 import { expect, test, vi } from 'vitest';
 
 import { EasydevProvider } from '@core/Theme';
@@ -33,43 +34,45 @@ test('check count easy_pagination-item with siblings', () => {
 });
 
 test('last page, withEdges', () => {
-  render(
+  const { container } = render(
     <EasydevProvider>
       <Pagination total={10} page={10} onChange={mockGlobalFn} withEdges />
     </EasydevProvider>
   );
 
-  const nextPageButtonText = screen.getByText('keyboard_arrow_right');
-  expect(nextPageButtonText.parentNode?.parentNode).toHaveAttribute('disabled');
-
-  const lastPageButtonText = screen.getByText('keyboard_double_arrow_right');
-  expect(lastPageButtonText.parentNode?.parentNode).toHaveAttribute('disabled');
+  const arrows = container.getElementsByClassName('easy-icon');
+  expect(arrows.length).toBe(4);
+  expect(arrows[2].parentNode?.parentNode).toHaveAttribute('disabled');
+  expect(arrows[3].parentNode?.parentNode).toHaveAttribute('disabled');
 });
 
 test('first page, withEdges', () => {
-  render(
+  const { container } = render(
     <EasydevProvider>
       <Pagination total={10} page={1} onChange={mockGlobalFn} withEdges />
     </EasydevProvider>
   );
 
-  const prevPageButtonText = screen.getByText('keyboard_arrow_left');
-  expect(prevPageButtonText.parentNode?.parentNode).toHaveAttribute('disabled');
-
-  const firstPageButtonText = screen.getByText('keyboard_double_arrow_left');
-  expect(firstPageButtonText.parentNode?.parentNode).toHaveAttribute('disabled');
+  const arrows = container.getElementsByClassName('easy-icon');
+  expect(arrows.length).toBe(4);
+  expect(arrows[0].parentNode?.parentNode).toHaveAttribute('disabled');
+  expect(arrows[1].parentNode?.parentNode).toHaveAttribute('disabled');
 });
 
 test('check fn calls', () => {
   const mockFn = vi.fn();
-  render(
+  const { container } = render(
     <EasydevProvider>
       <Pagination total={10} page={5} onChange={mockFn} withEdges />
     </EasydevProvider>
   );
 
-  const nextPageButtonText = screen.getByText('keyboard_arrow_right');
-  const nextPageButton = nextPageButtonText.parentNode?.parentNode;
+  const arrows = container.getElementsByClassName('easy-icon');
+  expect(arrows.length).toBe(4);
+
+  const nextPageButtonIcon = arrows[2];
+
+  const nextPageButton = nextPageButtonIcon.parentNode?.parentNode;
 
   fireEvent.click(nextPageButton as Element);
 
@@ -88,10 +91,10 @@ test('hidePages', () => {
 
 test('custom icons', () => {
   const icons = {
-    prev: <div className="material-symbols-rounded">undo</div>,
-    next: <div className="material-symbols-rounded">redo</div>,
-    first: <div className="material-symbols-rounded">skip_previous</div>,
-    last: <div className="material-symbols-rounded">next_plan</div>,
+    prev: <RocketLaunchIcon className="custom-icons prev-icon" />,
+    next: <RocketLaunchIcon className="custom-icons next-icon" />,
+    first: <RocketLaunchIcon className="custom-icons first-icon" />,
+    last: <RocketLaunchIcon className="custom-icons last-icon" />,
   };
 
   const { container } = render(
@@ -100,12 +103,12 @@ test('custom icons', () => {
     </EasydevProvider>
   );
 
-  expect(container.querySelectorAll('.material-symbols-rounded').length).toBe(4);
+  expect(container.querySelectorAll('.custom-icons').length).toBe(4);
 
-  expect(screen.getByText('undo')).toBeInTheDocument();
-  expect(screen.getByText('redo')).toBeInTheDocument();
-  expect(screen.getByText('skip_previous')).toBeInTheDocument();
-  expect(screen.getByText('next_plan')).toBeInTheDocument();
+  expect(container.querySelectorAll('.prev-icon').length).toBe(1);
+  expect(container.querySelectorAll('.next-icon').length).toBe(1);
+  expect(container.querySelectorAll('.first-icon').length).toBe(1);
+  expect(container.querySelectorAll('.last-icon').length).toBe(1);
 });
 
 test('usePagination hook', () => {
@@ -114,7 +117,7 @@ test('usePagination hook', () => {
   const onChange = (value: number) => {
     page = value;
   };
-	
+
   const { result } = renderHook(() => usePagination({ total, siblings: 2, page, onChange }));
 
   expect(JSON.stringify(result.current)).toEqual(

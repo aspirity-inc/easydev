@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { KeyboardArrowLeftIcon } from '@icons';
+
 import { SidebarMenu } from './SidebarMenu';
 import {
   StyledSidebar,
@@ -60,6 +62,11 @@ export const Sidebar = ({
           )}
         </SidebarContent>
       </SidebarStickyContent>
+      {!isStatic && !hideButton && (
+        <ToggleBtn onClick={onToggle} $collapsed={collapsed}>
+          <KeyboardArrowLeftIcon />
+        </ToggleBtn>
+      )}
     </StyledSidebarWrapper>
   );
 };

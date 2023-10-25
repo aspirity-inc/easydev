@@ -1,3 +1,5 @@
+import { DiamondIcon, FactCheckIcon, RocketLaunchIcon, ShoppingCartIcon, StoreIcon } from '@icons';
+
 import { Center } from '@core/Center/Center';
 import { lightPalette } from '@core/Theme/themePalette';
 
@@ -62,17 +64,17 @@ LayoutWithFixedHeader.args = {};
 const menuItems: MenuItemType[] = [
   {
     id: 0,
-    icon: <div className="material-symbols-outlined">fact_check</div>,
+    icon: <FactCheckIcon />,
     label: 'Documents',
   },
   {
     id: 1,
-    icon: <div className="material-symbols-outlined">shopping_cart</div>,
+    icon: <ShoppingCartIcon />,
     label: 'E-commerce',
   },
   {
     id: 2,
-    icon: <div className="material-symbols-outlined">diamond</div>,
+    icon: <DiamondIcon />,
     label: 'Favourites',
   },
   {
@@ -81,7 +83,7 @@ const menuItems: MenuItemType[] = [
   },
   {
     id: 4,
-    icon: <div className="material-symbols-outlined">rocket_launch</div>,
+    icon: <RocketLaunchIcon />,
     label: 'UI Elements',
     children: [
       {
@@ -100,7 +102,7 @@ const menuItems: MenuItemType[] = [
   },
   {
     id: 8,
-    icon: <div className="material-symbols-outlined">store</div>,
+    icon: <StoreIcon />,
     label: 'Marketing',
   },
   {
