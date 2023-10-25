@@ -1,5 +1,5 @@
 import { StyledSVG } from './styles';
-import { IconProps } from './types';
+import type { IconProps } from './types';
 
 export const AddIcon = (props: IconProps) => {
   return (
