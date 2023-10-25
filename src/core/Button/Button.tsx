@@ -25,6 +25,8 @@ export const Button = ({
 }: ButtonProps) => {
   const defaultType = as === 'button' ? 'button' : undefined;
 
+  const isIconButton = Boolean(children == null && icon != null);
+
   return (
     <StyledButton
       as={as}
@@ -33,6 +35,7 @@ export const Button = ({
       $rounded={rounded}
       $size={size}
       $variant={variant}
+      $isIconButton={isIconButton}
       type={type || defaultType}
       {...props}
     >

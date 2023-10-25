@@ -56,6 +56,18 @@ export const StyledButton = styled(Box)<StyledButtonProps>`
         return css``;
     }
   }};
+
+  ${({ $isIconButton }) => {
+    return (
+      $isIconButton &&
+      css`
+        height: max-content;
+        padding: 8px;
+        min-width: auto;
+        width: max-content;
+      `
+    );
+  }};
 `;
 
 const rotate = keyframes`
