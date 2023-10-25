@@ -1,4 +1,4 @@
-<div id="examples-component">
+<div class="examples-component">
 	<slot />
 </div>
 
@@ -11,17 +11,18 @@
 		display: none;
 	}
 
-	#examples-component {
-		width: 100vw!important;
+	.examples-component {
+		width: 100vw !important;
 		margin-left: calc((100vw - 1080px) / -2);
 	}
+
 	.example-wrapper div img{
 		width: 100vw;
 		pointer-events: none;
 	}
 
 	@media screen and (max-width: 1080px) {
-		#examples-component {
+		.examples-component {
 			margin-left: auto;
 		}
 	}
