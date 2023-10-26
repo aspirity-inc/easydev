@@ -44,11 +44,16 @@ export const ToggleWrap = styled(ControlWrap)<ToggleWrapProps>`
     );
   }}
 
-  ${StyledToggle} {
-    &:checked ~ ${StyledToggleInner} {
-      translate: 100% -50%;
-    }
-  }
+  ${({ $isChecked }) => {
+    return (
+      $isChecked &&
+      css`
+        ${StyledToggleInner} {
+          translate: 100% -50%;
+        }
+      `
+    );
+  }}
 
   ${({ disabled }) =>
     disabled &&
@@ -61,7 +66,7 @@ export const ToggleWrap = styled(ControlWrap)<ToggleWrapProps>`
       }
     `}
 
-  ${({ $isDayNightMode }) =>
+  ${({ $isDayNightMode, $isChecked }) =>
     $isDayNightMode &&
     css`
       width: 48px;
@@ -69,10 +74,10 @@ export const ToggleWrap = styled(ControlWrap)<ToggleWrapProps>`
 
       ${StyledToggle} {
         transition: background ${({ theme }) => theme.transition.default};
+      }
 
-        &:checked ~ ${StyledToggleInner} {
-          translate: 150% -50%;
-        }
+      ${StyledToggleInner} {
+        translate: ${$isChecked && '150% -50%'};
       }
     `}
 

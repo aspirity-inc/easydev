@@ -48,7 +48,7 @@ const Template: StoryFn<typeof Toggle> = ({ ...args }) => {
 };
 
 export const DefaultToggle: StoryFn<typeof Toggle> = Template.bind({});
-DefaultToggle.args = {};
+DefaultToggle.args = { defaultChecked: true };
 
 export const ControlledToggle: StoryFn<typeof Toggle> = () => {
   const [checked, setChecked] = useState(false);

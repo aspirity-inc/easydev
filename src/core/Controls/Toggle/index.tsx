@@ -1,4 +1,6 @@
-import { forwardRef, type Ref, useId, useState } from 'react';
+import { forwardRef, type Ref, useId } from 'react';
+
+import { useUncontrolled } from '@hooks';
 
 import { StyledToggle, StyledToggleInner, ToggleWrap } from './styles';
 import { ControlWrapper } from '../ControlWrapper';
@@ -7,15 +9,29 @@ import type { TogglePropsType } from '../types';
 
 export const Toggle = forwardRef(
   (
-    { disabled, defaultChecked, checked, label, color, id, isDayNightMode = false, onChange, ...props }: TogglePropsType,
+    {
+      disabled,
+      defaultChecked = false,
+      checked,
+      label,
+      color,
+      id,
+      isDayNightMode = false,
+      onChange,
+      ...props
+    }: TogglePropsType,
     ref?: Ref<HTMLInputElement>
   ) => {
     const generatedId = useId();
 
-    const [isChecked, setIsChecked] = useState(checked || defaultChecked || false);
+    const [isChecked, setIsChecked] = useUncontrolled({
+      value: checked,
+      defaultValue: defaultChecked,
+      onChange,
+    });
 
     const onToggleChange = () => {
-      setIsChecked((prev) => !prev);
+      setIsChecked(!isChecked);
     };
 
     return (
@@ -35,10 +51,7 @@ export const Toggle = forwardRef(
               type="checkbox"
               disabled={disabled}
               defaultChecked={defaultChecked}
-              onChange={(e) => {
-                onChange && onChange(e);
-                onToggleChange();
-              }}
+              onChange={onToggleChange}
               {...props}
             />
             <StyledToggleInner className="easy_toggle-inner" />
