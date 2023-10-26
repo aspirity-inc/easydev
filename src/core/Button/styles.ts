@@ -57,12 +57,12 @@ export const StyledButton = styled(Box)<StyledButtonProps>`
     }
   }};
 
-  ${({ $isIconButton }) => {
+  ${({ $isIconButton, $size }) => {
     return (
       $isIconButton &&
       css`
         height: max-content;
-        padding: 8px;
+        padding: ${$size === 'sm' ? 8 : 12}px;
         min-width: auto;
         width: max-content;
       `
