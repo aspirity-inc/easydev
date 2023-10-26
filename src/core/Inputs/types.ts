@@ -4,7 +4,7 @@ import type { BaseComponentType } from '@core/Box/types.ts';
 
 import type { Props } from 'react-input-mask';
 
-export type InputBaseStatus = 'warning' | 'error' | 'loading' | 'success';
+export type InputBaseStatus = 'warning' | 'error' | 'loading';
 
 export type StatusProps = {
   $status?: InputBaseStatus;
@@ -23,7 +23,6 @@ export type InputProps = ComponentPropsWithoutRef<'input'> & {
   error?: string;
   warning?: string;
   message?: string;
-  success?: string;
   isLoading?: boolean;
   icons?: IconsProps;
   renderExtraMessage?: () => ReactNode;

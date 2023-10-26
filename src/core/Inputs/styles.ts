@@ -73,10 +73,6 @@ export const getStatusBorder = (status: InputBaseStatus) => {
       return css`
         border-color: ${({ theme }) => theme.colors.secondary['500']};
       `;
-    case 'success':
-      return css`
-        border-color: ${({ theme }) => theme.colors.success['500']};
-      `;
     default:
       return css``;
   }
@@ -128,10 +124,6 @@ export const getStatusColor = (status: InputBaseStatus) => {
     case 'loading':
       return css`
         color: ${({ theme }) => theme.colors.secondary['500']};
-      `;
-    case 'success':
-      return css`
-        color: ${({ theme }) => theme.colors.success['500']};
       `;
     default:
       return css``;

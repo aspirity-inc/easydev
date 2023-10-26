@@ -36,7 +36,6 @@ export const InputIcon = ({ type, status, disabled, icons, isHidePassword, onTog
               errorIcon={icons?.errorIcon}
               warningIcon={icons?.warningIcon}
               loadingIcon={icons?.loadingIcon}
-              successIcon={icons?.successIcon}
               status={status}
             />
           </IconWrapper>
