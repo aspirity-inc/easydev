@@ -20,6 +20,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       value,
       error,
       warning,
+      success,
       message,
       isLoading,
       icons,
@@ -40,12 +41,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         return 'error';
       } else if (warning) {
         return 'warning';
+      } else if (success) {
+        return 'success';
       } else if (isLoading) {
         return 'loading';
       }
     };
 
-    const getInputMessage = () => error || warning || message;
+    const getInputMessage = () => error || warning || success || message;
 
     const getInputType = () => {
       if (type === 'password') return isHidePassword ? 'password' : 'text';
@@ -57,7 +60,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       <StyledInputWrapper className="easy_input-wrapp" $disabled={disabled || false} $isLoading={isLoading || false}>
         <StyledInputLabel className="easy_input-label">
           <StyledInput
-            $hasIcon={Boolean(type === 'password' || error || warning || message || isLoading)}
+            $hasIcon={Boolean(type === 'password' || error || warning || success || isLoading)}
             className="easy_input-item"
             type={getInputType()}
             value={value}

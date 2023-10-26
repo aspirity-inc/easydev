@@ -12,6 +12,7 @@ export type InputStatusIconProps = {
   errorIcon?: ReactNode;
   warningIcon?: ReactNode;
   loadingIcon?: ReactNode;
+	successIcon?: ReactNode;
 };
 
 export const WarningIcon = ({ icon }: IconProps) => (

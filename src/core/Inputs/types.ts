@@ -23,6 +23,7 @@ export type InputProps = ComponentPropsWithoutRef<'input'> & {
   error?: string;
   warning?: string;
   message?: string;
+  success?: string;
   isLoading?: boolean;
   icons?: IconsProps;
   renderExtraMessage?: () => ReactNode;
@@ -49,6 +50,7 @@ export type IconsProps = {
   warningIcon?: ReactNode;
   errorIcon?: ReactNode;
   loadingIcon?: ReactNode;
+  successIcon?: ReactNode;
   passwordShowIcon?: ReactNode;
   passwordHideIcon?: ReactNode;
 };

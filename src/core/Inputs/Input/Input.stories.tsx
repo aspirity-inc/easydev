@@ -30,6 +30,11 @@ const metaInput: Meta<typeof Input> = {
       control: 'text',
       description: 'Warning',
     },
+		success: {
+      type: 'string',
+      control: 'text',
+      description: 'Success',
+    },
     isLoading: {
       control: 'boolean',
       defaultValue: false,
