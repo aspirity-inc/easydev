@@ -14,7 +14,7 @@ export type InputsBaseProps = {
   $filled: boolean;
 };
 
-export type StyledInputProps = InputsBaseProps & StatusProps;
+export type StyledInputProps = InputsBaseProps & StatusProps & { $hasIcon: boolean };
 
 export type InputProps = ComponentPropsWithoutRef<'input'> & {
   className?: string;

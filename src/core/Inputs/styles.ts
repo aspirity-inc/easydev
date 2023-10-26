@@ -10,7 +10,6 @@ export const getBaseInputStyles = ($filled: boolean) => {
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    padding: 24px 60px 8px 16px;
 
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
     ${getTextVariants('body2')};
