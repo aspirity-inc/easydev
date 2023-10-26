@@ -7,12 +7,12 @@ import type { TogglePropsType } from '../types';
 
 export const Toggle = forwardRef(
   (
-    { disabled, defaultChecked, label, color, id, isDayNightMode = false, onChange, ...props }: TogglePropsType,
+    { disabled, defaultChecked, checked, label, color, id, isDayNightMode = false, onChange, ...props }: TogglePropsType,
     ref?: Ref<HTMLInputElement>
   ) => {
     const generatedId = useId();
 
-    const [isChecked, setIsChecked] = useState(defaultChecked || false);
+    const [isChecked, setIsChecked] = useState(checked || defaultChecked || false);
 
     const onToggleChange = () => {
       setIsChecked((prev) => !prev);
