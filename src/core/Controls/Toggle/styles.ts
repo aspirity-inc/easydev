@@ -1,7 +1,5 @@
 import { css, styled } from 'styled-components';
 
-// import DayBackgroundImage from './assets/toggle/day.svg';
-// import NightBackgroundImage from './assets/toggle/night.svg';
 import { ControlWrap, StyledInnerBase, getControlColor, StyledInput } from '../styles.ts';
 import { ToggleWrapProps } from '../types.ts';
 
@@ -33,15 +31,18 @@ export const ToggleWrap = styled(ControlWrap)<ToggleWrapProps>`
     background-color: var(--innerColor);
   }
 
-  &:has(${StyledToggle}:checked) {
-    background-color: ${({ theme, $color }) => getControlColor(theme, $color)};
-
-    ${({ disabled }) =>
-      disabled &&
-      css`
-        background-color: ${({ theme }) => theme.colors.surface['400']};
-      `}
-  }
+  ${({ $isChecked, $color, disabled }) => {
+    return (
+      $isChecked &&
+      (disabled
+        ? css`
+            background-color: ${({ theme }) => theme.colors.surface['400']};
+          `
+        : css`
+            background-color: ${({ theme }) => getControlColor(theme, $color)};
+          `)
+    );
+  }}
 
   ${StyledToggle} {
     &:checked ~ ${StyledToggleInner} {

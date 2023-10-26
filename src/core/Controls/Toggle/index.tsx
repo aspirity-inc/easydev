@@ -37,7 +37,7 @@ export const Toggle = forwardRef(
               defaultChecked={defaultChecked}
               onChange={(e) => {
                 onChange && onChange(e);
-                isDayNightMode && onToggleChange();
+                onToggleChange();
               }}
               {...props}
             />
