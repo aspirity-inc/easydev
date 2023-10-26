@@ -1,5 +1,3 @@
-import 'material-symbols';
-
 import { Button } from '@core/Button';
 
 import { Popover } from '.';
@@ -47,6 +45,17 @@ const metaPopover: Meta<typeof Popover> = {
         defaultValue: { summary: 'top' },
       },
     },
+    openOnHover: {
+      description: 'Open popover by hover',
+      control: 'boolean',
+      table: { defaultValue: { summary: false } },
+    },
+    offset: {
+      type: 'number',
+      control: 'number',
+      description: 'Distance between popover and target (px)',
+      table: { defaultValue: { summary: 8 } },
+    },
   },
 };
 export default metaPopover;
@@ -80,4 +89,33 @@ export const DefaultPopoverNoTitle: StoryFn<typeof Popover> = Template.bind({});
 DefaultPopoverNoTitle.args = {
   placement: 'top',
   body: 'No depending be convinced in unfeeling he. Excellence she unaffected and too sentiments her. ',
+};
+
+const InlineTemplate: StoryFn<typeof Popover> = ({ ...args }) => {
+  return (
+    <div
+      style={{
+        height: '100px',
+        display: 'flex',
+        alignItems: 'flex-end',
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit.
+        <Popover {...args} style={{ color: 'violet', fontWeight: 900 }}>
+          Hover on me
+        </Popover>
+        , earum, hic velit?
+      </p>
+    </div>
+  );
+};
+
+export const InlinePopoverWithHoverTrigger: StoryFn<typeof Popover> = InlineTemplate.bind({});
+InlinePopoverWithHoverTrigger.args = {
+  placement: 'top',
+  title: 'Header Popover',
+  body: 'No depending be convinced in unfeeling he. Excellence she unaffected and too sentiments her. ',
+  openOnHover: true,
+  inline: true,
 };
