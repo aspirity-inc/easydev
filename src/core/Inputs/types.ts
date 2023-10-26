@@ -49,7 +49,6 @@ export type IconsProps = {
   warningIcon?: ReactNode;
   errorIcon?: ReactNode;
   loadingIcon?: ReactNode;
-  successIcon?: ReactNode;
   passwordShowIcon?: ReactNode;
   passwordHideIcon?: ReactNode;
 };
