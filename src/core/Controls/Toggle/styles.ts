@@ -75,25 +75,21 @@ export const ToggleWrap = styled(ControlWrap)<ToggleWrapProps>`
       }
     `}
 
-  ${({ $isDayNightMode, $isChecked }) => {
-    console.log($isDayNightMode, $isChecked);
-    return (
-      $isDayNightMode &&
-      ($isChecked
-        ? css`
-            background: url('/assets/toggle/day.svg');
+  ${({ $isDayNightMode, $isChecked }) =>
+    $isDayNightMode &&
+    ($isChecked
+      ? css`
+          background: url('/assets/toggle/day.svg');
 
-            ${StyledToggleInner} {
-              background: #ffc700;
-            }
-          `
-        : css`
-            background: url('/assets/toggle/night.svg');
+          ${StyledToggleInner} {
+            background: #ffc700;
+          }
+        `
+      : css`
+          background: url('/assets/toggle/night.svg');
 
-            ${StyledToggleInner} {
-              background: url('/assets/toggle/night-span.svg');
-            }
-          `)
-    );
-  }}
+          ${StyledToggleInner} {
+            background: url('/assets/toggle/night-span.svg');
+          }
+        `)}
 `;
