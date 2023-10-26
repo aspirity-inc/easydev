@@ -19,3 +19,10 @@ export type ControlProps = {
   disabled?: boolean;
   $color?: ControlColorType;
 };
+
+export type TogglePropsType = ControlBasePropsType & { isDayNightMode?: boolean };
+
+export type ToggleWrapProps = {
+  $isDayNightMode: boolean;
+  $isChecked?: boolean;
+};

@@ -1,6 +1,9 @@
 import { css, styled } from 'styled-components';
 
+// import DayBackgroundImage from './assets/toggle/day.svg';
+// import NightBackgroundImage from './assets/toggle/night.svg';
 import { ControlWrap, StyledInnerBase, getControlColor, StyledInput } from '../styles.ts';
+import { ToggleWrapProps } from '../types.ts';
 
 export const StyledToggle = styled(StyledInput)``;
 
@@ -15,7 +18,7 @@ export const StyledToggleInner = styled(StyledInnerBase)`
   transition: translate ${({ theme }) => theme.transition.default};
 `;
 
-export const ToggleWrap = styled(ControlWrap)`
+export const ToggleWrap = styled(ControlWrap)<ToggleWrapProps>`
   --toggleBg: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['200'])};
   --checkedBg: ${({ theme }) => (theme.type === 'light' ? theme.colors.tretiary['600'] : theme.colors.tretiary['400'])};
   --innerColor: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800'])};
@@ -56,4 +59,41 @@ export const ToggleWrap = styled(ControlWrap)`
         filter: grayscale(1);
       }
     `}
+
+  ${({ $isDayNightMode }) =>
+    $isDayNightMode &&
+    css`
+      width: 48px;
+      transition: background ${({ theme }) => theme.transition.default};
+
+      ${StyledToggle} {
+        transition: background ${({ theme }) => theme.transition.default};
+
+        &:checked ~ ${StyledToggleInner} {
+          translate: 150% -50%;
+        }
+      }
+    `}
+
+  ${({ $isDayNightMode, $isChecked }) => {
+    console.log($isDayNightMode, $isChecked);
+    return (
+      $isDayNightMode &&
+      ($isChecked
+        ? css`
+            background: url('/assets/toggle/day.svg');
+
+            ${StyledToggleInner} {
+              background: #ffc700;
+            }
+          `
+        : css`
+            background: url('/assets/toggle/night.svg');
+
+            ${StyledToggleInner} {
+              background: url('/assets/toggle/night-span.svg');
+            }
+          `)
+    );
+  }}
 `;

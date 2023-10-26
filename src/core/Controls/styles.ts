@@ -60,6 +60,8 @@ export const ControlContainer = styled('div')`
   justify-content: flex-start;
   align-items: center;
   gap: 8px;
+
+	width: max-content;
 `;
 
 export const LabelContent = styled(Box)`

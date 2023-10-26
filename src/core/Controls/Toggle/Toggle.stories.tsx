@@ -28,6 +28,11 @@ const metaToggle: Meta<typeof Toggle> = {
     checked: {
       type: 'boolean',
       control: 'boolean',
+      table: { defaultValue: { summary: true } },
+    },
+    isDayNightMode: {
+      type: 'boolean',
+      control: 'boolean',
       table: { defaultValue: { summary: false } },
     },
     onChange: {
@@ -86,3 +91,6 @@ WithJSXLabel.parameters = {
     },
   },
 };
+
+export const DayNightToggle: StoryFn<typeof Toggle> = Template.bind({});
+DayNightToggle.args = { isDayNightMode: true };

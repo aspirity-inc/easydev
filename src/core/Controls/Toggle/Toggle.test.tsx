@@ -32,7 +32,7 @@ test('toggle', async () => {
   expect(screen.getByText(label)).toBeInTheDocument();
 });
 
-test('disabled', async () => {
+test('disabled', () => {
   const { container } = render(
     <EasydevProvider>
       <Toggle disabled />
@@ -48,4 +48,20 @@ test('disabled', async () => {
   expect(spanContainer).toHaveStyleRule('background-color', lightPalette.surface['400'], {
     modifier: `&:has(${StyledToggle.toString()}:checked)`,
   });
+});
+
+test('isDayNightMode', async () => {
+  const { container } = render(
+    <EasydevProvider>
+      <Toggle isDayNightMode defaultChecked={false} />
+    </EasydevProvider>
+  );
+
+  const toggleWrapContainer = container.querySelector('.easy_toggle-wrap');
+  expect(toggleWrapContainer).toHaveStyleRule('width', '48px');
+  expect(toggleWrapContainer).toHaveStyleRule('background', "url('/assets/toggle/night.svg')");
+  screen.debug();
+
+  await userEvent.click(container.querySelector('input') as Element);
+  expect(toggleWrapContainer).toHaveStyleRule('background', "url('/assets/toggle/day.svg')");
 });
