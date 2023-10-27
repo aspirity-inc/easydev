@@ -1,4 +1,6 @@
-import { ComponentPropsWithoutRef, ReactNode } from 'react';
+import type { ComponentPropsWithoutRef, ReactNode } from 'react';
+
+import type { BaseComponentType } from '@core/Box/types';
 
 export const paginationControls = ['next', 'prev', 'first', 'last'] as const;
 export type PaginationControlsType = (typeof paginationControls)[number];
@@ -7,7 +9,7 @@ export type PaginationIconProps = {
   [key in PaginationControlsType]: ReactNode;
 };
 
-export type PaginationProps = {
+export type PaginationProps = Omit<BaseComponentType, 'children'> & {
   total: number;
   page: number;
   onChange: (page: number) => void;

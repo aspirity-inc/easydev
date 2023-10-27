@@ -46,6 +46,12 @@ export const getBaseInputStyles = ($filled: boolean) => {
   `;
 };
 
+export const Asterisk = styled('span')`
+  font-size: inherit;
+  font-family: inherit;
+  color: red;
+`;
+
 export const StyledLabelText = styled(StyledInputLabelText)`
   position: absolute;
   left: 16px;

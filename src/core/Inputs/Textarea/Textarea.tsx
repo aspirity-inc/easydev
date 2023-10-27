@@ -8,6 +8,8 @@ import {
   StyledTextareaLabelText,
   StyledTextareaWrapper,
 } from './styles';
+import { StyledMessageWrapper, StyledStatus } from '../Input/styles';
+import { Asterisk } from '../styles';
 import type { TextareaProps } from '../types';
 
 export const Textarea = ({
@@ -19,7 +21,10 @@ export const Textarea = ({
   showLimit = true,
   autoresized = true,
   softLimit = false,
+  error,
+  warning,
   onChange,
+  required,
   ...props
 }: TextareaProps) => {
   const ref = useRef<HTMLTextAreaElement>(null);
@@ -55,6 +60,16 @@ export const Textarea = ({
     if (props.onBlur) props.onBlur(e);
   };
 
+  const getTextareaMessage = () => error || warning;
+
+  const getTextareaStatus = () => {
+    if (error) {
+      return 'error';
+    } else if (warning) {
+      return 'warning';
+    }
+  };
+
   return (
     <StyledTextareaWrapper
       className="easy_textarea-wrapp"
@@ -62,7 +77,7 @@ export const Textarea = ({
       $focused={focused}
       $filled={Boolean(value)}
     >
-      <StyledTextareaLabel className="easy_textarea-label">
+      <StyledTextareaLabel className="easy_textarea-label" $status={getTextareaStatus()}>
         <StyledTextarea
           className="easy_textarea-item"
           ref={ref}
@@ -73,13 +88,25 @@ export const Textarea = ({
           disabled={disabled}
           placeholder={placeholder}
           maxLength={!softLimit ? maxLength : undefined}
+          required={required}
           {...props}
           $filled={Boolean(value)}
           $autoresized={autoresized}
         />
-        <StyledTextareaLabelText>{label}</StyledTextareaLabelText>
+        <StyledTextareaLabelText>
+          {label} {required && <Asterisk className="easy_input-asterisk">*</Asterisk>}
+        </StyledTextareaLabelText>
       </StyledTextareaLabel>
-      {showLimit && (
+
+      {getTextareaMessage() && (
+        <StyledMessageWrapper className="easy_textarea-messageContainer">
+          <StyledStatus className="easy_textarea-statusMessageText" $status={getTextareaStatus()} variant="caption">
+            {getTextareaMessage()}
+          </StyledStatus>
+        </StyledMessageWrapper>
+      )}
+
+      {showLimit && !getTextareaMessage() && (
         <StyledCounterText className="easy_textarea-counter" variant="caption">
           <StyledCharactersNumber $isOverflow={isOverflow}>{charactersNumber}</StyledCharactersNumber>/{maxLength}
         </StyledCounterText>

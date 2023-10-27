@@ -63,7 +63,11 @@ const Template: StoryFn<typeof Textarea> = ({ ...args }) => {
   const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setValue(e.target.value);
   };
-  return <Textarea value={value} onChange={onChange} {...args} />;
+  return (
+    <div style={{ marginBottom: '20px' }}>
+      <Textarea value={value} onChange={onChange} {...args} />
+    </div>
+  );
 };
 
 export const DefaultTextarea: StoryFn<typeof Textarea> = Template.bind({});
@@ -80,6 +84,6 @@ DisabledTextarea.args = {
 export const DisabledEmptyTextarea: StoryFn<typeof Textarea> = Template.bind({});
 DisabledEmptyTextarea.args = {
   placeholder: 'Enter your name',
-  label: 'Имя',
+  label: 'Name',
   disabled: true,
 };

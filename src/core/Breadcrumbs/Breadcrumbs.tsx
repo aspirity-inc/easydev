@@ -29,7 +29,7 @@ export function Breadcrumbs<TItem>({ itemRender, items, separator }: Breadcrumbs
   };
 
   return (
-    <StyledBreadcrumbs className="easy_breadcrumbs">
+    <StyledBreadcrumbs className="easy_breadcrumbs" {...props}>
       {items.length &&
         items.map((item, index) => (
           <Fragment key={index}>

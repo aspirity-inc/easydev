@@ -90,3 +90,16 @@ test('long value with softLimit', async () => {
   expect(screen.getAllByText(new RegExp(`${maxLength}`)).length).toBe(1);
   expect(container.querySelector('textarea')).toHaveValue(mockText);
 });
+
+test('required asterisk', () => {
+  const placeholder = 'placeholder text';
+  const labelText = 'label text';
+
+  const { container } = render(
+    <EasydevProvider>
+      <Textarea label={labelText} placeholder={placeholder} required />
+    </EasydevProvider>
+  );
+
+  expect(container.getElementsByClassName('easy_input-asterisk').length).toBe(1);
+});
