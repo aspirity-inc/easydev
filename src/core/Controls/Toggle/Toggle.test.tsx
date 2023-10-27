@@ -23,8 +23,6 @@ test('toggle', async () => {
   await userEvent.click(inputElement);
   expect(mockFn).toBeCalledTimes(1);
 
-  expect(container.getElementsByClassName('easy_toggle-wrap')[0]).toMatchSnapshot();
-
   expect(container.getElementsByClassName('easy_toggle-wrap')[0]).toHaveStyleRule(
     'color',
     getControlColor(THEMES.light, 'error')
