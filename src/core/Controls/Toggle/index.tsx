@@ -52,6 +52,7 @@ export const Toggle = forwardRef(
               disabled={disabled}
               defaultChecked={defaultChecked}
               onChange={onToggleChange}
+							checked={isChecked}
               {...props}
             />
             <StyledToggleInner className="easy_toggle-inner" />

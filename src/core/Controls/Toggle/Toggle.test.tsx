@@ -6,7 +6,6 @@ import { EasydevProvider, THEMES } from '@core/Theme';
 import { lightPalette } from '@core/Theme/themePalette';
 
 import { Toggle } from '.';
-import { StyledToggle } from './styles';
 import { getControlColor } from '../styles';
 
 test('toggle', async () => {
@@ -24,10 +23,12 @@ test('toggle', async () => {
   await userEvent.click(inputElement);
   expect(mockFn).toBeCalledTimes(1);
 
-  const spanContainer = container.querySelector('span');
-  expect(spanContainer).toHaveStyleRule('background-color', getControlColor(THEMES.light, 'error'), {
-    modifier: `&:has(${StyledToggle.toString()}:checked)`,
-  });
+  expect(container.getElementsByClassName('easy_toggle-wrap')[0]).toMatchSnapshot();
+
+  expect(container.getElementsByClassName('easy_toggle-wrap')[0]).toHaveStyleRule(
+    'color',
+    getControlColor(THEMES.light, 'error')
+  );
 
   expect(screen.getByText(label)).toBeInTheDocument();
 });
@@ -45,9 +46,10 @@ test('disabled', () => {
   expect(spanContainer).toHaveStyleRule('border-color', lightPalette.surface['400']);
   expect(spanContainer).toHaveStyleRule('color', lightPalette.surface['400']);
 
-  expect(spanContainer).toHaveStyleRule('background-color', lightPalette.surface['400'], {
-    modifier: `&:has(${StyledToggle.toString()}:checked)`,
-  });
+  expect(container.getElementsByClassName('easy_toggle-wrap')[0]).toHaveStyleRule(
+    'background-color',
+    lightPalette.surface['400']
+  );
 });
 
 test('isDayNightMode', async () => {
@@ -60,7 +62,6 @@ test('isDayNightMode', async () => {
   const toggleWrapContainer = container.querySelector('.easy_toggle-wrap');
   expect(toggleWrapContainer).toHaveStyleRule('width', '48px');
   expect(toggleWrapContainer).toHaveStyleRule('background', "url('/assets/toggle/night.svg')");
-  screen.debug();
 
   await userEvent.click(container.querySelector('input') as Element);
   expect(toggleWrapContainer).toHaveStyleRule('background', "url('/assets/toggle/day.svg')");
