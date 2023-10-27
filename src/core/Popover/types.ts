@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 
-import { Placement } from '@popperjs/core';
-
 import type { BaseComponentType } from '@core/Box/types';
+
+import type { Placement } from '@popperjs/core';
 
 export type PopoverProps = BaseComponentType & {
   placement: Placement;

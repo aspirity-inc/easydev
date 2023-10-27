@@ -57,7 +57,6 @@ export const Popover = ({
         onMouseEnter={showPopover}
         onMouseLeave={hidePopover}
         ref={setReferenceElement}
-        {...props}
       >
         {children}
       </TriggerPopoverWrapper>
@@ -68,6 +67,7 @@ export const Popover = ({
         style={styles.popper}
         {...attributes.popper}
         ref={setPopperElement}
+        {...props}
       >
         {title && (
           <StyledTitle className="easy_popover-title">

@@ -51,7 +51,7 @@ export const StyledArrow = styled.span`
 
 export const StyledPopover = styled.span<StyledPopoverProps>`
   max-width: 210px;
-  ${({ $isTitled }) => getBorderRasius($isTitled)};
+  ${({ $isTitled }) => getBorderRadius($isTitled)};
   ${({ theme }) => theme.shadows.gray};
   opacity: 0;
 
@@ -76,7 +76,7 @@ export const StyledPopover = styled.span<StyledPopoverProps>`
   }
 `;
 
-export const getBorderRasius = (isTitled: boolean) => {
+export const getBorderRadius = (isTitled: boolean) => {
   return isTitled
     ? css`
         border-radius: 8px 8px 6px 6px;
