@@ -20,7 +20,7 @@ test('open, onClose', () => {
   );
 
   let open = true;
-	
+
   const onClose = () => {
     open = !open;
   };
@@ -30,7 +30,8 @@ test('open, onClose', () => {
   expect(modalOpen).toHaveAttribute('open');
   expect(modalOpen).not.toHaveStyleRule('opacity', '0');
 
-  const closeBtn = screen.getByText('close');
+  const closeBtn = screen.getByText(mockModalText).getElementsByClassName('easy-icon')[0].parentNode;
+
   fireEvent.click(closeBtn as Element);
 
   rerender(<ModalComponent open={open} onClose={onClose} />);

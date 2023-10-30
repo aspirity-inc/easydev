@@ -22,12 +22,6 @@ export const StyledStep = styled(Box)`
     background-color: var(--mainColor);
     color: var(--secondaryNumericColor);
   }
-
-  &.done {
-    .material-symbols-rounded {
-      line-height: 1.6;
-    }
-  }
 `;
 
 export const StyledNumericStepper = styled(StyledStepper)`

@@ -16,10 +16,6 @@ export const StyledMenu = styled(Box)`
 export const StyledIcon = styled(Box)`
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['200'])};
   transition: color ${({ theme }) => theme.transition.default};
-
-  & .material-symbols-outlined {
-    display: block;
-  }
 `;
 
 export const StyledMenuItemContent = styled(Flex)`

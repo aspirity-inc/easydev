@@ -1,4 +1,4 @@
-import 'material-symbols';
+import { DoneIcon } from '@icons';
 
 import { cx } from '@helpers/cx';
 
@@ -19,9 +19,7 @@ export const NumericStepper = ({ count, currentStep }: StepperPropsType) => {
               'easy_numericStep'
             )}
           >
-            <span>
-              {formattedStep < currentStep ? <span className="material-symbols-rounded">done</span> : formattedStep}
-            </span>
+            <span>{formattedStep < currentStep ? <DoneIcon /> : formattedStep}</span>
           </StyledStep>
         );
       })}

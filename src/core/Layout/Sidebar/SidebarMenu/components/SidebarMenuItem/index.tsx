@@ -1,3 +1,5 @@
+import { CategoryIcon } from '@icons';
+
 import { StyledMenuItem } from './styles';
 import { useMenuItemState } from '../../hooks/useMenuItemState';
 import { StyledIcon, StyledLabel, StyledMenuItemContent } from '../../styles';
@@ -32,8 +34,6 @@ export const SidebarMenuItem = ({
     id,
   });
 
-  const defaultMenuIcon = <span className="material-symbols-outlined">category</span>;
-
   return (
     <StyledMenuItem
       as="li"
@@ -50,7 +50,7 @@ export const SidebarMenuItem = ({
       <StyledMenuItemContent gap={8} wrap="nowrap">
         {!isSubmenuItem && (
           <StyledIcon onMouseMove={handleMouseMove} onClick={handleClickIcon}>
-            {icon || defaultMenuIcon}
+            {icon || <CategoryIcon />}
           </StyledIcon>
         )}
         {showLabel && <StyledLabel $collapsedAnimation={collapsedAnimation}>{props.label}</StyledLabel>}
