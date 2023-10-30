@@ -1,4 +1,3 @@
-import { Box } from '@core/Box';
 import { Center } from '@core/Center/Center';
 import { lightPalette } from '@core/Theme/themePalette';
 
@@ -41,7 +40,7 @@ DefaultLayout.args = {};
 
 const TemplateWithFixedHeader = ({ ...args }) => {
   return (
-    <Box style={{ height: '200px' }}>
+    <div style={{ height: '200px' }}>
       <Layout {...args}>
         <Header style={headerStyle} fixed>
           <Center>Header</Center>
@@ -53,7 +52,7 @@ const TemplateWithFixedHeader = ({ ...args }) => {
           <Center>Footer</Center>
         </Footer>
       </Layout>
-    </Box>
+    </div>
   );
 };
 
@@ -75,6 +74,10 @@ const menuItems: MenuItemType[] = [
     id: 2,
     icon: <div className="material-symbols-outlined">diamond</div>,
     label: 'Favourites',
+  },
+  {
+    id: 3,
+    type: 'divider',
   },
   {
     id: 4,
@@ -106,20 +109,26 @@ const menuItems: MenuItemType[] = [
   },
 ];
 
+const sidebarStyle = {
+  height: '500px',
+};
+
 const TemplateWithSidebar = ({ ...args }) => {
   return (
-    <Layout {...args}>
-      <Header style={headerStyle}>
-        <Center>Header</Center>
-      </Header>
-      <Main style={mainStyle}>
-        <Sidebar menu={menuItems} />
-        <Center>Main</Center>
-      </Main>
-      <Footer style={footerStyle}>
-        <Center>Footer</Center>
-      </Footer>
-    </Layout>
+    <div style={{ height: '500px' }}>
+      <Layout {...args}>
+        <Header style={headerStyle}>
+          <Center>Header</Center>
+        </Header>
+        <Main style={mainStyle}>
+          <Sidebar menu={menuItems} style={sidebarStyle} />
+          <Center style={{ height: '1000px' }}>Main</Center>
+        </Main>
+        <Footer style={footerStyle}>
+          <Center>Footer</Center>
+        </Footer>
+      </Layout>
+    </div>
   );
 };
 

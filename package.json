@@ -35,7 +35,9 @@
     "react-highlight-words": "^0.20.0",
     "react-input-mask": "^3.0.0-alpha.2",
     "react-popper": "^2.3.0",
-    "react-select": "^5.7.4"
+    "react-select": "^5.7.4",
+    "smooth-scrollbar": "^8.8.4",
+    "smooth-scrollbar-react": "^2.4.1"
   },
   "license": "MIT",
   "devDependencies": {
