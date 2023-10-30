@@ -10,7 +10,6 @@ export const getBaseInputStyles = ($filled: boolean) => {
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    padding: 24px 60px 8px 16px;
 
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['50'])};
     ${getTextVariants('body2')};
@@ -74,10 +73,6 @@ export const getStatusBorder = (status: InputBaseStatus) => {
       return css`
         border-color: ${({ theme }) => theme.colors.secondary['500']};
       `;
-    case 'success':
-      return css`
-        border-color: ${({ theme }) => theme.colors.success['500']};
-      `;
     default:
       return css``;
   }
@@ -129,10 +124,6 @@ export const getStatusColor = (status: InputBaseStatus) => {
     case 'loading':
       return css`
         color: ${({ theme }) => theme.colors.secondary['500']};
-      `;
-    case 'success':
-      return css`
-        color: ${({ theme }) => theme.colors.success['500']};
       `;
     default:
       return css``;

@@ -20,9 +20,6 @@ export const WarningIcon = ({ icon }: IconProps) => (
 export const ErrorIcon = ({ icon }: IconProps) => (
   <>{icon || <div className="material-symbols-rounded">error_outline</div>}</>
 );
-export const SuccessIcon = ({ icon }: IconProps) => (
-  <>{icon || <div className="material-symbols-rounded">check_circle_outline</div>}</>
-);
 export const LoadingIcon = ({ icon }: IconProps) => (
   <RotateBox>{icon || <div className="material-symbols-rounded">progress_activity</div>}</RotateBox>
 );
@@ -36,8 +33,6 @@ export const InputStatusIcon = ({ status, ...icons }: InputStatusIconProps) => {
         return <ErrorIcon icon={icons.errorIcon} />;
       case 'loading':
         return <LoadingIcon icon={icons.loadingIcon} />;
-      case 'success':
-        return <SuccessIcon />;
       default:
         return null;
     }
