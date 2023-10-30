@@ -44,6 +44,7 @@ export default defineConfig({
       '@core': path.resolve(__dirname, 'src/core'),
       '@helpers': path.resolve(__dirname, 'src/helpers'),
       '@hooks': path.resolve(__dirname, 'src/hooks'),
+      '@icons': path.resolve(__dirname, 'src/icons'),
     },
   },
 });

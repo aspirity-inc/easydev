@@ -1,3 +1,5 @@
+import { KeyboardDoubleArrowRightIcon } from '@icons';
+
 import { Breadcrumbs } from '.';
 import { StyledUserLink } from './styles';
 import type { BreadcrumbsItem } from './types';
@@ -42,11 +44,9 @@ DefaultBreadcrumbs.args = {
   items: exampleItems,
 };
 
-const UserSeparator = () => <div className="material-symbols-outlined">keyboard_double_arrow_right</div>;
-
 export const BreadcrumbsUserIconSeparator: StoryFn<typeof Breadcrumbs> = Template.bind({});
 BreadcrumbsUserIconSeparator.args = {
-  separator: <UserSeparator />,
+  separator: <KeyboardDoubleArrowRightIcon />,
   items: exampleItems,
 };
 

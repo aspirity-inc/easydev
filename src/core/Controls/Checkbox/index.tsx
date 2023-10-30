@@ -1,6 +1,6 @@
 import { forwardRef, type Ref, useId } from 'react';
 
-import 'material-symbols';
+import { DoneIcon } from '@icons';
 
 import { ControlWrapper } from '@core/Controls/ControlWrapper';
 
@@ -25,7 +25,9 @@ export const Checkbox = forwardRef(
               defaultChecked={defaultChecked}
               {...props}
             />
-            <StyledCheckboxInner className="material-symbols-rounded check-mark">done</StyledCheckboxInner>
+            <StyledCheckboxInner className="check-mark">
+              <DoneIcon />
+            </StyledCheckboxInner>
           </CheckboxWrap>
           {label && <LabelContent as="span">{label}</LabelContent>}
         </ControlContainer>

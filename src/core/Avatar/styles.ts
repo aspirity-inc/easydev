@@ -1,3 +1,4 @@
+import { PersonIcon } from '@icons';
 import { css, styled } from 'styled-components';
 
 import { Box } from '@core/Box';
@@ -84,6 +85,8 @@ export const OnlineIndicator = styled(Box)<{ $online?: boolean }>`
   }}
 `;
 
+export const DefaultAvatarIcon = styled(PersonIcon)``;
+
 export const StyledAvatar = styled(Box)<StyledAvatarProps>`
   position: relative;
   width: ${({ $size }) => (typeof $size === 'number' ? `${$size}px` : sizes[$size].avatar)};
@@ -94,9 +97,9 @@ export const StyledAvatar = styled(Box)<StyledAvatarProps>`
   user-select: none;
   border-radius: ${({ $radius }) => (typeof $radius === 'number' ? `${$radius}px` : radiuses[$radius])};
 
-  & .material-symbols-outlined {
-    display: block;
-    font-size: ${({ $size }) => (typeof $size === 'number' ? `${$size / 2}px` : sizes[$size].iconFont)};
+  & ${DefaultAvatarIcon} {
+    width: ${({ $size }) => (typeof $size === 'number' ? `${$size / 2}px` : sizes[$size].iconFont)};
+    height: ${({ $size }) => (typeof $size === 'number' ? `${$size / 2}px` : sizes[$size].iconFont)};
   }
 
   & img {

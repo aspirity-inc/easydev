@@ -1,3 +1,4 @@
+import { AddIcon } from '@icons';
 import { render, screen } from '@testing-library/react';
 import { expect, test } from 'vitest';
 
@@ -6,7 +7,6 @@ import { lightPalette } from '@core/Theme/themePalette';
 
 import { Button } from '.';
 
-const AddIcon = () => <div className="material-symbols-rounded">add</div>;
 const mockButtonText = 'Button';
 
 test('Should be in document', () => {
@@ -21,11 +21,10 @@ test('Should be in document', () => {
 test('Should have icon', () => {
   const { container } = render(
     <EasydevProvider>
-      <Button icon={<AddIcon />}>{mockButtonText}</Button>
+      <Button icon={<AddIcon className="custom-icon" />}>{mockButtonText}</Button>
     </EasydevProvider>
   );
-  expect(screen.getByText('add')).toBeInTheDocument();
-  expect(container.getElementsByClassName('material-symbols-rounded').length).toBe(1);
+  expect(container.getElementsByClassName('custom-icon').length).toBe(1);
 });
 
 test('Should have class', () => {
@@ -80,20 +79,18 @@ test('Should have loading icon', () => {
       <Button loading>{mockButtonText}</Button>
     </EasydevProvider>
   );
-  expect(screen.getByText('cached')).toBeInTheDocument();
-  expect(container.getElementsByClassName('material-symbols-rounded').length).toBe(1);
+  expect(container.getElementsByClassName('easy-icon').length).toBe(1);
 });
 
 test('Should have custom loading icon', () => {
   const { container } = render(
     <EasydevProvider>
-      <Button loading loadingIcon={<AddIcon />}>
+      <Button loading loadingIcon={<AddIcon className="custom-icon" />}>
         {mockButtonText}
       </Button>
     </EasydevProvider>
   );
-  expect(screen.getByText('add')).toBeInTheDocument();
-  expect(container.getElementsByClassName('material-symbols-rounded').length).toBe(1);
+  expect(container.getElementsByClassName('custom-icon').length).toBe(1);
 });
 
 test('Should have correct type', () => {
