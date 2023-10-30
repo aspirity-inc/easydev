@@ -25,5 +25,6 @@ export * from '@core/Pagination';
 export * from '@core/Table';
 export * from '@core/Accordion';
 export * from '@core/Dropdown';
+export * from '@core/Carousel';
 
 export * from '@hooks';

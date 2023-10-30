@@ -1,3 +1,5 @@
+import { CloseIcon } from '@icons';
+
 import { Checkbox } from '@core/Controls';
 import { Space } from '@core/Space';
 
@@ -32,7 +34,7 @@ export const ListOfExtraContentChips = ({ ...args }) => {
     <Space direction="row">
       <Chip {...args} label="Сheckbox chip" chipContent={<Checkbox />} />
       <Chip {...args} label="Disabled checkbox chip" disabled defaultChecked chipContent={<Checkbox />} />
-      <Chip {...args} label="Delete button chip" chipContent={<div className="material-symbols-outlined">close</div>} />
+      <Chip {...args} label="Delete button chip" chipContent={<CloseIcon />} />
     </Space>
   );
 };

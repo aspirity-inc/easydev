@@ -1,13 +1,12 @@
 import type { ReactNode } from 'react';
 
-import 'material-symbols';
+import { CachedIcon } from '@icons';
 
 import { RotateBox, StyledButton } from './styles';
 import type { ButtonProps } from './types';
 
 const LoadingIcon = ({ icon }: { icon?: ReactNode }) => {
-  const defaultLoadingIcon = <div className={`material-symbols-rounded`}>cached</div>;
-  return <RotateBox>{icon || defaultLoadingIcon}</RotateBox>;
+  return <RotateBox>{icon || <CachedIcon />}</RotateBox>;
 };
 
 export const Button = ({

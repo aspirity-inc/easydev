@@ -1,0 +1,57 @@
+import { Image } from 'astro:assets';
+
+import Main from './Main.astro';
+
+import logo from '../../assets/easydev-logo.svg';
+import arrow from '../../assets/arrow.svg';
+
+<Main>
+  <div class="easy-main-wrapper">
+    <main>
+      <div class="easy-container">
+        <div class="easy-container__content">
+          <div>
+            <h2 class="easy-container__content-title">Easydev</h2>
+            <p>
+              EasyDev is a library of React UI components based on styled-components made by the Aspirity team.
+              Leveraging best practices gleaned from diverse projects, we've architected this library for code elegance
+              and user-friendly integration. Although it is still in its pre-alpha stage, this version has a kit of core
+              components that can effectively cover your development requirements.
+            </p>
+          </div>
+          <div class="easy-container__content-buttons-container">
+            <a href="/storybook">
+              <button class="easy-button primary">Storybook</button>
+            </a>
+            <a href="/getting-started/introduction/">
+              <button class="easy-button">Read documentation</button>
+            </a>
+          </div>
+        </div>
+        <div class="easy-container__image">
+          <Image src={logo} alt="logo" />
+        </div>
+      </div>
+    </main>
+    <div class="easy-demo-and-light-toggle">
+      <div class="easy-demo-container">
+        <p class="easy-demo-container__text">Here UI elements.</p>
+        <p class="easy-demo-container__text">Make any idea for real with EasyDev</p>
+        <a href="/">
+          <button class="easy-demo-container__button easy-button primary">
+            Go to the DEMO
+            <Image src={arrow} alt="arrow" class="easy-demo-container__button_image" />
+          </button>
+        </a>
+      </div>
+      <div class="easy-toggle-theme-container">
+        <span>light</span>
+        <label class="easy-toggle">
+          <input type="checkbox" id="toggle-theme" />
+          <span class="easy-slider round"></span>
+        </label>
+        <span>dark</span>
+      </div>
+    </div>
+  </div>
+</Main>

@@ -3,14 +3,23 @@ import { useId } from 'react';
 import { AccordionItemType } from '@core/Accordion';
 import { Box } from '@core/Box';
 
-import { StyledBox, StyledAccordion, StyledControl, CollapsedChevronWrapper } from './styles';
+import { StyledAccordion, StyledControl, CollapsedChevronWrapper, StyledAccordionWrapper } from './styles';
 import { useMenuAccordionState } from '../../hooks/useMenuAccordionState';
 import { StyledIcon, StyledLabel, StyledMenuItemContent } from '../../styles';
 import type { MenuItemType, SubMenuProps } from '../../types';
 import { ChevronArrow } from '../ChevronArrow';
 import { SidebarMenuItem } from '../SidebarMenuItem';
 
-export const SubMenu = ({ children, disabled, icon, activeId, collapsed, onChange, ...props }: SubMenuProps) => {
+export const SubMenu = ({
+  children,
+  disabled,
+  icon,
+  activeId,
+  collapsed,
+  onChange,
+  maxWidth,
+  ...props
+}: SubMenuProps) => {
   const id = useId();
   const {
     hovered,
@@ -36,6 +45,7 @@ export const SubMenu = ({ children, disabled, icon, activeId, collapsed, onChang
           $collapsed={collapsed}
           $hovered={hovered}
           $collapsedAnimation={collapsedAnimation}
+          $maxWidth={maxWidth}
         >
           <StyledMenuItemContent gap={8} wrap="nowrap">
             <StyledIcon onMouseMove={handleMouseMove}>{icon}</StyledIcon>
@@ -62,6 +72,7 @@ export const SubMenu = ({ children, disabled, icon, activeId, collapsed, onChang
                 hovered={hovered}
                 activeId={activeId}
                 onChange={onChange}
+                maxWidth={maxWidth}
               />
             );
           })}
@@ -72,7 +83,13 @@ export const SubMenu = ({ children, disabled, icon, activeId, collapsed, onChang
   };
 
   return (
-    <StyledBox as="li" className="easy_dropdown-menu-item" onMouseLeave={handleMouseLeave}>
+    <StyledAccordionWrapper
+      as="li"
+      className="easy_dropdown-menu-item"
+      onMouseLeave={handleMouseLeave}
+      $maxWidth={maxWidth}
+      $hovered={hovered}
+    >
       <StyledAccordion
         items={createAccordion()}
         value={opened}
@@ -82,6 +99,6 @@ export const SubMenu = ({ children, disabled, icon, activeId, collapsed, onChang
         $collapsed={delayCollapsed}
         $hovered={hovered}
       ></StyledAccordion>
-    </StyledBox>
+    </StyledAccordionWrapper>
   );
 };

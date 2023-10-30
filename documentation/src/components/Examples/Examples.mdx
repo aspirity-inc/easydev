@@ -1,0 +1,17 @@
+import { Image } from 'astro:assets';
+
+import darkFrame from '../../assets/examples/dark/frame.png';
+import lightFrame from '../../assets/examples/light/frame.png';
+
+import Examples from './Examples.astro';
+
+<Examples>
+  <div class="example-wrapper">
+    <div class="dark">
+      <Image src={darkFrame} alt="dark-notification" />
+    </div>
+    <div class="light">
+      <Image src={lightFrame} alt="dark-notification" />
+    </div>
+  </div>
+</Examples>

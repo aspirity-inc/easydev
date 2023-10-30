@@ -1,14 +1,12 @@
 import { Fragment } from 'react';
 
-import 'material-symbols';
+import { KeyboardArrowRightIcon } from '@icons';
 
 import { StyledBreadcrumbs, StyledLink, StyledSeparator } from './styles';
 import type { BreadcrumbsProps, BreadcrumbsItem } from './types';
 
-const DefaultSeparator = () => <div className="material-symbols-rounded">keyboard_arrow_right</div>;
-
 export function Breadcrumbs<TItem>({ itemRender, items, separator }: BreadcrumbsProps<TItem>) {
-  const Separator = () => <StyledSeparator>{separator || <DefaultSeparator />}</StyledSeparator>;
+  const Separator = () => <StyledSeparator>{separator || <KeyboardArrowRightIcon />}</StyledSeparator>;
   const lastItemIndex = items?.length - 1;
 
   const renderItem = (item: BreadcrumbsItem & TItem, index: number) => {

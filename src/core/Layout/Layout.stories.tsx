@@ -1,4 +1,5 @@
-import { Box } from '@core/Box';
+import { DiamondIcon, FactCheckIcon, RocketLaunchIcon, ShoppingCartIcon, StoreIcon } from '@icons';
+
 import { Center } from '@core/Center/Center';
 import { lightPalette } from '@core/Theme/themePalette';
 
@@ -41,7 +42,7 @@ DefaultLayout.args = {};
 
 const TemplateWithFixedHeader = ({ ...args }) => {
   return (
-    <Box style={{ height: '200px' }}>
+    <div style={{ height: '200px' }}>
       <Layout {...args}>
         <Header style={headerStyle} fixed>
           <Center>Header</Center>
@@ -53,7 +54,7 @@ const TemplateWithFixedHeader = ({ ...args }) => {
           <Center>Footer</Center>
         </Footer>
       </Layout>
-    </Box>
+    </div>
   );
 };
 
@@ -63,22 +64,26 @@ LayoutWithFixedHeader.args = {};
 const menuItems: MenuItemType[] = [
   {
     id: 0,
-    icon: <div className="material-symbols-outlined">fact_check</div>,
+    icon: <FactCheckIcon />,
     label: 'Documents',
   },
   {
     id: 1,
-    icon: <div className="material-symbols-outlined">shopping_cart</div>,
+    icon: <ShoppingCartIcon />,
     label: 'E-commerce',
   },
   {
     id: 2,
-    icon: <div className="material-symbols-outlined">diamond</div>,
+    icon: <DiamondIcon />,
     label: 'Favourites',
   },
   {
+    id: 3,
+    type: 'divider',
+  },
+  {
     id: 4,
-    icon: <div className="material-symbols-outlined">rocket_launch</div>,
+    icon: <RocketLaunchIcon />,
     label: 'UI Elements',
     children: [
       {
@@ -97,7 +102,7 @@ const menuItems: MenuItemType[] = [
   },
   {
     id: 8,
-    icon: <div className="material-symbols-outlined">store</div>,
+    icon: <StoreIcon />,
     label: 'Marketing',
   },
   {
@@ -106,20 +111,26 @@ const menuItems: MenuItemType[] = [
   },
 ];
 
+const sidebarStyle = {
+  height: '500px',
+};
+
 const TemplateWithSidebar = ({ ...args }) => {
   return (
-    <Layout {...args}>
-      <Header style={headerStyle}>
-        <Center>Header</Center>
-      </Header>
-      <Main style={mainStyle}>
-        <Sidebar menu={menuItems} />
-        <Center>Main</Center>
-      </Main>
-      <Footer style={footerStyle}>
-        <Center>Footer</Center>
-      </Footer>
-    </Layout>
+    <div style={{ height: '500px' }}>
+      <Layout {...args}>
+        <Header style={headerStyle}>
+          <Center>Header</Center>
+        </Header>
+        <Main style={mainStyle}>
+          <Sidebar menu={menuItems} style={sidebarStyle} />
+          <Center style={{ height: '1000px' }}>Main</Center>
+        </Main>
+        <Footer style={footerStyle}>
+          <Center>Footer</Center>
+        </Footer>
+      </Layout>
+    </div>
   );
 };
 

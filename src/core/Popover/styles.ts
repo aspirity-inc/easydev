@@ -1,10 +1,11 @@
 import { css, styled } from 'styled-components';
 
+import { Box } from '@core/Box';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
 import type { StyledPopoverProps } from './types';
 
-export const TriggerPopoverWrapper = styled.div`
+export const TriggerPopoverWrapper = styled(Box)`
   width: fit-content;
 `;
 
@@ -17,14 +18,15 @@ export const StyledTitle = styled.span`
   border-radius: 8px 8px 0 0;
 `;
 
-export const StyledBody = styled.div`
+export const StyledBody = styled.span`
+  display: block;
   background-color: ${({ theme }) =>
     theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800']};
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['200'])};
   ${getTextVariants('body4')};
 `;
 
-export const StyledArrow = styled.div`
+export const StyledArrow = styled.span`
   &,
   &::before {
     position: absolute;
@@ -47,9 +49,9 @@ export const StyledArrow = styled.div`
   }
 `;
 
-export const StyledPopover = styled.div<StyledPopoverProps>`
+export const StyledPopover = styled.span<StyledPopoverProps>`
   max-width: 210px;
-  ${({ $isTitled }) => getBorderRasius($isTitled)};
+  ${({ $isTitled }) => getBorderRadius($isTitled)};
   ${({ theme }) => theme.shadows.gray};
   opacity: 0;
 
@@ -74,7 +76,7 @@ export const StyledPopover = styled.div<StyledPopoverProps>`
   }
 `;
 
-export const getBorderRasius = (isTitled: boolean) => {
+export const getBorderRadius = (isTitled: boolean) => {
   return isTitled
     ? css`
         border-radius: 8px 8px 6px 6px;

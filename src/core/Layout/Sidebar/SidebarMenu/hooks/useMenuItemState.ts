@@ -2,7 +2,13 @@ import { useEffect, useState } from 'react';
 
 import type { MenuItemStateHookParams } from '../types';
 
-export function useMenuItemState({ collapsed, hovered: parentHovered, onChange, id }: MenuItemStateHookParams) {
+export function useMenuItemState({
+  collapsed,
+  hovered: parentHovered,
+  onChange,
+  onClick,
+  id,
+}: MenuItemStateHookParams) {
   const [hovered, setHovered] = useState(false);
   const [showLabel, setShowLabel] = useState(true);
   const [collapsedAnimation, setCollapsedAnimation] = useState(false);
@@ -18,10 +24,12 @@ export function useMenuItemState({ collapsed, hovered: parentHovered, onChange, 
   const handleClickItem = () => {
     (!collapsed || hovered) && onChange && onChange(id);
     onChange && onChange(id);
+    onClick && onClick();
   };
 
   const handleClickIcon = () => {
     collapsed && onChange && onChange(id);
+    onClick && onClick();
   };
 
   useEffect(() => {

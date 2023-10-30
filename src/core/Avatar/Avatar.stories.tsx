@@ -1,3 +1,5 @@
+import { SentimentVerySatisfiedIcon } from '@icons';
+
 import { Avatar } from '.';
 import { avatarRadiusVariants, avatarSizeVariants } from './constants';
 import type { Meta, StoryFn } from '@storybook/react';
@@ -51,13 +53,8 @@ LetterAvatar.args = {
   children: 'AB',
 };
 
-const CustomIcon = () => (
-  <div className="material-symbols-outlined" style={{ display: 'block' }}>
-    sentiment_very_satisfied
-  </div>
-);
 export const CustomIconAvatar: StoryFn<typeof Avatar> = Template.bind({});
 CustomIconAvatar.args = {
   online: true,
-  children: <CustomIcon />,
+  children: <SentimentVerySatisfiedIcon />,
 };
