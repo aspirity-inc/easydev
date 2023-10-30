@@ -6,6 +6,7 @@ import type { StyledHeaderProps } from './types';
 
 export const StyledHeader = styled(Box)<StyledHeaderProps>`
   width: 100%;
+  z-index: 2;
   ${({ $fixed }) => getFixStyles($fixed)};
 `;
 
@@ -14,7 +15,6 @@ export const getFixStyles = (fixed?: boolean) => {
     return css`
       position: sticky;
       top: 0;
-      z-index: 1;
     `;
   }
 };

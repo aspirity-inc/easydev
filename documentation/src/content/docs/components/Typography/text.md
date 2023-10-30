@@ -4,19 +4,18 @@ title: Text
 
 Use Text to present your design and content as clearly and efficiently as possible.
 
-The Text has the next props: children, className, style, color, bgColor, tag, variant, ellipsis. [See there](/storybook/?path=/docs/core-typography-text--docs) to get more information.
+The Text can have the next props: variant, ellipsis, as. [See there](/storybook/?path=/docs/core-typography-text--docs) to get more information.
 
-[Default Text](/storybook/?path=/story/core-typography-text--default-text)
+## Text variants
 
-Code:
+
+### [Default Text](/storybook/?path=/story/core-typography-text--default-text)
 
 ```tsx
 <Text>EasyDev the greatest</Text>
 ```
 
-[Text With Style](/storybook/?path=/story/core-typography-text--text-with-style)
-
-Code:
+### [Text With Style](/storybook/?path=/story/core-typography-text--text-with-style)
 
 ```tsx
 <Text
@@ -28,9 +27,7 @@ Code:
 </Text>
 ```
 
-[Ellipsis Text](/storybook/?path=/story/core-typography-text--ellipsis-text)
-
-Code:
+### [Ellipsis Text](/storybook/?path=/story/core-typography-text--ellipsis-text)
 
 ```tsx
 <Text

@@ -2,23 +2,19 @@
 title: Range Slider
 ---
 
-Range Slider is designed to select a value from a certain interval.
+The Range Slider is designed to select a value from a certain interval.
 
-The Range Slider has the next props: min, max, value, tooltip, tooltipShown. [See there](/storybook/?path=/docs/core-progress-rangeslider--docs) to get more information.
+The Range Slider can have the next props: tooltip, tooltipShown. [See there](/storybook/?path=/docs/core-progress-rangeslider--docs) to get more information.
 
-[Range Slider](/storybook/?path=/story/core-progress-rangeslider--default-progress&args=tooltipShown:always;tooltip:!true)
+## Range Slider variants
 
-Code:
+### [Range Slider](/storybook/?path=/story/core-progress-rangeslider--default-progress)
 
 ```tsx
-<RangeSlider 
-  max="100" 
-  min="0" 
-  onChange={() => {
-    alert('changed');
-  }} 
-  tooltip 
-  tooltipShown="always" 
-  value="25" 
-/>
+const RangeSlider = () => {
+  const [value, setValue] = useState('25');
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
+
+  return <RangeSlider value={value} onChange={onChange} min="0" max="100" />;
+};
 ```

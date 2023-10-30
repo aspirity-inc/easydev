@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "keen-slider": "^6.8.6",
     "lodash": "^4.17.21",
     "material-symbols": "^0.8.1",
     "polished": "^4.2.2",
@@ -35,7 +36,9 @@
     "react-highlight-words": "^0.20.0",
     "react-input-mask": "^3.0.0-alpha.2",
     "react-popper": "^2.3.0",
-    "react-select": "^5.7.4"
+    "react-select": "^5.7.4",
+    "smooth-scrollbar": "^8.8.4",
+    "smooth-scrollbar-react": "^2.4.1"
   },
   "license": "MIT",
   "devDependencies": {
