@@ -11,3 +11,11 @@ The Footer can have the next props: height, backgroundColor. Here you can add co
   <Center>Footer</Center>
 </Footer>
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class           | Description                         |
+| --------------- | ----------------------------------- |
+| **easy_footer** | Styles applied to the root element. |

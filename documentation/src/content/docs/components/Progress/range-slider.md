@@ -18,3 +18,13 @@ const RangeSlider = () => {
   return <RangeSlider value={value} onChange={onChange} min="0" max="100" />;
 };
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class               | Description                          |
+| ------------------- | ------------------------------------ |
+| **easy_range-wrap** | Styles applied to the root element.  |
+| **easy_tooltip**    | Styles applied to the tooltip.       |
+| **easy_range**      | Styles applied to the range element. |

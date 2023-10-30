@@ -17,3 +17,13 @@ const Pagination = () => {
   return <Pagination total={10} siblings={1} withEdges hidePages={false} page={page} onChange={setPage} />;
 };
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                    | Description                          |
+| ------------------------ | ------------------------------------ |
+| **easy_pagination**      | Styles applied to the root element.  |
+| **easy_pagination-btn**  | Styles applied to the arrow buttons. |
+| **easy_pagination-item** | Styles applied to the page numbers.  |

@@ -25,3 +25,11 @@ The Title can have the next props: variant. [See there](/storybook/?path=/docs/c
   EasyDev the greatest
 </Title>
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class          | Description                         |
+| -------------- | ----------------------------------- |
+| **easy_title** | Styles applied to the root element. |

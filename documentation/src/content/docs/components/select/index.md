@@ -175,3 +175,12 @@ const UserIconsSelect = () => {
   );
 };
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                     | Description                         |
+| ------------------------- | ----------------------------------- |
+| **easy_select-wrap**      | Styles applied to the root element. |
+| **easy_select-container** | Styles applied to the select.       |

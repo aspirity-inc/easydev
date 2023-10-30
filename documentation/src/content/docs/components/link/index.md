@@ -19,3 +19,11 @@ The Link can have the next props: disabled, defaultUnderline. [See there](/story
 ```tsx
 <Link defaultUnderline>Go to the google!!!</Link>
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class         | Description                         |
+| ------------- | ----------------------------------- |
+| **easy_link** | Styles applied to the root element. |
