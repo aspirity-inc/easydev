@@ -38,7 +38,7 @@ export const getCommonMenuItemStyles = ($disabled: boolean, $collapsed: boolean,
   return css`
     --transition: ${({ theme }) => theme.transition.default};
 
-    width: fit-content;
+    width: 100%;
     min-height: 40px;
     padding: 8px;
     display: flex;
@@ -50,6 +50,11 @@ export const getCommonMenuItemStyles = ($disabled: boolean, $collapsed: boolean,
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['700'] : theme.colors.surface['200'])};
     white-space: nowrap;
     transition: background-color var(--transition), color var(--transition);
+
+    ${$collapsed &&
+    css`
+      width: fit-content;
+    `}
 
     ${$collapsed &&
     $hovered &&
