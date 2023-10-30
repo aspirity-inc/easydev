@@ -1,3 +1,5 @@
+import { CategoryIcon } from '@icons';
+
 import { StyledMenuItem } from './styles';
 import { useMenuItemState } from '../../hooks/useMenuItemState';
 import { StyledIcon, StyledLabel, StyledMenuItemContent } from '../../styles';
@@ -12,6 +14,8 @@ export const SidebarMenuItem = ({
   hovered: controlledHovered,
   onChange,
   isSubmenuItem = false,
+  maxWidth,
+  onClick,
   ...props
 }: SidebarMenuItemProps) => {
   const {
@@ -26,10 +30,9 @@ export const SidebarMenuItem = ({
     collapsed,
     hovered: controlledHovered,
     onChange,
+    onClick,
     id,
   });
-
-  const defaultMenuIcon = <span className="material-symbols-outlined">category</span>;
 
   return (
     <StyledMenuItem
@@ -39,6 +42,7 @@ export const SidebarMenuItem = ({
       $collapsed={collapsed}
       $hovered={hovered || controlledHovered}
       $active={activeId === id}
+      $maxWidth={maxWidth}
       onClick={handleClickItem}
       onMouseLeave={handleMouseLeave}
       {...props}
@@ -46,7 +50,7 @@ export const SidebarMenuItem = ({
       <StyledMenuItemContent gap={8} wrap="nowrap">
         {!isSubmenuItem && (
           <StyledIcon onMouseMove={handleMouseMove} onClick={handleClickIcon}>
-            {icon || defaultMenuIcon}
+            {icon || <CategoryIcon />}
           </StyledIcon>
         )}
         {showLabel && <StyledLabel $collapsedAnimation={collapsedAnimation}>{props.label}</StyledLabel>}

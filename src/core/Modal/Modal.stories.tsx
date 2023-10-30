@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { RocketLaunchIcon } from '@icons';
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Button } from '@core/Button';
@@ -63,11 +64,7 @@ const TemplateNoPortalWithModalElements: StoryFn<typeof Modal> = ({ ...args }) =
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
 
-  const ModalImage = (
-    <div className="material-symbols-rounded" style={{ fontSize: '100px' }}>
-      rocket_launch
-    </div>
-  );
+  const ModalImage = <RocketLaunchIcon style={{ width: '100px', height: '100px' }} />;
 
   return (
     <div style={{ height: '450px' }}>

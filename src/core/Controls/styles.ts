@@ -3,7 +3,7 @@ import { css, type DefaultTheme, styled } from 'styled-components';
 import { Box } from '@core/Box';
 import { getTextVariants } from '@core/Typography/Text/styles.ts';
 
-import type { ControlColorType, ControlProps } from './types.ts';
+import type { ControlColorType, ControlContainerProps, ControlProps } from './types.ts';
 
 export const StyledInput = styled('input')`
   margin: 0;
@@ -55,11 +55,21 @@ export const ControlWrap = styled('span')<ControlProps>`
     `}
 `;
 
-export const ControlContainer = styled('div')`
+export const ControlContainer = styled('div')<ControlContainerProps>`
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 8px;
+
+  ${({ $reversed }) => {
+    return (
+      $reversed &&
+      css`
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+      `
+    );
+  }}
 `;
 
 export const LabelContent = styled(Box)`

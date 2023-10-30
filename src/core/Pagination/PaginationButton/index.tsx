@@ -1,19 +1,22 @@
-import 'material-symbols';
+import {
+  KeyboardArrowLeftIcon,
+  KeyboardArrowRightIcon,
+  KeyboardDoubleArrowLeftIcon,
+  KeyboardDoubleArrowRightIcon,
+} from '@icons';
 
 import { StyledIcon, StyledPaginationButton } from './styles';
 import type { PaginationButtonProps } from '..';
 
 const defaultIcons = {
-  prev: 'keyboard_arrow_left',
-  next: 'keyboard_arrow_right',
-  first: 'keyboard_double_arrow_left',
-  last: 'keyboard_double_arrow_right',
+  prev: <KeyboardArrowLeftIcon />,
+  next: <KeyboardArrowRightIcon />,
+  first: <KeyboardDoubleArrowLeftIcon />,
+  last: <KeyboardDoubleArrowRightIcon />,
 };
 
 export const PaginationButton = ({ variant, icons, ...props }: PaginationButtonProps) => (
   <StyledPaginationButton className="easy_pagination-btn" {...props}>
-    <StyledIcon>
-      {(icons && icons[variant]) || <div className="material-symbols-rounded">{defaultIcons[variant]}</div>}
-    </StyledIcon>
+    <StyledIcon>{(icons && icons[variant]) || defaultIcons[variant]}</StyledIcon>
   </StyledPaginationButton>
 );

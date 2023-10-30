@@ -1,3 +1,4 @@
+import { RocketLaunchIcon } from '@icons';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { test, expect } from 'vitest';
@@ -33,7 +34,7 @@ test('label, value, placeholder, error', () => {
 });
 
 test('waring, icons', () => {
-  const customIcons = { warningIcon: <div className="material-symbols-rounded">undo</div> } as IconsProps;
+  const customIcons = { warningIcon: <RocketLaunchIcon className="custom-icon" /> } as IconsProps;
 
   const warningText = 'warning text';
 
@@ -43,9 +44,7 @@ test('waring, icons', () => {
     </EasydevProvider>
   );
 
-  const iconContainer = screen.getByText('undo');
-  expect(iconContainer).toBeInTheDocument();
-  expect(iconContainer.className).toBe('material-symbols-rounded');
+  expect(container.getElementsByClassName('custom-icon').length).toBe(1);
 
   const warningContainerText = screen.getByText(warningText);
   expect(warningContainerText).toBeInTheDocument();

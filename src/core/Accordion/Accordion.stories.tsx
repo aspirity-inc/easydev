@@ -1,3 +1,5 @@
+import { AddCircleIcon, DoNotDisturbOnIcon, RocketLaunchIcon } from '@icons';
+
 import { Badge } from '@core/Badge';
 import { Flex } from '@core/Flex';
 
@@ -9,19 +11,6 @@ export default {
   title: 'Core/Accordion',
   component: Accordion,
 } satisfies Meta<typeof Accordion>;
-
-const TitleIcon = () => (
-  <div className="material-symbols-outlined" style={{ display: 'block' }}>
-    rocket_launch
-  </div>
-);
-
-const UserOpenIcon = () => {
-  return <div className="material-symbols-outlined">add_circle</div>;
-};
-const UserCloseIcon = () => {
-  return <div className="material-symbols-outlined">do_not_disturb_on</div>;
-};
 
 const items: AccordionItemType[] = [
   {
@@ -37,14 +26,14 @@ const items: AccordionItemType[] = [
   {
     id: 2,
     title: 'Title 2 (disabled)',
-    icon: <TitleIcon />,
+    icon: <RocketLaunchIcon />,
     disabled: true,
     panel: <p>Lorem ipsum dolor sit amet, consectetur</p>,
   },
   {
     id: 3,
     title: 'Title 3',
-    icon: <TitleIcon />,
+    icon: <RocketLaunchIcon />,
     subtitle: 'Subtitle description',
     panel: (
       <p>
@@ -95,6 +84,6 @@ MultipleAccordion.args = {
 export const BorderedAccordionWithCustomChevron: StoryFn<typeof Accordion> = Template.bind({});
 BorderedAccordionWithCustomChevron.args = {
   variant: 'bordered',
-  openIcon: <UserOpenIcon />,
-  closeIcon: <UserCloseIcon />,
+  openIcon: <AddCircleIcon />,
+  closeIcon: <DoNotDisturbOnIcon />,
 };

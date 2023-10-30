@@ -8,15 +8,14 @@ export const StyledMenu = styled(Box)`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 `;
 
 export const StyledIcon = styled(Box)`
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['200'])};
   transition: color ${({ theme }) => theme.transition.default};
-
-  & .material-symbols-outlined {
-    display: block;
-  }
 `;
 
 export const StyledMenuItemContent = styled(Flex)`
@@ -27,7 +26,7 @@ export const defaultHoverStyles = css`
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['100'])};
 
   background-color: ${({ theme }) =>
-    theme.type === 'light' ? theme.colors.surface['200'] : theme.colors.surface['700']};
+    theme.type === 'light' ? theme.colors.surface['300'] : theme.colors.surface['700']};
 
   & ${StyledIcon} {
     color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['900'] : theme.colors.surface['100'])};

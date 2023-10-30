@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { KeyboardArrowRightIcon, PersonIcon } from '@icons';
+
 import { Button } from '@core/Button';
 import { Flex } from '@core/Flex';
 
@@ -10,9 +12,6 @@ export default {
   title: 'Core/Dropdown',
   component: Dropdown,
 } satisfies Meta<typeof Dropdown>;
-
-const DefaultAvatarIcon = () => <div className="material-symbols-outlined">person</div>;
-const DefaultArrow = () => <div className="material-symbols-outlined">keyboard_arrow_right</div>;
 
 const TemplateDefault: StoryFn<typeof Dropdown> = ({ ...args }) => {
   const [open, setOpen] = useState(false);
@@ -36,7 +35,7 @@ const TemplateDefault: StoryFn<typeof Dropdown> = ({ ...args }) => {
             <MenuLabel>First menu label</MenuLabel>
             <MenuItem>Menu item</MenuItem>
             <MenuItem>
-              <DefaultAvatarIcon />
+              <PersonIcon />
               <span>Menu item with icon</span>
             </MenuItem>
 
@@ -73,7 +72,7 @@ const TemplateUserButtonDropdown: StoryFn<typeof Dropdown> = ({ ...args }) => {
             <MenuLabel>First menu label</MenuLabel>
             <MenuItem>Menu item</MenuItem>
             <MenuItem>
-              <DefaultAvatarIcon />
+              <PersonIcon />
               <span>Menu item with icon</span>
             </MenuItem>
 
@@ -103,7 +102,7 @@ const TemplateComplexDropdown: StoryFn<typeof Dropdown> = ({ ...args }) => {
           <MenuItem>
             <Flex justify="space-between" style={{ width: '100%' }}>
               <span>Second menu</span>
-              <DefaultArrow />
+              <KeyboardArrowRightIcon />
             </Flex>
           </MenuItem>
         }
@@ -111,7 +110,7 @@ const TemplateComplexDropdown: StoryFn<typeof Dropdown> = ({ ...args }) => {
           <>
             <MenuItem>Second menu item</MenuItem>
             <MenuItem>
-              <DefaultAvatarIcon />
+              <PersonIcon />
               <span>Second menu item</span>
             </MenuItem>
           </>
@@ -137,7 +136,7 @@ const TemplateComplexDropdown: StoryFn<typeof Dropdown> = ({ ...args }) => {
             <MenuItem>Menu item</MenuItem>
             {innerMenu()}
             <MenuItem>
-              <DefaultAvatarIcon />
+              <PersonIcon />
               <span>Menu item with icon</span>
             </MenuItem>
             <MenuItem disabled>Menu item (disabled)</MenuItem>

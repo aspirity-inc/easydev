@@ -4,7 +4,7 @@ title: Popover
 
 The Popover can be used to display some content on top of another.
 
-The Popover can have the next props: placement, title, body. [See there](/storybook/?path=/docs/core-popover--docs) to get more information.
+The Popover can have the next props: placement, title, body, openOnHover, inline, offset. [See there](/storybook/?path=/docs/core-popover--docs) to get more information.
 
 ## Popover variants
 
@@ -48,5 +48,33 @@ The Popover can have the next props: placement, title, body. [See there](/storyb
   >
     <Button>Open popover</Button>
   </Popover>
+</div>
+```
+
+### [Inline Popover With Hover Trigger](/storybook/?path=/story/core-popover--inline-popover-with-hover-trigger)
+
+```tsx
+<div
+  style={{
+    width: '600px',
+    height: '100px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+  }}
+>
+  <p>
+    Lorem ipsum dolor sit.
+    <Popover
+      style={{ color: 'red', fontWeight: 900 }}
+      body="No depending be convinced in unfeeling he. Excellence she unaffected and too sentiments her. "
+      placement="top"
+      title="Header Popover"
+      openOnHover={true}
+      inline={true}
+    >
+      Hover on me
+    </Popover>, earum, hic velit?
+  </p>
 </div>
 ```

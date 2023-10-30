@@ -6,12 +6,15 @@ import { ControlContainer, LabelContent } from '../styles.ts';
 import type { ControlBasePropsType } from '../types.ts';
 
 export const Radio = forwardRef(
-  ({ disabled, defaultChecked, color, label, id, ...props }: ControlBasePropsType, ref?: Ref<HTMLInputElement>) => {
+  (
+    { disabled, defaultChecked, color, label, id, reversed = false, ...props }: ControlBasePropsType,
+    ref?: Ref<HTMLInputElement>
+  ) => {
     const generatedId = useId();
 
     return (
       <ControlWrapper label={Boolean(label)} className="easy_radio-label">
-        <ControlContainer className="easy_radio-container easy_control-container">
+        <ControlContainer className="easy_radio-container easy_control-container" $reversed={reversed}>
           <RadioWrap disabled={disabled} $color={color} className="easy_radio-wrap">
             <StyledRadio
               ref={ref}
@@ -24,7 +27,11 @@ export const Radio = forwardRef(
             />
             <StyledRadioInner className="easy_radio-item--inner" />
           </RadioWrap>
-          {label && <LabelContent as="span">{label}</LabelContent>}
+          {label && (
+            <LabelContent as="span" className="easy_radio-label">
+              {label}
+            </LabelContent>
+          )}
         </ControlContainer>
       </ControlWrapper>
     );

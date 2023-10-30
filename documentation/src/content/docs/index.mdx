@@ -1,41 +1,14 @@
 ---
 title: Easydev
 template: splash
-hero:
-  tagline: EasyDev is a library of React UI components based on styled-components made by the Aspirity team. Leveraging best practices gleaned from diverse projects, we've architected this library for code elegance and user-friendly integration. Although it is still in its pre-alpha stage, this version has a kit of core components that can effectively cover your development requirements.
-  image:
-    file: ../../assets/easydev-logo.svg
-  actions:
-    - text: Storybook
-      link: /storybook
-      variant: primary
-    - text: Read documentation
-      link: getting-started/introduction/
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import Main from '../../components/Main/Main.mdx';
+import Ellipses from '../../components/Ellipses/Ellipses.astro';
+import Examples from '../../components/Examples/Examples.mdx';
 
-## Next steps
-
-<CardGrid>
-  <Card title="Installation" icon="rocket">
-    [Install](getting-started/installation/) EasyDev now.
-  </Card>
-  <Card title="Components" icon="puzzle">
-    See [examples](components/controls/checkbox/) of using template components.
-  </Card>
-  <Card title="Change color theme" icon="pencil">
-    EasyDev uses styled-components to create styles so that you can easily [manage your project's colors and other style
-    things](theming).
-  </Card>
-  <Card title="Read the docs" icon="document">
-    Learn more in [ Docs](getting-started/introduction).
-  </Card>
-</CardGrid>
-
-<article class="about">
-  <small>Brought to you by</small>
-  <a href="https://aspirity.com/" target="_blank">
-    <span class="aspirity-logo" />
-  </a>
-</article>
+<div id="main-page-container">
+  <Ellipses />
+  <Main />
+  <Examples />
+</div>

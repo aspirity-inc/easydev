@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 
+import { VisibilityIcon, VisibilityOffIcon } from '@icons';
+
 import { StyledIcon, ToggleWrapper } from './styles';
 import type { IconProps } from '../../../types';
 
@@ -12,10 +14,22 @@ export type ToggleProps = {
 };
 
 const ShowIcon = ({ icon }: IconProps) => (
-  <>{icon || <StyledIcon className="material-symbols-rounded">visibility</StyledIcon>}</>
+  <>
+    {icon || (
+      <StyledIcon>
+        <VisibilityIcon />
+      </StyledIcon>
+    )}
+  </>
 );
 const HideIcon = ({ icon }: IconProps) => (
-  <>{icon || <StyledIcon className="material-symbols-rounded">visibility_off</StyledIcon>}</>
+  <>
+    {icon || (
+      <StyledIcon>
+        <VisibilityOffIcon />
+      </StyledIcon>
+    )}
+  </>
 );
 
 export const PasswordToggle = ({ disabled, isHidePassword, onToggle, ...icons }: ToggleProps) => {

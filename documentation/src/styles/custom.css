@@ -1,3 +1,8 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
 a {
   font-weight: 600;
 }
@@ -12,12 +17,19 @@ h2 a {
 :root,
 ::backdrop {
   --sl-color-text-accent: #6fe7c4;
+  --bg-color-btn-accent: #93edd4;
+  --color-primary-button-text-accent: #272729;
+  --color-button-text-accent: #cecccf;
+  --border-color-button: #cecccf;
 }
 
 /* light mode */
 :root[data-theme='light'],
 [data-theme='light'] ::backdrop {
   --sl-color-text-accent: #244153;
+  --color-primary-button-text-accent: #ffffff;
+  --color-button-text-accent: #272729;
+  --border-color-button: #524c58;
 }
 
 .aspirity-logo {
@@ -39,29 +51,6 @@ h2 a {
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-evenly;
   gap: 40px;
-}
-
-.about {
-  display: flex;
-  flex-direction: column;
-  max-width: 40rem;
-  gap: 0.5rem;
-  align-items: center;
-  text-align: center;
-  margin-inline: auto;
-  margin-top: 3rem;
-}
-
-.content .about {
-  margin-top: 3rem;
-}
-
-.about small {
-  color: var(--sl-color-gray-3);
-}
-.about img {
-  max-width: 30%;
-  margin-inline: auto;
 }
 
 @media screen and (max-width: 768px) {

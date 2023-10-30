@@ -9,4 +9,6 @@ export const StyledTableSortLabel = styled('button')`
   padding: 0;
   margin: 0;
   cursor: pointer;
+  font-weight: inherit;
+  font-size: inherit;
 `;

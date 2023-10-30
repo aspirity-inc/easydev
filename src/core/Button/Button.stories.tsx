@@ -1,11 +1,8 @@
-import 'material-symbols';
+import { AddIcon, RefreshIcon } from '@icons';
 
 import { Button } from '.';
 import { ButtonRoundedVariants, ButtonSizeVariants, ButtonVariants } from './types';
 import type { Meta, StoryFn } from '@storybook/react';
-
-const AddIcon = () => <div className="material-symbols-rounded">add</div>;
-const LoaderIcon = () => <div className="material-symbols-rounded">refresh</div>;
 
 const metaButton: Meta<typeof Button> = {
   title: 'Core/Button',
@@ -115,7 +112,7 @@ ProgressDefaultIconButton.args = {
 export const ProgressUserIconButton: StoryFn<typeof Button> = Template.bind({});
 ProgressUserIconButton.args = {
   children: 'Button',
-  loadingIcon: <LoaderIcon />,
+  loadingIcon: <RefreshIcon />,
   loading: true,
 };
 

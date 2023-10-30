@@ -11,6 +11,7 @@ export const SidebarMenu = ({
   collapsed = false,
   activeId: controlledActiveId,
   onChange,
+  maxWidth,
   ...props
 }: SidebarMenuProps) => {
   const [activeId, setActiveId] = useState(controlledActiveId || -1);
@@ -34,6 +35,7 @@ export const SidebarMenu = ({
             collapsed,
             activeId,
             onChange: handleChangeActiveId,
+            maxWidth,
           };
           if (item.children) {
             return <SubMenu {...props} />;

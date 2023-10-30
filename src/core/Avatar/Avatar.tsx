@@ -1,8 +1,6 @@
-import 'material-symbols';
-
 import { cx } from '@helpers/cx.ts';
 
-import { OnlineIndicator, StyledAvatar, StyledCenter } from './styles';
+import { DefaultAvatarIcon, OnlineIndicator, StyledAvatar, StyledCenter } from './styles';
 import type { AvatarProps } from './types';
 
 export const Avatar = ({
@@ -25,5 +23,3 @@ export const Avatar = ({
     </StyledAvatar>
   );
 };
-
-const DefaultAvatarIcon = () => <div className="material-symbols-outlined">person</div>;

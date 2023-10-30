@@ -18,7 +18,7 @@ test('count of links should be equal to 3 and count of separators - 2, last link
     </EasydevProvider>
   );
 
-  expect(screen.queryAllByText('keyboard_arrow_right').length).toBe(2);
+  expect(container.getElementsByClassName('easy-icon').length).toBe(2);
 
   const linksContainer = container.querySelectorAll('a');
   expect(linksContainer.length).toBe(3);

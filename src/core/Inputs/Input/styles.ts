@@ -13,6 +13,16 @@ export const IconWrapper = styled('div')`
 `;
 
 export const StyledInput = styled('input')<StyledInputProps>`
+  ${({ $hasIcon }) => {
+    return $hasIcon
+      ? css`
+          padding: 24px 60px 8px 16px;
+        `
+      : css`
+          padding: 24px 16px 8px 16px;
+        `;
+  }}
+
   ${({ $filled }) => getBaseInputStyles($filled)};
 
   ${({ $filled, $status }) => ($status ? getStatusBorder($status) : getDefaultBorder($filled))};
@@ -20,6 +30,12 @@ export const StyledInput = styled('input')<StyledInputProps>`
   // States
   &:focus-visible:not([disabled]) {
     border-color: ${({ theme, $status }) => ($status ? getStatusBorder($status) : theme.colors.secondary['400'])};
+  }
+
+  cursor: default;
+
+  &:focus-visible {
+    cursor: text;
   }
 `;
 

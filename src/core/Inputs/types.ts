@@ -4,7 +4,7 @@ import type { BaseComponentType } from '@core/Box/types.ts';
 
 import type { Props } from 'react-input-mask';
 
-export type InputBaseStatus = 'warning' | 'error' | 'loading' | 'success';
+export type InputBaseStatus = 'warning' | 'error' | 'loading';
 
 export type StatusProps = {
   $status?: InputBaseStatus;
@@ -16,7 +16,7 @@ export type InputsBaseProps = {
   $filled: boolean;
 };
 
-export type StyledInputProps = InputsBaseProps & StatusProps;
+export type StyledInputProps = InputsBaseProps & StatusProps & { $hasIcon: boolean };
 
 export type InputProps = ComponentPropsWithoutRef<'input'> & {
   className?: string;

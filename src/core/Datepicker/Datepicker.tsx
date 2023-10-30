@@ -3,8 +3,6 @@ import { useRef, type FocusEvent, useState, type SyntheticEvent } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-import 'material-symbols';
-
 import { Header, Input } from './Components';
 import { DatepickerWrapper } from './styles';
 import type { DatePickerMode, DateType, DatepickerType } from './types';

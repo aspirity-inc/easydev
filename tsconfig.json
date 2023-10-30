@@ -24,7 +24,8 @@
     "paths": {
       "@core/*": ["src/core/*"],
       "@helpers/*": ["src/helpers/*"],
-      "@hooks": ["src/hooks"]
+      "@hooks": ["src/hooks"],
+      "@icons": ["src/icons"]
     }
   },
   "include": ["src"],
