@@ -16,14 +16,14 @@ export const Sidebar = ({
   children,
   as = 'aside',
   hideButton = false,
-  collapsed: controledCollapsed,
+  collapsed: controlledCollapsed,
   onCollapsed,
   minWidth = 56,
   maxWidth = 220,
   menu,
   ...props
 }: SidebarProps) => {
-  const [collapsed, setCollapsed] = useState(controledCollapsed || false);
+  const [collapsed, setCollapsed] = useState(controlledCollapsed || false);
 
   const onToggle = () => {
     if (isStatic) return;
@@ -49,7 +49,12 @@ export const Sidebar = ({
             </StyledSidebar>
           </StyledScrollbar>
           {!isStatic && !hideButton && (
-            <ToggleBtn onClick={onToggle} $collapsed={collapsed} $maxWidth={maxWidth}>
+            <ToggleBtn
+              onClick={onToggle}
+              $collapsed={collapsed}
+              $maxWidth={maxWidth}
+              className="easy_sidebar-toggle_button"
+            >
               <span className="material-symbols-rounded">keyboard_arrow_left</span>
             </ToggleBtn>
           )}
