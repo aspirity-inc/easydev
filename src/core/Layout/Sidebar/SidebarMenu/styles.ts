@@ -38,7 +38,7 @@ export const getCommonMenuItemStyles = ($disabled: boolean, $collapsed: boolean,
   return css`
     --transition: ${({ theme }) => theme.transition.default};
 
-    width: 100%;
+    width: fit-content;
     min-height: 40px;
     padding: 8px;
     display: flex;
