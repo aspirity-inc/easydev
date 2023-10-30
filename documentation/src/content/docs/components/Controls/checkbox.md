@@ -38,3 +38,23 @@ const ControlledCheckbox = () => {
 ```tsx
 <Checkbox label={<strong>Check me 🌵</strong>} />
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+Common classes for all controls.
+
+| Class                      | Description                                                   |
+| -------------------------- | ------------------------------------------------------------- |
+| **easy_control-label**     | Styles applied to the root element.                           |
+| **easy_control-container** | Styles applied to the container with input and label content. |
+
+Classes for checkbox.
+
+| Class                       | Description                                                                                     |
+| --------------------------- | ----------------------------------------------------------------------------------------------- |
+| **easy_checkbox-label**     | Styles applied to the root element.                                                             |
+| **easy_checkbox-container** | Styles applied to the container with checkbox input and label content.                          |
+| **easy_checkbox-wrap**      | Styles applied to the container, which responsible for customization checkbox and checkbox icon |
+| **easy_checkbox-item**      | Styles applied to the checkbox input.                                                           |

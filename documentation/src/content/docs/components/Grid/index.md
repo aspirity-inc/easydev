@@ -50,3 +50,12 @@ The Grid can have the next props: direction, columns, columnSpacing, rowSpacing,
 ```
 
 The Col can have the next props: size, columns, alignContent, alignSelf, grow, shrink. [See there](/storybook/?path=/docs/core-grid-col--docs) to get more information.
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class             | Description                           |
+| ----------------- | ------------------------------------- |
+| **easy_grid-row** | Styles applied to the row element.    |
+| **easy_grid-col** | Styles applied to the column element. |

@@ -227,3 +227,15 @@ const BorderedAccordionWithCustomChevron = () => {
   return <Accordion variant="bordered" openIcon={<UserOpenIcon />} closeIcon={<UserCloseIcon />} items={items} />;
 };
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                        | Description                                   |
+| ---------------------------- | --------------------------------------------- |
+| **easy_accordion**           | Styles applied to the root element.           |
+| **easy_accordion-item**      | Styles applied to the accordion item element. |
+| **easy_accordion-control**   | Styles applied to the accordion control.      |
+| **easy_accordion-panel**     | Styles applied to the accordion panel.        |
+| **easy_accordion-animation** | Styles responsible for accordion animation.   |

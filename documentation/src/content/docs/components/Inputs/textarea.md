@@ -25,3 +25,14 @@ The Textarea can have the next props: placeholder, label, showLimit, autoresized
 ```tsx
 <Textarea disabled value="" />
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                     | Description                                              |
+| ------------------------- | -------------------------------------------------------- |
+| **easy_textarea-wrap**    | Styles applied to the root element.                      |
+| **easy_textarea-label**   | Styles applied to the container with textarea and label. |
+| **easy_textarea-item**    | Styles applied to the textarea.                          |
+| **easy_textarea-counter** | Styles applied to the counter.                           |

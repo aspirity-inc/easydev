@@ -150,3 +150,16 @@ const ComplexDropdownWithHover = () => {
   );
 };
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                           | Description                              |
+| ------------------------------- | ---------------------------------------- |
+| **easy_dropdown**               | Styles applied to the root element.      |
+| **easy_dropdown-menu**          | Styles applied to the root menu element. |
+| **easy_dropdown-menu-position** | Styles responsible for menu position.    |
+| **easy_dropdown-divider**       | Styles applied to the menu divider.      |
+| **easy_dropdown-menu-item**     | Styles applied to the menu item.         |
+| **easy_dropdown-menu-label**    | Styles applied to the menu label.        |

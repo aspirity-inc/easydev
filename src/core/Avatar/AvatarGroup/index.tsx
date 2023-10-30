@@ -35,7 +35,13 @@ export const AvatarGroup = ({ spacing, max = 5, children, ...props }: AvatarGrou
     }
 
     return (
-      <StyledGroupItem key={index} $spacing={calcSpacing()} {...child.props} size={firstChildProps?.size || 'lg'} />
+      <StyledGroupItem
+        key={index}
+        $spacing={calcSpacing()}
+        {...child.props}
+        size={firstChildProps?.size || 'lg'}
+        className="easy_avatarGroup-item"
+      />
     );
   });
 

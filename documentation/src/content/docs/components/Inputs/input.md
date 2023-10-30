@@ -51,3 +51,16 @@ The Input can have the next props: label, error, warning, message, isLoading, ic
 ```tsx
 <Input isLoading type="password" />
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                            | Description                                                  |
+| -------------------------------- | ------------------------------------------------------------ |
+| **easy_input-wrap**              | Styles applied to the root element.                          |
+| **easy_input-label**             | Styles applied to the container with input, label and icons. |
+| **easy_input-item**              | Styles applied to the input.                                 |
+| **easy_input-messageContainer**  | Styles applied to the message container.                     |
+| **easy_input-statusMessageText** | Styles applied to the status message.                        |
+| **easy_input-extraMessageText**  | Styles applied to the extra message.                         |

@@ -25,3 +25,12 @@ The Code Input can have the next props: length, error, value. [See there](/story
 ```tsx
 <CodeInput error value="111111" />
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                    | Description                         |
+| ------------------------ | ----------------------------------- |
+| **easy_code-input-wrap** | Styles applied to the root element. |
+| **easy_code-input-item** | Styles applied to the input.        |
