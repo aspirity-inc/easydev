@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "keen-slider": "^6.8.6",
     "lodash": "^4.17.21",
     "material-symbols": "^0.8.1",
     "polished": "^4.2.2",
