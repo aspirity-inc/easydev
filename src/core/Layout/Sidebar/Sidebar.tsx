@@ -9,14 +9,14 @@ export const Sidebar = ({
   children,
   as = 'aside',
   hideButton = false,
-  collapsed: controlledCollapsed = false,
+  collapsed: controlledCollapsed,
   onCollapsed,
   minWidth = 56,
   maxWidth = 220,
   menu,
   ...props
 }: SidebarProps) => {
-  const [collapsed, setCollapsed] = useState(controlledCollapsed);
+  const [collapsed, setCollapsed] = useState(controlledCollapsed || false);
 
   const onToggle = () => {
     if (isStatic) return;
@@ -36,7 +36,7 @@ export const Sidebar = ({
         {...props}
       >
         <SidebarContent className="easy_sidebar-content">
-          <SidebarMenu className="easy_sidebar-menu" items={menu} collapsed={collapsed} minWidth={minWidth}/>
+          <SidebarMenu className="easy_sidebar-menu" items={menu} collapsed={collapsed}/>
           {children}
         </SidebarContent>
       </StyledSidebar>
