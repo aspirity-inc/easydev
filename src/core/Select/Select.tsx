@@ -4,8 +4,6 @@ import ReactSelect, { type ActionMeta, type GroupBase, type MultiValue, type OnC
 import AsyncSelect from 'react-select/async';
 import CreatableSelect from 'react-select/creatable';
 
-import 'material-symbols';
-
 import { MultivalueSelectedOptions } from '@core/Select/Components/MultivalueSelectedOptions.tsx';
 
 import { cx } from '@helpers/cx.ts';

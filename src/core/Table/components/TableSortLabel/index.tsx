@@ -1,5 +1,3 @@
-import 'material-symbols';
-
 import { Flex } from '@core/Flex';
 
 import { StyledTableSortLabel } from './styles';

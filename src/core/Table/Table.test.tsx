@@ -1,3 +1,4 @@
+import { AddIcon } from '@icons';
 import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { expect, test, vi } from 'vitest';
@@ -111,16 +112,12 @@ test('table sort label', async () => {
 
 test('sortIcon', () => {
   const mockFn = vi.fn();
-  render(
+  const { container } = render(
     <EasydevProvider>
       <Table striped={true} withRowBorder={true}>
         <TableHead>
           <TableCell variant="th">
-            <TableSortLabel
-              order="desc"
-              onClick={mockFn}
-              sortIcon={<div className="material-symbols-rounded">add</div>}
-            >
+            <TableSortLabel order="desc" onClick={mockFn} sortIcon={<AddIcon className="custom-icon" />}>
               col1
             </TableSortLabel>
           </TableCell>
@@ -129,8 +126,7 @@ test('sortIcon', () => {
     </EasydevProvider>
   );
 
-  const customIcon = screen.getByText('add');
-  expect(customIcon.className).toBe('material-symbols-rounded');
+  expect(container.getElementsByClassName('custom-icon').length).toBe(1);
 });
 
 test('hideSortIcon', () => {
@@ -149,5 +145,5 @@ test('hideSortIcon', () => {
     </EasydevProvider>
   );
 
-  expect(container.querySelector('material-symbols-rounded')).not.toBeInTheDocument();
+  expect(container.getElementsByClassName('easy-icon').length).toBe(0);
 });
