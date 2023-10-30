@@ -49,7 +49,7 @@ export const getBaseInputStyles = ($filled: boolean) => {
 export const Asterisk = styled('span')`
   font-size: inherit;
   font-family: inherit;
-  color: red;
+  color: ${({ theme }) => theme.colors.error['500']};
 `;
 
 export const StyledLabelText = styled(StyledInputLabelText)`

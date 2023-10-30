@@ -1,5 +1,6 @@
 import { styled, css } from 'styled-components';
 
+import { Flex } from '@core/Flex';
 import { scrollbarStyles } from '@core/Theme';
 import { Text } from '@core/Typography';
 import { getTextVariants } from '@core/Typography/Text/styles';
@@ -20,10 +21,10 @@ export const StyledTextareaWrapper = styled('div')<StyledTextareaWrapperProps>`
     );
   }}
 
-  ${({ $filled }) => {
+  ${({ $filled, $status }) => {
     return css`
       ${StyledTextareaLabel} {
-        ${getDefaultBorder($filled)};
+        ${$status ? getStatusBorder($status) : getDefaultBorder($filled)};
       }
     `;
   }};
@@ -169,3 +170,9 @@ const getDisabledStateTextareaText = ($filled: boolean) => {
         }
       `;
 };
+
+export const StyledTextareaMessageWrapper = styled(Flex)`
+  margin-top: 8px;
+  margin-bottom: -24px;
+  min-height: 16px;
+`;

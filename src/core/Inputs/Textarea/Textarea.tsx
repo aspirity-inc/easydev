@@ -7,8 +7,10 @@ import {
   StyledTextareaLabel,
   StyledTextareaLabelText,
   StyledTextareaWrapper,
+  StyledTextareaMessageWrapper,
 } from './styles';
-import { StyledMessageWrapper, StyledStatus } from '../Input/styles';
+import { InputStatusIcon } from '../Input/InputIcon/InputStatusIcon';
+import { StyledStatus } from '../Input/styles';
 import { Asterisk } from '../styles';
 import type { TextareaProps } from '../types';
 
@@ -76,6 +78,7 @@ export const Textarea = ({
       $disabled={disabled || false}
       $focused={focused}
       $filled={Boolean(value)}
+      $status={getTextareaStatus()}
     >
       <StyledTextareaLabel className="easy_textarea-label" $status={getTextareaStatus()}>
         <StyledTextarea
@@ -99,11 +102,12 @@ export const Textarea = ({
       </StyledTextareaLabel>
 
       {getTextareaMessage() && (
-        <StyledMessageWrapper className="easy_textarea-messageContainer">
+        <StyledTextareaMessageWrapper gap={8} className="easy_textarea-messageContainer">
+          <InputStatusIcon status={getTextareaStatus()} />
           <StyledStatus className="easy_textarea-statusMessageText" $status={getTextareaStatus()} variant="caption">
             {getTextareaMessage()}
           </StyledStatus>
-        </StyledMessageWrapper>
+        </StyledTextareaMessageWrapper>
       )}
 
       {showLimit && !getTextareaMessage() && (

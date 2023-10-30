@@ -1,3 +1,4 @@
+import { AddCircleIcon, DoNotDisturbOnIcon, RocketLaunchIcon } from '@icons';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { expect, test, vi } from 'vitest';
@@ -10,19 +11,6 @@ import { lightPalette } from '@core/Theme/themePalette';
 import { Accordion, type AccordionItemType } from '.';
 import { StyledChevronIcon } from './components/ChevronIcon/styles';
 import { StyledIcon, StyledTitle } from './components/Control/styles';
-
-const TitleIcon = () => (
-  <div className="material-symbols-outlined" style={{ display: 'block' }}>
-    rocket_launch
-  </div>
-);
-
-const UserOpenIcon = () => {
-  return <div className="material-symbols-outlined">add_circle</div>;
-};
-const UserCloseIcon = () => {
-  return <div className="material-symbols-outlined">do_not_disturb_on</div>;
-};
 
 const items: AccordionItemType[] = [
   {
@@ -38,14 +26,14 @@ const items: AccordionItemType[] = [
   {
     id: 2,
     title: 'Title 2 (disabled)',
-    icon: <TitleIcon />,
+    icon: <RocketLaunchIcon />,
     disabled: true,
     panel: <p>Lorem ipsum dolor sit amet, consectetur</p>,
   },
   {
     id: 3,
     title: 'Title 3',
-    icon: <TitleIcon />,
+    icon: <RocketLaunchIcon />,
     subtitle: 'Subtitle description',
     panel: (
       <p>
@@ -124,7 +112,12 @@ test('multiple', async () => {
 test('variant openIcon closeIcon', async () => {
   const { container } = render(
     <EasydevProvider>
-      <Accordion items={items} variant="bordered" openIcon={<UserOpenIcon />} closeIcon={<UserCloseIcon />} />
+      <Accordion
+        items={items}
+        variant="bordered"
+        openIcon={<AddCircleIcon className="custom-open-icon" />}
+        closeIcon={<DoNotDisturbOnIcon className="custom-close-icon" />}
+      />
     </EasydevProvider>
   );
 
@@ -140,18 +133,18 @@ test('variant openIcon closeIcon', async () => {
     modifier: `&:hover:not([disabled]) ${StyledChevronIcon.toString()}`,
   });
 
-  expect(screen.getAllByText('add_circle').length).toBe(items.length);
+  expect(container.querySelectorAll('.custom-open-icon').length).toBe(items.length);
 
   await userEvent.click(container.querySelectorAll('.easy_accordion-control')[0] as Element);
-  expect(screen.getByText('do_not_disturb_on')).toBeInTheDocument();
+  expect(container.querySelector('.custom-close-icon')).toBeInTheDocument();
 });
 
 test('click to disabled item', async () => {
-	const mockFn = vi.fn()
+  const mockFn = vi.fn();
 
   const { container } = render(
     <EasydevProvider>
-      <Accordion items={items} onChange={mockFn}/>
+      <Accordion items={items} onChange={mockFn} />
     </EasydevProvider>
   );
 

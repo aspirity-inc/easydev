@@ -73,6 +73,9 @@ const Template: StoryFn<typeof Textarea> = ({ ...args }) => {
 export const DefaultTextarea: StoryFn<typeof Textarea> = Template.bind({});
 DefaultTextarea.args = { placeholder: 'Enter a comment', label: 'Comment' };
 
+export const ErrorTextarea: StoryFn<typeof Textarea> = Template.bind({});
+ErrorTextarea.args = { value: 'Ivan', placeholder: 'Enter your name', label: 'Name', error: 'Error message' };
+
 export const DisabledTextarea: StoryFn<typeof Textarea> = Template.bind({});
 DisabledTextarea.args = {
   value: 'Ivan',

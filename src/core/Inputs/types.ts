@@ -41,7 +41,7 @@ export type TextareaProps = ComponentPropsWithoutRef<'textarea'> & {
 };
 
 export type StyledTextareaProps = InputsBaseProps & { $autoresized: boolean };
-export type StyledTextareaWrapperProps = {
+export type StyledTextareaWrapperProps = StatusProps & {
   $filled: boolean;
   $disabled: boolean;
   $focused: boolean;

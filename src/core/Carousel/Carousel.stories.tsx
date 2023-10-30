@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 
+import { CheckCircleIcon, DoneIcon, KeyboardDoubleArrowLeftIcon } from '@icons';
 import { styled } from 'styled-components';
 
 import { Carousel } from '.';
@@ -45,15 +46,11 @@ ThumbnailsCarousel.args = {
   thumbnails: true,
 };
 
-const UserArrowIcon = () => <span className="material-symbols-outlined">keyboard_backspace</span>;
-const UserDotDefaultIcon = () => <span className="material-symbols-outlined">circle</span>;
-const UserDotActiveIcon = () => <span className="material-symbols-outlined">adjust</span>;
-
 export const UserIconsCarousel: StoryFn<typeof Carousel> = Template.bind({});
 UserIconsCarousel.args = {
-  arrowIcon: <UserArrowIcon />,
+  arrowIcon: <KeyboardDoubleArrowLeftIcon />,
   dotIcons: {
-    default: <UserDotDefaultIcon />,
-    active: <UserDotActiveIcon />,
+    default: <DoneIcon />,
+    active: <CheckCircleIcon />,
   },
 };
