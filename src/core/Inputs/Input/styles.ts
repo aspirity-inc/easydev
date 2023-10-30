@@ -21,6 +21,12 @@ export const StyledInput = styled('input')<StyledInputProps>`
   &:focus-visible:not([disabled]) {
     border-color: ${({ theme, $status }) => ($status ? getStatusBorder($status) : theme.colors.secondary['400'])};
   }
+
+  cursor: default;
+
+  &:focus-visible {
+    cursor: text;
+  }
 `;
 
 export const StyledInputLabel = styled.label`
