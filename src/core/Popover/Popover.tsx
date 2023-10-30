@@ -6,12 +6,21 @@ import { usePopper } from 'react-popper';
 import { Subtitle } from '@core/Typography';
 
 import { StyledArrow, StyledBody, StyledTitle, StyledPopover, TriggerPopoverWrapper } from './styles';
-import type { PopoverProps, ElementType } from './types';
+import type { PopoverProps, DivElementType, SpanElementType } from './types';
 
-export const Popover = ({ placement, title, body, children }: PopoverProps) => {
-  const [referenceElement, setReferenceElement] = useState<ElementType>(null);
-  const [popperElement, setPopperElement] = useState<ElementType>(null);
-  const [arrowElement, setArrowElement] = useState<ElementType>(null);
+export const Popover = ({
+  placement,
+  title,
+  body,
+  openOnHover,
+  inline,
+  offset: userOffset,
+  children,
+  ...props
+}: PopoverProps) => {
+  const [referenceElement, setReferenceElement] = useState<DivElementType>(null);
+  const [popperElement, setPopperElement] = useState<SpanElementType>(null);
+  const [arrowElement, setArrowElement] = useState<SpanElementType>(null);
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     placement,
@@ -23,17 +32,30 @@ export const Popover = ({ placement, title, body, children }: PopoverProps) => {
           padding: getArrowPaddings(popperElement, arrowElement, placement),
         },
       },
-      { name: 'offset', options: { offset: [0, 8] } },
+      { name: 'offset', options: { offset: [0, userOffset || 8] } },
     ],
   });
 
-  const togglePopover = () => popperElement?.toggleAttribute('data-show');
+  const togglePopover = () => {
+    if (!openOnHover) popperElement?.toggleAttribute('data-show');
+  };
+
+  const showPopover = () => {
+    if (openOnHover) popperElement?.setAttribute('data-show', 'true');
+  };
+
+  const hidePopover = () => {
+    if (openOnHover) popperElement?.removeAttribute('data-show');
+  };
 
   return (
     <>
       <TriggerPopoverWrapper
         className="easy_popover-triggerContainer"
+        as={inline ? 'span' : 'div'}
         onClick={togglePopover}
+        onMouseEnter={showPopover}
+        onMouseLeave={hidePopover}
         ref={setReferenceElement}
       >
         {children}
@@ -45,6 +67,7 @@ export const Popover = ({ placement, title, body, children }: PopoverProps) => {
         style={styles.popper}
         {...attributes.popper}
         ref={setPopperElement}
+        {...props}
       >
         {title && (
           <StyledTitle className="easy_popover-title">
@@ -60,7 +83,7 @@ export const Popover = ({ placement, title, body, children }: PopoverProps) => {
   );
 };
 
-const getArrowPaddings = (refPopper: ElementType, refArrow: ElementType, placement: Placement) => {
+const getArrowPaddings = (refPopper: SpanElementType, refArrow: SpanElementType, placement: Placement) => {
   const defaultPaddings = {
     top: 8,
     left: 8,
