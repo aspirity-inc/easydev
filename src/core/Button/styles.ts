@@ -25,21 +25,12 @@ export const StyledButton = styled(Box)<StyledButtonProps>`
 
   ${({ $variant }) => getButtonVariantStyle($variant)}
 
+  width: max-content;
+
   ${({ $size }) => {
-    switch ($size) {
-      case 'sm':
-        return css`
-          padding: 8px 6px;
-          min-width: 120px;
-          height: 40px;
-        `;
-      default:
-        return css`
-          padding: 12px 30px;
-          min-width: 180px;
-          height: 48px;
-        `;
-    }
+    return css`
+      padding: ${$size === 'sm' ? 8 : 12}px;
+    `;
   }};
 
   ${({ $rounded }) => {
@@ -55,18 +46,6 @@ export const StyledButton = styled(Box)<StyledButtonProps>`
       default:
         return css``;
     }
-  }};
-
-  ${({ $isIconButton, $size }) => {
-    return (
-      $isIconButton &&
-      css`
-        height: max-content;
-        padding: ${$size === 'sm' ? 8 : 12}px;
-        min-width: auto;
-        width: max-content;
-      `
-    );
   }};
 `;
 

@@ -28,5 +28,4 @@ export type StyledButtonProps = {
   $variant?: ButtonVariantsType;
   $color?: CSSProperties['color'];
   $bgColor?: CSSProperties['backgroundColor'];
-  $isIconButton?: boolean;
 };
