@@ -5,7 +5,7 @@ import type { BaseComponentType } from '@core/Box/types.ts';
 export type ControlColorType = 'success' | 'warning' | 'error';
 
 export type ControlContainerProps = {
-  $reversed: boolean;
+  $reversed?: boolean;
 };
 
 export type ControlBasePropsType = ComponentPropsWithoutRef<'input'> & {

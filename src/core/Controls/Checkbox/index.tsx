@@ -10,7 +10,7 @@ import type { ControlBasePropsType } from '../types.ts';
 
 export const Checkbox = forwardRef(
   (
-    { disabled, defaultChecked, label, id, color, reversed = false, ...props }: ControlBasePropsType,
+    { disabled, defaultChecked, label, id, color, reversed, ...props }: ControlBasePropsType,
     ref?: Ref<HTMLInputElement>
   ) => {
     const generatedId = useId();
