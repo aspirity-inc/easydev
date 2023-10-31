@@ -1,5 +1,7 @@
 import type { BaseSyntheticEvent, CSSProperties, ReactNode } from 'react';
 
+import type { BaseComponentType } from '@core/Box/types';
+
 export type StyledChipProps = {
   disabled?: boolean;
   $active?: boolean | undefined;
@@ -8,7 +10,7 @@ export type StyledChipProps = {
   $bgColor?: CSSProperties['backgroundColor'];
 };
 
-export type ChipProps = {
+export type ChipProps = Omit<BaseComponentType, 'children'> & {
   label: string;
   variant?: ChipVariantsType;
   disabled?: boolean;

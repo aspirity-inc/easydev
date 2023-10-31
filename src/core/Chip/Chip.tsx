@@ -3,18 +3,17 @@ import { type BaseSyntheticEvent, cloneElement, isValidElement, useState } from 
 import { StyledChipLabel } from './styles';
 import type { ChipProps } from './types';
 
-export const Chip = (props: ChipProps) => {
-  const {
-    label,
-    variant = 'filled',
-    disabled,
-    defaultChecked,
-    bgColor,
-    color,
-    onChange,
-    chipContent,
-    ...otherProps
-  } = props;
+export const Chip = ({
+  label,
+  variant = 'filled',
+  disabled,
+  defaultChecked,
+  bgColor,
+  color,
+  onChange,
+  chipContent,
+  ...props
+}: ChipProps) => {
   const [active, setActive] = useState(defaultChecked);
 
   const handleClick = (event: BaseSyntheticEvent) => {
@@ -49,7 +48,7 @@ export const Chip = (props: ChipProps) => {
       disabled={disabled}
       $active={active}
       onClick={handleClick}
-      {...otherProps}
+      {...props}
     >
       {enhancedChipContent}
       {label}

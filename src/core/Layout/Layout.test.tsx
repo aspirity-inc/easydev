@@ -1,3 +1,4 @@
+import { DiamondIcon, FactCheckIcon, RocketLaunchIcon, ShoppingCartIcon, StoreIcon } from '@icons';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { expect, test, vi } from 'vitest';
@@ -17,26 +18,26 @@ const mainStyle = {
 const menuItems: MenuItemType[] = [
   {
     id: 0,
-    icon: <div className="material-symbols-outlined">fact_check</div>,
+    icon: <FactCheckIcon />,
     label: 'Documents',
   },
   {
     id: 1,
-    icon: <div className="material-symbols-outlined">shopping_cart</div>,
+    icon: <ShoppingCartIcon />,
     label: 'E-commerce',
   },
-	{
+  {
     id: 3,
     type: 'divider',
   },
   {
     id: 2,
-    icon: <div className="material-symbols-outlined">diamond</div>,
+    icon: <DiamondIcon />,
     label: 'Favourites',
   },
   {
     id: 4,
-    icon: <div className="material-symbols-outlined">rocket_launch</div>,
+    icon: <RocketLaunchIcon />,
     label: 'UI Elements',
     children: [
       {
@@ -55,7 +56,7 @@ const menuItems: MenuItemType[] = [
   },
   {
     id: 8,
-    icon: <div className="material-symbols-outlined">store</div>,
+    icon: <StoreIcon />,
     label: 'Marketing',
   },
   {

@@ -1,10 +1,12 @@
+import { KeyboardArrowLeftIcon } from '@icons';
+
 import { StyledArrow, StyledIcon } from './styles';
 import type { ArrowProps } from '../../../types';
 
 export const Arrow = ({ type = 'center', left = false, onClick, icon }: ArrowProps) => {
   const defaultArrowIcon = (
     <StyledIcon $type={type} $left={left}>
-      <span className="material-symbols-rounded">keyboard_arrow_left</span>
+      <KeyboardArrowLeftIcon />
     </StyledIcon>
   );
 

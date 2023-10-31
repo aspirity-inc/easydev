@@ -105,3 +105,16 @@ test('renderExtraMessage', () => {
 
   expect(screen.getByText(extraMessageText)).toBeInTheDocument();
 });
+
+test('required asterisk', () => {
+  const placeholder = 'placeholder text';
+  const labelText = 'label text';
+
+  const { container } = render(
+    <EasydevProvider>
+      <Input label={labelText} placeholder={placeholder} required />
+    </EasydevProvider>
+  );
+
+  expect(container.getElementsByClassName('easy_input-asterisk').length).toBe(1);
+});

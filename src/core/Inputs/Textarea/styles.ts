@@ -1,11 +1,12 @@
 import { styled, css } from 'styled-components';
 
+import { Flex } from '@core/Flex';
 import { scrollbarStyles } from '@core/Theme';
 import { Text } from '@core/Typography';
 import { getTextVariants } from '@core/Typography/Text/styles';
 
-import { StyledLabelText, getDefaultBorder, getInputTransition } from '../styles';
-import type { StyledTextareaWrapperProps, StyledTextareaProps } from '../types';
+import { StyledLabelText, getDefaultBorder, getInputTransition, getStatusBorder } from '../styles';
+import type { StyledTextareaWrapperProps, StyledTextareaProps, StatusProps } from '../types';
 
 export const StyledTextareaWrapper = styled('div')<StyledTextareaWrapperProps>`
   ${({ $disabled }) => {
@@ -20,10 +21,10 @@ export const StyledTextareaWrapper = styled('div')<StyledTextareaWrapperProps>`
     );
   }}
 
-  ${({ $filled }) => {
+  ${({ $filled, $status }) => {
     return css`
       ${StyledTextareaLabel} {
-        ${getDefaultBorder($filled)};
+        ${$status ? getStatusBorder($status) : getDefaultBorder($filled)};
       }
     `;
   }};
@@ -84,13 +85,16 @@ export const StyledTextarea = styled('textarea')<StyledTextareaProps>`
   ${({ $filled }) => getDisabledStateTextareaText($filled || false)};
 `;
 
-export const StyledTextareaLabel = styled('label')`
+export const StyledTextareaLabel = styled('label')<StatusProps>`
   box-sizing: border-box;
   position: relative;
   display: block;
   padding: 32px 16px 16px;
 
   border: 1px solid ${({ theme }) => theme.colors.surface['400']};
+
+  ${({ $status }) => $status && getStatusBorder($status)};
+
   border-radius: 8px;
 
   background-color: ${({ theme }) =>
@@ -120,6 +124,7 @@ export const StyledCounterText = styled(Text)`
   width: 100%;
   text-align: end;
   margin-top: 8px;
+  margin-bottom: -24px;
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.surface['200'])};
 `;
 
@@ -165,3 +170,9 @@ const getDisabledStateTextareaText = ($filled: boolean) => {
         }
       `;
 };
+
+export const StyledTextareaMessageWrapper = styled(Flex)`
+  margin-top: 8px;
+  margin-bottom: -24px;
+  min-height: 16px;
+`;

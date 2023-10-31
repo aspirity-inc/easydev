@@ -59,7 +59,7 @@ export const Accordion = <Multiple extends boolean = false>({
       {items.map((item) => {
         const isOpened = isOpenedItem(item.id, item.disabled);
         return (
-          <Box key={item.id} className="easy_accordion-item" {...props}>
+          <Box key={item.id} className="easy_accordion-item">
             <Control
               title={item.title}
               subtitle={item.subtitle}
