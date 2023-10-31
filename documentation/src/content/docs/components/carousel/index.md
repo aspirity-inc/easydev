@@ -118,7 +118,9 @@ const UserIconsCarousel = () => {
 ```
 
 ## CSS
+
 The following class names are useful for styling with CSS.
+
 | Class                              | Description                                       |
 | ---------------------------------- | ------------------------------------------------- |
 | **easy_carousel-wrapper**          | Styles applied to the root element.               |
