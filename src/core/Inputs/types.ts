@@ -10,6 +10,8 @@ export type StatusProps = {
   $status?: InputBaseStatus;
 };
 
+export type StyledInputLabelProps = { $disabled: boolean };
+
 export type InputsBaseProps = {
   $filled: boolean;
 };
@@ -36,10 +38,12 @@ export type TextareaProps = ComponentPropsWithoutRef<'textarea'> & {
   showLimit?: boolean;
   autoresized?: boolean;
   softLimit?: boolean;
+  error?: string;
+  warning?: string;
 };
 
 export type StyledTextareaProps = InputsBaseProps & { $autoresized: boolean };
-export type StyledTextareaWrapperProps = {
+export type StyledTextareaWrapperProps = StatusProps & {
   $filled: boolean;
   $disabled: boolean;
   $focused: boolean;

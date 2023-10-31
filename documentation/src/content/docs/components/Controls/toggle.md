@@ -36,3 +36,24 @@ const ControlledToggle = () => {
 ```tsx
 <Toggle label={<strong>Toggle me ☀️</strong>} />
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+Common classes for all controls.
+
+| Class                      | Description                                                   |
+| -------------------------- | ------------------------------------------------------------- |
+| **easy_control-label**     | Styles applied to the root element.                           |
+| **easy_control-container** | Styles applied to the container with input and label content. |
+
+Classes for toggle.
+
+| Class                     | Description                                                                                |
+| ------------------------- | ------------------------------------------------------------------------------------------ |
+| **easy_toggle-label**     | Styles applied to the root element.                                                        |
+| **easy_toggle-container** | Styles applied to the container with toggle and label content.                             |
+| **easy_toggle-wrap**      | Styles applied to the container, which responsible for customization toggle and inner part |
+| **easy_toggle-item**      | Styles applied to the toggle input.                                                        |
+| **easy_toggle-inner**     | Styles applied to the inner part of toggle.                                                |

@@ -40,3 +40,24 @@ const ControlledRadio = () => {
 ```tsx
 <Radio label={<strong>Pick me 🌵</strong>} />
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+Common classes for all controls.
+
+| Class                      | Description                                                   |
+| -------------------------- | ------------------------------------------------------------- |
+| **easy_control-label**     | Styles applied to the root element.                           |
+| **easy_control-container** | Styles applied to the container with input and label content. |
+
+Classes for radio.
+
+| Class                      | Description                                                                               |
+| -------------------------- | ----------------------------------------------------------------------------------------- |
+| **easy_radio-label**       | Styles applied to the root element.                                                       |
+| **easy_radio-container**   | Styles applied to the container with radio input and label content.                       |
+| **easy_radio-wrap**        | Styles applied to the container, which responsible for customization radio and radio icon |
+| **easy_radio-item**        | Styles applied to the radio input.                                                        |
+| **easy_radio-item--inner** | Styles applied to the radio input icon.                                                   |

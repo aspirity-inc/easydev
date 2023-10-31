@@ -9,7 +9,7 @@ import {
   StyledStatus,
   StyledInputWrapper,
 } from './styles';
-import { StyledLabelText } from '../styles';
+import { Asterisk, StyledLabelText } from '../styles';
 import type { InputProps } from '../types';
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -25,6 +25,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       icons,
       disabled,
       placeholder = ' ',
+      required,
       renderExtraMessage,
       ...props
     },
@@ -54,8 +55,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     };
 
     return (
-      <StyledInputWrapper className="easy_input-wrapp" $disabled={disabled || false} $isLoading={isLoading || false}>
-        <StyledInputLabel className="easy_input-label">
+      <StyledInputWrapper className="easy_input-wrap" $disabled={disabled || false} $isLoading={isLoading || false}>
+        <StyledInputLabel className="easy_input-label" $disabled={disabled || false}>
           <StyledInput
             $hasIcon={Boolean(type === 'password' || error || warning || isLoading)}
             className="easy_input-item"
@@ -63,12 +64,15 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             value={value}
             disabled={disabled}
             placeholder={placeholder}
+            required={required}
             ref={ref}
             {...props}
             $filled={Boolean(value)}
             $status={getInputStatus()}
           />
-          <StyledLabelText>{label}</StyledLabelText>
+          <StyledLabelText>
+            {label} {required && <Asterisk className="easy_input-asterisk">*</Asterisk>}
+          </StyledLabelText>
           <InputIcon
             type={type}
             icons={icons}

@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react';
+import { AddIcon } from '@icons';
+import { render } from '@testing-library/react';
 import { expect, test } from 'vitest';
 
 import { EasydevProvider } from '@core/Theme';
@@ -8,7 +9,7 @@ import { TargetButton } from '.';
 const targetButtonText = 'Target button value';
 
 test('withIcon open', () => {
-  render(
+  const { container } = render(
     <EasydevProvider>
       <TargetButton withIcon open>
         {targetButtonText}
@@ -16,17 +17,15 @@ test('withIcon open', () => {
     </EasydevProvider>
   );
 
-  expect(screen.getByText('keyboard_arrow_up')).toBeInTheDocument();
+  expect(container.getElementsByClassName('easy-icon').length).toBe(1);
 });
 
 test('icon', () => {
-  const AddButton = () => <div className="material-symbols-outlined">add</div>;
-
-  render(
+  const { container } = render(
     <EasydevProvider>
-      <TargetButton icon={<AddButton />}>{targetButtonText}</TargetButton>
+      <TargetButton icon={<AddIcon className="custom-icon" />}>{targetButtonText}</TargetButton>
     </EasydevProvider>
   );
 
-  expect(screen.getByText('add')).toBeInTheDocument();
+  expect(container.getElementsByClassName('custom-icon').length).toBe(1);
 });

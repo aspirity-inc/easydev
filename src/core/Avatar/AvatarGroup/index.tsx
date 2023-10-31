@@ -5,7 +5,7 @@ import type { AvatarGroupProps } from './types';
 import { sizes } from '../styles';
 import type { AvatarProps } from '../types';
 
-export const AvatarGroup = ({ spacing, max = 5, children, ...otherProps }: AvatarGroupProps) => {
+export const AvatarGroup = ({ spacing, max = 5, children, ...props }: AvatarGroupProps) => {
   let firstChildProps: AvatarProps = {};
 
   // Spacing - the value negative margin of avatar.
@@ -35,12 +35,18 @@ export const AvatarGroup = ({ spacing, max = 5, children, ...otherProps }: Avata
     }
 
     return (
-      <StyledGroupItem key={index} $spacing={calcSpacing()} {...child.props} size={firstChildProps?.size || 'lg'} />
+      <StyledGroupItem
+        key={index}
+        $spacing={calcSpacing()}
+        {...child.props}
+        size={firstChildProps?.size || 'lg'}
+        className="easy_avatarGroup-item"
+      />
     );
   });
 
   return (
-    <StyledAvatarGroup className="easy_avatarGroup" $spacing={calcSpacing()} {...otherProps}>
+    <StyledAvatarGroup className="easy_avatarGroup" $spacing={calcSpacing()} {...props}>
       {StyledChildArray}
       {extraAvatars ? (
         <StyledGroupItem className="easy_avatarGroup-item" $spacing={calcSpacing()} {...firstChildProps} src="">
