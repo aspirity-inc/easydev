@@ -57,7 +57,7 @@ export const Textarea = ({
 
   return (
     <StyledTextareaWrapper
-      className="easy_textarea-wrapp"
+      className="easy_textarea-wrap"
       $disabled={disabled || false}
       $focused={focused}
       $filled={Boolean(value)}

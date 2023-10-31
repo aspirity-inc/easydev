@@ -18,7 +18,7 @@ export const Toggle = forwardRef(
     return (
       <ControlWrapper label={Boolean(label)} className="easy_toggle-label">
         <ControlContainer className="easy_toggle-container easy_control-container" $reversed={reversed}>
-          <ToggleWrap $color={color} disabled={disabled} className="easy_toggle-wrapp">
+          <ToggleWrap $color={color} disabled={disabled} className="easy_toggle-wrap">
             <StyledToggle
               ref={ref}
               className="easy_toggle-item"

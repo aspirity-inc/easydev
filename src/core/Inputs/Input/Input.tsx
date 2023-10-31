@@ -54,8 +54,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     };
 
     return (
-      <StyledInputWrapper className="easy_input-wrapp" $disabled={disabled || false} $isLoading={isLoading || false}>
-        <StyledInputLabel className="easy_input-label">
+      <StyledInputWrapper className="easy_input-wrap" $disabled={disabled || false} $isLoading={isLoading || false}>
+        <StyledInputLabel className="easy_input-label" $disabled={disabled || false}>
           <StyledInput
             $hasIcon={Boolean(type === 'password' || error || warning || isLoading)}
             className="easy_input-item"
