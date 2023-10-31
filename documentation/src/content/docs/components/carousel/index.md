@@ -125,7 +125,7 @@ The following class names are useful for styling with CSS.
 | **easy_carousel**                  | Styles applied to the easy carousel.              |
 | **keen-slider**                    | Styles applied to the keen slider carousel.       |
 | **easy_carousel-slide**            | Styles applied to the easy carousel slide.        |
-| **keen-slider\_\_slide**           | Styles applied to the keen slider carousel slide. |
+| **keen-slider__slide**             | Styles applied to the keen slider carousel slide. |
 | **easy_carousel-arrows**           | Styles applied to the arrows.                     |
 | **easy_carousel-arrow**            | Styles applied to the arrow.                      |
 | **easy_carousel-dots**             | Styles applied to the dots.                       |
