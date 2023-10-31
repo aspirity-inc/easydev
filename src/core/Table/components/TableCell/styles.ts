@@ -17,6 +17,7 @@ export const StyledTableCell = styled(Box)<StyledTableCellProps>`
     switch ($variant) {
       case 'td': {
         return css`
+          line-height: 1.1;
           height: 64px;
 
           ${getTextVariants('body2')};
