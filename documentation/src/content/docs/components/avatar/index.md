@@ -63,3 +63,13 @@ You can wrap any avatars into AvatarGroup. The AvatarGroup component can have th
   <Avatar>G</Avatar>
 </AvatarGroup>
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                     | Description                                      |
+| ------------------------- | ------------------------------------------------ |
+| **easy_avatar**           | Styles applied to the root avatar element.       |
+| **easy_avatarGroup**      | Styles applied to the root avatar group element. |
+| **easy_avatarGroup-item** | Styles applied to the avatar group item.         |

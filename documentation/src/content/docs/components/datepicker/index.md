@@ -56,3 +56,14 @@ The Datepicker have the next props: label. [See there](/storybook/?path=/docs/co
 ```tsx
 <Datepicker disabled label="Birth date" />
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                      | Description                                                             |
+| -------------------------- | ----------------------------------------------------------------------- |
+| **easy_datepicker**        | Styles applied to the root element.                                     |
+| **easy_datepicker-header** | Styles applied to the datepicker header.                                |
+| **easy_datepicker-label**  | Styles applied to the container with datepicker input, label and icons. |
+| **easy_datepicker-input**  | Styles applied to the datepicker input.                                 |

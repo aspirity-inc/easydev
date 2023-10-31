@@ -81,3 +81,11 @@ const ProgressUserIconButton = () => {
   This is a link
 </Button>
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class           | Description                         |
+| --------------- | ----------------------------------- |
+| **easy_button** | Styles applied to the root element. |

@@ -6,7 +6,9 @@ import { StyledBreadcrumbs, StyledLink, StyledSeparator } from './styles';
 import type { BreadcrumbsProps, BreadcrumbsItem } from './types';
 
 export function Breadcrumbs<TItem>({ itemRender, items, separator, ...props }: BreadcrumbsProps<TItem>) {
-  const Separator = () => <StyledSeparator>{separator || <KeyboardArrowRightIcon />}</StyledSeparator>;
+  const Separator = () => (
+    <StyledSeparator className="easy_breadcrumbs-separator">{separator || <KeyboardArrowRightIcon />}</StyledSeparator>
+  );
   const lastItemIndex = items?.length - 1;
 
   const renderItem = (item: BreadcrumbsItem & TItem, index: number) => {
