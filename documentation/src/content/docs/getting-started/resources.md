@@ -18,7 +18,4 @@ Below is a short list of sources that we used when creating easydev and which ca
 - React Datepicker https://github.com/Hacker0x01/react-datepicker
 - React-input-mask https://www.npmjs.com/package/react-input-mask
 - React-highlight-words https://www.npmjs.com/package/react-highlight-words
-
-### Fonts and Icons
-
-- Material-symbols https://fonts.google.com/icons
+- Keen Slider https://www.npmjs.com/package/keen-slider
