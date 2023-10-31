@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 export const StyledTableSortLabel = styled('button')`
-  width: 100%;
+  width: max-content;
   height: 100%;
   background-color: transparent;
   color: inherit;
