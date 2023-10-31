@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useCallback, useMemo, useState } from 'react';
 
 import { useIsomorphicEffect } from '@hooks';
 import { merge } from 'lodash';
@@ -11,15 +11,32 @@ export const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export const EasydevProvider = ({
   children,
-  theme,
+  defaultTheme,
+  themeLight,
+  themeDark,
   target,
   customTarget,
   enableVendorPrefixes = true,
   disableCSSOMInjection,
   defaultStyledInjection = false,
 }: ThemeProviderType) => {
-  const type = theme?.type || 'light';
-  const mergedTheme = theme ? merge(THEMES[type], theme) : THEMES[type];
+  const mergedLightTheme = useMemo(() => {
+    return merge(THEMES['light'], themeLight);
+  }, [themeLight]);
+
+  const mergedDarkTheme = useMemo(() => {
+    return merge(THEMES['dark'], themeDark);
+  }, [themeDark]);
+
+  const [currentTheme, setCurrentTheme] = useState(defaultTheme?.type === 'dark' ? mergedDarkTheme : mergedLightTheme);
+
+  const toggleTheme = useCallback(() => {
+    if (currentTheme.type === 'light') {
+      setCurrentTheme(mergedDarkTheme);
+    } else {
+      setCurrentTheme(mergedLightTheme);
+    }
+  }, [currentTheme.type, mergedDarkTheme, mergedLightTheme]);
 
   useIsomorphicEffect(() => {
     const head = document.querySelector('head');
@@ -30,9 +47,13 @@ export const EasydevProvider = ({
     }
   }, []);
 
+  const themeValues = useMemo(() => {
+    return { toggleTheme, theme: currentTheme };
+  }, [currentTheme, toggleTheme]);
+
   return (
-    <ThemeContext.Provider value={{ theme: mergedTheme }}>
-      <StyledThemeProvider theme={mergedTheme}>
+    <ThemeContext.Provider value={themeValues}>
+      <StyledThemeProvider theme={currentTheme}>
         <StyleSheetManager
           enableVendorPrefixes={enableVendorPrefixes}
           disableCSSOMInjection={disableCSSOMInjection}

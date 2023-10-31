@@ -96,7 +96,7 @@ export const Checkbox = ({ disabled, defaultChecked, color, ...props }: ControlB
 ## Themes
 
 There are two standard light and dark themes with their own fields and properties, you can change them or add a new theme.
-To create a new theme, you need to create an object as in the example where you can specify your own styles: colors, spacing etc.To customize theme, pass theme override object to EasydevProvider theme prop.
+To create a new theme, you need to create an object as in the example where you can specify your own styles: colors, spacing etc.To customize theme, pass theme override object to EasydevProvider defaultTheme prop.
 
 Example:
 
@@ -106,7 +106,7 @@ const darkTheme = { type: 'dark', ... }
 
 const [theme, setTheme] = useState(lightTheme)
 
-<EasydevProvider theme={theme}>
+<EasydevProvider defaultTheme={theme}>
 	<App>
 		...
 	</App>
