@@ -77,7 +77,7 @@ export const Carousel = ({
   return (
     <CarouselWrapper className="easy_carousel-wrapper" align="center" direction="column" {...props}>
       <CarouselInnerWrapper className="easy_carousel-inner-wrapper" ref={wrapperRef}>
-        <Flex justify="space-between" align="flex-start">
+        <Flex justify="space-between" align="flex-start" className="easy_carousel-top-title-arrows">
           {title}
           {arrows && (
             <Arrows
