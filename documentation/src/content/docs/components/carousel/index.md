@@ -97,20 +97,16 @@ const Slide = styled('div')`
 `;
 
 const UserIconsCarousel = () => {
-  const UserArrowIcon = () => <span className="material-symbols-outlined">keyboard_backspace</span>;
-  const UserDotDefaultIcon = () => <span className="material-symbols-outlined">circle</span>;
-  const UserDotActiveIcon = () => <span className="material-symbols-outlined">adjust</span>;
-
   const items: ReactNode[] = [...Array(6).keys()].map((index) => <Slide key={index}>{index + 1}</Slide>);
 
   return (
     <Carousel
       items={items}
       height={200}
-      arrowIcon={<UserArrowIcon />}
+      arrowIcon={<KeyboardDoubleArrowLeftIcon />}
       dotIcons={{
-        default: <UserDotDefaultIcon />,
-        active: <UserDotActiveIcon />,
+        default: <DoneIcon />,
+        active: <CheckCircleIcon />,
       }}
     />
   );
@@ -129,7 +125,7 @@ The following class names are useful for styling with CSS.
 | **easy_carousel**                  | Styles applied to the easy carousel.              |
 | **keen-slider**                    | Styles applied to the keen slider carousel.       |
 | **easy_carousel-slide**            | Styles applied to the easy carousel slide.        |
-| **keen-slider__slide**             | Styles applied to the keen slider carousel slide. |
+| **keen-slider\_\_slide**           | Styles applied to the keen slider carousel slide. |
 | **easy_carousel-arrows**           | Styles applied to the arrows.                     |
 | **easy_carousel-arrow**            | Styles applied to the arrow.                      |
 | **easy_carousel-dots**             | Styles applied to the dots.                       |
