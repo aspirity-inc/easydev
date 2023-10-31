@@ -122,7 +122,7 @@ The following class names are useful for styling with CSS.
 | Class                              | Description                                       |
 | ---------------------------------- | ------------------------------------------------- |
 | **easy_carousel-wrapper**          | Styles applied to the root element.               |
-| **easy_carousel-inner-wrapper**    | Styles applied to the arrow buttons.              |
+| **easy_carousel-inner-wrapper**    | Styles applied to the inner wrapper.              |
 | **easy_carousel-top-title-arrows** | Styles applied to the top title arrows.           |
 | **easy_carousel**                  | Styles applied to the easy carousel.              |
 | **keen-slider**                    | Styles applied to the keen slider carousel.       |
