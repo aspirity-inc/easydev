@@ -50,9 +50,10 @@ export const StyledIcon = styled('div')<StyledStatusIconProps>`
   display: flex;
   ${({ $status, $colorful }) => $status && getStatusColor($status, $colorful || false)};
 
-  & > div {
-    padding-right: 10px;
-    font-size: 32px;
+  & > svg {
+    margin-right: 10px;
+    width: 32px;
+    height: 32px;
   }
 `;
 

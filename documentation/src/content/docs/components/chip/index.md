@@ -35,3 +35,11 @@ The Chip can have the next props: label, variant, disabled, defaultChecked, clas
   <Chip chipContent={<div className="material-symbols-outlined">close</div>} label="Delete button chip" />
 </Space>
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class         | Description                         |
+| ------------- | ----------------------------------- |
+| **easy_chip** | Styles applied to the root element. |

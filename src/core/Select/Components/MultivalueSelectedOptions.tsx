@@ -1,3 +1,5 @@
+import { CloseIcon } from '@icons';
+
 import { ClearValues, Multivalue, MultivalueContainer, MultivalueWrapper, RemoveValueButton } from './styles.ts';
 import type { MultivalueSelectedOptionsType } from '../types.ts';
 
@@ -18,8 +20,8 @@ export const MultivalueSelectedOptions = ({
         {value?.map((val) => (
           <Multivalue key={val.value}>
             {val.label}
-            <RemoveValueButton className="icon material-symbols-rounded" name={val.value} onClick={handleRemoveValue}>
-              close
+            <RemoveValueButton className="icon" name={val.value} onClick={handleRemoveValue}>
+              <CloseIcon />
             </RemoveValueButton>
           </Multivalue>
         ))}

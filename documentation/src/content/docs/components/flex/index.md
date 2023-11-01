@@ -17,3 +17,11 @@ The Flex can have the next props: direction, align, justify, wrap, gap, rowGap, 
   <Button>Third button</Button>
 </Flex>
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class         | Description                         |
+| ------------- | ----------------------------------- |
+| **easy_flex** | Styles applied to the root element. |

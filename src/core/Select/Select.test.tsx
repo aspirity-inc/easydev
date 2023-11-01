@@ -1,3 +1,4 @@
+import { CheckCircleIcon, KeyboardArrowDownIcon, StoreIcon } from '@icons';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { expect, test } from 'vitest';
@@ -73,28 +74,24 @@ test('value', async () => {
 });
 
 test('icons', async () => {
-  const ControlIcon = () => <div className="material-symbols-rounded">nutrition</div>;
-  const ArrowDown = () => <div className="material-symbols-rounded">keyboard_arrow_down</div>;
-  const SelectedIcon = () => <div className="material-symbols-rounded">priority</div>;
-
   const { container } = render(
     <EasydevProvider>
       <Select
         options={options}
-        dropdownIcon={<ArrowDown />}
-        selectedIcon={<SelectedIcon />}
-        controlIcon={<ControlIcon />}
+        dropdownIcon={<KeyboardArrowDownIcon className="dropdown-custom-icon" />}
+        selectedIcon={<CheckCircleIcon className="selected-custom-icon" />}
+        controlIcon={<StoreIcon className="control-custom-icon" />}
       />
     </EasydevProvider>
   );
 
-  expect(screen.getByText('nutrition')).toBeInTheDocument();
-  expect(screen.getByText('keyboard_arrow_down')).toBeInTheDocument();
+  expect(container.getElementsByClassName('control-custom-icon').length).toBe(1);
+  expect(container.getElementsByClassName('dropdown-custom-icon').length).toBe(1);
 
   const openSelectListElement = container.querySelector('.react-select__indicator') as Element;
   await userEvent.click(openSelectListElement);
 
-  expect(screen.getAllByText('priority')[0]).toBeInTheDocument();
+  expect(container.getElementsByClassName('selected-custom-icon').length).not.toBe(0);
 });
 
 test('isMulti', async () => {
@@ -151,5 +148,5 @@ test('selectType', async () => {
     </EasydevProvider>
   );
 
-  expect(screen.getByText('search').className).toBe('material-symbols-rounded');
+  expect(screen.getByTestId('search')).toBeInTheDocument();
 });

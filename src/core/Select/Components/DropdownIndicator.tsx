@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 
+import { ArrowDropDownIcon } from '@icons';
 import { components, type DropdownIndicatorProps, type GroupBase } from 'react-select';
 
-import 'material-symbols';
 
 export const DropdownIndicator =
   (icon?: ReactNode) =>
@@ -11,7 +11,7 @@ export const DropdownIndicator =
   ) => {
     return (
       <components.DropdownIndicator {...props}>
-        <div className="icon-indicator">{icon || <div className="material-symbols-rounded">arrow_drop_down</div>}</div>
+        <div className="icon-indicator">{icon || <ArrowDropDownIcon />}</div>
       </components.DropdownIndicator>
     );
   };

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { CheckCircleIcon, KeyboardArrowDownIcon, StoreIcon } from '@icons';
+
 import { Select } from '.';
 import type { OptionType } from './types.ts';
 import type { Meta, StoryFn, StoryObj } from '@storybook/react';
@@ -131,10 +133,6 @@ export const Autocomplete: Story = {
   },
 };
 
-const ControlIcon = () => <div className="material-symbols-rounded">nutrition</div>;
-const ArrowDown = () => <div className="material-symbols-rounded">keyboard_arrow_down</div>;
-const SelectedIcon = () => <div className="material-symbols-rounded">priority</div>;
-
 export const UserIconsSelect: Story = {
   render: (args) => (
     <div style={{ height: '350px' }}>
@@ -147,8 +145,8 @@ export const UserIconsSelect: Story = {
     minMenuHeight: 250,
     isSearchable: false,
     isDisabled: false,
-    dropdownIcon: <ArrowDown />,
-    selectedIcon: <SelectedIcon />,
-    controlIcon: <ControlIcon />,
+    dropdownIcon: <KeyboardArrowDownIcon />,
+    selectedIcon: <CheckCircleIcon />,
+    controlIcon: <StoreIcon />,
   },
 };

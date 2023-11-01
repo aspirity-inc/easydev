@@ -85,3 +85,13 @@ const DefaultCard = () => {
   </Card>
 </div>
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                 | Description                            |
+| --------------------- | -------------------------------------- |
+| **easy_card**         | Styles applied to the root element.    |
+| **easy_card-media**   | Styles applied to the media element.   |
+| **easy_card-content** | Styles applied to the content element. |

@@ -1,6 +1,5 @@
+import { SearchIcon } from '@icons';
 import { components, GroupBase, ValueContainerProps } from 'react-select';
-
-import 'material-symbols';
 
 import { StyledSearchValue } from './styles.ts';
 
@@ -13,7 +12,7 @@ export const SearchValueContainer = <
 ) => {
   return (
     <StyledSearchValue>
-      <div className="material-symbols-rounded">search</div>
+      <SearchIcon data-testid="search" />
       <components.ValueContainer {...props}>{props.children}</components.ValueContainer>
     </StyledSearchValue>
   );

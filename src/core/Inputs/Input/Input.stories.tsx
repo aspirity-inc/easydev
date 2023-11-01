@@ -2,8 +2,6 @@ import { ChangeEvent, useState } from 'react';
 
 import { Meta, StoryFn } from '@storybook/react';
 
-import { Text } from '@core/Typography';
-
 import { Input } from '.';
 
 const metaInput: Meta<typeof Input> = {
@@ -105,6 +103,13 @@ DisabledInput.args = {
   disabled: true,
 };
 
+export const RequiredInput: StoryFn<typeof Input> = TemplateInput.bind({});
+RequiredInput.args = {
+  label: 'Name',
+  placeholder: 'Enter your name',
+  required: true,
+};
+
 export const DefaultPassword: StoryFn<typeof Input> = TemplatePassword.bind({});
 DefaultPassword.args = {
   type: 'password',
@@ -118,7 +123,7 @@ ErrorPasswordWithMessage.args = {
   value: 'Ivan',
   label: 'Password',
   error: 'Invalid password',
-  renderExtraMessage: () => <Text variant="caption">Some extra message</Text>,
+  renderExtraMessage: () => 'Some extra message',
 };
 
 export const LoadingPassword: StoryFn<typeof Input> = TemplatePassword.bind({});

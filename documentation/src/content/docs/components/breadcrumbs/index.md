@@ -67,3 +67,13 @@ const BreadcrumbsUserItem = () => {
   );
 };
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                          | Description                         |
+| ------------------------------ | ----------------------------------- |
+| **easy_breadcrumbs**           | Styles applied to the root element. |
+| **easy_breadcrumbs-link**      | Styles applied to the link.         |
+| **easy_breadcrumbs-separator** | Styles applied to the separator.    |

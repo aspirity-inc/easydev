@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import 'material-symbols';
+import { CheckCircleIcon, ErrorIcon, InfoIcon, WarningIcon } from '@icons';
 
 import { StyledIcon } from './styles';
 import { ToastStatus } from '../types';
@@ -11,10 +11,10 @@ export type ToastStatusIconProps = {
   colorful?: boolean;
 };
 
-const icons = { info: 'error_outline', success: 'check_circle_outline', warning: 'warning', error: 'error_outline' };
+const icons = { info: <InfoIcon />, success: <CheckCircleIcon />, warning: <WarningIcon />, error: <ErrorIcon /> };
 
 export const ToastStatusIcon = ({ status, icon, colorful }: ToastStatusIconProps) => (
   <StyledIcon $status={status} $colorful={colorful}>
-    {icon || <div className="material-symbols-rounded">{icons[status]}</div>}
+    {icon || icons[status]}
   </StyledIcon>
 );

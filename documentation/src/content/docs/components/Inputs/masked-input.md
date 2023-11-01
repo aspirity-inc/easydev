@@ -29,3 +29,7 @@ The Masked Input can have the next props: label, error, warning, message, isLoad
 ```tsx
 <MaskedInput error="There is no such number" label="Phone number" mask="+7 (999) 999-99-99" value="0123456789" />
 ```
+
+## CSS
+
+Masked input has same class names as Input.

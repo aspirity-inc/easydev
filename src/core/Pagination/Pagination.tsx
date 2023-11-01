@@ -12,6 +12,7 @@ export const Pagination = ({
   hidePages = false,
   withEdges = false,
   siblings = 2,
+  ...props
 }: PaginationProps) => {
   const { visiblePageRange, gotToNextPage, gotToPrevPage, gotToFirstPage, gotToLastPage } = usePagination({
     page,
@@ -21,7 +22,7 @@ export const Pagination = ({
   });
 
   return (
-    <StyledPagination className="easy_pagination" wrap="nowrap">
+    <StyledPagination className="easy_pagination" wrap="nowrap" {...props}>
       {withEdges && <PaginationButton icons={icons} variant="first" disabled={page === 1} onClick={gotToFirstPage} />}
       <PaginationButton icons={icons} variant="prev" disabled={page === 1} onClick={gotToPrevPage} />
       {!hidePages &&

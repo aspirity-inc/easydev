@@ -57,7 +57,7 @@ export const Sidebar = ({
               $maxWidth={maxWidth}
               className="easy_sidebar-toggle_button"
             >
-              <span className="material-symbols-rounded">keyboard_arrow_left</span>
+              <KeyboardArrowLeftIcon />
             </ToggleBtn>
           )}
         </SidebarContent>

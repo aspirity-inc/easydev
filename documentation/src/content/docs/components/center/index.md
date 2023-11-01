@@ -37,3 +37,11 @@ const InlineCenter = () => {
   );
 };
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class           | Description                         |
+| --------------- | ----------------------------------- |
+| **easy_center** | Styles applied to the root element. |

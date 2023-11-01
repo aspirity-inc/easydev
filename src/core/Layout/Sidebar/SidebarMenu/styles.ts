@@ -51,6 +51,11 @@ export const getCommonMenuItemStyles = ($disabled: boolean, $collapsed: boolean,
     transition: background-color var(--transition), color var(--transition);
 
     ${$collapsed &&
+    css`
+      width: fit-content;
+    `}
+
+    ${$collapsed &&
     $hovered &&
     css`
       cursor: pointer;

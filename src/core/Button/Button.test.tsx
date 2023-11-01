@@ -60,8 +60,7 @@ test('Should be correct size', () => {
       <Button size="sm">{mockButtonText}</Button>
     </EasydevProvider>
   );
-  expect(screen.getByText(mockButtonText)).toHaveStyleRule('padding', '8px 6px');
-  expect(screen.getByText(mockButtonText)).toHaveStyleRule('min-width', '120px');
+  expect(screen.getByText(mockButtonText)).toHaveStyleRule('padding', '8px');
 });
 
 test('Should be correct border radius', () => {

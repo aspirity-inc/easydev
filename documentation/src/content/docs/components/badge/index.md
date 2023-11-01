@@ -27,3 +27,12 @@ The Badge component can have the next props: color, textColor. [See there](/stor
   Badge
 </Badge>
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                  | Description                                    |
+| ---------------------- | ---------------------------------------------- |
+| **easy_badge**         | Styles applied to the root element.            |
+| **easy_badge-content** | Styles applied to the content part of element. |
