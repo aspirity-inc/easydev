@@ -50,7 +50,7 @@ test('items, height, arrows, dots, arrowsType', async () => {
   expect(container.querySelectorAll('.easy_carousel-arrow').length).toBe(2);
   expect(container.querySelector('[aria-label="Previous"]')).toBeInTheDocument();
 
-  expect(container.querySelectorAll('.easy_carousel-dot').length).toBe(6);
+  expect(container.querySelectorAll('.easy_carousel-dot').length).toBe(items.length);
 
   expect(container.querySelector('.keen-slider')).toHaveStyleRule('height', '200px');
 
