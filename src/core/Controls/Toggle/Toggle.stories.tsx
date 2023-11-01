@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Toggle } from '.';
 import type { Meta, StoryFn } from '@storybook/react';
@@ -30,11 +30,6 @@ const metaToggle: Meta<typeof Toggle> = {
       control: 'boolean',
       table: { defaultValue: { summary: true } },
     },
-    isDayNightMode: {
-      type: 'boolean',
-      control: 'boolean',
-      table: { defaultValue: { summary: false } },
-    },
     onChange: {
       type: 'function',
       description: 'function onChange(): void',
@@ -56,26 +51,12 @@ export const ControlledToggle: StoryFn<typeof Toggle> = () => {
 
   return <Toggle checked={checked} onChange={onChange} />;
 };
-ControlledToggle.parameters = {
-  docs: {
-    source: {
-      type: 'code',
-    },
-  },
-};
 
 export const WithLabel: StoryFn<typeof Toggle> = () => {
   const [checked, setChecked] = useState(false);
   const onChange = () => setChecked((prevState) => !prevState);
 
   return <Toggle checked={checked} onChange={onChange} label="Toggle me ☀️" />;
-};
-WithLabel.parameters = {
-  docs: {
-    source: {
-      type: 'code',
-    },
-  },
 };
 
 export const WithJSXLabel: StoryFn<typeof Toggle> = () => {
@@ -84,13 +65,41 @@ export const WithJSXLabel: StoryFn<typeof Toggle> = () => {
 
   return <Toggle checked={checked} onChange={onChange} label={<strong>Toggle me ☀️</strong>} />;
 };
-WithJSXLabel.parameters = {
-  docs: {
-    source: {
-      type: 'code',
-    },
-  },
-};
 
-export const DayNightToggle: StoryFn<typeof Toggle> = Template.bind({});
-DayNightToggle.args = { isDayNightMode: true };
+export const DayNightToggle: StoryFn<typeof Toggle> = () => {
+  const [checked, setChecked] = useState(false);
+
+  const dayToggleBackground = "url('/assets/toggle/day.svg')";
+  const nightToggleBackground = "url('/assets/toggle/night.svg')";
+
+  const dayToggleInnerBackground = '#ffc700';
+  const nightToggleInnerBackground = "url('/assets/toggle/night-span.svg')";
+
+  const [toggleBackground, setToggleBackground] = useState(checked ? dayToggleBackground : nightToggleBackground);
+  const [toggleInnerBackground, setToggleInnerBackground] = useState(
+    checked ? dayToggleInnerBackground : nightToggleInnerBackground
+  );
+
+  const onChange = () => setChecked((prevState) => !prevState);
+
+  useEffect(() => {
+    if (checked) {
+      setToggleBackground(dayToggleBackground);
+      setToggleInnerBackground(dayToggleInnerBackground);
+    } else {
+      setToggleBackground(nightToggleBackground);
+      setToggleInnerBackground(nightToggleInnerBackground);
+    }
+  }, [checked]);
+
+  return (
+    <Toggle
+      checked={checked}
+      onChange={onChange}
+      toggleBackground={toggleBackground}
+      toggleInnerBackground={toggleInnerBackground}
+      toggleWrapProps={{ style: { width: 48 } }}
+      toggleInnerProps={{ style: { translate: checked ? '150% -50%' : '' } }}
+    />
+  );
+};

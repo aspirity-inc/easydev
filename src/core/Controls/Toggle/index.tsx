@@ -16,9 +16,12 @@ export const Toggle = forwardRef(
       label,
       color,
       id,
-      isDayNightMode = false,
+      toggleBackground,
+			toggleInnerBackground,
       onChange,
       reversed,
+			toggleInnerProps,
+			toggleWrapProps,
       ...props
     }: TogglePropsType,
     ref?: Ref<HTMLInputElement>
@@ -43,7 +46,9 @@ export const Toggle = forwardRef(
             disabled={disabled}
             className="easy_toggle-wrap"
             $isChecked={isChecked}
-            $isDayNightMode={isDayNightMode}
+						$toggleBackground={toggleBackground}
+						$toggleInnerBackground={toggleInnerBackground}
+						{...toggleWrapProps}
           >
             <StyledToggle
               ref={ref}
@@ -56,7 +61,7 @@ export const Toggle = forwardRef(
               checked={isChecked}
               {...props}
             />
-            <StyledToggleInner className="easy_toggle-inner" />
+            <StyledToggleInner className="easy_toggle-inner" {...toggleInnerProps}/>
           </ToggleWrap>
           {label && (
             <LabelContent as="span" className="easy_toggle-label">

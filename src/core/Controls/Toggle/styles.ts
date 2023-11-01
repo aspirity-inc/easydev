@@ -20,12 +20,12 @@ export const ToggleWrap = styled(ControlWrap)<ToggleWrapProps>`
   --toggleBg: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['200'])};
   --checkedBg: ${({ theme }) => (theme.type === 'light' ? theme.colors.tretiary['600'] : theme.colors.tretiary['400'])};
   --innerColor: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800'])};
-	
+
   width: 40px;
   border-radius: 20px;
   background-color: var(--toggleBg);
   border: none;
-  transition: background-color ${({ theme }) => theme.transition.default};
+  transition: background ${({ theme }) => theme.transition.default};
 
   ${StyledToggleInner} {
     background-color: var(--innerColor);
@@ -66,36 +66,14 @@ export const ToggleWrap = styled(ControlWrap)<ToggleWrapProps>`
       }
     `}
 
-  ${({ $isDayNightMode, $isChecked }) =>
-    $isDayNightMode &&
-    css`
-      width: 48px;
-      transition: background ${({ theme }) => theme.transition.default};
 
-      ${StyledToggle} {
-        transition: background ${({ theme }) => theme.transition.default};
-      }
+		${({ $toggleBackground, $toggleInnerBackground }) => {
+    return css`
+      background: ${$toggleBackground};
 
       ${StyledToggleInner} {
-        translate: ${$isChecked && '150% -50%'};
+        background: ${$toggleInnerBackground};
       }
-    `}
-
-  ${({ $isDayNightMode, $isChecked }) =>
-    $isDayNightMode &&
-    ($isChecked
-      ? css`
-          background: url('/assets/toggle/day.svg');
-
-          ${StyledToggleInner} {
-            background: #ffc700;
-          }
-        `
-      : css`
-          background: url('/assets/toggle/night.svg');
-
-          ${StyledToggleInner} {
-            background: url('/assets/toggle/night-span.svg');
-          }
-        `)}
+    `;
+  }}
 `;
