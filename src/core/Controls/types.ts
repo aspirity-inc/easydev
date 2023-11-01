@@ -31,7 +31,6 @@ export type TogglePropsType = ControlBasePropsType & {
   checked?: ToggleValue;
   defaultChecked?: ToggleValue;
   onChange?: (value: ToggleValue) => void;
-  isDayNightMode?: boolean;
   toggleBackground?: CSSProperties['background'];
   toggleInnerBackground?: CSSProperties['background'];
 	toggleWrapProps?: Pick<BaseComponentType, 'style'>;
