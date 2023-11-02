@@ -96,6 +96,15 @@ const rowData: TableDataType[] = [
   },
 ];
 
+const StyledTableBorderWrap = styled(Flex)`
+  border: 1px solid
+    ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['900'])};
+
+  border-radius: 8px;
+
+  overflow: hidden;
+`;
+
 const Template: StoryFn<typeof Table> = ({ ...args }) => {
   const [data, setData] = useState<TableDataType[]>(rowData);
   const [sortOrder, setSortOrder] = useState<OrderType>('default');
@@ -142,58 +151,60 @@ const Template: StoryFn<typeof Table> = ({ ...args }) => {
   };
 
   return (
-    <Table {...args}>
-      <TableHead>
-        <TableRow>
-          <TableCell variant="th">
-            <Center>
-              <Checkbox checked={data.length > 0 && selected.length === data.length} onChange={selectAllRows} />
-            </Center>
-          </TableCell>
-          {columnData.map((column) => (
-            <TableCell variant="th" key={column.label}>
-              <TableSortLabel
-                hideSortIcon={sortedBy !== column.label || sortOrder === 'default'}
-                order={sortedBy === column.label ? sortOrder : undefined}
-                onClick={() => sortByColumn(column.label)}
-              >
-                {column.title}
-              </TableSortLabel>
-            </TableCell>
-          ))}
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {data.map((item) => (
-          <TableRow key={item.id}>
-            <TableCell>
+    <StyledTableBorderWrap>
+      <Table {...args}>
+        <TableHead>
+          <TableRow>
+            <TableCell variant="th">
               <Center>
-                <Checkbox checked={isSelected(Number(item.id))} onChange={() => selectItem(Number(item.id))} />
+                <Checkbox checked={data.length > 0 && selected.length === data.length} onChange={selectAllRows} />
               </Center>
             </TableCell>
-            <TableCell>
-              <Flex gap={8} wrap="nowrap">
-                <Avatar size="sm" alt="photo" src={item.src_img.toString()} />
-                <Flex direction="column" align="flex-start">
-                  <Subtitle as="h4" level={4}>
-                    {item.name}
-                  </Subtitle>
-                  {item.nickname}
-                </Flex>
-              </Flex>
-            </TableCell>
-            <TableCell>
-              <Badge color={item.status === 'inactive' ? 'warning' : 'success'}>{item.status}</Badge>
-            </TableCell>
-            <TableCell>{item.course}</TableCell>
-            <TableCell>
-              <ProgressBar value={Number(item.progress)} />
-            </TableCell>
-            <TableCell>{item.updated}</TableCell>
+            {columnData.map((column) => (
+              <TableCell variant="th" key={column.label}>
+                <TableSortLabel
+                  hideSortIcon={sortedBy !== column.label || sortOrder === 'default'}
+                  order={sortedBy === column.label ? sortOrder : undefined}
+                  onClick={() => sortByColumn(column.label)}
+                >
+                  {column.title}
+                </TableSortLabel>
+              </TableCell>
+            ))}
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHead>
+        <TableBody>
+          {data.map((item) => (
+            <TableRow key={item.id}>
+              <TableCell>
+                <Center>
+                  <Checkbox checked={isSelected(Number(item.id))} onChange={() => selectItem(Number(item.id))} />
+                </Center>
+              </TableCell>
+              <TableCell>
+                <Flex gap={8} wrap="nowrap">
+                  <Avatar size="sm" alt="photo" src={item.src_img.toString()} />
+                  <Flex direction="column" align="flex-start">
+                    <Subtitle as="h4" level={4}>
+                      {item.name}
+                    </Subtitle>
+                    {item.nickname}
+                  </Flex>
+                </Flex>
+              </TableCell>
+              <TableCell>
+                <Badge color={item.status === 'inactive' ? 'warning' : 'success'}>{item.status}</Badge>
+              </TableCell>
+              <TableCell>{item.course}</TableCell>
+              <TableCell>
+                <ProgressBar value={Number(item.progress)} />
+              </TableCell>
+              <TableCell>{item.updated}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </StyledTableBorderWrap>
   );
 };
 
@@ -275,7 +286,7 @@ const TemplateWithPagination: StoryFn<typeof Table> = ({ ...args }) => {
   const totalPages = Math.ceil(data.length / itemsPerPage);
 
   return (
-    <Flex align="flex-end" direction="column">
+    <StyledTableBorderWrap align="flex-end" direction="column">
       <Table {...args}>
         <TableHead>
           <TableRow>
@@ -329,13 +340,13 @@ const TemplateWithPagination: StoryFn<typeof Table> = ({ ...args }) => {
           ))}
         </TableBody>
       </Table>
-      <Flex gap={32}>
+      <Flex gap={32} style={{ padding: '12px 16px' }}>
         <StyledPaginationInfo>
           {indexOfFirstItem + 1}-{indexOfLastItem} of {data.length}{' '}
         </StyledPaginationInfo>
         <Pagination page={page} onChange={setPage} total={totalPages} siblings={1} withEdges={true} />
       </Flex>
-    </Flex>
+    </StyledTableBorderWrap>
   );
 };
 
