@@ -15,6 +15,8 @@ import type { ThemeContextType, ThemeProviderType } from './types.ts';
 export const ThemeContext = createContext<ThemeContextType | null>(null);
 
 const addLinks = (head: HTMLElement) => {
+  if (!head) return;
+	
   const link1 = document.createElement('link');
   link1.rel = 'preconnect';
   link1.href = 'https://fonts.googleapis.com';
