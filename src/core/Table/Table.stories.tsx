@@ -1,4 +1,4 @@
-import { type ChangeEvent, useState, useEffect } from 'react';
+import { type ChangeEvent, useState } from 'react';
 
 import { styled } from 'styled-components';
 
@@ -126,11 +126,6 @@ const Template: StoryFn<typeof Table> = ({ ...args }) => {
     setSelected([]);
   };
 
-  useEffect(() => {
-    console.log('sortOrder', sortOrder);
-    console.log('sortedBy', sortedBy);
-  }, [sortOrder, sortedBy]);
-
   const isSelected = (id: number) => selected.indexOf(id) !== -1;
 
   const selectItem = (id: number) => {
@@ -224,7 +219,7 @@ function generateLongDataArray(data: TableDataType[], n: number): TableDataType[
   return newData;
 }
 
-const generatedData = generateLongDataArray(rowData, 3)
+const generatedData = generateLongDataArray(rowData, 3);
 
 const TemplateWithPagination: StoryFn<typeof Table> = ({ ...args }) => {
   const [data, setData] = useState<TableDataType[]>(generatedData);
