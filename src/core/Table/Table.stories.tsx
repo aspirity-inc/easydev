@@ -1,4 +1,4 @@
-import { type ChangeEvent, useState } from 'react';
+import { type ChangeEvent, useState, useEffect } from 'react';
 
 import { styled } from 'styled-components';
 
@@ -64,7 +64,7 @@ const rowData: TableDataType[] = [
     id: 1,
     name: 'Jane Cooper',
     nickname: '@professor1985',
-    status: 'inactive',
+    status: 'active',
     course: 'Financial Accounting Fundamentals',
     progress: '13',
     updated: '2 minutes ago',
@@ -75,7 +75,8 @@ const rowData: TableDataType[] = [
     id: 2,
     name: 'Robert Fox',
     nickname: '@CoolMaster',
-    status: 'active',
+    status: 'inactive',
+
     course: 'UX/UI Design Principles',
     progress: '78',
     updated: '2 days ago',
@@ -97,19 +98,22 @@ const rowData: TableDataType[] = [
 
 const Template: StoryFn<typeof Table> = ({ ...args }) => {
   const [data, setData] = useState<TableDataType[]>(rowData);
-  const [sortOrder, setSortOrder] = useState<OrderType>('asc');
+  const [sortOrder, setSortOrder] = useState<OrderType>('default');
   const [sortedBy, setSortedBy] = useState<keyof TableDataType | null>(null);
   const [selected, setSelected] = useState<number[]>([]);
 
   const sortByColumn = (column: keyof TableDataType) => {
+    const currentSortOrder =
+      sortedBy === column ? (sortOrder === 'asc' ? 'desc' : sortOrder === 'desc' ? 'default' : 'asc') : 'asc';
+
     const sortedData = [...data].sort((a, b) => {
-      if (a[column] < b[column]) return sortOrder === 'asc' ? -1 : 1;
-      if (a[column] > b[column]) return sortOrder === 'asc' ? 1 : -1;
+      if (a[column] < b[column]) return currentSortOrder === 'asc' ? -1 : 1;
+      if (a[column] > b[column]) return currentSortOrder === 'asc' ? 1 : -1;
       return 0;
     });
 
-    setData(sortedData);
-    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    setData(currentSortOrder === 'default' ? rowData : sortedData);
+    setSortOrder(currentSortOrder);
     setSortedBy(column);
   };
 
@@ -121,6 +125,11 @@ const Template: StoryFn<typeof Table> = ({ ...args }) => {
     }
     setSelected([]);
   };
+
+  useEffect(() => {
+    console.log('sortOrder', sortOrder);
+    console.log('sortedBy', sortedBy);
+  }, [sortOrder, sortedBy]);
 
   const isSelected = (id: number) => selected.indexOf(id) !== -1;
 
@@ -149,6 +158,7 @@ const Template: StoryFn<typeof Table> = ({ ...args }) => {
           {columnData.map((column) => (
             <TableCell variant="th" key={column.label}>
               <TableSortLabel
+                hideSortIcon={sortedBy !== column.label || sortOrder === 'default'}
                 order={sortedBy === column.label ? sortOrder : undefined}
                 onClick={() => sortByColumn(column.label)}
               >
@@ -214,21 +224,26 @@ function generateLongDataArray(data: TableDataType[], n: number): TableDataType[
   return newData;
 }
 
+const generatedData = generateLongDataArray(rowData, 3)
+
 const TemplateWithPagination: StoryFn<typeof Table> = ({ ...args }) => {
-  const [data, setData] = useState<TableDataType[]>(generateLongDataArray(rowData, 3));
+  const [data, setData] = useState<TableDataType[]>(generatedData);
   const [sortOrder, setSortOrder] = useState<OrderType>('asc');
   const [sortedBy, setSortedBy] = useState<keyof TableDataType | null>(null);
   const [selected, setSelected] = useState<number[]>([]);
 
   const sortByColumn = (column: keyof TableDataType) => {
+    const currentSortOrder =
+      sortedBy === column ? (sortOrder === 'asc' ? 'desc' : sortOrder === 'desc' ? 'default' : 'asc') : 'asc';
+
     const sortedData = [...data].sort((a, b) => {
-      if (a[column] < b[column]) return sortOrder === 'asc' ? -1 : 1;
-      if (a[column] > b[column]) return sortOrder === 'asc' ? 1 : -1;
+      if (a[column] < b[column]) return currentSortOrder === 'asc' ? -1 : 1;
+      if (a[column] > b[column]) return currentSortOrder === 'asc' ? 1 : -1;
       return 0;
     });
 
-    setData(sortedData);
-    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    setData(currentSortOrder === 'default' ? generatedData : sortedData);
+    setSortOrder(currentSortOrder);
     setSortedBy(column);
   };
 
@@ -277,6 +292,7 @@ const TemplateWithPagination: StoryFn<typeof Table> = ({ ...args }) => {
             {columnData.map((column) => (
               <TableCell variant="th" key={column.label}>
                 <TableSortLabel
+                  hideSortIcon={sortedBy !== column.label || sortOrder === 'default'}
                   order={sortedBy === column.label ? sortOrder : undefined}
                   onClick={() => sortByColumn(column.label)}
                 >
