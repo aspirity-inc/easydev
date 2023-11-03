@@ -20,11 +20,11 @@ export const EasydevProvider = ({
   defaultStyledInjection = false,
 }: ThemeProviderType) => {
   const mergedLightTheme = useMemo(() => {
-    return merge(THEMES['light'], themes?.light || {});
+    return merge(THEMES['light'], themes.light);
   }, [themes?.light]);
 
   const mergedDarkTheme = useMemo(() => {
-    return merge(THEMES['dark'], themes?.dark || {});
+    return merge(THEMES['dark'], themes.dark);
   }, [themes?.dark]);
 
   const [currentTheme, setCurrentTheme] = useState(theme?.type === 'dark' ? mergedDarkTheme : mergedLightTheme);
