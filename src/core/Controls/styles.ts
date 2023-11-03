@@ -61,6 +61,8 @@ export const ControlContainer = styled('div')<ControlContainerProps>`
   align-items: center;
   gap: 8px;
 
+  width: max-content;
+
   ${({ $reversed }) => {
     return (
       $reversed &&

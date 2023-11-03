@@ -25,7 +25,7 @@ test('radio', () => {
   expect(screen.getByText(label)).toBeInTheDocument();
 });
 
-test('disabled', async () => {
+test('disabled', () => {
   const { container } = render(
     <EasydevProvider>
       <Radio disabled />

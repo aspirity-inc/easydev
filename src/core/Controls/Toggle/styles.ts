@@ -1,6 +1,7 @@
 import { css, styled } from 'styled-components';
 
 import { ControlWrap, StyledInnerBase, getControlColor, StyledInput } from '../styles.ts';
+import { ToggleWrapProps } from '../types.ts';
 
 export const StyledToggle = styled(StyledInput)``;
 
@@ -15,36 +16,44 @@ export const StyledToggleInner = styled(StyledInnerBase)`
   transition: translate ${({ theme }) => theme.transition.default};
 `;
 
-export const ToggleWrap = styled(ControlWrap)`
+export const ToggleWrap = styled(ControlWrap)<ToggleWrapProps>`
   --toggleBg: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['500'] : theme.colors.surface['200'])};
   --checkedBg: ${({ theme }) => (theme.type === 'light' ? theme.colors.tretiary['600'] : theme.colors.tretiary['400'])};
   --innerColor: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['50'] : theme.colors.surface['800'])};
-	
+
   width: 40px;
   border-radius: 20px;
   background-color: var(--toggleBg);
   border: none;
-  transition: background-color ${({ theme }) => theme.transition.default};
+  transition: background ${({ theme }) => theme.transition.default};
 
   ${StyledToggleInner} {
     background-color: var(--innerColor);
   }
 
-  &:has(${StyledToggle}:checked) {
-    background-color: ${({ theme, $color }) => getControlColor(theme, $color)};
+  ${({ $isChecked, $color, disabled }) => {
+    return (
+      $isChecked &&
+      (disabled
+        ? css`
+            background-color: ${({ theme }) => theme.colors.surface['400']};
+          `
+        : css`
+            background-color: ${({ theme }) => getControlColor(theme, $color)};
+          `)
+    );
+  }}
 
-    ${({ disabled }) =>
-      disabled &&
+  ${({ $isChecked }) => {
+    return (
+      $isChecked &&
       css`
-        background-color: ${({ theme }) => theme.colors.surface['400']};
-      `}
-  }
-
-  ${StyledToggle} {
-    &:checked ~ ${StyledToggleInner} {
-      translate: 100% -50%;
-    }
-  }
+        ${StyledToggleInner} {
+          translate: 100% -50%;
+        }
+      `
+    );
+  }}
 
   ${({ disabled }) =>
     disabled &&
@@ -56,4 +65,15 @@ export const ToggleWrap = styled(ControlWrap)`
         filter: grayscale(1);
       }
     `}
+
+
+		${({ $toggleBackground, $toggleInnerBackground }) => {
+    return css`
+      background: ${$toggleBackground};
+
+      ${StyledToggleInner} {
+        background: ${$toggleInnerBackground};
+      }
+    `;
+  }}
 `;
