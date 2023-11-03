@@ -11,7 +11,7 @@ export const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export const EasydevProvider = ({
   children,
-  defaultTheme,
+  theme,
   themeLight,
   themeDark,
   target,
@@ -28,7 +28,7 @@ export const EasydevProvider = ({
     return merge(THEMES['dark'], themeDark);
   }, [themeDark]);
 
-  const [currentTheme, setCurrentTheme] = useState(defaultTheme?.type === 'dark' ? mergedDarkTheme : mergedLightTheme);
+  const [currentTheme, setCurrentTheme] = useState(theme?.type === 'dark' ? mergedDarkTheme : mergedLightTheme);
 
   const toggleTheme = useCallback(() => {
     if (currentTheme.type === 'light') {

@@ -20,7 +20,7 @@ export const withTheme = (Story: StoryFn, context: StoryContext) => {
   const theme = backgrounds?.value !== THEMES['dark'].colors.background ? THEMES['light'] : THEMES['dark'];
 
   return (
-    <EasydevProvider defaultTheme={theme} defaultStyledInjection>
+    <EasydevProvider theme={theme} defaultStyledInjection>
       <GlobalStyles />
       <Story />
     </EasydevProvider>
