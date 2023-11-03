@@ -35,7 +35,7 @@ export const Sidebar = ({
   };
 
   return (
-    <StyledSidebarWrapper className="easy_sidebar-wrapper">
+    <StyledSidebarWrapper className="easy_sidebar-wrap">
       <SidebarStickyContent className="easy_sidebar-sticky-content" {...props}>
         <SidebarContent className="easy_sidebar-content">
           <StyledScrollbar $collapsed={collapsed}>

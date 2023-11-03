@@ -143,3 +143,11 @@ const LayoutWithSidebar = () => {
   );
 };
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class           | Description                         |
+| --------------- | ----------------------------------- |
+| **easy_layout** | Styles applied to the root element. |

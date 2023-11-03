@@ -20,7 +20,7 @@ export type TableRowProps = ComponentPropsWithoutRef<'tr'>;
 export type TableHeadProps = ComponentPropsWithoutRef<'thead'>;
 export type TableBodyProps = ComponentPropsWithoutRef<'tbody'>;
 
-export type OrderType = 'asc' | 'desc';
+export type OrderType = 'asc' | 'desc' | 'default';
 
 export type TableSortLabelProps = ComponentPropsWithoutRef<'button'> & {
   order?: OrderType;

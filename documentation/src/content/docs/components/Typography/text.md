@@ -8,7 +8,6 @@ The Text can have the next props: variant, ellipsis, as. [See there](/storybook/
 
 ## Text variants
 
-
 ### [Default Text](/storybook/?path=/story/core-typography-text--default-text)
 
 ```tsx
@@ -44,3 +43,11 @@ The Text can have the next props: variant, ellipsis, as. [See there](/storybook/
   waffles. Waffles are cool. Waffles is a funny word.
 </Text>
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class         | Description                         |
+| ------------- | ----------------------------------- |
+| **easy_text** | Styles applied to the root element. |

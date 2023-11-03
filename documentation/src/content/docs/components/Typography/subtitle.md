@@ -25,3 +25,11 @@ The Subtitle can have the next props: level, as. [See there](/storybook/?path=/d
   EasyDev the greatest
 </Subtitle>
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class             | Description                         |
+| ----------------- | ----------------------------------- |
+| **easy_subtitle** | Styles applied to the root element. |

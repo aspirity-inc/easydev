@@ -23,3 +23,11 @@ The Header can have the next props: fix, height, backgroundColor. Here you can a
   <Center>Header</Center>
 </Header>
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class           | Description                         |
+| --------------- | ----------------------------------- |
+| **easy_header** | Styles applied to the root element. |
