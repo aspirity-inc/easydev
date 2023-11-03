@@ -19,3 +19,14 @@ The Stepper can have the next props: count, currentStep, numeric. [See there](/s
 ```tsx
 <Stepper count={10} currentStep={3} numeric />
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                   | Description                                            |
+| ----------------------- | ------------------------------------------------------ |
+| **easy_stepper**        | Styles applied to the root element of default stepper. |
+| **easy_step**           | Styles applied to the step element of default stepper. |
+| **easy_numericStepper** | Styles applied to the root element of numeric stepper. |
+| **easy_numericStep**    | Styles applied to the step element of numeric stepper. |

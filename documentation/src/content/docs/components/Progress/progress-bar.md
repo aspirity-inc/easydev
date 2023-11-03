@@ -41,3 +41,14 @@ const CustomTitle = () => {
   return <ProgressBar value={value} customTitle={Title} />;
 };
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                        | Description                         |
+| ---------------------------- | ----------------------------------- |
+| **easy_progress-wrap**       | Styles applied to the root element. |
+| **easy_progress--titleWrap** | Styles applied to the title.        |
+| **easy_progressText**        | Styles applied to the text.         |
+| **easy_progressBar**         | Styles applied to the bar element.  |

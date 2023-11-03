@@ -37,7 +37,7 @@ export const SidebarMenuItem = ({
   return (
     <StyledMenuItem
       as="li"
-      className="easy_dropdown-menu-item"
+      className="easy_sidebar-dropdown-menu-item"
       $disabled={disabled}
       $collapsed={collapsed}
       $hovered={hovered || controlledHovered}

@@ -14,7 +14,7 @@ export const ProgressBar = ({
   const formattedValue = negativeToPositive > 100 ? 100 : negativeToPositive;
 
   return (
-    <ProgressBarWrap className="easy_progressWrap">
+    <ProgressBarWrap className="easy_progress-wrap">
       {customTitle ? (
         <TitleWrap as="span" className="easy_progress--titleWrap">
           {customTitle}

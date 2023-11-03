@@ -85,7 +85,7 @@ export const SubMenu = ({
   return (
     <StyledAccordionWrapper
       as="li"
-      className="easy_dropdown-menu-item"
+      className="easy_sidebar-dropdown-submenu"
       onMouseLeave={handleMouseLeave}
       $maxWidth={maxWidth}
       $hovered={hovered}

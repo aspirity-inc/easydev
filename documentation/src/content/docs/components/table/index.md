@@ -2,7 +2,7 @@
 title: Table
 ---
 
-The Table  display sets of data. You can customize it as you want.
+The Table display sets of data. You can customize it as you want.
 
 The Table component can have the next props: striped, withRowBorder. [See there](/storybook/?path=/docs/core-table--docs) to get more information.
 
@@ -377,3 +377,15 @@ const TableWithPagination = () => {
   );
 };
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class               | Description                            |
+| ------------------- | -------------------------------------- |
+| **easy_table**      | Styles applied to the root element.    |
+| **easy_table-body** | Styles applied to the table body.      |
+| **easy_table-cell** | Styles applied to the table cell.      |
+| **easy_table-head** | Styles applied to the table head cell. |
+| **easy_table-row**  | Styles applied to the table row.       |

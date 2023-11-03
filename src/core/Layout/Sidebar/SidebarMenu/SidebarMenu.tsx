@@ -24,7 +24,7 @@ export const SidebarMenu = ({
   if (!items) return null;
 
   return (
-    <StyledMenu as="ul" className="easy_dropdown-menu" {...props}>
+    <StyledMenu as="ul" className="easy_sidebar-dropdown-menu" {...props}>
       {items.map((item: MenuItemType) => {
         if (item.type === 'divider') {
           return <SidebarMenuDivider key={item.id} />;

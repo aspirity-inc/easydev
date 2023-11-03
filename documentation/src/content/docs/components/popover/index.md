@@ -78,3 +78,14 @@ The Popover can have the next props: placement, title, body, openOnHover, inline
   </p>
 </div>
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                             | Description                            |
+| --------------------------------- | -------------------------------------- |
+| **easy_popover**                  | Styles applied to the root element.    |
+| **easy_popover-triggerContainer** | Styles applied to the trigger element. |
+| **easy_popover-title**            | Styles applied to the popover title.   |
+| **easy_popover-body**             | Styles applied to the popover body.    |
