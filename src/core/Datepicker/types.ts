@@ -1,6 +1,6 @@
 import type { InputHTMLAttributes } from 'react';
 
-import { BaseComponentType } from '@core/Box/types';
+import type { BaseComponentType } from '@core/Box/types';
 
 import type { ReactDatePickerProps } from 'react-datepicker';
 
