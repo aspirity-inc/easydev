@@ -12,8 +12,7 @@ export const ThemeContext = createContext<ThemeContextType | null>(null);
 export const EasydevProvider = ({
   children,
   theme,
-  themeLight,
-  themeDark,
+  themes = { light: {}, dark: {} },
   target,
   customTarget,
   enableVendorPrefixes = true,
@@ -21,12 +20,12 @@ export const EasydevProvider = ({
   defaultStyledInjection = false,
 }: ThemeProviderType) => {
   const mergedLightTheme = useMemo(() => {
-    return merge(THEMES['light'], themeLight);
-  }, [themeLight]);
+    return merge(THEMES['light'], themes?.light || {});
+  }, [themes?.light]);
 
   const mergedDarkTheme = useMemo(() => {
-    return merge(THEMES['dark'], themeDark);
-  }, [themeDark]);
+    return merge(THEMES['dark'], themes?.dark || {});
+  }, [themes?.dark]);
 
   const [currentTheme, setCurrentTheme] = useState(theme?.type === 'dark' ? mergedDarkTheme : mergedLightTheme);
 

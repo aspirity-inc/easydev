@@ -24,8 +24,7 @@ export type ThemeContextType = {
 
 export type ThemeProviderType = {
   theme?: PartialThemeType;
-  themeLight?: PartialThemeType;
-  themeDark?: PartialThemeType;
+  themes?: { light?: PartialThemeType; dark?: PartialThemeType };
   children: ReactNode | ReactNode[];
   target?: HTMLElement;
   customTarget?: HTMLElement;
