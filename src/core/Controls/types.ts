@@ -33,7 +33,7 @@ export type TogglePropsType = ControlBasePropsType & {
   onChange?: (value: ToggleValue) => void;
   toggleBackground?: CSSProperties['background'];
   toggleInnerBackground?: CSSProperties['background'];
-	toggleWrapProps?: Pick<BaseComponentType, 'style'>;
+  toggleWrapProps?: Pick<BaseComponentType, 'style'>;
   toggleInnerProps?: Pick<BaseComponentType, 'style'>;
 };
 
