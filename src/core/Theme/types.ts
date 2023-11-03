@@ -23,7 +23,7 @@ export type ThemeContextType = {
 };
 
 export type ThemeProviderType = {
-  theme?: PartialThemeType;
+  themeType?: ThemeTypeVariant;
   themes?: { light?: PartialThemeType; dark?: PartialThemeType };
   children: ReactNode | ReactNode[];
   target?: HTMLElement;

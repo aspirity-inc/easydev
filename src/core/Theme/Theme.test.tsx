@@ -27,7 +27,7 @@ test('useEasyThemeContext', () => {
   };
 
   render(
-    <EasydevProvider theme={THEMES['dark']}>
+    <EasydevProvider themeType='dark'>
       <Component />
     </EasydevProvider>
   );
