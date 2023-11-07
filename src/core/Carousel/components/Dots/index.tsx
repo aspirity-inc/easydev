@@ -5,7 +5,18 @@ import { StyledDots } from './styles';
 import type { DotsProps } from '../../types';
 import { Arrow } from '../Arrows/Arrow';
 
-export const Dots = ({ currentSlide, withArrows, instanceRef, icons, arrowIcon, ...props }: DotsProps) => {
+export const Dots = ({
+  currentSlide,
+  withArrows,
+  instanceRef,
+  icons,
+  arrowIcon,
+  carouselDotsProps,
+  carouselDotProps,
+  carouselArrowProps,
+  defaultArrowIconProps,
+  ...props
+}: DotsProps) => {
   if (!instanceRef.current) return null;
 
   const getLength = () => {
@@ -37,12 +48,28 @@ export const Dots = ({ currentSlide, withArrows, instanceRef, icons, arrowIcon, 
   };
 
   return (
-    <StyledDots className="easy_carousel-dots" gap={8} {...props}>
+    <StyledDots className="easy_carousel-dots" gap={8} {...carouselDotsProps} {...props}>
       {withArrows && <Arrow left type="withDots" onClick={handleClickArrow(true)} icon={arrowIcon} />}
       {[...Array(getLength()).keys()].map((idx) => {
-        return <Dot key={idx} onClick={() => handleClickDot(idx)} active={currentSlide === idx} icons={icons} />;
+        return (
+          <Dot
+            key={idx}
+            onClick={() => handleClickDot(idx)}
+            active={currentSlide === idx}
+            icons={icons}
+            carouselDotProps={carouselDotProps}
+          />
+        );
       })}
-      {withArrows && <Arrow type="withDots" onClick={handleClickArrow()} icon={arrowIcon} />}
+      {withArrows && (
+        <Arrow
+          type="withDots"
+          onClick={handleClickArrow()}
+          icon={arrowIcon}
+          carouselArrowProps={carouselArrowProps}
+          defaultArrowIconProps={defaultArrowIconProps}
+        />
+      )}
     </StyledDots>
   );
 };

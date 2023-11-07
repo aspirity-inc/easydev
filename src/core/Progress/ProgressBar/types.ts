@@ -9,4 +9,8 @@ export type ProgressBarPropsType = BaseComponentType &
     customTitle?: ReactNode;
     size?: 'small' | 'default';
     rounded?: boolean;
+
+    progressWrapProps?: Pick<BaseComponentType, 'style'>;
+    progressTitleWrapProps?: Pick<BaseComponentType, 'style'>;
+    progressSubTitleWrapProps?: Pick<BaseComponentType, 'style'>;
   };

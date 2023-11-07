@@ -27,6 +27,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       placeholder = ' ',
       required,
       renderExtraMessage,
+      inputWrapProps,
+      inputLabelProps,
+      inputLabelTextProps,
+      inputAsteriskProps,
+      inputMessageContainerProps,
+      inputStatusMessageTextProps,
+      inputExtraMessageTextProps,
       ...props
     },
     ref
@@ -55,8 +62,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     };
 
     return (
-      <StyledInputWrapper className="easy_input-wrap" $disabled={disabled || false} $isLoading={isLoading || false}>
-        <StyledInputLabel className="easy_input-label" $disabled={disabled || false}>
+      <StyledInputWrapper
+        className="easy_input-wrap"
+        $disabled={disabled || false}
+        $isLoading={isLoading || false}
+        {...inputWrapProps}
+      >
+        <StyledInputLabel className="easy_input-label" $disabled={disabled || false} {...inputLabelProps}>
           <StyledInput
             $hasIcon={Boolean(type === 'password' || error || warning || isLoading)}
             className="easy_input-item"
@@ -70,8 +82,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             $filled={Boolean(value)}
             $status={getInputStatus()}
           />
-          <StyledLabelText>
-            {label} {required && <Asterisk className="easy_input-asterisk">*</Asterisk>}
+          <StyledLabelText {...inputLabelTextProps}>
+            {label}{' '}
+            {required && (
+              <Asterisk className="easy_input-asterisk" {...inputAsteriskProps}>
+                *
+              </Asterisk>
+            )}
           </StyledLabelText>
           <InputIcon
             type={type}
@@ -84,11 +101,20 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         </StyledInputLabel>
 
         {(getInputMessage() || renderExtraMessage) && (
-          <StyledMessageWrapper className="easy_input-messageContainer">
-            <StyledStatus className="easy_input-statusMessageText" $status={getInputStatus()} variant="caption">
+          <StyledMessageWrapper className="easy_input-messageContainer" {...inputMessageContainerProps}>
+            <StyledStatus
+              className="easy_input-statusMessageText"
+              $status={getInputStatus()}
+              variant="caption"
+              {...inputStatusMessageTextProps}
+            >
               {getInputMessage()}
             </StyledStatus>
-            <StyledExtraMessage className="easy_input-extraMessageText" variant="caption">
+            <StyledExtraMessage
+              className="easy_input-extraMessageText"
+              variant="caption"
+              {...inputExtraMessageTextProps}
+            >
               {renderExtraMessage && renderExtraMessage()}
             </StyledExtraMessage>
           </StyledMessageWrapper>

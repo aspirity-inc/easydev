@@ -17,11 +17,17 @@ export type PaginationProps = Omit<BaseComponentType, 'children'> & {
   hidePages?: boolean;
   withEdges?: boolean;
   siblings?: number;
+
+  paginationButtonProps?: Pick<BaseComponentType, 'style'>;
+  paginationButtonIconProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type PaginationButtonProps = ComponentPropsWithoutRef<'button'> & {
   variant: PaginationControlsType;
   icons?: PaginationIconProps;
+
+  paginationButtonProps?: Pick<BaseComponentType, 'style'>;
+  paginationButtonIconProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type PaginationHookParams = {

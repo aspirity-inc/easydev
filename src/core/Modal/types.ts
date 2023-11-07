@@ -8,6 +8,8 @@ export type ModalProps = BaseComponentType & {
   open: boolean;
   onClose: () => void;
   portal?: PortalElement;
+
+  modalContentProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type CloseBtnProps = ComponentPropsWithoutRef<'button'>;

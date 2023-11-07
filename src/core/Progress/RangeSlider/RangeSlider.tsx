@@ -12,6 +12,9 @@ export const RangeSlider = ({
   tooltip = true,
   tooltipShown = 'onHover',
   className,
+  rangeWrapProps,
+  rangeTooltipProps,
+  rangeTooltipTailProps,
   ...props
 }: ProgressPropsType) => {
   const [progress, setProgress] = useState(0);
@@ -22,7 +25,7 @@ export const RangeSlider = ({
   }, [value, max]);
 
   return (
-    <RangeWrap className="easy_range-wrap">
+    <RangeWrap className="easy_range-wrap" {...rangeWrapProps}>
       {tooltip && (
         <Tooltip
           className="easy_tooltip"
@@ -30,9 +33,10 @@ export const RangeSlider = ({
           as="span"
           style={{ left: `calc(${progress}% + (${12 - progress * 0.2}px))` }}
           tooltipShown={tooltipShown}
+          {...rangeTooltipProps}
         >
           {progress}%
-          <TooltipTail />
+          <TooltipTail {...rangeTooltipTailProps} />
         </Tooltip>
       )}
       <StyledProgress

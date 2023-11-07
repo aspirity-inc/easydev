@@ -15,8 +15,16 @@ const defaultIcons = {
   last: <KeyboardDoubleArrowRightIcon />,
 };
 
-export const PaginationButton = ({ variant, icons, ...props }: PaginationButtonProps) => (
-  <StyledPaginationButton className="easy_pagination-btn" {...props}>
-    <StyledIcon>{(icons && icons[variant]) || defaultIcons[variant]}</StyledIcon>
+export const PaginationButton = ({
+  variant,
+  icons,
+  paginationButtonProps,
+  paginationButtonIconProps,
+  ...props
+}: PaginationButtonProps) => (
+  <StyledPaginationButton className="easy_pagination-btn" {...props} {...paginationButtonProps}>
+    <StyledIcon {...paginationButtonIconProps}>
+      {(icons && icons[variant]) || defaultIcons[variant]}
+    </StyledIcon>
   </StyledPaginationButton>
 );

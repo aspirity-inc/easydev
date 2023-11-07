@@ -7,16 +7,25 @@ export const Card = ({
   media,
   borderedMedia = false,
   children,
+  cardMediaProps,
+  cardContentProps,
   ...props
 }: CardProps) => {
   return (
     <StyledCard className="easy_card" $variant={variant} $direction={direction} align={'flex-start'} {...props}>
       {media && (
-        <StyledMedia className="easy_card-media" $direction={direction} $borderedMedia={borderedMedia}>
+        <StyledMedia
+          className="easy_card-media"
+          $direction={direction}
+          $borderedMedia={borderedMedia}
+          {...cardMediaProps}
+        >
           {media}
         </StyledMedia>
       )}
-      <StyledContent className="easy_card-content">{children}</StyledContent>
+      <StyledContent className="easy_card-content" {...cardContentProps}>
+        {children}
+      </StyledContent>
     </StyledCard>
   );
 };

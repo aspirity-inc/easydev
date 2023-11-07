@@ -6,6 +6,7 @@ import type { ReactDatePickerProps } from 'react-datepicker';
 
 export type DatepickerType<T extends boolean | undefined = undefined> = ReactDatePickerProps<never, T> & {
   label: string;
+  datepickerWrapProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type DateType<T> = T extends false | undefined ? Date | null : [Date | null, Date | null];

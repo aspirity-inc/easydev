@@ -20,6 +20,12 @@ export const Toast = ({
   closeBtn,
   position = 'bottom-right',
   onDelete,
+  toastAnimationContainerProps,
+  toastStatusIconProps,
+  toastContentProps,
+  toastTitleProps,
+  toastDescriptionProps,
+  toastCloseButtonProps,
   ...props
 }: ToastProps) => {
   const [isDeleting, setIsDeleting] = useState(false);
@@ -60,6 +66,7 @@ export const Toast = ({
       $isDeleting={isDeleting}
       $position={position}
       $isAdded={isAdded}
+      {...toastAnimationContainerProps}
     >
       <StyledToast
         className="easy_toast"
@@ -69,14 +76,26 @@ export const Toast = ({
         $hasDescription={!!description}
         {...props}
       >
-        <ToastStatusIcon colorful={colorful} status={status} icon={icon} />
+        <ToastStatusIcon colorful={colorful} status={status} icon={icon} {...toastStatusIconProps} />
 
-        <StyledMainContent className="easy_toast-content" $colorful={colorful}>
-          <Subtitle level={4}>{title}</Subtitle>
-          {description && <Text variant="body2">{description}</Text>}
+        <StyledMainContent className="easy_toast-content" $colorful={colorful} {...toastContentProps}>
+          <Subtitle level={4} {...toastTitleProps}>
+            {title}
+          </Subtitle>
+          {description && (
+            <Text variant="body2" {...toastDescriptionProps}>
+              {description}
+            </Text>
+          )}
         </StyledMainContent>
 
-        <CloseButton icon={closeBtn} colorful={colorful} onClick={() => setIsDeleting(true)} data-testid="close" />
+        <CloseButton
+          icon={closeBtn}
+          colorful={colorful}
+          onClick={() => setIsDeleting(true)}
+          data-testid="close"
+          {...toastCloseButtonProps}
+        />
       </StyledToast>
     </StyledAnimationWrapper>
   );

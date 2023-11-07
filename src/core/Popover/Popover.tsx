@@ -16,6 +16,11 @@ export const Popover = ({
   inline,
   offset: userOffset,
   children,
+  popoverTriggerContainerProps,
+  popoverTitleProps,
+  popoverSubTitleProps,
+  popoverBodyProps,
+  popoverArrowProps,
   ...props
 }: PopoverProps) => {
   const [referenceElement, setReferenceElement] = useState<DivElementType>(null);
@@ -57,6 +62,7 @@ export const Popover = ({
         onMouseEnter={showPopover}
         onMouseLeave={hidePopover}
         ref={setReferenceElement}
+        {...popoverTriggerContainerProps}
       >
         {children}
       </TriggerPopoverWrapper>
@@ -70,14 +76,16 @@ export const Popover = ({
         {...props}
       >
         {title && (
-          <StyledTitle className="easy_popover-title">
-            <Subtitle as="span" level={5}>
+          <StyledTitle className="easy_popover-title" {...popoverTitleProps}>
+            <Subtitle as="span" level={5} {...popoverSubTitleProps}>
               {title}
             </Subtitle>
           </StyledTitle>
         )}
-        <StyledBody className="easy_popover-body">{body}</StyledBody>
-        <StyledArrow ref={setArrowElement} style={styles.arrow} />
+        <StyledBody className="easy_popover-body" {...popoverBodyProps}>
+          {body}
+        </StyledBody>
+        <StyledArrow ref={setArrowElement} style={styles.arrow} {...popoverArrowProps} />
       </StyledPopover>
     </>
   );

@@ -15,6 +15,10 @@ export type AvatarProps = BaseComponentType & {
   size?: AvatarSizeVariantsType;
   imageProps?: ComponentPropsWithoutRef<'img'>;
   online?: boolean;
+
+  avatarCenterProps?: Pick<BaseComponentType, 'style'>;
+  avatarChildrenProps?: Pick<BaseComponentType, 'style'>;
+  avatarIndicatorProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type StyledAvatarProps = {

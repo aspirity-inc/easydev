@@ -4,7 +4,17 @@ import { Arrow } from './Arrow';
 import { StyledArrows } from './styles';
 import type { ArrowsProps } from '../../types';
 
-export const Arrows = ({ currentSlide, instanceRef, type, loop, icon, ...props }: ArrowsProps) => {
+export const Arrows = ({
+  currentSlide,
+  instanceRef,
+  type,
+  loop,
+  icon,
+  carouselArrowsProps,
+  carouselArrowProps,
+  defaultArrowIconProps,
+  ...props
+}: ArrowsProps) => {
   if (!instanceRef.current) return null;
   if (type === 'withDots') return null;
 
@@ -49,11 +59,18 @@ export const Arrows = ({ currentSlide, instanceRef, type, loop, icon, ...props }
     };
 
   return (
-    <StyledArrows className="easy_carousel-arrows" $type={type} {...props}>
+    <StyledArrows className="easy_carousel-arrows" $type={type} {...carouselArrowsProps} {...props}>
       {!isDisabledLeft() && <Arrow left onClick={handleClickArrow(true)} type={type} icon={icon} />}
 
       {!isDisabledRight() && (
-        <Arrow onClick={handleClickArrow()} disabled={isDisabledRight()} type={type} icon={icon} />
+        <Arrow
+          onClick={handleClickArrow()}
+          disabled={isDisabledRight()}
+          type={type}
+          icon={icon}
+          carouselArrowProps={carouselArrowProps}
+          defaultArrowIconProps={defaultArrowIconProps}
+        />
       )}
     </StyledArrows>
   );

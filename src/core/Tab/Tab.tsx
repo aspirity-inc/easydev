@@ -3,7 +3,7 @@ import { cx } from '@helpers/cx';
 import { StyledSubtitle, StyledTab } from './styles';
 import type { TabProps } from './types';
 
-export const Tab = ({ title, disabled, active, onClick, className, ...props }: TabProps) => {
+export const Tab = ({ title, disabled, active, onClick, tabSubtitleProps, className, ...props }: TabProps) => {
   const isActive = active && !disabled;
 
   return (
@@ -13,7 +13,7 @@ export const Tab = ({ title, disabled, active, onClick, className, ...props }: T
       $disabled={disabled}
       {...props}
     >
-      <StyledSubtitle level={4}>{title}</StyledSubtitle>
+      <StyledSubtitle level={4} {...tabSubtitleProps}>{title}</StyledSubtitle>
     </StyledTab>
   );
 };

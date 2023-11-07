@@ -23,6 +23,14 @@ export const Sidebar = ({
   minWidth = 56,
   maxWidth = 220,
   menu,
+  sidebarWrapProps,
+  sidebarStickyContentProps,
+  sidebarContentProps,
+  styledScrollBarProps,
+  sidebarProps,
+  sidebarMenuProps,
+  sidebarToggleButtonProps,
+  sidebarKeyboardArrowLeftIconProps,
   ...props
 }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(controlledCollapsed || false);
@@ -35,18 +43,25 @@ export const Sidebar = ({
   };
 
   return (
-    <StyledSidebarWrapper className="easy_sidebar-wrap">
-      <SidebarStickyContent className="easy_sidebar-sticky-content" {...props}>
-        <SidebarContent className="easy_sidebar-content">
-          <StyledScrollbar $collapsed={collapsed}>
+    <StyledSidebarWrapper className="easy_sidebar-wrap" {...sidebarWrapProps}>
+      <SidebarStickyContent className="easy_sidebar-sticky-content" {...props} {...sidebarStickyContentProps}>
+        <SidebarContent className="easy_sidebar-content" {...sidebarContentProps}>
+          <StyledScrollbar $collapsed={collapsed} {...styledScrollBarProps}>
             <StyledSidebar
               className="easy_sidebar"
               as={as}
               $collapsed={collapsed}
               $minWidth={minWidth}
               $maxWidth={maxWidth}
+              {...sidebarProps}
             >
-              <SidebarMenu className="easy_sidebar-menu" items={menu} collapsed={collapsed} maxWidth={maxWidth} />
+              <SidebarMenu
+                className="easy_sidebar-menu"
+                items={menu}
+                collapsed={collapsed}
+                maxWidth={maxWidth}
+                {...sidebarMenuProps}
+              />
               {children}
             </StyledSidebar>
           </StyledScrollbar>
@@ -56,15 +71,16 @@ export const Sidebar = ({
               $collapsed={collapsed}
               $maxWidth={maxWidth}
               className="easy_sidebar-toggle_button"
+              {...sidebarToggleButtonProps}
             >
-              <KeyboardArrowLeftIcon />
+              <KeyboardArrowLeftIcon {...sidebarKeyboardArrowLeftIconProps} />
             </ToggleBtn>
           )}
         </SidebarContent>
       </SidebarStickyContent>
       {!isStatic && !hideButton && (
-        <ToggleBtn onClick={onToggle} $collapsed={collapsed}>
-          <KeyboardArrowLeftIcon />
+        <ToggleBtn onClick={onToggle} $collapsed={collapsed} {...sidebarToggleButtonProps}>
+          <KeyboardArrowLeftIcon {...sidebarKeyboardArrowLeftIconProps} />
         </ToggleBtn>
       )}
     </StyledSidebarWrapper>

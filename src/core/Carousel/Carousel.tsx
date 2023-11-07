@@ -24,6 +24,17 @@ export const Carousel = ({
   keenSliderProps,
   thumbnailsProps,
   height,
+  carouselInnerWrapperProps,
+  carouselTopTitleArrowsProps,
+  carouselArrowsProps,
+  carouselArrowProps,
+  defaultArrowIconProps,
+  carouselProps,
+  carouselSliderProps,
+  carouselDotsProps,
+  carouselDotProps,
+  carouseThumbnailsProps,
+  carouseThumbnailProps,
   ...props
 }: CarouselProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -76,8 +87,13 @@ export const Carousel = ({
 
   return (
     <CarouselWrapper className="easy_carousel-wrapper" align="center" direction="column" {...props}>
-      <CarouselInnerWrapper className="easy_carousel-inner-wrapper" ref={wrapperRef}>
-        <Flex justify="space-between" align="flex-start" className="easy_carousel-top-title-arrows">
+      <CarouselInnerWrapper className="easy_carousel-inner-wrapper" ref={wrapperRef} {...carouselInnerWrapperProps}>
+        <Flex
+          justify="space-between"
+          align="flex-start"
+          className="easy_carousel-top-title-arrows"
+          {...carouselTopTitleArrowsProps}
+        >
           {title}
           {arrows && (
             <Arrows
@@ -86,13 +102,16 @@ export const Carousel = ({
               type={arrowsType}
               icon={arrowIcon}
               loop={keenSliderProps?.loop}
+              carouselArrowsProps={carouselArrowsProps}
+              carouselArrowProps={carouselArrowProps}
+              defaultArrowIconProps={defaultArrowIconProps}
             />
           )}
         </Flex>
 
-        <StyledCarousel ref={sliderRef} className="easy_carousel keen-slider" $height={height}>
+        <StyledCarousel ref={sliderRef} className="easy_carousel keen-slider" $height={height} {...carouselProps}>
           {items.map((item, index) => (
-            <StyledSlide key={index} className="easy_carousel-slide keen-slider__slide">
+            <StyledSlide key={index} className="easy_carousel-slide keen-slider__slide" {...carouselSliderProps}>
               {item}
             </StyledSlide>
           ))}
@@ -106,10 +125,21 @@ export const Carousel = ({
           withArrows={arrowsType === 'withDots'}
           icons={dotIcons}
           arrowIcon={arrowIcon}
+          carouselDotsProps={carouselDotsProps}
+          carouselDotProps={carouselDotProps}
+          carouselArrowProps={carouselArrowProps}
+          defaultArrowIconProps={defaultArrowIconProps}
         />
       )}
 
-      {thumbnails && <Thumbnails items={items} thumbnailRef={thumbnailRef} />}
+      {thumbnails && (
+        <Thumbnails
+          items={items}
+          thumbnailRef={thumbnailRef}
+          carouseThumbnailsProps={carouseThumbnailsProps}
+          carouseThumbnailProps={carouseThumbnailProps}
+        />
+      )}
     </CarouselWrapper>
   );
 };

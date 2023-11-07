@@ -28,6 +28,14 @@ export type InputProps = ComponentPropsWithoutRef<'input'> & {
   isLoading?: boolean;
   icons?: IconsProps;
   renderExtraMessage?: () => ReactNode;
+
+  inputWrapProps?: Pick<BaseComponentType, 'style'>;
+  inputLabelProps?: Pick<BaseComponentType, 'style'>;
+  inputLabelTextProps?: Pick<BaseComponentType, 'style'>;
+  inputAsteriskProps?: Pick<BaseComponentType, 'style'>;
+  inputMessageContainerProps?: Pick<BaseComponentType, 'style'>;
+  inputStatusMessageTextProps?: Pick<BaseComponentType, 'style'>;
+  inputExtraMessageTextProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type TextareaProps = ComponentPropsWithoutRef<'textarea'> & {
@@ -40,6 +48,16 @@ export type TextareaProps = ComponentPropsWithoutRef<'textarea'> & {
   softLimit?: boolean;
   error?: string;
   warning?: string;
+
+  textareaWrapProps?: Pick<BaseComponentType, 'style'>;
+  textareaLabelTextProps?: Pick<BaseComponentType, 'style'>;
+  textareaLabelProps?: Pick<BaseComponentType, 'style'>;
+  inputAsteriskProps?: Pick<BaseComponentType, 'style'>;
+  textareaMessageContainerProps?: Pick<BaseComponentType, 'style'>;
+  textareaStatusMessageTextProps?: Pick<BaseComponentType, 'style'>;
+  inputStatusMessageTextProps?: Pick<BaseComponentType, 'style'>;
+  textareaCounterProps?: Pick<BaseComponentType, 'style'>;
+  charactersNumberProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type StyledTextareaProps = InputsBaseProps & { $autoresized: boolean };
@@ -68,6 +86,8 @@ export type CodeInputProps = BaseComponentType & {
   error?: boolean;
   value?: string;
   onChange?: (value: string) => void;
+
+  codeInputWrapProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type StyledCodeInputProps = { $filled: boolean; $focused: boolean; $error?: boolean };

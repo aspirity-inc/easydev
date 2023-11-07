@@ -15,6 +15,8 @@ export type BadgeProps = BaseComponentType & {
   textColor?: CSSProperties['color'];
   size?: BadgeSizeVariantsType;
   fullWidth?: boolean;
+
+  badgeContentProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type StyledBadgeProps = {

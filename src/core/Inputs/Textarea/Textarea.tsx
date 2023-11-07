@@ -27,6 +27,15 @@ export const Textarea = ({
   warning,
   onChange,
   required,
+  textareaWrapProps,
+  textareaLabelTextProps,
+  textareaLabelProps,
+  inputAsteriskProps,
+  textareaMessageContainerProps,
+  textareaStatusMessageTextProps,
+  inputStatusMessageTextProps,
+  textareaCounterProps,
+  charactersNumberProps,
   ...props
 }: TextareaProps) => {
   const ref = useRef<HTMLTextAreaElement>(null);
@@ -79,8 +88,9 @@ export const Textarea = ({
       $focused={focused}
       $filled={Boolean(value)}
       $status={getTextareaStatus()}
+      {...textareaWrapProps}
     >
-      <StyledTextareaLabel className="easy_textarea-label" $status={getTextareaStatus()}>
+      <StyledTextareaLabel className="easy_textarea-label" $status={getTextareaStatus()} {...textareaLabelProps}>
         <StyledTextarea
           className="easy_textarea-item"
           ref={ref}
@@ -96,23 +106,40 @@ export const Textarea = ({
           $filled={Boolean(value)}
           $autoresized={autoresized}
         />
-        <StyledTextareaLabelText>
-          {label} {required && <Asterisk className="easy_input-asterisk">*</Asterisk>}
+        <StyledTextareaLabelText {...textareaLabelTextProps}>
+          {label}{' '}
+          {required && (
+            <Asterisk className="easy_input-asterisk" {...inputAsteriskProps}>
+              *
+            </Asterisk>
+          )}
         </StyledTextareaLabelText>
       </StyledTextareaLabel>
 
       {getTextareaMessage() && (
-        <StyledTextareaMessageWrapper gap={8} className="easy_textarea-messageContainer">
-          <InputStatusIcon status={getTextareaStatus()} />
-          <StyledStatus className="easy_textarea-statusMessageText" $status={getTextareaStatus()} variant="caption">
+        <StyledTextareaMessageWrapper
+          gap={8}
+          className="easy_textarea-messageContainer"
+          {...textareaMessageContainerProps}
+        >
+          <InputStatusIcon status={getTextareaStatus()} {...inputStatusMessageTextProps} />
+          <StyledStatus
+            className="easy_textarea-statusMessageText"
+            $status={getTextareaStatus()}
+            variant="caption"
+            {...textareaStatusMessageTextProps}
+          >
             {getTextareaMessage()}
           </StyledStatus>
         </StyledTextareaMessageWrapper>
       )}
 
       {showLimit && !getTextareaMessage() && (
-        <StyledCounterText className="easy_textarea-counter" variant="caption">
-          <StyledCharactersNumber $isOverflow={isOverflow}>{charactersNumber}</StyledCharactersNumber>/{maxLength}
+        <StyledCounterText className="easy_textarea-counter" variant="caption" {...textareaCounterProps}>
+          <StyledCharactersNumber $isOverflow={isOverflow} {...charactersNumberProps}>
+            {charactersNumber}
+          </StyledCharactersNumber>
+          /{maxLength}
         </StyledCounterText>
       )}
     </StyledTextareaWrapper>

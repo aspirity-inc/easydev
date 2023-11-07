@@ -13,6 +13,9 @@ export type CardProps = BaseComponentType & {
   direction?: CardDirectionType;
   media?: ReactNode;
   borderedMedia?: boolean;
+
+  cardMediaProps?: Pick<BaseComponentType, 'style'>;
+  cardContentProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type StyledCardProps = {

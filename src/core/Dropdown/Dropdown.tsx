@@ -13,6 +13,8 @@ export const Dropdown = ({
   targetTitle,
   target,
   content,
+  dropdownTargetProps,
+  dropdownMenuProps,
   ...props
 }: DropdownProps) => {
   const { opened, handleMouseEnter, handleMouseLeave, toggleOpen, targetRef, menuRef, dropdownRef } =
@@ -32,10 +34,11 @@ export const Dropdown = ({
         disabled={disabled}
         onClick={toggleOpen}
         onMouseEnter={handleMouseEnter}
+        {...dropdownTargetProps}
       >
         {target}
       </Target>
-      <Menu ref={menuRef} open={opened} position={position}>
+      <Menu ref={menuRef} open={opened} position={position} {...dropdownMenuProps}>
         {content}
       </Menu>
     </StyledDropdown>
