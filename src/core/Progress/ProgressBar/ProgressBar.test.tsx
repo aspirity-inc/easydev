@@ -22,7 +22,7 @@ test('border-radius rounded', () => {
     </EasydevProvider>
   );
 
-  expect(container.querySelector('div')?.childNodes[1]).toHaveStyleRule('border-radius', '10px');
+  expect(container.querySelector('.easy_progressBar')).toHaveStyleRule('border-radius', '10px');
 });
 
 test('% more than 100 shows 100%', () => {
@@ -54,5 +54,5 @@ test('small size', () => {
     </EasydevProvider>
   );
 
-  expect(container.querySelector('div')?.childNodes[1]).toHaveStyleRule('height', '5px');
+  expect(container.querySelector('.easy_progressBar')).toHaveStyleRule('height', '5px');
 });

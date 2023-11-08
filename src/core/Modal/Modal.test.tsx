@@ -62,7 +62,7 @@ test('portal, click on gray screen to close ', async () => {
     </EasydevProvider>
   );
 
-  expect(portal?.querySelector('.easy_modal-item')).toBeInTheDocument();
+  expect(portal?.querySelector('.easy_modal-wrap')).toBeInTheDocument();
 
   fireEvent.click(screen.getByText('portal').childNodes[1]);
   expect(mockFn).toBeCalledTimes(1);

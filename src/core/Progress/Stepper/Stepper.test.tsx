@@ -12,7 +12,7 @@ test('correct count of all and active steps', () => {
     </EasydevProvider>
   );
 
-  const divContainer = container.querySelector('div');
+  const divContainer = container.querySelector('.easy_stepper');
   expect(divContainer?.childNodes.length).toBe(8);
 
   const activeSteps = container.querySelectorAll('.active');

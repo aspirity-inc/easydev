@@ -34,7 +34,7 @@ test('error', () => {
     </EasydevProvider>
   );
 
-  expect(container.querySelector('div')).toHaveStyleRule('color', lightPalette.error['500']);
+  expect(container.querySelector('.easy_code-input-wrap')).toHaveStyleRule('color', lightPalette.error['500']);
 });
 
 test('onChange', async () => {
