@@ -9,7 +9,7 @@ import {
   createGlobalStyle,
 } from 'styled-components';
 
-import normalizeStyles from './styles/normalize.module.css';
+import { NormalizedDiv } from './styles/normalize.ts';
 import { THEMES } from './themes.ts';
 import type { ThemeContextType, ThemeProviderType } from './types.ts';
 
@@ -75,10 +75,10 @@ export const EasydevProvider = ({
           disableCSSOMInjection={disableCSSOMInjection}
           target={target}
         >
-          <div className={normalizeStyles}>
+          <NormalizedDiv>
             <GlobalStyles />
             {children}
-          </div>
+          </NormalizedDiv>
         </StyleSheetManager>
       </StyledThemeProvider>
     </ThemeContext.Provider>
