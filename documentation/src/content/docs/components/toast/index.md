@@ -66,3 +66,13 @@ return (
   </>
 );
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                             | Description                                                           |
+| --------------------------------- | --------------------------------------------------------------------- |
+| **easy_toast-animationContainer** | Styles applied to the root element, responsible for toast animations. |
+| **easy_toast**                    | Styles applied to the toast element.                                  |
+| **easy_toast-content**            | Styles applied to the toast content(title and description).           |

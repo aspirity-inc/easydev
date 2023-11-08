@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, ReactNode } from 'react';
+import type { CSSProperties, ComponentPropsWithoutRef, ReactNode } from 'react';
 
 import type { BaseComponentType } from '@core/Box/types.ts';
 
@@ -23,4 +23,22 @@ export type ControlWrapperType = BaseComponentType & {
 export type ControlProps = {
   disabled?: boolean;
   $color?: ControlColorType;
+};
+
+export type ToggleValue = boolean;
+
+export type TogglePropsType = ControlBasePropsType & {
+  checked?: ToggleValue;
+  defaultChecked?: ToggleValue;
+  onChange?: (value: ToggleValue) => void;
+  toggleBackground?: CSSProperties['background'];
+  toggleInnerBackground?: CSSProperties['background'];
+  toggleWrapProps?: Pick<BaseComponentType, 'style'>;
+  toggleInnerProps?: Pick<BaseComponentType, 'style'>;
+};
+
+export type ToggleWrapProps = {
+  $toggleBackground?: CSSProperties['background'];
+  $toggleInnerBackground?: CSSProperties['background'];
+  $isChecked?: boolean;
 };

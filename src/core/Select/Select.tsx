@@ -64,7 +64,7 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
   };
 
   return (
-    <StyledSelectWrap $rounded={rounded}>
+    <StyledSelectWrap $rounded={rounded} className="easy_select-wrap">
       <Component
         className={cx('easy_select-container', 'react-select__container')}
         classNamePrefix="react-select"

@@ -18,3 +18,11 @@ The Space can have the next props: size, alignItems, justifyContent, direction. 
   <Radio label="Radio 4" name="radio" />
 </Space>
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class          | Description                         |
+| -------------- | ----------------------------------- |
+| **easy_space** | Styles applied to the root element. |

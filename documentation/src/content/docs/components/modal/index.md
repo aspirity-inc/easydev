@@ -100,3 +100,15 @@ const NoPortalModalWindowWithModalElements = () => {
   );
 };
 ```
+
+## CSS
+
+The following class names are useful for styling with CSS.
+
+| Class                  | Description                                   |
+| ---------------------- | --------------------------------------------- |
+| **easy_modal-wrap**    | Styles applied to the root element.           |
+| **easy_modal-content** | Styles applied to the container with content. |
+| **easy_modal-body**    | Styles applied to the modal body.             |
+| **easy_modal-footer**  | Styles applied to the modal footer.           |
+| **easy_modal-header**  | Styles applied to the modal header.           |

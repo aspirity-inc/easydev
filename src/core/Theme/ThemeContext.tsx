@@ -2,12 +2,29 @@ import { createContext, useCallback, useMemo, useState } from 'react';
 
 import { useIsomorphicEffect } from '@hooks';
 import { merge } from 'lodash';
-import { StyleSheetManager, ThemeProvider as StyledThemeProvider } from 'styled-components';
+import {
+  type DefaultTheme,
+  StyleSheetManager,
+  ThemeProvider as StyledThemeProvider,
+  createGlobalStyle,
+} from 'styled-components';
 
+import normalizeStyles from './styles/normalize.module.css';
 import { THEMES } from './themes.ts';
 import type { ThemeContextType, ThemeProviderType } from './types.ts';
 
 export const ThemeContext = createContext<ThemeContextType | null>(null);
+
+const GlobalStyles = createGlobalStyle<{ theme?: DefaultTheme }>`
+  html, body {
+    background-color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => (theme.type === 'light' ? theme.colors.text : theme.colors.surface['50'])};
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+`;
 
 export const EasydevProvider = ({
   children,
@@ -58,7 +75,10 @@ export const EasydevProvider = ({
           disableCSSOMInjection={disableCSSOMInjection}
           target={target}
         >
-          {children}
+          <div className={normalizeStyles}>
+            <GlobalStyles />
+            {children}
+          </div>
         </StyleSheetManager>
       </StyledThemeProvider>
     </ThemeContext.Provider>

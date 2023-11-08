@@ -33,6 +33,7 @@ export default defineConfig({
             { label: 'Breadcrumbs', link: 'components/breadcrumbs/' },
             { label: 'Button', link: 'components/button/' },
             { label: 'Card', link: 'components/card/' },
+            { label: 'Carousel', link: 'components/carousel/' },
             { label: 'Center', link: 'components/center/' },
             { label: 'Chip', link: 'components/chip/' },
             {

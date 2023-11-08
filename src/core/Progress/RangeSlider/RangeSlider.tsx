@@ -22,7 +22,7 @@ export const RangeSlider = ({
   }, [value, max]);
 
   return (
-    <RangeWrap className="easy_rangeWrap">
+    <RangeWrap className="easy_range-wrap">
       {tooltip && (
         <Tooltip
           className="easy_tooltip"
