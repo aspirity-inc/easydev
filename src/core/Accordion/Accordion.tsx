@@ -16,6 +16,15 @@ export const Accordion = <Multiple extends boolean = false>({
   value,
   onChange,
   unstyledControl = false,
+  accordionItemProps,
+  accordionControlProps,
+  titleProps,
+  subtitleProps,
+  iconProps,
+  wrapperProps,
+  chevronIconProps,
+  accordionPanelProps,
+  accordionAnimationProps,
   ...props
 }: AccordionProps<Multiple>) => {
   const defaultValue = (multiple ? [] : '') as AccordionItemValue<Multiple>;
@@ -59,7 +68,7 @@ export const Accordion = <Multiple extends boolean = false>({
       {items.map((item) => {
         const isOpened = isOpenedItem(item.id, item.disabled);
         return (
-          <Box key={item.id} className="easy_accordion-item">
+          <Box key={item.id} className="easy_accordion-item" {...accordionItemProps}>
             <Control
               title={item.title}
               subtitle={item.subtitle}
@@ -71,10 +80,22 @@ export const Accordion = <Multiple extends boolean = false>({
               closeIcon={closeIcon}
               disabled={item.disabled}
               unstyled={unstyledControl}
+              accordionControlProps={accordionControlProps}
+              titleProps={titleProps}
+              subtitleProps={subtitleProps}
+              iconProps={iconProps}
+              wrapperProps={wrapperProps}
+              chevronIconProps={chevronIconProps}
             >
               {item.control}
             </Control>
-            <Panel opened={isOpened} variant={variant} duration={duration}>
+            <Panel
+              opened={isOpened}
+              variant={variant}
+              duration={duration}
+              accordionPanelProps={accordionPanelProps}
+              accordionAnimationProps={accordionAnimationProps}
+            >
               {item.panel}
             </Panel>
           </Box>

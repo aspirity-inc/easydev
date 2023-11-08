@@ -6,7 +6,14 @@ import { CloseButton } from './components/CloseButton';
 import { ModalContent, ModalWrapper } from './styles';
 import type { ModalProps } from './types';
 
-export const Modal = ({ open, onClose, children, portal = document?.body, ...props }: ModalProps) => {
+export const Modal = ({
+  open,
+  onClose,
+  children,
+  portal = document?.body,
+  modalContentProps,
+  ...props
+}: ModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleClick: MouseEventHandler<HTMLDivElement> = (e) => {
@@ -17,7 +24,7 @@ export const Modal = ({ open, onClose, children, portal = document?.body, ...pro
 
   const ModalWindow = () => (
     <ModalWrapper className="easy_modal-wrap" open={open} onClick={handleClick} $isPortal={Boolean(portal)} {...props}>
-      <ModalContent className="easy_modal-content" ref={modalRef}>
+      <ModalContent className="easy_modal-content" ref={modalRef} {...modalContentProps}>
         {children}
       </ModalContent>
     </ModalWrapper>

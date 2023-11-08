@@ -3,7 +3,7 @@ import { useRef, ChangeEvent, KeyboardEvent, useState, FocusEvent } from 'react'
 import { StyledCodeInput, StyledCodeInputWrapper } from './styles';
 import type { CodeInputProps } from '../types';
 
-export const CodeInput = ({ length = 6, value, onChange, error, ...props }: CodeInputProps) => {
+export const CodeInput = ({ length = 6, value, onChange, error, codeInputWrapProps, ...props }: CodeInputProps) => {
   const [focusedInput, setFocusedInput] = useState(-1);
   const inputRefs = useRef<HTMLInputElement[]>([]);
 
@@ -63,6 +63,7 @@ export const CodeInput = ({ length = 6, value, onChange, error, ...props }: Code
       $focused={focusedInput > -1}
       $filled={Boolean(value)}
       $error={error}
+      {...codeInputWrapProps}
     >
       {code.map((value, index) => {
         return (

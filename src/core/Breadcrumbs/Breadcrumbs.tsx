@@ -5,9 +5,19 @@ import { KeyboardArrowRightIcon } from '@icons';
 import { StyledBreadcrumbs, StyledLink, StyledSeparator } from './styles';
 import type { BreadcrumbsProps, BreadcrumbsItem } from './types';
 
-export function Breadcrumbs<TItem>({ itemRender, items, separator, ...props }: BreadcrumbsProps<TItem>) {
+export function Breadcrumbs<TItem>({
+  itemRender,
+  items,
+  separator,
+  separatorProps,
+  breadcrumbsLinkProps,
+  lastBreadcrumbsLinkProps,
+  ...props
+}: BreadcrumbsProps<TItem>) {
   const Separator = () => (
-    <StyledSeparator className="easy_breadcrumbs-separator">{separator || <KeyboardArrowRightIcon />}</StyledSeparator>
+    <StyledSeparator className="easy_breadcrumbs-separator" {...separatorProps}>
+      {separator || <KeyboardArrowRightIcon />}
+    </StyledSeparator>
   );
   const lastItemIndex = items?.length - 1;
 
@@ -20,11 +30,11 @@ export function Breadcrumbs<TItem>({ itemRender, items, separator, ...props }: B
     const isLast = index < lastItemIndex;
 
     return isLast ? (
-      <StyledLink className="easy_breadcrumbs-link" href={url} onClick={() => item.onClick}>
+      <StyledLink className="easy_breadcrumbs-link" href={url} onClick={() => item.onClick} {...lastBreadcrumbsLinkProps}>
         {item.title}
       </StyledLink>
     ) : (
-      <StyledLink className="easy_breadcrumbs-link" disabled>
+      <StyledLink className="easy_breadcrumbs-link" disabled {...breadcrumbsLinkProps}>
         {item.title}
       </StyledLink>
     );

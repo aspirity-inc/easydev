@@ -15,6 +15,9 @@ export type DropdownProps = Omit<BaseComponentType, 'children'> & {
   targetTitle?: string;
   target?: ReactNode;
   content: ReactNode;
+
+  dropdownTargetProps?: Pick<BaseComponentType, 'style'>;
+  dropdownMenuProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type DropdownHookParams = {

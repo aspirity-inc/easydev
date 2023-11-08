@@ -14,6 +14,7 @@ export const Datepicker = <T extends boolean | undefined>({
   placeholderText = ' ',
   label,
   isClearable,
+  datepickerWrapProps,
   ...props
 }: DatepickerType<T>) => {
   const [open, setOpen] = useState(false);
@@ -40,7 +41,7 @@ export const Datepicker = <T extends boolean | undefined>({
   };
 
   return (
-    <DatepickerWrapper className="easy_datepicker">
+    <DatepickerWrapper className="easy_datepicker" {...datepickerWrapProps}>
       <DatePicker
         open={open}
         onFocus={handleFocus}

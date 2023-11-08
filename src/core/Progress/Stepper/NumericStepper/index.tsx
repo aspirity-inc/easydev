@@ -5,9 +5,15 @@ import { cx } from '@helpers/cx';
 import { StyledNumericStepper, StyledStep } from './styles.ts';
 import type { StepperPropsType } from '../types.ts';
 
-export const NumericStepper = ({ count, currentStep }: StepperPropsType) => {
+export const NumericStepper = ({
+  count,
+  currentStep,
+  numericStepperProps,
+  numericStepProps,
+  numericDoneIconProps,
+}: StepperPropsType) => {
   return (
-    <StyledNumericStepper className="easy_numericStepper">
+    <StyledNumericStepper className="easy_numericStepper" {...numericStepperProps}>
       {Array.from(Array(count).keys()).map((step) => {
         const formattedStep = step + 1;
         return (
@@ -18,8 +24,9 @@ export const NumericStepper = ({ count, currentStep }: StepperPropsType) => {
               formattedStep < currentStep && 'done',
               'easy_numericStep'
             )}
+            {...numericStepProps}
           >
-            <span>{formattedStep < currentStep ? <DoneIcon /> : formattedStep}</span>
+            <span>{formattedStep < currentStep ? <DoneIcon {...numericDoneIconProps} /> : formattedStep}</span>
           </StyledStep>
         );
       })}

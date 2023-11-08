@@ -14,6 +14,10 @@ export type BreadcrumbsProps<TItem> = Omit<BaseComponentType, 'children'> & {
   itemRender?: (item: BreadcrumbsItemWithT<TItem>, index?: number, items?: BreadcrumbsItemWithT<TItem>[]) => ReactNode;
   items: BreadcrumbsItemWithT<TItem>[];
   separator?: ReactNode;
+
+  separatorProps?: Pick<BaseComponentType, 'style'>;
+  breadcrumbsLinkProps?: Pick<BaseComponentType, 'style'>;
+  lastBreadcrumbsLinkProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type StyledBreadcrumbPropsType = {

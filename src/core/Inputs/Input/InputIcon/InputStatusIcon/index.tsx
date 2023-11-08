@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 
 import { ErrorIcon, ProgressActivityIcon, WarningIcon } from '@icons';
 
+import type { BaseComponentType } from '@core/Box/types';
 import { RotateBox } from '@core/Button/styles';
 
 import { StyledIcon } from './styles';
@@ -12,9 +13,10 @@ export type InputStatusIconProps = {
   errorIcon?: ReactNode;
   warningIcon?: ReactNode;
   loadingIcon?: ReactNode;
+  inputStatusIconProps?: Pick<BaseComponentType, 'style'>;
 };
 
-export const InputStatusIcon = ({ status, ...icons }: InputStatusIconProps) => {
+export const InputStatusIcon = ({ status, inputStatusIconProps, ...icons }: InputStatusIconProps) => {
   const getStatusIcon = () => {
     switch (status) {
       case 'warning':
@@ -28,5 +30,9 @@ export const InputStatusIcon = ({ status, ...icons }: InputStatusIconProps) => {
     }
   };
 
-  return <StyledIcon $status={status}>{getStatusIcon()}</StyledIcon>;
+  return (
+    <StyledIcon $status={status} {...inputStatusIconProps}>
+      {getStatusIcon()}
+    </StyledIcon>
+  );
 };

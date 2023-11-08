@@ -1,5 +1,7 @@
 import type { MouseEvent, ReactNode } from 'react';
 
+import type { BaseComponentType } from '@core/Box/types';
+
 import type { GroupBase, Props } from 'react-select';
 import type { AsyncProps } from 'react-select/async';
 import type { CreatableProps } from 'react-select/creatable';
@@ -29,6 +31,13 @@ export type MultivalueSelectedOptionsType = {
   handleRemoveValue: (evt: MouseEvent<HTMLButtonElement>) => void;
   clearButtonText: string;
   value?: OptionType[];
+
+  multivalueWrapperProps?: Pick<BaseComponentType, 'style'>;
+  clearValuesProps?: Pick<BaseComponentType, 'style'>;
+  multivalueContainerProps?: Pick<BaseComponentType, 'style'>;
+  multivalueProps?: Pick<BaseComponentType, 'style'>;
+  removeValueButtonProps?: Pick<BaseComponentType, 'style'>;
+  closeIconProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type StyledSelectType = {
@@ -43,4 +52,12 @@ export type EasySelectProps<
   dropdownIcon?: ReactNode;
   selectedIcon?: ReactNode;
   controlIcon?: ReactNode;
+
+  selectWrapProps?: Pick<BaseComponentType, 'style'>;
+  multivalueWrapperProps?: Pick<BaseComponentType, 'style'>;
+  clearValuesProps?: Pick<BaseComponentType, 'style'>;
+  multivalueContainerProps?: Pick<BaseComponentType, 'style'>;
+  multivalueProps?: Pick<BaseComponentType, 'style'>;
+  removeValueButtonProps?: Pick<BaseComponentType, 'style'>;
+  closeIconProps?: Pick<BaseComponentType, 'style'>;
 };

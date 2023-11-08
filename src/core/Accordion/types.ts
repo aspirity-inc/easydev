@@ -30,6 +30,16 @@ export type AccordionProps<Multiple extends boolean = false> = Omit<BaseComponen
   value?: AccordionItemValue<Multiple>;
   onChange?: (value: AccordionItemValue<Multiple>) => void;
   unstyledControl?: boolean;
+
+  accordionItemProps?: Pick<BaseComponentType, 'style'>;
+  accordionControlProps?: Pick<BaseComponentType, 'style'>;
+  titleProps?: Pick<BaseComponentType, 'style'>;
+  subtitleProps?: Pick<BaseComponentType, 'style'>;
+  iconProps?: Pick<BaseComponentType, 'style'>;
+  wrapperProps?: Pick<BaseComponentType, 'style'>;
+  chevronIconProps?: Pick<BaseComponentType, 'style'>;
+  accordionPanelProps?: Pick<BaseComponentType, 'style'>;
+  accordionAnimationProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type AccordionControlProps = BaseComponentType & {
@@ -41,6 +51,13 @@ export type AccordionControlProps = BaseComponentType & {
   openIcon?: ReactNode;
   closeIcon?: ReactNode;
   unstyled?: boolean;
+
+  accordionControlProps?: Pick<BaseComponentType, 'style'>;
+  titleProps?: Pick<BaseComponentType, 'style'>;
+  subtitleProps?: Pick<BaseComponentType, 'style'>;
+  iconProps?: Pick<BaseComponentType, 'style'>;
+  wrapperProps?: Pick<BaseComponentType, 'style'>;
+  chevronIconProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type StyledControlProps = {
@@ -52,6 +69,9 @@ export type PanelProps = BaseComponentType & {
   opened: boolean;
   variant?: AccordionVariantsType;
   duration?: number;
+
+  accordionAnimationProps?: Pick<BaseComponentType, 'style'>;
+  accordionPanelProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type AnimationPanelProps = {
@@ -64,6 +84,9 @@ export type ChevronIconProps = BaseComponentType & {
   opened: boolean;
   openIcon?: ReactNode;
   closeIcon?: ReactNode;
+
+  wrapperProps?: Pick<BaseComponentType, 'style'>;
+  chevronIconProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type StyledChevronIconProps = {

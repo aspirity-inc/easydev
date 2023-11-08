@@ -12,6 +12,8 @@ export const Pagination = ({
   hidePages = false,
   withEdges = false,
   siblings = 2,
+  paginationButtonProps,
+  paginationButtonIconProps,
   ...props
 }: PaginationProps) => {
   const { visiblePageRange, gotToNextPage, gotToPrevPage, gotToFirstPage, gotToLastPage } = usePagination({
@@ -23,8 +25,24 @@ export const Pagination = ({
 
   return (
     <StyledPagination className="easy_pagination" wrap="nowrap" {...props}>
-      {withEdges && <PaginationButton icons={icons} variant="first" disabled={page === 1} onClick={gotToFirstPage} />}
-      <PaginationButton icons={icons} variant="prev" disabled={page === 1} onClick={gotToPrevPage} />
+      {withEdges && (
+        <PaginationButton
+          icons={icons}
+          variant="first"
+          disabled={page === 1}
+          onClick={gotToFirstPage}
+          paginationButtonProps={paginationButtonProps}
+          paginationButtonIconProps={paginationButtonIconProps}
+        />
+      )}
+      <PaginationButton
+        icons={icons}
+        variant="prev"
+        disabled={page === 1}
+        onClick={gotToPrevPage}
+        paginationButtonProps={paginationButtonProps}
+        paginationButtonIconProps={paginationButtonIconProps}
+      />
       {!hidePages &&
         visiblePageRange.map((pageNumber, index) => (
           <PaginationItem
@@ -34,8 +52,24 @@ export const Pagination = ({
             onClick={() => onChange(pageNumber)}
           />
         ))}
-      <PaginationButton icons={icons} variant="next" disabled={page === total} onClick={gotToNextPage} />
-      {withEdges && <PaginationButton icons={icons} variant="last" disabled={page === total} onClick={gotToLastPage} />}
+      <PaginationButton
+        icons={icons}
+        variant="next"
+        disabled={page === total}
+        onClick={gotToNextPage}
+        paginationButtonProps={paginationButtonProps}
+        paginationButtonIconProps={paginationButtonIconProps}
+      />
+      {withEdges && (
+        <PaginationButton
+          icons={icons}
+          variant="last"
+          disabled={page === total}
+          onClick={gotToLastPage}
+          paginationButtonProps={paginationButtonProps}
+          paginationButtonIconProps={paginationButtonIconProps}
+        />
+      )}
     </StyledPagination>
   );
 };

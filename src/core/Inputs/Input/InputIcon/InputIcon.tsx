@@ -1,3 +1,5 @@
+import type { BaseComponentType } from '@core/Box/types';
+
 import { InputStatusIcon } from './InputStatusIcon';
 import { PasswordToggle } from './PasswordToggle';
 import type { IconsProps, InputBaseStatus } from '../../types';
@@ -10,9 +12,27 @@ export type InputIconProps = {
   isHidePassword: boolean;
   icons?: IconsProps;
   onToggle?: () => void;
+
+  inputPasswordToggleButtonProps?: Pick<BaseComponentType, 'style'>;
+  inputPasswordToggleShowIconProps?: Pick<BaseComponentType, 'style'>;
+  inputPasswordToggleHideProps?: Pick<BaseComponentType, 'style'>;
+  inputIconWrapperProps?: Pick<BaseComponentType, 'style'>;
+  inputStatusIconProps?: Pick<BaseComponentType, 'style'>;
 };
 
-export const InputIcon = ({ type, status, disabled, icons, isHidePassword, onToggle }: InputIconProps) => {
+export const InputIcon = ({
+  type,
+  status,
+  disabled,
+  icons,
+  isHidePassword,
+  inputPasswordToggleButtonProps,
+  inputPasswordToggleShowIconProps,
+  inputPasswordToggleHideProps,
+  inputIconWrapperProps,
+  inputStatusIconProps,
+  onToggle,
+}: InputIconProps) => {
   const handleToggle = () => {
     if (onToggle) {
       onToggle();
@@ -28,15 +48,19 @@ export const InputIcon = ({ type, status, disabled, icons, isHidePassword, onTog
           disabled={disabled || false}
           isHidePassword={isHidePassword}
           onToggle={handleToggle}
+          inputPasswordToggleButtonProps={inputPasswordToggleButtonProps}
+          inputPasswordToggleShowIconProps={inputPasswordToggleShowIconProps}
+          inputPasswordToggleHideProps={inputPasswordToggleHideProps}
         />
       ) : (
         status && (
-          <IconWrapper>
+          <IconWrapper {...inputIconWrapperProps}>
             <InputStatusIcon
               errorIcon={icons?.errorIcon}
               warningIcon={icons?.warningIcon}
               loadingIcon={icons?.loadingIcon}
               status={status}
+              inputStatusIconProps={inputStatusIconProps}
             />
           </IconWrapper>
         )

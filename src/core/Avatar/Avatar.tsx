@@ -12,14 +12,21 @@ export const Avatar = ({
   online,
   children,
   className,
+  avatarCenterProps,
+  avatarChildrenProps,
+  avatarIndicatorProps,
   ...props
 }: AvatarProps) => {
   return (
     <StyledAvatar className={cx(className, 'easy_avatar')} $size={size} $radius={radius} {...props}>
-      <StyledCenter>
-        {src ? <img {...imageProps} src={src} alt={alt} /> : <div>{children || <DefaultAvatarIcon />}</div>}
+      <StyledCenter {...avatarCenterProps}>
+        {src ? (
+          <img {...imageProps} src={src} alt={alt} />
+        ) : (
+          <div {...avatarChildrenProps}>{children || <DefaultAvatarIcon />}</div>
+        )}
       </StyledCenter>
-      {typeof online !== 'undefined' && <OnlineIndicator $online={online} />}
+      {typeof online !== 'undefined' && <OnlineIndicator $online={online} {...avatarIndicatorProps} />}
     </StyledAvatar>
   );
 };

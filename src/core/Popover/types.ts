@@ -12,6 +12,12 @@ export type PopoverProps = BaseComponentType & {
   openOnHover?: boolean;
   inline?: boolean;
   offset?: number;
+
+  popoverTriggerContainerProps?: Pick<BaseComponentType, 'style'>;
+  popoverTitleProps?: Pick<BaseComponentType, 'style'>;
+  popoverSubTitleProps?: Pick<BaseComponentType, 'style'>;
+  popoverBodyProps?: Pick<BaseComponentType, 'style'>;
+  popoverArrowProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type StyledPopoverProps = {

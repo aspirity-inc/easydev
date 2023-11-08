@@ -28,6 +28,13 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
   dropdownIcon,
   selectedIcon,
   controlIcon,
+  selectWrapProps,
+  multivalueWrapperProps,
+  clearValuesProps,
+  multivalueContainerProps,
+  multivalueProps,
+  removeValueButtonProps,
+  closeIconProps,
   ...props
 }: EasySelectProps<Option, IsMulti, Group>) => {
   const selectComponent = {
@@ -64,7 +71,7 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
   };
 
   return (
-    <StyledSelectWrap $rounded={rounded} className="easy_select-wrap">
+    <StyledSelectWrap $rounded={rounded} className="easy_select-wrap" {...selectWrapProps}>
       <Component
         className={cx('easy_select-container', 'react-select__container')}
         classNamePrefix="react-select"
@@ -92,6 +99,12 @@ export const Select = <Option, IsMulti extends boolean = false, Group extends Gr
           clearButtonText={clearButtonText}
           handleClear={handleClear}
           handleRemoveValue={handleRemoveValue}
+          multivalueWrapperProps={multivalueWrapperProps}
+          clearValuesProps={clearValuesProps}
+          multivalueContainerProps={multivalueContainerProps}
+          multivalueProps={multivalueProps}
+          removeValueButtonProps={removeValueButtonProps}
+          closeIconProps={closeIconProps}
         />
       )}
     </StyledSelectWrap>

@@ -1,5 +1,7 @@
 import type { CSSProperties, ReactNode } from 'react';
 
+import type { BaseComponentType } from '@core/Box/types';
+
 import { toastPositions } from './constants';
 
 export type ToastStatus = 'info' | 'success' | 'warning' | 'error';
@@ -19,6 +21,13 @@ export type ToastProps = {
   className?: string;
   position?: ToastPosition;
   style?: CSSProperties;
+
+  toastAnimationContainerProps?: Pick<BaseComponentType, 'style'>;
+  toastStatusIconProps?: Pick<BaseComponentType, 'style'>;
+  toastContentProps?: Pick<BaseComponentType, 'style'>;
+  toastTitleProps?: Pick<BaseComponentType, 'style'>;
+  toastDescriptionProps?: Pick<BaseComponentType, 'style'>;
+  toastCloseButtonProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type ToastItemType = Omit<ToastProps, 'onDelete'> & {

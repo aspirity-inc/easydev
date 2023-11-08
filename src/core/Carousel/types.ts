@@ -24,6 +24,18 @@ export type CarouselProps = BaseComponentType & {
   keenSliderProps?: KeenSliderOptions;
   thumbnailsProps?: KeenSliderOptions;
   title?: ReactNode;
+
+  carouselInnerWrapperProps?: Pick<BaseComponentType, 'style'>;
+  carouselTopTitleArrowsProps?: Pick<BaseComponentType, 'style'>;
+  carouselArrowsProps?: Pick<BaseComponentType, 'style'>;
+  carouselArrowProps?: Pick<BaseComponentType, 'style'>;
+  defaultArrowIconProps?: Pick<BaseComponentType, 'style'>;
+  carouselProps?: Pick<BaseComponentType, 'style'>;
+  carouselSliderProps?: Pick<BaseComponentType, 'style'>;
+  carouselDotsProps?: Pick<BaseComponentType, 'style'>;
+  carouselDotProps?: Pick<BaseComponentType, 'style'>;
+  carouseThumbnailsProps?: Pick<BaseComponentType, 'style'>;
+  carouseThumbnailProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type StyledCarouselProps = {
@@ -33,6 +45,9 @@ export type StyledCarouselProps = {
 export type ThumbnailsProps = BaseComponentType & {
   items: ReactNode[];
   thumbnailRef: (node: HTMLElement | null) => void;
+
+  carouseThumbnailsProps?: Pick<BaseComponentType, 'style'>;
+  carouseThumbnailProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type ArrowProps = BaseComponentType & {
@@ -51,6 +66,8 @@ export type DotProps = BaseComponentType & {
   active: boolean;
   onClick: (e: MouseEvent) => void;
   icons?: DotsIconsType;
+
+  carouselDotProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type StyledDotProps = {
@@ -67,6 +84,11 @@ export type DotsProps = BaseComponentType & {
   withArrows: boolean;
   icons?: DotsIconsType;
   arrowIcon?: ReactNode;
+
+  carouselDotsProps?: Pick<BaseComponentType, 'style'>;
+  carouselDotProps?: Pick<BaseComponentType, 'style'>;
+  carouselArrowProps?: Pick<BaseComponentType, 'style'>;
+  defaultArrowIconProps?: Pick<BaseComponentType, 'style'>;
 };
 
 export type ArrowsProps = BaseComponentType & {
