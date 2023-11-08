@@ -130,7 +130,7 @@ const DefaultTable = () => {
 
   return (
     <StyledTableBorderWrap>
-      <Table {...args}>
+      <Table>
         <TableHead>
           <TableRow>
             <TableCell variant="th">
@@ -344,7 +344,7 @@ const TableWithPagination = () => {
 
   return (
     <StyledTableBorderWrap align="flex-end" direction="column">
-      <Table {...args}>
+      <Table>
         <TableHead>
           <TableRow>
             <TableCell variant="th">
