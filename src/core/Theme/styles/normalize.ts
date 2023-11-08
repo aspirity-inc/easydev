@@ -1,6 +1,4 @@
-import { styled } from 'styled-components';
-
-export const NormalizedDiv = styled.div`
+export const normalizeCss = `
   @-ms-viewport {
     width: device-width;
   }
@@ -322,3 +320,7 @@ export const NormalizedDiv = styled.div`
     display: none;
   }
 `;
+
+const styleElement = document.createElement('style');
+styleElement.textContent = normalizeCss;
+export const styleNormalizeCss = styleElement;

@@ -27,7 +27,7 @@ test('useEasyThemeContext', () => {
   };
 
   render(
-    <EasydevProvider themeType='dark'>
+    <EasydevProvider themeType="dark">
       <Component />
     </EasydevProvider>
   );
@@ -39,7 +39,7 @@ test('useEasyThemeContext', () => {
 
 test('enableVendorPrefixes true', () => {
   const { container } = render(<GlobalComponent enableVendorPrefixes={true} />);
-  expect(container.querySelector('div')?.childNodes[0]).toHaveStyleRule('-webkit-transform', 'scale(1.3)');
+  expect(container.querySelector('div')).toHaveStyleRule('-webkit-transform', 'scale(1.3)');
 });
 
 test('enableVendorPrefixes false', () => {
@@ -60,7 +60,7 @@ test('paletteGenerator', () => {
 test('toggle theme', async () => {
   const Component = () => {
     const { theme, toggleTheme } = useEasyThemeContext();
-		
+
     return (
       <div data-testid={`theme-${theme?.type}`}>
         <button data-testid="dark-button" onClick={() => toggleTheme()}>

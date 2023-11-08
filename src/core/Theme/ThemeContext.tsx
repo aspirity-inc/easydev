@@ -9,7 +9,7 @@ import {
   createGlobalStyle,
 } from 'styled-components';
 
-import { NormalizedDiv } from './styles/normalize.ts';
+import { styleNormalizeCss } from './styles/normalize.ts';
 import { THEMES } from './themes.ts';
 import type { ThemeContextType, ThemeProviderType } from './types.ts';
 
@@ -56,6 +56,8 @@ export const EasydevProvider = ({
 
   useIsomorphicEffect(() => {
     const head = document.querySelector('head');
+    head?.appendChild(styleNormalizeCss);
+
     const styled = document.querySelector('[data-styled="active"]') as Element;
 
     if (!defaultStyledInjection) {
@@ -75,10 +77,8 @@ export const EasydevProvider = ({
           disableCSSOMInjection={disableCSSOMInjection}
           target={target}
         >
-          <NormalizedDiv>
-            <GlobalStyles />
-            {children}
-          </NormalizedDiv>
+          <GlobalStyles />
+          {children}
         </StyleSheetManager>
       </StyledThemeProvider>
     </ThemeContext.Provider>
