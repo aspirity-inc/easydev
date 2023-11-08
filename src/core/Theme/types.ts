@@ -18,10 +18,13 @@ export type ThemeType = {
 
 export type PartialThemeType = Partial<ThemeType>;
 export type ThemeContextType = {
-  theme?: PartialThemeType;
+  theme: PartialThemeType;
+  toggleTheme: () => void;
 };
 
-export type ThemeProviderType = ThemeContextType & {
+export type ThemeProviderType = {
+  themeType?: ThemeTypeVariant;
+  themes?: { light?: PartialThemeType; dark?: PartialThemeType };
   children: ReactNode | ReactNode[];
   target?: HTMLElement;
   customTarget?: HTMLElement;

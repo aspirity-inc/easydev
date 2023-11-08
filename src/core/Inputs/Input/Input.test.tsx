@@ -64,7 +64,7 @@ test('message, isLoading', () => {
   const messageContainerText = screen.getByText(messageText);
   expect(messageContainerText).toBeInTheDocument();
 
-  expect(container.querySelector('div')).toHaveStyleRule('pointer-events', 'none');
+  expect(container.querySelector('.easy_input-wrap')).toHaveStyleRule('pointer-events', 'none');
 });
 
 test('disabled', () => {

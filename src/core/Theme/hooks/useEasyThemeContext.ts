@@ -20,5 +20,6 @@ export function useEasyThemeContext() {
     typography: theme?.typography,
     breakpoints: theme?.breakpoints,
     transition: theme?.transition,
+    toggleTheme: context.toggleTheme,
   };
 }

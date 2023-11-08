@@ -43,7 +43,7 @@ test('default select', async () => {
   expect(screen.queryByText('SELECT')).not.toBeInTheDocument();
   expect(screen.getByText(options[0].label)).toBeInTheDocument();
 
-  expect(container.querySelector('div')).toHaveStyleRule('border-radius', '40px', {
+  expect(container.querySelector('.easy_select-wrap')).toHaveStyleRule('border-radius', '40px', {
     modifier: '.react-select__control',
   });
 });

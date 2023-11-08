@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { shade, tint } from 'polished';
 import { styled } from 'styled-components';
 import { expect, test } from 'vitest';
@@ -26,7 +27,7 @@ test('useEasyThemeContext', () => {
   };
 
   render(
-    <EasydevProvider theme={THEMES['dark']}>
+    <EasydevProvider themeType='dark'>
       <Component />
     </EasydevProvider>
   );
@@ -38,7 +39,7 @@ test('useEasyThemeContext', () => {
 
 test('enableVendorPrefixes true', () => {
   const { container } = render(<GlobalComponent enableVendorPrefixes={true} />);
-  expect(container.querySelector('div')).toHaveStyleRule('-webkit-transform', 'scale(1.3)');
+  expect(container.querySelector('div')?.childNodes[0]).toHaveStyleRule('-webkit-transform', 'scale(1.3)');
 });
 
 test('enableVendorPrefixes false', () => {
@@ -54,4 +55,39 @@ test('paletteGenerator', () => {
   expect(paletteGeneratorColors['100']).toBe(tint(0.4, color));
   expect(paletteGeneratorColors['500']).toBe(color);
   expect(paletteGeneratorColors['800']).toBe(shade(0.3, color));
+});
+
+test('toggle theme', async () => {
+  const Component = () => {
+    const { theme, toggleTheme } = useEasyThemeContext();
+		
+    return (
+      <div data-testid={`theme-${theme?.type}`}>
+        <button data-testid="dark-button" onClick={() => toggleTheme()}>
+          dark theme
+        </button>
+        <button data-testid="light-button" onClick={() => toggleTheme()}>
+          light theme
+        </button>
+      </div>
+    );
+  };
+
+  render(
+    <EasydevProvider>
+      <Component />
+    </EasydevProvider>
+  );
+
+  expect(screen.getByTestId('theme-light')).toBeInTheDocument();
+
+  await userEvent.click(screen.getByTestId('dark-button') as Element);
+
+  expect(screen.getByTestId('theme-dark')).toBeInTheDocument();
+  expect(screen.queryByTestId('theme-light')).not.toBeInTheDocument();
+
+  await userEvent.click(screen.getByTestId('light-button') as Element);
+
+  expect(screen.getByTestId('theme-light')).toBeInTheDocument();
+  expect(screen.queryByTestId('theme-dark')).not.toBeInTheDocument();
 });

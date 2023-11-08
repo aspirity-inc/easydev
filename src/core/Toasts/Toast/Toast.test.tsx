@@ -70,10 +70,13 @@ test('custom title, description, icon, closeBtn, statusBackground (works with co
   expect(container.getElementsByClassName('add-custom-icon').length).toBe(1);
   expect(container.getElementsByClassName('close-custom-icon').length).toBe(1);
 
-  const wrapper = container.querySelector('div');
-  expect(wrapper?.childNodes[0]).toHaveStyleRule('background-color', '#ededed');
+  const wrapper = container.querySelector('.easy_toast');
+  expect(wrapper).toHaveStyleRule('background-color', '#ededed');
 
-  expect(wrapper).toHaveStyleRule('animation', `${slideInUp.name} ${duration} ease-in-out forwards`);
+  expect(container.querySelector('.easy_toast-animationContainer')).toHaveStyleRule(
+    'animation',
+    `${slideInUp.name} ${duration} ease-in-out forwards`
+  );
 });
 
 test('autoClose false', async () => {
@@ -85,7 +88,7 @@ test('autoClose false', async () => {
 
   await new Promise((_) => setTimeout(_, 100));
 
-  const wrapper = container.querySelector('div');
+	const wrapper = container.querySelector('.easy_toast-animationContainer');
   expect(wrapper).toHaveStyleRule('opacity', '1');
   expect(wrapper).not.toHaveStyleRule('opacity', '0');
 });
@@ -99,7 +102,7 @@ test('autoClose true', async () => {
 
   await new Promise((_) => setTimeout(_, 400));
 
-  const wrapper = container.querySelector('div');
+  const wrapper = container.querySelector('.easy_toast-animationContainer');
   expect(wrapper).toHaveStyleRule('opacity', '0');
 });
 
@@ -110,7 +113,7 @@ test('colorful', () => {
     </EasydevProvider>
   );
 
-  const wrapper = container.querySelector('div');
+  const wrapper = container.querySelector('.easy_toast-animationContainer');
   expect(wrapper?.childNodes[0]).toHaveStyleRule('background-color', lightPalette.secondary['300']);
   expect(wrapper?.childNodes[0].childNodes[0]).toHaveStyleRule('color', lightPalette.surface['900']);
   expect(wrapper?.childNodes[0].childNodes[1]).toHaveStyleRule('color', 'var(--colorful)');

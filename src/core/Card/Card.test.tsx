@@ -15,7 +15,7 @@ test('variant shadow', () => {
     </EasydevProvider>
   );
 
-  expect(container.querySelector('div')).toHaveStyleRule(
+  expect(container.querySelector('.easy_card')).toHaveStyleRule(
     'box-shadow',
     (THEMES.light.shadows.gray as string).split(':')[1].trim()
   );
@@ -28,7 +28,7 @@ test('variant outline', () => {
     </EasydevProvider>
   );
 
-  expect(container.querySelector('div')).toHaveStyleRule('border', `1px solid ${lightPalette.surface['400']}`);
+  expect(container.querySelector('.easy_card')).toHaveStyleRule('border', `1px solid ${lightPalette.surface['400']}`);
 });
 
 test('direction', () => {
@@ -38,7 +38,7 @@ test('direction', () => {
     </EasydevProvider>
   );
 
-  expect(container.querySelector('div')).toHaveStyleRule('flex-wrap', 'wrap');
+  expect(container.querySelector('.easy_card')).toHaveStyleRule('flex-wrap', 'wrap');
 });
 
 test('media and borderMedia', () => {
