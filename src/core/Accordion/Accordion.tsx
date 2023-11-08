@@ -18,13 +18,10 @@ export const Accordion = <Multiple extends boolean = false>({
   unstyledControl = false,
   accordionItemProps,
   accordionControlProps,
-  accordionFirstFlexProps,
-  accordionSecondFlexProps,
-  accordionThirdFlexProps,
   titleProps,
   subtitleProps,
   iconProps,
-  animationWrapperProps,
+  wrapperProps,
   chevronIconProps,
   accordionPanelProps,
   accordionAnimationProps,
@@ -84,13 +81,10 @@ export const Accordion = <Multiple extends boolean = false>({
               disabled={item.disabled}
               unstyled={unstyledControl}
               accordionControlProps={accordionControlProps}
-              accordionFirstFlexProps={accordionFirstFlexProps}
-              accordionSecondFlexProps={accordionSecondFlexProps}
-              accordionThirdFlexProps={accordionThirdFlexProps}
               titleProps={titleProps}
               subtitleProps={subtitleProps}
               iconProps={iconProps}
-              animationWrapperProps={animationWrapperProps}
+              wrapperProps={wrapperProps}
               chevronIconProps={chevronIconProps}
             >
               {item.control}

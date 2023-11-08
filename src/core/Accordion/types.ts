@@ -33,13 +33,10 @@ export type AccordionProps<Multiple extends boolean = false> = Omit<BaseComponen
 
   accordionItemProps?: Pick<BaseComponentType, 'style'>;
   accordionControlProps?: Pick<BaseComponentType, 'style'>;
-  accordionFirstFlexProps?: Pick<BaseComponentType, 'style'>;
-  accordionSecondFlexProps?: Pick<BaseComponentType, 'style'>;
-  accordionThirdFlexProps?: Pick<BaseComponentType, 'style'>;
   titleProps?: Pick<BaseComponentType, 'style'>;
   subtitleProps?: Pick<BaseComponentType, 'style'>;
   iconProps?: Pick<BaseComponentType, 'style'>;
-  animationWrapperProps?: Pick<BaseComponentType, 'style'>;
+  wrapperProps?: Pick<BaseComponentType, 'style'>;
   chevronIconProps?: Pick<BaseComponentType, 'style'>;
   accordionPanelProps?: Pick<BaseComponentType, 'style'>;
   accordionAnimationProps?: Pick<BaseComponentType, 'style'>;
@@ -56,13 +53,10 @@ export type AccordionControlProps = BaseComponentType & {
   unstyled?: boolean;
 
   accordionControlProps?: Pick<BaseComponentType, 'style'>;
-  accordionFirstFlexProps?: Pick<BaseComponentType, 'style'>;
-  accordionSecondFlexProps?: Pick<BaseComponentType, 'style'>;
-  accordionThirdFlexProps?: Pick<BaseComponentType, 'style'>;
   titleProps?: Pick<BaseComponentType, 'style'>;
   subtitleProps?: Pick<BaseComponentType, 'style'>;
   iconProps?: Pick<BaseComponentType, 'style'>;
-  animationWrapperProps?: Pick<BaseComponentType, 'style'>;
+  wrapperProps?: Pick<BaseComponentType, 'style'>;
   chevronIconProps?: Pick<BaseComponentType, 'style'>;
 };
 
@@ -91,7 +85,7 @@ export type ChevronIconProps = BaseComponentType & {
   openIcon?: ReactNode;
   closeIcon?: ReactNode;
 
-  animationWrapperProps?: Pick<BaseComponentType, 'style'>;
+  wrapperProps?: Pick<BaseComponentType, 'style'>;
   chevronIconProps?: Pick<BaseComponentType, 'style'>;
 };
 

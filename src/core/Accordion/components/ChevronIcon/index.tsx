@@ -7,7 +7,7 @@ export const ChevronIcon = ({
   opened,
   openIcon,
   closeIcon,
-  animationWrapperProps,
+  wrapperProps,
   chevronIconProps,
   ...props
 }: ChevronIconProps) => {
@@ -16,7 +16,7 @@ export const ChevronIcon = ({
   }
 
   return (
-    <AnimationWrapper $opened={opened} {...animationWrapperProps}>
+    <AnimationWrapper $opened={opened} {...wrapperProps}>
       <StyledChevronIcon {...chevronIconProps} {...props}>
         {openIcon || <KeyboardArrowDownIcon />}
       </StyledChevronIcon>

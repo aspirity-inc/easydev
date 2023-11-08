@@ -15,13 +15,10 @@ export const Control = ({
   closeIcon,
   unstyled = false,
   accordionControlProps,
-  accordionFirstFlexProps,
-  accordionSecondFlexProps,
-  accordionThirdFlexProps,
   titleProps,
   subtitleProps,
   iconProps,
-  animationWrapperProps,
+  wrapperProps,
   chevronIconProps,
   ...props
 }: AccordionControlProps) => {
@@ -34,12 +31,18 @@ export const Control = ({
   }
 
   return (
-    <StyledControl className="easy_accordion-control" $opened={opened} $variant={variant} {...accordionControlProps} {...props}>
-      <Flex gap={10} justify="space-between" wrap="nowrap" {...accordionFirstFlexProps}>
+    <StyledControl
+      className="easy_accordion-control"
+      $opened={opened}
+      $variant={variant}
+      {...accordionControlProps}
+      {...props}
+    >
+      <Flex gap={10} justify="space-between" wrap="nowrap">
         {children || (
-          <Flex gap={10} align="flex-start" {...accordionSecondFlexProps}>
+          <Flex gap={10} align="flex-start">
             {icon && <StyledIcon {...iconProps}>{icon}</StyledIcon>}
-            <Flex gap={8} direction="column" align="flex-start" {...accordionThirdFlexProps}>
+            <Flex gap={8} direction="column" align="flex-start">
               <StyledTitle variant="body1" {...titleProps}>
                 {title}
               </StyledTitle>
@@ -55,7 +58,7 @@ export const Control = ({
           closeIcon={closeIcon}
           openIcon={openIcon}
           opened={opened}
-          animationWrapperProps={animationWrapperProps}
+          wrapperProps={wrapperProps}
           chevronIconProps={chevronIconProps}
         />
       </Flex>
