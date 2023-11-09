@@ -74,21 +74,33 @@ const rowData: TableDataType[] = [
   },
 ];
 
+const StyledTableBorderWrap = styled(Flex)`
+  border: 1px solid ${({ theme }) =>
+      theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['900']};
+
+  border-radius: 8px;
+
+  overflow: hidden;
+`;
+
 const DefaultTable = () => {
   const [data, setData] = useState<TableDataType[]>(rowData);
-  const [sortOrder, setSortOrder] = useState<OrderType>('asc');
+  const [sortOrder, setSortOrder] = useState<OrderType>('default');
   const [sortedBy, setSortedBy] = useState<keyof TableDataType | null>(null);
   const [selected, setSelected] = useState<number[]>([]);
 
   const sortByColumn = (column: keyof TableDataType) => {
+    const currentSortOrder =
+      sortedBy === column ? (sortOrder === 'asc' ? 'desc' : sortOrder === 'desc' ? 'default' : 'asc') : 'asc';
+
     const sortedData = [...data].sort((a, b) => {
-      if (a[column] < b[column]) return sortOrder === 'asc' ? -1 : 1;
-      if (a[column] > b[column]) return sortOrder === 'asc' ? 1 : -1;
+      if (a[column] < b[column]) return currentSortOrder === 'asc' ? -1 : 1;
+      if (a[column] > b[column]) return currentSortOrder === 'asc' ? 1 : -1;
       return 0;
     });
 
-    setData(sortedData);
-    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    setData(currentSortOrder === 'default' ? rowData : sortedData);
+    setSortOrder(currentSortOrder);
     setSortedBy(column);
   };
 
@@ -117,57 +129,60 @@ const DefaultTable = () => {
   };
 
   return (
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell variant="th">
-            <Center>
-              <Checkbox checked={data.length > 0 && selected.length === data.length} onChange={selectAllRows} />
-            </Center>
-          </TableCell>
-          {columnData.map((column) => (
-            <TableCell variant="th" key={column.label}>
-              <TableSortLabel
-                order={sortedBy === column.label ? sortOrder : undefined}
-                onClick={() => sortByColumn(column.label)}
-              >
-                {column.title}
-              </TableSortLabel>
-            </TableCell>
-          ))}
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {data.map((item) => (
-          <TableRow key={item.id}>
-            <TableCell>
+    <StyledTableBorderWrap>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell variant="th">
               <Center>
-                <Checkbox checked={isSelected(Number(item.id))} onChange={() => selectItem(Number(item.id))} />
+                <Checkbox checked={data.length > 0 && selected.length === data.length} onChange={selectAllRows} />
               </Center>
             </TableCell>
-            <TableCell>
-              <Flex gap={8} wrap="nowrap">
-                <Avatar size="sm" alt="photo" src={item.src_img.toString()} />
-                <Flex direction="column" align="flex-start">
-                  <Subtitle as="h4" level={4}>
-                    {item.name}
-                  </Subtitle>
-                  {item.nickname}
-                </Flex>
-              </Flex>
-            </TableCell>
-            <TableCell>
-              <Badge color={item.status === 'inactive' ? 'warning' : 'success'}>{item.status}</Badge>
-            </TableCell>
-            <TableCell>{item.course}</TableCell>
-            <TableCell>
-              <ProgressBar value={Number(item.progress)} />
-            </TableCell>
-            <TableCell>{item.updated}</TableCell>
+            {columnData.map((column) => (
+              <TableCell variant="th" key={column.label}>
+                <TableSortLabel
+                  hideSortIcon={sortedBy !== column.label || sortOrder === 'default'}
+                  order={sortedBy === column.label ? sortOrder : undefined}
+                  onClick={() => sortByColumn(column.label)}
+                >
+                  {column.title}
+                </TableSortLabel>
+              </TableCell>
+            ))}
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHead>
+        <TableBody>
+          {data.map((item) => (
+            <TableRow key={item.id}>
+              <TableCell>
+                <Center>
+                  <Checkbox checked={isSelected(Number(item.id))} onChange={() => selectItem(Number(item.id))} />
+                </Center>
+              </TableCell>
+              <TableCell>
+                <Flex gap={8} wrap="nowrap">
+                  <Avatar size="sm" alt="photo" src={item.src_img.toString()} />
+                  <Flex direction="column" align="flex-start">
+                    <Subtitle as="h4" level={4}>
+                      {item.name}
+                    </Subtitle>
+                    {item.nickname}
+                  </Flex>
+                </Flex>
+              </TableCell>
+              <TableCell>
+                <Badge color={item.status === 'inactive' ? 'warning' : 'success'}>{item.status}</Badge>
+              </TableCell>
+              <TableCell>{item.course}</TableCell>
+              <TableCell>
+                <ProgressBar value={Number(item.progress)} />
+              </TableCell>
+              <TableCell>{item.updated}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </StyledTableBorderWrap>
   );
 };
 ```
@@ -238,27 +253,60 @@ const rowData: TableDataType[] = [
   },
 ];
 
+const StyledTableBorderWrap = styled(Flex)`
+  border: 1px solid ${({ theme }) =>
+      theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['900']};
+
+  border-radius: 8px;
+
+  overflow: hidden;
+`;
+
 const StyledPaginationInfo = styled('div')`
   ${getSubtitleLevelStyles(5)}
   font-family: inherit;
   color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface['600'] : theme.colors.surface['300'])};
 `;
 
+function generateLongDataArray(data: TableDataType[], n: number): TableDataType[] {
+  const newData: TableDataType[] = [];
+  let currentId = 1;
+
+  for (let i = 0; i < n; i++) {
+    for (const item of data) {
+      newData.push({
+        ...item,
+        id: currentId,
+        progress: Math.floor(Math.random() * (100 - 1)),
+        status: Math.random() < 0.5 ? 'active' : 'inactive',
+      });
+      currentId++;
+    }
+  }
+
+  return newData;
+}
+
+const generatedData = generateLongDataArray(rowData, 3);
+
 const TableWithPagination = () => {
-  const [data, setData] = useState<TableDataType[]>(generateLongDataArray(rowData, 3));
+  const [data, setData] = useState<TableDataType[]>(generatedData);
   const [sortOrder, setSortOrder] = useState<OrderType>('asc');
   const [sortedBy, setSortedBy] = useState<keyof TableDataType | null>(null);
   const [selected, setSelected] = useState<number[]>([]);
 
   const sortByColumn = (column: keyof TableDataType) => {
+    const currentSortOrder =
+      sortedBy === column ? (sortOrder === 'asc' ? 'desc' : sortOrder === 'desc' ? 'default' : 'asc') : 'asc';
+
     const sortedData = [...data].sort((a, b) => {
-      if (a[column] < b[column]) return sortOrder === 'asc' ? -1 : 1;
-      if (a[column] > b[column]) return sortOrder === 'asc' ? 1 : -1;
+      if (a[column] < b[column]) return currentSortOrder === 'asc' ? -1 : 1;
+      if (a[column] > b[column]) return currentSortOrder === 'asc' ? 1 : -1;
       return 0;
     });
 
-    setData(sortedData);
-    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    setData(currentSortOrder === 'default' ? generatedData : sortedData);
+    setSortOrder(currentSortOrder);
     setSortedBy(column);
   };
 
@@ -286,25 +334,6 @@ const TableWithPagination = () => {
     setSelected(newSelectedIds);
   };
 
-  function generateLongDataArray(data: TableDataType[], n: number): TableDataType[] {
-    const newData: TableDataType[] = [];
-    let currentId = 1;
-
-    for (let i = 0; i < n; i++) {
-      for (const item of data) {
-        newData.push({
-          ...item,
-          id: currentId,
-          progress: Math.floor(Math.random() * (100 - 1)),
-          status: Math.random() < 0.5 ? 'active' : 'inactive',
-        });
-        currentId++;
-      }
-    }
-
-    return newData;
-  }
-
   //Pagination state
   const [page, setPage] = useState(1);
   const itemsPerPage = 3;
@@ -314,7 +343,7 @@ const TableWithPagination = () => {
   const totalPages = Math.ceil(data.length / itemsPerPage);
 
   return (
-    <Flex align="flex-end" direction="column">
+    <StyledTableBorderWrap align="flex-end" direction="column">
       <Table>
         <TableHead>
           <TableRow>
@@ -326,6 +355,7 @@ const TableWithPagination = () => {
             {columnData.map((column) => (
               <TableCell variant="th" key={column.label}>
                 <TableSortLabel
+                  hideSortIcon={sortedBy !== column.label || sortOrder === 'default'}
                   order={sortedBy === column.label ? sortOrder : undefined}
                   onClick={() => sortByColumn(column.label)}
                 >
@@ -367,13 +397,13 @@ const TableWithPagination = () => {
           ))}
         </TableBody>
       </Table>
-      <Flex gap={32}>
+      <Flex gap={32} style={{ padding: '12px 16px' }}>
         <StyledPaginationInfo>
           {indexOfFirstItem + 1}-{indexOfLastItem} of {data.length}{' '}
         </StyledPaginationInfo>
         <Pagination page={page} onChange={setPage} total={totalPages} siblings={1} withEdges={true} />
       </Flex>
-    </Flex>
+    </StyledTableBorderWrap>
   );
 };
 ```
