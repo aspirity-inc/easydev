@@ -1,14 +1,9 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const StyledContent = styled('div')`
-  /* overflow: hidden; */
   flex: 1;
-  min-height: calc(100vh);
   padding: 72px 119px 150px 84px;
-  background-color: ${({ theme }) =>
-    theme.type === 'light'
-      ? theme.colors.surface[200]
-      : theme.colors.surface[800]};
+  background-color: ${({ theme }) => (theme.type === 'light' ? theme.colors.surface[200] : theme.colors.surface[800])};
 `;
 
 export const GlobalStyle = createGlobalStyle`

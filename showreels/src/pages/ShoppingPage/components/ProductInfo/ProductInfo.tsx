@@ -1,4 +1,4 @@
-import { Flex, Title, Link, Card, Badge, Text, Button } from '@easydev';
+import { Flex, Title, Link, Card, Text, Button } from '@aspirity/easydev';
 import { SizeRadioBtn } from '../SizeRadioBtn/SizeRadioBtn';
 import { StyledBadge, StyledGreenBadge, StyledText } from './styles';
 import { ColorRadioBtn } from '../ColorRadioBtn/ColorRadioBtn';
@@ -6,18 +6,14 @@ import { ColorRadioBtn } from '../ColorRadioBtn/ColorRadioBtn';
 export const ProductInfo = () => {
   return (
     <Flex direction="row" align="flex-start" wrap="wrap">
-      <Flex
-        direction="column"
-        align="flex-start"
-        className="mb-[40px] w-[334px]"
-      >
-        <Title variant="h3" className="mb-[24px]">
+      <Flex direction="column" align="flex-start" style={{ marginBottom: 40, width: 334 }}>
+        <Title variant="h3" style={{ marginBottom: 24 }}>
           Super duper top
         </Title>
-        <div className="mb-[16px]">
+        <div style={{ marginBottom: 16 }}>
           rating <Link>4,7 (130 feedbacks)</Link>
         </div>
-        <Flex className="mb-[32px]" gap={16}>
+        <Flex gap={16} style={{ marginBottom: 32 }}>
           <Link>Description</Link>
           <Link>Characteristics</Link>
         </Flex>
@@ -26,14 +22,9 @@ export const ProductInfo = () => {
           <SizeRadioBtn />
         </Flex>
       </Flex>
-      <Flex direction="column" gap={24} className="w-[334px]">
+      <Flex direction="column" gap={24} style={{ width: 334 }}>
         <Card variant="shadow">
-          <Flex
-            direction="column"
-            align="flex-start"
-            gap={12}
-            className="mb-[16px] w-[334px]"
-          >
+          <Flex direction="column" align="flex-start" gap={12} style={{ marginBottom: 16, width: 334 }}>
             <StyledBadge size="sm" className="leading-none">
               Sale
             </StyledBadge>
@@ -47,17 +38,12 @@ export const ProductInfo = () => {
               On stock: 24 pieces
             </StyledText>
           </Flex>
-          <Button className="w-full h-[40px]" rounded="sm">
+          <Button rounded="sm" style={{ height: 40, width: '100%' }}>
             Buy
           </Button>
         </Card>
         <Card variant="shadow">
-          <Flex
-            direction="column"
-            align="flex-start"
-            gap={12}
-            className="w-[334px]"
-          >
+          <Flex direction="column" align="flex-start" gap={12} style={{ width: 334 }}>
             <StyledGreenBadge size="sm" className="leading-none">
               Free
             </StyledGreenBadge>

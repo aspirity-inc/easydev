@@ -1,8 +1,6 @@
+import { Carousel } from '@aspirity/easydev';
 import { StyledImg, StyledImg2 } from './styles';
-
 import 'keen-slider/keen-slider.min.css';
-
-import { Carousel } from '@src/easydevlib/Carousel/Carousel';
 
 import slide1 from '@src/assets/img/product/1.jpg';
 import slide2 from '@src/assets/img/product/2.jpg';
@@ -41,7 +39,7 @@ export const ProductCarousel = () => {
   ));
 
   return (
-    <div className="w-[584px]">
+    <div style={{ width: 584 }}>
       <Carousel thumbnails={true} items={slides} />
     </div>
   );

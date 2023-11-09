@@ -5,6 +5,10 @@ export const Wrapper = styled('section')`
   & .easy_carousel {
     overflow: visible !important;
   }
+
+  .easy_carousel-arrow {
+    margin-top: -40px;
+  }
 `;
 
 export const StyledBadge = styled(Badge)`

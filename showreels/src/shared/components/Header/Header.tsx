@@ -21,6 +21,8 @@ const options: OptionType[] = [
 import dayToggleBackgroundPath from '@src/assets/img/toggle/day.svg';
 import nightToggleBackgroundPath from '@src/assets/img/toggle/night.svg';
 import nightToggleInnerBackgroundPath from '@src/assets/img/toggle/night-span.svg';
+import { Link } from 'react-router-dom';
+import { routes } from '@src/router/route';
 
 const dayToggleBackground = `url(${dayToggleBackgroundPath})`;
 const nightToggleBackground = `url(${nightToggleBackgroundPath})`;
@@ -41,11 +43,9 @@ export const Header = () => {
 
   const ToggleLabel = () => (checked ? 'Light theme' : 'Dark theme');
 
-  const [toggleBackground, setToggleBackground] = useState(
-    checked ? dayToggleBackground : nightToggleBackground,
-  );
+  const [toggleBackground, setToggleBackground] = useState(checked ? dayToggleBackground : nightToggleBackground);
   const [toggleInnerBackground, setToggleInnerBackground] = useState(
-    checked ? dayToggleInnerBackground : nightToggleInnerBackground,
+    checked ? dayToggleInnerBackground : nightToggleInnerBackground
   );
 
   const handleSelectChange = (values: unknown) => {
@@ -53,9 +53,7 @@ export const Header = () => {
   };
 
   const filterOptions = (inputValue: string) => {
-    return options.filter((o) =>
-      o.label.toLowerCase().includes(inputValue.toLowerCase()),
-    );
+    return options.filter((o) => o.label.toLowerCase().includes(inputValue.toLowerCase()));
   };
 
   const promiseOptions = (inputValue: string) =>
@@ -78,7 +76,9 @@ export const Header = () => {
   return (
     <StyledHeader>
       <Flex justify="space-between">
-        <Logo />
+        <Link to={routes[0].path}>
+          <Logo />
+        </Link>
         <Flex justify="space-between" gap={16}>
           <StyledSelect
             value={value}

@@ -20,7 +20,7 @@ export const getMenuItems = (themeType: string): LinkType[] => {
         </svg>
       ),
       label: 'Ads',
-      to: '*',
+      to: '/showreels/ads',
     },
     {
       id: 1,
@@ -36,7 +36,7 @@ export const getMenuItems = (themeType: string): LinkType[] => {
         </svg>
       ),
       label: 'Online shopping',
-      to: '/shopping',
+      to: '/showreels/shopping',
     },
     {
       id: 2,
@@ -52,10 +52,10 @@ export const getMenuItems = (themeType: string): LinkType[] => {
         </svg>
       ),
       label: 'Tables',
-      to: '*',
+      to: '/showreels/tables',
     },
     {
-      id: 4,
+      id: 3,
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -68,14 +68,14 @@ export const getMenuItems = (themeType: string): LinkType[] => {
         </svg>
       ),
       label: 'Blog',
-      to: '*',
+      to: '/showreels/blog',
     },
     {
-      id: 5,
+      id: 4,
       type: 'divider',
     },
     {
-      id: 6,
+      id: 5,
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +88,7 @@ export const getMenuItems = (themeType: string): LinkType[] => {
         </svg>
       ),
       label: 'Back to library',
-      to: '*',
+      to: '/',
     },
   ];
 };

@@ -9,7 +9,7 @@ export const ShoppingPage = () => {
       <Breadcrumbs />
       <ProductSection />
       <Feedbacks />
-      <RecommendationCarousel />
+      <RecommendationCarousel /> 
     </>
   );
 };

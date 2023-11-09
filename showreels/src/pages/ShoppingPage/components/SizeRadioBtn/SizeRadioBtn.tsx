@@ -1,4 +1,4 @@
-import { Flex, Text, Radio } from '@easydev';
+import { Flex, Text, Radio } from '@aspirity/easydev';
 import { useState, useEffect } from 'react';
 import { StyledRadioWrapper } from './styles';
 

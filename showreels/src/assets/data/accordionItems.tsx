@@ -1,4 +1,4 @@
-import { AccordionItemType } from '@easydev';
+import { AccordionItemType } from '@aspirity/easydev';
 
 export const accordionItems: AccordionItemType[] = [
   {

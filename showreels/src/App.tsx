@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { routes } from './router/route';
-import { Layout } from '@aspirity/easydev';
+import { Layout, Main } from '@aspirity/easydev';
 import { StyledContent } from './styles';
 import { Header } from './shared/components/Header/Header';
 import { Sidebar } from './shared/components/Sidebar/Sidebar';
@@ -10,7 +10,7 @@ export const App = () => {
     <BrowserRouter>
       <Layout style={{ display: 'block', overflow: 'hidden' }}>
         <Header />
-        <div
+        <Main
           style={{
             display: 'flex',
             backgroundColor: 'red',
@@ -18,7 +18,6 @@ export const App = () => {
           }}
         >
           <Sidebar />
-          {/* <StyledContent style={{ height: 5000 }}> */}
 					<StyledContent>
             <Routes>
               {routes.map((source) => (
@@ -34,7 +33,7 @@ export const App = () => {
               />
             </Routes>
           </StyledContent>
-        </div>
+        </Main>
       </Layout>
     </BrowserRouter>
   );

@@ -1,6 +1,9 @@
 import { AdsPage } from '@src/pages/AdsPage/AdsPage';
+import { ShoppingPage } from '@src/pages/ShoppingPage/ShoppingPage';
 
 export const routes = [
-  { path: '/ads', component: <AdsPage />, exact: true },
-  { path: '/shopping', component: <div>2</div>, exact: true },
+  { path: '/showreels/ads', component: <AdsPage />, exact: true },
+  { path: '/showreels/shopping', component: <ShoppingPage />, exact: true },
+	{ path: '/showreels/tables', component: <ShoppingPage />, exact: true },
+	{ path: '/showreels/blog', component: <ShoppingPage />, exact: true },
 ];

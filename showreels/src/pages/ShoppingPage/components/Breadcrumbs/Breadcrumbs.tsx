@@ -1,8 +1,8 @@
-import { Breadcrumbs as EasyBreadcrumbs } from '@easydev';
+import { Breadcrumbs as EasyBreadcrumbs } from '@aspirity/easydev';
 
 export const Breadcrumbs = () => {
   return (
-    <div className="py-[13px]">
+    <div style={{ paddingLeft: 13, paddingRight: 13, marginBottom: 13 }}>
       <EasyBreadcrumbs
         items={[
           {

@@ -1,4 +1,4 @@
-import { Badge, Text } from '@easydev';
+import { Badge, Text } from '@aspirity/easydev';
 import styled from 'styled-components';
 
 export const StyledBadge = styled(Badge)`

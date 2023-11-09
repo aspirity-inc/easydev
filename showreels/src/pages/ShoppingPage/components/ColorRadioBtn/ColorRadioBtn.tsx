@@ -1,4 +1,4 @@
-import { Flex, Text, Radio } from '@easydev';
+import { Flex, Text, Radio } from '@aspirity/easydev';
 import { useState, useEffect } from 'react';
 import { StyledRadioWrapper } from './styles';
 
@@ -37,11 +37,7 @@ export const ColorRadioBtn = () => {
       <Flex gap={8}>
         {colors.map((color) => (
           <StyledRadioWrapper key={color.id} $color={color.code}>
-            <Radio
-              value={color.value}
-              checked={selectedOption === color.value}
-              onChange={handleOptionChange}
-            />
+            <Radio value={color.value} checked={selectedOption === color.value} onChange={handleOptionChange} />
           </StyledRadioWrapper>
         ))}
       </Flex>

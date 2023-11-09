@@ -1,23 +1,5 @@
-import {
-  Layout,
-  Flex,
-  Title,
-  Link,
-  Text,
-  Radio,
-  Card,
-  Avatar,
-  Subtitle,
-  Badge,
-} from '@easydev';
-import {
-  StyledImg,
-  StyledImg2,
-  StyledText,
-  StyledVioletBadge,
-  StyledBlueBadge,
-} from './styles';
-import { Carousel } from '@src/easydevlib/Carousel/Carousel';
+import { Flex, Text, Card, Avatar, Subtitle, Badge, Carousel } from '@aspirity/easydev';
+import { StyledImg, StyledImg2, StyledText, StyledVioletBadge, StyledBlueBadge } from './styles';
 
 type FeedBackProps = {
   item: {
@@ -48,8 +30,8 @@ export const Feedback = ({ item }: FeedBackProps) => {
   };
 
   return (
-    <Flex gap={32} align="flex-start" wrap="nowrap" className="w-full">
-      <div className="w-[250px]">
+    <Flex gap={32} align="flex-start" wrap="nowrap" style={{ width: '100%' }}>
+      <div style={{ width: 250 }}>
         <Carousel items={slides} arrowsType="withDots" />
       </div>
       <Card>

@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 export const StyledRadioWrapper = styled('div')<{ $content: string }>`
-  .easy_radio-wrapp {
+  .easy_radio-wrap {
     border: none;
     background-color: ${({ theme }) =>
       theme.type === 'light'
@@ -9,7 +9,7 @@ export const StyledRadioWrapper = styled('div')<{ $content: string }>`
         : theme.colors.surface[800]};
   }
 
-  .easy_radio-wrapp::before {
+  .easy_radio-wrap::before {
     content: '${({ $content }) => $content}';
     position: absolute;
     top: 0;
