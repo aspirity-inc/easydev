@@ -4,7 +4,7 @@ title: Toggle
 
 The Toggle button allows the user to select one option of two.
 
-The Toggle can have the next props: label, checked, onChange. [See there](/storybook/?path=/docs/core-controls-toggle--docs) to get more information.
+The Toggle can have the next props: label, reversed. [See there](/storybook/?path=/docs/core-controls-toggle--docs) to get more information.
 
 ## Toggle variants
 
@@ -35,6 +35,48 @@ const ControlledToggle = () => {
 
 ```tsx
 <Toggle label={<strong>Toggle me ☀️</strong>} />
+```
+
+### [Day Night Toggle](/storybook/?path=/story/core-controls-toggle--day-night-toggle)
+
+```tsx
+const DayNightToggle = () => {
+  const [checked, setChecked] = useState(false);
+
+  const dayToggleBackground = "url('/assets/toggle/day.svg')";
+  const nightToggleBackground = "url('/assets/toggle/night.svg')";
+
+  const dayToggleInnerBackground = '#ffc700';
+  const nightToggleInnerBackground = "url('/assets/toggle/night-span.svg')";
+
+  const [toggleBackground, setToggleBackground] = useState(checked ? dayToggleBackground : nightToggleBackground);
+  const [toggleInnerBackground, setToggleInnerBackground] = useState(
+    checked ? dayToggleInnerBackground : nightToggleInnerBackground
+  );
+
+  const onChange = () => setChecked((prevState) => !prevState);
+
+  useEffect(() => {
+    if (checked) {
+      setToggleBackground(dayToggleBackground);
+      setToggleInnerBackground(dayToggleInnerBackground);
+    } else {
+      setToggleBackground(nightToggleBackground);
+      setToggleInnerBackground(nightToggleInnerBackground);
+    }
+  }, [checked]);
+
+  return (
+    <Toggle
+      checked={checked}
+      onChange={onChange}
+      toggleBackground={toggleBackground}
+      toggleInnerBackground={toggleInnerBackground}
+      toggleWrapProps={{ style: { width: 48 } }}
+      toggleInnerProps={{ style: { translate: checked ? '150% -50%' : '' } }}
+    />
+  );
+};
 ```
 
 ## CSS

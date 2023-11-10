@@ -76,7 +76,7 @@ const rowData: TableDataType[] = [
 
 const StyledTableBorderWrap = styled(Flex)`
   border: 1px solid ${({ theme }) =>
-      theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['900']};
+    theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['900']};
   border-radius: 8px;
   overflow: hidden;
 `;
@@ -91,6 +91,9 @@ const DefaultTable = () => {
     sortedBy === column ? (sortOrder === 'asc' ? 'desc' : sortOrder === 'desc' ? 'default' : 'asc') : 'asc';
 
   const sortByColumn = (column: keyof TableDataType) => {
+    const currentSortOrder =
+      sortedBy === column ? (sortOrder === 'asc' ? 'desc' : sortOrder === 'desc' ? 'default' : 'asc') : 'asc';
+
     const sortedData = [...data].sort((a, b) => {
       if (a[column] < b[column]) return currentSortOrder === 'asc' ? -1 : 1;
       if (a[column] > b[column]) return currentSortOrder === 'asc' ? 1 : -1;
@@ -267,6 +270,7 @@ const StyledPaginationInfo = styled('div')`
 function generateLongDataArray(data: TableDataType[], n: number): TableDataType[] {
   const newData: TableDataType[] = [];
   let currentId = 1;
+
   for (let i = 0; i < n; i++) {
     for (const item of data) {
       newData.push({
@@ -280,6 +284,7 @@ function generateLongDataArray(data: TableDataType[], n: number): TableDataType[
   }
   return newData;
 }
+
 const generatedData = generateLongDataArray(rowData, 3);
 
 const TableWithPagination = () => {
@@ -289,6 +294,9 @@ const TableWithPagination = () => {
   const [selected, setSelected] = useState<number[]>([]);
 
   const sortByColumn = (column: keyof TableDataType) => {
+    const currentSortOrder =
+      sortedBy === column ? (sortOrder === 'asc' ? 'desc' : sortOrder === 'desc' ? 'default' : 'asc') : 'asc';
+
     const sortedData = [...data].sort((a, b) => {
       if (a[column] < b[column]) return currentSortOrder === 'asc' ? -1 : 1;
       if (a[column] > b[column]) return currentSortOrder === 'asc' ? 1 : -1;
