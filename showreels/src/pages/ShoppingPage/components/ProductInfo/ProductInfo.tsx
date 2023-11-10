@@ -5,7 +5,7 @@ import { ColorRadioBtn } from '../ColorRadioBtn/ColorRadioBtn';
 
 export const ProductInfo = () => {
   return (
-    <Flex direction="row" align="flex-start" wrap="wrap">
+    <Flex direction="row" align="flex-start" wrap="wrap" justify='flex-end'>
       <Flex direction="column" align="flex-start" style={{ marginBottom: 40, width: 334 }}>
         <Title variant="h3" style={{ marginBottom: 24 }}>
           Super duper top
