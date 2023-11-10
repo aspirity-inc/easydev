@@ -57,7 +57,7 @@ const cards = () => {
 export const FooterCarousel = () => {
   return (
     <Flex direction="column" align="flex-start">
-      <Flex style={{ marginBottom: 96, maxWidth: 1020 }} direction="row" wrap="nowrap" gap={60}>
+      <Flex style={{ maxWidth: 1020 }} direction="row" wrap="nowrap" gap={60}>
         <div
           style={{
             borderRadius: 12,

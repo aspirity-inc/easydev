@@ -29,15 +29,15 @@ const getUserCloseIcon = (themeType: string) => {
 };
 
 export const FaqAccordion = () => {
-  const { theme } = useEasyThemeContext();
+  const { type } = useEasyThemeContext();
 
   return (
     <Accordion
       multiple={true}
       items={accordionItems}
       variant="bordered"
-      openIcon={getUserOpenIcon(theme.type as string)}
-      closeIcon={getUserCloseIcon(theme.type as string)}
+      openIcon={getUserOpenIcon(type!)}
+      closeIcon={getUserCloseIcon(type!)}
     />
   );
 };

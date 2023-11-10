@@ -4,18 +4,19 @@ import { getMenuItems } from '@src/assets/data/sidebarMenu';
 import { StyledEasySidebar } from './styles';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import type { CSSProperties } from 'react';
 import './style.css';
 
-export const Sidebar = () => {
+export const Sidebar = ({ sidebarToggleButtonProps }: { sidebarToggleButtonProps: { style: CSSProperties } }) => {
   const navigate = useNavigate();
-  const { theme } = useEasyThemeContext();
+  const { type } = useEasyThemeContext();
   const location = useLocation();
-	const currentPathName = location.pathname
+  const currentPathName = location.pathname;
 
-  const links = getMenuItems(theme.type as string, currentPathName).map((item) => ({
+  const links = getMenuItems(type!, currentPathName).map((item) => ({
     ...item,
     onClick: item.to != null ? () => navigate(item.to as string) : null,
   }));
 
-  return <StyledEasySidebar menu={links} />;
+  return <StyledEasySidebar sidebarToggleButtonProps={sidebarToggleButtonProps} menu={links} />;
 };

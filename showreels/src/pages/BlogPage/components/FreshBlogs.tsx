@@ -44,7 +44,7 @@ export const FreshBlogs = () => {
         justify="space-between"
         className="fresh-blogs"
         align="flex-start"
-        style={{ marginTop: 72, marginBottom: 59, maxWidth: 1020, overflow: 'hidden' }}
+        style={{ marginTop: 72, marginBottom: 121, maxWidth: 1020, overflow: 'hidden' }}
       >
         <Card
           style={{ height: 347 }}

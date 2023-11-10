@@ -12,25 +12,17 @@ export const App = () => {
         <Header />
         <Main
           style={{
-            display: 'flex',
-            backgroundColor: 'red',
-            alignItems: 'flex-start',
+            display: 'grid',
+            gridTemplateColumns: 'auto 1fr',
           }}
         >
-          <Sidebar />
-					<StyledContent>
+          <Sidebar sidebarToggleButtonProps={{ style: { bottom: 120 } }} />
+          <StyledContent>
             <Routes>
               {routes.map((source) => (
-                <Route
-                  key={source.path}
-                  path={source.path}
-                  element={source.component}
-                />
+                <Route key={source.path} path={source.path} element={source.component} />
               ))}
-              <Route
-                path="*"
-                element={<Navigate to={routes[0].path} replace />}
-              />
+              <Route path="*" element={<Navigate to={routes[0].path} replace />} />
             </Routes>
           </StyledContent>
         </Main>
