@@ -173,7 +173,6 @@ const DefaultTable = () => {
               <TableCell>
                 <Badge color={item.status === 'inactive' ? 'warning' : 'success'}>{item.status}</Badge>
               </TableCell>
-
               <TableCell>{item.course}</TableCell>
               <TableCell>
                 <ProgressBar value={Number(item.progress)} />
@@ -388,6 +387,7 @@ const TableWithPagination = () => {
               <TableCell>
                 <Badge color={item.status === 'inactive' ? 'warning' : 'success'}>{item.status}</Badge>
               </TableCell>
+
               <TableCell>{item.course}</TableCell>
               <TableCell>
                 <ProgressBar value={Number(item.progress)} />
