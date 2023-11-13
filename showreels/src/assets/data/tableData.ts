@@ -1,4 +1,3 @@
-import { TableDataType } from '@easydev';
 import avatar2 from '@src/assets/img/avatars/avatar2.png';
 import avatar3 from '@src/assets/img/avatars/avatar3.png';
 import avatar4 from '@src/assets/img/avatars/avatar4.png';
@@ -94,10 +93,7 @@ export const rowData: TableDataType[] = [
   },
 ];
 
-export function generateLongDataArray(
-  data: TableDataType[],
-  n: number
-): TableDataType[] {
+export function generateLongDataArray(data: TableDataType[], n: number): TableDataType[] {
   const newData: TableDataType[] = [];
   let currentId = 1;
 
