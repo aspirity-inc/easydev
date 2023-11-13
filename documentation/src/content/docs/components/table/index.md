@@ -77,7 +77,9 @@ const rowData: TableDataType[] = [
 const StyledTableBorderWrap = styled(Flex)`
   border: 1px solid ${({ theme }) =>
     theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['900']};
+
   border-radius: 8px;
+
   overflow: hidden;
 `;
 
@@ -86,9 +88,6 @@ const DefaultTable = () => {
   const [sortOrder, setSortOrder] = useState<OrderType>('default');
   const [sortedBy, setSortedBy] = useState<keyof TableDataType | null>(null);
   const [selected, setSelected] = useState<number[]>([]);
-
-  const currentSortOrder =
-    sortedBy === column ? (sortOrder === 'asc' ? 'desc' : sortOrder === 'desc' ? 'default' : 'asc') : 'asc';
 
   const sortByColumn = (column: keyof TableDataType) => {
     const currentSortOrder =
@@ -257,7 +256,9 @@ const rowData: TableDataType[] = [
 const StyledTableBorderWrap = styled(Flex)`
   border: 1px solid ${({ theme }) =>
       theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['900']};
+
   border-radius: 8px;
+	
   overflow: hidden;
 `;
 
@@ -282,6 +283,7 @@ function generateLongDataArray(data: TableDataType[], n: number): TableDataType[
       currentId++;
     }
   }
+
   return newData;
 }
 
