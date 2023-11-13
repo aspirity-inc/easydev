@@ -173,6 +173,7 @@ const DefaultTable = () => {
               <TableCell>
                 <Badge color={item.status === 'inactive' ? 'warning' : 'success'}>{item.status}</Badge>
               </TableCell>
+
               <TableCell>{item.course}</TableCell>
               <TableCell>
                 <ProgressBar value={Number(item.progress)} />
@@ -291,7 +292,7 @@ const generatedData = generateLongDataArray(rowData, 3);
 
 const TableWithPagination = () => {
   const [data, setData] = useState<TableDataType[]>(generatedData);
-  const [sortOrder, setSortOrder] = useState<OrderType>('default');
+  const [sortOrder, setSortOrder] = useState<OrderType>('asc');
   const [sortedBy, setSortedBy] = useState<keyof TableDataType | null>(null);
   const [selected, setSelected] = useState<number[]>([]);
 
