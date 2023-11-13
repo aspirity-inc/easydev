@@ -22,3 +22,33 @@ export const StyledPagination = styled(Flex)`
 
   background-color: ${({ theme }) => (theme.type === 'light' ? '#FFF' : '#2A282C')};
 `;
+
+export const getStatusCss = (statusType: string, themeType: string) => {
+  switch (statusType) {
+    case 'Completed':
+      return {
+        color: themeType === 'light' ? '#1A6600' : '##3F3A43',
+        backgroundColor: themeType === 'light' ? '#DFFFD7' : '#E6E6E6',
+      };
+    case 'Canceled':
+      return {
+        color: themeType === 'light' ? '#740000' : '#B71C1B',
+        backgroundColor: themeType === 'light' ? '#FFBBBB' : '#FFEBEE',
+      };
+    case 'On hold':
+      return {
+        color: themeType === 'light' ? '#272729' : '#2A282C',
+        backgroundColor: themeType === 'light' ? '#FBFBFE' : '#E6E6E6',
+      };
+    case 'In progress':
+      return {
+        color: themeType === 'light' ? '#E75403' : '#623C04',
+        backgroundColor: themeType === 'light' ? '#FFF4E0' : '#FFE7C2',
+      };
+    default:
+      return {
+        color: themeType === 'light' ? '' : '',
+        backgroundColor: themeType === 'light' ? '' : '',
+      };
+  }
+};

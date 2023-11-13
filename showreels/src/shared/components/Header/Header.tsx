@@ -22,7 +22,7 @@ import dayToggleBackgroundPath from '@src/assets/img/toggle/day.svg';
 import nightToggleBackgroundPath from '@src/assets/img/toggle/night.svg';
 import nightToggleInnerBackgroundPath from '@src/assets/img/toggle/night-span.svg';
 import { Link } from 'react-router-dom';
-import { routes } from '@src/router/route';
+import { routes } from '@src/routes/routes';
 
 const dayToggleBackground = `url(${dayToggleBackgroundPath})`;
 const nightToggleBackground = `url(${nightToggleBackgroundPath})`;

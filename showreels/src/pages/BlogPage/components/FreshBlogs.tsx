@@ -1,5 +1,5 @@
-import { Flex, Title, Card, Badge, Text } from '@aspirity/easydev';
-import styled from 'styled-components';
+import { Flex, Title } from '@aspirity/easydev';
+import { StyledCard, StyledTitle, StyledMainText, StyleCaptionText, HPBadge, HeroesBadge, FunBadge } from '../styled';
 
 import img4 from '@src/assets/img/cards/4.png';
 import img5 from '@src/assets/img/cards/5.png';
@@ -7,34 +7,6 @@ import img6 from '@src/assets/img/cards/6.png';
 import img7 from '@src/assets/img/cards/7.png';
 import img8 from '@src/assets/img/cards/8.png';
 import img9 from '@src/assets/img/cards/9.png';
-
-const HPBadge = styled(Badge)`
-  color: ${({ theme }) => (theme.type === 'light' ? '#178767' : '#10453B')};
-  background-color: ${({ theme }) => (theme.type === 'light' ? '#D5F8EE' : '#DDF9F1')};
-`;
-
-const FunBadge = styled(Badge)`
-  color: ${({ theme }) => (theme.type === 'light' ? '#1A6BC7' : '#006770')};
-  background-color: ${({ theme }) => (theme.type === 'light' ? '#D5E6FA' : '#E3FFFF')};
-`;
-
-const HeroesBadge = styled(Badge)`
-  color: ${({ theme }) => (theme.type === 'light' ? '#6923FF' : '#8B6CF1')};
-  background-color: ${({ theme }) => (theme.type === 'light' ? '#EDE5FF' : '#ECE7FE')};
-`;
-
-const StyledTitle = styled(Title)`
-  color: ${({ theme }) => (theme.type === 'light' ? '#272729' : '#E6E6E6')};
-`;
-
-const StyledMainText = styled(Text)`
-  color: ${({ theme }) => (theme.type === 'light' ? '#272729' : '#E6E6E6')};
-  font-weight: 175;
-`;
-
-const StyleCaptionText = styled(Text)`
-  color: ${({ theme }) => (theme.type === 'light' ? '#7B7B7D' : '#9B95A0')};
-`;
 
 export const FreshBlogs = () => {
   return (
@@ -46,8 +18,7 @@ export const FreshBlogs = () => {
         align="flex-start"
         style={{ marginTop: 72, marginBottom: 121, maxWidth: 1020, overflow: 'hidden' }}
       >
-        <Card
-          style={{ height: 347 }}
+        <StyledCard
           media={<img src={img4} style={{ borderRadius: 'unset', borderTopLeftRadius: 8, borderTopRightRadius: 8 }} />}
         >
           <Flex align="stretch" direction="column" gap={12}>
@@ -64,9 +35,8 @@ export const FreshBlogs = () => {
               <FunBadge size="sm">Fun</FunBadge>
             </Flex>
           </Flex>
-        </Card>
-        <Card
-          style={{ height: 347 }}
+        </StyledCard>
+        <StyledCard
           media={<img src={img5} style={{ borderRadius: 'unset', borderTopLeftRadius: 8, borderTopRightRadius: 8 }} />}
         >
           <Flex align="stretch" direction="column" gap={12}>
@@ -82,9 +52,8 @@ export const FreshBlogs = () => {
               <HeroesBadge size="sm">Heroes</HeroesBadge>
             </Flex>
           </Flex>
-        </Card>
-        <Card
-          style={{ height: 347 }}
+        </StyledCard>
+        <StyledCard
           media={<img src={img6} style={{ borderRadius: 'unset', borderTopLeftRadius: 8, borderTopRightRadius: 8 }} />}
         >
           <Flex align="stretch" direction="column" gap={12}>
@@ -100,9 +69,8 @@ export const FreshBlogs = () => {
               <FunBadge size="sm">Fun</FunBadge>
             </Flex>
           </Flex>
-        </Card>
-        <Card
-          style={{ height: 347 }}
+        </StyledCard>
+        <StyledCard
           media={<img src={img7} style={{ borderRadius: 'unset', borderTopLeftRadius: 8, borderTopRightRadius: 8 }} />}
         >
           <Flex align="stretch" direction="column" gap={12}>
@@ -121,9 +89,8 @@ export const FreshBlogs = () => {
               <HeroesBadge size="sm">Heroes</HeroesBadge>
             </Flex>
           </Flex>
-        </Card>
-        <Card
-          style={{ height: 347 }}
+        </StyledCard>
+        <StyledCard
           media={<img src={img8} style={{ borderRadius: 'unset', borderTopLeftRadius: 8, borderTopRightRadius: 8 }} />}
         >
           <Flex align="stretch" direction="column" gap={12}>
@@ -139,9 +106,8 @@ export const FreshBlogs = () => {
               <HeroesBadge size="sm">Heroes</HeroesBadge>
             </Flex>
           </Flex>
-        </Card>
-        <Card
-          style={{ height: 347 }}
+        </StyledCard>
+        <StyledCard
           media={<img src={img9} style={{ borderRadius: 'unset', borderTopLeftRadius: 8, borderTopRightRadius: 8 }} />}
         >
           <Flex align="stretch" direction="column" gap={12}>
@@ -156,7 +122,7 @@ export const FreshBlogs = () => {
               <FunBadge size="sm">Fun</FunBadge>
             </Flex>
           </Flex>
-        </Card>
+        </StyledCard>
       </Flex>
     </Flex>
   );
