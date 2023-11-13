@@ -76,7 +76,7 @@ const rowData: TableDataType[] = [
 
 const StyledTableBorderWrap = styled(Flex)`
   border: 1px solid ${({ theme }) =>
-    theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['900']};
+      theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['900']};
 
   border-radius: 8px;
 
@@ -258,7 +258,7 @@ const StyledTableBorderWrap = styled(Flex)`
       theme.type === 'light' ? theme.colors.surface['400'] : theme.colors.surface['900']};
 
   border-radius: 8px;
-	
+
   overflow: hidden;
 `;
 
