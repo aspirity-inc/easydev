@@ -19,7 +19,7 @@ export const App = () => {
         <StyledContent>
           <Routes>
             {routes.map((source) => (
-              <Route key={source.path} path={source.path} element={source.component}/>
+              <Route key={source.path} path={source.path} element={source.component} />
             ))}
             <Route path="*" element={<Navigate to={routes[0].path} replace />} />
           </Routes>
