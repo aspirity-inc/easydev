@@ -7,15 +7,10 @@ import { Sidebar } from './shared/components/Sidebar/Sidebar';
 
 export const App = () => {
   return (
-    <Layout style={{ display: 'block', overflow: 'hidden' }}>
+    <Layout style={{ overflowX: 'clip' }}>
       <Header />
-      <Main
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'auto 1fr',
-        }}
-      >
-        <Sidebar sidebarToggleButtonProps={{ style: { bottom: 120 } }} />
+      <Main style={{ display: 'flex' }}>
+        <Sidebar />
         <StyledContent>
           <Routes>
             {routes.map((source) => (
